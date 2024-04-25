@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="luminant_leaves"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="luminant_leaves"/>
+			<item value="lum"/>
+			<item value="lumiant"/>
+			<item value="playSound"/>
+			<item value="nullwart"/>
+			<item value="updateEntityActionState"/>
+			<item value="isCourseTraversable"/>
+			<item value="dataWatcher"/>
+			<item value="getClosestVulnerableVisiblePlayer"/>
+			<item value="getForestressGenerator"/>
+			<item value="MapGenDreadlandsMine"/>
+			<item value="raw_ore_block"/>
+			<item value="brimstone_ore"/>
+			<item value="brimstone"/>
+			<item value="base"/>
+		</list>
+		<list key="replacehistory">
+			<item value="MapGenSculkMineshaft"/>
+			<item value="sculk_brick_bookshelf"/>
+			<item value="AdvancedEnchantmentTableContainer"/>
+			<item value="GuiAdvancedEnchantmentTable"/>
+			<item value="LegendaryEnchantmentTableContainer"/>
+			<item value="GuiLegendaryEnchantmentTable"/>
+			<item value="TileEntityLegendaryBeacon"/>
+			<item value="GuiLegendaryBeacon"/>
+			<item value="arg5"/>
+			<item value="arg2"/>
+			<item value="arg1"/>
+			<item value="arg0"/>
+			<item value=""/>
+			<item value="p_147500_2_"/>
+			<item value="arg4"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1173"/>
+		<item key="DIALOG_Y_ORIGIN" value="111"/>
+		<item key="DIALOG_WIDTH" value="515"/>
+		<item key="DIALOG_HEIGHT" value="309"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

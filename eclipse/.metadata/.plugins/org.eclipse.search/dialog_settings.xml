@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="Search">
+		<list key="Search.processedPageIds">
+			<item value="org.eclipse.search.internal.ui.text.TextSearchPage"/>
+			<item value="org.eclipse.egit.ui.commitSearchPage"/>
+			<item value="org.eclipse.jdt.ui.JavaSearchPage"/>
+		</list>
+		<list key="Search.enabledPageIds">
+			<item value="org.eclipse.search.internal.ui.text.TextSearchPage"/>
+			<item value="org.eclipse.egit.ui.commitSearchPage"/>
+			<item value="org.eclipse.jdt.ui.JavaSearchPage"/>
+		</list>
+	</section>
+	<section name="SearchDialog">
+		<item key="PREVIOUS_PAGE" value="org.eclipse.search.internal.ui.text.TextSearchPage"/>
+	</section>
+	<section name="TextSearchPage">
+		<item key="CASE_SENSITIVE" value="false"/>
+		<item key="REG_EX_SEARCH" value="true"/>
+		<item key="WHOLE_WORD" value="false"/>
+		<item key="SEARCH_DERIVED" value="false"/>
+		<item key="SEARCH_IN_BINARIES" value="false"/>
+		<item key="HISTORY_SIZE" value="12"/>
+		<section name="HISTORY0">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="OtherModBlocks"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="EXTENSIONS">
+			<item key="0" value="*"/>
+			<item key="1" value=""/>
+			<item key="2" value="*.java"/>
+		</section>
+		<section name="HISTORY1">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="absorption"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY2">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="apple"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY3">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="onLeftClickEntity"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY4">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="playSound"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY5">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="onUpdate"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY6">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="provider.dimensionId"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY7">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="worldObj.provider.dimensionId"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY8">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="WorldEventHandlerNovaCraft"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY9">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="InitMapGen"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY10">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="StructureSculkMineshaftStart"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY11">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="true"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="TileEntitySpecialRenderer"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+	</section>
+	<section name="SearchDialog.ScopePart">
+		<item key="scope" value="0"/>
+	</section>
+	<section name="DialogBounds_SearchDialog">
+		<item key="DIALOG_X_ORIGIN" value="795"/>
+		<item key="DIALOG_Y_ORIGIN" value="247"/>
+		<item key="DIALOG_WIDTH" value="520"/>
+		<item key="DIALOG_HEIGHT" value="463"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="">
+		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
+	</section>
+	<section name="org.eclipse.search.text.FileSearchResultPage">
+		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
+	</section>
+	<section name="org.eclipse.jdt.ui.JavaSearchResultPage">
+		<item key="org.eclipse.jdt.search.resultpage.limit" value="1000"/>
+		<item key="org.eclipse.jdt.search.resultpage.limit_enabled" value="TRUE"/>
+	</section>
+</section>
