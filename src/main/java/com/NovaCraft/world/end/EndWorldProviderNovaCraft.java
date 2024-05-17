@@ -16,11 +16,7 @@ public class EndWorldProviderNovaCraft extends WorldProviderEnd {
 
 	@Override
 	public IChunkProvider createChunkGenerator() {
-//      if (WorldgenConfiguration.BigNether) {
-//          return new MaxHeightNetherChunkProvider(this.worldObj, this.worldObj.getSeed());
-//      } else {
 			return new EndChunkProviderNovaCraft(this.worldObj, this.worldObj.getSeed());
-//      }
 	}
 
 }

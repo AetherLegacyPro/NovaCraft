@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.NovaCraftBlocks.container.BlockLegendaryBeacon"/>
-    <fullyQualifiedTypeName name="net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer"/>
     <fullyQualifiedTypeName name="com.NovaCraft.legendarybeacon.LegendaryBeaconRenderer"/>
     <fullyQualifiedTypeName name="com.NovaCraft.renderer.RenderIDs"/>
     <fullyQualifiedTypeName name="com.NovaCraft.renderer.BlockLegendaryBeaconRenderer"/>
     <fullyQualifiedTypeName name="net.minecraft.world.World"/>
-    <fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
     <fullyQualifiedTypeName name="cpw.mods.fml.common.eventhandler.SubscribeEvent"/>
     <fullyQualifiedTypeName name="cpw.mods.fml.common.gameevent.TickEvent"/>
     <fullyQualifiedTypeName name="cpw.mods.fml.common.FMLCommonHandler"/>
@@ -19,7 +16,6 @@
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="com.NovaCraft.legendarybeacon.BeamUpdater"/>
-    <fullyQualifiedTypeName name="net.minecraft.item.ItemStack"/>
     <fullyQualifiedTypeName name="net.minecraft.item.Item"/>
     <fullyQualifiedTypeName name="net.minecraft.potion.Potion"/>
     <fullyQualifiedTypeName name="com.NovaCraft.achievements.AchievementsNovaCraft"/>
@@ -27,7 +23,6 @@
     <fullyQualifiedTypeName name="net.minecraft.client.gui.inventory.GuiContainer"/>
     <fullyQualifiedTypeName name="com.NovaCraft.TileEntity.TileEntityLegendaryBeacon"/>
     <fullyQualifiedTypeName name="com.NovaCraft.TileEntity.ContainerLegendaryBeacon"/>
-    <fullyQualifiedTypeName name="com.NovaCraft.Items.NovaCraftItems"/>
     <fullyQualifiedTypeName name="com.NovaCraftBlocks.container.BlockLegendaryEnchantmentTable"/>
     <fullyQualifiedTypeName name="net.minecraft.tileentity.TileEntity"/>
     <fullyQualifiedTypeName name="cpw.mods.fml.client.registry.ClientRegistry"/>
@@ -49,7 +44,6 @@
     <fullyQualifiedTypeName name="com.NovaCraft.gui.GuiAdvancedEnchantmentTable"/>
     <fullyQualifiedTypeName name="com.NovaCraft.container.AdvancedEnchantmentTableContainer"/>
     <fullyQualifiedTypeName name="net.minecraft.client.resources.I18n"/>
-    <fullyQualifiedTypeName name="com.NovaCraftBlocks.NovaCraftBlocks"/>
     <fullyQualifiedTypeName name="net.minecraft.entity.item.EntityMinecart"/>
     <fullyQualifiedTypeName name="net.minecraft.entity.item.EntityMinecartChest"/>
     <fullyQualifiedTypeName name="com.NovaCraft.entity.AI.IDeepoidBreathAttacker"/>
@@ -60,4 +54,10 @@
     <fullyQualifiedTypeName name="com.NovaCraft.world.sculkshaft.StructureSculkMineshaftStart"/>
     <fullyQualifiedTypeName name="com.NovaCraft.world.sculkshaft.StructureSculkMineshaftPieces"/>
     <fullyQualifiedTypeName name="com.NovaCraft.world.sculkshaft.SculkMineshaftGenerator"/>
+    <fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
+    <fullyQualifiedTypeName name="net.minecraft.item.ItemStack"/>
+    <fullyQualifiedTypeName name="com.NovaCraftBlocks.NovaCraftBlocks"/>
+    <fullyQualifiedTypeName name="com.NovaCraft.Items.NovaCraftItems"/>
+    <fullyQualifiedTypeName name="net.minecraft.tileentity.TileEntityChest"/>
+    <fullyQualifiedTypeName name="com.NovaCraftBlocks.container.BlockMineshaftChest"/>
 </qualifiedTypeNameHistroy>

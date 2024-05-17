@@ -89,11 +89,14 @@ public class Configs
     public static boolean enableDripstoneGeneration;
     public static boolean enableDeepslateOreGeneration;
     public static boolean enableRawOreBlocksStructures;
+    public static boolean enableCalciteBrickRecipe;
+    public static boolean enableTuffBrickRecipe;
     
     public static boolean enableBlockOfRawNetheriteRecipe;
     public static boolean enableAlternateAmpJumpPotionRecipe;
     public static boolean enableNetheriteInRecipes;
     public static boolean enableCrystalGolemAura;
+    public static boolean enableLuminantLeavesGlow;
     
     //Spawning
     public static boolean enableSpawnGlowSquid;
@@ -133,6 +136,7 @@ public class Configs
     
     public static boolean enableAetherLegacyDepartureItems;
     public static boolean enableRawDivineral;
+    public static boolean enableNovaCraftGloves;
     
     public static boolean enableWeaponsToAllignWithVanilla;
     
@@ -310,6 +314,9 @@ public class Configs
         enableNovaCraftTuffGeneration = conf.getBoolean("enableNovaCraftTuffGeneration", catEtFuturum, false, "Enables Tuff Generation from Et Futurum to generate from y=25 to y=45, instead of at lower y levels.(Disable the Tuff generation in Et Futurum before setting this to true.)");
         enableDeepslateOreGeneration = conf.getBoolean("enableDeepslateOreGeneration", catEtFuturum, false, "Enables Klangite, Tophinite, & Vanite to generate within deepslate from Et Futurum Requiem instead within stone and has a deepslate texture to compensate for it.");
         enableRawOreBlocksStructures = conf.getBoolean("enableRawOreBlocksStructures", catEtFuturum, true, "Enables Raw Copper, Iron, and Gold Blocks from Et Futurum Requiem to generate instead of Iron and Gold Ore Blocks in Sculk Infested Mineshafts.");
+        enableCalciteBrickRecipe = conf.getBoolean("enableCalciteBrickRecipe", catEtFuturum, true, "Enables the recipe for Calcite Bricks: DISABLE if calcite is disabled in Et Futurum Requiem.");
+        enableTuffBrickRecipe = conf.getBoolean("enableTuffBrickRecipe", catEtFuturum, true, "Enables the recipe for Tuff Bricks: DISABLE if calcite is disabled in Et Futurum Requiem.");
+        
         
         enableBlockOfRawNetheriteRecipe = conf.getBoolean("enableBlockOfRawNetheriteRecipe", catEtFuturum, true, "Enables the crafting recipe of Blocks of Raw Netherite.(DISABLE if you disabled Netherite in Et Futurum Requiem)");
         enableAlternateAmpJumpPotionRecipe = conf.getBoolean("enableAlternateAmpJumpPotionRecipe", catEtFuturum, true, "Changes Recipe of the extended jump potion to require rabbit foot from Et Futurum.(DISABLE if you disabled rabbits/rabbit foot in Et Futurum Requiem)");
@@ -350,11 +357,13 @@ public class Configs
         //Aether Legacy Departure Options
         enableAetherLegacyDepartureItems = conf.getBoolean("enableAetherLegacyDepartureItems", catAetherDeparture, false, "Enables crates to drop of items from my custom port of Aether Legacy Departure.");
         enableRawDivineral = conf.getBoolean("enableRawDivineral", catAetherDeparture, false, "Enables the Raw Divineral Block.");
+        enableNovaCraftGloves = conf.getBoolean("enableNovaCraftGloves", catAetherDeparture, false, "Enables the recipe for NovaCraft gloves from Aether Departure.");
         
         //Weapon Damage Allign With Vanilla
         enableWeaponsToAllignWithVanilla = conf.getBoolean("enableWeaponsToAllignWithVanilla", catMisc, false, "Enables weapons from novacraft to allign with vanilla in terms of damage/durability more rather than other RPG like mods.");       
         enableTreasureCratesDropDiamonds = conf.getBoolean("enableTreasureCratesDropDiamonds", catMisc, true, "Enables treasure and nether crates have a chance to drop diamonds.");
-        enableCrystalGolemAura = conf.getBoolean("enableCrystalGolemAura", catMisc, true, "Enables the auras of the various crystal golems(COULD BE CAUSING LAG NO IDEA)");
+        enableCrystalGolemAura = conf.getBoolean("enableCrystalGolemAura", catMisc, true, "Enables the auras of the various crystal golems.");
+        enableLuminantLeavesGlow = conf.getBoolean("enableLuminantLeavesGlow", catMisc, true, "Enables luminant leaves to have a slight glow effect.(Disable this if you use dynamic leaves)");
 
         //Warden Options
         enableWardenBlindness = conf.getBoolean("enableWardenBlindness", catWarden, true, "Enables the Warden Applying blindess to the player when within 5 Blocks: Note if False the Player will be given Slowness II Instead");

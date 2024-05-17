@@ -11,6 +11,7 @@ import com.NovaCraftBlocks.container.BlockAdvancedEnchantmentTable;
 import com.NovaCraftBlocks.container.BlockAdvancedSmithingTable;
 import com.NovaCraftBlocks.container.BlockLegendaryBeacon;
 import com.NovaCraftBlocks.container.BlockLegendaryEnchantmentTable;
+import com.NovaCraftBlocks.container.BlockMineshaftChest;
 import com.NovaCraftBlocks.container.BlockNetherChest;
 import com.NovaCraftBlocks.container.BlockNullwartBrickBookshelf;
 import com.NovaCraftBlocks.container.BlockSculkBrickBookshelf;
@@ -279,7 +280,7 @@ public class NovaCraftBlocks {
 	public static Block hell_piliz, deepoid_mushroom, ion_mushroom;
 	
 	//Treasure Chests
-	public static Block treasure_chest, nether_chest, sculk_chest;
+	public static Block treasure_chest, mineshaft_chest, nether_chest, sculk_chest;
 	
 	//Boss Summoning
 	public static Block grimstone_shrieker, activated_grimstone_shrieker;
@@ -519,7 +520,13 @@ public class NovaCraftBlocks {
 		
 		luminant_log = registerMeta("luminant_log", new BlockLuminantLog().setBlockTextureName(NovaCraft.find("luminant_log")));
 		luminant_planks = registerMeta("luminant_planks", new BlockLuminantPlanks().setBlockTextureName(NovaCraft.find("luminant_planks")));
-		luminant_leaves = registerMeta("luminant_leaves", new BlockLuminantLeaves().setLightLevel(0.2775F).setBlockTextureName(NovaCraft.find("luminant_leaves")));
+		
+		if (Configs.enableLuminantLeavesGlow == true) {
+			luminant_leaves = registerMeta("luminant_leaves", new BlockLuminantLeaves().setLightLevel(0.2775F).setBlockTextureName(NovaCraft.find("luminant_leaves")));
+		} else {
+			luminant_leaves = registerMeta("luminant_leaves", new BlockLuminantLeaves().setBlockTextureName(NovaCraft.find("luminant_leaves")));
+		}
+		
 		luminant_sapling = registerMeta("luminant_sapling", new BlockLuminantSapling(new LuminantTreeGen(NovaCraftBlocks.luminant_leaves, NovaCraftBlocks.luminant_leaves, 50, 5, true)).setBlockTextureName(NovaCraft.find("luminant_sapling")));
 		
 		flaming_pitcher_bottom = registerMeta("flaming_pitcher_bottom", new BlockFlamingPitcherBottom().setBlockTextureName(NovaCraft.find("flaming_pitcher")));
@@ -541,6 +548,7 @@ public class NovaCraftBlocks {
 		//Blocks With GUIS
 		advanced_smithing_table = register("advanced_smithing_table", new BlockAdvancedSmithingTable());
 		treasure_chest = register("treasure_chest", new BlockTreasureChest());
+		mineshaft_chest = register("mineshaft_chest", new BlockMineshaftChest());
 		nether_chest = register("nether_chest", new BlockNetherChest());
 		sculk_chest = register("sculk_chest", new BlockSculkChest());
 		advanced_enchantment_table = register("advanced_enchantment_table", new BlockAdvancedEnchantmentTable());

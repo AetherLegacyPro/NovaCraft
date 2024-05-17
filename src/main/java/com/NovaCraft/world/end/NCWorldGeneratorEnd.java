@@ -91,13 +91,13 @@ public class NCWorldGeneratorEnd implements IWorldGenerator {
 			}
 			if (Configs.enableLacunaTreeGeneration) {
 			if (!(world.provider instanceof EndWorldProviderNovaCraft) && rand.nextInt(5) == 1) {
-				int x = chunkX * 16 + rand.nextInt(17) + 8;
+				int x = chunkX * 16 + rand.nextInt(16) + 8;
 				int y = 256;
-				int z = chunkZ * 16 + rand.nextInt(17) + 8;
+				int z = chunkZ * 16 + rand.nextInt(16) + 8;
 				for (; y > 0; y--) {
 					if (!world.getBlock(x, y, z).isAir(world, x, y, z)) {
 						if (y > 0 && BlockLacunaFruit.canPlantStay(world, x, y + 1, z)) {
-							BlockLacunaFruit.generatePlant(world, x, y + 1, z, rand, 8);
+							BlockLacunaFruit.generatePlant(world, x, y + 1, z, rand, 6);
 							break;
 						}
 					}

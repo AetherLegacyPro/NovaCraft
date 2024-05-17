@@ -296,7 +296,7 @@ public class CrystalGolemModel extends ModelBase {
         }    
         this.RArm1.rotateAngleX = this.RArm2.rotateAngleX = this.RArm3.rotateAngleX = this.RFinger1.rotateAngleX = this.RFinger2.rotateAngleX = this.RFinger3.rotateAngleX = this.RFinger4.rotateAngleX = (float)r + armR;
         this.LArm1.rotateAngleX = this.LArm2.rotateAngleX = this.LArm3.rotateAngleX = this.LFinger1.rotateAngleX = this.LFinger2.rotateAngleX = this.LFinger3.rotateAngleX = this.LFinger4.rotateAngleX = (float)r + armL;
-    }
+    } 
     
     public void setRotationAngles(float p_78087_1_, float p_78087_2_, float p_78087_3_, float p_78087_4_, float p_78087_5_, float p_78087_6_, Entity p_78087_7_)
     {
@@ -308,10 +308,10 @@ public class CrystalGolemModel extends ModelBase {
          this.Ring3.rotationPointY = 2.0F + MathHelper.cos(((float)(1.8) + p_78087_3_) * 0.2F);
          this.crystal.rotationPointY = 2.0F + MathHelper.cos(((float)(2) + p_78087_3_) * 0.25F);
          
-    }
+    } 
 
     private float getSwingAngle(float timer, float maxTimer) {
         return (Math.abs(timer - maxTimer/2) - maxTimer * 0.25F) / (maxTimer * 0.25F);
-    }
+    } 
 
 }

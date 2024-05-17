@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -49,10 +50,9 @@ import com.NovaCraft.registry.OtherModItems;
 public class EntityCrystalGolem extends EntityGolem implements IAttackTimer 
 {
     /** deincrements, and a distance-to-home check is done at 0 */
-    private int homeCheckTimer;
+    private int homeCheckTimer; //ok
     Village villageObj;
     private int attackTimer2;
-    private static final String __OBFID = "CL_00001652";
 
     public EntityCrystalGolem(World p_i1694_1_)
     {
@@ -108,7 +108,7 @@ public class EntityCrystalGolem extends EntityGolem implements IAttackTimer
      */
     protected void updateAITick()
     {
-        if (--this.homeCheckTimer <= 0)
+         if (--this.homeCheckTimer <= 0)
         {
             this.homeCheckTimer = 70 + this.rand.nextInt(50);
             this.villageObj = this.worldObj.villageCollectionObj.findNearestVillage(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ), 32);
@@ -122,7 +122,7 @@ public class EntityCrystalGolem extends EntityGolem implements IAttackTimer
                 ChunkCoordinates chunkcoordinates = this.villageObj.getCenter();
                 this.setHomeArea(chunkcoordinates.posX, chunkcoordinates.posY, chunkcoordinates.posZ, (int)((float)this.villageObj.getVillageRadius() * 0.6F));
             }
-        }
+        } 
 
         super.updateAITick();
     }
@@ -178,9 +178,7 @@ public class EntityCrystalGolem extends EntityGolem implements IAttackTimer
      */
     public void onLivingUpdate()
     {
-        super.onLivingUpdate();
-
-        if (this.attackTimer2 > 0)
+       if (this.attackTimer2 > 0)
         {
             --this.attackTimer2;
         }
@@ -198,35 +196,41 @@ public class EntityCrystalGolem extends EntityGolem implements IAttackTimer
             }
         }
         if(Configs.enableCrystalGolemAura == true) {
-        List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
         if (this.getType() == EnumGolemType.COPARTZ) {
+        	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
         	for(Entity entity : volume) {
         		if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 250, 0, true));
         		}
         	}
-        if (this.getType() == EnumGolemType.LARIMAR) {
+        else if (this.getType() == EnumGolemType.LARIMAR) {
+        	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
             for(Entity entity : volume) {
             	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 250, 1, true));
             	}
             }
-        if (this.getType() == EnumGolemType.TSAVOROKITE) {
+        else if (this.getType() == EnumGolemType.TSAVOROKITE) {
+        	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
             for(Entity entity : volume) {
             	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 250, 1, true));
             	}
             }
-        if (this.getType() == EnumGolemType.YTTRLINISTE) {
+        else if (this.getType() == EnumGolemType.YTTRLINISTE) {
+        	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
             for(Entity entity : volume) {
             	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 0, true));
             	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).setFire(8);
             	}
             }
-        if (this.getType() == EnumGolemType.AMETHYST) {
+        else if (this.getType() == EnumGolemType.AMETHYST) {
+        	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
             for(Entity entity : volume) {
             	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 250, 0, true));
 
             	}
             }
-        }
+    	 }
+        
+        super.onLivingUpdate();
     }
 
     /**

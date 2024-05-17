@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntitySculkDuplicator;
 import com.NovaCraft.entity.EntitySculkSymbiote;
@@ -18,8 +19,10 @@ import net.minecraft.entity.item.EntityMinecartChest;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
@@ -32,8 +35,7 @@ import static net.minecraftforge.common.ChestGenHooks.*;
 public class StructureSculkMineshaftPieces
 {
     /** List of contents that can generate in Mineshafts. */
-    public static final WeightedRandomChestContent[] mineshaftChestContents = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Items.iron_ingot, 0, 1, 5, 10), new WeightedRandomChestContent(Items.gold_ingot, 0, 1, 3, 5), new WeightedRandomChestContent(Items.redstone, 0, 4, 9, 5), new WeightedRandomChestContent(Items.dye, 4, 4, 9, 5), new WeightedRandomChestContent(Items.diamond, 0, 1, 2, 3), new WeightedRandomChestContent(Items.coal, 0, 3, 8, 10), new WeightedRandomChestContent(Items.bread, 0, 1, 3, 15), new WeightedRandomChestContent(Items.iron_pickaxe, 0, 1, 1, 1), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.rail), 0, 4, 8, 1), new WeightedRandomChestContent(Items.melon_seeds, 0, 2, 4, 10), new WeightedRandomChestContent(Items.pumpkin_seeds, 0, 2, 4, 10), new WeightedRandomChestContent(Items.saddle, 0, 1, 1, 3), new WeightedRandomChestContent(Items.iron_horse_armor, 0, 1, 1, 1)};
-    private static final String __OBFID = "CL_00000444";
+    //public static final WeightedRandomChestContent[] mineshaftChestContents = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Items.iron_ingot, 0, 1, 5, 10), new WeightedRandomChestContent(Items.gold_ingot, 0, 1, 3, 5), new WeightedRandomChestContent(Items.redstone, 0, 4, 9, 5), new WeightedRandomChestContent(Items.dye, 4, 4, 9, 5), new WeightedRandomChestContent(Items.diamond, 0, 1, 2, 3), new WeightedRandomChestContent(Items.coal, 0, 3, 8, 10), new WeightedRandomChestContent(Items.bread, 0, 1, 3, 15), new WeightedRandomChestContent(Items.iron_pickaxe, 0, 1, 1, 1), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.rail), 0, 4, 8, 1), new WeightedRandomChestContent(Items.melon_seeds, 0, 2, 4, 10), new WeightedRandomChestContent(Items.pumpkin_seeds, 0, 2, 4, 10), new WeightedRandomChestContent(Items.saddle, 0, 1, 1, 3), new WeightedRandomChestContent(Items.iron_horse_armor, 0, 1, 1, 1)};
 
     public static void registerStructurePieces()
     {
@@ -315,11 +317,7 @@ public class StructureSculkMineshaftPieces
 
                 if (p_74879_2_.isVecInside(i1, j1, k1) && p_74879_1_.getBlock(i1, j1, k1).getMaterial() == Material.air)
                 {
-                    int l1 = p_74879_3_.nextBoolean() ? 1 : 0;
-                    p_74879_1_.setBlock(i1, j1, k1, Blocks.rail, this.getMetadataWithOffset(Blocks.rail, l1), 2);
-                    EntityMinecartChest entityminecartchest = new EntityMinecartChest(p_74879_1_, (double)((float)i1 + 0.5F), (double)((float)j1 + 0.5F), (double)((float)k1 + 0.5F));
-                    WeightedRandomChestContent.generateChestContents(p_74879_3_, p_74879_7_, entityminecartchest, p_74879_8_);
-                    p_74879_1_.spawnEntityInWorld(entityminecartchest);                
+                	p_74879_1_.setBlock(i1, j1, k1, NovaCraftBlocks.mineshaft_chest, 0, 0);            
                 	                   
             		return true;
                 }
@@ -514,15 +512,18 @@ public class StructureSculkMineshaftPieces
 
                         break;
                         }
-                        ChestGenHooks info = ChestGenHooks.getInfo(MINESHAFT_CORRIDOR);
-                        if (p_74875_2_.nextInt(100) == 0)
+                		
+                		ChestGenHooks info = ChestGenHooks.getInfo(MINESHAFT_CORRIDOR);                    
+                        int k3;
+                        k3 = 2 + j * 5;
+                        if (p_74875_2_.nextInt(50) == 0)
                         {
-                            this.generateStructureChestContents(p_74875_1_, p_74875_3_, p_74875_2_, 2, 0, k - 1, info.getItems(p_74875_2_), info.getCount(p_74875_2_));
+                            this.generateStructureChestContents(p_74875_1_, p_74875_3_, p_74875_2_, 2, 0, k3 - 1, info.getItems(p_74875_2_), info.getCount(p_74875_2_));
                         }
-
-                        if (p_74875_2_.nextInt(100) == 0)
+                        
+                        if (p_74875_2_.nextInt(50) == 0)
                         {
-                            this.generateStructureChestContents(p_74875_1_, p_74875_3_, p_74875_2_, 0, 0, k + 1, info.getItems(p_74875_2_), info.getCount(p_74875_2_));
+                        	this.generateStructureChestContents(p_74875_1_, p_74875_3_, p_74875_2_, 2, 0, k3 - 1, info.getItems(p_74875_2_), info.getCount(p_74875_2_));
                         }
 
                         if (this.hasSpiders && !this.spawnerPlaced)
@@ -576,6 +577,7 @@ public class StructureSculkMineshaftPieces
                                 break;
                             }
                         }
+                        
                     }
 
                     for (j = 0; j <= 2; ++j)
@@ -630,7 +632,7 @@ public class StructureSculkMineshaftPieces
                                 this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.5F, 1, 0, j, NovaCraftBlocks.sculk_growth, this.getMetadataWithOffset(NovaCraftBlocks.sculk_growth, 1));
                             }
                         }
-                    }                 
+                    }
 
                     return true;
                 }
@@ -1056,5 +1058,5 @@ public class StructureSculkMineshaftPieces
             
             
         }
+		
 }
-

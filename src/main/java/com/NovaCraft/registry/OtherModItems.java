@@ -56,6 +56,14 @@ public class OtherModItems
     public static Item divineral_ingot;
     public static Item enchanted_divineral;
     
+    //public static Item ascensite_pickaxe;
+    //public static Item ascensite_axe;
+    //public static Item ascensite_shovel;
+    //public static Item ascensite_sword;
+    public static Item pherithium_gloves;
+    public static Item vanite_gloves;
+    public static Item klangite_gloves;
+    
     
     static {
     	OtherModItems.netherite_helmet = GameRegistry.findItem("etfuturum", "netherite_helmet");
@@ -94,13 +102,15 @@ public class OtherModItems
     	OtherModItems.swet_ball = GameRegistry.findItem("aether_legacy", "swet_ball");
     	OtherModItems.ambrosium_shard = GameRegistry.findItem("aether_legacy", "ambrosium_shard");
     	
-    	//if (Configs.enableAetherLegacyDepartureItems && Configs.enableRawDivineral) {
     	OtherModItems.arkenium_chunk = GameRegistry.findItem("aether_legacy", "arkenium_chunk");
     	OtherModItems.continuum_orb = GameRegistry.findItem("aether_legacy", "continuum_orb");
     	OtherModItems.continuum_gemstone = GameRegistry.findItem("aether_legacy", "continuum_gemstone");
     	OtherModItems.divineral_ingot = GameRegistry.findItem("aether_legacy", "divineral_ingot");
     	OtherModItems.enchanted_divineral = GameRegistry.findItem("aether_legacy", "enchanted_divineral");
-    	//}
+    	
+    	OtherModItems.pherithium_gloves = GameRegistry.findItem("aether_legacy", "pherithium_gloves");
+    	OtherModItems.vanite_gloves = GameRegistry.findItem("aether_legacy", "vanite_gloves");
+    	OtherModItems.klangite_gloves = GameRegistry.findItem("aether_legacy", "klangite_gloves");
     	
     	
     	

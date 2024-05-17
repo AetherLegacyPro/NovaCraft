@@ -26,7 +26,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="OtherModBlocks"/>
+			<item key="textPattern" value="CrystalGolemModel"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -43,7 +43,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="absorption"/>
+			<item key="textPattern" value="OtherModBlocks"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -55,7 +55,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="apple"/>
+			<item key="textPattern" value="absorption"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -67,7 +67,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="onLeftClickEntity"/>
+			<item key="textPattern" value="apple"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -79,7 +79,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="playSound"/>
+			<item key="textPattern" value="onLeftClickEntity"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -91,7 +91,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="onUpdate"/>
+			<item key="textPattern" value="playSound"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -103,7 +103,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="provider.dimensionId"/>
+			<item key="textPattern" value="onUpdate"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -115,7 +115,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="worldObj.provider.dimensionId"/>
+			<item key="textPattern" value="provider.dimensionId"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -127,7 +127,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="WorldEventHandlerNovaCraft"/>
+			<item key="textPattern" value="worldObj.provider.dimensionId"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -139,7 +139,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="InitMapGen"/>
+			<item key="textPattern" value="WorldEventHandlerNovaCraft"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -151,7 +151,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="StructureSculkMineshaftStart"/>
+			<item key="textPattern" value="InitMapGen"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -163,7 +163,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="true"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="TileEntitySpecialRenderer"/>
+			<item key="textPattern" value="StructureSculkMineshaftStart"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -191,5 +191,8 @@
 	<section name="org.eclipse.jdt.ui.JavaSearchResultPage">
 		<item key="org.eclipse.jdt.search.resultpage.limit" value="1000"/>
 		<item key="org.eclipse.jdt.search.resultpage.limit_enabled" value="TRUE"/>
+	</section>
+	<section name="">
+		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
 	</section>
 </section>

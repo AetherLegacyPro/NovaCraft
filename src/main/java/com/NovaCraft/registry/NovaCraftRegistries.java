@@ -200,8 +200,11 @@ public class NovaCraftRegistries {
 		register("nullstone_bricks", new ItemStack(NovaCraftBlocks.nullstone_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.nullstone);
 		register("nullstone_tiles", new ItemStack(NovaCraftBlocks.nullstone_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.nullstone_bricks);
 		
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe == true) {
 		register("tuff_bricks", new ItemStack(NovaCraftBlocks.tuff_bricks, 4), "XX", "XX", 'X', OtherModBlocks.tuff);
+		}
+		
+		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe == true) {
 		register("calcite_bricks", new ItemStack(NovaCraftBlocks.calcite_bricks, 4), "XX", "XX", 'X', OtherModBlocks.calcite);
 		}
 		
@@ -344,6 +347,12 @@ public class NovaCraftRegistries {
 		if (Loader.isModLoaded("aether_legacy") && Configs.enableRawDivineral == true) {
 		register("enchanted_divineral", new ItemStack(OtherModItems.enchanted_divineral, 9), "X", 'X', NovaCraftBlocks.raw_divineral);
 		register("raw_divineral", new ItemStack(NovaCraftBlocks.raw_divineral), "XXX", "XXX", "XXX", 'X', OtherModItems.enchanted_divineral);	
+		}
+		
+		if (Loader.isModLoaded("aether_legacy") && Configs.enableNovaCraftGloves == true) {
+		register("pherithium_gloves", new ItemStack(OtherModItems.pherithium_gloves), "C C", 'C', NovaCraftItems.pherithium_ingot);
+		register("vanite_gloves", new ItemStack(OtherModItems.vanite_gloves), "C C", 'C', NovaCraftItems.vanite_ingot);
+		register("klangite_gloves", new ItemStack(OtherModItems.klangite_gloves), "C C", 'C', NovaCraftItems.klangite_ingot);
 		}
 		
 		register("fractured_heart_of_the_end", new ItemStack(NovaCraftItems.fractured_heart_of_the_end, 4), "X", 'X', NovaCraftItems.heart_of_the_end);

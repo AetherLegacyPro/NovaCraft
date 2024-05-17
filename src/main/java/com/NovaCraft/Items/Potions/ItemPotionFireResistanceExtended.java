@@ -8,6 +8,7 @@ import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -45,7 +46,12 @@ public class ItemPotionFireResistanceExtended extends ItemNovaCraftFood {
 	{
 	    super.onEaten(p_77654_1_, p_77654_2_, p_77654_3_);
 	    p_77654_3_.triggerAchievement(AchievementsNovaCraft.super_buff);
-	    return new ItemStack(NovaCraftItems.vanite_bottle);
+	    
+	    if (p_77654_1_.stackSize >= 1) {	    	
+	    p_77654_3_.inventory.addItemStackToInventory(new ItemStack(NovaCraftItems.vanite_bottle));
+	    
+	    }
+	    return p_77654_1_.stackSize <= 0 ? new ItemStack(NovaCraftItems.vanite_bottle) : p_77654_1_;
 	}
 	
 	public EnumAction getItemUseAction(ItemStack p_77661_1_)

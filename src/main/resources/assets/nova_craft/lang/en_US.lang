@@ -446,6 +446,7 @@ tile.sculk_tentacle_2.name=Mature Sculk Tentacle
 tile.sculk_bush.name=Sculk Bush
 tile.sculk_bloom.name=Sculk Bloom
 tile.sculk_tendrils.name=Sculk Tendrils
+tile.mineshaft_chest.name=Sculkshaft Crate
 
 tile.calvatia_mushroom.name=Calvatia Mushroom
 tile.hydnum_mushroom.name=Hydnum Mushroom

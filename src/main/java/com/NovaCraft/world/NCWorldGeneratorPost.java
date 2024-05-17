@@ -291,7 +291,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		}
 	}
 		
-		if (Configs.disableRegularVanillaGen = true) {
+		if (Configs.disableRegularVanillaGen == true) {
 			
 			//Override of vanilla ore generation
 			this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 12, 14, 18, 24, 128);
