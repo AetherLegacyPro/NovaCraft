@@ -75,6 +75,48 @@ public class EntityEnderRay extends EntityFlying implements IMob
         super.onUpdate();
     }
     
+    @Override
+    public boolean attackEntityAsMob(final Entity target) {			
+
+        if (target instanceof EntityPlayer) {
+
+            ItemStack helmet = ((EntityPlayer) target).getCurrentArmor(3);
+            ItemStack chest = ((EntityPlayer) target).getCurrentArmor(2);
+            ItemStack legs = ((EntityPlayer) target).getCurrentArmor(1);
+            ItemStack boots = ((EntityPlayer) target).getCurrentArmor(0);
+
+            boolean hasphantomHelmet = false;
+            boolean hasphantomChest = false;
+            boolean hasphantomLegs = false;
+            boolean hasphantomBoots = false;
+
+
+            if(helmet != null)
+                hasphantomHelmet = helmet.getItem() == NovaCraftItems.phantom_helmet;
+
+            if(chest != null)
+                hasphantomChest = chest.getItem() == NovaCraftItems.phantom_chestplate;
+
+            if(legs != null)
+                hasphantomLegs = legs.getItem() == NovaCraftItems.phantom_leggings;
+
+            if(boots != null)
+                hasphantomBoots = boots.getItem() == NovaCraftItems.phantom_boots;
+
+            if (hasphantomHelmet || hasphantomChest || hasphantomLegs || hasphantomBoots) {
+
+            	target.attackEntityFrom(DamageSource.magic, 4.0F);
+            }
+            
+            else {
+            	target.attackEntityFrom(DamageSource.magic, 10.0F);
+            }
+             
+        }
+        
+        return true;
+    }
+    
     protected void updateEntityActionState() {
     	if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL)
 		{

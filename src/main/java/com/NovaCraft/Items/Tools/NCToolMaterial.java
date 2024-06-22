@@ -40,9 +40,9 @@ public class NCToolMaterial
 		 NCToolMaterial.PHERITHIUM = EnumHelper.addToolMaterial("PHERITHIUM", 2, 1040, 32.0f, 2.0f, 15);
 		 NCToolMaterial.PHERITHIUM_SHICKAXE = EnumHelper.addToolMaterial("PHERITHIUM_SHICKAXE", 2, 4540, 33.0f, 2.5f, 15);
 		 NCToolMaterial.PHERITHIUM_SWORD = EnumHelper.addToolMaterial("PHERITHIUM_SWORD", 0, 1040, 0.0f, 2.0f, 15);			 
-		 NCToolMaterial.TOPHINITE = EnumHelper.addToolMaterial("TOPHINITE", 15, 5822, 16.0f, 4.0f, 18);
-		 NCToolMaterial.TOPHINITE_SWORD = EnumHelper.addToolMaterial("TOPHINITE_SWORD", 0, 5822, 0.0f, 8.0f, 18);
-		 NCToolMaterial.TOPHINITE_HAMMER = EnumHelper.addToolMaterial("TOPHINITE_HAMMER", 0, 3522, 0.0f, 9.0f, 21);
+		 NCToolMaterial.TOPHINITE = EnumHelper.addToolMaterial("TOPHINITE", 15, 5822, 16.0f, 4.0f, 22);
+		 NCToolMaterial.TOPHINITE_SWORD = EnumHelper.addToolMaterial("TOPHINITE_SWORD", 0, 5822, 0.0f, 8.0f, 22);
+		 NCToolMaterial.TOPHINITE_HAMMER = EnumHelper.addToolMaterial("TOPHINITE_HAMMER", 0, 3522, 0.0f, 9.0f, 22);
 		 NCToolMaterial.REINFORCED_PHERITHIUM_SHICKAXE = EnumHelper.addToolMaterial("REINFORCED_PHERITHIUM_SHICKAXE", 15, 11822, 34.0f, 6.0f, 18);		 
 		 NCToolMaterial.CRYSTALLIZED_VANITE = EnumHelper.addToolMaterial("CRYSTALLIZED_VANITE", 15, 12822, 19.0f, 6.0f, 18);
 		 NCToolMaterial.CRYSTALLIZED_VANITE_SWORD = EnumHelper.addToolMaterial("CRYSTALLIZED_VANITE_SWORD", 0, 12822, 0.0f, 10.0f, 18);			 

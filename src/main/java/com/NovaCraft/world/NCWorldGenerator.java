@@ -53,7 +53,7 @@ public class NCWorldGenerator implements IWorldGenerator {
 			}
 		
 		if (rand.nextInt(10) == 1) {
-			generateOre(NovaCraftBlocks.frontierslate, world, rand, x, z, 1, 100, 1, 0, 10,
+			generateOre(NovaCraftBlocks.frontierslate, world, rand, x, z, 1, 100, 2, 0, 10,
 					Blocks.air);
 			}
 		

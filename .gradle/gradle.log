@@ -1,0 +1,18 @@
+WARNING: You are using an unsupported version of ForgeGradle.
+Please consider upgrading to ForgeGradle 4 and helping in the efforts to get old versions working on the modern toolchain.
+See https://gist.github.com/TheCurle/fe7ad3ede188cbdd15c235cc75d52d4a for more info on contributing.
+:help
+
+Welcome to Gradle 3.0.
+
+To run a build, run gradlew <task> ...
+
+To see a list of available tasks, run gradlew tasks
+
+To see a list of command-line options, run gradlew --help
+
+To see more detail about a task, run gradlew help --task <task>
+
+BUILD SUCCESSFUL
+
+Total time: 1.264 secs

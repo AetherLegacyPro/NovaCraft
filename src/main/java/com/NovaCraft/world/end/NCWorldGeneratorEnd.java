@@ -30,17 +30,10 @@ public class NCWorldGeneratorEnd implements IWorldGenerator {
 	protected final List<WorldGenVoidSprout> void_sprout = new LinkedList<WorldGenVoidSprout>();
 	protected final List<WorldGenShadowBloom> shadow_bloom = new LinkedList<WorldGenShadowBloom>();
 	
-	protected final List<WorldGenBuddingEcho> budding_echo = new LinkedList<WorldGenBuddingEcho>();
-	protected final List<WorldGenEchoCluster> echo_cluster_2 = new LinkedList<WorldGenEchoCluster>();
-	
 	NCWorldGeneratorEnd() {
 		chorus_grass.add(new WorldGenChorusGrass(NovaCraftBlocks.chorus_grass, 40));
 		void_sprout.add(new WorldGenVoidSprout(NovaCraftBlocks.void_sprout, 10));
 		shadow_bloom.add(new WorldGenShadowBloom(NovaCraftBlocks.shadow_bloom, 8));
-		
-		
-		budding_echo.add(new WorldGenBuddingEcho(NovaCraftBlocks.budding_echo_block, 2));
-		echo_cluster_2.add(new WorldGenEchoCluster(NovaCraftBlocks.echo_cluster_2, 1));
 		
 	}
 	
@@ -75,17 +68,6 @@ public class NCWorldGeneratorEnd implements IWorldGenerator {
 				for (; y > 0; y--) {
 					if (!world.getBlock(x, y, z).isAir(world, x, y, z)) {
 						shadow_bloom.get(0).generate(world, rand, x, rand.nextInt(40) + 30, z);
-					}
-				}
-			}
-			if (!(world.provider instanceof EndWorldProviderNovaCraft) && rand.nextInt(5) == 1) {
-				int x = chunkX * 16 + rand.nextInt(16) + 8;
-				int y = 48;
-				int z = chunkZ * 16  + rand.nextInt(16) + 8;
-				for (; y > 0; y--) {
-					if (!world.getBlock(x, y, z).isAir(world, x, y, z)) {
-						budding_echo.get(0).generate(world, rand, x, rand.nextInt(10) + 20, z);
-						echo_cluster_2.get(0).generate(world, rand, x, rand.nextInt(5) + 20, z);
 					}
 				}
 			}

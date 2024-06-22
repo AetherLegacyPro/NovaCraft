@@ -16,15 +16,19 @@ import com.NovaCraft.particles.ParticleGlowLichen;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.particles.entity.EntityRandomShapedParticle;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
+import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockDarkLichen extends BlockBush
+public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
 {
+	public static final int[] colors = new int[]{0x120d1a, 0x150c26, 0x110034, 0x15152f, 0x131527, 0x0a0c20, 0x160a20, 0x13051e};
+	private IIcon infusedOverlay;
     private IIcon[] icon;
     
     public BlockDarkLichen() {
@@ -41,14 +45,16 @@ public class BlockDarkLichen extends BlockBush
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.icon[0] = iconRegister.registerIcon("nova_craft:dark_lichen");
         this.icon[1] = iconRegister.registerIcon("nova_craft:dark_lichen");
+        infusedOverlay = iconRegister.registerIcon("nova_craft:glow_lichen_overlay");
     }
     
     public IIcon getIcon(final int side, final int meta) {
         return this.icon[0];
     }
     
+    @Override
     public int getRenderType() {
-        return 0;
+    	return RenderIDs.EMISSIVE_DOUBLE_LAYER;
     }
     
     public int damageDropped(final int meta) {
@@ -72,6 +78,26 @@ public class BlockDarkLichen extends BlockBush
         final float f = 1 * (1 + b0) / 16.0f;
         this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, f, 1.0f);
     }
+    
+    @Override
+	public IIcon getSecondLayerIcon(int side, int meta) {
+			return infusedOverlay;
+	}
+
+	@Override
+	public int getEmissiveMinBrightness(int meta) {
+		return 15;
+	}
+	
+	@Override
+	public int getEmissiveLayerColor(int meta) {
+		return colors[meta % colors.length];
+	}
+	
+	@Override
+	public boolean doesEmissiveLayerHaveDirShading(int meta) {
+		return false;
+	}
     
     public void setBlockBoundsBasedOnState(final IBlockAccess access, final int x, final int y, final int z) {
         final int meta = access.getBlockMetadata(x, y, z);

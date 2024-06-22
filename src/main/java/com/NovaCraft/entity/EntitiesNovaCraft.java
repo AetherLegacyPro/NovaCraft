@@ -14,6 +14,7 @@ import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
 import com.NovaCraft.entity.illager.EntityIllagerChief;
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraft.entity.misc.EntityBloviatorProjectile;
+import com.NovaCraft.entity.misc.EntityDestituteTentacleProjectile;
 import com.NovaCraft.entity.misc.EntityDiamondFirechargeProjectile;
 import com.NovaCraft.entity.misc.EntityIceProjectile;
 import com.NovaCraft.entity.misc.EntityIonizatiorProjectile;
@@ -74,7 +75,8 @@ public class EntitiesNovaCraft {
 		register(EntityKlangiteFirechargeProjectile.class, "klangite_firecharge", 27, 64, 20, true);
 		register(EntityVaniteTrident.class, "vanite_trident", 32, 64, 20, true);	
 		register(EntityFirefly.class, "nova_firefly", 36, 0x17181c, 0xf3ee86);
-		register(EntityIonizatiorProjectile.class, "ionizator_projectile", 39, 64, 20, true);	
+		register(EntityIonizatiorProjectile.class, "ionizator_projectile", 39, 64, 20, true);
+		register(EntityDestituteTentacleProjectile.class, "destitute_projectile", 54, 64, 20, true);	
 		
 		//Mobs
 		register(EntityPrimedXanciumTNT.class, "XTNT", 0, 64, 20, false);
@@ -110,6 +112,9 @@ public class EntitiesNovaCraft {
 		register(EntityCrystalGolem.class, "crystal_golem", 46, 0x3e3e3e, 0xd6d6d6);
 		register(EntityDeathStalker.class, "death_stalker", 49, 0x535007, 0x3f3a00);
 		register(EntityVargouzite.class, "vargouzite", 50, 0x31415a, 0x5ea4a8);
+		register(EntityRealityDistorter.class, "reality_distorter", 51, 0x0d0d0d, 0xc2c2c2);
+		register(EntityDestitumite.class, "destitumite", 52, 0x080909, 0x1b1b1b);
+		register(EntityDestituteTentacle.class, "destitumite_tentacle", 53, 0x080909, 0x1b2b1c);
 		
 		//Bosses
 		register(EntityWarden.class, "warden", 16, 0x256166, 0x171b1e);
@@ -279,6 +284,12 @@ public class EntitiesNovaCraft {
 					if (Configs.enableSpawnNullifier) {
 						EntityRegistry.addSpawn(EntityNullifier.class, 4, 4, 4, EnumCreatureType.monster, biome);
 					}
+					if (Configs.enableSpawnRealityDistorter) {
+						EntityRegistry.addSpawn(EntityRealityDistorter.class, 4, 4, 4, EnumCreatureType.monster, biome);
+					}
+					if (Configs.enableSpawnDestituteTentacle) {
+						EntityRegistry.addSpawn(EntityDestituteTentacle.class, 3, 4, 4, EnumCreatureType.monster, biome);
+					}	
 					
 				}
 			}

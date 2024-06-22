@@ -163,6 +163,7 @@ public class NovaCraftItems {
 	public static Item klangite_ingot;
 	public static Item tophinite_gemstone;
 	public static Item flaming_pitcher_petal, blazing_coal;
+	public static Item static_essence, destitute_tentacle;
 	
 	public static Item heart_of_the_end, fractured_heart_of_the_end;
 	public static Item null_cube_slime, superheated_magma_cream, enflamed_null_cube_slimeball, enhanced_enflamed_null_cube_slimeball;
@@ -315,6 +316,8 @@ public class NovaCraftItems {
 		deep_one_scales = register("deep_one_scales", new ItemFireproof().setTextureName(NovaCraft.find("deep_one_scales")));
 		deep_one_bone = register("deep_one_bone", new ItemFireproof().setTextureName(NovaCraft.find("deep_one_bone")));
 		ophidian_scales = register("ophidian_scales", new ItemFireproof().setTextureName(NovaCraft.find("ophidian_scales")));
+		destitute_tentacle = register("destitute_tentacle", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("destitute_tentacle")));
+		static_essence = register("static_essence", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("static_essence")));
 		
 		vanite_bucket = register("vanite_bucket", new ItemVaniteBucket(Blocks.air).setMaxStackSize(16).setTextureName(NovaCraft.find("vanite_bucket")));
 		vanite_bucket_water = register("vanite_bucket_water", new ItemVaniteBucket(Blocks.flowing_water).setTextureName(NovaCraft.find("vanite_bucket_water")));

@@ -10,10 +10,14 @@ import net.minecraftforge.common.util.*;
 import java.util.*;
 
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
+import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
+import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
 
-public class BlockGrimLichen extends BlockBush
+public class BlockGrimLichen extends BlockBush implements IEmissiveLayerBlock
 {
+	public static final int[] colors = new int[]{0x3c3038, 0x2b1f28, 0x30242d, 0x2e2430, 0x231e24, 0x251527, 0x1c1527, 0x150d22};
+	private IIcon infusedOverlay;
     private IIcon[] icon;
     
     public BlockGrimLichen() {
@@ -31,14 +35,16 @@ public class BlockGrimLichen extends BlockBush
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.icon[0] = iconRegister.registerIcon("nova_craft:grim_lichen");
         this.icon[1] = iconRegister.registerIcon("nova_craft:grim_lichen");
+        infusedOverlay = iconRegister.registerIcon("nova_craft:grim_lichen_overlay");
     }
     
     public IIcon getIcon(final int side, final int meta) {
         return this.icon[0];
     }
-    
+   
+    @Override
     public int getRenderType() {
-        return 0;
+    	return RenderIDs.EMISSIVE_DOUBLE_LAYER;
     }
     
     public int damageDropped(final int meta) {
@@ -67,6 +73,26 @@ public class BlockGrimLichen extends BlockBush
         final float f = 1 * (1 + b0) / 16.0f;
         this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, f, 1.0f);
     }
+    
+    @Override
+	public IIcon getSecondLayerIcon(int side, int meta) {
+			return infusedOverlay;
+	}
+
+	@Override
+	public int getEmissiveMinBrightness(int meta) {
+		return 15;
+	}
+	
+	@Override
+	public int getEmissiveLayerColor(int meta) {
+		return colors[meta % colors.length];
+	}
+	
+	@Override
+	public boolean doesEmissiveLayerHaveDirShading(int meta) {
+		return false;
+	}
     
     public void setBlockBoundsBasedOnState(final IBlockAccess access, final int x, final int y, final int z) {
         final int meta = access.getBlockMetadata(x, y, z);

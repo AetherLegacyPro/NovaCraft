@@ -35,6 +35,8 @@ import com.NovaCraft.world.NCWorldGeneratorPost;
 import com.NovaCraft.world.NCWorldGeneratorPre;
 import com.NovaCraft.world.OreGenEventHandler;
 import com.NovaCraft.world.PopulateChunkEventHandler;
+import com.NovaCraft.world.end.DestitudeIslandWorldGen;
+import com.NovaCraft.world.end.EndIslandWorldGen;
 import com.NovaCraft.world.end.NCWorldGeneratorEnd;
 import com.NovaCraft.world.nether.NCWorldGeneratorNether;
 import com.NovaCraft.world.nether.structure.MapGenNetherBridgeNovaCraft;
@@ -141,6 +143,9 @@ public class NovaCraft
     	GameRegistry.registerFuelHandler(new NovaCraftFuelHander());
     	AchievementsNovaCraft.initialization();
     	NovaCraftTileEntities.initialization();
+    	
+    	GameRegistry.registerWorldGenerator((IWorldGenerator)new EndIslandWorldGen(), Integer.MAX_VALUE);
+    	GameRegistry.registerWorldGenerator((IWorldGenerator)new DestitudeIslandWorldGen(), Integer.MAX_VALUE);
     	
     	NetworkRegistry.INSTANCE.registerGuiHandler((Object)NovaCraft.instance, (IGuiHandler)new CommonProxy());
     	

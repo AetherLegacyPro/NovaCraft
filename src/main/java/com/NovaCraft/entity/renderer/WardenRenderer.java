@@ -115,7 +115,7 @@ public class WardenRenderer extends RenderLiving
 	 
 	 static {
 		 bioluminescent = new ResourceLocation("textures/entity/warden/warden_bioluminescent_layer.png");
-		 spots_1 = new ResourceLocation("textures/entity/warden/warden_pulsating_spots_1.png");
+		 spots_1 = new ResourceLocation("textures/entity/warden/warden_pulsating_spots.png");
 	    }
 	
 }

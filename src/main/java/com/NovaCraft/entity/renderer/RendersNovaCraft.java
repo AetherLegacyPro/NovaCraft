@@ -12,6 +12,8 @@ import com.NovaCraft.entity.EntityCaveMonitor;
 import com.NovaCraft.entity.EntityCrystalGolem;
 import com.NovaCraft.entity.EntityDeathStalker;
 import com.NovaCraft.entity.EntityDeepoid;
+import com.NovaCraft.entity.EntityDestitumite;
+import com.NovaCraft.entity.EntityDestituteTentacle;
 import com.NovaCraft.entity.EntityDrifter;
 import com.NovaCraft.entity.EntityEnderAvis;
 import com.NovaCraft.entity.EntityEnderLord;
@@ -28,6 +30,7 @@ import com.NovaCraft.entity.EntityPhantom;
 import com.NovaCraft.entity.EntityPhoenix;
 import com.NovaCraft.entity.EntityPrimedPETN;
 import com.NovaCraft.entity.EntityPrimedXanciumTNT;
+import com.NovaCraft.entity.EntityRealityDistorter;
 import com.NovaCraft.entity.EntitySculkAbomination;
 import com.NovaCraft.entity.EntitySculkDuplicator;
 import com.NovaCraft.entity.EntitySculkDweller;
@@ -45,6 +48,7 @@ import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
 import com.NovaCraft.entity.illager.EntityIllagerChief;
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraft.entity.misc.EntityBloviatorProjectile;
+import com.NovaCraft.entity.misc.EntityDestituteTentacleProjectile;
 import com.NovaCraft.entity.misc.EntityDiamondFirechargeProjectile;
 import com.NovaCraft.entity.misc.EntityIceProjectile;
 import com.NovaCraft.entity.misc.EntityIonizatiorProjectile;
@@ -65,6 +69,7 @@ import com.NovaCraft.entity.models.FireflyModel;
 import com.NovaCraft.entity.models.GlowSquidModel;
 import com.NovaCraft.entity.models.GoatModel;
 import com.NovaCraft.entity.models.PhantomModel;
+import com.NovaCraft.entity.models.RealityDistorterModel;
 import com.NovaCraft.entity.models.SculkAbominationModel;
 import com.NovaCraft.entity.models.SculkHungerModel;
 import com.NovaCraft.entity.models.SculkedMonitorModel;
@@ -77,6 +82,7 @@ import com.NovaCraft.entity.renderer.illager.IllagerChiefRenderer;
 import com.NovaCraft.entity.renderer.illager.IllagerTraderOverlayRenderer;
 import com.NovaCraft.entity.renderer.illager.IllagerTraderRenderer;
 import com.NovaCraft.entity.renderer.staff.BloviatorProjectileRenderer;
+import com.NovaCraft.entity.renderer.staff.DestituteTentacleProjectileRenderer;
 import com.NovaCraft.entity.renderer.staff.DiamondFirechargeProjectileRenderer;
 import com.NovaCraft.entity.renderer.staff.EnderLordStaffProjectileRenderer;
 import com.NovaCraft.entity.renderer.staff.IceProjectileRenderer;
@@ -118,6 +124,7 @@ public class RendersNovaCraft {
 	register(EntityKlangiteFirechargeProjectile.class, new KlangiteFirechargeProjectileRenderer((2.0F)));	
 	register(EntityVaniteTrident.class, new VaniteTridentRenderer());
 	register(EntityIonizatiorProjectile.class, new IonizatiorProjectileRenderer(0.5F));
+	register(EntityDestituteTentacleProjectile.class, new DestituteTentacleProjectileRenderer());
 	
 	//Passive
 	register(EntityGlowSquid.class, new GlowSquidRenderer(new GlowSquidModel(), 0.7F));
@@ -152,6 +159,9 @@ public class RendersNovaCraft {
 	register(EntityCrystalGolem.class, new CrystalGolemRenderer());
 	register(EntityBloviator.class, new BloviatorRenderer());
 	register(EntityDeathStalker.class, new DeathStalkerRenderer(new DeathStalkerModel(), 0.0f));
+	register(EntityRealityDistorter.class, new RealityDistorterRenderer());
+	register(EntityDestitumite.class, new DestitumiteRenderer());
+	register(EntityDestituteTentacle.class, new DestituteTentacleRenderer());
 	
 	register(EntityVindicator.class, new VindicatorRenderer());
 	register(EntityVindicator.class, new VindicatorOverlayRenderer());

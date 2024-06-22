@@ -123,6 +123,8 @@ public class Configs
     public static boolean enableSpawnCaveMonitor;
     public static boolean enableSpawnSeaSerpent;
     public static boolean enableSpawnDeathStalker;
+    public static boolean enableSpawnRealityDistorter;
+    public static boolean enableSpawnDestituteTentacle;
     
     public static boolean enableSpawnFireflyOtherBiomes;
     public static boolean enableNoDespawnFirefly;
@@ -346,6 +348,8 @@ public class Configs
         enableSpawnCaveMonitor = conf.getBoolean("enableSpawnCaveMonitor", catMobs, true, "Enables the Spawning of the Cave Monitor");
         enableSpawnSeaSerpent = conf.getBoolean("enableSpawnSeaSerpent", catMobs, true, "Enables the Spawning of the Sea Serpent");
         enableSpawnDeathStalker = conf.getBoolean("enableSpawnDeathStalker", catMobs, true, "Enables the Spawning of the Death Stalker");
+        enableSpawnRealityDistorter = conf.getBoolean("enableSpawnRealityDistorter", catMobs, true, "Enables the Spawning of the Reality Distorter");
+        enableSpawnDestituteTentacle = conf.getBoolean("enableSpawnDestituteTentacle", catMobs, true, "Enables the Spawning of the Destitute Tentacle");
 
         enableIncreasedVanillaNetherMobSpawn = conf.getBoolean("enableIncreasedVanillaNetherMobSpawn", catMobs, true, "Enables increased spawning of Zombie Pigmen, Magma Cubes, and Ghasts in all Nether Biomes");
         enableIncreasedVanillaOverworldMobSpawn = conf.getBoolean("enableIncreasedVanillaOverworldMobSpawn", catMobs, true, "Enables increased spawning of Skeletons, Creepers, Zombies, and Witches.");

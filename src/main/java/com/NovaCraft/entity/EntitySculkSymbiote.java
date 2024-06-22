@@ -139,18 +139,11 @@ public class EntitySculkSymbiote extends EntityMob
 	        
 	    }
 	 
-	 protected void dropRareDrop(int p_70600_1_)
-	    {
-		 int rand = (int)(1 + Math.random() * 2);
-		 switch (rand)
-	        {
-	        	case 0:
-	        		this.dropItem(NovaCraftItems.anomalous_essence, 1);
-	        		break;
-	        		
-	        }
-		 
-	    }
+	protected void dropRareDrop(int p_70600_1_)
+	{
+	   this.dropItem(NovaCraftItems.anomalous_essence, 1);
+	 
+	}
 	
 	public EnumCreatureAttribute getCreatureAttribute()
     {

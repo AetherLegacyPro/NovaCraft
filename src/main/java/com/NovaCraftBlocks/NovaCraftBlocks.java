@@ -103,9 +103,14 @@ import com.NovaCraftBlocks.plants.BlockNullWart;
 import com.NovaCraftBlocks.plants.BlockTorchFlower;
 import com.NovaCraftBlocks.plants.LuminantTreeGen;
 import com.NovaCraftBlocks.plants.end.BlockChorusGrass;
+import com.NovaCraftBlocks.plants.end.BlockDestitude;
+import com.NovaCraftBlocks.plants.end.BlockDestitudeBloom;
+import com.NovaCraftBlocks.plants.end.BlockDestitudeGrowth;
+import com.NovaCraftBlocks.plants.end.BlockDestituteVein;
 import com.NovaCraftBlocks.plants.end.BlockLacunaFruit;
 import com.NovaCraftBlocks.plants.end.BlockLacunaLog;
 import com.NovaCraftBlocks.plants.end.BlockLacunaPlanks;
+import com.NovaCraftBlocks.plants.end.BlockLivingEnder;
 import com.NovaCraftBlocks.plants.end.BlockShadowBloom;
 import com.NovaCraftBlocks.plants.end.BlockVoidSprout;
 import com.NovaCraftBlocks.plants.nether.BlockDeepoidMushroom;
@@ -249,8 +254,10 @@ public class NovaCraftBlocks {
 	public static Block vacuum_sand, vacuum_glass, inked_vacuum_sand, inked_vacuum_glass;
 	public static Block nullcube_slime_block, crystallized_end;
 	
-	//End Plants
+	//End Plants or Life
 	public static Block chorus_grass, void_sprout, shadow_bloom;
+	public static Block destitude_growth, destitude_block, destitude_bloom, destitude_vein;
+	public static Block living_ender;
 	
 	//Sculk
 	public static Block sculk_block, inked_sculk_block, sculk_vein, sculk_growth;
@@ -538,6 +545,13 @@ public class NovaCraftBlocks {
 		chorus_grass = registerMeta("chorus_grass", new BlockChorusGrass().setBlockTextureName(NovaCraft.find("chorus_grass")));
 		void_sprout = registerMeta("void_sprout", new BlockVoidSprout().setBlockTextureName(NovaCraft.find("void_sprout")));
 		shadow_bloom = registerMeta("shadow_bloom", new BlockShadowBloom().setBlockTextureName(NovaCraft.find("shadow_bloom")));
+		
+		destitude_growth = register("destitude_growth", new BlockDestitudeGrowth());
+		destitude_block = register("destitude_block", new BlockDestitude());
+		destitude_bloom = register("destitude_bloom", new BlockDestitudeBloom().setBlockTextureName(NovaCraft.find("destitute_bloom")));
+		destitude_vein = register("destitude_vein", new BlockDestituteVein());
+		
+		living_ender = register("living_ender", new BlockLivingEnder());
 		
 		lacuna_fruit = registerMeta("lacuna_fruit", new BlockLacunaFruit().setBlockTextureName(NovaCraft.find("lacuna_fruit")));
 		lacuna_log = registerMeta("lacuna_log", new BlockLacunaLog());

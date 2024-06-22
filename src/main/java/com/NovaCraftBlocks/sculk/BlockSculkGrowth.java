@@ -313,7 +313,7 @@ public class BlockSculkGrowth extends BlockBush
             if (offsetDir > 1) {
                 return;
             }
-            if (world.isAirBlock(xx, yy, zz)) {
+            if (world.isAirBlock(xx, yy, zz) && world.getBlockLightValue(x, y + 1, z) <= 3 && y <= 25.0D) {
                 for (attempt = 0; attempt < 6; ++attempt) {
                     final int offset = 1;
                     final int randomiseSide = rand.nextInt(6);

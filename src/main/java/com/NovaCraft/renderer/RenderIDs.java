@@ -20,6 +20,8 @@ public class RenderIDs {
 	
 	public static final int NULLCUBE = RenderingRegistry.getNextAvailableRenderId();
 	
+	public static final int EMISSIVE_DOUBLE_LAYER = RenderingRegistry.getNextAvailableRenderId();
+	
 	public static final int VANITE_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
 	public static final int MOLTEN_VANITE_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
 	public static final int MOLTEN_VANITE_CRYSTAL_CAULDRON = RenderingRegistry.getNextAvailableRenderId();

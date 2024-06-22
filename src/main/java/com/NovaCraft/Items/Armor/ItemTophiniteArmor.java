@@ -122,6 +122,10 @@ public class ItemTophiniteArmor extends ItemBaseTophiniteArmor implements ISpeci
         }
         if (hasPherithiumHelmet && hasPherithiumChest && hasPherithiumLegs && hasPherithiumBoots) {
             player.triggerAchievement(AchievementsNovaCraft.cover_me_with_tophinite);
+            
+            if (player.isBurning()) {
+            	player.extinguish();
+            }
         }
     }
 

@@ -10,6 +10,7 @@ import com.NovaCraft.entity.renderer.RendersNovaCraft;
 import com.NovaCraft.renderer.BlockAetherClusterRenderer;
 import com.NovaCraft.renderer.BlockCopartzClusterRenderer;
 import com.NovaCraft.renderer.BlockEchoClusterRenderer;
+import com.NovaCraft.renderer.BlockEmissiveLayerRenderer;
 import com.NovaCraft.renderer.BlockEndiumLogRenderer;
 import com.NovaCraft.renderer.BlockEndiumPlantRenderer;
 import com.NovaCraft.renderer.BlockLarimarClusterRenderer;
@@ -24,6 +25,7 @@ import com.NovaCraft.renderer.BlockTsavorokiteClusterRenderer;
 import com.NovaCraft.renderer.BlockVaniteCauldronRenderer;
 import com.NovaCraft.renderer.BlockVaniteClusterRenderer;
 import com.NovaCraft.renderer.BlockYttrlinsiteClusterRenderer;
+import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -65,6 +67,8 @@ public class ClientProxy extends CommonProxy
 		
 		RenderingRegistry.registerBlockHandler(new BlockVaniteClusterRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockLegendaryBeaconRenderer());
+		
+		RenderingRegistry.registerBlockHandler(new BlockEmissiveLayerRenderer(RenderIDs.EMISSIVE_DOUBLE_LAYER));
 		
 		RendersNovaCraft.initialization();
 		

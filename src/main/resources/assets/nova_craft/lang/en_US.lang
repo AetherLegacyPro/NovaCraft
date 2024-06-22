@@ -99,6 +99,8 @@ item.eternal_caller.name=Call Of The End
 item.crystallized_end_shard.name=Crystallized End Shard
 item.nullified_vanite_alloy.name=Nullified Vanite Alloy
 item.warden_core.name=Warden Core
+item.destitute_tentacle.name=Destitute Tentacle
+item.static_essence.name=Static Essence
 
 item.vanite_bucket.name=Vanite Bucket
 item.vanite_bucket_water.name=Water Bucket
@@ -370,6 +372,11 @@ tile.legendary_enchantment_table.name=Legendary Enchantment Table
 tile.nullwart_brick_bookshelf.name=Nullwart Brick Bookshelf
 tile.sculk_brick_bookshelf.name=Sculk Brick Bookshelf
 tile.advanced_enchantment_table.name=Advanced Enchantment Table
+tile.destitude_growth.name=Destitude Growth
+tile.destitude_block.name=Destitude Block
+tile.destitude_bloom.name=Destitude Bloom
+tile.destitude_vein.name=Destitude Vein
+tile.living_ender.name=Living Ender
 
 tile.vanite_cauldron.name=Vanite Cauldron
 tile.molten_vanite_cauldron.name=Molten Vanite Cauldron
@@ -858,6 +865,9 @@ entity.nova_craft.crystal_golem.name=Crystal Golem
 entity.nova_craft.bloviator.name=Bloviator
 entity.nova_craft.death_stalker.name=Death Stalker
 entity.nova_craft.vargouzite.name=Vargouzite
+entity.nova_craft.reality_distorter.name=Reality Distorter
+entity.nova_craft.destitumite.name=Destitumite
+entity.nova_craft.destitumite_tentacle.name=Destitumite Tentacle
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -897,3 +907,6 @@ entity.crystal_golem.name=Crystal Golem
 entity.bloviator.name=Bloviator
 entity.death_stalker.name=Death Stalker
 entity.vargouzite.name=Vargouzite
+entity.reality_distorter.name=Reality Distorter
+entity.destitumite.name=Destitumite
+entity.destitumite_tentacle.name=Destitumite Tentacle

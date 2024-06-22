@@ -243,7 +243,8 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
             if (offsetDir > 1) {
                 return;
             }
-            if (world.isAirBlock(xx, yy, zz) && (world.getBlock(xx, yy + 1, zz)  == NovaCraftBlocks.sculk_block || world.getBlock(xx, yy - 1, zz)  == NovaCraftBlocks.sculk_block || world.getBlock(xx + 1, yy, zz)  == NovaCraftBlocks.sculk_block || world.getBlock(xx - 1, yy, zz)  == NovaCraftBlocks.sculk_block || world.getBlock(xx, yy, zz + 1)  == NovaCraftBlocks.sculk_block || world.getBlock(xx, yy, zz - 1)  == NovaCraftBlocks.sculk_block)) {
+            if (world.isAirBlock(xx, yy, zz) && (world.getBlock(xx, yy + 1, zz)  == NovaCraftBlocks.sculk_block || world.getBlock(xx, yy - 1, zz)  == NovaCraftBlocks.sculk_block || world.getBlock(xx + 1, yy, zz)  == NovaCraftBlocks.sculk_block || world.getBlock(xx - 1, yy, zz)  == NovaCraftBlocks.sculk_block || world.getBlock(xx, yy, zz + 1)  == NovaCraftBlocks.sculk_block || world.getBlock(xx, yy, zz - 1)  == NovaCraftBlocks.sculk_block)
+            		&& world.getBlockLightValue(x, y + 1, z) <= 3 && y <= 25.0D) {
                 for (attempt = 0; attempt < 6; ++attempt) {
                     final int offset = 1;
                     final int randomiseSide = rand.nextInt(6);

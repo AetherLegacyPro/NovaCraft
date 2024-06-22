@@ -3,6 +3,7 @@ package com.NovaCraftBlocks.plants;
 import net.minecraft.util.*;
 import net.minecraft.block.material.*;
 import net.minecraft.client.renderer.texture.*;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -13,18 +14,22 @@ import java.util.*;
 
 import com.NovaCraft.particles.ParticleGlowLichen;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
+import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks.ISubBlocksBlock;
+import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockGlowLichen extends BlockBush
+public class BlockGlowLichen extends BlockBush implements IEmissiveLayerBlock
 {
+	public static final int[] colors = new int[]{0xfbff71, 0xfbff77, 0xcfff77, 0x9dff77, 0x77ffa4, 0x77ffd8, 0x77e8ff, 0x48ffbc};
+	private IIcon infusedOverlay;
     private IIcon[] icon;
-    
+
     public BlockGlowLichen() {
         super(Material.plants);
         this.icon = new IIcon[2];
@@ -33,21 +38,23 @@ public class BlockGlowLichen extends BlockBush
         this.setLightOpacity(0);
         this.func_150089_b(0);
         this.setCreativeTab(NovaCraftCreativeTabs.blocks);
-        this.setLightLevel(0.45F);
+        this.setLightLevel(0.25F);
         this.setTickRandomly(true);
     }
     
     public void registerBlockIcons(final IIconRegister iconRegister) {
         this.icon[0] = iconRegister.registerIcon("nova_craft:glow_lichen");
         this.icon[1] = iconRegister.registerIcon("nova_craft:glow_lichen");
+        infusedOverlay = iconRegister.registerIcon("nova_craft:glow_lichen_overlay");
     }
     
     public IIcon getIcon(final int side, final int meta) {
-        return this.icon[0];
+    	return this.icon[0];
     }
     
+    @Override
     public int getRenderType() {
-        return 0;
+    	return RenderIDs.EMISSIVE_DOUBLE_LAYER;
     }
     
     public int damageDropped(final int meta) {
@@ -422,6 +429,26 @@ public class BlockGlowLichen extends BlockBush
 			}
 		}
     }
+
+	@Override
+	public IIcon getSecondLayerIcon(int side, int meta) {
+			return infusedOverlay;
+	}
+
+	@Override
+	public int getEmissiveMinBrightness(int meta) {
+		return 15;
+	}
+	
+	@Override
+	public int getEmissiveLayerColor(int meta) {
+		return colors[meta % colors.length];
+	}
+	
+	@Override
+	public boolean doesEmissiveLayerHaveDirShading(int meta) {
+		return false;
+	}
 		
 }
 

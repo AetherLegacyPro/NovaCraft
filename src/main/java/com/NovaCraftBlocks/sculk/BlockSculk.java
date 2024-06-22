@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.NovaCraft.NovaCraft;
+import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntitySculkAbomination;
 import com.NovaCraft.entity.EntitySculkSymbiote;
@@ -102,7 +103,16 @@ public class BlockSculk extends Block {
 		
 		}
  		
+ 		boolean hasSculkBoots = false;
  		if (entity instanceof EntityPlayer) {
+ 			EntityPlayer player = (EntityPlayer) entity;
+ 			final ItemStack boots = player.getCurrentArmor(0);
+ 			if (boots != null) {
+ 				hasSculkBoots = (boots.getItem() == NovaCraftItems.sculk_boots);
+ 			}
+ 		}
+ 		
+ 		if (entity instanceof EntityPlayer && !(hasSculkBoots)) {
  			int rand = (int)(1 + Math.random() * 15);
  			if (rand == 1 && !entity.isSneaking()) {
  			world.playSoundEffect(x, y, z, "nova_craft:warden_altar.shriek", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 0.9F);
@@ -169,7 +179,7 @@ public class BlockSculk extends Block {
  		
  		
  		if (world.provider.dimensionId != -1 && world.provider.dimensionId != 1) {	
- 			if (rand.nextInt(100) == 1) {
+ 			if (rand.nextInt(100) == 1 && world.getBlockLightValue(x, y + 1, z) <= 3 && y <= 25.0D) {
 			EnumFacing facing = EnumFacing.getFront(rand.nextInt(EnumFacing.values().length));
 			Block block = world.getBlock(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
 			int meta = world.getBlockMetadata(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
@@ -186,7 +196,7 @@ public class BlockSculk extends Block {
 			}
 		}
  		
- 		else if (world.provider.dimensionId == 1) {	
+ 		else if (world.provider.dimensionId == 1 && world.getBlockLightValue(x, y + 1, z) <= 3) {	
  			if (rand.nextInt(15) == 1) {
 			EnumFacing facing = EnumFacing.getFront(rand.nextInt(EnumFacing.values().length));
 			Block block = world.getBlock(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
