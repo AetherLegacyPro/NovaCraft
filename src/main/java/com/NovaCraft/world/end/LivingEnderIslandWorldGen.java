@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 
-public class DestitudeIslandWorldGen implements IWorldGenerator {
+public class LivingEnderIslandWorldGen implements IWorldGenerator {
 	
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -24,7 +24,7 @@ public class DestitudeIslandWorldGen implements IWorldGenerator {
 		
 	public void generateEnd(World world, Random rand, int x, int z) {
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x + 16, z + 16);
-	      if ((biome == BiomeGenBase.sky || (BiomeDictionary.isBiomeOfType(biome, Type.END))) && rand.nextInt(300) == 0) {
+	      if ((biome == BiomeGenBase.sky || (BiomeDictionary.isBiomeOfType(biome, Type.END))) && rand.nextInt(200) == 0) {
 	         byte byte0 = 20;
 	         byte byte1 = 20;
 	         byte byte2 = 35;
@@ -55,7 +55,7 @@ public class DestitudeIslandWorldGen implements IWorldGenerator {
 	         byte byte21 = 35;
 	         if (rand.nextInt(byte21) == 0) {
 	            int x1 = x + rand.nextInt(16) + 8;
-	            int y1 = rand.nextInt(10) + 20;
+	            int y1 = rand.nextInt(60) + 50;
 	            int z1 = z + rand.nextInt(16) + 8;
 	            int bumpsWide1;
 	            if (byte2 <= byte0) {
@@ -113,14 +113,14 @@ public class DestitudeIslandWorldGen implements IWorldGenerator {
 	               blocksPerBumpBottomY1 = rand.nextInt(byte14 - byte13) + byte13;
 	            }
 
-	            System.out.println("Destitude island generating at (X:" + x1 + ", Z:" + z1 + ")");
+	            System.out.println("Living Ender island generating at (X:" + x1 + ", Z:" + z1 + ")");
 	            System.out.println("May take a moment be patient!");
 	            Block genOre = Blocks.obsidian;
-	            (new DestitudeIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1, y1, z1);
-	            (new DestitudeIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 - 32, y1, z1 + 32);
-	            (new DestitudeIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 + 32, y1, z1 - 32);	            
-	            (new DestitudeIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 - 32, y1, z1 - 32);
-	            (new DestitudeIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 + 32, y1, z1 + 32);
+	            (new LivingEnderIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1, y1, z1);
+	            (new LivingEnderIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 - 32, y1, z1 + 32);
+	            (new LivingEnderIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 + 32, y1, z1 - 32);	            
+	            (new LivingEnderIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 - 32, y1, z1 - 32);
+	            (new LivingEnderIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 + 32, y1, z1 + 32);
 
 	         }
 	       }							

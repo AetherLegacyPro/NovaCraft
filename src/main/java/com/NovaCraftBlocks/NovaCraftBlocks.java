@@ -103,10 +103,16 @@ import com.NovaCraftBlocks.plants.BlockNullWart;
 import com.NovaCraftBlocks.plants.BlockTorchFlower;
 import com.NovaCraftBlocks.plants.LuminantTreeGen;
 import com.NovaCraftBlocks.plants.end.BlockChorusGrass;
+import com.NovaCraftBlocks.plants.end.BlockDarkLotus;
 import com.NovaCraftBlocks.plants.end.BlockDestitude;
 import com.NovaCraftBlocks.plants.end.BlockDestitudeBloom;
 import com.NovaCraftBlocks.plants.end.BlockDestitudeGrowth;
 import com.NovaCraftBlocks.plants.end.BlockDestituteVein;
+import com.NovaCraftBlocks.plants.end.BlockEnderBloom;
+import com.NovaCraftBlocks.plants.end.BlockEnderBrain;
+import com.NovaCraftBlocks.plants.end.BlockEnderFungus;
+import com.NovaCraftBlocks.plants.end.BlockEnderFungusBlock;
+import com.NovaCraftBlocks.plants.end.BlockEnderFungusStem;
 import com.NovaCraftBlocks.plants.end.BlockLacunaFruit;
 import com.NovaCraftBlocks.plants.end.BlockLacunaLog;
 import com.NovaCraftBlocks.plants.end.BlockLacunaPlanks;
@@ -257,7 +263,7 @@ public class NovaCraftBlocks {
 	//End Plants or Life
 	public static Block chorus_grass, void_sprout, shadow_bloom;
 	public static Block destitude_growth, destitude_block, destitude_bloom, destitude_vein;
-	public static Block living_ender;
+	public static Block living_ender, ender_fungus_block, ender_fungus_stem, dark_lotus, ender_sprout, ender_fungus, ender_brain;
 	
 	//Sculk
 	public static Block sculk_block, inked_sculk_block, sculk_vein, sculk_growth;
@@ -552,6 +558,12 @@ public class NovaCraftBlocks {
 		destitude_vein = register("destitude_vein", new BlockDestituteVein());
 		
 		living_ender = register("living_ender", new BlockLivingEnder());
+		ender_fungus_block = register("ender_fungus_block", new BlockEnderFungusBlock());
+		ender_fungus_stem = register("ender_fungus_stem", new BlockEnderFungusStem());
+		dark_lotus = registerMeta("dark_lotus", new BlockDarkLotus().setBlockTextureName(NovaCraft.find("dark_lotus")));
+		ender_sprout = registerMeta("ender_sprout", new BlockEnderBloom().setBlockTextureName(NovaCraft.find("ender_sprout")));
+		ender_fungus = registerMeta("ender_fungus", new BlockEnderFungus().setBlockTextureName(NovaCraft.find("ender_fungus")));
+		ender_brain = registerMeta("ender_brain", new BlockEnderBrain().setBlockTextureName(NovaCraft.find("ender_brain")));
 		
 		lacuna_fruit = registerMeta("lacuna_fruit", new BlockLacunaFruit().setBlockTextureName(NovaCraft.find("lacuna_fruit")));
 		lacuna_log = registerMeta("lacuna_log", new BlockLacunaLog());

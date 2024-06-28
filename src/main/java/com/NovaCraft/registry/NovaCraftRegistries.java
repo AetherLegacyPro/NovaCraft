@@ -237,7 +237,9 @@ public class NovaCraftRegistries {
 		register("nullwart_bricks", new ItemStack(NovaCraftBlocks.nullwart_bricks, 2), "XXX", "XZX", "XXX", 'X', NovaCraftItems.nullwart, 'Z', Blocks.nether_brick);
 		register("vanite_bricks", new ItemStack(NovaCraftBlocks.vanite_bricks, 4), " X ", "XZX", " X ", 'Z', NovaCraftItems.vanite_ingot, 'X', Blocks.nether_brick);
 		register("vanite_bricks", new ItemStack(NovaCraftBlocks.vanite_bricks, 4), " X ", "XZX", " X ", 'Z', NovaCraftItems.vanite_ingot, 'X', NovaCraftBlocks.nullwart_bricks);
-		register("carved_vanite_bricks", new ItemStack(NovaCraftBlocks.carved_vanite_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.vanite_bricks);		
+		register("carved_vanite_bricks", new ItemStack(NovaCraftBlocks.carved_vanite_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.vanite_bricks);
+		
+		register("ender_fungus_block", new ItemStack(NovaCraftBlocks.ender_fungus_block), "XX", "XX", 'X', NovaCraftBlocks.ender_fungus_stem);
 		
 		register("crystallized_end", new ItemStack(NovaCraftBlocks.crystallized_end), "XXX", "XXX", "XXX", 'X', NovaCraftItems.crystallized_end_shard);			
 		register("klangite_ingot", new ItemStack(NovaCraftItems.klangite_ingot, 9), "X", 'X', NovaCraftBlocks.block_of_klangite);

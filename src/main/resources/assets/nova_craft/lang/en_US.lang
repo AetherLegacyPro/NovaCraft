@@ -377,6 +377,13 @@ tile.destitude_block.name=Destitude Block
 tile.destitude_bloom.name=Destitude Bloom
 tile.destitude_vein.name=Destitude Vein
 tile.living_ender.name=Living Ender
+tile.dark_lotus.name=Dark Lotus
+tile.ender_brain.name=Ender Brain
+tile.ender_fungus.name=Endgus
+tile.ender_sprout.name=Ender Sprout
+tile.ender_fungus_block.name=Block Of Endgus
+tile.ender_fungus_stem.name=Endgus Stem
+
 
 tile.vanite_cauldron.name=Vanite Cauldron
 tile.molten_vanite_cauldron.name=Molten Vanite Cauldron

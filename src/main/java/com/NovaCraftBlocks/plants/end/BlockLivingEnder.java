@@ -35,13 +35,13 @@ public class BlockLivingEnder extends Block {
     private IIcon blockBottom;
 	
 	public BlockLivingEnder() {
-		super(Material.iron);
+		super(Material.rock);
 
 		this.setTickRandomly(true);
 		this.setHardness(3.0F);
 		this.setResistance(3.5F);
-		this.setStepSound(ModSounds.soundNullstone);
-		this.setHarvestLevel("pickaxe", 1);
+		this.setStepSound(ModSounds.soundMoss);
+		this.setHarvestLevel("shovel", 1);
 	}
 	
 	@SideOnly(Side.CLIENT)
