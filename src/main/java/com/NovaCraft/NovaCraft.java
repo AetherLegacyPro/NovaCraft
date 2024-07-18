@@ -35,6 +35,7 @@ import com.NovaCraft.world.NCWorldGeneratorPost;
 import com.NovaCraft.world.NCWorldGeneratorPre;
 import com.NovaCraft.world.OreGenEventHandler;
 import com.NovaCraft.world.PopulateChunkEventHandler;
+import com.NovaCraft.world.ancient_city.AncientCityGen;
 import com.NovaCraft.world.end.DestitudeIslandWorldGen;
 import com.NovaCraft.world.end.EndIslandWorldGen;
 import com.NovaCraft.world.end.LivingEnderIslandWorldGen;
@@ -129,14 +130,16 @@ public class NovaCraft
 		MapGenStructureIO.registerStructure(MapGenNetherBridgeNovaCraft.Start.class, "NovaFortress");
 		StructureNovaCraftNetherBridgePieces.registerStructureNovaCraftNetherBridgePieces();
         }
+        
+        NovaCraftItems.initialization();
+    	NovaCraftBlocks.initialization();
+    	NovaCraftBlocks.initializeHarvestLevels();
              
+    	GameRegistry.registerWorldGenerator((IWorldGenerator)new AncientCityGen(), Integer.MAX_VALUE);
     }
     
     @EventHandler
 	public void init(FMLInitializationEvent event) {
-    	NovaCraftItems.initialization();
-    	NovaCraftBlocks.initialization();
-    	NovaCraftBlocks.initializeHarvestLevels();
     	EntitiesNovaCraft.initialization();
     	EntitiesNovaCraft.addSpawns();
     	NovaCraftCreativeTabs.initialization();
@@ -165,6 +168,7 @@ public class NovaCraft
     	GameRegistry.registerWorldGenerator(NCWorldGeneratorEnd.INSTANCE, Integer.MAX_VALUE);
       	GameRegistry.registerWorldGenerator((IWorldGenerator)new NCWorldGeneratorPost(), 2);
       	GameRegistry.registerWorldGenerator(NCWorldGeneratorPlants.INSTANCE, Integer.MAX_VALUE);
+      	
     }
     
     public static ResourceLocation locate(String location) {

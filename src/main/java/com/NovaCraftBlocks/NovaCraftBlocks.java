@@ -252,7 +252,7 @@ public class NovaCraftBlocks {
 	
 	
 	//End Building/World Gen Blocks
-	public static Block frontierslate, frontierslate_bricks;	
+	public static Block frontierslate, frontierslate_bricks, carved_frontierslate_bricks;	
 	public static Block frontierslate_slab, frontierslate_double_slab, frontierslate_stairs, frontierslate_wall;
 	public static Block frontierslate_brick_slab, frontierslate_brick_double_slab, frontierslate_brick_stairs, frontierslate_brick_wall;
 	public static Block lacuna_log, lacuna_fruit, lacuna_planks;
@@ -374,6 +374,7 @@ public class NovaCraftBlocks {
 		
 		frontierslate = register("frontierslate", new BlockFrontierslate());
 		frontierslate_bricks = register("frontierslate_bricks", new BlockFrontierslateBricks());
+		carved_frontierslate_bricks = register("carved_frontierslate_bricks", new BlockCarvedFrontierslateBricks());
 		
 		crystallized_end = register("crystallized_end", new BlockCrystallizedEnd());
 		

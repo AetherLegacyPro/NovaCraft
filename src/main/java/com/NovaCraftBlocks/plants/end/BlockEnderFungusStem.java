@@ -109,23 +109,23 @@ public class BlockEnderFungusStem extends Block implements IEmissiveLayerBlock {
 
         if (l == 1)
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.08D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 2)
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.08D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 3)
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.08D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 4)
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.08D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.08D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
     }
 

@@ -10,6 +10,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -54,6 +55,13 @@ public class BlockDarkLotus extends BlockBush implements IShearable {
 	{
 		return true;
 	}
+	
+	@Override
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {		
+
+		entity.motionY = 3.0D;
+		
+	}
 
 	@Override
 	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
@@ -82,23 +90,23 @@ public class BlockDarkLotus extends BlockBush implements IShearable {
 
         if (l == 1)
         {
-        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.18D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.28D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 2)
         {
-        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.18D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.28D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 3)
         {
-        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.18D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.28D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 4)
         {
-        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.18D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.28D, 0.0D, 0.0f, new Object[0]);
         }
         else
         {
-        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.18D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.VOID.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.28D, 0.0D, 0.0f, new Object[0]);
         }
     }
 	

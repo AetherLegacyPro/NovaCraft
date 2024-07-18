@@ -20,6 +20,24 @@ public class OtherModBlocks
     public static Block red_nether_brick_wall;
     public static Block red_netherbrick_stairs;
     public static Block red_netherbrick_slab;
+    public static Block end_bricks;    
+    public static Block end_brick_slab;
+    public static Block end_brick_stairs;    
+    public static Block purpur_block;
+    public static Block purpur_slab;
+    public static Block purpur_stairs;
+    public static Block purpur_pillar;
+    public static Block end_rod;
+    public static Block chorus_flower;
+    public static Block deepslate_bricks;
+    public static Block polished_deepslate;
+    public static Block deepslate_brick_slab;
+    public static Block deepslate_brick_stairs;
+    public static Block deepslate_tile_stairs;
+    public static Block polished_deepslate_stairs;   
+    public static Block deepslate_wall;
+    public static Block soul_lantern;
+    public static Block fence_dark_oak;
     
     //Netherlicious
     public static Block Nether_Gravel;
@@ -55,6 +73,7 @@ public class OtherModBlocks
     //Hardcore Ender Expansion
     public static Block endium_ore;
     public static Block endium_block;
+    public static Block obsidian_special;
     
     static {
     	OtherModBlocks.deepslate = GameRegistry.findBlock("etfuturum", "deepslate");
@@ -69,7 +88,25 @@ public class OtherModBlocks
     	OtherModBlocks.red_netherbrick = GameRegistry.findBlock("etfuturum", "red_netherbrick");
     	OtherModBlocks.red_nether_brick_wall = GameRegistry.findBlock("etfuturum", "red_nether_brick_wall");
     	OtherModBlocks.red_netherbrick_stairs = GameRegistry.findBlock("etfuturum", "red_netherbrick_stairs");
-    	OtherModBlocks.red_netherbrick_slab = GameRegistry.findBlock("etfuturum", "red_netherbrick_slab");
+    	OtherModBlocks.red_netherbrick_slab = GameRegistry.findBlock("etfuturum", "red_netherbrick_slab");    	
+    	OtherModBlocks.end_bricks = GameRegistry.findBlock("etfuturum", "end_bricks");
+    	OtherModBlocks.purpur_block = GameRegistry.findBlock("etfuturum", "purpur_block");
+    	OtherModBlocks.purpur_pillar = GameRegistry.findBlock("etfuturum", "purpur_pillar");
+    	OtherModBlocks.purpur_slab = GameRegistry.findBlock("etfuturum", "purpur_slab");
+    	OtherModBlocks.purpur_stairs = GameRegistry.findBlock("etfuturum", "purpur_stairs");
+    	OtherModBlocks.end_rod = GameRegistry.findBlock("etfuturum", "end_rod");   	
+    	OtherModBlocks.end_brick_slab = GameRegistry.findBlock("etfuturum", "end_brick_slab");
+    	OtherModBlocks.end_brick_stairs = GameRegistry.findBlock("etfuturum", "end_brick_stairs");  	
+    	OtherModBlocks.chorus_flower = GameRegistry.findBlock("etfuturum", "chorus_flower");  	
+    	OtherModBlocks.deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
+    	OtherModBlocks.polished_deepslate = GameRegistry.findBlock("etfuturum", "polished_deepslate");
+    	OtherModBlocks.deepslate_brick_slab = GameRegistry.findBlock("etfuturum", "deepslate_brick_slab");
+    	OtherModBlocks.deepslate_tile_stairs = GameRegistry.findBlock("etfuturum", "deepslate_tile_stairs");
+    	OtherModBlocks.polished_deepslate_stairs = GameRegistry.findBlock("etfuturum", "polished_deepslate_stairs");   	
+    	OtherModBlocks.deepslate_brick_stairs = GameRegistry.findBlock("etfuturum", "deepslate_brick_stairs"); 	
+    	OtherModBlocks.deepslate_wall = GameRegistry.findBlock("etfuturum", "deepslate_wall");
+    	OtherModBlocks.soul_lantern = GameRegistry.findBlock("etfuturum", "soul_lantern");    	
+    	OtherModBlocks.fence_dark_oak = GameRegistry.findBlock("etfuturum", "fence_dark_oak");
     	
     	OtherModBlocks.Nether_Gravel = GameRegistry.findBlock("netherlicious", "Nether_Gravel");
     	OtherModBlocks.Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");    	
@@ -98,5 +135,6 @@ public class OtherModBlocks
     	
     	OtherModBlocks.endium_ore = GameRegistry.findBlock("HardcoreEnderExpansion", "endium_ore");
     	OtherModBlocks.endium_block = GameRegistry.findBlock("HardcoreEnderExpansion", "endium_block");
+    	OtherModBlocks.obsidian_special = GameRegistry.findBlock("HardcoreEnderExpansion", "obsidian_special");
     }
 }

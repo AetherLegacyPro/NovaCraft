@@ -2,6 +2,16 @@ package com.NovaCraft.world.end;
 
 import java.util.Random;
 
+import com.NovaCraft.world.end.endcamp.ChorusIslandGen;
+import com.NovaCraft.world.end.endcamp.EnderCampCenterGen;
+import com.NovaCraft.world.end.endcamp.EnderCampTreasureTowerPart1Gen;
+import com.NovaCraft.world.end.endcamp.EnderCampTreasureTowerPart2Gen;
+import com.NovaCraft.world.end.endcamp.EnderSettlementCagedBlocksGen;
+import com.NovaCraft.world.end.endcamp.EnderSettlementLacunaIslandGen;
+import com.NovaCraft.world.end.endcamp.EnderSettlementShipBottomGen;
+import com.NovaCraft.world.end.endcamp.EnderSettlementShipGen;
+import com.NovaCraft.world.end.endcamp.EnderSettlementSmallEndTowerGen;
+
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -55,7 +65,7 @@ public class LivingEnderIslandWorldGen implements IWorldGenerator {
 	         byte byte21 = 35;
 	         if (rand.nextInt(byte21) == 0) {
 	            int x1 = x + rand.nextInt(16) + 8;
-	            int y1 = rand.nextInt(60) + 50;
+	            int y1 = rand.nextInt(20) + 80;
 	            int z1 = z + rand.nextInt(16) + 8;
 	            int bumpsWide1;
 	            if (byte2 <= byte0) {
@@ -121,6 +131,21 @@ public class LivingEnderIslandWorldGen implements IWorldGenerator {
 	            (new LivingEnderIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 + 32, y1, z1 - 32);	            
 	            (new LivingEnderIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 - 32, y1, z1 - 32);
 	            (new LivingEnderIsland(bumpsWide1, bumpsLong1, bumpHeightVarTop1, bumpHeightVarBottom1, bumpHeightMinTop1, bumpHeightMinBottom1, blocksPerBumpX1, blocksPerBumpZ1, blocksPerBumpTopY1, blocksPerBumpBottomY1, blurPassesTop1, blurPassesBottom1, spikeHeightVarTop1, spikeHeightVarBottom1, radialDistanceSamples1, radialDistanceMin1, radialDistanceVar1, radialDistanceScaling1, radialDistanceBlurPasses1, genOre)).generate(world, rand, x1 + 32, y1, z1 + 32);
+	            
+	            
+	            new EnderCampCenterGen().generate(world, rand, x1, y1 + 12, z1);
+	            
+	            new EnderSettlementSmallEndTowerGen().generate(world, rand, x1 + 20, y1 + 12, z1);
+	            new EnderSettlementCagedBlocksGen().generate(world, rand, x1 - 20, y1 + 12, z1);
+	            
+	            new ChorusIslandGen().generate(world, rand, x1, y1 + 12, z1 + 30);
+	            new EnderSettlementLacunaIslandGen().generate(world, rand, x1, y1 + 12, z1 - 30);
+	            
+	            new EnderSettlementShipBottomGen().generate(world, rand, x1 + 25, y1 + 30, z1);
+	            new EnderSettlementShipGen().generate(world, rand, x1 + 35, y1 + 33, z1 + 2);
+	            
+	            new EnderCampTreasureTowerPart1Gen().generate(world, rand, x1 + 25, y1 + 12, z1 - 40);
+	            new EnderCampTreasureTowerPart2Gen().generate(world, rand, x1 + 25, y1 + 12, z1 - 40);
 
 	         }
 	       }							

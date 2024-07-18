@@ -48,7 +48,7 @@ public class NCWorldGenerator implements IWorldGenerator {
 	
 	public void generateEnd(World world, Random rand, int x, int z) {
 		if (Configs.enableEndstoneBlobs) {
-			generateOre(Blocks.end_stone, world, rand, x, z, 1, 100, 1, 1, 128,
+			generateOre(Blocks.end_stone, world, rand, x, z, 1, 100, 1, 1, 96,
 				Blocks.air);
 			}
 		

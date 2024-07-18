@@ -79,7 +79,7 @@ public class BlockTreasureChest extends Block {
 		}
 		case 2: if (!world.isRemote) {
 			if (Configs.enableTreasureCratesDropDiamonds == true) {
-				EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.diamond, 1 + rand));
+				EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.diamond, 1));
 				world.spawnEntityInWorld(entityItem);
 			}
 			else {

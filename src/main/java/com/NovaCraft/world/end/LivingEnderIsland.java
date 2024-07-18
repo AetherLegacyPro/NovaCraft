@@ -399,7 +399,7 @@ public class LivingEnderIsland extends WorldGenerator {
          int l1 = world.getHeightValue(j1, k1);
          if (l1 > 20) {
         	 
-        int rand2 = (int)(1 + Math.random() * 20);
+        int rand2 = (int)(1 + Math.random() * 35);
      	switch (rand2)
         {
         case 1: (new WorldGenTallGrass(NovaCraftBlocks.ender_sprout, 1)).generate(world, rand, j1, l1, k1);

@@ -219,6 +219,7 @@ public class NovaCraftRegistries {
 		register("chiseled_grimstone", new ItemStack(NovaCraftBlocks.chiseled_grimstone, 1), "X", "X", 'X', NovaCraftBlocks.grimstone_brick_slab);
 		register("chiseled_nullstone", new ItemStack(NovaCraftBlocks.chiseled_nullstone, 1), "X", "X", 'X', NovaCraftBlocks.nullstone_brick_slab);
 		register("chiseled_sculk", new ItemStack(NovaCraftBlocks.chiseled_sculk, 1), "X", "X", 'X', NovaCraftBlocks.sculk_brick_slab);
+		register("carved_frontierslate_bricks", new ItemStack(NovaCraftBlocks.carved_frontierslate_bricks, 1), "X", "X", 'X', NovaCraftBlocks.frontierslate_brick_slab);
 		
 		register("sculk_bricks", new ItemStack(NovaCraftBlocks.sculk_bricks, 2), "XXX", "XYX", "XXX", 'X', NovaCraftBlocks.sculk_vein, 'Y', NovaCraftBlocks.grimstone_bricks);
 		register("sculk_bricks", new ItemStack(NovaCraftBlocks.sculk_bricks, 3), " X ", "XYX", " X ", 'X', NovaCraftBlocks.sculk_tentacle_2, 'Y', NovaCraftBlocks.grimstone_bricks);
