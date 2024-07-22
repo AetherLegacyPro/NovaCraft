@@ -57,10 +57,10 @@ public class EntitySculkAbomination extends EntityMob
 		super.applyEntityAttributes();
 
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.75D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(75.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(8D);
-		this.setHealth(75);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5D);
+		this.setHealth(50);
 	}	
 	
 	@Override

@@ -87,34 +87,102 @@ public class BlockLegendaryEnchantmentTable extends BlockEnchantmentTable
     }
     
     public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer player, final int par6, final float par7, final float par8, final float par9) {
-        if (world.isRemote) {
-            return true;
-        }
         
-        if (world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
-            && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
-            && world.getBlock(x + 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
-            && world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+    	if ((world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
             
-            && world.getBlock(x - 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
-            && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
-            && world.getBlock(x - 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
-            && world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
             	
-             && world.getBlock(x - 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
-             && world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
-             && world.getBlock(x + 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
-             && world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
             	
-             && world.getBlock(x - 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
-             && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
-             && world.getBlock(x + 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
-             && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
             	
-             && ((world.getBlock(x + 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf && world.getBlock(x - 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf && world.getBlock(x, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf))
-             || (world.getBlock(x + 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf && world.getBlock(x - 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf && world.getBlock(x, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf) 
-             || (world.getBlock(x + 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf && world.getBlock(x, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf && world.getBlock(x, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf)
-             || (world.getBlock(x, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf && world.getBlock(x, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf && world.getBlock(x, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf)) {
+            	&& world.getBlock(x + 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf 
+            	&& world.getBlock(x - 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf 
+            	&& world.getBlock(x, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf)
+            		
+            	|| (world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            
+            	&& world.getBlock(x - 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	
+                && world.getBlock(x - 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	
+            	&& world.getBlock(x - 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	
+            	&& world.getBlock(x + 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf 
+            	&& world.getBlock(x - 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf 
+            	&& world.getBlock(x, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf)
+            	
+            	|| (world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            
+            	&& world.getBlock(x - 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	
+                && world.getBlock(x - 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	
+            	&& world.getBlock(x - 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	
+            	&& world.getBlock(x + 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf 
+            	&& world.getBlock(x, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf 
+            	&& world.getBlock(x, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf)
+            	
+            	|| (world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            
+            	&& world.getBlock(x - 2, y, z - 1) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 2, y, z + 1) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	
+                && world.getBlock(x - 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 1, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	
+            	&& world.getBlock(x - 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+                && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 1, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	&& world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf
+            	
+            	&& world.getBlock(x, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf 
+            	&& world.getBlock(x, y, z - 2) == NovaCraftBlocks.sculk_brick_bookshelf 
+            	&& world.getBlock(x - 2, y, z) == NovaCraftBlocks.sculk_brick_bookshelf)) {
         
         final int guiID = 3;
         player.openGui((Object)NovaCraft.instance, guiID, world, x, y, z);
@@ -122,7 +190,9 @@ public class BlockLegendaryEnchantmentTable extends BlockEnchantmentTable
         }
         
         else {
+        	if (world.isRemote) {
         	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.legendary_et.invalid_structure")));
+        	}
         	return false;
         }
     }

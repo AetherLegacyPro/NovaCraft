@@ -654,6 +654,8 @@ public class NovaCraftRegistries {
 		
 		registerShapeless("reinforced_vanite_ingot", new ItemStack(NovaCraftItems.reinforced_vanite_ingot), new ItemStack(NovaCraftItems.vanite_ingot), new ItemStack(NovaCraftItems.vanite_ingot), new ItemStack(NovaCraftItems.vanite_ingot), new ItemStack(NovaCraftItems.vanite_ingot), new ItemStack(NovaCraftItems.vanite_ingot), new ItemStack(Items.diamond), new ItemStack(NovaCraftItems.luminant_ingot), new ItemStack(NovaCraftItems.luminant_ingot), new ItemStack(NovaCraftItems.luminant_ingot));
 			
+		registerShapeless("anomalous_essence", new ItemStack(NovaCraftItems.anomalous_essence), new ItemStack(NovaCraftItems.static_essence), new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 2), new ItemStack(Items.dye, 1, 3), new ItemStack(Items.dye, 1, 0), new ItemStack(Items.dye, 1, 4), new ItemStack(Items.dye, 1, 5), new ItemStack(Items.dye, 1, 11), new ItemStack(Items.dye, 1, 15));
+
 		
 		registerShapeless("blazing_coal", new ItemStack(NovaCraftItems.blazing_coal), new ItemStack(NovaCraftItems.flaming_pitcher_petal), new ItemStack(Items.coal), new ItemStack(Items.blaze_powder));		
 		registerShapeless("nullwart_blend", new ItemStack(NovaCraftItems.nullwart_blend, 3), new ItemStack(NovaCraftItems.vanite_crystal), new ItemStack(NovaCraftItems.ionizatior_powder), new ItemStack(NovaCraftItems.nullwart));

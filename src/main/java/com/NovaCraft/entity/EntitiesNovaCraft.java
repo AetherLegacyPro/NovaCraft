@@ -267,7 +267,7 @@ public class EntitiesNovaCraft {
 						EntityRegistry.addSpawn(EntityPhantom.class, 3, 2, 3, EnumCreatureType.monster, biome);
 					}
 					if (Configs.enableSpawnEnderLord) {
-						EntityRegistry.addSpawn(EntityEnderLord.class, 10, 4, 4, EnumCreatureType.monster, biome);
+						EntityRegistry.addSpawn(EntityEnderLord.class, 2, 1, 4, EnumCreatureType.monster, biome);
 					}					
 					if (Configs.enableSpawnEnderAvis) {
 						EntityRegistry.addSpawn(EntityEnderAvis.class, 2, 1, 2, EnumCreatureType.creature, biome);

@@ -45,6 +45,7 @@ public class EntitySculkHunger extends EntityMob
 		this.tasks.addTask(8, new EntityAILookIdle(this));
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+		addRandomArmor();
 		setSize(0.6F, 1.8F);
 		this.experienceValue = 5;
 	}
@@ -56,10 +57,16 @@ public class EntitySculkHunger extends EntityMob
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(3.85D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(8D);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(60D);
 		this.setHealth(25);
-	}	
+	}
+	
+	@Override
+	protected void addRandomArmor()
+	{		
+		this.setCurrentItemOrArmor(0, new ItemStack(NovaCraftItems.sculked_blade));
+	}
 	
 	@Override
 	public boolean attackEntityAsMob(final Entity entity) {
@@ -71,7 +78,7 @@ public class EntitySculkHunger extends EntityMob
 			}
 		}
 		
-		this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 30, 0));        
+		this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 60, 1));        
         int rand = (int)(1 + Math.random() * 3);
 		switch (rand)
         {
@@ -96,11 +103,6 @@ public class EntitySculkHunger extends EntityMob
             this.setFire(4);
         }	
 		super.onLivingUpdate();
-	}
-	
-	public float getBrightness(float p_70013_1_)
-	{
-		return super.getBrightness(p_70013_1_);
 	}
 	
 	 protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)

@@ -285,7 +285,7 @@ public class EntityVoidCube extends EntityLiving implements IMob
         final int j = MathHelper.floor_double(this.boundingBox.minY);
         final int k = MathHelper.floor_double(this.posZ);
         final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);          
-        return (this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.frontierslate) && this.worldObj.getBlockLightValue(i, j, k) < 11 && canSpawn;
+        return (this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.frontierslate || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.destitude_block || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.destitude_growth) && this.worldObj.getBlockLightValue(i, j, k) < 11 && canSpawn;
                       
     }
 

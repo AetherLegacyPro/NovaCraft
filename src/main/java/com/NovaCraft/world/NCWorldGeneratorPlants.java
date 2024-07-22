@@ -154,8 +154,8 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 		mushroom4.add(new WorldGenNovaCraftMushroom4(NovaCraftBlocks.rozite_mushroom, 2));
 		mushroom5.add(new WorldGenNovaCraftMushroom5(NovaCraftBlocks.pleurotus_mushroom, 1));
 		
-		pherithium_gen.add(new WorldGenPherithium(NovaCraftBlocks.large_pherithium_stalagmite, 15));
-		small_pherithium_gen.add(new WorldGenPherithiumSmall(NovaCraftBlocks.small_pherithium_stalagmite, 17));
+		pherithium_gen.add(new WorldGenPherithium(NovaCraftBlocks.large_pherithium_stalagmite, 16));
+		small_pherithium_gen.add(new WorldGenPherithiumSmall(NovaCraftBlocks.small_pherithium_stalagmite, 18));
 		
 		stone_stalagmite_gen.add(new WorldGenStoneStalagmite(NovaCraftBlocks.stone_stalagmite, 25));
 		large_stone_stalagmite_gen.add(new WorldGenLargeStoneStalagmite(NovaCraftBlocks.large_stone_stalagmite, 23));
@@ -476,8 +476,8 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 				}
 				
 				if (Configs.enablePherithiumGeneration && (ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-				pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(12) + 15, z);
-				small_pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(12) + 15, z);
+				pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(25) + 15, z);
+				small_pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(23) + 15, z);
 				}
 				
 				
@@ -675,6 +675,11 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			 if( biome.biomeID == 132 || (ArrayUtils.contains(biomeList, Type.MAGICAL) && !ArrayUtils.contains(biomeList, Type.LUSH) && !ArrayUtils.contains(biomeList, Type.JUNGLE) && world.getHeightValue(x, z) > 0)) {
 				 torchflower.get(0).generate(world, rand, x, nextHeightInt(rand, world.getHeightValue(x, z) * 2), z);
 			 		}
+				}
+				
+				if (Configs.enablePherithiumGeneration == true) {
+				pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(25) + 15, z);
+				small_pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(23) + 15, z);
 				}
 			}
 				

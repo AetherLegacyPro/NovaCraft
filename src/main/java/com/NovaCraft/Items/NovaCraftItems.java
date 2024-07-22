@@ -99,6 +99,7 @@ import com.NovaCraft.Items.Tools.ItemPherithiumShovel;
 import com.NovaCraft.Items.Tools.ItemPherithiumSword;
 import com.NovaCraft.Items.Tools.ItemPhoenixRazor;
 import com.NovaCraft.Items.Tools.ItemReinforcedPherithiumShickaxe;
+import com.NovaCraft.Items.Tools.ItemSculkedBlade;
 import com.NovaCraft.Items.Tools.ItemScythe;
 import com.NovaCraft.Items.Tools.ItemTophiniteAxe;
 import com.NovaCraft.Items.Tools.ItemTophiniteHammer;
@@ -236,7 +237,7 @@ public class NovaCraftItems {
 	
 	public static Item vanite_blue_crown, vanite_red_crown, vanite_green_crown, vanite_orange_crown, vanite_mysterious_crown, vanite_exotic_crown, vanite_notched_crown, vanite_dark_blue_crown;
 	
-	public static Item eerie_sword, scythe, diablo, sculk_horn, vanite_trident;
+	public static Item eerie_sword, sculked_blade, scythe, diablo, sculk_horn, vanite_trident;
 	
 	public static Item ender_lord_staff, crystal_growth_staff, ice_sceptor, phoenix_razor;
 	
@@ -491,6 +492,7 @@ public class NovaCraftItems {
 		
 		vanite_trident = register("vanite_trident", new ItemVaniteTrident(NCToolMaterial.VANITE_TRIDENT).setTextureName(NovaCraft.find("vanite_trident")));
 		eerie_sword = register("eerie_sword", new ItemEerieSword().setTextureName(NovaCraft.find("eerie_sword")));
+		sculked_blade = register("sculked_blade", new ItemSculkedBlade().setTextureName(NovaCraft.find("sculked_blade")));
 		scythe = register("scythe", new ItemScythe().setTextureName(NovaCraft.find("scythe")));
 		diablo = register("diablo", new ItemDiablo().setTextureName(NovaCraft.find("diablo")));
 		sculk_horn = register("sculk_horn", new ItemSculkHorn().setTextureName(NovaCraft.find("sculk_horn")));

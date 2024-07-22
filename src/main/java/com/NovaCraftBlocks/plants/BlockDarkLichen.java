@@ -27,7 +27,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
 {
-	public static final int[] colors = new int[]{0x120d1a, 0x150c26, 0x110034, 0x15152f, 0x131527, 0x0a0c20, 0x160a20, 0x13051e};
+	public static final int[] colors = new int[]{0x110034, 0x110034, 0x110034, 0x110034, 0x110034, 0x110034, 0x110034, 0x110034};
 	private IIcon infusedOverlay;
     private IIcon[] icon;
     
@@ -38,6 +38,7 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
         this.setHardness(0.2f);
         this.setLightOpacity(0);
         this.func_150089_b(0);
+        this.setLightLevel(0.45F);
         this.setCreativeTab(NovaCraftCreativeTabs.blocks);
         this.setTickRandomly(false);
     }

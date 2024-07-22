@@ -16,6 +16,7 @@ public class EnderRayModel extends ModelBase
     ModelRenderer righttail;
     ModelRenderer lefttail;
     
+    //Credit goes to the Ender Stuff Plus Mod Author
     public EnderRayModel() {
         this.textureWidth = 64;
         this.textureHeight = 32;

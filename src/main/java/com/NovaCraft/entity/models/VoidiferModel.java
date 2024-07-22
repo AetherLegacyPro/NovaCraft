@@ -44,6 +44,7 @@ public class VoidiferModel extends ModelBase
         this(0.0f);
     }
     
+    //Credit goes to the Evil Minecraft(1.2.5) mod Author
     public VoidiferModel(final float scale) {
         this.textureWidth = 64;
         this.textureHeight = 64;

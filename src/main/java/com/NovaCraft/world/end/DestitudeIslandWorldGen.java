@@ -2,6 +2,8 @@ package com.NovaCraft.world.end;
 
 import java.util.Random;
 
+import com.NovaCraft.config.Configs;
+
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -21,10 +23,12 @@ public class DestitudeIslandWorldGen implements IWorldGenerator {
 	         this.generateEnd(world, rand, chunkX * 16, chunkZ * 16);
 	      }
 	   }
+	
+	int novacraft_random = Configs.destituteIslandSpawnRate; 
 		
 	public void generateEnd(World world, Random rand, int x, int z) {
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x + 16, z + 16);
-	      if ((biome == BiomeGenBase.sky || (BiomeDictionary.isBiomeOfType(biome, Type.END))) && rand.nextInt(300) == 0) {
+	      if ((biome == BiomeGenBase.sky || (BiomeDictionary.isBiomeOfType(biome, Type.END))) && Configs.destituteIslandSpawnRate != 0 && rand.nextInt(novacraft_random) == 17) {
 	         byte byte0 = 20;
 	         byte byte1 = 20;
 	         byte byte2 = 35;

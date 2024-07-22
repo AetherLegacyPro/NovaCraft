@@ -151,6 +151,8 @@ public class Configs
     
     public static int vindicatorVillageSpawnRate;
     public static int sculkDwellingSpawnRate;
+    public static int endIslandSpawnRate;
+    public static int destituteIslandSpawnRate;
     public static boolean enableDeepoidFortress;
     public static boolean enableSculkInfestedMineshaft;
     
@@ -297,10 +299,12 @@ public class Configs
         enableLacunaTreeGeneration = conf.getBoolean("enableLacunaTreeGeneration", catGeneration, true, "Enables Lacuna Trees Generating In the End(May crash when generating with Neodymium; fix unknown).");
       
         enableLuminantTreeGeneration = conf.getBoolean("enableLuminantTreeGeneration", catGeneration, true, "Enables luminant tree generation.");
-        vindicatorVillageSpawnRate = conf.get("Spawn Rate - Vindicator Villages", catGeneration, 10).getInt();
+        vindicatorVillageSpawnRate = conf.get("Spawn Rate - Vindicator Villages", catGeneration, 25).getInt();
         sculkDwellingSpawnRate = conf.get("Spawn Rate - Sculk Dwelling", catGeneration, 80).getInt();
         enableDeepoidFortress = conf.getBoolean("enableDeepoidFortress", catGeneration, true, "Enables Deepoid Fortress Generation in the Nether.");
         enableSculkInfestedMineshaft = conf.getBoolean("enableSculkInfestedMineshaft", catGeneration, true, "Enables Sculk Infested Mineshafts to generate within Mountain Type Biomes.");
+        endIslandSpawnRate = conf.get("Spawn Rate - End Islands", catGeneration, 121).getInt();
+        destituteIslandSpawnRate = conf.get("Spawn Rate - Destitute Islands", catGeneration, 300).getInt();
         
         //Particles
         enableGlowSquidParticles = conf.getBoolean("enableGlowSquidParticles", catParticles, true, "Enables Glow Squid Particles(Causing the log to freak out if Dragon API is installed)");

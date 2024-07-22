@@ -16,7 +16,7 @@ import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
 
 public class BlockGrimLichen extends BlockBush implements IEmissiveLayerBlock
 {
-	public static final int[] colors = new int[]{0x3c3038, 0x2b1f28, 0x30242d, 0x2e2430, 0x231e24, 0x251527, 0x1c1527, 0x150d22};
+	public static final int[] colors = new int[]{0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28};
 	private IIcon infusedOverlay;
     private IIcon[] icon;
     
@@ -28,7 +28,7 @@ public class BlockGrimLichen extends BlockBush implements IEmissiveLayerBlock
         this.setLightOpacity(0);
         this.func_150089_b(0);
         this.setCreativeTab(NovaCraftCreativeTabs.blocks);
-        this.setLightLevel(0.08F);
+        this.setLightLevel(0.45F);
         this.setTickRandomly(false);
     }
     

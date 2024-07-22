@@ -15,11 +15,11 @@ public class EnderLordModel extends ModelBiped
 	private final ModelRenderer unknown;
 	private final ModelRenderer cape;
 
+	 //Credit goes to the Legendary Beasts Mod Author
     public EnderLordModel()
     {
     	this.textureWidth = 128;
         this.textureHeight = 64;
-        //super(0.0F, -14.0F, 64, 32);
         float f = -14.0F;
         float f1 = 0.0F;
         
@@ -41,20 +41,6 @@ public class EnderLordModel extends ModelBiped
         this.bipedBody.setTextureSize(128, 64);
         this.bipedBody.mirror = true;
         this.setRotation(this.bipedBody, 0.0f, 0.0f, 0.0f);    
-        
-        //this.bipedRightArm = new ModelRenderer(this, 56, 0).addBox(-1.0f, -2.0f, -1.0f, 3, 30, 3);
-       // this.bipedRightArm.setRotationPoint(-7.0f, -21.0f, -0.5f);
-        //this.bipedRightArm.setTextureSize(128, 64);
-       // this.bipedRightArm.mirror = true;
-       // this.setRotation(this.bipedRightArm, 0.0f, 0.0f, 0.0f);
-        
-        //this.bipedLeftArm = new ModelRenderer(this, 56, 0).addBox(-1.0f, -2.0f, -1.0f, 3, 30, 3);
-       // this.bipedLeftArm.setRotationPoint(6.0f, -21.0f, -0.5f);
-       // this.bipedLeftArm.setTextureSize(128, 64);
-        //this.setRotation(this.bipedLeftArm, -0.7853982f, 0.0f, 0.0f);
-       // this.bipedLeftArm.mirror = true;
-       // this.setRotation(this.bipedLeftArm, 0.0f, 0.0f, 0.0f);
-       // this.bipedLeftArm.mirror = false; 
         
         this.bipedRightArm = new ModelRenderer(this, 56, 0);
         this.bipedRightArm.addBox(-1.0F, -2.0F, -1.0F, 3, 30, 3, f1);

@@ -1,11 +1,14 @@
 package com.NovaCraft.Items.Armor;
 
+import java.util.List;
+
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -13,6 +16,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
@@ -122,6 +126,17 @@ public class ItemKlangiteArmor extends ItemBaseKlangiteArmor implements ISpecial
         }
         if (hasPherithiumHelmet && hasPherithiumChest && hasPherithiumLegs && hasPherithiumBoots) {
             player.triggerAchievement(AchievementsNovaCraft.cover_me_with_klangite);
+            
+            if(!world.isRemote) {
+        		AxisAlignedBB axisalignedbb = player.boundingBox;
+        		List<EntityLivingBase> volume = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb.expand(2, 3, 2));
+        		int rand = (int)(1 + Math.random() * 96);
+        		 for(Entity entity : volume) {
+        			 if(!(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && rand == 1) {
+        				 entity.attackEntityFrom(DamageSource.causeThornsDamage(player), 2F);
+        			 }
+        		  }
+        		 }
         }
     }
 

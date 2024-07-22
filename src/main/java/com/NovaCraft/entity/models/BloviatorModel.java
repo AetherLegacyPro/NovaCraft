@@ -50,6 +50,7 @@ public class BloviatorModel extends ModelBase
         this(0.0f);
     }
     
+  //Credit goes to the Evil Minecraft(1.2.5) mod Author
     public BloviatorModel(final float scale) {
         this.textureWidth = 265;
         this.textureHeight = 256;

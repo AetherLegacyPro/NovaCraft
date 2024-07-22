@@ -39,6 +39,7 @@ public class EnderAvisModel extends ModelBase
     public boolean isSitting;
     public float[] collarClr;
     
+    //Credit goes to the Ender Stuff Plus Mod Author
     public EnderAvisModel() {
         this.isFlying = false;
         this.ticksFlying = 0;

@@ -87,12 +87,8 @@ public class BlockAdvancedEnchantmentTable extends BlockEnchantmentTable
     }
     
     public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-        if (world.isRemote) 
-        	{
-        	return true;
-        }
         
-        if (world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+        if ((world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.nullwart_brick_bookshelf
             && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
         	&& world.getBlock(x + 2, y, z + 1) == NovaCraftBlocks.nullwart_brick_bookshelf
         	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
@@ -112,10 +108,82 @@ public class BlockAdvancedEnchantmentTable extends BlockEnchantmentTable
         	&& world.getBlock(x + 1, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
         	&& world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
         	
-            && ((world.getBlock(x + 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf && world.getBlock(x - 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf && world.getBlock(x, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf))
-            || (world.getBlock(x + 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf && world.getBlock(x - 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf && world.getBlock(x, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf) 
-            || (world.getBlock(x + 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf && world.getBlock(x, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf && world.getBlock(x, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf)
-            || (world.getBlock(x, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf && world.getBlock(x, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf && world.getBlock(x, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf)) {
+        	&& world.getBlock(x + 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf 
+        	&& world.getBlock(x - 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf 
+        	&& world.getBlock(x, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf)
+        		
+        	|| (world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z + 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        
+        	&& world.getBlock(x - 2, y, z - 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x - 2, y, z + 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	
+            && world.getBlock(x - 1, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 1, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	
+        	&& world.getBlock(x - 1, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 1, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	
+        	&& world.getBlock(x + 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf 
+        	&& world.getBlock(x - 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf 
+        	&& world.getBlock(x, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf)
+        	
+        	|| (world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z + 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        
+        	&& world.getBlock(x - 2, y, z - 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x - 2, y, z + 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	
+            && world.getBlock(x - 1, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 1, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	
+        	&& world.getBlock(x - 1, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 1, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	
+        	&& world.getBlock(x + 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf 
+        	&& world.getBlock(x, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf 
+        	&& world.getBlock(x, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf)
+        	
+        	|| (world.getBlock(x + 2, y, z - 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z + 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        
+        	&& world.getBlock(x - 2, y, z - 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x - 2, y, z + 1) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	
+            && world.getBlock(x - 1, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x - 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 1, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	
+        	&& world.getBlock(x - 1, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+            && world.getBlock(x - 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 1, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	&& world.getBlock(x + 2, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf
+        	
+        	&& world.getBlock(x, y, z + 2) == NovaCraftBlocks.nullwart_brick_bookshelf 
+        	&& world.getBlock(x, y, z - 2) == NovaCraftBlocks.nullwart_brick_bookshelf 
+        	&& world.getBlock(x - 2, y, z) == NovaCraftBlocks.nullwart_brick_bookshelf)) {
+        	
        
         final int guiID = 4;
         player.openGui((Object)NovaCraft.instance, guiID, world, x, y, z);
@@ -123,7 +191,9 @@ public class BlockAdvancedEnchantmentTable extends BlockEnchantmentTable
         }
         
         else {
+        	if (world.isRemote) {
         	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.advanced_et.invalid_structure")));
+        	}
         	return false;
         }
     }
