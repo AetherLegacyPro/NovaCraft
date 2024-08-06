@@ -1,7 +1,9 @@
 package com.NovaCraft.registry;
 
 import net.minecraft.block.*;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.*;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.*;
 
 public class OtherModBlocks
@@ -32,12 +34,19 @@ public class OtherModBlocks
     public static Block deepslate_bricks;
     public static Block polished_deepslate;
     public static Block deepslate_brick_slab;
+    public static Block deepslate_slab;
     public static Block deepslate_brick_stairs;
     public static Block deepslate_tile_stairs;
+    public static Block cobbled_deepslate_stairs;
     public static Block polished_deepslate_stairs;   
     public static Block deepslate_wall;
     public static Block soul_lantern;
     public static Block fence_dark_oak;
+    public static Block blue_ice;
+    public static Block iron_trapdoor;
+    public static Block basalt;
+    public static Block deepslate_brick_wall;
+    public static Block smooth_basalt;
     
     //Netherlicious
     public static Block Nether_Gravel;
@@ -48,6 +57,7 @@ public class OtherModBlocks
     public static Block WarpedNylium;
     public static Block CrimsonNylium;
     public static Block Basalt;
+    public static Block BasaltBricks;
     
     //Aether Legacy
     public static Block enchanted_gravitite;
@@ -101,12 +111,19 @@ public class OtherModBlocks
     	OtherModBlocks.deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
     	OtherModBlocks.polished_deepslate = GameRegistry.findBlock("etfuturum", "polished_deepslate");
     	OtherModBlocks.deepslate_brick_slab = GameRegistry.findBlock("etfuturum", "deepslate_brick_slab");
+    	OtherModBlocks.deepslate_slab = GameRegistry.findBlock("etfuturum", "deepslate_slab");
     	OtherModBlocks.deepslate_tile_stairs = GameRegistry.findBlock("etfuturum", "deepslate_tile_stairs");
     	OtherModBlocks.polished_deepslate_stairs = GameRegistry.findBlock("etfuturum", "polished_deepslate_stairs");   	
     	OtherModBlocks.deepslate_brick_stairs = GameRegistry.findBlock("etfuturum", "deepslate_brick_stairs"); 	
     	OtherModBlocks.deepslate_wall = GameRegistry.findBlock("etfuturum", "deepslate_wall");
     	OtherModBlocks.soul_lantern = GameRegistry.findBlock("etfuturum", "soul_lantern");    	
     	OtherModBlocks.fence_dark_oak = GameRegistry.findBlock("etfuturum", "fence_dark_oak");
+    	OtherModBlocks.blue_ice = GameRegistry.findBlock("etfuturum", "blue_ice");
+    	OtherModBlocks.iron_trapdoor = GameRegistry.findBlock("etfuturum", "iron_trapdoor");
+    	OtherModBlocks.basalt = GameRegistry.findBlock("etfuturum", "basalt");
+    	OtherModBlocks.cobbled_deepslate_stairs = GameRegistry.findBlock("etfuturum", "cobbled_deepslate_stairs");
+    	OtherModBlocks.deepslate_brick_wall = GameRegistry.findBlock("etfuturum", "deepslate_brick_wall");
+    	OtherModBlocks.smooth_basalt = GameRegistry.findBlock("etfuturum", "smooth_basalt");
     	
     	OtherModBlocks.Nether_Gravel = GameRegistry.findBlock("netherlicious", "Nether_Gravel");
     	OtherModBlocks.Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");    	
@@ -115,6 +132,7 @@ public class OtherModBlocks
     	OtherModBlocks.WarpedNylium = GameRegistry.findBlock("netherlicious", "WarpedNylium");
     	OtherModBlocks.CrimsonNylium = GameRegistry.findBlock("netherlicious", "CrimsonNylium");
     	OtherModBlocks.CryingObsidian = GameRegistry.findBlock("netherlicious", "CryingObsidian");
+    	OtherModBlocks.BasaltBricks = GameRegistry.findBlock("netherlicious", "BasaltBricks");
     	
     	OtherModBlocks.enchanted_gravitite = GameRegistry.findBlock("aether_legacy", "enchanted_gravitite");
     	OtherModBlocks.zanite_ore = GameRegistry.findBlock("aether_legacy", "zanite_ore");

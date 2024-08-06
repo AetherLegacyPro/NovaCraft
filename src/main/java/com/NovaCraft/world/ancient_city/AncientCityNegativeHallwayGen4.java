@@ -1746,6 +1746,10 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 11, j + 7, k + 72, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 7, k + 72, Blocks.air, 0, 2);
 		 
+			world.setBlock(i + 7, j + 7, k + 0, soul_lantern, 0, 2);
+			world.setBlock(i + 7, j + 7, k + 6, soul_lantern, 0, 2);
+			world.setBlock(i + 7, j + 7, k + 12, soul_lantern, 0, 2);
+			
 		 return true;
 	 }
 

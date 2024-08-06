@@ -135,7 +135,7 @@ public class NovaCraft
     	NovaCraftBlocks.initialization();
     	NovaCraftBlocks.initializeHarvestLevels();
              
-    	//GameRegistry.registerWorldGenerator((IWorldGenerator)new AncientCityGen(), Integer.MAX_VALUE);
+    	GameRegistry.registerWorldGenerator((IWorldGenerator)new AncientCityGen(), Integer.MAX_VALUE);
     }
     
     @EventHandler
@@ -149,7 +149,7 @@ public class NovaCraft
     	NovaCraftTileEntities.initialization();
     	
     	GameRegistry.registerWorldGenerator((IWorldGenerator)new EndIslandWorldGen(), Integer.MAX_VALUE);
-    	//GameRegistry.registerWorldGenerator((IWorldGenerator)new LivingEnderIslandWorldGen(), Integer.MAX_VALUE);
+    	GameRegistry.registerWorldGenerator((IWorldGenerator)new LivingEnderIslandWorldGen(), Integer.MAX_VALUE);
     	GameRegistry.registerWorldGenerator((IWorldGenerator)new DestitudeIslandWorldGen(), Integer.MAX_VALUE);
     	
     	NetworkRegistry.INSTANCE.registerGuiHandler((Object)NovaCraft.instance, (IGuiHandler)new CommonProxy());
