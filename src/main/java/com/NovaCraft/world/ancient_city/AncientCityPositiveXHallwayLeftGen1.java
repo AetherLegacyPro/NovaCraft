@@ -1821,10 +1821,10 @@ public class AncientCityPositiveXHallwayLeftGen1 extends WorldGenerator
 		world.setBlock(i + 62, j + 2, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 63, j + 2, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 64, j + 2, k + 4, Blocks.air, 0, 2);
-		world.setBlock(i + 65, j + 2, k + 4, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 66, j + 2, k + 4, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 67, j + 2, k + 4, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 68, j + 2, k + 4, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 65, j + 2, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 66, j + 2, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 67, j + 2, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 68, j + 2, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 69, j + 2, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 70, j + 2, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 0, j + 2, k + 5, Blocks.air, 0, 2);

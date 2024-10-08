@@ -803,7 +803,6 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 7, k + 0, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 7, k + 0, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 7, k + 0, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 7, k + 0, soul_lantern, 0, 2);
 			world.setBlock(i + 8, j + 7, k + 0, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 7, k + 0, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 7, k + 0, Blocks.air, 0, 2);
@@ -881,7 +880,6 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 7, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 7, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 7, k + 6, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 7, k + 6, soul_lantern, 0, 2);
 			world.setBlock(i + 8, j + 7, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 7, k + 6, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 7, k + 6, Blocks.air, 0, 2);
@@ -959,7 +957,6 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 7, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 7, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 7, k + 12, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 7, k + 12, soul_lantern, 0, 2);
 			world.setBlock(i + 8, j + 7, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 7, k + 12, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 7, k + 12, Blocks.air, 0, 2);
@@ -1749,6 +1746,18 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 7, j + 7, k + 0, soul_lantern, 0, 2);
 			world.setBlock(i + 7, j + 7, k + 6, soul_lantern, 0, 2);
 			world.setBlock(i + 7, j + 7, k + 12, soul_lantern, 0, 2);
+			world.setBlock(i + 4, j + 4, k + 23, soul_lantern, 1, 2);
+			world.setBlock(i + 10, j + 4, k + 23, soul_lantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 27, soul_lantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 44, soul_lantern, 1, 2);
+			world.setBlock(i + 10, j + 4, k + 44, soul_lantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 48, soul_lantern, 1, 2);
+			world.setBlock(i + 10, j + 4, k + 48, soul_lantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 58, soul_lantern, 1, 2);
+			world.setBlock(i + 10, j + 4, k + 64, soul_lantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 70, soul_lantern, 1, 2);
+			world.setBlock(i + 7, j + 3, k + 9, soul_lantern, 1, 2);
+			world.setBlock(i + 7, j + 3, k + 10, soul_lantern, 1, 2);
 			
 		 return true;
 	 }

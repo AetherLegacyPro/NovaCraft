@@ -3,29 +3,42 @@ package com.NovaCraft.entity;
 import java.util.Random;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.entity.misc.EntitySculkedMonitorProjectile;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntitySculkedMonitor extends EntityMob
-{
-    private static final String __OBFID = "CL_00001699";
+{	
+	public int timeUntilShoot;
+	public int courseChangeCooldown;
+	public double waypointX, waypointY, waypointZ;
+	public int prevAttackCounter;
+	public int attackCounter;	
+	private final float base;
 
     public EntitySculkedMonitor(World p_i1743_1_)
     {
         super(p_i1743_1_);
+        this.timeUntilShoot = 30;
+        this.attackTime = this.timeUntilShoot;
+        this.base = (this.getRNG().nextFloat() - this.getRNG().nextFloat()) * 0.2F + 1.0F;
         setSize(1.2F, 1.8F);
     }
 
@@ -41,20 +54,41 @@ public class EntitySculkedMonitor extends EntityMob
     public void onUpdate()
     {
         super.onUpdate();
+        
+        if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL)
+        {
+            this.setDead();
+        }
 
         if (!this.worldObj.isRemote)
         {
             this.setBesideClimbableBlock(this.isCollidedHorizontally);
         }
+        
+        if (this.entityToAttack != null) {
+            this.attackEntity(this.entityToAttack, this.getDistanceToEntity(this.entityToAttack));
+        }
     }
+    
+    @Override
+	public boolean attackEntityAsMob(final Entity entity) {
+		final boolean flag = super.attackEntityAsMob(entity);
+		if (flag) {
+			final int i = this.worldObj.difficultySetting.getDifficultyId();
+			if (this.getHeldItem() == null && this.isBurning() && this.rand.nextFloat() < i * 0.3f) {
+				entity.setFire(0 * i);
+			}
+		}
+		return flag;
+	}
 
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(8.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(150.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(120.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.100000011920929D);
-        this.setHealth(150);
+        this.setHealth(120);
     }
     
     public boolean canBreatheUnderwater()
@@ -64,7 +98,7 @@ public class EntitySculkedMonitor extends EntityMob
     
     public int getTotalArmorValue()
     {
-        return 6;
+        return 8;
     }
 
     /**
@@ -139,6 +173,158 @@ public class EntitySculkedMonitor extends EntityMob
             {
                 super.attackEntity(p_70785_1_, p_70785_2_);
             }
+        }
+        
+        if (p_70785_1_ instanceof EntityLivingBase) {
+			if (p_70785_2_ < 10.0f) {
+                final double d = p_70785_1_.posX - this.posX;
+                final double d2 = p_70785_1_.posZ - this.posZ;
+                if (p_70785_1_ != null) {
+                    if (p_70785_1_.isDead || p_70785_1_.getDistanceToEntity(this) > 12.0 || p_70785_1_ instanceof EntitySculkedMonitor) {
+                    	p_70785_1_ = null;
+                        this.entityToAttack = null;
+                        return;
+                    }
+                    if (this.attackTime >= this.timeUntilShoot) {
+                        this.shootTarget((EntityLivingBase) p_70785_1_);
+                    }
+                    if (this.attackTime >= this.timeUntilShoot && this.canEntityBeSeen(p_70785_1_)) {
+                        this.attackTime = -10;
+                    }
+                    if (this.attackTime < this.timeUntilShoot) {
+                        ++this.attackTime;
+                    }
+                }
+                this.rotationYaw = (float)(Math.atan2(d2, d) * 180.0 / 3.1415927410125732) - 90.0f;
+            }
+        }
+    }
+    
+    @Override
+   	protected void updateEntityActionState()
+   	{
+   	
+   		if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL)
+   		{
+   			this.setDead();
+   		}
+                                   
+   		this.despawnEntity();
+   		this.prevAttackCounter = this.attackCounter;
+   		double d0 = this.waypointX - this.posX;
+   		double d1 = this.waypointY - this.posY;
+   		double d2 = this.waypointZ - this.posZ;
+   		double d3 = d0 * d0 + d1 * d1 + d2 * d2;
+   		
+   		
+   		if (d3 < 1.0D || d3 > 3600.0D)
+   		{
+   			this.waypointX = this.posX + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+   			this.waypointY = this.posY + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+   			this.waypointZ = this.posZ + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+   		}
+
+   		if (this.courseChangeCooldown-- <= 0)
+   		{
+   			this.courseChangeCooldown += this.rand.nextInt(5) + 2;
+   			d3 = MathHelper.sqrt_double(d3);
+
+   			if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3))
+   			{
+   				this.motionX += d0 / d3 * 0.1D;
+   				this.motionY += d1 / d3 * 0.1D;
+   				this.motionZ += d2 / d3 * 0.1D;
+   			}
+   			else
+   			{
+   				this.waypointX = this.posX;
+   				this.waypointY = this.posY;
+   				this.waypointZ = this.posZ;
+   			}
+   		}
+
+   		this.prevAttackCounter = this.attackCounter;
+
+   		if (this.getAttackTarget() == null) {
+   			if (this.attackCounter > 0) {
+   				this.attackCounter--;
+   			}
+
+   			this.setAttackTarget(this.worldObj.getClosestVulnerablePlayerToEntity(this, 40D));
+   		} else {
+   			if (this.getAttackTarget() instanceof EntityPlayer && (((EntityPlayer) this.getAttackTarget()).capabilities.isCreativeMode)) {
+   				this.setAttackTarget(null);
+   				return;
+   			}
+
+   			if (this.getAttackTarget().getDistanceSqToEntity(this) < 4096.0D && this.canEntityBeSeen(this.getAttackTarget())) {
+   				double x = this.getAttackTarget().posX - this.posX;
+   				double y = (this.getAttackTarget().boundingBox.minY + (this.getAttackTarget().height / 2.0F)) - (this.posY + (this.height / 2.0F));
+   				double z = this.getAttackTarget().posZ - this.posZ;
+
+   				this.rotationYaw = (-(float) Math.atan2(x, z) * 180F) / 3.141593F;
+
+   				++this.attackCounter;
+
+   				if (this.attackCounter == 20) {
+   					this.playSound("nova_craft:overworld_lizard.hurt", 1F, this.base);
+   				} else if (this.attackCounter == 40) {
+   					this.playSound("nova_craft:overworld_lizard.hurt", 1F, this.base);
+
+   					EntitySculkedMonitorProjectile projectile = new EntitySculkedMonitorProjectile(this.worldObj, this, x, y, z);
+   			            
+   					Vec3 lookVector = this.getLook(1.0F);
+
+   					projectile.posX = this.posX + lookVector.xCoord * 4D;
+   					projectile.posY = this.posY + (double) (this.height / 2.0F) + 0.5D;
+   					projectile.posZ = this.posZ + lookVector.zCoord * 4D;
+
+   					if (!this.worldObj.isRemote) {
+   						projectile.setThrowableHeading(x, y, z, 1.2F, 1.0F);
+   						this.worldObj.spawnEntityInWorld(projectile);
+   					}
+
+   					this.attackCounter = -40;
+   				}
+   			} else if (this.attackCounter > 0) {
+   				this.attackCounter--;
+   					}           
+   			
+   		}
+   	}
+       
+    private boolean isCourseTraversable(double p_70790_1_, double p_70790_3_, double p_70790_5_, double p_70790_7_)
+   	{
+   		double d4 = (this.waypointX - this.posX) / p_70790_7_;
+   		double d5 = (this.waypointY - this.posY) / p_70790_7_;
+   		double d6 = (this.waypointZ - this.posZ) / p_70790_7_;
+   		AxisAlignedBB axisalignedbb = this.boundingBox.copy();
+
+   		for (int i = 1; (double)i < p_70790_7_; ++i)
+   		{
+   			axisalignedbb.offset(d4, d5, d6);
+
+   			if (!this.worldObj.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty())
+   			{
+   				return false;
+   			}
+   		}
+
+   		return true;
+   	}
+    
+    public void shootTarget(final EntityLivingBase target) {
+        if (this.worldObj.difficultySetting.getDifficultyId() == 0) {
+            return;
+        }
+        final double d5 = target.posX - this.posX;
+        final double d6 = target.boundingBox.minY + target.height / 2.0f - (this.posY + this.height / 2.0f);
+        final double d7 = target.posZ - this.posZ;
+        final EntitySculkedMonitorProjectile projectile = new EntitySculkedMonitorProjectile(this.worldObj, this, d5, d6, d7);
+        projectile.posY = this.posY + 1.0;
+        this.worldObj.playSoundAtEntity(this, "nova_craft:overworld_lizard.hurt", 2.0f, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2f + 1.0f);
+        if (!this.worldObj.isRemote) {
+            this.worldObj.spawnEntityInWorld(projectile);
         }
     }
 
@@ -248,8 +434,4 @@ public class EntitySculkedMonitor extends EntityMob
                 }
             }
         }
-    
-    public boolean canDespawn() {
-        return false;
-    }
 }

@@ -5,11 +5,15 @@ import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
 
+import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class AncientCityIceRoomGen1 extends WorldGenerator
 {
@@ -506,8 +510,14 @@ public class AncientCityIceRoomGen1 extends WorldGenerator
 		world.setBlock(i + 8, j + 1, k + 7, NovaCraftBlocks.sculk_vein, 5, 2);
 		world.setBlock(i + 9, j + 1, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 10, j + 1, k + 7, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 10, j + 1, k + 7);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.sculk_hunger");
+        }
+		
 		world.setBlock(i + 11, j + 1, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 12, j + 1, k + 7, Blocks.chest, 4, 2);
 		world.setBlock(i + 13, j + 1, k + 7, NovaCraftBlocks.sculk_block, 0, 2);
 		world.setBlock(i + 14, j + 1, k + 7, NovaCraftBlocks.sculk_block, 0, 2);
 		world.setBlock(i + 15, j + 1, k + 7, NovaCraftBlocks.sculk_vein, 1, 2);
@@ -1299,7 +1309,14 @@ public class AncientCityIceRoomGen1 extends WorldGenerator
 		world.setBlock(i + 2, j + 4, k + 1, NovaCraftBlocks.sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 4, k + 1, NovaCraftBlocks.sculk_block, 0, 2);
 		world.setBlock(i + 4, j + 4, k + 1, Blocks.air, 0, 2);
-		world.setBlock(i + 6, j + 4, k + 1, Blocks.mob_spawner, 0, 2);		
+		world.setBlock(i + 6, j + 4, k + 1, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner2 = (TileEntityMobSpawner)world.getTileEntity(i + 6, j + 4, k + 1);
+        
+        if (tileentitymobspawner2 != null)
+        {
+        	tileentitymobspawner2.func_145881_a().setEntityName("nova_craft.sculk_abomination");
+        }
+        
 		world.setBlock(i + 8, j + 4, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 9, j + 4, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 10, j + 4, k + 1, Blocks.air, 0, 2);
@@ -2247,8 +2264,41 @@ public class AncientCityIceRoomGen1 extends WorldGenerator
 		world.setBlock(i + 5, j + 4, k + 1, NovaCraftBlocks.sculk_spike, 1, 2);
 		world.setBlock(i + 7, j + 4, k + 1, NovaCraftBlocks.sculk_spike, 1, 2);
 		
+		world.setBlock(i + 12, j + 1, k + 7, Blocks.chest, 4, 2);
+		TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 12, j + 1, k + 7);
+
+		for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getIceBoxLoot(random));
+		}
+		
     	return true;
     }
+    
+    private ItemStack getIceBoxLoot(Random random) {
+		int item = random.nextInt(13);
+		switch (item) {
+			case 0:
+				return new ItemStack(Items.snowball, random.nextInt(4) + 2);
+			case 1:
+				return new ItemStack(Blocks.packed_ice, random.nextInt(4) + 2);
+			case 2:
+				return new ItemStack(NovaCraftItems.larimar_shard, random.nextInt(2) + 1);
+			case 3:
+				return new ItemStack(Blocks.ice, random.nextInt(5) + 1);
+			case 4:
+				return new ItemStack(Items.water_bucket);
+			case 5:
+				return new ItemStack(Items.baked_potato, random.nextInt(9) + 1);
+			case 6:
+				return new ItemStack(Items.mushroom_stew, 1);
+			case 7: {
+				return new ItemStack(NovaCraftItems.disc_fragment_5, 1);
+			}
+			default: {
+				return new ItemStack(NovaCraftBlocks.sculk_block, random.nextInt(9) + 2);
+			}
+		}
+	}
 
 }
 

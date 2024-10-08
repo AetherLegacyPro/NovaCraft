@@ -21,7 +21,7 @@ public class AncientCityPositiveXLeftBranch2Gen6 extends WorldGenerator
 	private static final Block deepslate = OtherModBlocks.deepslate;
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
 	private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
-	private static final Block soul_sand = Blocks.netherrack;
+	private static final Block soul_sand = Blocks.soul_sand;
 	
 	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
 	private static final Block deepslate_brick_slab = OtherModBlocks.deepslate_brick_slab;
@@ -33,6 +33,7 @@ public class AncientCityPositiveXLeftBranch2Gen6 extends WorldGenerator
 	private static final Block fence_dark_oak = OtherModBlocks.fence_dark_oak;
 	private static final Block blue_ice = OtherModBlocks.blue_ice;
 	private static final Block iron_trapdoor = OtherModBlocks.iron_trapdoor;
+	private static final Block SoulFire = OtherModBlocks.SoulFire;
 	
 	private static final Block deepslate_bricks = OtherModBlocks.deepslate_bricks;
 	private static final Block cobbled_deepslate_stairs = OtherModBlocks.cobbled_deepslate_stairs;
@@ -174,11 +175,11 @@ public class AncientCityPositiveXLeftBranch2Gen6 extends WorldGenerator
 		world.setBlock(i + 24, j + 7, k + 1, NovaCraftBlocks.sculk_vein, 1, 2);
 		world.setBlock(i + 25, j + 7, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 7, k + 1, Blocks.air, 0, 2);
-		world.setBlock(i + 27, j + 7, k + 1, Blocks.fire, 15, 2);
+		world.setBlock(i + 27, j + 7, k + 1, SoulFire, 15, 2);
 		world.setBlock(i + 28, j + 7, k + 1, deepslate_brick_stairs, 5, 2);
 		world.setBlock(i + 29, j + 7, k + 1, deepslate_bricks, 0, 2);
 		world.setBlock(i + 30, j + 7, k + 1, deepslate_brick_stairs, 4, 2);
-		world.setBlock(i + 31, j + 7, k + 1, Blocks.fire, 15, 2);
+		world.setBlock(i + 31, j + 7, k + 1, SoulFire, 15, 2);
 		world.setBlock(i + 32, j + 7, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 33, j + 7, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 34, j + 7, k + 1, Blocks.air, 0, 2);
@@ -214,7 +215,7 @@ public class AncientCityPositiveXLeftBranch2Gen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 7, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 7, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 27, j + 7, k + 2, Blocks.air, 0, 2);
-		world.setBlock(i + 28, j + 7, k + 2, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 28, j + 7, k + 2, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 29, j + 7, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 30, j + 7, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 31, j + 7, k + 2, Blocks.air, 0, 2);
@@ -1813,9 +1814,9 @@ public class AncientCityPositiveXLeftBranch2Gen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 8, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 8, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 27, j + 8, k + 1, Blocks.air, 0, 2);
-		world.setBlock(i + 28, j + 8, k + 1, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 28, j + 8, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 29, j + 8, k + 1, deepslate_bricks, 4, 2);
-		world.setBlock(i + 30, j + 8, k + 1, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 30, j + 8, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 31, j + 8, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 32, j + 8, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 33, j + 8, k + 1, Blocks.air, 0, 2);

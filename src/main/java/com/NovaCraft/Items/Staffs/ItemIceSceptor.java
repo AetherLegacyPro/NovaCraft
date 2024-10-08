@@ -1,5 +1,7 @@
 package com.NovaCraft.Items.Staffs;
 
+import java.util.List;
+
 import com.NovaCraft.entity.EntityIceSceptorProjectile;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 
@@ -14,7 +16,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class ItemIceSceptor extends ItemSword {
@@ -24,6 +28,10 @@ public class ItemIceSceptor extends ItemSword {
 		this.setCreativeTab(NovaCraftCreativeTabs.tools);
 		this.setMaxDamage(561);
 	}
+	
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+        tooltip.add(EnumChatFormatting.WHITE + "" + StatCollector.translateToLocal("tooltip.ice_sceptor.desc"));
+    }
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, final EntityPlayer par3EntityPlayer) {

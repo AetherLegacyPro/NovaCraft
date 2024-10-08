@@ -33,6 +33,10 @@ public class NCToolMaterial
 	public static Item.ToolMaterial VANITE_TRIDENT;
 	public static Item.ToolMaterial PHOENIX_RAZOR;
 	public static Item.ToolMaterial SCULKED_BLADE;
+	public static Item.ToolMaterial PRIMEVAL_MACE;
+	
+	public static Item.ToolMaterial PRIMEVAL_HORN;
+	public static Item.ToolMaterial SCULK_HORN;
 	
 	 static {		 
 		   if (Configs.enableWeaponsToAllignWithVanilla == true) {
@@ -67,6 +71,10 @@ public class NCToolMaterial
 		 	NCToolMaterial.VANITE_TRIDENT = EnumHelper.addToolMaterial("VANITE_TRIDENT", 0, 1974, 0.0f, 3.0f, 12);
 		 	NCToolMaterial.PHOENIX_RAZOR = EnumHelper.addToolMaterial("PHOENIX_RAZOR", 0, 674, 0.0f, 2.0f, 15);
 		 	NCToolMaterial.SCULKED_BLADE = EnumHelper.addToolMaterial("SCULKED_BLADE", 0, 1074, 0.0f, 2.0f, 15);
+		 	NCToolMaterial.PRIMEVAL_MACE = EnumHelper.addToolMaterial("PRIMEVAL_MACE", 0, 6822, 0.0f, 6.0f, 22);
+		 	
+		 	NCToolMaterial.PRIMEVAL_HORN = EnumHelper.addToolMaterial("PRIMEVAL_HORN", 0, 952, 0.0f, 0.0f, 15);
+		 	NCToolMaterial.SCULK_HORN = EnumHelper.addToolMaterial("SCULK_HORN", 0, 1966, 0.0f, 0.0f, 25);
 		   	}
 		   
 		   else { 
@@ -95,6 +103,10 @@ public class NCToolMaterial
 				 NCToolMaterial.SCULKED_BLADE = EnumHelper.addToolMaterial("SCULKED_BLADE", 0, 1074, 0.0f, 2.0f, 15);
 				 NCToolMaterial.VANITE_TRIDENT = EnumHelper.addToolMaterial("VANITE_TRIDENT", 0, 2374, 0.0f, 4.0f, 12);
 				 NCToolMaterial.PHOENIX_RAZOR = EnumHelper.addToolMaterial("PHOENIX_RAZOR", 0, 1174, 0.0f, 3.0f, 15);
+				 NCToolMaterial.PRIMEVAL_MACE = EnumHelper.addToolMaterial("PRIMEVAL_MACE", 0, 10822, 0.0f, 10.0f, 22);
+				 
+				 NCToolMaterial.PRIMEVAL_HORN = EnumHelper.addToolMaterial("PRIMEVAL_HORN", 0, 3952, 0.0f, 0.0f, 15);
+				 NCToolMaterial.SCULK_HORN = EnumHelper.addToolMaterial("SCULK_HORN", 0, 8966, 0.0f, 0.0f, 25);
 		  }
 	 }
 }

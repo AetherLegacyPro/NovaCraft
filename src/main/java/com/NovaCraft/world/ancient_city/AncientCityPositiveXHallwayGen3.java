@@ -10,6 +10,7 @@ import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class AncientCityPositiveXHallwayGen3 extends WorldGenerator
 {
@@ -1663,14 +1664,14 @@ public class AncientCityPositiveXHallwayGen3 extends WorldGenerator
 		world.setBlock(i + 28, j + 5, k + 7, deepslate_bricks, 2, 2);
 		world.setBlock(i + 29, j + 5, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 30, j + 5, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 31, j + 5, k + 7, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 31, j + 5, k + 7, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 32, j + 5, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 33, j + 5, k + 7, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 33, j + 5, k + 7, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 34, j + 5, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 35, j + 5, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 36, j + 5, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 37, j + 5, k + 7, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 38, j + 5, k + 7, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 37, j + 5, k + 7, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 38, j + 5, k + 7, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 39, j + 5, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 40, j + 5, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 41, j + 5, k + 7, Blocks.air, 0, 2);
@@ -1689,8 +1690,8 @@ public class AncientCityPositiveXHallwayGen3 extends WorldGenerator
 		world.setBlock(i + 54, j + 5, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 55, j + 5, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 56, j + 5, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 57, j + 5, k + 7, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 58, j + 5, k + 7, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 57, j + 5, k + 7, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 58, j + 5, k + 7, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 59, j + 5, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 60, j + 5, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 61, j + 5, k + 7, Blocks.air, 0, 2);
@@ -1835,7 +1836,6 @@ public class AncientCityPositiveXHallwayGen3 extends WorldGenerator
 		world.setBlock(i + 5, j + 5, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 6, j + 5, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 5, k + 10, Blocks.air, 0, 2);
-		world.setBlock(i + 8, j + 5, k + 10, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 9, j + 5, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 10, j + 5, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 11, j + 5, k + 10, Blocks.air, 0, 2);
@@ -2054,8 +2054,8 @@ public class AncientCityPositiveXHallwayGen3 extends WorldGenerator
 		world.setBlock(i + 29, j + 5, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 30, j + 5, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 31, j + 5, k + 13, Blocks.air, 0, 2);
-		world.setBlock(i + 32, j + 5, k + 13, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 33, j + 5, k + 13, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 32, j + 5, k + 13, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 33, j + 5, k + 13, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 34, j + 5, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 35, j + 5, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 36, j + 5, k + 13, Blocks.air, 0, 2);
@@ -2078,9 +2078,9 @@ public class AncientCityPositiveXHallwayGen3 extends WorldGenerator
 		world.setBlock(i + 53, j + 5, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 54, j + 5, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 55, j + 5, k + 13, Blocks.air, 0, 2);
-		world.setBlock(i + 56, j + 5, k + 13, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 56, j + 5, k + 13, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 57, j + 5, k + 13, Blocks.air, 0, 2);
-		world.setBlock(i + 58, j + 5, k + 13, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 58, j + 5, k + 13, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 59, j + 5, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 60, j + 5, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 61, j + 5, k + 13, Blocks.air, 0, 2);
@@ -2298,6 +2298,14 @@ public class AncientCityPositiveXHallwayGen3 extends WorldGenerator
 		world.setBlock(i + 13, j + 5, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 14, j + 5, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 15, j + 5, k + 17, Blocks.air, 0, 2);
+		
+		world.setBlock(i + 8, j + 5, k + 10, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 8, j + 5, k + 10);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.sculk_incinerator");
+        }
     	
     	return true;
     }

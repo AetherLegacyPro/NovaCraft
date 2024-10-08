@@ -13,11 +13,15 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
+
+import java.util.List;
 
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
@@ -54,6 +58,10 @@ public class ItemVaniteFirechargeLauncher extends ItemBow {
 	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
 		return repair.getItem() == Item.getItemFromBlock(NovaCraftBlocks.block_of_vanite);
 	}
+	
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+        tooltip.add(EnumChatFormatting.LIGHT_PURPLE + "" + StatCollector.translateToLocal("tooltip.vanite_firecharge.desc"));
+    }
 
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {

@@ -50,27 +50,27 @@ public class WorldGenAdditonalIron extends WorldGenerator
             int j1 = y + random.nextInt(4) - random.nextInt(4);
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
-            if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 +1, k1) != Blocks.iron_ore || world.getBlock(i1, j1 +1, k1) != Blocks.mob_spawner || world.getBlock(i1, j1 +1, k1) != Blocks.end_portal_frame) && world.getBlock(i1, j1 +1, k1).isSideSolid(world, i1, j1 +1, k1, ForgeDirection.getOrientation(0))) {
+            if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 +1, k1) != Blocks.iron_ore || world.getBlock(i1, j1 +1, k1) != Blocks.mob_spawner || world.getBlock(i1, j1 +1, k1) != Blocks.end_portal_frame || world.getBlock(i1, j1 +1, k1) != NovaCraftBlocks.grimstone || world.getBlock(i1, j1 +1, k1) != NovaCraftBlocks.nullstone) && world.getBlock(i1, j1 +1, k1).isSideSolid(world, i1, j1 +1, k1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1, j1 + 1, k1, this.Ore, 0, 2); //1
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 -1, k1) != Blocks.iron_ore || world.getBlock(i1, j1 -1, k1) != Blocks.mob_spawner || world.getBlock(i1, j1 -1, k1) != Blocks.end_portal_frame) && world.getBlock(i1, j1 -1, k1).isSideSolid(world, i1, j1 -1, k1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 -1, k1) != Blocks.iron_ore || world.getBlock(i1, j1 -1, k1) != Blocks.mob_spawner || world.getBlock(i1, j1 -1, k1) != Blocks.end_portal_frame || world.getBlock(i1, j1 -1, k1) != NovaCraftBlocks.grimstone || world.getBlock(i1, j1 -1, k1) != NovaCraftBlocks.nullstone) && world.getBlock(i1, j1 -1, k1).isSideSolid(world, i1, j1 -1, k1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1, j1 - 1, k1, this.Ore, 0, 2); //7
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 +1) != Blocks.iron_ore || world.getBlock(i1, j1 , k1 +1) != Blocks.mob_spawner || world.getBlock(i1, j1 , k1 +1) != Blocks.end_portal_frame) && world.getBlock(i1, j1 , k1 +1).isSideSolid(world, i1, j1 , k1 +1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 +1) != Blocks.iron_ore || world.getBlock(i1, j1 , k1 +1) != Blocks.mob_spawner || world.getBlock(i1, j1 , k1 +1) != Blocks.end_portal_frame || world.getBlock(i1, j1, k1 +1) != NovaCraftBlocks.grimstone || world.getBlock(i1, j1, k1 +1) != NovaCraftBlocks.nullstone) && world.getBlock(i1, j1 , k1 +1).isSideSolid(world, i1, j1 , k1 +1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1, j1, k1 + 1, this.Ore, 0, 2); //8
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 -1) != Blocks.iron_ore || world.getBlock(i1, j1 , k1 -1) != Blocks.mob_spawner || world.getBlock(i1, j1 , k1 -1) != Blocks.end_portal_frame) && world.getBlock(i1, j1 , k1 -1).isSideSolid(world, i1, j1 , k1 -1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 -1) != Blocks.iron_ore || world.getBlock(i1, j1 , k1 -1) != Blocks.mob_spawner || world.getBlock(i1, j1 , k1 -1) != Blocks.end_portal_frame || world.getBlock(i1, j1, k1 -1) != NovaCraftBlocks.grimstone || world.getBlock(i1, j1, k1 -1) != NovaCraftBlocks.nullstone) && world.getBlock(i1, j1 , k1 -1).isSideSolid(world, i1, j1 , k1 -1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1, j1, k1 - 1, this.Ore, 0, 2); //9
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 +1, j1 , k1) != Blocks.iron_ore || world.getBlock(i1 +1, j1 , k1) != Blocks.mob_spawner || world.getBlock(i1 +1, j1 , k1) != Blocks.end_portal_frame) && world.getBlock(i1+1, j1 , k1).isSideSolid(world, i1+1, j1 , k1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 +1, j1 , k1) != Blocks.iron_ore || world.getBlock(i1 +1, j1 , k1) != Blocks.mob_spawner || world.getBlock(i1 +1, j1 , k1) != Blocks.end_portal_frame || world.getBlock(i1 +1, j1, k1) != NovaCraftBlocks.grimstone || world.getBlock(i1 +1, j1, k1) != NovaCraftBlocks.nullstone) && world.getBlock(i1+1, j1 , k1).isSideSolid(world, i1+1, j1 , k1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1 + 1, j1, k1, this.Ore, 0, 2); //10
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 -1, j1 , k1) != Blocks.iron_ore || world.getBlock(i1 -1, j1 , k1) != Blocks.mob_spawner || world.getBlock(i1 -1, j1 , k1) != Blocks.end_portal_frame) && world.getBlock(i1-1, j1 , k1).isSideSolid(world, i1-1, j1 , k1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 -1, j1 , k1) != Blocks.iron_ore || world.getBlock(i1 -1, j1 , k1) != Blocks.mob_spawner || world.getBlock(i1 -1, j1 , k1) != Blocks.end_portal_frame || world.getBlock(i1 -1, j1, k1) != NovaCraftBlocks.grimstone || world.getBlock(i1 -1, j1, k1) != NovaCraftBlocks.nullstone) && world.getBlock(i1-1, j1 , k1).isSideSolid(world, i1-1, j1 , k1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1 - 1, j1, k1, this.Ore, 0, 2); //11
             }
             

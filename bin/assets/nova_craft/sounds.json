@@ -54,10 +54,62 @@
     ]
   },
   
+  "null_explosion": {
+  "category": "hostile",
+  "sounds": [
+      "misc/null_explosion"
+    ]
+  },
+  
   "deepoid.breath": {
   "category": "hostile",
   "sounds": [
       "entity/deepoid/breath"
+    ]
+  },
+  
+  "reality_distorter.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/reality_distorter/hurt0",
+      "entity/reality_distorter/hurt1"
+    ]
+  },
+  
+  "reality_distorter.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/reality_distorter/ambient0",
+      "entity/reality_distorter/ambient1",
+      "entity/reality_distorter/ambient2"
+    ]
+  },
+  
+  "reality_distorter.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/reality_distorter/death"
+    ]
+  },
+  
+   "destitumite.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/destitumite/hurt"
+    ]
+  },
+  
+  "destitumite.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/destitumite/ambient"
+    ]
+  },
+  
+  "destitumite.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/destitumite/death"
     ]
   },
   
@@ -112,6 +164,24 @@
       "entity/phoenix/hurt0",
       "entity/phoenix/hurt1",
       "entity/phoenix/hurt2"
+    ]
+  },
+  
+  "sculk_laser.laser_fire": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_laser/laser_fire1",
+      "entity/sculk_laser/laser_fire2",
+      "entity/sculk_laser/laser_fire3",
+      "entity/sculk_laser/laser_fire4",
+      "entity/sculk_laser/laser_fire5"
+    ]
+  },
+  
+  "sculk_laser.charge": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_laser/charge"
     ]
   },
   

@@ -4,7 +4,9 @@ import java.util.Random;
 
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.sounds.ModSounds;
+import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.ibm.icu.impl.duration.impl.Utils;
 
 import cpw.mods.fml.relauncher.Side;
@@ -39,7 +41,7 @@ public class BlockNovaCraftMushroom extends BlockMushroom {
 	
 	protected boolean canPlaceBlockOn(Block p_149854_1_)
 	  {
-	       return p_149854_1_ == Blocks.stone;
+	       return (p_149854_1_ == Blocks.stone || p_149854_1_ == OtherModBlocks.deepslate || p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == NovaCraftBlocks.nullstone);
 	  }
 	
 	@Override

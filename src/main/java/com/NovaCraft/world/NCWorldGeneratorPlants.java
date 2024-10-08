@@ -19,7 +19,6 @@ import com.NovaCraft.world.structure.NovaCraftDungeonGen;
 import com.NovaCraft.world.structure.SculkGeoDungeon;
 import com.NovaCraft.world.structure.SculkGeoDungeon2;
 import com.NovaCraft.world.structure.TsavorokiteGeoGen;
-import com.NovaCraft.world.structure.WardenAltarDungeonGen;
 import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.plants.LuminantTreeGen;
@@ -211,15 +210,6 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			z13 = chunkZ * 16 + rand.nextInt(16) + 8;
 			if(rand.nextInt(8) == 0) {
 				new NovaCraftDungeonGen().generate(world, rand, x13, rand.nextInt(25) + 9, z13);
-			}
-			
-			//Warden Altar Dungeon
-			int x15;
-			int z15;
-			x15 = chunkX * 16 + rand.nextInt(16) + 8;
-			z15 = chunkZ * 16 + rand.nextInt(16) + 8;
-			if(rand.nextInt(128) == 0) {
-				new WardenAltarDungeonGen().generate(world, rand, x15, rand.nextInt(20) + 9, z15);
 			}
 			
 			//Sculk Dungeon

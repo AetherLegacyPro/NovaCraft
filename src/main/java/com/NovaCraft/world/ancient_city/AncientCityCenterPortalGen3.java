@@ -9,6 +9,7 @@ import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import net.minecraft.init.*;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class AncientCityCenterPortalGen3 extends WorldGenerator
 {
@@ -20,7 +21,8 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 	private static final Block deepslate = OtherModBlocks.deepslate;
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
 	private static final Block soul_lantern = Blocks.glowstone; //1
-	private static final Block soul_sand = Blocks.netherrack;
+	private static final Block soul_sand = Blocks.soul_sand;
+	private static final Block SoulFire = OtherModBlocks.SoulFire;
 	
 	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
 	private static final Block deepslate_brick_slab = OtherModBlocks.deepslate_brick_slab;
@@ -600,7 +602,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 22, deepslate_bricks, 3, 2);
 		world.setBlock(i + 21, j + 9, k + 22, deepslate_bricks, 3, 2);
 		world.setBlock(i + 22, j + 9, k + 22, deepslate_bricks, 2, 2);
-		world.setBlock(i + 23, j + 9, k + 22, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 23, j + 9, k + 22, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 23, deepslate_bricks, 2, 2);
 		world.setBlock(i + 15, j + 9, k + 23, deepslate_bricks, 2, 2);
 		world.setBlock(i + 16, j + 9, k + 23, deepslate_bricks, 2, 2);
@@ -610,8 +612,8 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 23, deepslate_bricks, 2, 2);
 		world.setBlock(i + 21, j + 9, k + 23, deepslate_bricks, 2, 2);
 		world.setBlock(i + 22, j + 9, k + 23, deepslate_bricks, 2, 2);
-		world.setBlock(i + 23, j + 9, k + 23, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 24, j + 9, k + 23, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 23, j + 9, k + 23, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 24, j + 9, k + 23, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 24, deepslate_bricks, 2, 2);
 		world.setBlock(i + 15, j + 9, k + 24, deepslate_bricks, 2, 2);
 		world.setBlock(i + 16, j + 9, k + 24, deepslate_bricks, 3, 2);
@@ -621,9 +623,9 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 24, deepslate_bricks, 3, 2);
 		world.setBlock(i + 21, j + 9, k + 24, deepslate_bricks, 2, 2);
 		world.setBlock(i + 22, j + 9, k + 24, deepslate_bricks, 2, 2);
-		world.setBlock(i + 23, j + 9, k + 24, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 24, j + 9, k + 24, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 25, j + 9, k + 24, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 23, j + 9, k + 24, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 24, j + 9, k + 24, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 25, j + 9, k + 24, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 33, j + 9, k + 24, polished_deepslate, 0, 2);
 		world.setBlock(i + 14, j + 9, k + 25, deepslate_bricks, 2, 2);
 		world.setBlock(i + 15, j + 9, k + 25, deepslate_bricks, 2, 2);
@@ -634,9 +636,9 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 25, deepslate_bricks, 2, 2);
 		world.setBlock(i + 21, j + 9, k + 25, deepslate_bricks, 2, 2);
 		world.setBlock(i + 22, j + 9, k + 25, deepslate_bricks, 3, 2);
-		world.setBlock(i + 23, j + 9, k + 25, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 24, j + 9, k + 25, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 25, j + 9, k + 25, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 23, j + 9, k + 25, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 24, j + 9, k + 25, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 25, j + 9, k + 25, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 26, deepslate_bricks, 2, 2);
 		world.setBlock(i + 15, j + 9, k + 26, deepslate_bricks, 2, 2);
 		world.setBlock(i + 16, j + 9, k + 26, deepslate_bricks, 2, 2);
@@ -646,8 +648,8 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 26, deepslate_bricks, 2, 2);
 		world.setBlock(i + 21, j + 9, k + 26, deepslate_bricks, 3, 2);
 		world.setBlock(i + 22, j + 9, k + 26, deepslate_bricks, 2, 2);
-		world.setBlock(i + 23, j + 9, k + 26, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 25, j + 9, k + 26, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 23, j + 9, k + 26, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 25, j + 9, k + 26, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 27, deepslate_bricks, 0, 2);
 		world.setBlock(i + 15, j + 9, k + 27, deepslate_bricks, 0, 2);
 		world.setBlock(i + 16, j + 9, k + 27, deepslate_bricks, 0, 2);
@@ -657,11 +659,11 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 27, deepslate_bricks, 0, 2);
 		world.setBlock(i + 21, j + 9, k + 27, deepslate_bricks, 0, 2);
 		world.setBlock(i + 22, j + 9, k + 27, deepslate_bricks, 1, 2);
-		world.setBlock(i + 23, j + 9, k + 27, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 24, j + 9, k + 27, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 25, j + 9, k + 27, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 26, j + 9, k + 27, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 27, j + 9, k + 27, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 23, j + 9, k + 27, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 24, j + 9, k + 27, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 25, j + 9, k + 27, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 26, j + 9, k + 27, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 9, k + 27, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 28, deepslate_bricks, 0, 2);
 		world.setBlock(i + 15, j + 9, k + 28, deepslate_bricks, 0, 2);
 		world.setBlock(i + 16, j + 9, k + 28, deepslate_bricks, 0, 2);
@@ -677,7 +679,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 9, k + 28, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 27, j + 9, k + 28, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 28, j + 9, k + 28, deepslate_bricks, 2, 2);
-		world.setBlock(i + 29, j + 9, k + 28, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 29, j + 9, k + 28, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 29, deepslate_bricks, 0, 2);
 		world.setBlock(i + 15, j + 9, k + 29, deepslate_bricks, 1, 2);
 		world.setBlock(i + 16, j + 9, k + 29, deepslate_bricks, 0, 2);
@@ -693,7 +695,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 9, k + 29, deepslate_bricks, 0, 2);
 		world.setBlock(i + 27, j + 9, k + 29, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 28, j + 9, k + 29, deepslate_bricks, 2, 2);
-		world.setBlock(i + 29, j + 9, k + 29, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 29, j + 9, k + 29, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 30, deepslate_bricks, 0, 2);
 		world.setBlock(i + 15, j + 9, k + 30, deepslate_bricks, 0, 2);
 		world.setBlock(i + 16, j + 9, k + 30, deepslate_bricks, 1, 2);
@@ -707,8 +709,8 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 24, j + 9, k + 30, deepslate_bricks, 0, 2);
 		world.setBlock(i + 25, j + 9, k + 30, deepslate_bricks, 0, 2);
 		world.setBlock(i + 26, j + 9, k + 30, deepslate_bricks, 1, 2);
-		world.setBlock(i + 27, j + 9, k + 30, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 28, j + 9, k + 30, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 9, k + 30, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 28, j + 9, k + 30, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 33, j + 9, k + 30, polished_deepslate, 0, 2);
 		world.setBlock(i + 14, j + 9, k + 31, deepslate_bricks, 0, 2);
 		world.setBlock(i + 15, j + 9, k + 31, deepslate_bricks, 0, 2);
@@ -723,7 +725,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 24, j + 9, k + 31, deepslate_bricks, 2, 2);
 		world.setBlock(i + 25, j + 9, k + 31, deepslate_bricks, 0, 2);
 		world.setBlock(i + 26, j + 9, k + 31, deepslate_bricks, 0, 2);
-		world.setBlock(i + 27, j + 9, k + 31, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 9, k + 31, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 32, deepslate_bricks, 1, 2);
 		world.setBlock(i + 15, j + 9, k + 32, deepslate_bricks, 1, 2);
 		world.setBlock(i + 16, j + 9, k + 32, deepslate_bricks, 0, 2);
@@ -746,9 +748,9 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 33, deepslate_bricks, 0, 2);
 		world.setBlock(i + 21, j + 9, k + 33, deepslate_bricks, 1, 2);
 		world.setBlock(i + 22, j + 9, k + 33, deepslate_bricks, 1, 2);
-		world.setBlock(i + 23, j + 9, k + 33, NovaCraftBlocks.sculk_bricks, 0, 2);
-		world.setBlock(i + 24, j + 9, k + 33, NovaCraftBlocks.sculk_bricks, 0, 2);
-		world.setBlock(i + 25, j + 9, k + 33, NovaCraftBlocks.sculk_bricks, 0, 2);
+		world.setBlock(i + 23, j + 9, k + 33, deepslate_bricks, 1, 2);
+		world.setBlock(i + 24, j + 9, k + 33, deepslate_bricks, 0, 2);
+		world.setBlock(i + 25, j + 9, k + 33, deepslate_bricks, 1, 2);
 		world.setBlock(i + 26, j + 9, k + 33, deepslate_bricks, 0, 2);
 		world.setBlock(i + 27, j + 9, k + 33, polished_deepslate_stairs, 1, 2);
 		world.setBlock(i + 14, j + 9, k + 34, deepslate_bricks, 0, 2);
@@ -760,9 +762,9 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 34, deepslate_bricks, 1, 2);
 		world.setBlock(i + 21, j + 9, k + 34, deepslate_bricks, 0, 2);
 		world.setBlock(i + 22, j + 9, k + 34, deepslate_bricks, 1, 2);
-		world.setBlock(i + 23, j + 9, k + 34, NovaCraftBlocks.sculk_bricks, 0, 2);
-		world.setBlock(i + 24, j + 9, k + 34, NovaCraftBlocks.sculk_bricks, 0, 2);
-		world.setBlock(i + 25, j + 9, k + 34, NovaCraftBlocks.sculk_bricks, 0, 2);
+		world.setBlock(i + 23, j + 9, k + 34, deepslate_bricks, 0, 2);
+		world.setBlock(i + 24, j + 9, k + 34, deepslate_bricks, 1, 2);
+		world.setBlock(i + 25, j + 9, k + 34, deepslate_bricks, 0, 2);
 		world.setBlock(i + 26, j + 9, k + 34, deepslate_bricks, 1, 2);
 		world.setBlock(i + 27, j + 9, k + 34, polished_deepslate_stairs, 1, 2);
 		world.setBlock(i + 14, j + 9, k + 35, deepslate_bricks, 0, 2);
@@ -774,9 +776,9 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 35, deepslate_bricks, 0, 2);
 		world.setBlock(i + 21, j + 9, k + 35, deepslate_bricks, 0, 2);
 		world.setBlock(i + 22, j + 9, k + 35, deepslate_bricks, 0, 2);
-		world.setBlock(i + 23, j + 9, k + 35, NovaCraftBlocks.sculk_bricks, 0, 2);
-		world.setBlock(i + 24, j + 9, k + 35, NovaCraftBlocks.sculk_bricks, 0, 2);
-		world.setBlock(i + 25, j + 9, k + 35, NovaCraftBlocks.sculk_bricks, 0, 2);
+		world.setBlock(i + 23, j + 9, k + 35, deepslate_bricks, 0, 2);
+		world.setBlock(i + 24, j + 9, k + 35, deepslate_bricks, 0, 2);
+		world.setBlock(i + 25, j + 9, k + 35, deepslate_bricks, 0, 2);
 		world.setBlock(i + 26, j + 9, k + 35, deepslate_bricks, 1, 2);
 		world.setBlock(i + 27, j + 9, k + 35, polished_deepslate_stairs, 1, 2);
 		world.setBlock(i + 14, j + 9, k + 36, deepslate_bricks, 1, 2);
@@ -792,7 +794,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 24, j + 9, k + 36, deepslate_bricks, 2, 2);
 		world.setBlock(i + 25, j + 9, k + 36, deepslate_bricks, 3, 2);
 		world.setBlock(i + 26, j + 9, k + 36, deepslate_bricks, 1, 2);
-		world.setBlock(i + 27, j + 9, k + 36, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 9, k + 36, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 37, deepslate_bricks, 0, 2);
 		world.setBlock(i + 15, j + 9, k + 37, deepslate_bricks, 0, 2);
 		world.setBlock(i + 16, j + 9, k + 37, deepslate_bricks, 0, 2);
@@ -806,8 +808,8 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 24, j + 9, k + 37, deepslate_bricks, 2, 2);
 		world.setBlock(i + 25, j + 9, k + 37, deepslate_bricks, 0, 2);
 		world.setBlock(i + 26, j + 9, k + 37, deepslate_bricks, 0, 2);
-		world.setBlock(i + 27, j + 9, k + 37, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 28, j + 9, k + 37, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 9, k + 37, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 28, j + 9, k + 37, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 38, deepslate_bricks, 1, 2);
 		world.setBlock(i + 15, j + 9, k + 38, deepslate_bricks, 1, 2);
 		world.setBlock(i + 16, j + 9, k + 38, deepslate_bricks, 0, 2);
@@ -821,9 +823,9 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 24, j + 9, k + 38, deepslate_bricks, 0, 2);
 		world.setBlock(i + 25, j + 9, k + 38, deepslate_bricks, 0, 2);
 		world.setBlock(i + 26, j + 9, k + 38, deepslate_bricks, 0, 2);
-		world.setBlock(i + 27, j + 9, k + 38, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 28, j + 9, k + 38, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 29, j + 9, k + 38, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 9, k + 38, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 28, j + 9, k + 38, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 29, j + 9, k + 38, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 33, j + 9, k + 38, polished_deepslate, 0, 2);
 		world.setBlock(i + 14, j + 9, k + 39, deepslate_bricks, 2, 2);
 		world.setBlock(i + 15, j + 9, k + 39, deepslate_bricks, 2, 2);
@@ -840,7 +842,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 26, j + 9, k + 39, deepslate_bricks, 0, 2);
 		world.setBlock(i + 27, j + 9, k + 39, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 28, j + 9, k + 39, deepslate_bricks, 2, 2);
-		world.setBlock(i + 29, j + 9, k + 39, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 29, j + 9, k + 39, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 40, deepslate_bricks, 3, 2);
 		world.setBlock(i + 15, j + 9, k + 40, deepslate_bricks, 2, 2);
 		world.setBlock(i + 16, j + 9, k + 40, deepslate_bricks, 3, 2);
@@ -946,7 +948,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 22, j + 9, k + 43, deepslate_bricks, 2, 2);
 		world.setBlock(i + 23, j + 9, k + 43, deepslate_bricks, 0, 2);
 		world.setBlock(i + 24, j + 9, k + 43, deepslate_brick_slab, 0, 2);
-		world.setBlock(i + 25, j + 9, k + 43, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 25, j + 9, k + 43, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 44, deepslate_bricks, 2, 2);
 		world.setBlock(i + 15, j + 9, k + 44, deepslate_bricks, 2, 2);
 		world.setBlock(i + 16, j + 9, k + 44, deepslate_bricks, 2, 2);
@@ -956,9 +958,9 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 44, deepslate_bricks, 3, 2);
 		world.setBlock(i + 21, j + 9, k + 44, deepslate_bricks, 2, 2);
 		world.setBlock(i + 22, j + 9, k + 44, deepslate_bricks, 2, 2);
-		world.setBlock(i + 23, j + 9, k + 44, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 24, j + 9, k + 44, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 25, j + 9, k + 44, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 23, j + 9, k + 44, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 24, j + 9, k + 44, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 25, j + 9, k + 44, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 45, deepslate_bricks, 2, 2);
 		world.setBlock(i + 15, j + 9, k + 45, deepslate_bricks, 2, 2);
 		world.setBlock(i + 16, j + 9, k + 45, deepslate_bricks, 2, 2);
@@ -968,8 +970,8 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 45, deepslate_bricks, 2, 2);
 		world.setBlock(i + 21, j + 9, k + 45, deepslate_bricks, 2, 2);
 		world.setBlock(i + 22, j + 9, k + 45, deepslate_bricks, 2, 2);
-		world.setBlock(i + 23, j + 9, k + 45, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 24, j + 9, k + 45, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 23, j + 9, k + 45, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 24, j + 9, k + 45, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 46, deepslate_bricks, 2, 2);
 		world.setBlock(i + 15, j + 9, k + 46, deepslate_bricks, 2, 2);
 		world.setBlock(i + 16, j + 9, k + 46, deepslate_bricks, 2, 2);
@@ -979,7 +981,7 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 9, k + 46, deepslate_bricks, 2, 2);
 		world.setBlock(i + 21, j + 9, k + 46, deepslate_bricks, 2, 2);
 		world.setBlock(i + 22, j + 9, k + 46, deepslate_bricks, 2, 2);
-		world.setBlock(i + 23, j + 9, k + 46, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 23, j + 9, k + 46, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 14, j + 9, k + 47, deepslate_bricks, 3, 2);
 		world.setBlock(i + 15, j + 9, k + 47, deepslate_bricks, 3, 2);
 		world.setBlock(i + 16, j + 9, k + 47, deepslate_bricks, 2, 2);
@@ -1024,7 +1026,6 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 9, k + 51, deepslate_bricks, 2, 2);
 		world.setBlock(i + 20, j + 9, k + 51, deepslate_bricks, 2, 2);
 		world.setBlock(i + 21, j + 9, k + 51, deepslate_bricks, 2, 2);
-		world.setBlock(i + 24, j + 9, k + 54, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 15, j + 10, k + 17, deepslate_bricks, 3, 2);
 		world.setBlock(i + 16, j + 10, k + 17, deepslate_bricks, 3, 2);
 		world.setBlock(i + 17, j + 10, k + 17, deepslate_bricks, 2, 2);
@@ -1050,92 +1051,92 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 20, j + 10, k + 23, deepslate_bricks, 2, 2);
 		world.setBlock(i + 21, j + 10, k + 23, deepslate_bricks, 2, 2);
 		world.setBlock(i + 33, j + 10, k + 24, polished_deepslate, 0, 2);
-		world.setBlock(i + 17, j + 10, k + 25, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 25, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 25, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 17, j + 10, k + 26, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 26, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 26, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 17, j + 10, k + 27, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 27, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 27, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 17, j + 10, k + 28, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 28, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 28, NovaCraftBlocks.deepfire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 25, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 25, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 25, SoulFire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 26, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 26, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 26, SoulFire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 27, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 27, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 27, SoulFire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 28, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 28, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 28, SoulFire, 15, 2);
 		world.setBlock(i + 23, j + 10, k + 28, deepslate_bricks, 0, 2);
 		world.setBlock(i + 24, j + 10, k + 28, deepslate_bricks, 0, 2);
 		world.setBlock(i + 25, j + 10, k + 28, deepslate_bricks, 0, 2);
 		world.setBlock(i + 26, j + 10, k + 28, deepslate_bricks, 0, 2);
 		world.setBlock(i + 27, j + 10, k + 28, deepslate_bricks, 4, 2);
-		world.setBlock(i + 17, j + 10, k + 29, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 29, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 29, NovaCraftBlocks.deepfire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 29, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 29, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 29, SoulFire, 15, 2);
 		world.setBlock(i + 23, j + 10, k + 29, deepslate_bricks, 0, 2);
 		world.setBlock(i + 24, j + 10, k + 29, deepslate_bricks, 1, 2);
 		world.setBlock(i + 25, j + 10, k + 29, deepslate_bricks, 0, 2);
 		world.setBlock(i + 26, j + 10, k + 29, deepslate_bricks, 0, 2);
 		world.setBlock(i + 27, j + 10, k + 29, deepslate_bricks, 4, 2);
-		world.setBlock(i + 17, j + 10, k + 30, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 30, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 30, NovaCraftBlocks.deepfire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 30, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 30, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 30, SoulFire, 15, 2);
 		world.setBlock(i + 33, j + 10, k + 30, polished_deepslate, 0, 2);
-		world.setBlock(i + 17, j + 10, k + 31, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 31, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 31, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 17, j + 10, k + 32, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 32, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 32, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 17, j + 10, k + 33, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 33, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 33, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 17, j + 10, k + 34, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 34, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 34, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 24, j + 10, k + 34, NovaCraftBlocks.grimstone_shrieker, 0, 2);
-		world.setBlock(i + 17, j + 10, k + 35, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 35, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 35, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 17, j + 10, k + 36, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 36, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 36, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 17, j + 10, k + 37, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 37, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 37, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 17, j + 10, k + 38, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 38, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 38, NovaCraftBlocks.deepfire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 31, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 31, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 31, SoulFire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 32, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 32, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 32, SoulFire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 33, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 33, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 33, SoulFire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 34, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 34, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 34, SoulFire, 15, 2);
+		world.setBlock(i + 24, j + 10, k + 34, Blocks.air, 0, 2); //
+		world.setBlock(i + 17, j + 10, k + 35, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 35, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 35, SoulFire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 36, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 36, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 36, SoulFire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 37, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 37, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 37, SoulFire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 38, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 38, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 38, SoulFire, 15, 2);
 		world.setBlock(i + 33, j + 10, k + 38, polished_deepslate, 0, 2);
-		world.setBlock(i + 17, j + 10, k + 39, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 39, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 39, NovaCraftBlocks.deepfire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 39, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 39, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 39, SoulFire, 15, 2);
 		world.setBlock(i + 23, j + 10, k + 39, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 24, j + 10, k + 39, deepslate_bricks, 0, 2);
 		world.setBlock(i + 25, j + 10, k + 39, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 26, j + 10, k + 39, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 27, j + 10, k + 39, deepslate_bricks, 4, 2);
-		world.setBlock(i + 17, j + 10, k + 40, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 40, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 40, NovaCraftBlocks.deepfire, 15, 2);
+		world.setBlock(i + 17, j + 10, k + 40, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 40, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 40, SoulFire, 15, 2);
 		world.setBlock(i + 23, j + 10, k + 40, deepslate_bricks, 0, 2);
 		world.setBlock(i + 24, j + 10, k + 40, deepslate_bricks, 0, 2);
 		world.setBlock(i + 25, j + 10, k + 40, deepslate_bricks, 1, 2);
 		world.setBlock(i + 26, j + 10, k + 40, deepslate_bricks, 0, 2);
 		world.setBlock(i + 27, j + 10, k + 40, deepslate_bricks, 4, 2);
-		world.setBlock(i + 17, j + 10, k + 41, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 41, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 41, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 23, j + 10, k + 41, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 24, j + 10, k + 41, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 26, j + 10, k + 41, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 17, j + 10, k + 42, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 42, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 42, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 23, j + 10, k + 42, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 24, j + 10, k + 42, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 17, j + 10, k + 43, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 18, j + 10, k + 43, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 19, j + 10, k + 43, NovaCraftBlocks.deepfire, 15, 2);
-		world.setBlock(i + 23, j + 10, k + 43, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 17, j + 10, k + 41, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 41, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 41, SoulFire, 15, 2);
+		world.setBlock(i + 23, j + 10, k + 41, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 24, j + 10, k + 41, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 26, j + 10, k + 41, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 17, j + 10, k + 42, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 42, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 42, SoulFire, 15, 2);
+		world.setBlock(i + 23, j + 10, k + 42, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 24, j + 10, k + 42, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 17, j + 10, k + 43, SoulFire, 15, 2);
+		world.setBlock(i + 18, j + 10, k + 43, SoulFire, 15, 2);
+		world.setBlock(i + 19, j + 10, k + 43, SoulFire, 15, 2);
+		world.setBlock(i + 23, j + 10, k + 43, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 15, j + 10, k + 45, deepslate_bricks, 3, 2);
 		world.setBlock(i + 21, j + 10, k + 45, deepslate_bricks, 2, 2);
 		world.setBlock(i + 15, j + 10, k + 46, deepslate_bricks, 2, 2);
@@ -1204,16 +1205,16 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 18, j + 11, k + 28, deepslate_bricks, 1, 2);
 		world.setBlock(i + 19, j + 11, k + 28, deepslate_bricks, 0, 2);
 		world.setBlock(i + 20, j + 11, k + 28, deepslate_bricks, 0, 2);
-		world.setBlock(i + 26, j + 11, k + 28, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 27, j + 11, k + 28, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 26, j + 11, k + 28, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 11, k + 28, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 16, j + 11, k + 29, deepslate_bricks, 0, 2);
 		world.setBlock(i + 17, j + 11, k + 29, deepslate_bricks, 1, 2);
 		world.setBlock(i + 18, j + 11, k + 29, deepslate_bricks, 0, 2);
 		world.setBlock(i + 19, j + 11, k + 29, deepslate_bricks, 0, 2);
 		world.setBlock(i + 20, j + 11, k + 29, deepslate_bricks, 0, 2);
-		world.setBlock(i + 25, j + 11, k + 29, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 26, j + 11, k + 29, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 27, j + 11, k + 29, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 25, j + 11, k + 29, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 26, j + 11, k + 29, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 11, k + 29, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 16, j + 11, k + 30, deepslate_bricks, 0, 2);
 		world.setBlock(i + 17, j + 11, k + 30, deepslate_bricks, 0, 2);
 		world.setBlock(i + 18, j + 11, k + 30, deepslate_bricks, 1, 2);
@@ -1262,15 +1263,15 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 18, j + 11, k + 39, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 19, j + 11, k + 39, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 20, j + 11, k + 39, cobbled_deepslate, 0, 2);
-		world.setBlock(i + 26, j + 11, k + 39, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 27, j + 11, k + 39, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 26, j + 11, k + 39, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 11, k + 39, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 16, j + 11, k + 40, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 17, j + 11, k + 40, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 18, j + 11, k + 40, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 19, j + 11, k + 40, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 20, j + 11, k + 40, cobbled_deepslate, 0, 2);
-		world.setBlock(i + 26, j + 11, k + 40, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 27, j + 11, k + 40, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 26, j + 11, k + 40, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 27, j + 11, k + 40, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 16, j + 11, k + 41, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 17, j + 11, k + 41, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 18, j + 11, k + 41, cobbled_deepslate, 0, 2);
@@ -1352,7 +1353,6 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 12, k + 24, deepslate_bricks, 1, 2);
 		world.setBlock(i + 20, j + 12, k + 24, deepslate_bricks, 0, 2);
 		world.setBlock(i + 32, j + 12, k + 24, deepslate_bricks, 4, 2);
-		world.setBlock(i + 33, j + 12, k + 24, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 34, j + 12, k + 24, polished_deepslate, 0, 2);
 		world.setBlock(i + 16, j + 12, k + 25, deepslate_bricks, 0, 2);
 		world.setBlock(i + 17, j + 12, k + 25, deepslate_bricks, 1, 2);
@@ -1391,7 +1391,6 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 12, k + 30, deepslate_bricks, 0, 2);
 		world.setBlock(i + 20, j + 12, k + 30, deepslate_bricks, 0, 2);
 		world.setBlock(i + 32, j + 12, k + 30, deepslate_bricks, 4, 2);
-		world.setBlock(i + 33, j + 12, k + 30, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 34, j + 12, k + 30, deepslate_bricks, 4, 2);
 		world.setBlock(i + 16, j + 12, k + 31, deepslate_bricks, 1, 2);
 		world.setBlock(i + 17, j + 12, k + 31, deepslate_bricks, 0, 2);
@@ -2017,6 +2016,30 @@ public class AncientCityCenterPortalGen3 extends WorldGenerator
 		world.setBlock(i + 16, j + 15, k + 49, deepslate_bricks, 1, 2);
 		world.setBlock(i + 17, j + 15, k + 49, deepslate_bricks, 1, 2);
 		world.setBlock(i + 18, j + 15, k + 49, deepslate_bricks, 0, 2);
+		
+		world.setBlock(i + 24, j + 9, k + 54, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 24, j + 9, k + 54);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.sculk_incinerator");
+        }
+        
+        world.setBlock(i + 33, j + 12, k + 24, Blocks.mob_spawner, 0, 2);
+        TileEntityMobSpawner tileentitymobspawner2 = (TileEntityMobSpawner)world.getTileEntity(i + 33, j + 12, k + 24);
+        
+        if (tileentitymobspawner2 != null)
+        {
+        	tileentitymobspawner2.func_145881_a().setEntityName("nova_craft.sculk_dweller");
+        }
+        
+        world.setBlock(i + 33, j + 12, k + 30, Blocks.mob_spawner, 0, 2);
+        TileEntityMobSpawner tileentitymobspawner3 = (TileEntityMobSpawner)world.getTileEntity(i + 33, j + 12, k + 30);
+        
+        if (tileentitymobspawner3 != null)
+        {
+        	tileentitymobspawner3.func_145881_a().setEntityName("nova_craft.sculk_incinerator");
+        }
 		
 		return true;
 	}

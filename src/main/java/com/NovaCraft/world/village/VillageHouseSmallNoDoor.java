@@ -246,58 +246,24 @@ public class VillageHouseSmallNoDoor extends WorldGenerator
 			world.setTileEntity(i + 3, j + 2, k + 3, chest);
 
 			for(int slot = 0; slot < chest.getSizeInventory(); slot++){
-				int num = rand.nextInt(150);
+				int num = rand.nextInt(30);
 				if(num == 0)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.apple));
-				else if(num == 1)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.golden_apple));
-				else if(num == 2)
 					chest.setInventorySlotContents(slot, new ItemStack(Items.mushroom_stew));
-				else if(num == 3)
+				else if(num == 1)
 					chest.setInventorySlotContents(slot, new ItemStack(Items.bread));
-				else if(num == 4)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.cooked_porkchop));
-				else if(num == 5)
+				else if(num == 2)
 					chest.setInventorySlotContents(slot, new ItemStack(Items.porkchop));
-				else if(num == 6)
+				else if(num == 3)
 					chest.setInventorySlotContents(slot, new ItemStack(Items.wheat));
-				else if(num == 7)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.milk_bucket));
-				else if(num == 8)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.egg));
-				else if(num == 9)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.fish));
-				else if(num == 10)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.cooked_fished));
-				else if(num == 11)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.sugar));
-				else if(num == 12)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.cake));
-				else if(num == 13)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.cookie));
-				else if(num == 14)
+				else if(num == 4)
 					chest.setInventorySlotContents(slot, new ItemStack(Items.beef));
-				else if(num == 15)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.cooked_beef));
-				else if(num == 16)
+				else if(num == 5)
 					chest.setInventorySlotContents(slot, new ItemStack(Items.chicken));
-				else if(num == 17)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.cooked_chicken));
-				else if(num == 18)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.rotten_flesh));
-				else if(num == 19)
+				else if(num == 6)
 					chest.setInventorySlotContents(slot, new ItemStack(Items.carrot));
-				else if(num == 20)
+				else if(num == 7)
 					chest.setInventorySlotContents(slot, new ItemStack(Items.potato));
-				else if(num == 21)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.baked_potato));
-				else if(num == 22)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.poisonous_potato));
-				else if(num == 23)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.golden_carrot));
-				else if(num == 24)
-					chest.setInventorySlotContents(slot, new ItemStack(Items.pumpkin_pie));
-				else if(num == 25)
+				else if(num == 8)
 					chest.setInventorySlotContents(slot, new ItemStack(Items.melon));
 			}
 		}

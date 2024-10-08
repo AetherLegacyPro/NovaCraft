@@ -3,6 +3,7 @@ package com.NovaCraft.entity;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
+import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
@@ -213,7 +214,7 @@ public class EntitySculkDweller extends EntityMob
         final int j = MathHelper.floor_double(this.boundingBox.minY);
         final int k = MathHelper.floor_double(this.posZ);
         final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);          
-        return (this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.nullstone_bricks || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.grimstone_bricks || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_bricks || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_block || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_stone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_grimstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_deepslate || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_nullstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_endstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.inked_sculk_block  || this.worldObj.getBlock(i, j - 1, k) == Blocks.end_stone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_tentacle_1 || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_tentacle_2 || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.nullstone) && this.worldObj.getBlockLightValue(i, j, k) < 8 && this.posY <= 50.0D && canSpawn;
+        return (this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.nullstone_bricks || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.grimstone_bricks || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_bricks || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_block || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_stone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_grimstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_deepslate || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_nullstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_endstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.inked_sculk_block  || this.worldObj.getBlock(i, j - 1, k) == Blocks.end_stone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_tentacle_1 || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.sculk_tentacle_2 || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.nullstone || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.carved_vanite_bricks || this.worldObj.getBlock(i, j - 1, k) == OtherModBlocks.deepslate_bricks) && this.worldObj.getBlockLightValue(i, j, k) < 8 && this.posY <= 50.0D && canSpawn;
         
      
                

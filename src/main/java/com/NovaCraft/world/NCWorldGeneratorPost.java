@@ -123,6 +123,30 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 	
 	public void generateSurface(final Random random, final int chunkX, final int chunkZ, final World world) {
 		
+		if (Configs.disableRegularVanillaGen == true) {
+			
+			//Override of vanilla ore generation
+			this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 12, 14, 18, 24, 128);
+			this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 8, 9, 10, 0, 64);
+			this.addVanillaOres(Blocks.gold_ore, world, random, chunkX, chunkZ, 2, 3, 4, 0, 32);
+			this.addVanillaOres(Blocks.redstone_ore, world, random, chunkX, chunkZ, 5, 8, 10, 0, 24);
+			this.addVanillaOres(Blocks.lapis_ore, world, random, chunkX, chunkZ, 2, 4, 6, 0, 32);
+			this.addVanillaOres(Blocks.diamond_ore, world, random, chunkX, chunkZ, 2, 4, 6, 0, 16);
+			
+			if (Configs.enableExtraEmeraldOreGeneration) {
+			this.addVanillaOres(Blocks.emerald_ore, world, random, chunkX, chunkZ, 1, 3, 7, 20, 90);
+			}
+			
+			this.addVanillaOres(Blocks.gravel, world, random, chunkX, chunkZ, 10, 13, 15, 32, 64);
+			
+			}
+		if (Configs.enableMountainOres) {
+			//Extra Ores at y levels above 90
+				this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 16, 17, 18, 90, 256);
+				this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 10, 12, 14, 90, 256);
+				this.addVanillaOres(Blocks.gold_ore, world, random, chunkX, chunkZ, 1, 3, 7, 100, 256);	
+		}
+		
 		//Does this first so klangite is not impossible to find
 		if (Configs.enableNullstone == true) {
 		this.addNullstoneOres(NovaCraftBlocks.klangite_ore, world, random, chunkX, chunkZ, 2, 3, 7, 0, 16);
@@ -290,30 +314,6 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		this.addEtherstoneOres(NovaCraftBlocks.etherstone_gold, world, random, chunkX, chunkZ, 2, 5, 6, 90, 256);
 		}
 	}
-		
-		if (Configs.disableRegularVanillaGen == true) {
-			
-			//Override of vanilla ore generation
-			this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 12, 14, 18, 24, 128);
-			this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 8, 9, 10, 0, 64);
-			this.addVanillaOres(Blocks.gold_ore, world, random, chunkX, chunkZ, 2, 3, 4, 0, 32);
-			this.addVanillaOres(Blocks.redstone_ore, world, random, chunkX, chunkZ, 5, 8, 10, 0, 24);
-			this.addVanillaOres(Blocks.lapis_ore, world, random, chunkX, chunkZ, 2, 4, 6, 0, 32);
-			this.addVanillaOres(Blocks.diamond_ore, world, random, chunkX, chunkZ, 2, 4, 6, 0, 16);
-			
-			if (Configs.enableExtraEmeraldOreGeneration) {
-			this.addVanillaOres(Blocks.emerald_ore, world, random, chunkX, chunkZ, 1, 3, 7, 20, 90);
-			}
-			
-			this.addVanillaOres(Blocks.gravel, world, random, chunkX, chunkZ, 10, 13, 15, 32, 64);
-			
-			}
-		if (Configs.enableMountainOres) {
-			//Extra Ores at y levels above 90
-				this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 16, 17, 18, 90, 256);
-				this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 10, 12, 14, 90, 256);
-				this.addVanillaOres(Blocks.gold_ore, world, random, chunkX, chunkZ, 1, 3, 7, 100, 256);	
-		}
 		
 	}
 	   	   

@@ -245,10 +245,10 @@ public class AncientCityTinyShrineGen extends WorldGenerator
 		world.setBlock(i + 7, j + 2, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 0, j + 2, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 4, Blocks.air, 0, 2);
-		world.setBlock(i + 2, j + 2, k + 4, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 3, j + 2, k + 4, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 4, j + 2, k + 4, NovaCraftBlocks.vanite_torch, 5, 2);
-		world.setBlock(i + 5, j + 2, k + 4, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 2, j + 2, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 3, j + 2, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 4, j + 2, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 5, j + 2, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 6, j + 2, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 0, j + 2, k + 5, Blocks.air, 0, 2);

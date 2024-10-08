@@ -32,7 +32,6 @@ import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraft.world.NCWorldGenerator;
 import com.NovaCraft.world.NCWorldGeneratorPlants;
 import com.NovaCraft.world.NCWorldGeneratorPost;
-import com.NovaCraft.world.NCWorldGeneratorPre;
 import com.NovaCraft.world.OreGenEventHandler;
 import com.NovaCraft.world.PopulateChunkEventHandler;
 import com.NovaCraft.world.ancient_city.AncientCityGen;
@@ -111,13 +110,18 @@ public class NovaCraft
         NovaCraftOverrideTextures.init();
         
         FMLCommonHandler.instance().bus().register((Object)this);
-        MinecraftForge.TERRAIN_GEN_BUS.register((Object)this);
         
+        NovaCraftLiquids.preInit();
+        
+        NovaCraftItems.initialization();
+    	NovaCraftBlocks.initialization();
+    	NovaCraftBlocks.initializeHarvestLevels();
+    	
+        MinecraftForge.TERRAIN_GEN_BUS.register((Object)this);        
         MinecraftForge.ORE_GEN_BUS.register(new OreGenEventHandler());
         MinecraftForge.EVENT_BUS.register(new PopulateChunkEventHandler());
         
-        NovaCraftLiquids.preInit();
-        GameRegistry.registerWorldGenerator(new NCWorldGeneratorPre(), 0);
+        GameRegistry.registerWorldGenerator((IWorldGenerator)new NCWorldGenerator(), Integer.MAX_VALUE);
         
         if (Configs.enableSculkInfestedMineshaft) {
         GameRegistry.registerWorldGenerator(new SculkMineshaftGenerator(), 0);
@@ -130,10 +134,6 @@ public class NovaCraft
 		MapGenStructureIO.registerStructure(MapGenNetherBridgeNovaCraft.Start.class, "NovaFortress");
 		StructureNovaCraftNetherBridgePieces.registerStructureNovaCraftNetherBridgePieces();
         }
-        
-        NovaCraftItems.initialization();
-    	NovaCraftBlocks.initialization();
-    	NovaCraftBlocks.initializeHarvestLevels();
              
     	GameRegistry.registerWorldGenerator((IWorldGenerator)new AncientCityGen(), Integer.MAX_VALUE);
     }
@@ -163,10 +163,9 @@ public class NovaCraft
     @EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
     	
-    	GameRegistry.registerWorldGenerator((IWorldGenerator)new NCWorldGenerator(), 0);
     	GameRegistry.registerWorldGenerator(NCWorldGeneratorNether.INSTANCE, Integer.MAX_VALUE);
     	GameRegistry.registerWorldGenerator(NCWorldGeneratorEnd.INSTANCE, Integer.MAX_VALUE);
-      	GameRegistry.registerWorldGenerator((IWorldGenerator)new NCWorldGeneratorPost(), 2);
+      	GameRegistry.registerWorldGenerator((IWorldGenerator)new NCWorldGeneratorPost(), Integer.MAX_VALUE);
       	GameRegistry.registerWorldGenerator(NCWorldGeneratorPlants.INSTANCE, Integer.MAX_VALUE);
       	
     }

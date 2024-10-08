@@ -10,6 +10,7 @@ import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class AncientCityPositiveXHallwayGen6 extends WorldGenerator
 {
@@ -1080,7 +1081,6 @@ public class AncientCityPositiveXHallwayGen6 extends WorldGenerator
 		world.setBlock(i + 45, j + 9, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 46, j + 9, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 47, j + 9, k + 10, Blocks.air, 0, 2);
-		world.setBlock(i + 48, j + 9, k + 10, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 49, j + 9, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 50, j + 9, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 51, j + 9, k + 10, Blocks.air, 0, 2);
@@ -1747,6 +1747,14 @@ public class AncientCityPositiveXHallwayGen6 extends WorldGenerator
 		world.setBlock(i + 62, j + 9, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 63, j + 9, k + 20, Blocks.air, 0, 2);
 		world.setBlock(i + 64, j + 9, k + 20, Blocks.air, 0, 2);
+		
+		world.setBlock(i + 48, j + 9, k + 10, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 48, j + 9, k + 10);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.sculked_monitor");
+        }
     	
     	return true;
     }

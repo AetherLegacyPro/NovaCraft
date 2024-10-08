@@ -1,5 +1,7 @@
 package com.NovaCraft.Items.Staffs;
 
+import java.util.List;
+
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityEnderLordStaffProjectile;
@@ -16,7 +18,9 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class ItemCrystalGrowthStaff extends ItemSword {
@@ -31,6 +35,10 @@ public class ItemCrystalGrowthStaff extends ItemSword {
 	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
 		return repair.getItem() == NovaCraftItems.fractured_heart_of_the_end;
 	}
+	
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+        tooltip.add(EnumChatFormatting.LIGHT_PURPLE + "" + StatCollector.translateToLocal("tooltip.crystal_staff.desc"));
+    }
 
 	@Override
 	public boolean onItemUse(ItemStack heldItem, EntityPlayer player, World world, int x, int y, int z, int facing, float hitX, float hitY, float hitZ) {

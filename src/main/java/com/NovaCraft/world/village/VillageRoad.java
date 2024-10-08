@@ -309,14 +309,8 @@ public class VillageRoad extends WorldGenerator
 	}
 
 	public boolean canAllHousesSpawn(World world, int i, int j, int k){
-		if(//new VillageHouseMedium().checkAllLocations(world, i + 13, j - 1, k - 11) &&
-				//new VillageChurch().checkAllLocations(world, i - 18, j - 1, k - 9) &&
-				//new VillageHouseSmallNoDoor().checkAllLocations(world, i - 7 , j - 1, k + 5) &&
-				//new VillageHouseSmallLadder().checkAllLocations(world, i + 5, j, k - 6) &&
-				new VillageLargeHouse().checkAllLocations(world, i - 11 , j - 1, k - 11) &&
-				new VillageHouseLibrary().checkAllLocations(world, i - 8, j - 1, k + 13) /*&&
-				new VillageHouseSmallDoor().checkAllLocations(world, i + 5, j - 1, k + 20) &&
-				new VillageBlacksmith().checkAllLocations(world, i + 5, j - 1, k + 8)*/)
+		if(	new VillageLargeHouse().checkAllLocations(world, i - 11 , j - 1, k - 11) &&
+			new VillageHouseLibrary().checkAllLocations(world, i - 8, j - 1, k + 13))
 			return true;
 		else
 			return false;		

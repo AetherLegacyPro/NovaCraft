@@ -172,19 +172,6 @@ public class SculkHungerModel extends ModelBase
 		lefttentacle1.render(f5);
 		lefttentacle2.render(f5);
 		righttentacle.render(f5);
-		//part7.render(f5);
-		//part8.render(f5);
-		//part9.render(f5);
-		//part10.render(f5);
-		//part11.render(f5);
-		//part12.render(f5);
-		//part13.render(f5);
-		//part14.render(f5);
-		//part15.render(f5);
-		//part16.render(f5);
-		//part17.render(f5);
-		//part18.render(f5);
-		//part19.render(f5);
 		
 		body.render(f5);
 		left_arm.render(f5);

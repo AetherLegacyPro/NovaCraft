@@ -10,6 +10,7 @@ import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class AncientCityPositiveXRightBranch2Gen1 extends WorldGenerator
 {
@@ -1598,7 +1599,6 @@ public class AncientCityPositiveXRightBranch2Gen1 extends WorldGenerator
 		world.setBlock(i + 15, j + 1, k + 10, cobbled_deepslate, 0, 2);
 		world.setBlock(i + 16, j + 1, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 1, k + 10, Blocks.air, 0, 2);
-		world.setBlock(i + 18, j + 1, k + 10, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 19, j + 1, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 20, j + 1, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 21, j + 1, k + 10, Blocks.air, 0, 2);
@@ -1997,6 +1997,14 @@ public class AncientCityPositiveXRightBranch2Gen1 extends WorldGenerator
 		world.setBlock(i + 10, j + 1, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 11, j + 1, k + 22, Blocks.air, 0, 2);
 		world.setBlock(i + 12, j + 1, k + 22, Blocks.air, 0, 2);
+		
+		world.setBlock(i + 18, j + 1, k + 10, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 18, j + 1, k + 10);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.sculk_abomination");
+        }
 		
     	return true;
     }

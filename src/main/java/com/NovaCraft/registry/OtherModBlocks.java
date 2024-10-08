@@ -47,6 +47,17 @@ public class OtherModBlocks
     public static Block basalt;
     public static Block deepslate_brick_wall;
     public static Block smooth_basalt;
+    public static Block soul_torch;
+    public static Block deepslate_coal_ore;
+    public static Block deepslate_iron_ore;
+    public static Block deepslate_gold_ore;
+    public static Block deepslate_redstone_ore;
+    public static Block deepslate_lit_redstone_ore;
+    public static Block deepslate_lapis_ore;
+    public static Block deepslate_diamond_ore;
+    public static Block deepslate_emerald_ore;
+    public static Block deepslate_copper_ore;
+    public static Block copper_ore;
     
     //Netherlicious
     public static Block Nether_Gravel;
@@ -58,14 +69,18 @@ public class OtherModBlocks
     public static Block CrimsonNylium;
     public static Block Basalt;
     public static Block BasaltBricks;
+    public static Block SoulFire;
+    public static Block SoulTorch;
+    public static Block EfrineOre;
     
-    //Aether Legacy
+    //Vanilla Aether Legacy
     public static Block enchanted_gravitite;
+    public static Block ambrosium_ore;
     public static Block zanite_ore;
     public static Block zanite_block;
     public static Block gravitite_ore;
     
-    //My Fork of Aether Legacy
+    //Aether Departure
     public static Block arkenium_ore;
     public static Block continuum_ore;
     public static Block continuum_block;
@@ -124,6 +139,17 @@ public class OtherModBlocks
     	OtherModBlocks.cobbled_deepslate_stairs = GameRegistry.findBlock("etfuturum", "cobbled_deepslate_stairs");
     	OtherModBlocks.deepslate_brick_wall = GameRegistry.findBlock("etfuturum", "deepslate_brick_wall");
     	OtherModBlocks.smooth_basalt = GameRegistry.findBlock("etfuturum", "smooth_basalt");
+    	OtherModBlocks.soul_torch = GameRegistry.findBlock("etfuturum", "soul_torch");  	
+    	OtherModBlocks.deepslate_coal_ore = GameRegistry.findBlock("etfuturum", "deepslate_coal_ore");
+    	OtherModBlocks.deepslate_iron_ore = GameRegistry.findBlock("etfuturum", "deepslate_iron_ore");
+    	OtherModBlocks.deepslate_gold_ore = GameRegistry.findBlock("etfuturum", "deepslate_gold_ore");
+    	OtherModBlocks.deepslate_redstone_ore = GameRegistry.findBlock("etfuturum", "deepslate_redstone_ore");
+    	OtherModBlocks.deepslate_lit_redstone_ore = GameRegistry.findBlock("etfuturum", "deepslate_lit_redstone_ore");
+    	OtherModBlocks.deepslate_lapis_ore = GameRegistry.findBlock("etfuturum", "deepslate_lapis_ore");
+    	OtherModBlocks.deepslate_diamond_ore = GameRegistry.findBlock("etfuturum", "deepslate_diamond_ore");
+    	OtherModBlocks.deepslate_emerald_ore = GameRegistry.findBlock("etfuturum", "deepslate_emerald_ore");
+    	OtherModBlocks.deepslate_copper_ore = GameRegistry.findBlock("etfuturum", "deepslate_copper_ore");
+    	OtherModBlocks.copper_ore = GameRegistry.findBlock("etfuturum", "copper_ore");
     	
     	OtherModBlocks.Nether_Gravel = GameRegistry.findBlock("netherlicious", "Nether_Gravel");
     	OtherModBlocks.Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");    	
@@ -133,8 +159,12 @@ public class OtherModBlocks
     	OtherModBlocks.CrimsonNylium = GameRegistry.findBlock("netherlicious", "CrimsonNylium");
     	OtherModBlocks.CryingObsidian = GameRegistry.findBlock("netherlicious", "CryingObsidian");
     	OtherModBlocks.BasaltBricks = GameRegistry.findBlock("netherlicious", "BasaltBricks");
+    	OtherModBlocks.SoulFire = GameRegistry.findBlock("netherlicious", "SoulFire");
+    	OtherModBlocks.SoulTorch = GameRegistry.findBlock("netherlicious", "SoulTorch");
+    	OtherModBlocks.EfrineOre = GameRegistry.findBlock("netherlicious", "EfrineOre");
     	
     	OtherModBlocks.enchanted_gravitite = GameRegistry.findBlock("aether_legacy", "enchanted_gravitite");
+    	OtherModBlocks.ambrosium_ore = GameRegistry.findBlock("aether_legacy", "ambrosium_ore");
     	OtherModBlocks.zanite_ore = GameRegistry.findBlock("aether_legacy", "zanite_ore");
     	OtherModBlocks.zanite_block = GameRegistry.findBlock("aether_legacy", "zanite_block");
     	OtherModBlocks.gravitite_ore = GameRegistry.findBlock("aether_legacy", "gravitite_ore");

@@ -21,6 +21,7 @@ public class AncientCityCenterPortalGen2 extends WorldGenerator
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
 	private static final Block soul_lantern = Blocks.glowstone; //1
 	private static final Block soul_sand = Blocks.netherrack;
+	private static final Block SoulFire = OtherModBlocks.SoulFire;
 	
 	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
 	private static final Block deepslate_brick_slab = OtherModBlocks.deepslate_brick_slab;

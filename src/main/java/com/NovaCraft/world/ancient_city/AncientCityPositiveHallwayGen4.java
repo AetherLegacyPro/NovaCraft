@@ -937,7 +937,6 @@ public class AncientCityPositiveHallwayGen4 extends WorldGenerator
 		world.setBlock(i + 2, j + 7, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 7, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 7, k + 19, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 7, k + 19, soul_lantern, 0, 2);
 		world.setBlock(i + 6, j + 7, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 7, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 7, k + 19, Blocks.air, 0, 2);
@@ -1003,7 +1002,6 @@ public class AncientCityPositiveHallwayGen4 extends WorldGenerator
 		world.setBlock(i + 2, j + 7, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 7, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 7, k + 25, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 7, k + 25, soul_lantern, 0, 2);
 		world.setBlock(i + 6, j + 7, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 7, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 7, k + 25, Blocks.air, 0, 2);
@@ -1069,7 +1067,6 @@ public class AncientCityPositiveHallwayGen4 extends WorldGenerator
 		world.setBlock(i + 2, j + 7, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 7, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 7, k + 31, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 7, k + 31, soul_lantern, 0, 2);
 		world.setBlock(i + 6, j + 7, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 7, k + 31, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 7, k + 31, Blocks.air, 0, 2);
@@ -1135,7 +1132,6 @@ public class AncientCityPositiveHallwayGen4 extends WorldGenerator
 		world.setBlock(i + 2, j + 7, k + 37, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 7, k + 37, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 7, k + 37, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 7, k + 37, soul_lantern, 0, 2);
 		world.setBlock(i + 6, j + 7, k + 37, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 7, k + 37, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 7, k + 37, Blocks.air, 0, 2);
@@ -1526,6 +1522,21 @@ public class AncientCityPositiveHallwayGen4 extends WorldGenerator
 		world.setBlock(i + 8, j + 7, k + 72, Blocks.air, 0, 2);
 		world.setBlock(i + 9, j + 7, k + 72, Blocks.air, 0, 2);
 		world.setBlock(i + 10, j + 7, k + 72, Blocks.air, 0, 2);
+		
+		world.setBlock(i + 8, j + 1, k + 49, soul_lantern, 1, 2);
+		world.setBlock(i + 8, j + 2, k + 41, soul_lantern, 1, 2);
+		world.setBlock(i + 5, j + 3, k + 28, soul_lantern, 1, 2);
+		world.setBlock(i + 5, j + 3, k + 29, soul_lantern, 1, 2);
+		world.setBlock(i + 2, j + 4, k + 5, soul_lantern, 1, 2);
+		world.setBlock(i + 8, j + 4, k + 11, soul_lantern, 1, 2);
+		world.setBlock(i + 2, j + 4, k + 17, soul_lantern, 1, 2);
+		world.setBlock(i + 8, j + 4, k + 56, soul_lantern, 1, 2);
+		world.setBlock(i + 2, j + 4, k + 62, soul_lantern, 1, 2);
+		world.setBlock(i + 8, j + 4, k + 68, soul_lantern, 1, 2);
+		world.setBlock(i + 5, j + 7, k + 19, soul_lantern, 0, 2);
+		world.setBlock(i + 5, j + 7, k + 25, soul_lantern, 0, 2);
+		world.setBlock(i + 5, j + 7, k + 31, soul_lantern, 0, 2);
+		world.setBlock(i + 5, j + 7, k + 37, soul_lantern, 0, 2);
     	
     	return true;
     }

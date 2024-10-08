@@ -54,6 +54,13 @@
     ]
   },
   
+  "null_explosion": {
+  "category": "hostile",
+  "sounds": [
+      "misc/null_explosion"
+    ]
+  },
+  
   "deepoid.breath": {
   "category": "hostile",
   "sounds": [
@@ -157,6 +164,24 @@
       "entity/phoenix/hurt0",
       "entity/phoenix/hurt1",
       "entity/phoenix/hurt2"
+    ]
+  },
+  
+  "sculk_laser.laser_fire": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_laser/laser_fire1",
+      "entity/sculk_laser/laser_fire2",
+      "entity/sculk_laser/laser_fire3",
+      "entity/sculk_laser/laser_fire4",
+      "entity/sculk_laser/laser_fire5"
+    ]
+  },
+  
+  "sculk_laser.charge": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_laser/charge"
     ]
   },
   

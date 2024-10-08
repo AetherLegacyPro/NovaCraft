@@ -1,6 +1,7 @@
 package com.NovaCraft.Items.Staffs;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.Items.Tools.NCToolMaterial;
 import com.NovaCraft.entity.misc.EntitySculkHornProjectile;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 
@@ -13,9 +14,8 @@ import net.minecraft.world.World;
 public class ItemSculkHorn extends ItemSword {
 
 	public ItemSculkHorn() {
-		super(ToolMaterial.STONE);
+		super(NCToolMaterial.PRIMEVAL_HORN);
 		this.setCreativeTab(NovaCraftCreativeTabs.tools);
-		this.setMaxDamage(1866);
 	}
 
 	@Override
@@ -31,9 +31,9 @@ public class ItemSculkHorn extends ItemSword {
 			world.playSound(entityplayer.posX, entityplayer.posY, entityplayer.posZ, "nova_craft:sculk_horn.vibration", 0.5F, 0.5F / (itemRand.nextFloat() * 0.2F + 0.4F), false);
 
 			if (!world.isRemote) {
-				EntitySculkHornProjectile hammerProjectile = new EntitySculkHornProjectile(world, entityplayer);
-				hammerProjectile.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, 1.3F, 1.0F);
-				world.spawnEntityInWorld(hammerProjectile);
+				EntitySculkHornProjectile sculkVibration = new EntitySculkHornProjectile(world, entityplayer);
+				sculkVibration.shoot(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, 1.3F, 1.0F);
+				world.spawnEntityInWorld(sculkVibration);
 			}
 
 		return itemstack;

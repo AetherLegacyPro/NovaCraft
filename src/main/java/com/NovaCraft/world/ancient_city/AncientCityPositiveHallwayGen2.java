@@ -673,7 +673,6 @@ public class AncientCityPositiveHallwayGen2 extends WorldGenerator
 		world.setBlock(i + 2, j + 3, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 3, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 3, k + 28, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 3, k + 28, soul_lantern, 1, 2);
 		world.setBlock(i + 6, j + 3, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 3, k + 28, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 3, k + 28, Blocks.air, 0, 2);
@@ -684,7 +683,6 @@ public class AncientCityPositiveHallwayGen2 extends WorldGenerator
 		world.setBlock(i + 2, j + 3, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 3, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 3, k + 29, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 3, k + 29, soul_lantern, 1, 2);
 		world.setBlock(i + 6, j + 3, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 3, k + 29, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 3, k + 29, Blocks.air, 0, 2);
@@ -1220,7 +1218,6 @@ public class AncientCityPositiveHallwayGen2 extends WorldGenerator
 		world.setBlock(i + 10, j + 4, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 0, j + 4, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 4, k + 5, Blocks.air, 0, 2);
-		world.setBlock(i + 2, j + 4, k + 5, soul_lantern, 1, 2);
 		world.setBlock(i + 3, j + 4, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 4, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 5, j + 4, k + 5, deepslate_bricks, 3, 2);
@@ -1292,7 +1289,6 @@ public class AncientCityPositiveHallwayGen2 extends WorldGenerator
 		world.setBlock(i + 5, j + 4, k + 11, deepslate_bricks, 2, 2);
 		world.setBlock(i + 6, j + 4, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 4, k + 11, Blocks.air, 0, 2);
-		world.setBlock(i + 8, j + 4, k + 11, soul_lantern, 1, 2);
 		world.setBlock(i + 9, j + 4, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 10, j + 4, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 0, j + 4, k + 12, Blocks.air, 0, 2);
@@ -1352,7 +1348,6 @@ public class AncientCityPositiveHallwayGen2 extends WorldGenerator
 		world.setBlock(i + 10, j + 4, k + 16, Blocks.air, 0, 2);
 		world.setBlock(i + 0, j + 4, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 4, k + 17, Blocks.air, 0, 2);
-		world.setBlock(i + 2, j + 4, k + 17, soul_lantern, 1, 2);
 		world.setBlock(i + 3, j + 4, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 4, k + 17, Blocks.air, 0, 2);
 		world.setBlock(i + 5, j + 4, k + 17, deepslate_bricks, 2, 2);

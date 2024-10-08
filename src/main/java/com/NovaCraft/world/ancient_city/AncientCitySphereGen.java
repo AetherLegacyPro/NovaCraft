@@ -18,19 +18,25 @@ public class AncientCitySphereGen extends WorldGenerator
     
     public boolean generate(final World world, final Random random, final int x, final int y, final int z) {
     	
-    	int radius = 25;
-    	int centre = radius / 2, squareDistance;
-    	int x1, y1, z1;
+    	//int centerX = x;
+        //int centerY = y;
+        //int centerZ = z;
 
-    	for(x1 = centre - radius; x1 < (centre + radius) * 20; x1++){
-    		for(y1 = centre - radius; y1 < centre + radius; y1++){
-    			for(z1 = centre - radius; z1 < (centre + radius) * 20; z1++) {
-    				squareDistance = (x1 -centre) * (x1 -centre) + (y1-centre) * (y1-centre) + (z1-centre) * (z1-centre);
-    				if(squareDistance <= (radius) * (radius))
-    					world.setBlock(x + x1, y + y1, z + z1, Blocks.air, 0, 2);
-    			}
-    		}
-    	}
+        for (int x1 = - 55; x1 <= 55; x1++) {
+            for (int y1 = - 17; y1 <=  17; y1++) {
+                for (int z1 = - 55; z1 <= 55; z1++) {
+                    // Calculate the ellipsoid formula
+                    double ellipsoidEquation = (Math.pow(x1, 2) / Math.pow(55, 2)) +
+                                               (Math.pow(y1, 2) / Math.pow(17, 2)) +
+                                               (Math.pow(z1, 2) / Math.pow(55, 2));
+                    
+                    // Check if the point is inside the ellipsoid
+                    if (ellipsoidEquation <= 1.0) {
+                        world.setBlock(x + x1, y + y1, z + z1, Blocks.air);
+                    }
+                }
+            }
+        }
     	
     	
     	return true;

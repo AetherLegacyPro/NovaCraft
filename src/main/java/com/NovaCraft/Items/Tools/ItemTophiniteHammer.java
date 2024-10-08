@@ -1,5 +1,6 @@
 package com.NovaCraft.Items.Tools;
 
+import java.util.List;
 import java.util.Random;
 
 import com.NovaCraft.Items.NovaCraftItems;
@@ -17,6 +18,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class ItemTophiniteHammer extends ItemSword
@@ -28,6 +31,10 @@ public class ItemTophiniteHammer extends ItemSword
     
     public boolean hasCustomEntity(final ItemStack stack) {
         return true;
+    }
+    
+    public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+        tooltip.add(EnumChatFormatting.BLUE + "" + StatCollector.translateToLocal("tooltip.tophinite_hammer.desc"));
     }
     
     public Entity createEntity(final World world, final Entity location, final ItemStack itemstack) {

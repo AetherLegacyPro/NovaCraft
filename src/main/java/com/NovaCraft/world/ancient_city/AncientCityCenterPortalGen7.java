@@ -9,6 +9,7 @@ import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import net.minecraft.init.*;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class AncientCityCenterPortalGen7 extends WorldGenerator
 {
@@ -1647,7 +1648,6 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 		world.setBlock(i + 2, j + 2, k + 21, Blocks.wool, 7, 2);
 		world.setBlock(i + 3, j + 2, k + 21, deepslate_bricks, 0, 2);
 		world.setBlock(i + 4, j + 2, k + 21, deepslate_brick_stairs, 1, 2);
-		world.setBlock(i + 11, j + 2, k + 21, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 12, j + 2, k + 21, Blocks.wool, 7, 2);
 		world.setBlock(i + 13, j + 2, k + 21, deepslate, 0, 2);
 		world.setBlock(i + 14, j + 2, k + 21, deepslate_bricks, 0, 2);
@@ -2289,6 +2289,14 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 		world.setBlock(i + 26, j + 2, k + 41, Blocks.wool, 7, 2);
 		world.setBlock(i + 27, j + 2, k + 41, Blocks.wool, 7, 2);
 		world.setBlock(i + 28, j + 2, k + 41, Blocks.wool, 7, 2);
+		
+		world.setBlock(i + 11, j + 2, k + 21, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 11, j + 2, k + 21);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.sculk_abomination");
+        }
 		
 		return true;
 	}

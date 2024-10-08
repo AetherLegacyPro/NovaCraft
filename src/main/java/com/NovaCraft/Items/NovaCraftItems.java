@@ -9,10 +9,22 @@ import com.NovaCraft.Items.Armor.ItemGuardianArmor;
 import com.NovaCraft.Items.Armor.ItemKlangiteArmor;
 import com.NovaCraft.Items.Armor.ItemKylaziteArmor;
 import com.NovaCraft.Items.Armor.ItemOphidianArmor;
-import com.NovaCraft.Items.Armor.ItemPhantomArmor;
-import com.NovaCraft.Items.Armor.ItemPherithiumArmor;
-import com.NovaCraft.Items.Armor.ItemSculkArmor;
-import com.NovaCraft.Items.Armor.ItemTophiniteArmor;
+import com.NovaCraft.Items.Armor.ItemPhantomBoots;
+import com.NovaCraft.Items.Armor.ItemPhantomChestplate;
+import com.NovaCraft.Items.Armor.ItemPhantomHelmet;
+import com.NovaCraft.Items.Armor.ItemPhantomLeggings;
+import com.NovaCraft.Items.Armor.ItemPherithiumBoots;
+import com.NovaCraft.Items.Armor.ItemPherithiumChestplate;
+import com.NovaCraft.Items.Armor.ItemPherithiumHelmet;
+import com.NovaCraft.Items.Armor.ItemPherithiumLeggings;
+import com.NovaCraft.Items.Armor.ItemSculkBoots;
+import com.NovaCraft.Items.Armor.ItemSculkChestplate;
+import com.NovaCraft.Items.Armor.ItemSculkHelmet;
+import com.NovaCraft.Items.Armor.ItemSculkLeggings;
+import com.NovaCraft.Items.Armor.ItemTophiniteBoots;
+import com.NovaCraft.Items.Armor.ItemTophiniteChestplate;
+import com.NovaCraft.Items.Armor.ItemTophiniteHelmet;
+import com.NovaCraft.Items.Armor.ItemTophiniteLeggings;
 import com.NovaCraft.Items.Armor.ItemVaniteArmor;
 import com.NovaCraft.Items.Armor.ItemWardenArmor;
 import com.NovaCraft.Items.Armor.crown.ItemVaniteBlueCrown;
@@ -63,6 +75,7 @@ import com.NovaCraft.Items.Staffs.ItemKlangiteFirechargeLauncher;
 import com.NovaCraft.Items.Staffs.ItemKylaziteBow;
 import com.NovaCraft.Items.Staffs.ItemNetheriteBow;
 import com.NovaCraft.Items.Staffs.ItemOphidianBow;
+import com.NovaCraft.Items.Staffs.ItemPrimevalHorn;
 import com.NovaCraft.Items.Staffs.ItemSculkHorn;
 import com.NovaCraft.Items.Staffs.ItemTophiniteBow;
 import com.NovaCraft.Items.Staffs.ItemVaniteFirechargeLauncher;
@@ -98,6 +111,7 @@ import com.NovaCraft.Items.Tools.ItemPherithiumShickaxe;
 import com.NovaCraft.Items.Tools.ItemPherithiumShovel;
 import com.NovaCraft.Items.Tools.ItemPherithiumSword;
 import com.NovaCraft.Items.Tools.ItemPhoenixRazor;
+import com.NovaCraft.Items.Tools.ItemPrimevalMace;
 import com.NovaCraft.Items.Tools.ItemReinforcedPherithiumShickaxe;
 import com.NovaCraft.Items.Tools.ItemSculkedBlade;
 import com.NovaCraft.Items.Tools.ItemScythe;
@@ -159,12 +173,11 @@ public class NovaCraftItems {
 	public static Item reinforced_vanite_ingot, luminant_ingot;
 	public static Item xancium_dust, small_xancium_dust;
 	public static Item nullifier_core;
-	public static Item xancium_ingot;
-	public static Item raw_klangite;
-	public static Item klangite_ingot;
+	public static Item xancium_ingot, xancium_pellet;
+	public static Item raw_klangite, klangite_blend;
+	public static Item impure_klangite_ingot, explosive_klangite_ingot, klangite_ingot;
 	public static Item tophinite_gemstone;
 	public static Item flaming_pitcher_petal, blazing_coal;
-	public static Item static_essence, destitute_tentacle;
 	
 	public static Item heart_of_the_end, fractured_heart_of_the_end;
 	public static Item null_cube_slime, superheated_magma_cream, enflamed_null_cube_slimeball, enhanced_enflamed_null_cube_slimeball;
@@ -175,13 +188,15 @@ public class NovaCraftItems {
 	public static Item warden_heart, warden_tentacle, warden_shard;
 	public static Item blazing_serpent_scales, blazing_serpent_tooth;
 	public static Item phoenix_feather, ionizatior_rod, ionizatior_powder;
-	public static Item deepoid_scales, deepoid_horn;
+	public static Item deepoid_scales;
 	public static Item deep_one_scales, deep_one_bone;
 	public static Item ophidian_scales;
 	public static Item glow_ink_sac;
 	public static Item phantom_membrane;
 	public static Item nullwart, nullwart_blend;
 	public static Item nullified_dust;
+	public static Item static_essence, destitute_tentacle;
+	public static Item ancient_city_artifact;
 	
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy;
@@ -223,6 +238,7 @@ public class NovaCraftItems {
 	
 	public static Item diamond_firecharge_launcher, klangite_firecharge_launcher, vanite_firecharge_launcher;
 	public static Item goat_horn_ponder, goat_horn_sing, goat_horn_seek, goat_horn_feel, goat_horn_admire, goat_horn_call, goat_horn_yearn, goat_horn_dream;
+	public static Item deepoid_horn, primeval_horn;
 	
 	public static Item sculk_helmet, sculk_chestplate, sculk_leggings, sculk_boots;
 	public static Item pherithium_helmet, pherithium_chestplate, pherithium_leggings, pherithium_boots;	
@@ -239,7 +255,7 @@ public class NovaCraftItems {
 	
 	public static Item eerie_sword, sculked_blade, scythe, diablo, sculk_horn, vanite_trident;
 	
-	public static Item ender_lord_staff, crystal_growth_staff, ice_sceptor, phoenix_razor;
+	public static Item ender_lord_staff, crystal_growth_staff, ice_sceptor, phoenix_razor, primeval_mace;
 	
 	public static Item phantom_helmet, phantom_chestplate, phantom_leggings, phantom_boots;
 	
@@ -280,12 +296,16 @@ public class NovaCraftItems {
 		vanite_ingot = register("vanite_ingot", new ItemFireproof().setTextureName(NovaCraft.find("vanite_ingot")));		
 		tophinite_gemstone = register("tophinite_gemstone", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("tophinite_gemstone")));		
 		reinforced_vanite_ingot = register("reinforced_vanite_ingot", new ItemFireproof().setTextureName(NovaCraft.find("reinforced_vanite_ingot")));
-		small_xancium_dust = register("small_xancium_dust", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("small_xancium_dust")));
+		small_xancium_dust = register("small_xancium_dust", new ItemVoidExplosive().setTextureName(NovaCraft.find("small_xancium_dust")));
 		xancium_dust = register("xancium_dust", new ItemXanciumDust().setTextureName(NovaCraft.find("xancium_dust_item")));
-		xancium_ingot = register("xancium_ingot", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("xancium_ingot")));
+		xancium_ingot = register("xancium_ingot", new ItemVoidExplosive().setTextureName(NovaCraft.find("xancium_ingot")));
+		xancium_pellet = register("xancium_pellet", new ItemVoidExplosive().setTextureName(NovaCraft.find("xancium_pellet")));
 		xancium_firecharge = register("xancium_firecharge", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("xancium_firecharge")));
 		nullifier_core = register("nullifier_core", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("nullifier_core")));
-		raw_klangite = register("raw_klangite", new ItemFireproof().setTextureName(NovaCraft.find("raw_klangite")));
+		raw_klangite = register("raw_klangite", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("raw_klangite")));		
+		klangite_blend = register("klangite_blend", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("klangite_blend")));
+		impure_klangite_ingot = register("impure_klangite_ingot", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("impure_klangite_ingot")));
+		explosive_klangite_ingot = register("explosive_klangite_ingot", new ItemExplosiveKlagniteIngot().setTextureName(NovaCraft.find("explosive_klangite_ingot")));		
 		klangite_ingot = register("klangite_ingot", new ItemKlagniteIngot().setTextureName(NovaCraft.find("klangite_ingot")));
 		heart_of_the_end = register("heart_of_the_end", new ItemHeartOfTheEnd(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("heart_of_the_end")));
 		nullified_dust = register("nullified_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("nullified_dust")));
@@ -318,7 +338,8 @@ public class NovaCraftItems {
 		deep_one_bone = register("deep_one_bone", new ItemFireproof().setTextureName(NovaCraft.find("deep_one_bone")));
 		ophidian_scales = register("ophidian_scales", new ItemFireproof().setTextureName(NovaCraft.find("ophidian_scales")));
 		destitute_tentacle = register("destitute_tentacle", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("destitute_tentacle")));
-		static_essence = register("static_essence", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("static_essence")));
+		static_essence = register("static_essence", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("static_essence")));		
+		ancient_city_artifact = register("ancient_city_artifact", new ItemNovaCraft(NovaCraftCreativeTabs.items).setMaxStackSize(1).setTextureName(NovaCraft.find("ancient_city_artifact")));
 		
 		vanite_bucket = register("vanite_bucket", new ItemVaniteBucket(Blocks.air).setMaxStackSize(16).setTextureName(NovaCraft.find("vanite_bucket")));
 		vanite_bucket_water = register("vanite_bucket_water", new ItemVaniteBucket(Blocks.flowing_water).setTextureName(NovaCraft.find("vanite_bucket_water")));
@@ -393,10 +414,10 @@ public class NovaCraftItems {
 		pherithium_shickaxe = register("pherithium_shickaxe", new ItemPherithiumShickaxe().setTextureName(NovaCraft.find("pherithium_shickaxe")));
 		reinforced_pherithium_shickaxe = register("reinforced_pherithium_shickaxe", new ItemReinforcedPherithiumShickaxe().setTextureName(NovaCraft.find("reinforced_pherithium_shickaxe")));
 		
-		pherithium_helmet = register("pherithium_helmet", new ItemPherithiumArmor(0, ArmorMaterial.IRON, "pherithium", null).setMaxDamage(257).setTextureName(NovaCraft.find("pherithium_helmet")));
-		pherithium_chestplate = register("pherithium_chestplate", new ItemPherithiumArmor(1, ArmorMaterial.IRON, "pherithium", null).setMaxDamage(313).setTextureName(NovaCraft.find("pherithium_chestplate")));
-		pherithium_leggings = register("pherithium_leggings", new ItemPherithiumArmor(2, ArmorMaterial.IRON, "pherithium", null).setMaxDamage(300).setTextureName(NovaCraft.find("pherithium_leggings")));
-		pherithium_boots = register("pherithium_boots", new ItemPherithiumArmor(3, ArmorMaterial.IRON, "pherithium", null).setMaxDamage(277).setTextureName(NovaCraft.find("pherithium_boots")));
+		pherithium_helmet = register("pherithium_helmet", new ItemPherithiumHelmet().setTextureName(NovaCraft.find("pherithium_helmet")));
+		pherithium_chestplate = register("pherithium_chestplate", new ItemPherithiumChestplate().setTextureName(NovaCraft.find("pherithium_chestplate")));
+		pherithium_leggings = register("pherithium_leggings", new ItemPherithiumLeggings().setTextureName(NovaCraft.find("pherithium_leggings")));
+		pherithium_boots = register("pherithium_boots", new ItemPherithiumBoots().setTextureName(NovaCraft.find("pherithium_boots")));
 		
 		diamond_bow = register("diamond_bow", new ItemDiamondBow());
 		diamond_firecharge_launcher = register("diamond_firecharge_launcher", new ItemDiamondFirechargeLauncher());
@@ -415,10 +436,10 @@ public class NovaCraftItems {
 		tophinite_hoe = register("tophinite_hoe", new ItemTophiniteHoe().setTextureName(NovaCraft.find("tophinite_hoe")));
 		tophinite_hammer = register("tophinite_hammer", new ItemTophiniteHammer().setTextureName(NovaCraft.find("tophinite_hammer")));
 		
-		tophinite_helmet = register("tophinite_helmet", new ItemTophiniteArmor(0, ArmorMaterial.DIAMOND, "tophinite", null).setMaxDamage(1257).setTextureName(NovaCraft.find("tophinite_helmet")));
-		tophinite_chestplate = register("tophinite_chestplate", new ItemTophiniteArmor(1, ArmorMaterial.DIAMOND, "tophinite", null).setMaxDamage(1313).setTextureName(NovaCraft.find("tophinite_chestplate")));
-		tophinite_leggings = register("tophinite_leggings", new ItemTophiniteArmor(2, ArmorMaterial.DIAMOND, "tophinite", null).setMaxDamage(1300).setTextureName(NovaCraft.find("tophinite_leggings")));
-		tophinite_boots = register("tophinite_boots", new ItemTophiniteArmor(3, ArmorMaterial.DIAMOND, "tophinite", null).setMaxDamage(1277).setTextureName(NovaCraft.find("tophinite_boots")));
+		tophinite_helmet = register("tophinite_helmet", new ItemTophiniteHelmet().setTextureName(NovaCraft.find("tophinite_helmet")));
+		tophinite_chestplate = register("tophinite_chestplate", new ItemTophiniteChestplate().setTextureName(NovaCraft.find("tophinite_chestplate")));
+		tophinite_leggings = register("tophinite_leggings", new ItemTophiniteLeggings().setTextureName(NovaCraft.find("tophinite_leggings")));
+		tophinite_boots = register("tophinite_boots", new ItemTophiniteBoots().setTextureName(NovaCraft.find("tophinite_boots")));
 		
 		crystallized_vanite_sword = register("crystallized_vanite_sword", new ItemCrystallizedVaniteSword().setTextureName(NovaCraft.find("crystallized_vanite_sword")));
 		crystallized_vanite_bow = register("crystallized_vanite_bow", new ItemCrystallizedVaniteBow());
@@ -492,11 +513,13 @@ public class NovaCraftItems {
 		
 		vanite_trident = register("vanite_trident", new ItemVaniteTrident(NCToolMaterial.VANITE_TRIDENT).setTextureName(NovaCraft.find("vanite_trident")));
 		eerie_sword = register("eerie_sword", new ItemEerieSword().setTextureName(NovaCraft.find("eerie_sword")));
-		sculked_blade = register("sculked_blade", new ItemSculkedBlade().setTextureName(NovaCraft.find("sculked_blade")));
+		sculked_blade = register("sculked_blade", new ItemSculkedBlade().setTextureName(NovaCraft.find("sculked_blade")));		
+		primeval_mace = register("primeval_mace", new ItemPrimevalMace().setTextureName(NovaCraft.find("primeval_mace")));		
 		scythe = register("scythe", new ItemScythe().setTextureName(NovaCraft.find("scythe")));
 		diablo = register("diablo", new ItemDiablo().setTextureName(NovaCraft.find("diablo")));
-		sculk_horn = register("sculk_horn", new ItemSculkHorn().setTextureName(NovaCraft.find("sculk_horn")));
 		phoenix_razor = register("phoenix_razor", new ItemPhoenixRazor().setTextureName(NovaCraft.find("phoenix_razor")));
+		primeval_horn = register("primeval_horn", new ItemPrimevalHorn().setTextureName(NovaCraft.find("primeval_horn")));
+		sculk_horn = register("sculk_horn", new ItemSculkHorn().setTextureName(NovaCraft.find("sculk_horn")));
 		
 		goat_horn_ponder = register("goat_horn_ponder", new ItemGoatHorn());
 		goat_horn_sing = register("goat_horn_sing", new ItemGoatHornSing());
@@ -520,15 +543,15 @@ public class NovaCraftItems {
 		vanite_exotic_crown = register("vanite_exotic_crown", new ItemVaniteExoticCrown(0, ArmorMaterial.DIAMOND, "vanite_exotic", null).setMaxDamage(1007).setTextureName(NovaCraft.find("vanite_exotic_crown")));
 		vanite_mysterious_crown = register("vanite_mysterious_crown", new ItemVaniteMysteriousCrown(0, ArmorMaterial.DIAMOND, "vanite_mysterious", null).setMaxDamage(1407).setTextureName(NovaCraft.find("vanite_mysterious_crown")));
 		
-		sculk_helmet = register("sculk_helmet", new ItemSculkArmor(0, ArmorMaterial.GOLD, "sculk", null).setMaxDamage(99).setTextureName(NovaCraft.find("sculk_helmet")));
-		sculk_chestplate = register("sculk_chestplate", new ItemSculkArmor(1, ArmorMaterial.GOLD, "sculk", null).setMaxDamage(124).setTextureName(NovaCraft.find("sculk_chestplate")));
-		sculk_leggings = register("sculk_leggings", new ItemSculkArmor(2, ArmorMaterial.GOLD, "sculk", null).setMaxDamage(112).setTextureName(NovaCraft.find("sculk_leggings")));
-		sculk_boots = register("sculk_boots", new ItemSculkArmor(3, ArmorMaterial.GOLD, "sculk", null).setMaxDamage(107).setTextureName(NovaCraft.find("sculk_boots")));
+		sculk_helmet = register("sculk_helmet", new ItemSculkHelmet().setTextureName(NovaCraft.find("sculk_helmet")));
+		sculk_chestplate = register("sculk_chestplate", new ItemSculkChestplate().setTextureName(NovaCraft.find("sculk_chestplate")));
+		sculk_leggings = register("sculk_leggings", new ItemSculkLeggings().setTextureName(NovaCraft.find("sculk_leggings")));
+		sculk_boots = register("sculk_boots", new ItemSculkBoots().setTextureName(NovaCraft.find("sculk_boots")));
 		
-		phantom_helmet = register("phantom_helmet", new ItemPhantomArmor(0, ArmorMaterial.IRON, "phantom", null).setMaxDamage(239).setTextureName(NovaCraft.find("phantom_helmet")));
-		phantom_chestplate = register("phantom_chestplate", new ItemPhantomArmor(1, ArmorMaterial.IRON, "phantom", null).setMaxDamage(324).setTextureName(NovaCraft.find("phantom_chestplate")));
-		phantom_leggings = register("phantom_leggings", new ItemPhantomArmor(2, ArmorMaterial.IRON, "phantom", null).setMaxDamage(312).setTextureName(NovaCraft.find("phantom_leggings")));
-		phantom_boots = register("phantom_boots", new ItemPhantomArmor(3, ArmorMaterial.IRON, "phantom", null).setMaxDamage(277).setTextureName(NovaCraft.find("phantom_boots")));
+		phantom_helmet = register("phantom_helmet", new ItemPhantomHelmet().setTextureName(NovaCraft.find("phantom_helmet")));
+		phantom_chestplate = register("phantom_chestplate", new ItemPhantomChestplate().setTextureName(NovaCraft.find("phantom_chestplate")));
+		phantom_leggings = register("phantom_leggings", new ItemPhantomLeggings().setTextureName(NovaCraft.find("phantom_leggings")));
+		phantom_boots = register("phantom_boots", new ItemPhantomBoots().setTextureName(NovaCraft.find("phantom_boots")));
 		
 		guardian_helmet = register("guardian_helmet", new ItemGuardianArmor(0, ArmorMaterial.DIAMOND, "guardian", null).setMaxDamage(20257).setTextureName(NovaCraft.find("guardianhelmet")));
 		guardian_chestplate = register("guardian_chestplate", new ItemGuardianArmor(1, ArmorMaterial.DIAMOND, "guardian", null).setMaxDamage(20313).setTextureName(NovaCraft.find("guardianchestplate")));
@@ -539,11 +562,6 @@ public class NovaCraftItems {
 		
 		novacraft_spawn_egg = register("novacraft_spawn_egg", new ItemNovaCraftSpawnEgg().setTextureName("spawn_egg"));
 			
-	}
-	
-	private static Item extend(String string, Item setTextureName) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 	public static Item register(String name, Item item) {

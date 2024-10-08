@@ -1400,7 +1400,6 @@ public class AncientCityPositiveHallwayGen1 extends WorldGenerator
 		world.setBlock(i + 5, j + 1, k + 49, Blocks.wool, 7, 2);
 		world.setBlock(i + 6, j + 1, k + 49, Blocks.wool, 7, 2);
 		world.setBlock(i + 7, j + 1, k + 49, NovaCraftBlocks.sculk_block, 0, 2);
-		world.setBlock(i + 8, j + 1, k + 49, soul_lantern, 1, 2);
 		world.setBlock(i + 9, j + 1, k + 49, Blocks.air, 0, 2);
 		world.setBlock(i + 10, j + 1, k + 49, Blocks.air, 0, 2);
 		world.setBlock(i + 0, j + 1, k + 50, Blocks.air, 0, 2);
@@ -2115,7 +2114,6 @@ public class AncientCityPositiveHallwayGen1 extends WorldGenerator
 		world.setBlock(i + 5, j + 2, k + 41, Blocks.air, 0, 2);
 		world.setBlock(i + 6, j + 2, k + 41, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 41, Blocks.air, 0, 2);
-		world.setBlock(i + 8, j + 2, k + 41, soul_lantern, 1, 2);
 		world.setBlock(i + 9, j + 2, k + 41, Blocks.air, 0, 2);
 		world.setBlock(i + 10, j + 2, k + 41, Blocks.air, 0, 2);
 		world.setBlock(i + 0, j + 2, k + 42, Blocks.air, 0, 2);

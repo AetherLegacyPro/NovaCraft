@@ -15,7 +15,7 @@ public class ConfigsTextureOverride {
      try {
          conf.load();
          ConfigsTextureOverride.override_stone_texture = conf.get("Enable Stone Texture Override?", "Enables 1.14 stone texture.", ConfigsTextureOverride.override_stone_texture).getBoolean(true);
-         ConfigsTextureOverride.override_gravel_texture = conf.get("Enable Stone Texture Override?", "Enables pre 1.3 gravel texture.", ConfigsTextureOverride.override_gravel_texture).getBoolean(true);
+         ConfigsTextureOverride.override_gravel_texture = conf.get("Enable Gravel Texture Override?", "Enables pre 1.3 gravel texture.", ConfigsTextureOverride.override_gravel_texture).getBoolean(true);
          ConfigsTextureOverride.override_vanilla_ore_textures = conf.get("Enable Modern Ore Textures?", "Enables Post 1.17 Ore textures.", ConfigsTextureOverride.override_vanilla_ore_textures).getBoolean(true);
      }
      finally {
@@ -25,7 +25,7 @@ public class ConfigsTextureOverride {
 	 
 	 static {
 		 ConfigsTextureOverride.override_stone_texture = false;
-		 ConfigsTextureOverride.override_gravel_texture = true;
+		 ConfigsTextureOverride.override_gravel_texture = false;
 		 ConfigsTextureOverride.override_vanilla_ore_textures = true;
   }
 	

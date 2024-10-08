@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.init.Blocks;
 import net.minecraft.block.material.Material;
@@ -86,6 +87,10 @@ public class ItemPherithiumShickaxe extends ItemTool
     
     static {
     	ItemPherithiumShickaxe.blocksEffectiveAgainst = Sets.newHashSet((Object[])new Block[] { Blocks.cobblestone, (Block)Blocks.double_stone_slab, (Block)Blocks.stone_slab, Blocks.stone, Blocks.sandstone, Blocks.mossy_cobblestone, Blocks.iron_ore, Blocks.iron_block, Blocks.coal_ore, Blocks.gold_block, Blocks.gold_ore, Blocks.diamond_ore, Blocks.diamond_block, Blocks.ice, Blocks.netherrack, Blocks.lapis_ore, Blocks.lapis_block, Blocks.redstone_ore, Blocks.lit_redstone_ore, Blocks.rail, Blocks.detector_rail, Blocks.golden_rail, Blocks.activator_rail, Blocks.planks, Blocks.bookshelf, Blocks.log, Blocks.log2, (Block)Blocks.chest, Blocks.pumpkin, Blocks.lit_pumpkin, (Block)Blocks.grass, Blocks.dirt, (Block)Blocks.sand, Blocks.gravel, Blocks.snow_layer, Blocks.snow, Blocks.clay, Blocks.farmland, Blocks.soul_sand, (Block)Blocks.mycelium });
+    }
+    
+    public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+        tooltip.add(EnumChatFormatting.GREEN + "" + StatCollector.translateToLocal("tooltip.pherithium_tools.desc"));
     }
 }
 

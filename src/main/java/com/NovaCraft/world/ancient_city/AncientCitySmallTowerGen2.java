@@ -10,6 +10,7 @@ import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class AncientCitySmallTowerGen2 extends WorldGenerator
 {
@@ -872,7 +873,6 @@ public class AncientCitySmallTowerGen2 extends WorldGenerator
 		world.setBlock(i + 3, j + 13, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 13, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 5, j + 13, k + 4, Blocks.air, 0, 2);
-		world.setBlock(i + 6, j + 13, k + 4, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 7, j + 13, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 13, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 9, j + 13, k + 4, Blocks.air, 0, 2);
@@ -987,7 +987,6 @@ public class AncientCitySmallTowerGen2 extends WorldGenerator
 		world.setBlock(i + 6, j + 13, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 13, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 13, k + 11, Blocks.air, 0, 2);
-		world.setBlock(i + 9, j + 13, k + 11, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 10, j + 13, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 11, j + 13, k + 11, NovaCraftBlocks.sculk_vein, 1, 2);
 		world.setBlock(i + 12, j + 13, k + 11, Blocks.air, 0, 2);
@@ -1026,6 +1025,22 @@ public class AncientCitySmallTowerGen2 extends WorldGenerator
 		world.setBlock(i + 13, j + 13, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 14, j + 13, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 15, j + 13, k + 13, Blocks.air, 0, 2);
+		
+		world.setBlock(i + 6, j + 13, k + 4, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 6, j + 13, k + 4);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.sculked_monitor");
+        }
+        
+        world.setBlock(i + 9, j + 13, k + 11, Blocks.mob_spawner, 0, 2);
+        TileEntityMobSpawner tileentitymobspawner2 = (TileEntityMobSpawner)world.getTileEntity(i + 9, j + 13, k + 11);
+        
+        if (tileentitymobspawner2 != null)
+        {
+        	tileentitymobspawner2.func_145881_a().setEntityName("nova_craft.sculk_incinerator");
+        }
     	
     	return true;
     }

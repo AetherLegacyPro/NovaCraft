@@ -21,7 +21,8 @@ public class AncientCityNegativeXShrineGen2 extends WorldGenerator
 	private static final Block deepslate = OtherModBlocks.deepslate;
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
 	private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
-	private static final Block soul_sand = Blocks.netherrack;
+	private static final Block soul_sand = Blocks.soul_sand;
+	private static final Block SoulFire = OtherModBlocks.SoulFire;
 	
 	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
 	private static final Block deepslate_brick_slab = OtherModBlocks.deepslate_brick_slab;
@@ -350,11 +351,11 @@ public class AncientCityNegativeXShrineGen2 extends WorldGenerator
 		world.setBlock(i + 3, j + 6, k + 19, deepslate_bricks, 2, 2);
 		world.setBlock(i + 4, j + 6, k + 19, deepslate_bricks, 3, 2);
 		world.setBlock(i + 5, j + 6, k + 19, deepslate_bricks, 3, 2);
-		world.setBlock(i + 6, j + 6, k + 19, Blocks.netherrack, 0, 2);
+		world.setBlock(i + 6, j + 6, k + 19, soul_sand, 0, 2);
 		world.setBlock(i + 7, j + 6, k + 19, NovaCraftBlocks.sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 6, k + 19, deepslate_bricks, 2, 2);
 		world.setBlock(i + 9, j + 6, k + 19, deepslate_bricks, 2, 2);
-		world.setBlock(i + 10, j + 6, k + 19, Blocks.netherrack, 0, 2);
+		world.setBlock(i + 10, j + 6, k + 19, soul_sand, 0, 2);
 		world.setBlock(i + 11, j + 6, k + 19, deepslate_bricks, 0, 2);
 		world.setBlock(i + 12, j + 6, k + 19, deepslate_bricks, 2, 2);
 		world.setBlock(i + 13, j + 6, k + 19, deepslate_bricks, 2, 2);
@@ -713,7 +714,7 @@ public class AncientCityNegativeXShrineGen2 extends WorldGenerator
 		world.setBlock(i + 6, j + 7, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 7, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 7, k + 18, Blocks.air, 0, 2);
-		world.setBlock(i + 9, j + 7, k + 18, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 9, j + 7, k + 18, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 10, j + 7, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 11, j + 7, k + 18, Blocks.air, 0, 2);
 		world.setBlock(i + 12, j + 7, k + 18, Blocks.air, 0, 2);
@@ -728,11 +729,11 @@ public class AncientCityNegativeXShrineGen2 extends WorldGenerator
 		world.setBlock(i + 3, j + 7, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 7, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 5, j + 7, k + 19, Blocks.air, 0, 2);
-		world.setBlock(i + 6, j + 7, k + 19, Blocks.fire, 15, 2);
+		world.setBlock(i + 6, j + 7, k + 19, SoulFire, 15, 2);
 		world.setBlock(i + 7, j + 7, k + 19, deepslate_brick_stairs, 5, 2);
 		world.setBlock(i + 8, j + 7, k + 19, deepslate_bricks, 0, 2);
 		world.setBlock(i + 9, j + 7, k + 19, deepslate_brick_stairs, 4, 2);
-		world.setBlock(i + 10, j + 7, k + 19, Blocks.fire, 15, 2);
+		world.setBlock(i + 10, j + 7, k + 19, SoulFire, 15, 2);
 		world.setBlock(i + 11, j + 7, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 12, j + 7, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 13, j + 7, k + 19, Blocks.air, 0, 2);
@@ -1107,9 +1108,9 @@ public class AncientCityNegativeXShrineGen2 extends WorldGenerator
 		world.setBlock(i + 4, j + 8, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 5, j + 8, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 6, j + 8, k + 19, Blocks.air, 0, 2);
-		world.setBlock(i + 7, j + 8, k + 19, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 7, j + 8, k + 19, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 8, j + 8, k + 19, deepslate_bricks, 4, 2);
-		world.setBlock(i + 9, j + 8, k + 19, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 9, j + 8, k + 19, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 10, j + 8, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 11, j + 8, k + 19, Blocks.air, 0, 2);
 		world.setBlock(i + 12, j + 8, k + 19, Blocks.air, 0, 2);

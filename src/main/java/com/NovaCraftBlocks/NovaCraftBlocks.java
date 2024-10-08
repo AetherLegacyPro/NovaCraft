@@ -190,7 +190,7 @@ public class NovaCraftBlocks {
 	public static Block nullwart_bricks, flaming_nullwart_bricks;
 	public static Block luminant_log, luminant_sapling, luminant_leaves, luminant_planks;
 	public static Block luminant_slab, luminant_double_slab, luminant_stairs, luminant_fence, luminant_fence_gate;
-	public static Block glow_torch, vanite_torch;
+	public static Block glow_torch, vanite_torch, dim_vanite_torch;
 	
 	//Decoration Blocks
 	public static Block grimstone_slab, grimstone_double_slab, grimstone_stairs, grimstone_wall;
@@ -409,6 +409,7 @@ public class NovaCraftBlocks {
 
 		glow_torch = register("glow_torch", new BlockGlowTorch().setBlockTextureName(NovaCraft.find("glow_torch")));
 		vanite_torch = register("vanite_torch", new BlockVaniteTorch().setBlockTextureName(NovaCraft.find("vanite_torch")));
+		dim_vanite_torch = register("dim_vanite_torch", new BlockDimVaniteTorch().setBlockTextureName(NovaCraft.find("dim_vanite_torch")));
 		
 		if (Configs.enableNullstone == false && Configs.enableDeepslateOreGeneration == false) {
 		stone_tophinite_ore = registerItemBlock("stone_tophinite_ore", new BlockStoneTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("stone_tophinite_ore"));		

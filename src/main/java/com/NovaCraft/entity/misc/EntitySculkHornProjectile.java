@@ -33,8 +33,6 @@ public class EntitySculkHornProjectile extends EntityProjectileBase {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		
-       // ParticleHandler.VIBRATION.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);      
 
 		if (this.ticksInAir > 50) {
 			this.setDead();

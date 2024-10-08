@@ -14,11 +14,15 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
+
+import java.util.List;
 
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
@@ -57,6 +61,10 @@ public class ItemVaniteTrident extends ItemBow {
 	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
 		return repair.getItem() == NovaCraftItems.reinforced_vanite_ingot;
 	}
+	
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+        tooltip.add(EnumChatFormatting.LIGHT_PURPLE + "" + StatCollector.translateToLocal("tooltip.vanite_trident.desc"));
+    }
 
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
@@ -110,7 +118,7 @@ public class ItemVaniteTrident extends ItemBow {
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityPlayer entityLiving, int timeLeft) {
 		if (entityLiving instanceof EntityPlayer) {
 			EntityPlayer entityplayer = (EntityPlayer) entityLiving;
-			//boolean flag = entityplayer.capabilities.isCreativeMode;
+
 			ItemStack itemstack = this.findAmmo(entityplayer);
 
 			int i = this.getMaxItemUseDuration(stack) - timeLeft;
@@ -124,10 +132,9 @@ public class ItemVaniteTrident extends ItemBow {
 			i = event.charge;
 			if (i < 0) return;
 
-			if (itemstack != null) {  //|| flag
-				//if (itemstack == null) {
-					itemstack = new ItemStack(NovaCraftItems.vanite_trident);
-				//}
+			if (itemstack != null) {  
+				
+				itemstack = new ItemStack(NovaCraftItems.vanite_trident);
 
 				float f = getArrowVelocity(i);
 
@@ -136,10 +143,6 @@ public class ItemVaniteTrident extends ItemBow {
 
 					if (!worldIn.isRemote) {
 						EntityVaniteTrident entitytrident = this.createArrow(worldIn, f * 1.5F, itemstack, entityplayer);
-
-						//if (f == 1.0F) {
-							//entitytrident.setIsCritical(true);
-						//}
 						
 						entitytrident.setDamage(entitytrident.getDamage() + (double) f * 1.0D + 1.0D);
 
@@ -151,18 +154,12 @@ public class ItemVaniteTrident extends ItemBow {
 
 						int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, stack);
 
-						//if (k > 0) {
-						//	entitytrident.setKnockbackStrength(k);
-						//}
-
 						int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, stack);
 
 						if (l > 0)
 						{
 							entitytrident.setFire(2400);
 						}
-
-						//stack.damageItem(1, entityplayer);
 
 						if (flag1) {
 							entitytrident.canBePickedUp = 1;
@@ -173,13 +170,7 @@ public class ItemVaniteTrident extends ItemBow {
 
 					worldIn.playSoundAtEntity(entityLiving, "nova_craft:trident.thrown", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
-					//if (!flag1) {
-						//--itemstack.stackSize;
-					
-						//if (itemstack.stackSize == 0) {
 					entityplayer.inventory.consumeInventoryItem(itemstack.getItem());
-						//}
-					//}
 				}
 			}
 		}
@@ -222,7 +213,7 @@ public class ItemVaniteTrident extends ItemBow {
 			return event.result;
 		}
 
-		if (flag) { //playerIn.capabilities.isCreativeMode
+		if (flag) {
 			playerIn.setItemInUse(heldItem, this.getMaxItemUseDuration(heldItem));
 		}
 

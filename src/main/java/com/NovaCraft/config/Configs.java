@@ -150,7 +150,6 @@ public class Configs
     public static boolean enableLacunaTreeGeneration;
     
     public static int vindicatorVillageSpawnRate;
-    public static int sculkDwellingSpawnRate;
     public static int endIslandSpawnRate;
     public static int destituteIslandSpawnRate;
     public static boolean enableDeepoidFortress;
@@ -161,7 +160,7 @@ public class Configs
     public static final String catEtFuturum = "Et Futurum Requiem Options";
     public static final String catMobs = "Mobs";
     public static final String catFirefly = "Firefly";
-    public static final String catAetherDeparture = "Aether Legacy Departure Options";
+    public static final String catAetherLegacy = "Aether Legacy Options";
     public static final String catMisc = "Misc";
     public static final String catWarden = "Warden Options";
     public static final String catServer = "Server Options";
@@ -300,7 +299,6 @@ public class Configs
       
         enableLuminantTreeGeneration = conf.getBoolean("enableLuminantTreeGeneration", catGeneration, true, "Enables luminant tree generation.");
         vindicatorVillageSpawnRate = conf.get("Spawn Rate - Vindicator Villages", catGeneration, 25).getInt();
-        sculkDwellingSpawnRate = conf.get("Spawn Rate - Sculk Dwelling", catGeneration, 80).getInt();
         enableDeepoidFortress = conf.getBoolean("enableDeepoidFortress", catGeneration, true, "Enables Deepoid Fortress Generation in the Nether.");
         enableSculkInfestedMineshaft = conf.getBoolean("enableSculkInfestedMineshaft", catGeneration, true, "Enables Sculk Infested Mineshafts to generate within Mountain Type Biomes.");
         endIslandSpawnRate = conf.get("Spawn Rate - End Islands", catGeneration, 121).getInt();
@@ -362,10 +360,10 @@ public class Configs
         enableSpawnFireflyOtherBiomes = conf.getBoolean("enableSpawnFireflyOtherBiomes", catFirefly, false, "Enables the Spawning of the Firefly in biomes with Plains or Forest tags.");
         enableNoDespawnFirefly = conf.getBoolean("enableNoDespawnFirefly", catFirefly, false, "Disables the despawning of Fireflies after a certian amount of time; they still despawn natually though.");
         
-        //Aether Legacy Departure Options
-        enableAetherLegacyDepartureItems = conf.getBoolean("enableAetherLegacyDepartureItems", catAetherDeparture, false, "Enables crates to drop of items from my custom port of Aether Legacy Departure.");
-        enableRawDivineral = conf.getBoolean("enableRawDivineral", catAetherDeparture, false, "Enables the Raw Divineral Block.");
-        enableNovaCraftGloves = conf.getBoolean("enableNovaCraftGloves", catAetherDeparture, false, "Enables the recipe for NovaCraft gloves from Aether Departure.");
+        //Aether Legacy Options
+        enableAetherLegacyDepartureItems = conf.getBoolean("enableAetherLegacyDepartureItems", catAetherLegacy, false, "Enables crates to drop of items from my custom fork of Aether Legacy Departure.");
+        enableRawDivineral = conf.getBoolean("enableRawDivineral", catAetherLegacy, false, "Enables the Raw Divineral Block.");
+        enableNovaCraftGloves = conf.getBoolean("enableNovaCraftGloves", catAetherLegacy, false, "Enables the recipe for NovaCraft gloves from Aether Departure.");
         
         //Weapon Damage Allign With Vanilla
         enableWeaponsToAllignWithVanilla = conf.getBoolean("enableWeaponsToAllignWithVanilla", catMisc, false, "Enables weapons from novacraft to allign with vanilla in terms of damage/durability more rather than other RPG like mods.");       

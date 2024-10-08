@@ -10,6 +10,7 @@ import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class AncientCitySmallTower2Gen1 extends WorldGenerator
 {
@@ -1830,7 +1831,6 @@ public class AncientCitySmallTower2Gen1 extends WorldGenerator
 		world.setBlock(i + 5, j + 8, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 6, j + 8, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 7, j + 8, k + 6, Blocks.air, 0, 2);
-		world.setBlock(i + 8, j + 8, k + 6, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 9, j + 8, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 10, j + 8, k + 6, NovaCraftBlocks.sculk_vein, 1, 2);
 		world.setBlock(i + 11, j + 8, k + 6, Blocks.air, 0, 2);
@@ -2537,6 +2537,14 @@ public class AncientCitySmallTower2Gen1 extends WorldGenerator
 		world.setBlock(i + 7, j + 11, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 8, j + 11, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 9, j + 11, k + 11, deepslate_brick_wall, 1, 2);
+		
+		world.setBlock(i + 8, j + 8, k + 6, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 8, j + 8, k + 6);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.sculk_dweller");
+        }
     	
     	return true;
     }

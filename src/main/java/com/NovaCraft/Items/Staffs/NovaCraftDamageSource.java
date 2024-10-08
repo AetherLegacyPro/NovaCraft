@@ -4,6 +4,7 @@ import com.NovaCraft.entity.misc.EntityDiamondFirechargeProjectile;
 import com.NovaCraft.entity.misc.EntityKlangiteFirechargeProjectile;
 import com.NovaCraft.entity.misc.EntityVaniteFirechargeProjectile;
 import com.NovaCraft.entity.misc.EntityVaniteTrident;
+import com.NovaCraft.entity.misc.KlangiteSwordProjectile;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -24,13 +25,14 @@ public class NovaCraftDamageSource {
         return new EntityDamageSourceIndirect("EntityKlangiteFirecharge", (Entity)par1, par2).setProjectile();
     }
 	
-	//public static DamageSource causeVaniteTridentDamage(final EntityVaniteTrident par1, final Entity par2) {
-        //return new EntityDamageSourceIndirect("EntityVaniteTrident", (Entity)par1, par2).setProjectile();
-    //}
-	
 	public static DamageSource causeVaniteTridentDamage(EntityVaniteTrident p_76353_0_, Entity p_76353_1_)
     {
         return (new EntityDamageSourceIndirect("EntityVaniteTrident", p_76353_0_, p_76353_1_)).setProjectile();
+    }
+	
+	public static DamageSource causeKlangiteSwordDamage(KlangiteSwordProjectile p_76353_0_, Entity p_76353_1_)
+    {
+        return (new EntityDamageSourceIndirect("EntityKlangiteSwordProjectile", p_76353_0_, p_76353_1_)).setProjectile();
     }
 
 }

@@ -45,7 +45,6 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
     private double damage = 2.5D;
     /** The amount of knockback an arrow applies when it hits a mob. */
     private int knockbackStrength;
-    private static final String __OBFID = "CL_00001715";
 
     public EntityVaniteTrident(World p_i1753_1_)
     {

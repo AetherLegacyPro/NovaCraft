@@ -12,11 +12,15 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
+
+import java.util.List;
 
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
@@ -50,6 +54,10 @@ public class ItemDiamondBow extends ItemBow {
 	@Override
 	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
 		return repair.getItem() == Items.diamond;
+	}
+	
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+	 	   tooltip.add(EnumChatFormatting.AQUA + "" + StatCollector.translateToLocal("tooltip.diamond_bow.desc"));
 	}
 
 	@Override
@@ -129,7 +137,7 @@ public class ItemDiamondBow extends ItemBow {
 					boolean flag1 = entityplayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
 
 					if (!worldIn.isRemote) {
-						EntityArrow entityarrow = this.createArrow(worldIn, f * 2.0F, itemstack, entityplayer);
+						EntityArrow entityarrow = this.createArrow(worldIn, f * 1.75F, itemstack, entityplayer);
 
 						if (f == 1.0F) {
 							entityarrow.setIsCritical(true);

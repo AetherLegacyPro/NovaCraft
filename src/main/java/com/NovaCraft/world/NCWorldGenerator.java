@@ -81,6 +81,7 @@ public class NCWorldGenerator implements IWorldGenerator {
 				gen.generate(world, random, xRand, yRand, zRand);
 			}
 		}
+	 	
 	 	public void generateOverworld(World world, Random rand, int x, int z) {
 	 		if (Configs.enableGrimstone == true) {
 			generateOre(NovaCraftBlocks.grimstone, world, rand, x, z, 1, 100, 1, 8, 24,
@@ -118,7 +119,31 @@ public class NCWorldGenerator implements IWorldGenerator {
 			if (Loader.isModLoaded("etfuturum") && (Configs.enableNovaCraftTuffGeneration) && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
 				generateOre(OtherModBlocks.tuff, world, rand, x, z, 1, 35, 2, 25, 45,
 						Blocks.stone);
-				}
+				}			
+			
+			//Vindicator Villages
+			int i, j, k, num;
+			i = j = k = -1;
+			num = 0;		
+			
+			BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(x, z);
+			if(world.getWorldInfo().getTerrainType().getWorldTypeID() != 1){
+
+				 if(Configs.vindicatorVillageSpawnRate != 0) {
+					if(world.getWorldInfo().getTerrainType().getWorldTypeID() == 1)
+						num = rand.nextInt(((100 - Configs.vindicatorVillageSpawnRate) * 2) + 250);
+					else
+						num = rand.nextInt((100 - Configs.vindicatorVillageSpawnRate* 2) + 125);
+
+					if(num == 1){
+						i = x + rand.nextInt(16) + 8;
+						j = z + rand.nextInt(16) + 8;
+						k = world.getTopSolidOrLiquidBlock(i, j);
+						if (k <= 0);
+						new VillageWell().generate(world, rand, i, k, j);
+			 }
+		   }										
+		  }
 	   	   
 	 	}
 }

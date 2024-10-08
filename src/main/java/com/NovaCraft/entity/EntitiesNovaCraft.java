@@ -19,11 +19,15 @@ import com.NovaCraft.entity.misc.EntityDiamondFirechargeProjectile;
 import com.NovaCraft.entity.misc.EntityIceProjectile;
 import com.NovaCraft.entity.misc.EntityIonizatiorProjectile;
 import com.NovaCraft.entity.misc.EntityKlangiteFirechargeProjectile;
+import com.NovaCraft.entity.misc.EntityPrimevalHornProjectile;
 import com.NovaCraft.entity.misc.EntityRayfireball;
 import com.NovaCraft.entity.misc.EntitySculkHornProjectile;
+import com.NovaCraft.entity.misc.EntitySculkLaser;
+import com.NovaCraft.entity.misc.EntitySculkedMonitorProjectile;
 import com.NovaCraft.entity.misc.EntityVaniteFirechargeProjectile;
 import com.NovaCraft.entity.misc.EntityVaniteTrident;
 import com.NovaCraft.entity.misc.EntityWardenProjectile;
+import com.NovaCraft.entity.misc.KlangiteSwordProjectile;
 
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -76,7 +80,11 @@ public class EntitiesNovaCraft {
 		register(EntityVaniteTrident.class, "vanite_trident", 32, 64, 20, true);	
 		register(EntityFirefly.class, "nova_firefly", 36, 0x17181c, 0xf3ee86);
 		register(EntityIonizatiorProjectile.class, "ionizator_projectile", 39, 64, 20, true);
-		register(EntityDestituteTentacleProjectile.class, "destitute_projectile", 54, 64, 20, true);	
+		register(EntityDestituteTentacleProjectile.class, "destitute_projectile", 54, 64, 20, true);
+		register(EntitySculkLaser.class, "sculk_laser", 56, 64, 10, true);
+		register(EntityPrimevalHornProjectile.class, "primeval_projectile", 58, 64, 20, true);
+		register(EntitySculkedMonitorProjectile.class, "sculked_monitor_projectile", 59, 64, 20, true);
+		register(KlangiteSwordProjectile.class, "klangite_sword_projectile", 60, 150, 2, true);
 		
 		//Mobs
 		register(EntityPrimedXanciumTNT.class, "XTNT", 0, 64, 20, false);
@@ -115,11 +123,13 @@ public class EntitiesNovaCraft {
 		register(EntityRealityDistorter.class, "reality_distorter", 51, 0x0d0d0d, 0xc2c2c2);
 		register(EntityDestitumite.class, "destitumite", 52, 0x080909, 0x1b1b1b);
 		register(EntityDestituteTentacle.class, "destitumite_tentacle", 53, 0x080909, 0x1b2b1c);
+		register(EntitySculkIncinerator.class, "sculk_incinerator", 55, 0x4ea19f, 0x2a4f59);
 		
 		//Bosses
 		register(EntityWarden.class, "warden", 16, 0x256166, 0x171b1e);
 		register(EntityDeepoidDragon.class, "deepoid_dragon", 45, 0x68395f, 0xd2323a);
 		register(EntityBloviator.class, "bloviator", 47, 0x28395f, 0x12323a);
+		register(EntityPrisoner.class, "prisoner", 57, 0x356166, 0x171b1e);
 		
 		if (Configs.enableSpawnGlowSquid) {
 		EntityRegistry.addSpawn((Class)EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] { BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});

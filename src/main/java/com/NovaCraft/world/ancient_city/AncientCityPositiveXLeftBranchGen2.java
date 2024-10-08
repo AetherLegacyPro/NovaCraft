@@ -746,7 +746,7 @@ public class AncientCityPositiveXLeftBranchGen2 extends WorldGenerator
 		world.setBlock(i + 19, j + 2, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 20, j + 2, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 21, j + 2, k + 23, deepslate_bricks, 2, 2);
-		world.setBlock(i + 22, j + 2, k + 23, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 22, j + 2, k + 23, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 23, j + 2, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 24, j + 2, k + 23, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 2, k + 23, Blocks.air, 0, 2);
@@ -782,7 +782,7 @@ public class AncientCityPositiveXLeftBranchGen2 extends WorldGenerator
 		world.setBlock(i + 19, j + 2, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 20, j + 2, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 21, j + 2, k + 24, deepslate_brick_slab, 1, 2);
-		world.setBlock(i + 22, j + 2, k + 24, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 22, j + 2, k + 24, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 23, j + 2, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 24, j + 2, k + 24, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 2, k + 24, Blocks.air, 0, 2);
@@ -818,7 +818,7 @@ public class AncientCityPositiveXLeftBranchGen2 extends WorldGenerator
 		world.setBlock(i + 19, j + 2, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 20, j + 2, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 21, j + 2, k + 25, deepslate_brick_slab, 1, 2);
-		world.setBlock(i + 22, j + 2, k + 25, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 22, j + 2, k + 25, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 23, j + 2, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 24, j + 2, k + 25, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 2, k + 25, Blocks.air, 0, 2);
@@ -854,7 +854,7 @@ public class AncientCityPositiveXLeftBranchGen2 extends WorldGenerator
 		world.setBlock(i + 19, j + 2, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 20, j + 2, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 21, j + 2, k + 26, deepslate_bricks, 2, 2);
-		world.setBlock(i + 22, j + 2, k + 26, NovaCraftBlocks.vanite_torch, 5, 2);
+		world.setBlock(i + 22, j + 2, k + 26, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 		world.setBlock(i + 23, j + 2, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 24, j + 2, k + 26, Blocks.air, 0, 2);
 		world.setBlock(i + 25, j + 2, k + 26, Blocks.air, 0, 2);

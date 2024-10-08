@@ -102,6 +102,11 @@ item.warden_core.name=Warden Core
 item.destitute_tentacle.name=Destitute Tentacle
 item.static_essence.name=Static Essence
 item.sculked_blade.name=Sculked Blade
+item.primeval_mace.name=Primeval Mace
+item.klangite_blend.name=Klangite Blend
+item.impure_klangite_ingot.name=Impure Klangite Ingot
+item.explosive_klangite_ingot.name=Explosive Klangite Ingot
+item.xancium_pellet.name=Xancium Pellet
 
 item.vanite_bucket.name=Vanite Bucket
 item.vanite_bucket_water.name=Water Bucket
@@ -124,6 +129,8 @@ item.potion_fire_resistance_extended.name=Extended Potion Of Fire Resistance
 item.potion_resistance.name=Potion Of Resistance
 item.potion_haste.name=Potion Of Haste
 item.potion_haste_II.name=Potion of Haste II
+item.ancient_city_artifact.name=Ancient City Artifact
+item.primeval_horn.name=Primeval Horn
 
 item.novacraft_spawn_egg.name=Spawn
 
@@ -209,8 +216,8 @@ item.pherithium_helmet.name=Pherithium Helmet
 item.pherithium_chestplate.name=Pherithium Chestplate
 item.pherithium_leggings.name=Pherithium Leggings
 item.pherithium_boots.name=Pherithium Boots
-item.pherithium_shickaxe.name=Pherithium Shickaxe
-item.reinforced_pherithium_shickaxe.name=Reinforced Pherithium Shickaxe
+item.pherithium_shickaxe.name=Pherithium MultiTool
+item.reinforced_pherithium_shickaxe.name=Reinforced Pherithium MultiTool
 
 item.diamond_bow.name=Diamond Bow
 item.diamond_firecharge_launcher.name=Diamond Firecharge Launcher
@@ -357,7 +364,7 @@ tile.deep_one_egg.name=Deep One Dragon Egg
 tile.deep_one_egg_activated.name=Activated Deep One Egg
 tile.vanite_bricks.name=Vanite Bricks
 tile.carved_vanite_bricks.name=Carved Vanite Bricks
-tile.glowing_carved_vanite_bricks.name=Glowing Carved Vanite Bricks
+tile.glowing_carved_vanite_bricks.name=Vanite Lamp
 tile.sculk_tulip.name=Sculk Tulip
 tile.deep_roots.name=Deep Roots
 tile.cosmos.name=Cosmos
@@ -385,6 +392,7 @@ tile.ender_sprout.name=Ender Sprout
 tile.ender_fungus_block.name=Block Of Endgus
 tile.ender_fungus_stem.name=Endgus Stem
 tile.carved_frontierslate_bricks.name=Chiseled Frontierslate Bricks
+tile.dim_vanite_torch.name=Dim Vanite Torch
 
 
 tile.vanite_cauldron.name=Vanite Cauldron
@@ -667,6 +675,41 @@ tooltip.horn.call.desc=Call
 tooltip.horn.yearn.desc=Yearn
 tooltip.horn.dream.desc=Dream
 
+tooltip.pherithium_tools.desc=High Efficiency
+tooltip.pherithium_shickaxe.desc=The Miner's tool!
+tooltip.pherithium_armor.desc=Full set grants Haste IV
+
+tooltip.sculk_armor.desc=Full set grants high speed
+tooltip.phantom_armor.desc=Negates some damage from Phantoms
+
+tooltip.tophinite_tools.desc=Extra Drops in the Nether
+tooltip.tophinite_armor.desc=Full set puts out fire
+tooltip.tophinite_hammer.desc=Applies a random negative status effect
+
+tooltip.klangite_tools.desc=Built in Fortune that stacks with the enchantment
+tooltip.klangite_sword.desc=Fires projectiles, consumes xancium pellets
+tooltip.klangite_armor.desc=Full set grants aura that damages hostiles
+
+tooltip.primeval_mace.desc=Deals additional damage to sculk mobs
+tooltip.eerie_blade.desc=Fancy blade
+tooltip.sculked_blade.desc=Chance to heal the player
+tooltip.phoenix_razor.desc=Can be used to "shear" Phoenixes
+tooltip.diablo.desc=Sets mobs Ablaze
+tooltip.ice_sceptor.desc=Consumes Snowballs
+tooltip.end_staff.desc=Teleports players without fall damage
+tooltip.crystal_staff.desc=Use on a crystal bud
+tooltip.vanite_trident.desc=Unbreakable
+tooltip.diamond_firecharge.desc=Consumes Firecharges
+tooltip.vanite_firecharge.desc=Consumes Firecharges
+tooltip.klangite_firecharge.desc=Consumes Xancium Firecharges
+
+tooltip.explosive_ingot.desc=Throw this into the void!
+
+tooltip.diamond_bow.desc=+2 damage
+tooltip.netherite_bow.desc=+4 damage
+tooltip.tophinite_bow.desc=+7 damage
+tooltip.klangite_bow.desc=+8 damage
+
 #Potion Tool Tips
 tooltip.potion.resistance.desc=Resistance I (32:00)
 tooltip.potion.speed.desc=Speed I (24:00)
@@ -877,6 +920,9 @@ entity.nova_craft.vargouzite.name=Vargouzite
 entity.nova_craft.reality_distorter.name=Reality Distorter
 entity.nova_craft.destitumite.name=Destitumite
 entity.nova_craft.destitumite_tentacle.name=Destitumite Tentacle
+entity.nova_craft.sculk_incinerator.name=Sculk Incinerator
+entity.nova_craft.sculk_laser.name=Sculk Laser
+entity.nova_craft.prisoner.name=The Prisoner
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -919,3 +965,6 @@ entity.vargouzite.name=Vargouzite
 entity.reality_distorter.name=Reality Distorter
 entity.destitumite.name=Destitumite
 entity.destitumite_tentacle.name=Destitumite Tentacle
+entity.sculk_incinerator.name=Sculk Incinerator
+entity.sculk_laser.name=Sculk Laser
+entity.prisoner.name=The Prisoner

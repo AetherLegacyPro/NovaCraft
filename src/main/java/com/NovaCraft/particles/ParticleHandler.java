@@ -55,6 +55,19 @@ public enum ParticleHandler
         }
 	},
 	
+	VOIDLARGE((Class)EntityRandomShapedParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+        
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/void_particles.png");
+        }
+        
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.18f * world.rand.nextFloat(), -1, this.texture, 16 };
+        }
+	},
+	
 	ENDER((Class)EntityRandomShapedParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
         private final ResourceLocation texture;
         
@@ -125,6 +138,19 @@ public enum ParticleHandler
         
         {
             this.texture = new ResourceLocation("nova_craft:textures/particles/vibration.png");
+        }
+        
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.18f * world.rand.nextFloat(), -1, this.texture, 16 };
+        }
+	},
+	
+	ANCIENT_VIBRATION((Class)EntityRandomShapedParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+        
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/ancient_vibration.png");
         }
         
         @Override

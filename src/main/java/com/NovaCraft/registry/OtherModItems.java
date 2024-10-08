@@ -24,6 +24,7 @@ public class OtherModItems
     public static Item netherite_ingot;
     public static Item rabbit_foot;
     public static Item amethyst_shard;
+    public static Item raw_ore;
     
     //Netherlious
     public static Item Nugget;
@@ -49,12 +50,15 @@ public class OtherModItems
     public static Item swet_ball;
     public static Item ambrosium_shard;
           
-    //Wojak's Aether Legacy Branch
+    //Aether Departure
     public static Item arkenium_chunk;
     public static Item continuum_orb;
     public static Item continuum_gemstone;
     public static Item divineral_ingot;
     public static Item enchanted_divineral;
+    public static Item arkenium_fragement;
+    public static Item raw_gravitite;
+    public static Item divineral_nugget;
     
     //public static Item ascensite_pickaxe;
     //public static Item ascensite_axe;
@@ -80,6 +84,7 @@ public class OtherModItems
     	OtherModItems.copper_ingot = GameRegistry.findItem("etfuturum", "copper_ingot");
     	OtherModItems.rabbit_foot = GameRegistry.findItem("etfuturum", "rabbit_foot");
     	OtherModItems.amethyst_shard = GameRegistry.findItem("etfuturum", "amethyst_shard");
+    	OtherModItems.raw_ore = GameRegistry.findItem("etfuturum", "raw_ore");
     	
     	OtherModItems.VoidQuartzItem = GameRegistry.findItem("netherlicious", "VoidQuartzItem");
     	OtherModItems.Ingot = GameRegistry.findItem("netherlicious", "Ingot");
@@ -107,6 +112,9 @@ public class OtherModItems
     	OtherModItems.continuum_gemstone = GameRegistry.findItem("aether_legacy", "continuum_gemstone");
     	OtherModItems.divineral_ingot = GameRegistry.findItem("aether_legacy", "divineral_ingot");
     	OtherModItems.enchanted_divineral = GameRegistry.findItem("aether_legacy", "enchanted_divineral");
+    	OtherModItems.arkenium_fragement = GameRegistry.findItem("aether_legacy", "arkenium_fragement");
+    	OtherModItems.raw_gravitite = GameRegistry.findItem("aether_legacy", "raw_gravitite");
+    	OtherModItems.divineral_nugget = GameRegistry.findItem("aether_legacy", "divineral_nugget");
     	
     	OtherModItems.pherithium_gloves = GameRegistry.findItem("aether_legacy", "pherithium_gloves");
     	OtherModItems.vanite_gloves = GameRegistry.findItem("aether_legacy", "vanite_gloves");
