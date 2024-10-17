@@ -61,10 +61,9 @@ public class ItemTophiniteSword extends ItemSword
 				entityliving.dropItem(Items.magma_cream, 1);
 			}
 		}
-
-		itemstack.damageItem(1, entityliving1);
-		return true;
     	}
+    	
+		itemstack.damageItem(1, entityliving1);
     	
 		return true;
     }

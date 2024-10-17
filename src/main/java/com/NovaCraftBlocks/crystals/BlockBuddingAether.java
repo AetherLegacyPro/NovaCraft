@@ -26,7 +26,7 @@ public class BlockBuddingAether extends BlockAether {
 	
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
-		if (world.provider.dimensionId == 0 || world.provider.dimensionId == 4) {
+		if (world.provider.dimensionId == 0 || world.provider.dimensionId == 4) { //No idea how to check the config of another mod so only checks id=4...
 		if (rand.nextInt(250) == 1) {
 			EnumFacing facing = EnumFacing.getFront(rand.nextInt(EnumFacing.values().length));
 		Block block = world.getBlock(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());

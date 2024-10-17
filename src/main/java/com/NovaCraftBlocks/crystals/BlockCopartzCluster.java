@@ -33,7 +33,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 
-public class BlockCopartzCluster extends BlockLarimar implements ISubBlocksBlock {
+public class BlockCopartzCluster extends BlockCopartz implements ISubBlocksBlock {
 	
 	private final int type;
 	@SideOnly(Side.CLIENT)

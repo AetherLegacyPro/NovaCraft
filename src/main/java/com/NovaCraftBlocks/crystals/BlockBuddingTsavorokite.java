@@ -31,7 +31,7 @@ public class BlockBuddingTsavorokite extends BlockTsavorokite {
 		Block block = world.getBlock(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
 		int meta = world.getBlockMetadata(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
 		
-			if(block instanceof BlockLarimarCluster && meta % 6 == facing.ordinal()) {
+			if(block instanceof BlockTsavorokiteCluster && meta % 6 == facing.ordinal()) {
 				if(meta < 6) {
 					world.setBlockMetadataWithNotify(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ(), meta + 6, 3);
 				} else if(block == NovaCraftBlocks.tsavorokite_cluster_1) {

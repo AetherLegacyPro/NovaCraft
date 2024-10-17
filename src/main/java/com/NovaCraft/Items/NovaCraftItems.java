@@ -6,7 +6,10 @@ import java.util.List;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.Armor.ItemCrystaliteArmor;
 import com.NovaCraft.Items.Armor.ItemGuardianArmor;
-import com.NovaCraft.Items.Armor.ItemKlangiteArmor;
+import com.NovaCraft.Items.Armor.ItemKlangiteBoots;
+import com.NovaCraft.Items.Armor.ItemKlangiteChestplate;
+import com.NovaCraft.Items.Armor.ItemKlangiteHelmet;
+import com.NovaCraft.Items.Armor.ItemKlangiteLeggings;
 import com.NovaCraft.Items.Armor.ItemKylaziteArmor;
 import com.NovaCraft.Items.Armor.ItemOphidianArmor;
 import com.NovaCraft.Items.Armor.ItemPhantomBoots;
@@ -473,10 +476,10 @@ public class NovaCraftItems {
 		klangite_shovel = register("klangite_shovel", new ItemKlangiteShovel().setTextureName(NovaCraft.find("klangite_shovel")));
 		klangite_hoe = register("klangite_hoe", new ItemKlangiteHoe().setTextureName(NovaCraft.find("klangite_hoe")));
 		
-		klangite_helmet = register("klangite_helmet", new ItemKlangiteArmor(0, ArmorMaterial.DIAMOND, "klangite", null).setMaxDamage(4257).setTextureName(NovaCraft.find("klangite_helmet")));
-		klangite_chestplate = register("klangite_chestplate", new ItemKlangiteArmor(1, ArmorMaterial.DIAMOND, "klangite", null).setMaxDamage(4313).setTextureName(NovaCraft.find("klangite_chestplate")));
-		klangite_leggings = register("klangite_leggings", new ItemKlangiteArmor(2, ArmorMaterial.DIAMOND, "klangite", null).setMaxDamage(4300).setTextureName(NovaCraft.find("klangite_leggings")));
-		klangite_boots = register("klangite_boots", new ItemKlangiteArmor(3, ArmorMaterial.DIAMOND, "klangite", null).setMaxDamage(4277).setTextureName(NovaCraft.find("klangite_boots")));
+		klangite_helmet = register("klangite_helmet", new ItemKlangiteHelmet().setTextureName(NovaCraft.find("klangite_helmet")));
+		klangite_chestplate = register("klangite_chestplate", new ItemKlangiteChestplate().setTextureName(NovaCraft.find("klangite_chestplate")));
+		klangite_leggings = register("klangite_leggings", new ItemKlangiteLeggings().setTextureName(NovaCraft.find("klangite_leggings")));
+		klangite_boots = register("klangite_boots", new ItemKlangiteBoots().setTextureName(NovaCraft.find("klangite_boots")));
 				
 		kylazite_sword = register("kylazite_sword", new ItemKylaziteSword().setTextureName(NovaCraft.find("kylazite_sword")));
 		kylazite_bow = register("kylazite_bow", new ItemKylaziteBow());

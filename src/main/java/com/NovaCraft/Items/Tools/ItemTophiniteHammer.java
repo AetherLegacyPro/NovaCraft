@@ -66,6 +66,7 @@ public class ItemTophiniteHammer extends ItemSword
     
     @Override
 	public boolean hitEntity(ItemStack itemstack, EntityLivingBase entityliving, EntityLivingBase entityliving1) {
+    	if (entityliving.worldObj.provider.dimensionId == -1) {
 		if ((new Random()).nextInt(50) == 3 && entityliving1 != null && entityliving1 instanceof EntityPlayer && entityliving.hurtTime > 0 && entityliving.deathTime <= 0) {
 			if (!entityliving.worldObj.isRemote) {
 				entityliving.dropItem(Items.glowstone_dust, 1);
@@ -86,6 +87,7 @@ public class ItemTophiniteHammer extends ItemSword
 				entityliving.dropItem(Items.magma_cream, 1);
 			}
 		}
+    	}
 
 		itemstack.damageItem(1, entityliving1);
 		return true;

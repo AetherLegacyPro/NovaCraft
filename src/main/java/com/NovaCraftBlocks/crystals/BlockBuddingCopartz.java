@@ -14,7 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-public class BlockBuddingCopartz extends BlockLarimar {
+public class BlockBuddingCopartz extends BlockCopartz {
 	
 	public BlockBuddingCopartz() {
 		setHardness(1.5F);
@@ -31,7 +31,7 @@ public class BlockBuddingCopartz extends BlockLarimar {
 		Block block = world.getBlock(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
 		int meta = world.getBlockMetadata(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
 		
-			if(block instanceof BlockLarimarCluster && meta % 6 == facing.ordinal()) {
+			if(block instanceof BlockCopartzCluster && meta % 6 == facing.ordinal()) {
 				if(meta < 6) {
 					world.setBlockMetadataWithNotify(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ(), meta + 6, 3);
 				} else if(block == NovaCraftBlocks.copartz_cluster_1) {
