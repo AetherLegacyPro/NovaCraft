@@ -10,57 +10,44 @@ import net.minecraft.client.model.ModelBase;
 
 public class DestituteTentacleModel extends ModelBase
 {
-    ModelRenderer Tail1; //middle cube
-    ModelRenderer Tail2;
-    ModelRenderer Tail3;
-    ModelRenderer Tail4;
-    ModelRenderer Tail5; //top cube
-    ModelRenderer Tail6; //bottom cube
+    ModelRenderer part1;
+    ModelRenderer part2;
+    ModelRenderer part3;
+    ModelRenderer part4;
     
     public DestituteTentacleModel() {
-        this.textureWidth = 128;
+        this.textureWidth = 64;
         this.textureHeight = 64;
-        (this.Tail1 = new ModelRenderer((ModelBase)this, 50, 0)).addBox(0.0f, 0.0f, 0.0f, 2, 1, 2); //2 2 2
-        this.Tail1.setRotationPoint(-1.0f, 9.0f, 0.0f);
-        this.Tail1.setTextureSize(128, 64);
-        this.Tail1.mirror = true;
-        this.setRotation(this.Tail1, 0.0f, 0.0f, 0.0f);
-        (this.Tail2 = new ModelRenderer((ModelBase)this, 39, 0)).addBox(0.0f, 0.0f, 0.0f, 2, 1, 2);
-        this.Tail2.setRotationPoint(-1.0f, 10.0f, 2.0f);
-        this.Tail2.setTextureSize(128, 64);
-        this.Tail2.mirror = true;
-        this.setRotation(this.Tail2, 0.0f, 0.0f, 0.0f);
-        (this.Tail3 = new ModelRenderer((ModelBase)this, 0, 46)).addBox(-0.5f, -0.5f, -2.0f, 1, 1, 4);
-        this.Tail3.setRotationPoint(0.0f, 10.0f, -1.0f);
-        this.Tail3.setTextureSize(128, 64);
-        this.Tail3.mirror = true;
-        this.setRotation(this.Tail3, 0.1673038f, 0.0f, 0.0f);
-        (this.Tail4 = new ModelRenderer((ModelBase)this, 71, 0)).addBox(0.0f, 0.0f, 0.0f, 2, 1, 2);
-        this.Tail4.setRotationPoint(-1.0f, 11.0f, 3.0f);
-        this.Tail4.setTextureSize(128, 64);
-        this.Tail4.mirror = true;
-        this.setRotation(this.Tail4, 0.0f, 0.0f, 0.0f);
-        (this.Tail5 = new ModelRenderer((ModelBase)this, 0, 37)).addBox(0.0f, 0.0f, 0.0f, 2, 1, 2); //2 2 2
-        this.Tail5.setRotationPoint(-1.0f, 12.0f, 4.0f);
-        this.Tail5.setTextureSize(128, 64);;
-        this.Tail5.mirror = true;
-        this.setRotation(this.Tail5, 0.0f, 0.0f, 0.0f);
-        (this.Tail6 = new ModelRenderer((ModelBase)this, 0, 29)).addBox(0.0f, -6.0f, 0.0f, 2, 1, 2); //2 2 2
-        this.Tail6.setRotationPoint(-1.0f, 20.0f, 5.0f);
-        this.Tail6.setTextureSize(128, 64);
-        this.Tail6.mirror = true;
-        this.setRotation(this.Tail6, 0.0371786f, 0.0f, 0.0f);
+        
+        (this.part1 = new ModelRenderer((ModelBase)this, -16, -8)).addBox(-5.0F, -6.0F, -5.0F, 10, 6, 10);
+		this.part1.setTextureSize(64, 64);
+		part1.setRotationPoint(0.0F, 24.0F, 0.0F);
+        this.part1.mirror = true;
+        
+        (this.part2 = new ModelRenderer((ModelBase)this, -12, -6)).addBox(-4.0F, -18.0F, -4.0F, 8, 12, 8);
+		this.part2.setTextureSize(64, 64);
+		part2.setRotationPoint(0.0F, 24.0F, 0.0F);
+        this.part2.mirror = true;
+        
+        (this.part3 = new ModelRenderer((ModelBase)this, -8, -4)).addBox(-3.0F, -26.0F, -3.0F, 6, 8, 6);
+		this.part3.setTextureSize(64, 64);
+		part3.setRotationPoint(0.0F, 24.0F, 0.0F);
+        this.part3.mirror = true;
+        
+        (this.part4 = new ModelRenderer((ModelBase)this, -9, -7)).addBox(-2.0F, -30.0F, -5.0F, 4, 4, 9); //- - -10
+		this.part4.setTextureSize(64, 64);
+		part4.setRotationPoint(0.0F, 24.0F, 0.0F);
+        this.part4.mirror = true;
+
     }
     
     public void render(final Entity par1Entity, final float par2, final float par3, final float par4, final float par5, final float par6, final float par7) {
     	this.setRotationAngles(par2, par3, par4, par5, par6, par7, par1Entity);
-        GL11.glTranslatef(0, 0.625f, 0);
-        this.Tail1.render(par7);
-        this.Tail2.render(par7);
-        this.Tail3.render(par7);
-        this.Tail4.render(par7);
-        this.Tail5.render(par7);
-        this.Tail6.render(par7);
+        GL11.glTranslatef(0, 0.425f, 0);
+        this.part1.render(par7);
+        this.part2.render(par7);
+        this.part3.render(par7);
+        this.part4.render(par7);
     }
     
     private void setRotation(final ModelRenderer model, final float x, final float y, final float z) {
@@ -75,18 +62,16 @@ public class DestituteTentacleModel extends ModelBase
         final float tailVal = limbSwing * 0.1f + ageInTicks * 0.06f;
         final float tailSway = MathHelper.cos(tailVal) / 3.0f;
         final float tailSwaySin = MathHelper.sin(tailVal) / 3.0f;
-        this.Tail1.rotateAngleY = tailSway;
-        this.Tail2.rotateAngleY = tailSwaySin;
-        this.Tail3.rotateAngleY = tailSway;
-        this.Tail4.rotateAngleY = tailSwaySin;
-        this.Tail6.rotateAngleY = tailSway;
+        this.part1.rotateAngleY = tailSway;
+        this.part2.rotateAngleY = tailSwaySin;
+        this.part3.rotateAngleY = tailSway;
+        this.part4.rotateAngleY = tailSwaySin;
         final float tailBase = -0.08726646f;
         final float tail4Base = 0.17453292f;
         final float tailSwing = MathHelper.cos(limbSwing * 0.6662f) * 0.05f * limbSwingAmount;
-        this.Tail1.rotateAngleX = tailBase + tailSwing;
-        this.Tail2.rotateAngleX = tailBase + tailSwing;
-        this.Tail3.rotateAngleX = tailBase + tailSwing;
-        this.Tail4.rotateAngleX = tail4Base + tailSwing;
-        this.Tail5.rotateAngleX = tail4Base + tailSwing;
+        this.part1.rotateAngleX = tailBase + tailSwing;
+        this.part2.rotateAngleX = tailBase + tailSwing;
+        this.part3.rotateAngleX = tailBase + tailSwing;
+        this.part4.rotateAngleX = tail4Base + tailSwing;
     }
 }

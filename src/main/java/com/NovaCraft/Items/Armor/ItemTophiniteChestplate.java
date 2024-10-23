@@ -76,6 +76,21 @@ public class ItemTophiniteChestplate extends ItemArmor implements ISpecialArmor
             	player.extinguish();
             }
         }
+        else if ((hasTophiniteHelmet && hasTophiniteChest && hasTophiniteLegs && !hasTophiniteBoots)
+        		|| (hasTophiniteHelmet && hasTophiniteChest && !hasTophiniteLegs && hasTophiniteBoots)
+        		|| (hasTophiniteHelmet && !hasTophiniteChest && hasTophiniteLegs && hasTophiniteBoots)
+        		|| (!hasTophiniteHelmet && hasTophiniteChest && hasTophiniteLegs && hasTophiniteBoots)) {
+        	int rand = (int)(1 + Math.random() * 90);
+        	if (player.isBurning() && rand == 1) {
+            	player.extinguish();
+            }
+        }
+        else {
+        	int rand = (int)(1 + Math.random() * 180);
+        	if (player.isBurning() && rand == 1) {
+            	player.extinguish();
+            }
+        }
     }
     
     public boolean hasCustomEntity(final ItemStack stack) {

@@ -76,10 +76,38 @@ public class ItemKlangiteChestplate extends ItemArmor implements ISpecialArmor
             if(!world.isRemote) {
         		AxisAlignedBB axisalignedbb = player.boundingBox;
         		List<EntityLivingBase> volume = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb.expand(2, 3, 2));
-        		int rand = (int)(1 + Math.random() * 56);
+        		int rand = (int)(1 + Math.random() * 86);
         		 for(Entity entity : volume) {
         			 if(!(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && rand == 1) {
-        				 entity.attackEntityFrom(DamageSource.causeThornsDamage(player), 3F);
+        				 entity.attackEntityFrom(DamageSource.causeThornsDamage(player), 4F);
+        			 }
+        		  }
+        		 }
+        }
+        else if ((hasKlangiteHelmet && hasKlangiteChest && hasKlangiteLegs && !hasKlangiteBoots)
+        		|| (hasKlangiteHelmet && hasKlangiteChest && !hasKlangiteLegs && hasKlangiteBoots)
+        		|| (hasKlangiteHelmet && !hasKlangiteChest && hasKlangiteLegs && hasKlangiteBoots)
+        		|| (!hasKlangiteHelmet && hasKlangiteChest && hasKlangiteLegs && hasKlangiteBoots)) {
+                
+                if(!world.isRemote) {
+            		AxisAlignedBB axisalignedbb = player.boundingBox;
+            		List<EntityLivingBase> volume = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb.expand(2, 3, 2));
+            		int rand = (int)(1 + Math.random() * 86);
+            		 for(Entity entity : volume) {
+            			 if(!(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && rand == 1) {
+            				 entity.attackEntityFrom(DamageSource.causeThornsDamage(player), 3F);
+            			 }
+            		  }
+            		 }
+            }
+        else {
+        	if(!world.isRemote) {
+        		AxisAlignedBB axisalignedbb = player.boundingBox;
+        		List<EntityLivingBase> volume = world.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb.expand(2, 3, 2));
+        		int rand = (int)(1 + Math.random() * 106);
+        		 for(Entity entity : volume) {
+        			 if(!(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && rand == 1) {
+        				 entity.attackEntityFrom(DamageSource.causeThornsDamage(player), 1F);
         			 }
         		  }
         		 }

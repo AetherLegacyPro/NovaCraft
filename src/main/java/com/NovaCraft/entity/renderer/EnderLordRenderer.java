@@ -20,12 +20,11 @@ import com.NovaCraft.entity.models.EnderLordModel;
 @SideOnly(Side.CLIENT)
 public class EnderLordRenderer extends RenderLiving
 {
-    private static final ResourceLocation endermanEyesTexture = new ResourceLocation("nova_craft","textures/entity/ender_lord/ender_lord_eyes.png");
-    private static final ResourceLocation endermanTextures = new ResourceLocation("nova_craft","textures/entity/ender_lord/ender_lord.png");
+    private static final ResourceLocation endermanEyesTexture = new ResourceLocation("nova_craft","textures/entity/ender_brute/ender_brute_eyes.png");
+    private static final ResourceLocation endermanTextures = new ResourceLocation("nova_craft","textures/entity/ender_brute/ender_brute.png");
     /** The model of the enderman */
     private EnderLordModel endermanModel;
     private Random rnd = new Random();
-    private static final String __OBFID = "CL_00000989";
 
     public EnderLordRenderer()
     {

@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.logging.log4j.Level;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 
@@ -45,6 +46,51 @@ public class ItemTophiniteBoots extends ItemArmor implements ISpecialArmor
     
     public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
         tooltip.add(EnumChatFormatting.BLUE + "" + StatCollector.translateToLocal("tooltip.tophinite_armor.desc"));
+    }
+    
+    public void onArmorTick(final World world, final EntityPlayer player, final ItemStack itemStack) {
+        boolean hasTophiniteHelmet = false;
+        boolean hasTophiniteChest = false;
+        boolean hasTophiniteLegs = false;
+        boolean hasTophiniteBoots = false;
+        final ItemStack helmet = player.getCurrentArmor(3);
+        final ItemStack chest = player.getCurrentArmor(2);
+        final ItemStack legs = player.getCurrentArmor(1);
+        final ItemStack boots = player.getCurrentArmor(0);
+        if (helmet != null) {
+            hasTophiniteHelmet = (helmet.getItem() == NovaCraftItems.tophinite_helmet);
+        }
+        if (chest != null) {
+            hasTophiniteChest = (chest.getItem() == NovaCraftItems.tophinite_chestplate);
+        }
+        if (legs != null) {
+            hasTophiniteLegs = (legs.getItem() == NovaCraftItems.tophinite_leggings);
+        }
+        if (boots != null) {
+            hasTophiniteBoots = (boots.getItem() == NovaCraftItems.tophinite_boots);
+        }
+        if (hasTophiniteHelmet && hasTophiniteChest && hasTophiniteLegs && hasTophiniteBoots) {
+            player.triggerAchievement(AchievementsNovaCraft.cover_me_with_tophinite);
+            
+            if (player.isBurning()) {
+            	player.extinguish();
+            }
+        }
+        else if ((hasTophiniteHelmet && hasTophiniteChest && hasTophiniteLegs && !hasTophiniteBoots)
+        		|| (hasTophiniteHelmet && hasTophiniteChest && !hasTophiniteLegs && hasTophiniteBoots)
+        		|| (hasTophiniteHelmet && !hasTophiniteChest && hasTophiniteLegs && hasTophiniteBoots)
+        		|| (!hasTophiniteHelmet && hasTophiniteChest && hasTophiniteLegs && hasTophiniteBoots)) {
+        	int rand = (int)(1 + Math.random() * 90);
+        	if (player.isBurning() && rand == 1) {
+            	player.extinguish();
+            }
+        }
+        else {
+        	int rand = (int)(1 + Math.random() * 180);
+        	if (player.isBurning() && rand == 1) {
+            	player.extinguish();
+            }
+        }
     }
     
     public boolean hasCustomEntity(final ItemStack stack) {
