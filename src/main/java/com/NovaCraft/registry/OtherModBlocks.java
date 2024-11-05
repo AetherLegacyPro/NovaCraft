@@ -58,6 +58,8 @@ public class OtherModBlocks
     public static Block deepslate_emerald_ore;
     public static Block deepslate_copper_ore;
     public static Block copper_ore;
+    public static Block prismarine_block;
+    public static Block sea_lantern;
     
     //Netherlicious
     public static Block Nether_Gravel;
@@ -150,6 +152,8 @@ public class OtherModBlocks
     	OtherModBlocks.deepslate_emerald_ore = GameRegistry.findBlock("etfuturum", "deepslate_emerald_ore");
     	OtherModBlocks.deepslate_copper_ore = GameRegistry.findBlock("etfuturum", "deepslate_copper_ore");
     	OtherModBlocks.copper_ore = GameRegistry.findBlock("etfuturum", "copper_ore");
+    	OtherModBlocks.prismarine_block = GameRegistry.findBlock("etfuturum", "prismarine_block");
+    	OtherModBlocks.sea_lantern = GameRegistry.findBlock("etfuturum", "sea_lantern");
     	
     	OtherModBlocks.Nether_Gravel = GameRegistry.findBlock("netherlicious", "Nether_Gravel");
     	OtherModBlocks.Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");    	
@@ -184,5 +188,6 @@ public class OtherModBlocks
     	OtherModBlocks.endium_ore = GameRegistry.findBlock("HardcoreEnderExpansion", "endium_ore");
     	OtherModBlocks.endium_block = GameRegistry.findBlock("HardcoreEnderExpansion", "endium_block");
     	OtherModBlocks.obsidian_special = GameRegistry.findBlock("HardcoreEnderExpansion", "obsidian_special");
+    	
     }
 }

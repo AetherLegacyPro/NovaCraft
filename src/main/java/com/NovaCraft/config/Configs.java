@@ -91,6 +91,7 @@ public class Configs
     public static boolean enableRawOreBlocksStructures;
     public static boolean enableCalciteBrickRecipe;
     public static boolean enableTuffBrickRecipe;
+    public static boolean enablePrismarineInStructures;
     
     public static boolean enableBlockOfRawNetheriteRecipe;
     public static boolean enableAlternateAmpJumpPotionRecipe;
@@ -320,7 +321,8 @@ public class Configs
         enableRawOreBlocksStructures = conf.getBoolean("enableRawOreBlocksStructures", catEtFuturum, true, "Enables Raw Copper, Iron, and Gold Blocks from Et Futurum Requiem to generate instead of Iron and Gold Ore Blocks in Sculk Infested Mineshafts.");
         enableCalciteBrickRecipe = conf.getBoolean("enableCalciteBrickRecipe", catEtFuturum, true, "Enables the recipe for Calcite Bricks: DISABLE if calcite is disabled in Et Futurum Requiem.");
         enableTuffBrickRecipe = conf.getBoolean("enableTuffBrickRecipe", catEtFuturum, true, "Enables the recipe for Tuff Bricks: DISABLE if calcite is disabled in Et Futurum Requiem.");
-        
+        enablePrismarineInStructures = conf.getBoolean("enablePrismarineInStructures", catEtFuturum, true, "Enables the use of Prismarine in structures: DISABLE if prismarine is disabled in Et Futurum Requiem.");
+
         
         enableBlockOfRawNetheriteRecipe = conf.getBoolean("enableBlockOfRawNetheriteRecipe", catEtFuturum, true, "Enables the crafting recipe of Blocks of Raw Netherite.(DISABLE if you disabled Netherite in Et Futurum Requiem)");
         enableAlternateAmpJumpPotionRecipe = conf.getBoolean("enableAlternateAmpJumpPotionRecipe", catEtFuturum, true, "Changes Recipe of the extended jump potion to require rabbit foot from Et Futurum.(DISABLE if you disabled rabbits/rabbit foot in Et Futurum Requiem)");

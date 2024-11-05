@@ -19,7 +19,7 @@ public class AncientCityCenterPortalGen1 extends WorldGenerator
 	private static final Block cobbled_deepslate = OtherModBlocks.cobbled_deepslate;
 	private static final Block deepslate = OtherModBlocks.deepslate;
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
-	private static final Block soul_lantern = Blocks.glowstone; //1
+	private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
 	private static final Block soul_sand = Blocks.netherrack;
 	private static final Block SoulFire = OtherModBlocks.SoulFire;
 	
@@ -2698,6 +2698,85 @@ public class AncientCityCenterPortalGen1 extends WorldGenerator
 			world.setBlock(i + 16, j + 1, k + 43, deepslate, 0, 2);
 			world.setBlock(i + 17, j + 1, k + 43, deepslate, 0, 2);
 			world.setBlock(i + 18, j + 1, k + 43, deepslate, 0, 2);
+			
+			world.setBlock(i + 18, j + 3, k + 25, Blocks.redstone_wire, 15, 2);
+			world.setBlock(i + 19, j + 3, k + 25, Blocks.redstone_wire, 14, 2);
+			world.setBlock(i + 17, j + 3, k + 26, Blocks.powered_repeater, 2, 2);
+			world.setBlock(i + 19, j + 3, k + 26, Blocks.redstone_wire, 13, 2);
+			world.setBlock(i + 17, j + 3, k + 28, Blocks.redstone_wire, 15, 2);
+			world.setBlock(i + 17, j + 3, k + 29, Blocks.redstone_wire, 14, 2);
+			world.setBlock(i + 19, j + 3, k + 29, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 19, j + 3, k + 30, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 28, j + 3, k + 37, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 29, j + 3, k + 37, Blocks.unpowered_repeater, 1, 2);
+			world.setBlock(i + 27, j + 3, k + 41, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 28, j + 3, k + 41, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 29, j + 3, k + 41, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 24, j + 3, k + 42, Blocks.unpowered_repeater, 10, 2);
+			world.setBlock(i + 29, j + 3, k + 42, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 24, j + 3, k + 43, Blocks.redstone_wire, 15, 2);
+			world.setBlock(i + 29, j + 3, k + 43, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 29, j + 3, k + 44, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 23, j + 3, k + 45, Blocks.unpowered_repeater, 3, 2);
+			world.setBlock(i + 24, j + 3, k + 45, Blocks.unlit_redstone_torch, 3, 2);
+			world.setBlock(i + 25, j + 3, k + 45, Blocks.unpowered_repeater, 1, 2);
+			world.setBlock(i + 29, j + 3, k + 45, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 23, j + 3, k + 46, Blocks.unlit_redstone_torch, 1, 2);
+			world.setBlock(i + 25, j + 3, k + 46, Blocks.unlit_redstone_torch, 2, 2);
+			world.setBlock(i + 29, j + 3, k + 46, Blocks.unpowered_repeater, 0, 2);
+			world.setBlock(i + 23, j + 3, k + 47, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 25, j + 3, k + 47, Blocks.redstone_wire, 12, 2);
+			world.setBlock(i + 27, j + 3, k + 47, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 28, j + 3, k + 47, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 29, j + 3, k + 47, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 22, j + 3, k + 48, Blocks.redstone_wire, 14, 2);
+			world.setBlock(i + 23, j + 3, k + 48, Blocks.unpowered_repeater, 2, 2);
+			world.setBlock(i + 25, j + 3, k + 48, Blocks.redstone_wire, 13, 2);
+			world.setBlock(i + 29, j + 3, k + 48, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 22, j + 3, k + 49, Blocks.redstone_wire, 15, 2);
+			world.setBlock(i + 23, j + 3, k + 49, Blocks.unpowered_repeater, 2, 2);
+			world.setBlock(i + 25, j + 3, k + 49, Blocks.redstone_wire, 14, 2);
+			world.setBlock(i + 29, j + 3, k + 49, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 22, j + 3, k + 50, Blocks.redstone_torch, 2, 2);
+			world.setBlock(i + 24, j + 3, k + 50, Blocks.redstone_torch, 1, 2);
+			world.setBlock(i + 25, j + 3, k + 50, Blocks.redstone_wire, 15, 2);
+			world.setBlock(i + 29, j + 3, k + 50, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 23, j + 3, k + 51, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 25, j + 3, k + 51, Blocks.redstone_wire, 14, 2);
+			world.setBlock(i + 29, j + 3, k + 51, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 24, j + 3, k + 52, Blocks.unlit_redstone_torch, 2, 2);
+			world.setBlock(i + 26, j + 3, k + 52, Blocks.unlit_redstone_torch, 1, 2);
+			world.setBlock(i + 27, j + 3, k + 52, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 28, j + 3, k + 52, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 29, j + 3, k + 52, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 23, j + 3, k + 53, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 28, j + 4, k + 30, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 29, j + 4, k + 30, Blocks.unpowered_repeater, 1, 2);
+			world.setBlock(i + 28, j + 4, k + 31, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 27, j + 4, k + 38, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 28, j + 4, k + 38, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 29, j + 4, k + 38, Blocks.unpowered_repeater, 1, 2);
+			world.setBlock(i + 27, j + 4, k + 39, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 24, j + 4, k + 41, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 24, j + 4, k + 43, Blocks.redstone_torch, 3, 2);
+			world.setBlock(i + 22, j + 4, k + 45, Blocks.redstone_torch, 5, 2);
+			world.setBlock(i + 26, j + 4, k + 45, Blocks.redstone_torch, 5, 2);
+			world.setBlock(i + 22, j + 4, k + 46, Blocks.redstone_wire, 15, 2);
+			world.setBlock(i + 26, j + 4, k + 46, Blocks.redstone_wire, 15, 2);
+			world.setBlock(i + 22, j + 4, k + 47, Blocks.unlit_redstone_torch, 5, 2);
+			world.setBlock(i + 26, j + 4, k + 47, Blocks.redstone_torch, 5, 2);
+			world.setBlock(i + 27, j + 5, k + 31, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 27, j + 5, k + 37, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 24, j + 5, k + 42, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 27, j + 6, k + 32, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 27, j + 6, k + 33, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 27, j + 6, k + 34, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 27, j + 6, k + 35, Blocks.redstone_wire, 0, 2);
+			world.setBlock(i + 27, j + 6, k + 36, Blocks.redstone_wire, 0, 2);
+			
+			world.setBlock(i + 22, j + 5, k + 20, soul_lantern, 1, 2);
+			world.setBlock(i + 21, j + 5, k + 21, soul_lantern, 1, 2);
+			world.setBlock(i + 20, j + 5, k + 47, soul_lantern, 1, 2);
 
 		 return true;
 	 }

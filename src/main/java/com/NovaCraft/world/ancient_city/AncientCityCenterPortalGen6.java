@@ -28,7 +28,7 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 	private static final Block cobbled_deepslate = OtherModBlocks.cobbled_deepslate;
 	private static final Block deepslate = OtherModBlocks.deepslate;
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
-	private static final Block soul_lantern = Blocks.glowstone; //1
+	private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
 	private static final Block soul_sand = Blocks.netherrack;
 	
 	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
@@ -1373,8 +1373,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 13, j + 3, k + 25, deepslate, 0, 2);
 		world.setBlock(i + 14, j + 3, k + 25, deepslate_bricks, 0, 2);
 		world.setBlock(i + 17, j + 3, k + 25, Blocks.redstone_block, 0, 2);
-		world.setBlock(i + 18, j + 3, k + 25, Blocks.redstone_wire, 15, 2);
-		world.setBlock(i + 19, j + 3, k + 25, Blocks.redstone_wire, 14, 2);
 		world.setBlock(i + 22, j + 3, k + 25, Blocks.carpet, 7, 2);
 		world.setBlock(i + 23, j + 3, k + 25, Blocks.carpet, 7, 2);
 		world.setBlock(i + 24, j + 3, k + 25, deepslate_bricks, 2, 2);
@@ -1395,8 +1393,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 12, j + 3, k + 26, Blocks.wool, 7, 2);
 		world.setBlock(i + 13, j + 3, k + 26, deepslate, 0, 2);
 		world.setBlock(i + 14, j + 3, k + 26, deepslate_bricks, 1, 2);
-		world.setBlock(i + 17, j + 3, k + 26, Blocks.powered_repeater, 2, 2);
-		world.setBlock(i + 19, j + 3, k + 26, Blocks.redstone_wire, 13, 2);
 		world.setBlock(i + 21, j + 3, k + 26, deepslate_bricks, 3, 2);
 		world.setBlock(i + 22, j + 3, k + 26, Blocks.carpet, 7, 2);
 		world.setBlock(i + 23, j + 3, k + 26, Blocks.carpet, 7, 2);
@@ -1445,7 +1441,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 12, j + 3, k + 28, Blocks.wool, 7, 2);
 		world.setBlock(i + 13, j + 3, k + 28, deepslate, 0, 2);
 		world.setBlock(i + 14, j + 3, k + 28, deepslate_bricks, 0, 2);
-		world.setBlock(i + 17, j + 3, k + 28, Blocks.redstone_wire, 15, 2);
 		world.setBlock(i + 19, j + 3, k + 28, Blocks.glass, 0, 2);
 		world.setBlock(i + 21, j + 3, k + 28, deepslate_bricks, 2, 2);
 		world.setBlock(i + 22, j + 3, k + 28, Blocks.carpet, 7, 2);
@@ -1471,8 +1466,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 12, j + 3, k + 29, Blocks.wool, 7, 2);
 		world.setBlock(i + 13, j + 3, k + 29, deepslate, 0, 2);
 		world.setBlock(i + 14, j + 3, k + 29, deepslate_bricks, 0, 2);
-		world.setBlock(i + 17, j + 3, k + 29, Blocks.redstone_wire, 14, 2);
-		world.setBlock(i + 19, j + 3, k + 29, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 21, j + 3, k + 29, deepslate_bricks, 3, 2);
 		world.setBlock(i + 22, j + 3, k + 29, Blocks.carpet, 7, 2);
 		world.setBlock(i + 23, j + 3, k + 29, Blocks.carpet, 7, 2);
@@ -1500,7 +1493,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 13, j + 3, k + 30, deepslate, 0, 2);
 		world.setBlock(i + 14, j + 3, k + 30, deepslate_bricks, 1, 2);
 		world.setBlock(i + 17, j + 3, k + 30, Blocks.lit_redstone_lamp, 0, 2);
-		world.setBlock(i + 19, j + 3, k + 30, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 21, j + 3, k + 30, deepslate_bricks, 3, 2);
 		world.setBlock(i + 22, j + 3, k + 30, Blocks.carpet, 7, 2);
 		world.setBlock(i + 23, j + 3, k + 30, Blocks.carpet, 7, 2);
@@ -1677,8 +1669,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 3, k + 37, Blocks.wool, 7, 2);
 		world.setBlock(i + 26, j + 3, k + 37, deepslate_bricks, 2, 2);
 		world.setBlock(i + 27, j + 3, k + 37, Blocks.carpet, 7, 2);
-		world.setBlock(i + 28, j + 3, k + 37, Blocks.redstone_wire, 0, 2);
-		world.setBlock(i + 29, j + 3, k + 37, Blocks.unpowered_repeater, 1, 2);
 		world.setBlock(i + 30, j + 3, k + 37, Blocks.sticky_piston, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 37, deepslate_bricks, 1, 2);
 		world.setBlock(i + 33, j + 3, k + 37, Blocks.wool, 7, 2);
@@ -1770,9 +1760,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 20, j + 3, k + 41, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 41, deepslate_bricks, 2, 2);
 		world.setBlock(i + 24, j + 3, k + 41, Blocks.wool, 7, 2);
-		world.setBlock(i + 27, j + 3, k + 41, Blocks.redstone_wire, 0, 2);
-		world.setBlock(i + 28, j + 3, k + 41, Blocks.redstone_wire, 0, 2);
-		world.setBlock(i + 29, j + 3, k + 41, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 41, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 41, deepslate_bricks, 0, 2);
 		world.setBlock(i + 32, j + 3, k + 41, deepslate, 0, 2);
@@ -1794,8 +1781,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 19, j + 3, k + 42, Blocks.carpet, 7, 2);
 		world.setBlock(i + 20, j + 3, k + 42, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 42, deepslate_bricks, 3, 2);
-		world.setBlock(i + 24, j + 3, k + 42, Blocks.unpowered_repeater, 10, 2);
-		world.setBlock(i + 29, j + 3, k + 42, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 42, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 42, deepslate_bricks, 0, 2);
 		world.setBlock(i + 32, j + 3, k + 42, deepslate, 0, 2);
@@ -1817,8 +1802,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 19, j + 3, k + 43, Blocks.carpet, 7, 2);
 		world.setBlock(i + 20, j + 3, k + 43, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 43, deepslate_bricks, 2, 2);
-		world.setBlock(i + 24, j + 3, k + 43, Blocks.redstone_wire, 15, 2);
-		world.setBlock(i + 29, j + 3, k + 43, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 43, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 43, deepslate_tile_stairs, 3, 2);
 		world.setBlock(i + 32, j + 3, k + 43, deepslate, 0, 2);
@@ -1842,7 +1825,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 20, j + 3, k + 44, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 44, deepslate_bricks, 2, 2);
 		world.setBlock(i + 24, j + 3, k + 44, Blocks.wool, 7, 2);
-		world.setBlock(i + 29, j + 3, k + 44, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 44, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 44, deepslate_tile_stairs, 3, 2);
 		world.setBlock(i + 32, j + 3, k + 44, deepslate, 0, 2);
@@ -1868,11 +1850,7 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 20, j + 3, k + 45, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 45, deepslate_bricks, 2, 2);
 		world.setBlock(i + 22, j + 3, k + 45, Blocks.wool, 7, 2);
-		world.setBlock(i + 23, j + 3, k + 45, Blocks.unpowered_repeater, 3, 2);
-		world.setBlock(i + 24, j + 3, k + 45, Blocks.unlit_redstone_torch, 3, 2);
-		world.setBlock(i + 25, j + 3, k + 45, Blocks.unpowered_repeater, 1, 2);
 		world.setBlock(i + 26, j + 3, k + 45, Blocks.wool, 7, 2);
-		world.setBlock(i + 29, j + 3, k + 45, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 45, deepslate_bricks, 3, 2);
 		world.setBlock(i + 31, j + 3, k + 45, deepslate_tile_stairs, 3, 2);
 		world.setBlock(i + 32, j + 3, k + 45, deepslate, 0, 2);
@@ -1897,10 +1875,7 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 20, j + 3, k + 46, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 46, deepslate_bricks, 3, 2);
 		world.setBlock(i + 22, j + 3, k + 46, Blocks.wool, 7, 2);
-		world.setBlock(i + 23, j + 3, k + 46, Blocks.unlit_redstone_torch, 1, 2);
-		world.setBlock(i + 25, j + 3, k + 46, Blocks.unlit_redstone_torch, 2, 2);
 		world.setBlock(i + 26, j + 3, k + 46, Blocks.wool, 7, 2);
-		world.setBlock(i + 29, j + 3, k + 46, Blocks.unpowered_repeater, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 46, deepslate_bricks, 3, 2);
 		world.setBlock(i + 31, j + 3, k + 46, deepslate_bricks, 1, 2);
 		world.setBlock(i + 32, j + 3, k + 46, deepslate, 0, 2);
@@ -1925,12 +1900,7 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 20, j + 3, k + 47, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 47, deepslate_bricks, 2, 2);
 		world.setBlock(i + 22, j + 3, k + 47, Blocks.wool, 7, 2);
-		world.setBlock(i + 23, j + 3, k + 47, Blocks.redstone_wire, 0, 2);
-		world.setBlock(i + 25, j + 3, k + 47, Blocks.redstone_wire, 12, 2);
 		world.setBlock(i + 26, j + 3, k + 47, Blocks.wool, 7, 2);
-		world.setBlock(i + 27, j + 3, k + 47, Blocks.redstone_wire, 0, 2);
-		world.setBlock(i + 28, j + 3, k + 47, Blocks.redstone_wire, 0, 2);
-		world.setBlock(i + 29, j + 3, k + 47, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 47, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 47, deepslate_bricks, 1, 2);
 		world.setBlock(i + 32, j + 3, k + 47, deepslate, 0, 2);
@@ -1950,10 +1920,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 19, j + 3, k + 48, Blocks.carpet, 7, 2);
 		world.setBlock(i + 20, j + 3, k + 48, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 48, deepslate_bricks, 2, 2);
-		world.setBlock(i + 22, j + 3, k + 48, Blocks.redstone_wire, 14, 2);
-		world.setBlock(i + 23, j + 3, k + 48, Blocks.unpowered_repeater, 2, 2);
-		world.setBlock(i + 25, j + 3, k + 48, Blocks.redstone_wire, 13, 2);
-		world.setBlock(i + 29, j + 3, k + 48, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 48, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 48, deepslate_tile_stairs, 3, 2);
 		world.setBlock(i + 32, j + 3, k + 48, deepslate, 0, 2);
@@ -1973,10 +1939,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 19, j + 3, k + 49, Blocks.carpet, 7, 2);
 		world.setBlock(i + 20, j + 3, k + 49, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 49, deepslate_bricks, 2, 2);
-		world.setBlock(i + 22, j + 3, k + 49, Blocks.redstone_wire, 15, 2);
-		world.setBlock(i + 23, j + 3, k + 49, Blocks.unpowered_repeater, 2, 2);
-		world.setBlock(i + 25, j + 3, k + 49, Blocks.redstone_wire, 14, 2);
-		world.setBlock(i + 29, j + 3, k + 49, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 49, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 49, deepslate_tile_stairs, 3, 2);
 		world.setBlock(i + 32, j + 3, k + 49, deepslate, 0, 2);
@@ -1996,11 +1958,7 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 19, j + 3, k + 50, Blocks.carpet, 7, 2);
 		world.setBlock(i + 20, j + 3, k + 50, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 50, deepslate_bricks, 3, 2);
-		world.setBlock(i + 22, j + 3, k + 50, Blocks.redstone_torch, 2, 2);
 		world.setBlock(i + 23, j + 3, k + 50, Blocks.wool, 7, 2);
-		world.setBlock(i + 24, j + 3, k + 50, Blocks.redstone_torch, 1, 2);
-		world.setBlock(i + 25, j + 3, k + 50, Blocks.redstone_wire, 15, 2);
-		world.setBlock(i + 29, j + 3, k + 50, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 50, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 50, deepslate_bricks, 1, 2);
 		world.setBlock(i + 32, j + 3, k + 50, deepslate, 0, 2);
@@ -2022,9 +1980,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 19, j + 3, k + 51, Blocks.carpet, 7, 2);
 		world.setBlock(i + 20, j + 3, k + 51, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 51, deepslate_brick_slab, 0, 2);
-		world.setBlock(i + 23, j + 3, k + 51, Blocks.redstone_wire, 0, 2);
-		world.setBlock(i + 25, j + 3, k + 51, Blocks.redstone_wire, 14, 2);
-		world.setBlock(i + 29, j + 3, k + 51, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 51, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 51, deepslate_bricks, 0, 2);
 		world.setBlock(i + 32, j + 3, k + 51, deepslate, 0, 2);
@@ -2045,12 +2000,7 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 19, j + 3, k + 52, Blocks.carpet, 7, 2);
 		world.setBlock(i + 20, j + 3, k + 52, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 52, deepslate_brick_slab, 0, 2);
-		world.setBlock(i + 24, j + 3, k + 52, Blocks.unlit_redstone_torch, 2, 2);
 		world.setBlock(i + 25, j + 3, k + 52, Blocks.wool, 7, 2);
-		world.setBlock(i + 26, j + 3, k + 52, Blocks.unlit_redstone_torch, 1, 2);
-		world.setBlock(i + 27, j + 3, k + 52, Blocks.redstone_wire, 0, 2);
-		world.setBlock(i + 28, j + 3, k + 52, Blocks.redstone_wire, 0, 2);
-		world.setBlock(i + 29, j + 3, k + 52, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 52, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 52, deepslate_bricks, 1, 2);
 		world.setBlock(i + 32, j + 3, k + 52, deepslate, 0, 2);
@@ -2072,7 +2022,6 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		world.setBlock(i + 19, j + 3, k + 53, Blocks.carpet, 7, 2);
 		world.setBlock(i + 20, j + 3, k + 53, Blocks.carpet, 7, 2);
 		world.setBlock(i + 21, j + 3, k + 53, deepslate_bricks, 3, 2);
-		world.setBlock(i + 23, j + 3, k + 53, Blocks.redstone_wire, 0, 2);
 		world.setBlock(i + 30, j + 3, k + 53, deepslate_bricks, 2, 2);
 		world.setBlock(i + 31, j + 3, k + 53, deepslate_bricks, 0, 2);
 		world.setBlock(i + 32, j + 3, k + 53, deepslate, 0, 2);

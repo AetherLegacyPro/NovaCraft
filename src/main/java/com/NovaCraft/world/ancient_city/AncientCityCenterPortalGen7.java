@@ -20,7 +20,7 @@ public class AncientCityCenterPortalGen7 extends WorldGenerator
 	private static final Block cobbled_deepslate = OtherModBlocks.cobbled_deepslate;
 	private static final Block deepslate = OtherModBlocks.deepslate;
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
-	private static final Block soul_lantern = Blocks.glowstone; //1
+	private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
 	private static final Block soul_sand = Blocks.netherrack;
 	
 	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;

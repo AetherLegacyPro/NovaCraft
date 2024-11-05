@@ -2,6 +2,8 @@ package com.NovaCraft.world.ancient_city;
 
 import java.util.Random;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.IWorldGenerator;
@@ -23,8 +25,15 @@ public class AncientCityGen implements IWorldGenerator {
 	   }
 		
 	public void generateOverworld(World world, Random rand, int x, int z) {
-		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x + 16, z + 16);
-	      if (rand.nextInt(3000) == 25) {
+		int chunkX;
+		int chunkZ;
+		BiomeGenBase biome;
+		Type[] biomeList;			
+		chunkX = x * 16 + rand.nextInt(16) + 8;
+		chunkZ = z * 16 + rand.nextInt(16) + 8;
+		biome = world.getBiomeGenForCoords(x, z);
+		biomeList = BiomeDictionary.getTypesForBiome(biome);
+	      if (rand.nextInt(3000) == 25 && !(ArrayUtils.contains(biomeList, Type.OCEAN)) && !(ArrayUtils.contains(biomeList, Type.RIVER)) && !(ArrayUtils.contains(biomeList, Type.BEACH))) {
 	    	  
 	    	  int x1 = x + rand.nextInt(16) + 8;
 	    	  int y1 = 30;
