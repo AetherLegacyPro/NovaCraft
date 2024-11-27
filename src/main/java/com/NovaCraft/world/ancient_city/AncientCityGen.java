@@ -33,7 +33,7 @@ public class AncientCityGen implements IWorldGenerator {
 		chunkZ = z * 16 + rand.nextInt(16) + 8;
 		biome = world.getBiomeGenForCoords(x, z);
 		biomeList = BiomeDictionary.getTypesForBiome(biome);
-	      if (rand.nextInt(3000) == 25 && !(ArrayUtils.contains(biomeList, Type.OCEAN)) && !(ArrayUtils.contains(biomeList, Type.RIVER)) && !(ArrayUtils.contains(biomeList, Type.BEACH))) {
+	      if (rand.nextInt(3000) == 25 && !(ArrayUtils.contains(biomeList, Type.OCEAN)) && !(ArrayUtils.contains(biomeList, Type.RIVER)) && !(ArrayUtils.contains(biomeList, Type.BEACH)) && !(ArrayUtils.contains(biomeList, Type.SWAMP))) {
 	    	  
 	    	  int x1 = x + rand.nextInt(16) + 8;
 	    	  int y1 = 30;
@@ -433,9 +433,14 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  new AncientCitySupportGen().generate(world, rand, x1 - 56, y1 - 17, z1 + 122);
 	    	  new AncientCitySupportTopGen().generate(world, rand, x1 - 69, y1 + 14, z1 + 119);
 	    	  
-	    	  //new AncientCitySupportGen().generate(world, rand, x1 + 228, y1 - 1, z1 - 96);	    	  
-	    	  //new AncientCitySupportGen().generate(world, rand, x1 + 122, y1 - 1, z1 - 85);
+	    	  new AncientCitySculkPatchGen().generate(world, rand, x1 - 59, y1 - 17, z1 - 31);
+	    	  new AncientCitySculkPatchGen2().generate(world, rand, x1 - 22, y1 - 17, z1 - 57);	    	  
+	    	  new AncientCitySculkPatchGen3().generate(world, rand, x1 + 108, y1 - 17, z1 + 62);
 	    	  
+	    	  new AncientCitySculkCeilingGen().generate(world, rand, x1 - 52, y1 + 16, z1 + 40);
+	    	  new AncientCitySculkCeilingGen().generate(world, rand, x1 + 82, y1 + 16, z1 + 20);
+	    	  
+	    	  new AncientCityObservationTowerGen().generate(world, rand, x1 - 52, y1 - 17, z1 + 80);
 		         }
 	      }
 

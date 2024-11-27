@@ -197,9 +197,9 @@ public class NovaCraftItems {
 	public static Item glow_ink_sac;
 	public static Item phantom_membrane;
 	public static Item nullwart, nullwart_blend;
-	public static Item nullified_dust;
+	public static Item nullified_dust, wardling_dust;
 	public static Item static_essence, destitute_tentacle;
-	public static Item ancient_city_artifact;
+	public static Item ancient_city_artifact, powered_ancient_city_artifact;
 	
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy;
@@ -342,7 +342,9 @@ public class NovaCraftItems {
 		ophidian_scales = register("ophidian_scales", new ItemFireproof().setTextureName(NovaCraft.find("ophidian_scales")));
 		destitute_tentacle = register("destitute_tentacle", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("destitute_tentacle")));
 		static_essence = register("static_essence", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("static_essence")));		
+		wardling_dust = register("wardling_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("wardling_dust")));
 		ancient_city_artifact = register("ancient_city_artifact", new ItemNovaCraft(NovaCraftCreativeTabs.items).setMaxStackSize(1).setTextureName(NovaCraft.find("ancient_city_artifact")));
+		powered_ancient_city_artifact = register("powered_ancient_city_artifact", new ItemPoweredAncientCityArtifact().setTextureName(NovaCraft.find("powered_ancient_city_artifact")));
 		
 		vanite_bucket = register("vanite_bucket", new ItemVaniteBucket(Blocks.air).setMaxStackSize(16).setTextureName(NovaCraft.find("vanite_bucket")));
 		vanite_bucket_water = register("vanite_bucket_water", new ItemVaniteBucket(Blocks.flowing_water).setTextureName(NovaCraft.find("vanite_bucket_water")));

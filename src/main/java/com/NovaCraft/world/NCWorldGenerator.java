@@ -6,6 +6,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
+import com.NovaCraft.world.ancient_city.AncientCityPositiveHallwayGen1;
 import com.NovaCraft.world.village.VillageWell;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -19,6 +20,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class NCWorldGenerator implements IWorldGenerator {
 	
@@ -144,6 +146,5 @@ public class NCWorldGenerator implements IWorldGenerator {
 			 }
 		   }										
 		  }
-	   	   
 	 	}
 }

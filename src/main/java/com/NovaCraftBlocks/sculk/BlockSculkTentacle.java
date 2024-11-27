@@ -98,37 +98,10 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
     private boolean harvestingWithHoe() {
     	return harvesters.get() != null && harvesters.get().getCurrentEquippedItem() != null && harvesters.get().getCurrentEquippedItem().getItem().getToolClasses(harvesters.get().getCurrentEquippedItem()).contains("axe");
     }
-
-	//@Override
-	//public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
-		//return side + meta;
-	//}
 	
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
-    	//int meta = world.getBlockMetadata(x, y, z);
-
-    	//float height = (meta < 6 ? 0.125F : 0.1875F) + (type == 1 ? 0.1875F : 0.0625F);
-    	//float xzOffset = meta < 6 && type == 0 ? .25F : .1875F;
-    	//if(meta >= 6 && type == 1) {
-    	//	height += .0625F;
-    	//}
-
-		//switch (meta % 6) {
-		//case 0:
-		//	return AxisAlignedBB.getBoundingBox(x+xzOffset, y+1 - height, z+xzOffset, x+1 - xzOffset, y+1.0F, z+1 - xzOffset);
-		//case 1:
-		//	return AxisAlignedBB.getBoundingBox(x+xzOffset, y, z+xzOffset, x+1 - xzOffset, y+height, z+1 - xzOffset);
-		//case 2:
-			//return AxisAlignedBB.getBoundingBox(x+xzOffset, y+xzOffset, z+1 - height, x+1 - xzOffset, y+1 - xzOffset, z+1.0F);
-		//case 3:
-		//	return AxisAlignedBB.getBoundingBox(x+xzOffset, y+xzOffset, z, x+1 - xzOffset, y+1 - xzOffset, z+height);
-		//case 4:
-		//	return AxisAlignedBB.getBoundingBox(x+1 - height, y+xzOffset, z+xzOffset, x+1.0F, y+1 - xzOffset, z+1 - xzOffset);
-		//case 5:
-		//	return AxisAlignedBB.getBoundingBox(x, y+xzOffset, z+xzOffset, x+height, y+1 - xzOffset, z+1 - xzOffset);
-		//}
 		return null;
 	}
 
@@ -340,25 +313,6 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
             }
         }
     }
-
-	//@Override
-   // public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_)
-    //{
-       // super.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
-       // this.checkAndDropBlock(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
-   // }
-    
-	//@Override
-	//public boolean canBlockStay(World world, int x, int y, int z) {
-	//	return this.canPlaceBlockOnSide(world, x, y, z, world.getBlockMetadata(x, y, z));
-	//}
-	
-	//@Override
-   //public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
-    //{
-	//	EnumFacing facing = EnumFacing.getFront(side);
-	//	return world.getBlock(x - facing.getFrontOffsetX(), y - facing.getFrontOffsetY(), z - facing.getFrontOffsetZ()).isOpaqueCube();
-    //}
     
     public boolean canPlaceBlockAt(final World world, final int i, final int j, final int k) {
         return world.isSideSolid(i - 1, j, k, ForgeDirection.getOrientation(5)) || world.isSideSolid(i + 1, j, k, ForgeDirection.getOrientation(4)) || world.isSideSolid(i, j, k - 1, ForgeDirection.getOrientation(3)) || world.isSideSolid(i, j, k + 1, ForgeDirection.getOrientation(2)) || world.isSideSolid(i, j - 1, k, ForgeDirection.getOrientation(1)) || world.isSideSolid(i, j + 1, k, ForgeDirection.getOrientation(0));

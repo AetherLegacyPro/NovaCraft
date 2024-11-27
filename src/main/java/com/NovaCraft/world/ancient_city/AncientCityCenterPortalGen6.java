@@ -8,6 +8,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -2678,6 +2679,13 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
 		}
 		
+		EntityWardenVessel warden = new EntityWardenVessel(world);
+		warden.setPosition(i + 16, j + 4, k + 40);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(warden);
+		}
+		
 		world.setBlock(i + 13, j + 3, k + 2, Blocks.mob_spawner, 0, 2);
 		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 13, j + 3, k + 2);
         
@@ -2847,7 +2855,7 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 			case 27: 
 				return new ItemStack(Items.gunpowder, random.nextInt(6) + 5);
 			case 28: 
-				return new ItemStack(NovaCraftItems.primeval_mace, 1);
+				return new ItemStack(NovaCraftItems.tophinite_sword, 1);
 			case 29: 
 				return new ItemStack(NovaCraftItems.ancient_city_artifact, 1);
 			case 30: 

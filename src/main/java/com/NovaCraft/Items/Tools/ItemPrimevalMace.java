@@ -56,7 +56,7 @@ public class ItemPrimevalMace extends ItemSword
 		
 		else if (s != null && (s.toLowerCase().contains("sculk_dweller") || s.toLowerCase().contains("sculk_symbiote") || s.toLowerCase().contains("sculk_abomination") 
 				|| s.toLowerCase().contains("sculk_duplicator") || s.toLowerCase().contains("sculk_hunger") || s.toLowerCase().contains("sculked_monitor") 
-				|| s.toLowerCase().contains("sculk_incinerator"))) {
+				|| s.toLowerCase().contains("sculk_incinerator") || s.toLowerCase().contains("warden_vessel"))) {
 			if (entityliving.getHealth() > 0) {
 				entityliving.attackEntityFrom(DamageSource.causeMobDamage(entityliving1), 18);
 				((EntityLivingBase)entityliving).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 70, 3));

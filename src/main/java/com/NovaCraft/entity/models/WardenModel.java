@@ -22,43 +22,35 @@ import net.minecraft.entity.Entity;
             this.textureHeight = 128;
             
             (this.head = new ModelRenderer((ModelBase)this)).setRotationPoint(0.0f, -10.0f, 0.0f);
-            this.head.setTextureOffset(0, 33).addBox(-8.0f, -16.0f, -6.0f, 16, 16, 10);
-            //this.head.mirror = true;                    
+            this.head.setTextureOffset(0, 33).addBox(-8.0f, -16.0f, -6.0f, 16, 16, 10);               
             
             (this.right_ear = new ModelRenderer((ModelBase)this)).setRotationPoint(-8.0f, -12.5f, 0.0f);
             this.head.addChild(this.right_ear);
             this.setRotation(this.right_ear, 0.0f, 0.0f, 0.0873f);
             this.right_ear.setTextureOffset(78, 78).addBox(-10.0f, -6.5f, -1.0f, 10, 10, 0);
-            //this.right_ear.mirror = true;
             
             (this.left_ear = new ModelRenderer((ModelBase)this)).setRotationPoint(8.0f, -12.5f, 0.0f);
             this.head.addChild(this.left_ear);
             this.setRotation(this.left_ear, 0.0f, 0.0f, -0.0873f);
             this.left_ear.setTextureOffset(78, 57).addBox(0.0f, -6.5f, -1.0f, 10, 10, 0);
-            //this.left_ear.mirror = true;
             
             (this.body = new ModelRenderer((ModelBase)this)).setRotationPoint(0.0f, -10.0f, -1.0f);
             this.setRotation(this.body, 0.0873f, 0.0f, 0.0f);
             this.body.setTextureOffset(0, 0).addBox(-9.0f, 0.0f, -5.0f, 18, 21, 11);
-            //this.body.mirror = true;
             
             (this.right_arm = new ModelRenderer((ModelBase)this)).setRotationPoint(-11.0f, -6.0f, 0.0f);
             this.setRotation(this.right_arm, 0.2182f, 0.0f, 0.0f);
             this.right_arm.setTextureOffset(59, 0).addBox(-6.0f, -4.0f, -4.0f, 8, 28, 8);
-            //this.right_arm.mirror = true;
             
             (this.left_arm = new ModelRenderer((ModelBase)this)).setRotationPoint(11.0f, -6.0f, 0.0f);
             this.setRotation(this.left_arm, 0.2182f, 0.0f, 0.0f);
             this.left_arm.setTextureOffset(45, 52).addBox(-2.0f, -4.0f, -4.0f, 8, 28, 8);
-            //this.left_arm.mirror = true;
             
             (this.left_leg = new ModelRenderer((ModelBase)this)).setRotationPoint(6.0f, 11.0f, 0.0f);
             this.left_leg.setTextureOffset(70, 37).addBox(-3.0f, 0.0f, -3.0f, 6, 13, 6);
-            //this.left_leg.mirror = true;
             
             (this.right_leg = new ModelRenderer((ModelBase)this)).setRotationPoint(-6.0f, 11.0f, 0.0f);
             this.right_leg.setTextureOffset(0, 60).addBox(-3.0f, 0.0f, -3.0f, 6, 13, 6);
-            //this.right_leg.mirror = true;
         }
         
         public void render(final Entity entity, final float f, final float f1, final float f2, final float f3, final float f4, final float f5) {
@@ -66,8 +58,6 @@ import net.minecraft.entity.Entity;
             this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
             this.head.render(f5);
             this.body.render(f5);
-            //this.right_ear.render(f5);
-           //this.left_ear.render(f5);
             this.right_arm.render(f5);
             this.left_arm.render(f5);
             this.left_leg.render(f5);

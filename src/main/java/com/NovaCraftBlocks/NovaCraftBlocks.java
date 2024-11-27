@@ -9,6 +9,8 @@ import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.container.BlockAdvancedEnchantmentTable;
 import com.NovaCraftBlocks.container.BlockAdvancedSmithingTable;
+import com.NovaCraftBlocks.container.BlockAncientChest;
+import com.NovaCraftBlocks.container.BlockFloodedChest;
 import com.NovaCraftBlocks.container.BlockLegendaryBeacon;
 import com.NovaCraftBlocks.container.BlockLegendaryEnchantmentTable;
 import com.NovaCraftBlocks.container.BlockMineshaftChest;
@@ -17,6 +19,7 @@ import com.NovaCraftBlocks.container.BlockNullwartBrickBookshelf;
 import com.NovaCraftBlocks.container.BlockSculkBrickBookshelf;
 import com.NovaCraftBlocks.container.BlockSculkChest;
 import com.NovaCraftBlocks.container.BlockTreasureChest;
+import com.NovaCraftBlocks.container.BlockUnbreakableAncientChest;
 import com.NovaCraftBlocks.crystals.BlockAether;
 import com.NovaCraftBlocks.crystals.BlockAetherCluster;
 import com.NovaCraftBlocks.crystals.BlockBuddingAether;
@@ -293,7 +296,7 @@ public class NovaCraftBlocks {
 	public static Block hell_piliz, deepoid_mushroom, ion_mushroom;
 	
 	//Treasure Chests
-	public static Block treasure_chest, mineshaft_chest, nether_chest, sculk_chest;
+	public static Block treasure_chest, flooded_chest, mineshaft_chest, nether_chest, sculk_chest;
 	
 	//Boss Summoning
 	public static Block grimstone_shrieker, activated_grimstone_shrieker;
@@ -301,6 +304,7 @@ public class NovaCraftBlocks {
 	
 	//Special
 	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table;
+	public static Block unbreakable_ancient_chest, ancient_chest;
 	public static Block nullwart_brick_bookshelf, sculk_brick_bookshelf;
 	
 	//9x Duplication Structure
@@ -312,6 +316,9 @@ public class NovaCraftBlocks {
 	
 	//Unused
 	public static Block advanced_smithing_table;
+	
+	public static int UnbreakableAncientChestRenderId;
+	public static int AncientChestRenderId;
 	
 	public static void initialization() {
 		
@@ -576,9 +583,12 @@ public class NovaCraftBlocks {
 		//Blocks With GUIS
 		advanced_smithing_table = register("advanced_smithing_table", new BlockAdvancedSmithingTable());
 		treasure_chest = register("treasure_chest", new BlockTreasureChest());
+		flooded_chest = register("flooded_chest", new BlockFloodedChest());
 		mineshaft_chest = register("mineshaft_chest", new BlockMineshaftChest());
 		nether_chest = register("nether_chest", new BlockNetherChest());
 		sculk_chest = register("sculk_chest", new BlockSculkChest());
+		unbreakable_ancient_chest = register("unbreakable_ancient_chest", new BlockUnbreakableAncientChest(0));
+		ancient_chest = register("ancient_chest", new BlockAncientChest(0));
 		advanced_enchantment_table = register("advanced_enchantment_table", new BlockAdvancedEnchantmentTable());
 		legendary_beacon = register("legendary_beacon", new BlockLegendaryBeacon());
 		legendary_enchantment_table = register("legendary_enchantment_table", new BlockLegendaryEnchantmentTable());

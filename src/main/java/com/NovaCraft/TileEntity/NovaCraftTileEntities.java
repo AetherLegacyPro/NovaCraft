@@ -10,6 +10,8 @@ public class NovaCraftTileEntities {
 		GameRegistry.registerTileEntity(TileEntityLegendaryBeacon.class, "legendary_beacon");
 		GameRegistry.registerTileEntity(TileEntityLegendaryEnchantmentTable.class, "legendary_enchantment_table");
 		GameRegistry.registerTileEntity(TileEntityAdvancedEnchantmentTable.class, "advanced_enchantment_table");
+		GameRegistry.registerTileEntity(TileEntityAncientChest.class, "ancient_chest");
+		GameRegistry.registerTileEntity(TileEntityUnbreakbleAncientChest.class, "unbreakable_ancient_chest");
 	}
 
 }

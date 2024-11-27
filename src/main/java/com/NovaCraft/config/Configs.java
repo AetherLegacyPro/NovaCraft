@@ -122,7 +122,6 @@ public class Configs
     public static boolean enableSpawnFirefly;
     public static boolean enableSpawnDeepoid;
     public static boolean enableSpawnCaveMonitor;
-    public static boolean enableSpawnSeaSerpent;
     public static boolean enableSpawnDeathStalker;
     public static boolean enableSpawnRealityDistorter;
     public static boolean enableSpawnDestituteTentacle;
@@ -350,7 +349,6 @@ public class Configs
         enableSpawnFirefly = conf.getBoolean("enableSpawnFirefly", catMobs, true, "Enables the Spawning of the Firefly");
         enableSpawnDeepoid = conf.getBoolean("enableSpawnDeepoid", catMobs, true, "Enables the Spawning of the Deepoid");
         enableSpawnCaveMonitor = conf.getBoolean("enableSpawnCaveMonitor", catMobs, true, "Enables the Spawning of the Cave Monitor");
-        enableSpawnSeaSerpent = conf.getBoolean("enableSpawnSeaSerpent", catMobs, true, "Enables the Spawning of the Sea Serpent");
         enableSpawnDeathStalker = conf.getBoolean("enableSpawnDeathStalker", catMobs, true, "Enables the Spawning of the Death Stalker");
         enableSpawnRealityDistorter = conf.getBoolean("enableSpawnRealityDistorter", catMobs, true, "Enables the Spawning of the Reality Distorter");
         enableSpawnDestituteTentacle = conf.getBoolean("enableSpawnDestituteTentacle", catMobs, true, "Enables the Spawning of the Destitute Tentacle");

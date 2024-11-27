@@ -107,6 +107,8 @@ item.klangite_blend.name=Klangite Blend
 item.impure_klangite_ingot.name=Impure Klangite Ingot
 item.explosive_klangite_ingot.name=Explosive Klangite Ingot
 item.xancium_pellet.name=Xancium Pellet
+item.wardling_dust.name=Wardling Dust
+item.powered_ancient_city_artifact.name=Powered Ancient City Artifact
 
 item.vanite_bucket.name=Vanite Bucket
 item.vanite_bucket_water.name=Water Bucket
@@ -393,6 +395,7 @@ tile.ender_fungus_block.name=Block Of Endgus
 tile.ender_fungus_stem.name=Endgus Stem
 tile.carved_frontierslate_bricks.name=Chiseled Frontierslate Bricks
 tile.dim_vanite_torch.name=Dim Vanite Torch
+tile.flooded_chest.name=Flooded Crate
 
 
 tile.vanite_cauldron.name=Vanite Cauldron
@@ -546,6 +549,8 @@ tile.vanite_cluster.name=Vanite Cluster
 tile.nullified_vanite.name=Nullified Vanite
 tile.crystallized_sculk.name=Crystallized Sculk
 tile.legendary_beacon.name=Legendary Beacon
+tile.ancient_chest.name=Ancient City Chest
+tile.unbreakable_ancient_chest.name=Locked Ancient City Chest
 
 #Stairs Names
 tile.grimstone_stairs.name=Grimstone Stairs
@@ -664,6 +669,7 @@ tab.novacraft_potions=Novacraft Potions
 gui.invaild.dimension=The Bloviator can only be summoned in the End.
 gui.advanced_et.invalid_structure=Nullwart Brick Bookshelves must be placed around the Advanced Enchanting Table to Use!
 gui.legendary_et.invalid_structure=Sculk Brick Bookshelves must be placed around the Legendary Enchanting Table to Use!
+gui.ancient_city_chest=The chest seems to be locked. There is a indentation for a key or tablet that seems to power the mechanism locking it...
 
 #Tool Tips
 tooltip.horn.ponder.desc=Ponder
@@ -709,6 +715,9 @@ tooltip.diamond_bow.desc=+2 damage
 tooltip.netherite_bow.desc=+4 damage
 tooltip.tophinite_bow.desc=+7 damage
 tooltip.klangite_bow.desc=+8 damage
+
+tooltip.ancient_city_chest.desc=Ancient City Chest
+tooltip.large_ancient_city_chest.desc=Large Ancient City Chest
 
 #Potion Tool Tips
 tooltip.potion.resistance.desc=Resistance I (32:00)
@@ -923,6 +932,7 @@ entity.nova_craft.destitumite_tentacle.name=Destitumite Tentacle
 entity.nova_craft.sculk_incinerator.name=Sculk Incinerator
 entity.nova_craft.sculk_laser.name=Sculk Laser
 entity.nova_craft.prisoner.name=The Prisoner
+entity.nova_craft.warden_vessel.name=Wardling
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -968,3 +978,4 @@ entity.destitumite_tentacle.name=Destitumite Tentacle
 entity.sculk_incinerator.name=Sculk Incinerator
 entity.sculk_laser.name=Sculk Laser
 entity.prisoner.name=The Prisoner
+entity.warden_vessel.name=Wardling

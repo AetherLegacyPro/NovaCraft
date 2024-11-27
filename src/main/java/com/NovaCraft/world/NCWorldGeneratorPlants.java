@@ -18,6 +18,7 @@ import com.NovaCraft.world.structure.LarimarGeoGen;
 import com.NovaCraft.world.structure.NovaCraftDungeonGen;
 import com.NovaCraft.world.structure.SculkGeoDungeon;
 import com.NovaCraft.world.structure.SculkGeoDungeon2;
+import com.NovaCraft.world.structure.SeaSerpentSpawner;
 import com.NovaCraft.world.structure.TsavorokiteGeoGen;
 import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -266,6 +267,19 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			z12 = chunkZ * 16 + rand.nextInt(16) + 8;
 			if(rand.nextInt(832) == 0) {
 				new AetherGeoGen().generate(world, rand, x12, rand.nextInt(5) + 30, z12);
+			}
+			
+			//Sea Serpent Spawner
+			int x15;
+			int z15;
+			x15 = chunkX * 16 + rand.nextInt(16) + 8;
+			z15 = chunkZ * 16 + rand.nextInt(16) + 8;	
+			BiomeGenBase biome15;
+			Type[] biomeList15;
+			biome15 = world.getBiomeGenForCoords(x15, z15);
+			biomeList15 = BiomeDictionary.getTypesForBiome(biome15);
+			if(BiomeDictionary.isBiomeOfType(biome15, BiomeDictionary.Type.OCEAN) && rand.nextInt(85) == 0) {
+				new SeaSerpentSpawner().generate(world, rand, x15, rand.nextInt(2) + 30, z15);
 			}
 			
 			//Lumiant Tree

@@ -649,6 +649,27 @@
     ]
   },
   
+  "chest.unlock": {
+    "category": "block",
+    "sounds": [
+      "misc/chest/unlock"
+    ]
+  },
+  
+  "chest.close": {
+    "category": "block",
+    "sounds": [
+      "misc/chest/stone_chest_close"
+    ]
+  },
+  
+  "chest.open": {
+    "category": "block",
+    "sounds": [
+      "misc/chest/stone_chest_open"
+    ]
+  },
+  
   "nullstone.break": {
     "category": "block",
     "sounds": [

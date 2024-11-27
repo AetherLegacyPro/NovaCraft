@@ -24,7 +24,9 @@ public class OtherModItems
     public static Item netherite_ingot;
     public static Item rabbit_foot;
     public static Item amethyst_shard;
-    public static Item raw_ore;
+    public static Item raw_ore;  
+    public static Item prismarine_shard;
+    public static Item prismarine_crystals;
     
     //Netherlious
     public static Item Nugget;
@@ -84,7 +86,9 @@ public class OtherModItems
     	OtherModItems.copper_ingot = GameRegistry.findItem("etfuturum", "copper_ingot");
     	OtherModItems.rabbit_foot = GameRegistry.findItem("etfuturum", "rabbit_foot");
     	OtherModItems.amethyst_shard = GameRegistry.findItem("etfuturum", "amethyst_shard");
-    	OtherModItems.raw_ore = GameRegistry.findItem("etfuturum", "raw_ore");
+    	OtherModItems.raw_ore = GameRegistry.findItem("etfuturum", "raw_ore");    	
+    	OtherModItems.prismarine_shard = GameRegistry.findItem("etfuturum", "prismarine_shard");
+    	OtherModItems.prismarine_crystals = GameRegistry.findItem("etfuturum", "prismarine_crystals");
     	
     	OtherModItems.VoidQuartzItem = GameRegistry.findItem("netherlicious", "VoidQuartzItem");
     	OtherModItems.Ingot = GameRegistry.findItem("netherlicious", "Ingot");

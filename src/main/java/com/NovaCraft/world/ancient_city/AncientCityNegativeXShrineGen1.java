@@ -8,6 +8,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -2386,6 +2387,13 @@ public class AncientCityNegativeXShrineGen1 extends WorldGenerator
 
 		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
 			chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getBasicLoot(random));
+		}
+		
+		EntityWardenVessel warden = new EntityWardenVessel(world);
+		warden.setPosition(i + 1, j + 6, k + 12);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(warden);
 		}
 		
 		world.setBlock(i + 8, j + 4, k + 8, Blocks.mob_spawner, 0, 2);

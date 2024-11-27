@@ -1,9 +1,14 @@
 package com.NovaCraft;
 
+import com.NovaCraft.TileEntity.AncientChestRenderer;
+import com.NovaCraft.TileEntity.TileEntityAncientChest;
+import com.NovaCraft.TileEntity.TileEntityAncientChestRenderer;
 import com.NovaCraft.TileEntity.TileEntityDeepOneEgg;
 import com.NovaCraft.TileEntity.TileEntityDeepOneEggActivated;
 import com.NovaCraft.TileEntity.TileEntityDeepOneEggActivatedRenderer;
 import com.NovaCraft.TileEntity.TileEntityDeepOneEggRenderer;
+import com.NovaCraft.TileEntity.TileEntityUnbreakbleAncientChest;
+import com.NovaCraft.TileEntity.UnbreakableAncientChestRenderer;
 import com.NovaCraft.entity.renderer.DeepOneEggActivatedRenderer;
 import com.NovaCraft.entity.renderer.DeepOneEggRenderer;
 import com.NovaCraft.entity.renderer.RendersNovaCraft;
@@ -27,6 +32,7 @@ import com.NovaCraft.renderer.BlockVaniteClusterRenderer;
 import com.NovaCraft.renderer.BlockYttrlinsiteClusterRenderer;
 import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.NovaCraftBlocks.container.BlockUnbreakableAncientChest;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -79,6 +85,14 @@ public class ClientProxy extends CommonProxy
         ClientProxy.renderIdDeepOneEggActivated = RenderingRegistry.getNextAvailableRenderId();
         ClientRegistry.bindTileEntitySpecialRenderer((Class)TileEntityDeepOneEggActivated.class, (TileEntitySpecialRenderer)new TileEntityDeepOneEggActivatedRenderer());
         RenderingRegistry.registerBlockHandler((ISimpleBlockRenderingHandler)new DeepOneEggActivatedRenderer(ClientProxy.renderIdDeepOneEggActivated));
+	
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAncientChest.class, new TileEntityAncientChestRenderer());
+        NovaCraftBlocks.AncientChestRenderId = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(new AncientChestRenderer(new TileEntityAncientChest()));
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityUnbreakbleAncientChest.class, new TileEntityAncientChestRenderer());
+        NovaCraftBlocks.UnbreakableAncientChestRenderId = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(new UnbreakableAncientChestRenderer(new TileEntityUnbreakbleAncientChest()));
 	}
 	
 	@Override

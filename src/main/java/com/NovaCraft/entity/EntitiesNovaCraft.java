@@ -124,6 +124,7 @@ public class EntitiesNovaCraft {
 		register(EntityDestitumite.class, "destitumite", 52, 0x080909, 0x1b1b1b);
 		register(EntityDestituteTentacle.class, "destitumite_tentacle", 53, 0x080909, 0x1b2b1c);
 		register(EntitySculkIncinerator.class, "sculk_incinerator", 55, 0x4ea19f, 0x2a4f59);
+		register(EntityWardenVessel.class, "warden_vessel", 61, 0x7a7a7a, 0x74c7c9);
 		
 		//Bosses
 		register(EntityWarden.class, "warden", 16, 0x256166, 0x171b1e);
@@ -248,22 +249,12 @@ public class EntitiesNovaCraft {
 					}
 				}
 		}
-		if (Configs.enableSpawnSeaSerpent) {
-			for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
-				BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
-				if (biome != null){
-					if (BiomeDictionary.isBiomeOfType(biome, Type.OCEAN) && overworldBiome(biome)) {
-						EntityRegistry.addSpawn(EntitySeaSerpent.class, 2, 1, 2, EnumCreatureType.waterCreature, biome);
-						}
-					}
-				}
-		}
 	}
 	
-	public static boolean overworldBiome(BiomeGenBase b) {
-	    List<SpawnListEntry> monsterList = ObfuscationReflectionHelper.getPrivateValue(BiomeGenBase.class, b, "as", "field_76761_J", "spawnableMonsterList");
-	    for(SpawnListEntry e : monsterList) {
-	        if(e.entityClass == EntityZombie.class) return true;
+	public static boolean overworldBiome(BiomeGenBase biome) {
+	    List<SpawnListEntry> monsterList = ObfuscationReflectionHelper.getPrivateValue(BiomeGenBase.class, biome, "as", "field_76761_J", "spawnableMonsterList");
+	    for(SpawnListEntry entity : monsterList) {
+	        if(entity.entityClass == EntityZombie.class) return true;
 	    }
 	    return false;
 	}

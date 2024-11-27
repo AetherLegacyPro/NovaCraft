@@ -9,6 +9,7 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntitySculkAbomination;
 import com.NovaCraft.entity.EntitySculkSymbiote;
+import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.particles.ParticleDarkLichenThree;
 import com.NovaCraft.particles.ParticleGlowLichen;
 import com.NovaCraft.particles.ParticleHandler;
@@ -126,12 +127,23 @@ public class BlockSculk extends Block {
  			}
  			int rand2 = (int)(1 + Math.random() * 100);
  			if (rand2 == 10 && !entity.isSneaking()) {
- 	 			world.playSoundEffect(x, y, z, "nova_craft:warden_altar.shriek", 3.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.25F + 0.95F);
+ 	 			world.playSoundEffect(x, y, z, "nova_craft:warden_altar.shriek", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.25F + 0.95F);
  	 			EntitySculkAbomination sculk2 = new EntitySculkAbomination(world);
  	 			sculk2.setPosition(x + 0.5D, y + 1D, z + 0.5D);
 
  					if (!world.isRemote) {
  						world.spawnEntityInWorld(sculk2);		
+ 					}
+ 					
+ 	 		}
+ 			int rand3 = (int)(1 + Math.random() * 250);
+ 			if (rand3 == 20 && !entity.isSneaking()) {
+ 	 			world.playSoundEffect(x, y, z, "nova_craft:boss.Wardensummoning", 3.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.25F + 0.95F);
+ 	 			EntityWardenVessel sculk3 = new EntityWardenVessel(world);
+ 	 			sculk3.setPosition(x + 0.5D, y + 1D, z + 0.5D);
+
+ 					if (!world.isRemote) {
+ 						world.spawnEntityInWorld(sculk3);		
  					}
  					
  	 		}
@@ -168,18 +180,8 @@ public class BlockSculk extends Block {
  	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
  		
- 		//if (world.provider.dimensionId != 1) {
- 				
- 		//	if (world.canBlockSeeTheSky(x, y, z)) { // && world.isDaytime()
- 			//
- 					//world.setBlock(x, y, z, NovaCraftBlocks.grimstone);
- 			//}
-			
- 		//}
- 		
- 		
- 		if (world.provider.dimensionId != -1 && world.provider.dimensionId != 1) {	
- 			if (rand.nextInt(100) == 1 && world.getBlockLightValue(x, y + 1, z) <= 3 && y <= 25.0D) {
+ 		if (world.provider.dimensionId != 1 && world.provider.dimensionId != -1) {	
+ 			if (rand.nextInt(1200) == 1 && world.getBlockLightValue(x, y + 1, z) <= 3 && y <= 25.0D) {
 			EnumFacing facing = EnumFacing.getFront(rand.nextInt(EnumFacing.values().length));
 			Block block = world.getBlock(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
 			int meta = world.getBlockMetadata(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());

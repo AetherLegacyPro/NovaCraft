@@ -340,6 +340,7 @@ public class NovaCraftRegistries {
 		register("kylazite_leggings", new ItemStack(NovaCraftItems.kylazite_leggings), "XWV", "ZYW", "XZX", 'X', NovaCraftItems.crystallized_end_shard , 'Y', NovaCraftItems.klangite_leggings, 'Z', NovaCraftItems.enflamed_null_cube_slimeball, 'W', NovaCraftItems.nullified_dust, 'V', NovaCraftItems.corrupted_essence);
 		register("kylazite_boots", new ItemStack(NovaCraftItems.kylazite_boots), "XWV", "ZYW", "XZX", 'X', NovaCraftItems.crystallized_end_shard , 'Y', NovaCraftItems.klangite_boots, 'Z', NovaCraftItems.enflamed_null_cube_slimeball, 'W', NovaCraftItems.nullified_dust, 'V', NovaCraftItems.corrupted_essence);
 
+		register("powered_ancient_city_artifact", new ItemStack(NovaCraftItems.powered_ancient_city_artifact), "XVX", "VYV", "XZX", 'X', NovaCraftItems.static_essence, 'Y', NovaCraftItems.sculked_monitor_eye, 'Z', NovaCraftItems.ancient_city_artifact, 'V', NovaCraftItems.wardling_dust);	
 		
 		if (Loader.isModLoaded("etfuturum") && Configs.enableBlockOfRawNetheriteRecipe == true) {
 		register("netherite_scrap", new ItemStack(OtherModItems.netherite_scrap, 9), "X", 'X', NovaCraftBlocks.raw_netherite);

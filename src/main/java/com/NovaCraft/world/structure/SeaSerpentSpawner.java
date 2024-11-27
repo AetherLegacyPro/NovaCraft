@@ -33,6 +33,8 @@ public class SeaSerpentSpawner extends WorldGenerator
     
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
 
+    	if ((world.getBlock(i, j - 1, k) != Blocks.water && world.getBlock(i, j - 1, k) != Blocks.air) && world.getBlock(i, j + 4, k) == Blocks.water) {
+    	
     {
     	if (Loader.isModLoaded("etfuturum") && Configs.enablePrismarineInStructures == true) {
     		world.setBlock(i + 1, j + 0, k + 1, et_futurum_prismarine, 2, 2);
@@ -138,8 +140,7 @@ public class SeaSerpentSpawner extends WorldGenerator
 			world.setBlock(i + 1, j + 3, k + 1, glowing_carved_vanite_bricks, 0, 2);
 		}
     }	
-		//Flooded Treasure Crate here
-		world.setBlock(i + 5, j + 3, k + 1, Block.getBlockById(49), 0, 2);
+		world.setBlock(i + 5, j + 3, k + 1, NovaCraftBlocks.flooded_chest, 0, 2);
 		
 		world.setBlock(i + 3, j + 1, k + 3, Blocks.mob_spawner, 0, 2);
 		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 3, j + 1, k + 3);
@@ -150,6 +151,8 @@ public class SeaSerpentSpawner extends WorldGenerator
         }
     	
     	return true;
+    }
+    	return false;
     }
 
 }

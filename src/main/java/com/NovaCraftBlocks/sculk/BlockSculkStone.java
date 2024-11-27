@@ -165,7 +165,7 @@ public class BlockSculkStone extends Block implements IGrowable {
 	
 	@Override
 	public int tickRate(World world) {
-		return 10000;
+		return 30000;
 	}
 
 }

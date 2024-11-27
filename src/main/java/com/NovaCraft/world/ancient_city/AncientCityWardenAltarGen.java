@@ -8,6 +8,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -1163,21 +1164,22 @@ public class AncientCityWardenAltarGen extends WorldGenerator
 	        	tileentitymobspawner4.func_145881_a().setEntityName("nova_craft.sculk_incinerator");
 	        }
 			
-			world.setBlock(i + 7, j + 10, k + 43, Blocks.chest, 2, 2);
-			TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 7, j + 10, k + 43);
+			world.setBlock(i + 7, j + 10, k + 43, NovaCraftBlocks.unbreakable_ancient_chest, 2, 2);			
+			EntityWardenVessel warden = new EntityWardenVessel(world);
+			warden.setPosition(i + 7, j + 12, k + 43);
 
-			for (int slot = 0; slot < 3 + random.nextInt(65); slot++) {
-				chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getSpecialLoot(random));
-				chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getSpecialLoot(random));
+			if (!world.isRemote) {
+				world.spawnEntityInWorld(warden);
 			}
 			
-			world.setBlock(i + 7, j + 10, k + 3, Blocks.chest, 3, 2);
-			TileEntityChest chest2 = (TileEntityChest) world.getTileEntity(i + 7, j + 10, k + 3);
+			world.setBlock(i + 7, j + 10, k + 3, NovaCraftBlocks.unbreakable_ancient_chest, 3, 2);
+			EntityWardenVessel warden2 = new EntityWardenVessel(world);
+			warden2.setPosition(i + 7, j + 12, k + 3);
 
-			for (int slot = 0; slot < 3 + random.nextInt(65); slot++) {
-				chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getSpecialLoot(random));
-				chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getSpecialLoot(random));
+			if (!world.isRemote) {
+				world.spawnEntityInWorld(warden2);
 			}
+			
 			
 			
 			world.setBlock(i + 4, j + 10, k + 7, Blocks.chest, 5, 2);
@@ -1220,128 +1222,6 @@ public class AncientCityWardenAltarGen extends WorldGenerator
 					return new ItemStack(NovaCraftBlocks.sculk_bloom, random.nextInt(2) + 1);
 				default: {
 					return new ItemStack(NovaCraftBlocks.sculk_block, random.nextInt(9) + 2);
-				}
-			}
-		}
-	 
-	 private ItemStack getSpecialLoot(Random random) {
-			int item = random.nextInt(24);
-			switch (item) {
-				case 0:
-					return new ItemStack(Items.diamond, random.nextInt(3) + 2);
-				case 1:
-					return new ItemStack(Items.skull, 1, 1);
-				case 2:
-					return new ItemStack(NovaCraftItems.larimar_shard, random.nextInt(8) + 2);
-				case 3:
-					return new ItemStack(NovaCraftItems.copartz_shard, random.nextInt(8) + 2);
-				case 4:
-					return new ItemStack(NovaCraftItems.tsavorokite_shard, random.nextInt(8) + 2);
-				case 5:
-					return new ItemStack(NovaCraftItems.yttrlinsite_shard,  random.nextInt(8) + 2);
-				case 6: 
-					return new ItemStack(Items.skull, 1, 1);
-				case 7: 
-					Enchantment enchantment = Enchantment.enchantmentsBookList[random.nextInt(Enchantment.enchantmentsBookList.length)];
-			        		        
-					int minLevel = enchantment.getMinLevel();
-			        int maxLevel = enchantment.getMaxLevel();
-			        int level = MathHelper.getRandomIntegerInRange(random, minLevel, maxLevel);
-			        ItemStack itemStack = Items.enchanted_book.getEnchantedItemStack(new EnchantmentData(enchantment, maxLevel));
-	                
-	                return itemStack;
-				case 8: 
-					Enchantment enchantment2 = Enchantment.enchantmentsBookList[random.nextInt(Enchantment.enchantmentsBookList.length)];
-			        
-			        int minLevel2 = enchantment2.getMinLevel();
-			        int maxLevel2 = enchantment2.getMaxLevel();
-			        int level2 = MathHelper.getRandomIntegerInRange(random, minLevel2, maxLevel2);		       
-			        ItemStack itemStack2 = Items.enchanted_book.getEnchantedItemStack(new EnchantmentData(enchantment2, maxLevel2));
-	                
-	                return itemStack2;
-	                
-				case 9: 
-					return new ItemStack(Items.diamond, random.nextInt(3) + 2);
-				case 10: 
-					return new ItemStack(NovaCraftItems.primeval_mace, 1);
-				case 11: 
-					return new ItemStack(Items.experience_bottle, random.nextInt(12) + 5);
-				case 12:
-					//Helmet enchants
-				    Enchantment[] helmetEnchantments = {Enchantment.protection, Enchantment.projectileProtection, Enchantment.unbreaking, Enchantment.respiration};
-				    Enchantment[] helmetEnchantments2 = {Enchantment.aquaAffinity, Enchantment.fireProtection, Enchantment.blastProtection};
-				    Enchantment enchantment3 = helmetEnchantments[random.nextInt(helmetEnchantments.length)];
-				    Enchantment enchantment33 = helmetEnchantments2[random.nextInt(helmetEnchantments2.length)];	
-				    int maxLevel3 = enchantment3.getMaxLevel() + 1 + random.nextInt(1);			
-				    int maxLevel33 = enchantment33.getMaxLevel() + 1 + random.nextInt(1);	
-				    ItemStack itemStack3 = new ItemStack(NovaCraftItems.tophinite_helmet);
-				    
-				    itemStack3.addEnchantment(enchantment3, maxLevel3);
-				    itemStack3.addEnchantment(enchantment33, maxLevel33);
-				    
-				    return itemStack3;
-				case 13:
-					//Chestplate enchants
-				    Enchantment[] chestplateEnchantments = {Enchantment.protection, Enchantment.blastProtection};
-				    Enchantment[] chestplateEnchantments2 = {Enchantment.unbreaking, Enchantment.fireProtection, Enchantment.projectileProtection};
-				    
-				    //Selects a random enchantment
-				    Enchantment enchantment4 = chestplateEnchantments[random.nextInt(chestplateEnchantments.length)];		    
-				    int maxLevel4 = enchantment4.getMaxLevel() + 1 + random.nextInt(1);		    
-				    
-				    Enchantment enchantment44 = chestplateEnchantments2[random.nextInt(chestplateEnchantments2.length)];		    
-				    int maxLevel44 = enchantment44.getMaxLevel() + 1 + random.nextInt(1);
-				    
-				    //Creates an ItemStack for diamond chestplate
-				    ItemStack itemStack4 = new ItemStack(NovaCraftItems.tophinite_chestplate);
-				    
-				    //Adds the enchantment
-				    itemStack4.addEnchantment(enchantment4, maxLevel4);
-				    itemStack4.addEnchantment(enchantment44, maxLevel44);
-				    
-				    return itemStack4;			
-				case 14:
-					//Legging enchants
-				    Enchantment[] leggingsEnchantments = {Enchantment.protection, Enchantment.fireProtection};
-				    Enchantment[] leggingsEnchantments2 = {Enchantment.unbreaking, Enchantment.blastProtection, Enchantment.projectileProtection};
-				    Enchantment enchantment5 = leggingsEnchantments[random.nextInt(leggingsEnchantments.length)];
-				    Enchantment enchantment55 = leggingsEnchantments2[random.nextInt(leggingsEnchantments2.length)];
-				    int maxLevel5 = enchantment5.getMaxLevel() + 1 + random.nextInt(1);
-				    int maxLevel55 = enchantment55.getMaxLevel() + 1 + random.nextInt(1);
-				    ItemStack itemStack5 = new ItemStack(NovaCraftItems.tophinite_leggings);
-				    
-				    itemStack5.addEnchantment(enchantment5, maxLevel5);
-				    itemStack5.addEnchantment(enchantment55, maxLevel55);
-				    
-				    return itemStack5;
-				case 15:
-					//Boot enchants
-					Enchantment[] bootEnchantments = {Enchantment.protection, Enchantment.unbreaking};
-				    Enchantment[] bootEnchantments2 = {Enchantment.projectileProtection, Enchantment.featherFalling, Enchantment.blastProtection, Enchantment.fireProtection};
-				    Enchantment enchantment6 = bootEnchantments[random.nextInt(bootEnchantments.length)];
-				    Enchantment enchantment66 = bootEnchantments2[random.nextInt(bootEnchantments2.length)];
-				    int maxLevel6 = enchantment6.getMaxLevel() + 1 + random.nextInt(1);
-				    int maxLevel66 = enchantment66.getMaxLevel() + 1 + random.nextInt(1);
-				    ItemStack itemStack6 = new ItemStack(NovaCraftItems.tophinite_boots);
-				    
-				    itemStack6.addEnchantment(enchantment6, maxLevel6);
-				    itemStack6.addEnchantment(enchantment66, maxLevel66);
-				    
-				    return itemStack6;
-				case 16: 
-					return new ItemStack(Blocks.iron_block, random.nextInt(18) + 8);
-				case 17: 
-					return new ItemStack(Blocks.gold_block, random.nextInt(13) + 11);
-				case 18: 
-					return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(30) + 18);
-				case 19: 
-					return new ItemStack(Items.golden_apple, 1, 1);
-				case 20: 
-					return new ItemStack(Blocks.iron_block, random.nextInt(18) + 25);
-				case 21: 
-					return new ItemStack(NovaCraftItems.primeval_mace, 1);
-				default: {
-					return new ItemStack(NovaCraftItems.blazing_coal, random.nextInt(26) + 12);
 				}
 			}
 		}

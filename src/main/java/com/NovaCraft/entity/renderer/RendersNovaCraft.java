@@ -2,6 +2,8 @@ package com.NovaCraft.entity.renderer;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.TileEntity.TileEntityAdvancedEnchantmentTable;
+import com.NovaCraft.TileEntity.TileEntityAncientChest;
+import com.NovaCraft.TileEntity.TileEntityAncientChestRenderer;
 import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
 import com.NovaCraft.TileEntity.TileEntityLegendaryEnchantmentTable;
 import com.NovaCraft.config.Configs;
@@ -46,6 +48,7 @@ import com.NovaCraft.entity.EntityVindicator;
 import com.NovaCraft.entity.EntityVoidCube;
 import com.NovaCraft.entity.EntityVoidEntity;
 import com.NovaCraft.entity.EntityWarden;
+import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
 import com.NovaCraft.entity.illager.EntityIllagerChief;
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
@@ -178,6 +181,7 @@ public class RendersNovaCraft {
 	register(EntityDestituteTentacle.class, new DestituteTentacleRenderer());
 	register(EntitySculkIncinerator.class, new SculkIncineratorRenderer(new SculkIncineratorModel(), new SculkIncineratorModel(), 0.6f));
 	register(EntityPrisoner.class, new PrisonerRenderer());
+	register(EntityWardenVessel.class, new WardenVesselRenderer());
 	
 	register(EntityVindicator.class, new VindicatorRenderer());
 	register(EntityVindicator.class, new VindicatorOverlayRenderer());
@@ -212,7 +216,8 @@ public class RendersNovaCraft {
 	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.goat_horn_yearn, new NovaCraftHornRenderer());
 	
 	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLegendaryEnchantmentTable.class, new LegendaryEnchantmentTableRenderer());
-	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAdvancedEnchantmentTable.class, new AdvancedEnchantmentTableRenderer());
+	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAdvancedEnchantmentTable.class, new AdvancedEnchantmentTableRenderer());	
+	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAncientChest.class, new TileEntityAncientChestRenderer());
 	
 	if (Configs.enableUniqueLegendaryBeaconBeam) {
       	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLegendaryBeacon.class, (TileEntitySpecialRenderer)new LegendaryBeaconRenderer());          
