@@ -7,11 +7,13 @@ import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
@@ -426,6 +428,14 @@ public class ItemSculkStar extends Item {
 				
 				world.playSoundEffect(x, y, z, "nova_craft:warden_altar.shriek", 1.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
 				--heldItem.stackSize;
+		}
+		else {
+			if (world.isRemote) {
+		          return true;
+		      }
+			else {
+			player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.warden_altar_invaild_structure")));
+			}
 		}
 		
 		return true;

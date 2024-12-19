@@ -109,6 +109,7 @@ item.explosive_klangite_ingot.name=Explosive Klangite Ingot
 item.xancium_pellet.name=Xancium Pellet
 item.wardling_dust.name=Wardling Dust
 item.powered_ancient_city_artifact.name=Powered Ancient City Artifact
+item.ancient_city_totem.name=Ancient City Totem
 
 item.vanite_bucket.name=Vanite Bucket
 item.vanite_bucket_water.name=Water Bucket
@@ -396,6 +397,9 @@ tile.ender_fungus_stem.name=Endgus Stem
 tile.carved_frontierslate_bricks.name=Chiseled Frontierslate Bricks
 tile.dim_vanite_torch.name=Dim Vanite Torch
 tile.flooded_chest.name=Flooded Crate
+tile.polished_nullstone.name=Polished Nullstone
+tile.polished_grimstone.name=Polished Grimstone
+tile.reinforced_nullstone.name=Reinforced Nullstone
 
 
 tile.vanite_cauldron.name=Vanite Cauldron
@@ -670,6 +674,8 @@ gui.invaild.dimension=The Bloviator can only be summoned in the End.
 gui.advanced_et.invalid_structure=Nullwart Brick Bookshelves must be placed around the Advanced Enchanting Table to Use!
 gui.legendary_et.invalid_structure=Sculk Brick Bookshelves must be placed around the Legendary Enchanting Table to Use!
 gui.ancient_city_chest=The chest seems to be locked. There is a indentation for a key or tablet that seems to power the mechanism locking it...
+gui.warden_altar=This Altar seems to be the center piece of the Ancient City. There is an engraving that requires some kind of power source seems quite complex... Perhaps restoring the altar and using a variation of a Nether Star could power it?
+gui.warden_altar_invaild_structure=The altar seemed to accept the Sculk Star yet no power was drawn from it... There must be something wrong with the structure surrounding the altar.
 
 #Tool Tips
 tooltip.horn.ponder.desc=Ponder
@@ -710,6 +716,7 @@ tooltip.vanite_firecharge.desc=Consumes Firecharges
 tooltip.klangite_firecharge.desc=Consumes Xancium Firecharges
 
 tooltip.explosive_ingot.desc=Throw this into the void!
+tooltip.anicent_city_totem.desc=Use Half HP to banish all lesser sculk mobs nearby!
 
 tooltip.diamond_bow.desc=+2 damage
 tooltip.netherite_bow.desc=+4 damage

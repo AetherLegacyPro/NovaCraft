@@ -1752,6 +1752,8 @@ public class AncientCityObservationTowerGen extends WorldGenerator
 				return new ItemStack(Items.gunpowder, random.nextInt(6) + 5);
 			case 22: 
 				return new ItemStack(NovaCraftItems.diamond_bow, 1);
+			case 23: 
+				return new ItemStack(NovaCraftItems.ancient_city_totem, 1);
 			default: {
 				return new ItemStack(Items.arrow, random.nextInt(23) + 18);
 			}

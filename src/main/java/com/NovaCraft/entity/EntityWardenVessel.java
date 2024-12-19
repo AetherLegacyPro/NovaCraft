@@ -367,7 +367,7 @@ public class EntityWardenVessel extends EntityMob
 	
 	@Override
     protected float getSoundVolume() {
-        return 0.1F;
+        return 0.5F;
     }
 	
 	public boolean canDespawn() {

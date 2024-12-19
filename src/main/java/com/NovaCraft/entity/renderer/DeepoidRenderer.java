@@ -55,7 +55,7 @@ public class DeepoidRenderer extends RenderLiving
     }
     
     @Override
-  	protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+  	protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
   	    GL11.glScalef(0.8F, 0.8F, 0.8F);
   	}
     

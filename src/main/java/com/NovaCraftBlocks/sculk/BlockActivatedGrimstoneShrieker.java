@@ -73,14 +73,7 @@ public class BlockActivatedGrimstoneShrieker extends Block {
 	
 	public void updateTick(World world, int i, int j, int k, Random random) {
 		
-		if (true) {
-		//world.spawnEntityInWorld(new EntityLightningBolt(world, i, j, k));
-		
-		//world.spawnEntityInWorld(new EntityLightningBolt(world, i + 4, j + 3, k + 4));
-		//world.spawnEntityInWorld(new EntityLightningBolt(world, i - 4, j + 3, k + 4));
-		//world.spawnEntityInWorld(new EntityLightningBolt(world, i + 4, j + 3, k - 4));
-		//world.spawnEntityInWorld(new EntityLightningBolt(world, i - 4, j + 3, k - 4));
-		
+		if (true) {	
 		world.playSoundEffect(i, j, k, "nova_craft:boss.Wardensummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
 		world.setBlock(i, j, k, NovaCraftBlocks.grimstone_shrieker);
 		world.playSoundEffect(i, j, k, "nova_craft:boss.Wardensummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);

@@ -42,7 +42,7 @@ public class BlockSculkTentacle extends BlockSculk implements ISubBlocksBlock {
 		setResistance(0.2F);
 		this.setStepSound(ModSounds.soundSculkVein);
 		setBlockName(Utils.getUnlocalisedName("sculk_tentacle" + (type + 1)));
-		setHarvestLevel("shovel", 0);
+		setHarvestLevel("axe", 0);
 		this.type = type;
 		this.setTickRandomly(true);
 	}

@@ -98,6 +98,8 @@ public class Configs
     public static boolean enableNetheriteInRecipes;
     public static boolean enableCrystalGolemAura;
     public static boolean enableLuminantLeavesGlow;
+    public static boolean enableAncientCityTotem;
+    public static boolean enableSculkStoneSpreading;
     
     //Spawning
     public static boolean enableSpawnGlowSquid;
@@ -153,7 +155,7 @@ public class Configs
     public static int endIslandSpawnRate;
     public static int destituteIslandSpawnRate;
     public static boolean enableDeepoidFortress;
-    public static boolean enableSculkInfestedMineshaft;
+    public static boolean enableSculkInfestedMineshaft;   
     
     public static final String catGeneration = "New generation";
     public static final String catParticles = "New particles";
@@ -326,6 +328,7 @@ public class Configs
         enableBlockOfRawNetheriteRecipe = conf.getBoolean("enableBlockOfRawNetheriteRecipe", catEtFuturum, true, "Enables the crafting recipe of Blocks of Raw Netherite.(DISABLE if you disabled Netherite in Et Futurum Requiem)");
         enableAlternateAmpJumpPotionRecipe = conf.getBoolean("enableAlternateAmpJumpPotionRecipe", catEtFuturum, true, "Changes Recipe of the extended jump potion to require rabbit foot from Et Futurum.(DISABLE if you disabled rabbits/rabbit foot in Et Futurum Requiem)");
         enableNetheriteInRecipes = conf.getBoolean("enableNetheriteInRecipes", catEtFuturum, true, "Changes Various Recipes to require netherite in their recipes from Et Futurum.(DISABLE if you disabled netherite in Et Futurum Requiem)");
+        
         //Mobs
         enableSpawnGlowSquid = conf.getBoolean("enableSpawnGlowSquid", catMobs, true, "Enables the Spawning of Glow Squids");
         enableSpawnPhantom = conf.getBoolean("enableSpawnPhantom", catMobs, true, "Enables the Spawning of Phantoms");
@@ -365,11 +368,13 @@ public class Configs
         enableRawDivineral = conf.getBoolean("enableRawDivineral", catAetherLegacy, false, "Enables the Raw Divineral Block.");
         enableNovaCraftGloves = conf.getBoolean("enableNovaCraftGloves", catAetherLegacy, false, "Enables the recipe for NovaCraft gloves from Aether Departure.");
         
-        //Weapon Damage Allign With Vanilla
+        //Misc
         enableWeaponsToAllignWithVanilla = conf.getBoolean("enableWeaponsToAllignWithVanilla", catMisc, false, "Enables weapons from novacraft to allign with vanilla in terms of damage/durability more rather than other RPG like mods.");       
         enableTreasureCratesDropDiamonds = conf.getBoolean("enableTreasureCratesDropDiamonds", catMisc, true, "Enables treasure and nether crates have a chance to drop diamonds.");
         enableCrystalGolemAura = conf.getBoolean("enableCrystalGolemAura", catMisc, true, "Enables the auras of the various crystal golems.");
         enableLuminantLeavesGlow = conf.getBoolean("enableLuminantLeavesGlow", catMisc, true, "Enables luminant leaves to have a slight glow effect.(Disable this if you use dynamic leaves)");
+        enableAncientCityTotem = conf.getBoolean("enableAncientCityTotem", catMisc, true, "Enables crafting recipe for Ancient City Totem");
+        enableSculkStoneSpreading = conf.getBoolean("enableSculkStoneSpreading", catMisc, true, "Enables sculk stone to spread to nearby stone type blocks like grass.");
 
         //Warden Options
         enableWardenBlindness = conf.getBoolean("enableWardenBlindness", catWarden, true, "Enables the Warden Applying blindess to the player when within 5 Blocks: Note if False the Player will be given Slowness II Instead");

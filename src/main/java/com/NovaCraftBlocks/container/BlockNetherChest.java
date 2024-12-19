@@ -8,6 +8,7 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntitySculkSymbiote;
+import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -135,11 +136,9 @@ public class BlockNetherChest extends Block {
 		}
 		
 		case 12: if (!world.isRemote) {
-			if (Loader.isModLoaded("etfuturum")) {
-			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.copper_ingot, 5 + rand));
+			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.iron_ingot, 6 + rand));
 			
 			world.spawnEntityInWorld(entityItem);
-			}
 		}
 		
 		case 13: if (!world.isRemote) {
@@ -176,5 +175,19 @@ public class BlockNetherChest extends Block {
 		
 		}
 	}
+	
+	@Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
+        super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
+        if (p_149734_5_.nextInt(35) == 0) {
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.4f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+        }	
+        
+    }
 
 }

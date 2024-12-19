@@ -6,6 +6,7 @@ import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntitySculkDweller;
+import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraft.sounds.ModSounds;
@@ -30,30 +31,18 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockSculkChest extends Block {
-
-	//@SideOnly(Side.CLIENT)
-	//private IIcon[] icon;
 	
 	public BlockSculkChest() {
 		super(Material.wood);
-		//this.icon = new IIcon[1];
 		this.setHardness(50);
 		this.setResistance(3000);
 		this.setStepSound(ModSounds.soundSculkVein);
 		this.setHarvestLevel("axe", 0);
 	}
-	//@Override
-	//@SideOnly(Side.CLIENT)
+
 	public void registerBlockIcons(final IIconRegister iconRegister) {
         this.blockIcon = iconRegister.registerIcon("nova_craft:wardencrate");
     }
-	
-	//public IIcon getIcon(final int side, int meta) {
-        //if (meta < 0 || meta >= this.icon.length) {
-          //  meta = 1;
-        //}
-       // return this.icon[meta];
-   // }
 	
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return null;
@@ -364,9 +353,22 @@ public class BlockSculkChest extends Block {
 			world.spawnEntityInWorld(entityItem);
 			}
 		}		
-
 		
 		}
 	}
+	
+	@Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
+        super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
+        if (p_149734_5_.nextInt(35) == 0) {
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.4f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+        }	
+        
+    }
 
 }

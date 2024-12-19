@@ -287,7 +287,7 @@ public class BlockUnbreakableAncientChest extends BlockContainer
   }
   
   private ItemStack getSpecialLoot(Random random) {
-		int item = random.nextInt(30);
+		int item = random.nextInt(31);
 		switch (item) {
 			case 0:
 				return new ItemStack(Items.diamond, random.nextInt(3) + 2);
@@ -469,7 +469,9 @@ public class BlockUnbreakableAncientChest extends BlockContainer
 			    
 			    return itemStack6B;
 			case 28: 
-				return new ItemStack(NovaCraftItems.dark_essence, random.nextInt(5) + 1);	
+				return new ItemStack(NovaCraftItems.dark_essence, random.nextInt(5) + 1);
+			case 29: 
+				return new ItemStack(NovaCraftItems.ancient_city_totem, 1);
 			    				
 			default: {
 				return new ItemStack(NovaCraftItems.blazing_coal, random.nextInt(26) + 12);

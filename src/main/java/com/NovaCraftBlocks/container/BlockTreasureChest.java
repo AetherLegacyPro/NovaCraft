@@ -8,6 +8,7 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntitySculkSymbiote;
+import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -159,7 +160,7 @@ public class BlockTreasureChest extends Block {
 		}
 		
 		case 15: if (!world.isRemote) {
-			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.disc_negative1, 1));
+			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(Items.iron_ingot, 7 + rand));
 			
 			world.spawnEntityInWorld(entityItem);
 		}
@@ -171,5 +172,19 @@ public class BlockTreasureChest extends Block {
 		
 		}
 	}
+	
+	@Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
+        super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
+        if (p_149734_5_.nextInt(35) == 0) {
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.4f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.TREASURE.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+        }	
+        
+    }
 
 }

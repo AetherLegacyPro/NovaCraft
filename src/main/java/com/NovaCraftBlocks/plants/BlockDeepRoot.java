@@ -59,7 +59,7 @@ public class BlockDeepRoot extends BlockMushroom {
     protected boolean canPlaceBlockOn(Block p_149854_1_)
     {
         return (p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == Blocks.stone || p_149854_1_ == OtherModBlocks.deepslate
-        		|| p_149854_1_ == NovaCraftBlocks.nullstone || p_149854_1_ == NovaCraftBlocks.sculk_block || p_149854_1_ == NovaCraftBlocks.sculk_deepslate 
+        		|| p_149854_1_ == NovaCraftBlocks.nullstone || p_149854_1_ == NovaCraftBlocks.sculk_deepslate 
         		|| p_149854_1_ == NovaCraftBlocks.sculk_grimstone || p_149854_1_ == NovaCraftBlocks.sculk_stone);
     }
 

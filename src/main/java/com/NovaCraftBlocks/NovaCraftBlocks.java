@@ -142,6 +142,7 @@ import com.NovaCraftBlocks.potion.BlockVaniteCluster;
 import com.NovaCraftBlocks.sculk.BlockActivatedGrimstoneShrieker;
 import com.NovaCraftBlocks.sculk.BlockGrimstoneShrieker;
 import com.NovaCraftBlocks.sculk.BlockInkedSculk;
+import com.NovaCraftBlocks.sculk.BlockReinforcedNullstone;
 import com.NovaCraftBlocks.sculk.BlockSculk;
 import com.NovaCraftBlocks.sculk.BlockSculkBloom;
 import com.NovaCraftBlocks.sculk.BlockSculkBush;
@@ -183,8 +184,8 @@ import net.minecraft.world.IBlockAccess;
 public class NovaCraftBlocks {
 	
 	//Overworld Building/World Gen Blocks
-	public static Block grimstone, cobbled_grimstone, grimstone_bricks, cracked_grimstone_bricks, grimstone_tiles, cracked_grimstone_tiles, chiseled_grimstone;
-	public static Block nullstone, cobbled_nullstone, nullstone_bricks, cracked_nullstone_bricks, nullstone_tiles, cracked_nullstone_tiles, chiseled_nullstone;
+	public static Block grimstone, cobbled_grimstone, grimstone_bricks, cracked_grimstone_bricks, grimstone_tiles, cracked_grimstone_tiles, chiseled_grimstone, polished_grimstone;
+	public static Block nullstone, cobbled_nullstone, nullstone_bricks, cracked_nullstone_bricks, nullstone_tiles, cracked_nullstone_tiles, chiseled_nullstone, polished_nullstone;
 	public static Block etherstone, cobbled_etherstone, etherstone_bricks, cracked_etherstone_bricks, etherstone_tiles, cracked_etherstone_tiles, chiseled_etherstone;
 	public static Block sculk_bricks, cracked_sculk_bricks, sculk_tiles, cracked_sculk_tiles, chiseled_sculk;
 	public static Block tuff_bricks, cracked_tuff_bricks, tuff_tiles, cracked_tuff_tiles, chiseled_tuff;
@@ -301,6 +302,7 @@ public class NovaCraftBlocks {
 	//Boss Summoning
 	public static Block grimstone_shrieker, activated_grimstone_shrieker;
 	public static Block deep_one_egg, deep_one_egg_activated;
+	public static Block reinforced_nullstone;
 	
 	//Special
 	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table;
@@ -314,11 +316,12 @@ public class NovaCraftBlocks {
 	public static Block deepfire, blazlinite_blend, blazlinite, molten_vanite;	
 	public static Block vanite_cauldron, molten_vanite_cauldron, molten_vanite_crystal_cauldron, cracked_vanite_crystal_cauldron;
 	
-	//Unused
-	public static Block advanced_smithing_table;
-	
+	//Tile Entity Renders
 	public static int UnbreakableAncientChestRenderId;
 	public static int AncientChestRenderId;
+	
+	//Unused
+	public static Block advanced_smithing_table;
 	
 	public static void initialization() {
 		
@@ -329,6 +332,7 @@ public class NovaCraftBlocks {
 		cracked_grimstone_bricks = register("cracked_grimstone_bricks", new BlockCrackedGrimstoneBricks().setBlockTextureName(NovaCraft.find("cracked_grimstone_bricks")));
 		grimstone_tiles = register("grimstone_tiles", new BlockGrimstoneTiles().setBlockTextureName(NovaCraft.find("grimstone_tiles")));
 		cracked_grimstone_tiles = register("cracked_grimstone_tiles", new BlockCrackedGrimstoneTiles().setBlockTextureName(NovaCraft.find("cracked_grimstone_tiles")));
+		polished_grimstone = register("polished_grimstone", new BlockPolishedGrimstone()).setBlockTextureName(NovaCraft.find("polished_grimstone"));
 		chiseled_grimstone = register("chiseled_grimstone", new BlockChiseledGrimstone());
 		
 		grimstone_diamond = register("grimstone_diamond", new BlockGrimstoneOre().setBlockTextureName(NovaCraft.find("grimstone_diamond_ore")));
@@ -345,6 +349,8 @@ public class NovaCraftBlocks {
 		cracked_nullstone_bricks = register("cracked_nullstone_bricks", new BlockCrackedNullstoneBricks().setBlockTextureName(NovaCraft.find("cracked_nullstone_bricks")));
 		nullstone_tiles = register("nullstone_tiles", new BlockNullstoneTiles().setBlockTextureName(NovaCraft.find("nullstone_tiles")));
 		cracked_nullstone_tiles = register("cracked_nullstone_tiles", new BlockCrackedNullstoneTiles().setBlockTextureName(NovaCraft.find("cracked_nullstone_tiles")));
+		polished_nullstone = register("polished_nullstone", new BlockPolishedNullstone()).setBlockTextureName(NovaCraft.find("polished_nullstone"));
+		reinforced_nullstone = register("reinforced_nullstone", new BlockReinforcedNullstone());
 		chiseled_nullstone = register("chiseled_nullstone", new BlockChiseledNullstone());
 		
 		nullstone_diamond = register("nullstone_diamond", new BlockNullstoneOre().setBlockTextureName(NovaCraft.find("nullstone_diamond_ore")));
@@ -472,7 +478,7 @@ public class NovaCraftBlocks {
 		raw_divineral = registerItemBlock("raw_divineral", new BlockRawDivineral(), ItemBlockFireProof.class);
 		}
 		
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableNetheriteInRecipes == true) {
 		raw_netherite = registerItemBlock("raw_netherite", new BlockRawNetherite(), ItemBlockFireProof.class);
 		}
 		
@@ -587,7 +593,7 @@ public class NovaCraftBlocks {
 		mineshaft_chest = register("mineshaft_chest", new BlockMineshaftChest());
 		nether_chest = register("nether_chest", new BlockNetherChest());
 		sculk_chest = register("sculk_chest", new BlockSculkChest());
-		unbreakable_ancient_chest = register("unbreakable_ancient_chest", new BlockUnbreakableAncientChest(0));
+		unbreakable_ancient_chest = registerHidden("unbreakable_ancient_chest", new BlockUnbreakableAncientChest(0));
 		ancient_chest = register("ancient_chest", new BlockAncientChest(0));
 		advanced_enchantment_table = register("advanced_enchantment_table", new BlockAdvancedEnchantmentTable());
 		legendary_beacon = register("legendary_beacon", new BlockLegendaryBeacon());
@@ -662,8 +668,7 @@ public class NovaCraftBlocks {
 		grimstone_stairs = register("grimstone_stairs", new BlockNovaCraftStairs(grimstone));
 		cobbled_grimstone_stairs = register("cobbled_grimstone_stairs", new BlockNovaCraftStairs(cobbled_grimstone));
 		grimstone_brick_stairs = register("grimstone_brick_stairs", new BlockNovaCraftStairs(grimstone_bricks));
-		grimstone_tiled_stairs = register("grimstone_tiled_stairs", new BlockNovaCraftStairs(grimstone_tiles));
-		
+		grimstone_tiled_stairs = register("grimstone_tiled_stairs", new BlockNovaCraftStairs(grimstone_tiles));		
 		
 		nullstone_stairs = register("nullstone_stairs", new BlockNovaCraftStairs(nullstone));
 		cobbled_nullstone_stairs = register("cobbled_nullstone_stairs", new BlockNovaCraftStairs(cobbled_nullstone));

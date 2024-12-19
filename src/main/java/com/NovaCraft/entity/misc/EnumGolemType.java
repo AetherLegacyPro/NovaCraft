@@ -2,7 +2,7 @@ package com.NovaCraft.entity.misc;
 
 public enum EnumGolemType {
 
-    COPARTZ(), LARIMAR(), TSAVOROKITE(), YTTRLINISTE(), AMETHYST();
+    COPARTZ(), LARIMAR(), TSAVOROKITE(), YTTRLINISTE(), AMETHYST(), AETHER();
 
 	EnumGolemType() {
 

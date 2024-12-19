@@ -3,10 +3,12 @@ package com.NovaCraft.world.structure;
 import java.util.Random;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.entity.EntityCrystalGolem;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -49,27 +51,8 @@ public class AetherGeoGen extends WorldGenerator {
 			holeX = Math.round(radius * MathHelper.cos(holePhi) * MathHelper.cos(holeTheta));
 			holeY = Math.round(radius * MathHelper.sin(holeTheta));
 			holeZ = Math.round(radius * MathHelper.sin(holePhi) * MathHelper.cos(holeTheta));
-			//System.out.println("Hole xyz: " + holeX + " " + holeY + " " + holeZ);
-			//System.out.println("Hole distance sq: " + (Math.sqrt(holeX * holeX + holeY * holeY + holeZ * holeZ)));
-			//System.out.println("Radius & Size: " + radius + " " + size);
-			//System.out.println(attempts + " attempts.");
 			attempts++;
 		}
-		
-//		if(holeSize > -1) {
-//			holeX = random.nextInt(sizeInt * 2) - sizeInt;
-//			holeY = random.nextInt(sizeInt * 2) - sizeInt;
-//			holeZ = random.nextInt(sizeInt * 2) - sizeInt;
-//			int holeDistSq = holeX * holeX + holeY * holeY + holeZ * holeZ;
-//			//Keep guessing with random numbers until the hole is at the proper spot since I don't know how to do this right, lmao
-//			while(holeDistSq > DISTANCE_GRIMSTONE_SQ || holeDistSq < DISTANCE_AMETHYST_SQ) {
-//				holeX = random.nextInt(sizeInt * 2) - sizeInt;
-//				holeY = random.nextInt(sizeInt * 2) - sizeInt;
-//				holeZ = random.nextInt(sizeInt * 2) - sizeInt;
-//				holeDistSq = holeX * holeX + holeY * holeY + holeZ * holeZ;
-//			}
-//		}
-		
         for (int i = -sizeInt; i <= sizeInt; i++) {
             for (int j = -sizeInt; j <= sizeInt; j++) {
                 for (int k = -sizeInt; k <= sizeInt; k++) {
@@ -99,7 +82,13 @@ public class AetherGeoGen extends WorldGenerator {
                     }
                 }
             }
-        }        
+        }
+        if (!world.isRemote) {
+            final EntityCrystalGolem golem = new EntityCrystalGolem(world);
+            golem.setLocationAndAngles((double)(x), (double)(y + 1), (double)(z), 0.0f, 0.0f);
+            world.spawnEntityInWorld((Entity)golem);
+            golem.setType(5);
+        }
             return true;
          
         

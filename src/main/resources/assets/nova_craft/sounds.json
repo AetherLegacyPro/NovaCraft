@@ -670,6 +670,13 @@
     ]
   },
   
+  "totem.use": {
+    "category": "block",
+    "sounds": [
+      "misc/ancient_city_totem"
+    ]
+  },
+  
   "nullstone.break": {
     "category": "block",
     "sounds": [

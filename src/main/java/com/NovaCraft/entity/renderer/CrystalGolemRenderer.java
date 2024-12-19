@@ -2,6 +2,7 @@ package com.NovaCraft.entity.renderer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -28,13 +29,15 @@ public class CrystalGolemRenderer extends RenderLiving
 	private static final ResourceLocation TEXTURE_YTTRLINISTE = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/crystal_golem_yttrliniste.png");
 	
 	private static final ResourceLocation TEXTURE_AMETHYST = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/crystal_golem_amethyst.png");
-    /** Iron Golem's Model. */
-    private final CrystalGolemModel ironGolemModel;
+	
+	private static final ResourceLocation TEXTURE_AETHER = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/crystal_golem_aether.png");
+    
+    private final CrystalGolemModel crystalGolemModel;
 
     public CrystalGolemRenderer()
     {
         super(new CrystalGolemModel(), 0.5F);
-        this.ironGolemModel = (CrystalGolemModel)this.mainModel;
+        this.crystalGolemModel = (CrystalGolemModel)this.mainModel;
     }
 
     /**
@@ -89,8 +92,8 @@ public class CrystalGolemRenderer extends RenderLiving
     }
 
     @Override
-	protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
-	  	GL11.glScalef(0.75F, 0.75F, 0.75F);
+	protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
+	  	GL11.glScalef(1.05F, 1.05F, 1.05F);
 	}
 
 	@Override

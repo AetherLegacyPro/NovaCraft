@@ -269,6 +269,9 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  new AncientCityStairsGen().generate(world, rand, x1 + 20, y1 - 7, z1 + 23);
 	    	  new AncientCityWardenAltarGen().generate(world, rand, x1 - 8, y1, z1 + 10);
 	    	  
+	    	  new AncientCityCelingSculkGen().generate(world, rand, x1 + 7, y1 + 14, z1 + 9);	    	  
+	    	  new AncientCitySculkPortalGen().generate(world, rand, x1 + 14, y1 - 10, z1 + 14);
+	    	  
 	    	  //-Z
 	    	  new AncientCityNegativeHallwayGen1().generate(world, rand, x1 + 16, y1 - 16, z1 - 73);
 	    	  new AncientCityNegativeHallwayGen2().generate(world, rand, x1 + 16, y1 - 16, z1 - 73);
@@ -438,9 +441,23 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  new AncientCitySculkPatchGen3().generate(world, rand, x1 + 108, y1 - 17, z1 + 62);
 	    	  
 	    	  new AncientCitySculkCeilingGen().generate(world, rand, x1 - 52, y1 + 16, z1 + 40);
-	    	  new AncientCitySculkCeilingGen().generate(world, rand, x1 + 82, y1 + 16, z1 + 20);
+	    	  new AncientCitySculkCeilingGen().generate(world, rand, x1 + 82, y1 + 16, z1 + 20);	    	  
+	    	  new AncientCitySculkCeiling2Gen().generate(world, rand, x1 - 48, y1 + 16, z1 + 5);
+	    	  new AncientCitySculkCeiling2Gen().generate(world, rand, x1 - 11, y1 + 16, z1 - 66);  	  
+	    	  new AncientCitySculkCeiling3Gen().generate(world, rand, x1 - 15, y1 + 16, z1 + 84);
 	    	  
 	    	  new AncientCityObservationTowerGen().generate(world, rand, x1 - 52, y1 - 17, z1 + 80);
+	    	  
+	    	  new AncientCitySculkWallNegXPosZGen().generate(world, rand, x1 + 139, y1 - 10, z1 - 83);
+	    	  
+	    	  new AncientCitySculkWallPosXGen().generate(world, rand, x1 + 20, y1 - 16, z1 + 151);
+	    	  
+	    	  new AncientCitySculkWallNegZGen1().generate(world, rand, x1 - 51, y1 - 17, z1 - 107);
+	    	  new AncientCitySculkWallNegZGen2().generate(world, rand, x1 - 51, y1 - 17, z1 - 107);
+	    	  
+	    	  new AncientCitySculkWallNegXGen().generate(world, rand, x1 - 129, y1 - 15, z1 + 15);
+	    	  
+	    	  new AncientCitySculkWallPosX2Gen().generate(world, rand, x1 + 144, y1 - 15, z1 + 21);
 		         }
 	      }
 

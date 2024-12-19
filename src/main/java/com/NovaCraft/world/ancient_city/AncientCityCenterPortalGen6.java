@@ -2851,7 +2851,7 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 			case 25: 
 				return new ItemStack(NovaCraftItems.sculked_monitor_scales, random.nextInt(2) + 1);
 			case 26: 
-				return new ItemStack(NovaCraftItems.luminant_gel, random.nextInt(8) + 3);
+				return new ItemStack(NovaCraftItems.ancient_city_totem, 1);
 			case 27: 
 				return new ItemStack(Items.gunpowder, random.nextInt(6) + 5);
 			case 28: 
@@ -2862,6 +2862,8 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 				return new ItemStack(Items.golden_apple, 1, 1);
 			case 31: 
 				return new ItemStack(NovaCraftItems.primeval_horn, 1);
+			case 32: 
+				return new ItemStack(NovaCraftItems.ancient_city_totem, 1);
 			default: {
 				return new ItemStack(NovaCraftBlocks.sculk_block, random.nextInt(9) + 2);
 			}

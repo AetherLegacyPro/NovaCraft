@@ -5,7 +5,7 @@ import java.util.Random;
 import org.lwjgl.opengl.GL11;
 
 import com.NovaCraft.entity.EntityDestitumite;
-import com.NovaCraft.entity.models.DestitumiteModel;
+import com.NovaCraft.entity.models.DestitumiteNewModel;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -24,8 +24,8 @@ public class DestitumiteRenderer extends RenderLiving
 	private static final ResourceLocation texture;	
 	
 	public DestitumiteRenderer() {
-		super(new DestitumiteModel(), 0.5f);
-		this.setRenderPassModel((ModelBase)new DestitumiteModel());
+		super(new DestitumiteNewModel(), 0.5f);
+		this.setRenderPassModel((ModelBase)new DestitumiteNewModel());
 	}
 	
 	@Override

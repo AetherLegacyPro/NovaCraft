@@ -268,6 +268,8 @@ public class NovaCraftItems {
 	
 	public static Item deepoid_star, eternal_caller, warden_core;
 	
+	public static Item ancient_city_totem;
+	
 	public static Item infused_copartz_shard, infused_larimar_shard, infused_tsavorokite_shard, infused_yttrlinsite_shard, infused_aether_shard;
 	
 	public static void initialization() {
@@ -341,7 +343,8 @@ public class NovaCraftItems {
 		deep_one_bone = register("deep_one_bone", new ItemFireproof().setTextureName(NovaCraft.find("deep_one_bone")));
 		ophidian_scales = register("ophidian_scales", new ItemFireproof().setTextureName(NovaCraft.find("ophidian_scales")));
 		destitute_tentacle = register("destitute_tentacle", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("destitute_tentacle")));
-		static_essence = register("static_essence", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("static_essence")));		
+		static_essence = register("static_essence", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("static_essence")));
+		ancient_city_totem = register("ancient_city_totem", new ItemAncientCityTotem().setTextureName(NovaCraft.find("ancient_city_totem")));
 		wardling_dust = register("wardling_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("wardling_dust")));
 		ancient_city_artifact = register("ancient_city_artifact", new ItemNovaCraft(NovaCraftCreativeTabs.items).setMaxStackSize(1).setTextureName(NovaCraft.find("ancient_city_artifact")));
 		powered_ancient_city_artifact = register("powered_ancient_city_artifact", new ItemPoweredAncientCityArtifact().setTextureName(NovaCraft.find("powered_ancient_city_artifact")));

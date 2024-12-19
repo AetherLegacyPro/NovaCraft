@@ -181,7 +181,7 @@ public class BlockSculk extends Block {
 	public void updateTick(World world, int x, int y, int z, Random rand) {
  		
  		if (world.provider.dimensionId != 1 && world.provider.dimensionId != -1) {	
- 			if (rand.nextInt(1200) == 1 && world.getBlockLightValue(x, y + 1, z) <= 3 && y <= 25.0D) {
+ 			if (rand.nextInt(2400) == 0 && world.getBlockLightValue(x, y + 1, z) <= 3 && y <= 25.0D) {
 			EnumFacing facing = EnumFacing.getFront(rand.nextInt(EnumFacing.values().length));
 			Block block = world.getBlock(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());
 			int meta = world.getBlockMetadata(x + facing.getFrontOffsetX(), y + facing.getFrontOffsetY(), z + facing.getFrontOffsetZ());

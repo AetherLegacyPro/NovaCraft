@@ -2069,7 +2069,7 @@ public class AncientCitySmallRoomGen1 extends WorldGenerator
     }
     
     private ItemStack getBasicLoot(Random random) {
-		int item = random.nextInt(34);
+		int item = random.nextInt(35);
 		switch (item) {
 			case 0:
 				return new ItemStack(Items.coal, random.nextInt(9) + 6);
@@ -2217,6 +2217,8 @@ public class AncientCitySmallRoomGen1 extends WorldGenerator
 				return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(15) + 8);
 			case 31: 
 				return new ItemStack(NovaCraftItems.primeval_horn, 1);
+			case 32: 
+				return new ItemStack(NovaCraftItems.ancient_city_totem, 1);
 			default: {
 				return new ItemStack(NovaCraftBlocks.sculk_block, random.nextInt(9) + 2);
 			}

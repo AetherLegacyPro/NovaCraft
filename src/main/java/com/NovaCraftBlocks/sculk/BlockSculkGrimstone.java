@@ -2,6 +2,7 @@ package com.NovaCraftBlocks.sculk;
 
 import java.util.Random;
 
+import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -43,7 +44,7 @@ public class BlockSculkGrimstone extends Block implements IGrowable {
 		if (!worldIn.isRemote) {
 			if (worldIn.getBlockLightValue(x, y + 1, z) > 3 && worldIn.getBlockLightOpacity(x, y + 1, z) > 2) {
 				worldIn.setBlock(x, y, z, NovaCraftBlocks.grimstone);
-			} else if (worldIn.getBlockLightValue(x, y + 1, z) <= 3 && y <= 25.0D) {
+			} else if (worldIn.getBlockLightValue(x, y + 1, z) == 0 && y <= 25.0D && rand.nextInt(50) == 0 && Configs.enableSculkStoneSpreading == true) {
 				for (int l = 0; l < 4; ++l) {
 					int i1 = x + rand.nextInt(3) - 1;
 					int j1 = y + rand.nextInt(5) - 3;

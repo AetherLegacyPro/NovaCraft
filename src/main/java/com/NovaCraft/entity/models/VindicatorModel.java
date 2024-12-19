@@ -10,7 +10,6 @@ import net.minecraft.util.MathHelper;
 @SideOnly(Side.CLIENT)
 public class VindicatorModel extends ModelBiped
 {
-    private static final String __OBFID = "CL_00000865";
 
     public VindicatorModel()
     {

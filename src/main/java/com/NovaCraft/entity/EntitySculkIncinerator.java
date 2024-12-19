@@ -436,7 +436,7 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
     
     protected float getSoundVolume()
     {
-        return 1.0F;
+        return 2.0F;
     }
     
     protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)

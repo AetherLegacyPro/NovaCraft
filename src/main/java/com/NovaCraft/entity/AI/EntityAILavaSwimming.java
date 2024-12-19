@@ -6,7 +6,6 @@ import net.minecraft.entity.ai.EntityAIBase;
 public class EntityAILavaSwimming extends EntityAIBase
 {
     private EntityLiving theEntity;
-    private static final String __OBFID = "CL_00001584";
 
     public EntityAILavaSwimming(EntityLiving p_i1624_1_)
     {
