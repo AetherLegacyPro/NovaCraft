@@ -8,6 +8,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -27,6 +28,7 @@ public class AncientCityEndPortalGen2 extends WorldGenerator
 	private static final Block deepslate = OtherModBlocks.deepslate;
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
 	private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
+	private static final Block SoulLantern = OtherModBlocks.SoulLantern;
 	private static final Block soul_sand = Blocks.netherrack;
 	
 	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
@@ -48,14 +50,23 @@ public class AncientCityEndPortalGen2 extends WorldGenerator
 	
 	private static final Block smooth_basalt = OtherModBlocks.BasaltBricks; //netherlicious 6
 	private static final Block smooth_basalt1 = OtherModBlocks.smooth_basalt; //et futurum requiem
+	
+	private Block PlaceSoulLantern;
 
-	//0 -> deepslate bricks
-	//1 -> cracked deepslate bricks
-	//2 -> deepslate tiles
-	//3 -> cracked deepslate bricks
-	//4 -> chiseled deepslate bricks
+	private Block determineIfSoulLanternExists(World world, int x, int y, int z) {
+        Block existingBlock = world.getBlock(x, y, z);
+
+        if (Configs.disableEtFuturumSoulLanternInAncientCity == true && Loader.isModLoaded("netherlicious") && (existingBlock == null || existingBlock != soul_lantern)) {
+        		return SoulLantern;
+        } else if (Loader.isModLoaded("etfuturum") && (existingBlock == null || existingBlock != SoulLantern)) {
+            return soul_lantern;
+        } else {
+        	return Blocks.air;
+        }
+    }
     
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
+    	PlaceSoulLantern = determineIfSoulLanternExists(world, i + 6, j + 7, k + 3);
     	
     	world.setBlock(i + 8, j + 9, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 9, j + 9, k + 8, Blocks.air, 0, 2);
@@ -921,8 +932,8 @@ public class AncientCityEndPortalGen2 extends WorldGenerator
 			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getEndPortalLoot(random));
 		}
 		
-		world.setBlock(i + 6, j + 7, k + 3, soul_lantern, 1, 2);
-		world.setBlock(i + 14, j + 7, k + 9, soul_lantern, 1, 2);
+		world.setBlock(i + 6, j + 7, k + 3, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 14, j + 7, k + 9, PlaceSoulLantern, 1, 2);
     	
     	return true;
     }

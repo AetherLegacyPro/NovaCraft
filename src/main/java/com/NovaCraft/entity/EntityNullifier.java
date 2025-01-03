@@ -209,8 +209,8 @@ public class EntityNullifier extends EntityMob
 
         if (p_70645_1_.getEntity() instanceof EntityRayfireball)
         {
-            int i = Item.getIdFromItem(NovaCraftItems.disc_negative1);
-            int j = Item.getIdFromItem(NovaCraftItems.disc_negative2);
+            int i = Item.getIdFromItem(Items.record_13);
+            int j = Item.getIdFromItem(Items.record_11);
             int k = i + this.rand.nextInt(j - i + 1);
             this.dropItem(Item.getItemById(k), 1);
         }

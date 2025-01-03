@@ -94,7 +94,7 @@ public class PickUpAchievement {
 	if (event.pickedUp.getEntityItem().isItemEqual(new ItemStack(NovaCraftItems.echo_shard))) {
 		event.player.addStat((StatBase)AchievementsNovaCraft.echo, 1);
         }
-	if (event.pickedUp.getEntityItem().isItemEqual(new ItemStack(NovaCraftItems.disc_negative1))) {
+	if (event.pickedUp.getEntityItem().isItemEqual(new ItemStack(NovaCraftBlocks.sculk_block))) {
 		event.player.addStat((StatBase)AchievementsNovaCraft.not_your_ordinary_geo, 1);
         }
 	if (event.pickedUp.getEntityItem().isItemEqual(new ItemStack(NovaCraftBlocks.crystallized_end))) {

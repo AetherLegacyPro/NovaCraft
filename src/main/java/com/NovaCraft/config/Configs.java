@@ -155,8 +155,20 @@ public class Configs
     public static int endIslandSpawnRate;
     public static int destituteIslandSpawnRate;
     public static boolean enableDeepoidFortress;
-    public static boolean enableSculkInfestedMineshaft;   
+    public static boolean enableSculkInfestedMineshaft;
     
+    public static boolean disableDarkOakFenceInAncientCity;
+    public static boolean disableDeepslateInAncientCity;
+    public static boolean disableDeepslateBricksInAncientCity;
+    public static boolean disableEtFuturumSoulLanternInAncientCity;
+    public static boolean disableCobbledDeepslateInAncientCity;   
+    public static boolean disableEtFuturumSoulFireInAncientCity;
+    public static boolean disableBlueIceInAncientCity;
+    public static boolean disableIronTrapdoorInAncientCity;
+    public static boolean disableNetherliciousBasaltInAncientCity;
+    public static boolean disableNetherliciousSmoothBasaltInAncientCity;
+    
+    public static final String catAncientCity = "Ancient City Customization";
     public static final String catGeneration = "New generation";
     public static final String catParticles = "New particles";
     public static final String catEtFuturum = "Et Futurum Requiem Options";
@@ -329,10 +341,22 @@ public class Configs
         enableAlternateAmpJumpPotionRecipe = conf.getBoolean("enableAlternateAmpJumpPotionRecipe", catEtFuturum, true, "Changes Recipe of the extended jump potion to require rabbit foot from Et Futurum.(DISABLE if you disabled rabbits/rabbit foot in Et Futurum Requiem)");
         enableNetheriteInRecipes = conf.getBoolean("enableNetheriteInRecipes", catEtFuturum, true, "Changes Various Recipes to require netherite in their recipes from Et Futurum.(DISABLE if you disabled netherite in Et Futurum Requiem)");
         
+        //Ancient City Options
+        disableDarkOakFenceInAncientCity = conf.getBoolean("disableDarkOakFenceInAncientCity", catAncientCity, false, "Do not use Dark Oak Fence from Et Futurum Requiem instead use regular Fences in The Ancient City.");
+        disableCobbledDeepslateInAncientCity = conf.getBoolean("disableCobbledDeepslateInAncientCity", catAncientCity, false, "Do not use Cobbled Deepslate from Et Futurum Requiem instead use Cobbled Grimstone in The Ancient City.");
+        disableDeepslateInAncientCity = conf.getBoolean("disableDeepslateInAncientCity", catAncientCity, false, "Do not use Deepslate from Et Futurum Requiem instead use Grimstone Blocks in The Ancient City.");
+        disableDeepslateBricksInAncientCity = conf.getBoolean("disableDeepslateBricksInAncientCity", catAncientCity, false, "Do not use Deepslate Bricks and building blocks from Et Futurum Requiem instead use Grimstone Bricks in The Ancient City.");       
+        disableEtFuturumSoulLanternInAncientCity = conf.getBoolean("disableEtFuturumSoulLanternInAncientCity", catAncientCity, false, "Do not use Et Futurum Requiem soul lanterns and instead use the ones from Netherlicious, if those do not exist then there will be nothing.");        
+        disableEtFuturumSoulFireInAncientCity = conf.getBoolean("disableEtFuturumSoulFireInAncientCity", catAncientCity, false, "Do not use Et Futurum Requiem soul fire and instead use the ones from Netherlicious, if those do not exist then use Deepfire.");
+        disableBlueIceInAncientCity = conf.getBoolean("disableBlueIceInAncientCity", catAncientCity, false, "Do not use Blue Ice from Et Futurum Requiem instead use Packed Ice in The Ancient City.");
+        disableIronTrapdoorInAncientCity = conf.getBoolean("disableIronTrapdoorInAncientCity", catAncientCity, false, "Do not use Iron Trapdoor from Et Futurum Requiem instead use regular trapdoor in The Ancient City.");
+        disableNetherliciousBasaltInAncientCity = conf.getBoolean("disableNetherliciousBasaltInAncientCity", catAncientCity, true, "Do not use Netherlicious basalt and instead use the one from Et Futurum Requiem, if those do not exist then use Polished Vanite Bricks.");
+        disableNetherliciousSmoothBasaltInAncientCity = conf.getBoolean("disableNetherliciousSmoothBasaltInAncientCity", catAncientCity, true, "Do not use Netherlicious smooth basalt and instead use the one from Et Futurum Requiem, if those do not exist then use Polished Vanite Bricks.");
+        
         //Mobs
         enableSpawnGlowSquid = conf.getBoolean("enableSpawnGlowSquid", catMobs, true, "Enables the Spawning of Glow Squids");
         enableSpawnPhantom = conf.getBoolean("enableSpawnPhantom", catMobs, true, "Enables the Spawning of Phantoms");
-        enableSpawnOverworldPhantom = conf.getBoolean("enableSpawnOverworldPhantom", catMobs, false, "Enables the Spawning of Phantoms in the Moutain Biomes");
+        enableSpawnOverworldPhantom = conf.getBoolean("enableSpawnOverworldPhantom", catMobs, false, "Enables the Spawning of Phantoms in the Mountain Biomes");
         enableSpawnSlaughter = conf.getBoolean("enableSpawnSlaughter", catMobs, true, "Enables the Spawning of Slaughters");
         enableSpawnSculkDweller = conf.getBoolean("enableSpawnSculkDweller", catMobs, true, "Enables the Spawning of Sculk Dweller");
         enableSpawnDrifter = conf.getBoolean("enableSpawnDrifter", catMobs, true, "Enables the Spawning of Drifters");

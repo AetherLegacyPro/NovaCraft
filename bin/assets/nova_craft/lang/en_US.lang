@@ -110,6 +110,8 @@ item.xancium_pellet.name=Xancium Pellet
 item.wardling_dust.name=Wardling Dust
 item.powered_ancient_city_artifact.name=Powered Ancient City Artifact
 item.ancient_city_totem.name=Ancient City Totem
+item.warden_dust.name=Warden Dust
+item.static_blend.name=Static Blend
 
 item.vanite_bucket.name=Vanite Bucket
 item.vanite_bucket_water.name=Water Bucket
@@ -139,10 +141,6 @@ item.novacraft_spawn_egg.name=Spawn
 
 item.disc_5.name=Music Disc
 item.record.5.desc=Samuel Åberg - 5 
-item.disc_negative1.name=Music Disc
-item.record.-1.desc=Unknown - -1
-item.disc_negative2.name=Music Disc
-item.record.-2.desc=Unknown - -2
 
 item.goat_horn_ponder.name=Goat Horn
 item.goat_horn_sing.name=Goat Horn
@@ -221,6 +219,8 @@ item.pherithium_leggings.name=Pherithium Leggings
 item.pherithium_boots.name=Pherithium Boots
 item.pherithium_shickaxe.name=Pherithium MultiTool
 item.reinforced_pherithium_shickaxe.name=Reinforced Pherithium MultiTool
+
+item.ancient_leggings.name=Ancient Leggings
 
 item.diamond_bow.name=Diamond Bow
 item.diamond_firecharge_launcher.name=Diamond Firecharge Launcher
@@ -319,6 +319,8 @@ tile.null_wart.name=Null Wart Stem
 tile.nullwart_bricks.name=Nullwart Bricks
 tile.treasure_chest.name=Treaure Crate
 tile.infused_vanite_block.name=Infused Block Of Vanite
+tile.infused_vanite_block_natural.name=Impure Infused Block Of Vanite
+
 tile.sculk_sensor.name=Sculk Grass
 tile.grimstone_shrieker.name=Warden Altar
 tile.activated_grimstone_shrieker.name=Activated Warden Altar
@@ -400,6 +402,9 @@ tile.flooded_chest.name=Flooded Crate
 tile.polished_nullstone.name=Polished Nullstone
 tile.polished_grimstone.name=Polished Grimstone
 tile.reinforced_nullstone.name=Reinforced Nullstone
+tile.activated_reinforced_nullstone.name=Activated Reinforced Nullstone
+tile.unknown_portal.name=Portal To The Unknown
+tile.unknown_portal_activator.name=Unknown Portal Activator
 
 
 tile.vanite_cauldron.name=Vanite Cauldron
@@ -676,6 +681,10 @@ gui.legendary_et.invalid_structure=Sculk Brick Bookshelves must be placed around
 gui.ancient_city_chest=The chest seems to be locked. There is a indentation for a key or tablet that seems to power the mechanism locking it...
 gui.warden_altar=This Altar seems to be the center piece of the Ancient City. There is an engraving that requires some kind of power source seems quite complex... Perhaps restoring the altar and using a variation of a Nether Star could power it?
 gui.warden_altar_invaild_structure=The altar seemed to accept the Sculk Star yet no power was drawn from it... There must be something wrong with the structure surrounding the altar.
+gui.reinforced_nullstone=This block radiates a chilling aura. A slot similar to that of a furnace is accessable from all sides of the block, perhaps it needs some kinda fuel/blend to activate this "portal"?
+gui.unknown_portal_activator=This device while flaming radiates a chilling aura. Perhaps adding the correct fuel to each of the reinforced nullstone blocks will ignite the "portal"?
+gui.unknown_portal_activator_ignited=The surrounding reinforced nullstone blocks have been ignited with the correct fuel yet nothing is happening... Perhaps something is missing from the control device? There is an indentation within the center of a star that perhaps activates the portal?
+gui.unknown_portal_activated=The air turns cold and day instantly turns to night and time "stops". Reality itself begins to fracture around the portal to the unknown. You feel as if someone or something is watching you. Perhaps The Warden was not just guarding you from opening the portal but also ensuring the "Prisoner" from escaping...
 
 #Tool Tips
 tooltip.horn.ponder.desc=Ponder
@@ -698,9 +707,11 @@ tooltip.tophinite_tools.desc=Extra Drops in the Nether
 tooltip.tophinite_armor.desc=Full set puts out fire
 tooltip.tophinite_hammer.desc=Applies a random negative status effect
 
-tooltip.klangite_tools.desc=Built in Fortune that stacks with the enchantment
+tooltip.klangite_pickaxe.desc=Built in Fortune that stacks with the enchantment
 tooltip.klangite_sword.desc=Fires projectiles, consumes xancium pellets
 tooltip.klangite_armor.desc=Full set grants aura that damages hostiles
+tooltip.klangite_axe.desc=Randomly finds additional logs or charcoal
+tooltip.klangite_shovel.desc=Randomly finds additional drops based on the realm
 
 tooltip.primeval_mace.desc=Deals additional damage to sculk mobs
 tooltip.eerie_blade.desc=Fancy blade
@@ -714,6 +725,7 @@ tooltip.vanite_trident.desc=Unbreakable
 tooltip.diamond_firecharge.desc=Consumes Firecharges
 tooltip.vanite_firecharge.desc=Consumes Firecharges
 tooltip.klangite_firecharge.desc=Consumes Xancium Firecharges
+tooltip.ancient_leggings.desc=Increases Movement Speed
 
 tooltip.explosive_ingot.desc=Throw this into the void!
 tooltip.anicent_city_totem.desc=Use Half HP to banish all lesser sculk mobs nearby!
@@ -845,7 +857,7 @@ achievement.getting_reinforced.desc=Craft a Reinforced Vanite Ingot
 achievement.what_are_ya_buyin.desc=Trade with a Vindicator
 achievement.sneak_100.desc=Sneak on a Sculk Block
 achievement.end_traveller.desc=Collect a Common End Plant from NovaCraft
-achievement.not_your_ordinary_geo.desc=Break a Sculk Crate
+achievement.not_your_ordinary_geo.desc=Obtain a Sculk Block
 achievement.the_nonburning_plant.desc=Discover the Rarest Plant in NovaCraft
 achievement.the_strange_plant.desc=Collect Nullwart
 achievement.tnt_overhaul.desc=Craft a Block of PETN

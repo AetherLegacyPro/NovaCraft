@@ -42,7 +42,7 @@ public class DestitudeIslandSpecialBlock extends WorldGenAbstractTree
         	tileentitymobspawner2.func_145881_a().setEntityName("nova_craft.destitumite_tentacle");
         }
 		break;
-		case 2: world.setBlock(x, y + 1, z, NovaCraftBlocks.infused_vanite_block);
+		case 2: world.setBlock(x, y + 1, z, NovaCraftBlocks.infused_vanite_block_natural);
 		world.setBlock(x, y, z, Blocks.mob_spawner);
         TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(x, y, z);
         
@@ -51,7 +51,7 @@ public class DestitudeIslandSpecialBlock extends WorldGenAbstractTree
         	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.reality_distorter");
         }
 		break;
-		case 3: world.setBlock(x, y + 1, z, NovaCraftBlocks.infused_vanite_block);
+		case 3: world.setBlock(x, y + 1, z, NovaCraftBlocks.infused_vanite_block_natural);
 		world.setBlock(x, y, z, Blocks.mob_spawner);
         TileEntityMobSpawner tileentitymobspawner3 = (TileEntityMobSpawner)world.getTileEntity(x, y, z);
         

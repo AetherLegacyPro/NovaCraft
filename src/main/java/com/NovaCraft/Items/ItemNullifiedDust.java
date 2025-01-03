@@ -21,4 +21,9 @@ public class ItemNullifiedDust extends Item
     public boolean isBeaconPayment(final ItemStack stack) {
         return true;
     }
+    
+    @Override
+	public boolean hasEffect(ItemStack stack, int pass) {
+		return true;
+	}
 }

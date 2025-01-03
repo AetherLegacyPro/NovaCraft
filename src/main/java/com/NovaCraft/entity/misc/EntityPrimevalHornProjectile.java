@@ -64,9 +64,7 @@ public class EntityPrimevalHornProjectile extends EntityProjectileBase {
 	@SuppressWarnings("deprecation")
 	protected void onImpact(MovingObjectPosition object) {
 		if (object.typeOfHit == MovingObjectType.ENTITY) {
-			if (object.entityHit instanceof EntitySaddleMount && ((EntitySaddleMount) object.entityHit).isSaddled()) {
-
-			} else if (object.entityHit != this.getThrower() && !(object.entityHit instanceof EntityWarden)) {
+			if (object.entityHit != this.getThrower() && !(object.entityHit instanceof EntityWarden)) {
 				object.entityHit.attackEntityFrom(DamageSource.causeMobDamage(this.getThrower()), 3);
 				object.entityHit.addVelocity(this.motionX, 0.05D, this.motionZ);
 			}

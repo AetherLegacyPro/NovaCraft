@@ -5,9 +5,11 @@ import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
 
+import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
+import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 
 public class AncientCityNegativeHallwayGen4 extends WorldGenerator
@@ -15,30 +17,207 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 	public AncientCityNegativeHallwayGen4() {
 
 	}
-	
-	private static final Block cobbled_deepslate = OtherModBlocks.cobbled_deepslate;
-	private static final Block deepslate = OtherModBlocks.deepslate;
-	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
-	private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
-	private static final Block soul_sand = Blocks.netherrack;
-	
-	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
-	private static final Block deepslate_brick_slab = OtherModBlocks.deepslate_brick_slab;
-	private static final Block deepslate_tile_stairs = OtherModBlocks.deepslate_tile_stairs;
-	private static final Block deepslate_brick_stairs = OtherModBlocks.deepslate_brick_stairs;
-	private static final Block polished_deepslate_stairs = OtherModBlocks.polished_deepslate_stairs;
-	private static final Block deepslate_wall = OtherModBlocks.deepslate_wall;
-	private static final Block fence_dark_oak = OtherModBlocks.fence_dark_oak;
-	
-	private static final Block deepslate_bricks = OtherModBlocks.deepslate_bricks;
-	
-	//0 -> deepslate bricks
-	//1 -> cracked deepslate bricks
-	//2 -> deepslate tiles
-	//3 -> cracked deepslate bricks
-	//4 -> chiseled deepslate bricks
+		
+		private static final Block cobbled_deepslate = OtherModBlocks.cobbled_deepslate;
+		private static final Block deepslate = OtherModBlocks.deepslate;
+		private static final Block sculk_block = NovaCraftBlocks.sculk_block;
+		private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
+		private static final Block SoulLantern = OtherModBlocks.SoulLantern;
+		private static final Block soul_sand = Blocks.netherrack;
+		
+		private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
+		private static final Block deepslate_brick_slab = OtherModBlocks.deepslate_brick_slab;
+		private static final Block deepslate_tile_stairs = OtherModBlocks.deepslate_tile_stairs;
+		private static final Block deepslate_brick_stairs = OtherModBlocks.deepslate_brick_stairs;
+		private static final Block polished_deepslate_stairs = OtherModBlocks.polished_deepslate_stairs;
+		private static final Block deepslate_wall = OtherModBlocks.deepslate_wall;
+		private static final Block fence_dark_oak = OtherModBlocks.fence_dark_oak;	
+		private static final Block deepslate_bricks = OtherModBlocks.deepslate_bricks;
+		private static final Block cracked_deepslate_bricks = OtherModBlocks.deepslate_bricks;
+		private static final Block deepslate_tiles = OtherModBlocks.deepslate_bricks;
+		private static final Block cracked_deepslate_tiles = OtherModBlocks.deepslate_bricks;
+		private static final Block chiseled_deepslate = OtherModBlocks.deepslate_bricks;
+		
+		private Block PlaceDeepslate;
+		private Block PlaceDeepslateBricks;
+		private Block PlaceDeepslateTiles;
+		private Block PlaceCrackedDeepslateTiles;
+		private Block PlaceCrackedDeepslateBricks;
+		private Block PlaceChiseledDeepslate;
+		private Block PlacePolishedDeepslate;
+		private Block PlaceSoulLantern;
+		private Block PlaceCobbledDeepslate;
+		private Block PlaceSoulFire;
+		private Block PlaceDarkOakFence;
+		
+		private Block PlaceDeepslateBrickSlab;
+		private Block PlaceDeepslateTileStairs;
+		private Block PlaceDeepslateBrickStairs;
+		private Block PlacePolishedDeepslateStairs;
+		private Block PlaceDeepslateWall;
+		
+		private Block determineIfDarkOakFenceExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDarkOakFenceInAncientCity == true && (existingBlock == null || existingBlock != fence_dark_oak)) {
+	            return Blocks.fence;
+	        } else {
+	            return fence_dark_oak;
+	        }
+	    }
+		
+		private Block determineIfCobbledDeepslateExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableCobbledDeepslateInAncientCity == true && (existingBlock == null || existingBlock != cobbled_deepslate)) {
+	            return NovaCraftBlocks.cobbled_grimstone; // Fallback to grimstone
+	        } else {
+	            return cobbled_deepslate; // Default to deepslate
+	        }
+	    }
+		
+		private Block determineIfDeepslateExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateInAncientCity == true && (existingBlock == null || existingBlock != deepslate)) {
+	            return NovaCraftBlocks.grimstone; 
+	        } else {
+	            return deepslate;
+	        }
+	    }
+		
+		private Block determineIfDeepslateBricksExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != deepslate_bricks)) {
+	            return NovaCraftBlocks.grimstone_bricks;
+	        } else {
+	            return deepslate_bricks;
+	        }
+	    }
+		
+		private Block determineIfCrackedDeepslateBricksExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != cracked_deepslate_bricks)) {
+	            return NovaCraftBlocks.cracked_grimstone_bricks;
+	        } else {
+	            return cracked_deepslate_bricks;
+	        }
+	    }
+		
+		private Block determineIfDeepslateTilesExist(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != deepslate_tiles)) {
+	            return NovaCraftBlocks.grimstone_tiles;
+	        } else {
+	            return deepslate_tiles;
+	        }
+	    }
+		
+		private Block determineIfCrackedDeepslateTilesExist(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != cracked_deepslate_tiles)) {
+	            return NovaCraftBlocks.cracked_grimstone_tiles;
+	        } else {
+	            return cracked_deepslate_tiles;
+	        }
+	    }
+		
+		private Block determineIfPolishedDeepslateExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != polished_deepslate)) {
+	            return NovaCraftBlocks.polished_grimstone;
+	        } else {
+	            return polished_deepslate;
+	        }
+	    }
+		
+		private Block determineIfChiseledDeepslateExist(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != chiseled_deepslate)) {
+	            return NovaCraftBlocks.chiseled_grimstone;
+	        } else {
+	            return chiseled_deepslate;
+	        }
+	    }
+		
+		
+		//Slabs, Walls, and Stairs
+		private Block determineIfDeepslateTileStairsExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != deepslate_tile_stairs)) {
+	            return NovaCraftBlocks.grimstone_tiled_stairs;
+	        } else {
+	            return deepslate_tile_stairs;
+	        }
+	    }
+		
+		private Block determineIfDeepslateBrickStairsExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != deepslate_brick_stairs)) {
+	            return NovaCraftBlocks.grimstone_brick_stairs;
+	        } else {
+	            return deepslate_brick_stairs;
+	        }
+	    }
+		
+		private Block determineIfPolishedDeepslateStairsExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != polished_deepslate_stairs)) {
+	            return NovaCraftBlocks.grimstone_stairs;
+	        } else {
+	            return polished_deepslate_stairs;
+	        }
+	    }
+		
+		private Block determineIfDeepslateWallExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != deepslate_wall)) {
+	            return NovaCraftBlocks.cobbled_grimstone_wall;
+	        } else {
+	            return deepslate_wall;
+	        }
+	    }
+		
+		private Block determineIfDeepslateSlabExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableDeepslateBricksInAncientCity == true && (existingBlock == null || existingBlock != deepslate_brick_slab)) {
+	            return NovaCraftBlocks.grimstone_brick_slab;
+	        } else {
+	            return deepslate_brick_slab;
+	        }
+	    }
+		
+		private Block determineIfSoulLanternExists(World world, int x, int y, int z) {
+	        Block existingBlock = world.getBlock(x, y, z);
+
+	        if (Configs.disableEtFuturumSoulLanternInAncientCity == true && Loader.isModLoaded("netherlicious") && (existingBlock == null || existingBlock != soul_lantern)) {
+	        		return SoulLantern;
+	        } else if (Loader.isModLoaded("etfuturum") && (existingBlock == null || existingBlock != SoulLantern)) {
+	            return soul_lantern;
+	        } else {
+	        	return Blocks.air;
+	        }
+	    }
 	
 	 public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
+		 PlaceDeepslateBricks = determineIfDeepslateBricksExists(world, i + 4, j + 6, k + 15);
+		 PlaceCrackedDeepslateBricks = determineIfCrackedDeepslateBricksExists(world, i + 4, j + 6, k + 18);
+		 PlaceChiseledDeepslate = determineIfChiseledDeepslateExist(world, i + 7, j + 6, k + 33);
+		 PlacePolishedDeepslate = determineIfPolishedDeepslateExists(world, i + 7, j + 6, k + 16);
+		 
+		 PlaceDeepslateTileStairs = determineIfDeepslateTileStairsExists(world, i + 1, j + 6, k + 72);
+		 PlaceSoulLantern = determineIfSoulLanternExists(world, i + 7, j + 7, k + 0);
 		 
 		 	world.setBlock(i + 11, j + 6, k + 14, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 14, Blocks.air, 0, 2);
@@ -46,13 +225,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 15, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 15, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 15, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 15, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 15, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 15, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 15, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 15, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 15, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 15, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 15, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 15, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 15, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 15, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 16, Blocks.air, 0, 2);
@@ -62,7 +241,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 16, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 16, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 16, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 16, polished_deepslate, 0, 2);
+			world.setBlock(i + 7, j + 6, k + 16, PlacePolishedDeepslate, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 16, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 16, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 16, Blocks.air, 0, 2);
@@ -72,26 +251,26 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 17, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 17, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 17, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 17, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 17, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 17, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 17, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 17, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 17, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 17, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 17, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 17, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 17, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 17, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 18, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 6, k + 18, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 18, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 18, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 18, deepslate_bricks, 1, 2);
+			world.setBlock(i + 4, j + 6, k + 18, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 5, j + 6, k + 18, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 18, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 18, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 18, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 18, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 18, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 18, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 18, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 18, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 19, Blocks.air, 0, 2);
@@ -111,13 +290,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 20, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 20, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 20, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 20, deepslate_bricks, 1, 2);
+			world.setBlock(i + 4, j + 6, k + 20, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 5, j + 6, k + 20, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 20, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 20, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 20, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 20, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 20, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 20, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 20, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 20, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 21, Blocks.air, 0, 2);
@@ -137,13 +316,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 22, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 22, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 22, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 22, deepslate_bricks, 1, 2);
+			world.setBlock(i + 4, j + 6, k + 22, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 5, j + 6, k + 22, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 22, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 22, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 22, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 22, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 22, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 22, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 22, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 22, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 23, Blocks.air, 0, 2);
@@ -215,13 +394,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 28, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 28, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 28, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 28, deepslate_bricks, 1, 2);
+			world.setBlock(i + 4, j + 6, k + 28, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 5, j + 6, k + 28, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 28, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 28, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 28, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 28, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 28, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 28, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 28, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 28, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 29, Blocks.air, 0, 2);
@@ -241,13 +420,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 30, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 30, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 30, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 30, deepslate_bricks, 1, 2);
+			world.setBlock(i + 4, j + 6, k + 30, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 5, j + 6, k + 30, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 30, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 30, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 30, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 30, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 30, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 30, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 30, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 30, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 31, Blocks.air, 0, 2);
@@ -267,13 +446,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 32, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 32, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 32, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 32, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 32, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 32, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 32, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 32, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 32, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 32, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 32, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 32, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 32, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 32, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 33, Blocks.air, 0, 2);
@@ -283,7 +462,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 33, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 33, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 33, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 33, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 33, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 33, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 33, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 33, Blocks.air, 0, 2);
@@ -293,13 +472,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 34, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 34, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 34, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 34, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 34, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 34, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 34, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 34, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 34, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 34, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 34, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 34, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 34, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 34, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 35, Blocks.air, 0, 2);
@@ -309,7 +488,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 35, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 35, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 35, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 35, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 35, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 35, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 35, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 35, Blocks.air, 0, 2);
@@ -322,7 +501,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 36, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 36, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 36, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 36, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 36, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 36, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 36, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 36, Blocks.air, 0, 2);
@@ -332,13 +511,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 37, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 37, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 37, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 37, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 37, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 37, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 37, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 37, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 37, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 37, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 37, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 37, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 37, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 37, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 38, Blocks.air, 0, 2);
@@ -348,7 +527,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 38, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 38, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 38, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 38, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 38, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 38, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 38, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 38, Blocks.air, 0, 2);
@@ -358,13 +537,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 39, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 39, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 39, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 39, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 39, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 39, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 39, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 39, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 39, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 39, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 39, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 39, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 39, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 39, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 40, Blocks.air, 0, 2);
@@ -384,13 +563,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 41, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 41, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 41, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 41, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 41, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 41, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 41, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 41, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 41, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 41, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 41, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 41, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 41, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 41, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 42, Blocks.air, 0, 2);
@@ -410,13 +589,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 43, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 43, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 43, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 43, deepslate_bricks, 1, 2);
+			world.setBlock(i + 4, j + 6, k + 43, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 5, j + 6, k + 43, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 43, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 43, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 43, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 43, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 43, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 43, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 43, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 43, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 44, Blocks.air, 0, 2);
@@ -488,13 +667,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 49, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 49, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 49, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 49, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 49, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 49, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 49, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 49, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 49, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 49, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 49, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 49, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 49, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 49, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 50, Blocks.air, 0, 2);
@@ -514,13 +693,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 51, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 51, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 51, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 51, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 51, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 51, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 51, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 51, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 51, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 51, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 51, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 51, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 51, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 51, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 52, Blocks.air, 0, 2);
@@ -540,13 +719,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 53, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 53, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 53, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 53, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 53, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 53, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 53, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 53, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 53, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 53, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 53, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 53, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 53, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 53, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 54, Blocks.air, 0, 2);
@@ -556,7 +735,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 54, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 54, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 54, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 54, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 54, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 54, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 54, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 54, Blocks.air, 0, 2);
@@ -566,13 +745,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 55, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 55, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 55, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 55, deepslate_bricks, 1, 2);
+			world.setBlock(i + 4, j + 6, k + 55, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 5, j + 6, k + 55, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 55, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 55, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 55, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 55, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 55, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 55, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 55, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 55, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 56, Blocks.air, 0, 2);
@@ -582,7 +761,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 56, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 56, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 56, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 56, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 56, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 56, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 56, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 56, Blocks.air, 0, 2);
@@ -592,13 +771,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 57, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 57, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 57, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 57, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 57, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 57, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 57, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 57, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 57, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 57, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 57, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 57, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 57, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 57, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 58, Blocks.air, 0, 2);
@@ -608,7 +787,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 58, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 58, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 58, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 58, polished_deepslate, 0, 2);
+			world.setBlock(i + 7, j + 6, k + 58, PlacePolishedDeepslate, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 58, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 58, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 58, Blocks.air, 0, 2);
@@ -618,13 +797,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 59, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 59, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 59, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 59, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 59, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 59, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 59, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 59, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 59, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 59, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 59, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 59, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 59, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 59, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 60, Blocks.air, 0, 2);
@@ -634,7 +813,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 60, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 60, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 60, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 60, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 60, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 60, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 60, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 60, Blocks.air, 0, 2);
@@ -644,13 +823,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 61, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 61, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 61, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 61, deepslate_bricks, 1, 2);
+			world.setBlock(i + 4, j + 6, k + 61, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 5, j + 6, k + 61, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 61, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 61, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 61, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 61, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 61, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 61, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 61, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 61, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 62, Blocks.air, 0, 2);
@@ -660,7 +839,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 62, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 62, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 62, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 62, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 62, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 62, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 62, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 62, Blocks.air, 0, 2);
@@ -670,13 +849,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 63, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 63, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 63, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 63, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 63, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 63, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 63, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 63, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 63, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 63, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 63, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 63, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 63, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 63, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 64, Blocks.air, 0, 2);
@@ -686,7 +865,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 64, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 64, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 64, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 64, polished_deepslate, 0, 2);
+			world.setBlock(i + 7, j + 6, k + 64, PlacePolishedDeepslate, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 64, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 64, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 64, Blocks.air, 0, 2);
@@ -696,13 +875,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 65, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 65, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 65, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 65, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 65, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 65, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 65, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 65, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 65, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 65, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 65, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 65, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 65, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 65, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 66, Blocks.air, 0, 2);
@@ -712,7 +891,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 66, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 66, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 66, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 66, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 66, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 66, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 66, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 66, Blocks.air, 0, 2);
@@ -722,13 +901,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 67, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 67, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 67, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 67, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 67, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 67, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 67, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 67, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 67, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 67, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 67, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 67, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 67, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 67, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 68, Blocks.air, 0, 2);
@@ -738,7 +917,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 68, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 68, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 68, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 68, deepslate_bricks, 4, 2);
+			world.setBlock(i + 7, j + 6, k + 68, PlaceChiseledDeepslate, 4, 2);
 			world.setBlock(i + 8, j + 6, k + 68, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 68, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 68, Blocks.air, 0, 2);
@@ -748,13 +927,13 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 69, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 69, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 69, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 69, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 69, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 69, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 69, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 69, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 69, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 69, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 69, deepslate_bricks, 0, 2);
+			world.setBlock(i + 10, j + 6, k + 69, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 11, j + 6, k + 69, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 69, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 70, Blocks.air, 0, 2);
@@ -764,7 +943,7 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 4, j + 6, k + 70, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 70, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 70, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 70, polished_deepslate, 0, 2);
+			world.setBlock(i + 7, j + 6, k + 70, PlacePolishedDeepslate, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 70, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 70, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 6, k + 70, Blocks.air, 0, 2);
@@ -774,27 +953,27 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 1, j + 6, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 2, j + 6, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 3, j + 6, k + 71, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 71, deepslate_bricks, 0, 2);
+			world.setBlock(i + 4, j + 6, k + 71, PlaceDeepslateBricks, 0, 2);
 			world.setBlock(i + 5, j + 6, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 6, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 7, j + 6, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 8, j + 6, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 9, j + 6, k + 71, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 71, deepslate_bricks, 1, 2);
+			world.setBlock(i + 10, j + 6, k + 71, PlaceCrackedDeepslateBricks, 1, 2);
 			world.setBlock(i + 11, j + 6, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 6, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 6, k + 72, Blocks.air, 0, 2);
-			world.setBlock(i + 1, j + 6, k + 72, deepslate_tile_stairs, 2, 2);
-			world.setBlock(i + 2, j + 6, k + 72, deepslate_tile_stairs, 2, 2);
+			world.setBlock(i + 1, j + 6, k + 72, PlaceDeepslateTileStairs, 2, 2);
+			world.setBlock(i + 2, j + 6, k + 72, PlaceDeepslateTileStairs, 2, 2);
 			world.setBlock(i + 3, j + 6, k + 72, Blocks.air, 0, 2);
-			world.setBlock(i + 4, j + 6, k + 72, deepslate_tile_stairs, 2, 2);
-			world.setBlock(i + 5, j + 6, k + 72, deepslate_tile_stairs, 2, 2);
+			world.setBlock(i + 4, j + 6, k + 72, PlaceDeepslateTileStairs, 2, 2);
+			world.setBlock(i + 5, j + 6, k + 72, PlaceDeepslateTileStairs, 2, 2);
 			world.setBlock(i + 6, j + 6, k + 72, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 6, k + 72, deepslate_tile_stairs, 2, 2);
-			world.setBlock(i + 8, j + 6, k + 72, deepslate_tile_stairs, 2, 2);
+			world.setBlock(i + 7, j + 6, k + 72, PlaceDeepslateTileStairs, 2, 2);
+			world.setBlock(i + 8, j + 6, k + 72, PlaceDeepslateTileStairs, 2, 2);
 			world.setBlock(i + 9, j + 6, k + 72, Blocks.air, 0, 2);
-			world.setBlock(i + 10, j + 6, k + 72, deepslate_tile_stairs, 2, 2);
-			world.setBlock(i + 11, j + 6, k + 72, deepslate_tile_stairs, 2, 2);
+			world.setBlock(i + 10, j + 6, k + 72, PlaceDeepslateTileStairs, 2, 2);
+			world.setBlock(i + 11, j + 6, k + 72, PlaceDeepslateTileStairs, 2, 2);
 			world.setBlock(i + 12, j + 6, k + 72, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 7, k + 0, Blocks.air, 0, 2);
 			world.setBlock(i + 1, j + 7, k + 0, Blocks.air, 0, 2);
@@ -1730,34 +1909,34 @@ public class AncientCityNegativeHallwayGen4 extends WorldGenerator
 			world.setBlock(i + 11, j + 7, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 7, k + 71, Blocks.air, 0, 2);
 			world.setBlock(i + 0, j + 7, k + 72, Blocks.air, 0, 2);
-			world.setBlock(i + 1, j + 7, k + 72, deepslate_tile_stairs, 2, 2);
-			world.setBlock(i + 2, j + 7, k + 72, deepslate_tile_stairs, 2, 2);
+			world.setBlock(i + 1, j + 7, k + 72, PlaceDeepslateTileStairs, 2, 2);
+			world.setBlock(i + 2, j + 7, k + 72, PlaceDeepslateTileStairs, 2, 2);
 			world.setBlock(i + 3, j + 7, k + 72, Blocks.air, 0, 2);
 			world.setBlock(i + 4, j + 7, k + 72, Blocks.air, 0, 2);
 			world.setBlock(i + 5, j + 7, k + 72, Blocks.air, 0, 2);
 			world.setBlock(i + 6, j + 7, k + 72, Blocks.air, 0, 2);
-			world.setBlock(i + 7, j + 7, k + 72, deepslate_tile_stairs, 2, 2);
-			world.setBlock(i + 8, j + 7, k + 72, deepslate_tile_stairs, 2, 2);
+			world.setBlock(i + 7, j + 7, k + 72, PlaceDeepslateTileStairs, 2, 2);
+			world.setBlock(i + 8, j + 7, k + 72, PlaceDeepslateTileStairs, 2, 2);
 			world.setBlock(i + 9, j + 7, k + 72, Blocks.air, 0, 2);
 			world.setBlock(i + 10, j + 7, k + 72, Blocks.air, 0, 2);
 			world.setBlock(i + 11, j + 7, k + 72, Blocks.air, 0, 2);
 			world.setBlock(i + 12, j + 7, k + 72, Blocks.air, 0, 2);
 		 
-			world.setBlock(i + 7, j + 7, k + 0, soul_lantern, 0, 2);
-			world.setBlock(i + 7, j + 7, k + 6, soul_lantern, 0, 2);
-			world.setBlock(i + 7, j + 7, k + 12, soul_lantern, 0, 2);
-			world.setBlock(i + 4, j + 4, k + 23, soul_lantern, 1, 2);
-			world.setBlock(i + 10, j + 4, k + 23, soul_lantern, 1, 2);
-			world.setBlock(i + 4, j + 4, k + 27, soul_lantern, 1, 2);
-			world.setBlock(i + 4, j + 4, k + 44, soul_lantern, 1, 2);
-			world.setBlock(i + 10, j + 4, k + 44, soul_lantern, 1, 2);
-			world.setBlock(i + 4, j + 4, k + 48, soul_lantern, 1, 2);
-			world.setBlock(i + 10, j + 4, k + 48, soul_lantern, 1, 2);
-			world.setBlock(i + 4, j + 4, k + 58, soul_lantern, 1, 2);
-			world.setBlock(i + 10, j + 4, k + 64, soul_lantern, 1, 2);
-			world.setBlock(i + 4, j + 4, k + 70, soul_lantern, 1, 2);
-			world.setBlock(i + 7, j + 3, k + 9, soul_lantern, 1, 2);
-			world.setBlock(i + 7, j + 3, k + 10, soul_lantern, 1, 2);
+			world.setBlock(i + 7, j + 7, k + 0, PlaceSoulLantern, 0, 2);
+			world.setBlock(i + 7, j + 7, k + 6, PlaceSoulLantern, 0, 2);
+			world.setBlock(i + 7, j + 7, k + 12, PlaceSoulLantern, 0, 2);
+			world.setBlock(i + 4, j + 4, k + 23, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 10, j + 4, k + 23, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 27, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 44, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 10, j + 4, k + 44, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 48, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 10, j + 4, k + 48, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 58, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 10, j + 4, k + 64, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 4, j + 4, k + 70, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 7, j + 3, k + 9, PlaceSoulLantern, 1, 2);
+			world.setBlock(i + 7, j + 3, k + 10, PlaceSoulLantern, 1, 2);
 			
 		 return true;
 	 }

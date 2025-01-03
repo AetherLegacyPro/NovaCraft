@@ -778,20 +778,13 @@
   "ender_avis.living": {
   "category": "neutral",
   "sounds": [
-      "entity/ender_avis/say1",
-      "entity/ender_avis/say2",
-      "entity/ender_avis/say3"
+      "entity/ender_avis/ambient1",
+      "entity/ender_avis/ambient2",
+      "entity/ender_avis/ambient3",
+      "entity/ender_avis/ambient4"
     ]
   },
   
-  "ender_avis.hurt": {
-  "category": "neutral",
-  "sounds": [
-      "entity/ender_avis/hurt1",
-      "entity/ender_avis/hurt2",
-      "entity/ender_avis/hurt3"
-    ]
-  },
   "ender_avis.death": {
   "category": "neutral",
   "sounds": [
@@ -828,6 +821,34 @@
   "category": "hostile",
   "sounds": [
       "entity/ender_ray/charge"
+    ]
+  },
+  
+  "unknown.portal": {
+    "category": "neutral",
+    "sounds": [
+      "misc/portal_unknown"
+    ]
+  },
+  
+  "deepfire": {
+    "category": "neutral",
+    "sounds": [
+      "misc/flame"
+    ]
+  },
+  
+  "blend.use": {
+    "category": "neutral",
+    "sounds": [
+      "misc/blend_use"
+    ]
+  },
+  
+  "unknown.ignite": {
+    "category": "neutral",
+    "sounds": [
+      "misc/ignite_unknown"
     ]
   },
   

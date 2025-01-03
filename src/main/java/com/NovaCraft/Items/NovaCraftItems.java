@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.NovaCraft.NovaCraft;
+import com.NovaCraft.Items.Armor.ItemAncientLeggings;
 import com.NovaCraft.Items.Armor.ItemCrystaliteArmor;
 import com.NovaCraft.Items.Armor.ItemGuardianArmor;
 import com.NovaCraft.Items.Armor.ItemKlangiteBoots;
@@ -42,8 +43,6 @@ import com.NovaCraft.Items.Buckets.ItemBlazliniteBucket;
 import com.NovaCraft.Items.Buckets.ItemMoltenVaniteBucket;
 import com.NovaCraft.Items.Buckets.ItemVaniteBucket;
 import com.NovaCraft.Items.Music.ItemDisk5;
-import com.NovaCraft.Items.Music.ItemDiskNegative1;
-import com.NovaCraft.Items.Music.ItemDiskNegative2;
 import com.NovaCraft.Items.Potions.ItemDeepfireBlend;
 import com.NovaCraft.Items.Potions.ItemPotionFireResistanceExtended;
 import com.NovaCraft.Items.Potions.ItemPotionHaste;
@@ -197,13 +196,13 @@ public class NovaCraftItems {
 	public static Item glow_ink_sac;
 	public static Item phantom_membrane;
 	public static Item nullwart, nullwart_blend;
-	public static Item nullified_dust, wardling_dust;
+	public static Item nullified_dust, wardling_dust, warden_dust;
 	public static Item static_essence, destitute_tentacle;
-	public static Item ancient_city_artifact, powered_ancient_city_artifact;
+	public static Item ancient_city_artifact, powered_ancient_city_artifact, vanite_lead;
 	
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy;
-	public static Item deepfire_blend;
+	public static Item deepfire_blend, static_blend;
 	
 	public static Item potion_speed_extended, potion_speed_III;
 	public static Item potion_strength_extended, potion_strength_III;
@@ -217,7 +216,7 @@ public class NovaCraftItems {
 	public static Item potion_fire_resistance_extended;
 	
 	public static Item disc_fragment_5;
-	public static Item disc_5, disc_negative1, disc_negative2;
+	public static Item disc_5;
 	public static Item luminant_apple, luminant_tree_sap, luminant_gel;
 	
 	public static Item raw_enderavis, cooked_enderavis, enderavis_feather;
@@ -253,6 +252,7 @@ public class NovaCraftItems {
 	public static Item warden_helmet, warden_chestplate, warden_leggings, warden_boots;
 	public static Item crystalite_helmet, crystalite_chestplate, crystalite_leggings, crystalite_boots;
 	public static Item guardian_helmet, guardian_chestplate, guardian_leggings, guardian_boots;
+	public static Item ancient_leggings;
 	
 	public static Item vanite_blue_crown, vanite_red_crown, vanite_green_crown, vanite_orange_crown, vanite_mysterious_crown, vanite_exotic_crown, vanite_notched_crown, vanite_dark_blue_crown;
 	
@@ -323,6 +323,7 @@ public class NovaCraftItems {
 		warden_heart = register("warden_heart", new ItemWardenHeart().setTextureName(NovaCraft.find("warden_heart")));
 		warden_tentacle = register("warden_tentacle", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("warden_tentacle")));
 		warden_shard = register("warden_shard", new ItemNullifiedVaniteAlloy().setTextureName(NovaCraft.find("warden_shard")));
+		warden_dust = register("warden_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("warden_dust")));
 		sculked_leather = register("sculked_leather", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("sculked_leather")));		
 		sea_serpent_scales = register("sea_serpent_scales", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("sea_serpent_scales")));
 		sea_serpent_venom_sac = register("sea_serpent_venom_sac", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("sea_serpent_venom_sac")));		
@@ -348,6 +349,7 @@ public class NovaCraftItems {
 		wardling_dust = register("wardling_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("wardling_dust")));
 		ancient_city_artifact = register("ancient_city_artifact", new ItemNovaCraft(NovaCraftCreativeTabs.items).setMaxStackSize(1).setTextureName(NovaCraft.find("ancient_city_artifact")));
 		powered_ancient_city_artifact = register("powered_ancient_city_artifact", new ItemPoweredAncientCityArtifact().setTextureName(NovaCraft.find("powered_ancient_city_artifact")));
+		static_blend = register("static_blend", new ItemStaticBlend().setTextureName(NovaCraft.find("static_blend")));
 		
 		vanite_bucket = register("vanite_bucket", new ItemVaniteBucket(Blocks.air).setMaxStackSize(16).setTextureName(NovaCraft.find("vanite_bucket")));
 		vanite_bucket_water = register("vanite_bucket_water", new ItemVaniteBucket(Blocks.flowing_water).setTextureName(NovaCraft.find("vanite_bucket_water")));
@@ -399,8 +401,6 @@ public class NovaCraftItems {
 		disc_fragment_5 = register("disc_fragment_5", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("disc_fragment_5")));
 		
 		disc_5 = register("disc_5", new ItemDisk5("5").setTextureName(NovaCraft.find("music_disc_5")));		
-		disc_negative1 = register("disc_negative1", new ItemDiskNegative1("-1").setTextureName(NovaCraft.find("music_disc_negative1")));
-		disc_negative2 = register("disc_negative2", new ItemDiskNegative2("-2").setTextureName(NovaCraft.find("music_disc_negative2")));
 		
 		luminant_apple = register("luminant_apple", new ItemLuminantApple().setTextureName(NovaCraft.find("luminant_apple")));
 		luminant_tree_sap = register("luminant_tree_sap", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("luminant_tree_sap")));
@@ -509,6 +509,8 @@ public class NovaCraftItems {
 		warden_chestplate = register("warden_chestplate", new ItemWardenArmor(1, ArmorMaterial.DIAMOND, "warden", null).setMaxDamage(13089).setTextureName(NovaCraft.find("warden_chestplate")));
 		warden_leggings = register("warden_leggings", new ItemWardenArmor(2, ArmorMaterial.DIAMOND, "warden", null).setMaxDamage(13014).setTextureName(NovaCraft.find("warden_leggings")));
 		warden_boots = register("warden_boots", new ItemWardenArmor(3, ArmorMaterial.DIAMOND, "warden", null).setMaxDamage(12878).setTextureName(NovaCraft.find("warden_boots")));
+		
+		ancient_leggings = register("ancient_leggings", new ItemAncientLeggings().setTextureName(NovaCraft.find("ancient_leggings")));
 		
 		crystalite_sword = register("crystalite_sword", new ItemCrystaliteSword().setTextureName(NovaCraft.find("crystalite_sword")));
 		crystalite_bow = register("crystalite_bow", new ItemCrystaliteBow());

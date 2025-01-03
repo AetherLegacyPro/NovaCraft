@@ -15,9 +15,11 @@ import com.NovaCraft.gui.GuiLegendaryEnchantmentTable;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -25,6 +27,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 
 public class CommonProxy implements IGuiHandler
 {
@@ -37,7 +40,6 @@ public class CommonProxy implements IGuiHandler
 	public int getBlockRender(final Block blockID) {
         return 27;
     }
-	
 	
 	@Override
 	public Object getClientGuiElement(final int par1, final EntityPlayer par2EntityPlayer, final World par3World, final int par4, final int par5, final int par6) {

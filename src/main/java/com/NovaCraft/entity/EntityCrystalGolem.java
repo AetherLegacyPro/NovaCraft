@@ -310,7 +310,7 @@ public class EntityCrystalGolem extends EntityGolem
      */
     protected String getHurtSound()
     {
-        return "mob.irongolem.hit";
+        return "nova_craft:crystal.break";
     }
     
     protected String getLivingSound()
@@ -328,7 +328,7 @@ public class EntityCrystalGolem extends EntityGolem
 
     protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_)
     {
-        this.playSound("mob.irongolem.walk", 1.0F, 1.0F);
+        this.playSound("mob.irongolem.walk", 0.25F, 0.25F);
     }
 
     /**

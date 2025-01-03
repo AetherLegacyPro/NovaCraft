@@ -79,8 +79,6 @@ public class NovaCraftRegistries {
 		OreDictionary.registerOre("plankWood", NovaCraftBlocks.luminant_planks);
 		
 		OreDictionary.registerOre("record", NovaCraftItems.disc_5);
-		OreDictionary.registerOre("record", NovaCraftItems.disc_negative1);
-		OreDictionary.registerOre("record", NovaCraftItems.disc_negative2);
 		
 		OreDictionary.registerOre("cobblestone", new ItemStack(NovaCraftBlocks.cobbled_grimstone));
 		OreDictionary.registerOre("cobblestone", new ItemStack(NovaCraftBlocks.cobbled_nullstone));
@@ -123,8 +121,6 @@ public class NovaCraftRegistries {
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.etherstone_iron), new ItemStack(Items.iron_ingot), .05F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.etherstone_gold), new ItemStack(Items.gold_ingot), .1F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.disc_fragment_5), new ItemStack(NovaCraftItems.vanite_ingot), .1F);
-		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.disc_negative1), new ItemStack(NovaCraftItems.reinforced_vanite_ingot), .1F);
-		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.disc_negative2), new ItemStack(NovaCraftItems.reinforced_vanite_ingot), .1F);
 		
 		if (Configs.enableGrimstone == false && Configs.enableNullstone == false) {
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.stone_vanite_ore), new ItemStack(NovaCraftItems.vanite_chunk), .05F);	
@@ -172,8 +168,6 @@ public class NovaCraftRegistries {
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.calcite_bricks), new ItemStack(NovaCraftBlocks.cracked_calcite_bricks), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.tuff_bricks), new ItemStack(NovaCraftBlocks.cracked_tuff_bricks), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.vanite_bricks), new ItemStack(NovaCraftBlocks.polished_vanite_bricks), .01F);
-		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.grimstone_bricks), new ItemStack(NovaCraftBlocks.polished_grimstone), .01F);
-		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.nullstone_bricks), new ItemStack(NovaCraftBlocks.polished_nullstone), .01F);
 		
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.pherithium_lump), new ItemStack(NovaCraftItems.pherithium_ingot), .1F);
 		register("pherithium_lump", new ItemStack(NovaCraftItems.pherithium_lump, 1), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftItems.pherithium_scraps));
@@ -208,16 +202,18 @@ public class NovaCraftRegistries {
 		
 		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe == true) {
 		register("tuff_bricks", new ItemStack(NovaCraftBlocks.tuff_bricks, 4), "XX", "XX", 'X', OtherModBlocks.tuff);
+		register("tuff_tiles", new ItemStack(NovaCraftBlocks.tuff_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.tuff_bricks);
 		}
 		
 		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe == true) {
 		register("calcite_bricks", new ItemStack(NovaCraftBlocks.calcite_bricks, 4), "XX", "XX", 'X', OtherModBlocks.calcite);
+		register("calcite_tiles", new ItemStack(NovaCraftBlocks.calcite_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.calcite_bricks);
 		}
 		
-		register("tuff_tiles", new ItemStack(NovaCraftBlocks.tuff_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.tuff_bricks);
-		register("calcite_tiles", new ItemStack(NovaCraftBlocks.calcite_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.calcite_bricks);
-		
 		register("sculk_tiles", new ItemStack(NovaCraftBlocks.sculk_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.sculk_bricks);
+		
+		register("polished_grimstone", new ItemStack(NovaCraftBlocks.polished_grimstone, 4), "XX", "XX", 'X', NovaCraftBlocks.cobbled_grimstone);
+		register("polished_nullstone", new ItemStack(NovaCraftBlocks.polished_nullstone, 4), "XX", "XX", 'X', NovaCraftBlocks.cobbled_nullstone);
 		
 		register("frontierslate_bricks", new ItemStack(NovaCraftBlocks.frontierslate_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.frontierslate);
 		
@@ -273,6 +269,7 @@ public class NovaCraftRegistries {
 		register("null_cube_slime", new ItemStack(NovaCraftItems.null_cube_slime, 9), "X", 'X', NovaCraftBlocks.nullcube_slime_block);
 		register("crystallized_vanite", new ItemStack(NovaCraftBlocks.crystallized_vanite), "XXX", "XXX", "XXX", 'X', NovaCraftItems.vanite_crystal);		
 		register("pherithium_carrot", new ItemStack(NovaCraftItems.pherithium_carrot), "XXX", "XYX", "XXX", 'X', NovaCraftItems.pherithium_scraps, 'Y', Items.golden_carrot);
+		register("warden_dust", new ItemStack(NovaCraftItems.warden_dust, 9), "X", 'X', NovaCraftItems.warden_shard);
 		
 		register("legendary_beacon", new ItemStack(NovaCraftBlocks.legendary_beacon), "XXX", "XYX", "ZZZ", 'X', new ItemStack(NovaCraftBlocks.vanite_glass), 'Y', NovaCraftItems.warden_core, 'Z', new ItemStack(NovaCraftBlocks.crystallized_end));
 		register("warden_core", new ItemStack(NovaCraftItems.warden_core), "XZX", "ZYZ", "XZX", 'Z', NovaCraftItems.sculk_star, 'Y', NovaCraftItems.warden_heart, 'X', new ItemStack(NovaCraftBlocks.nullified_vanite));
@@ -615,6 +612,7 @@ public class NovaCraftRegistries {
 		register("ender_lord_staff", new ItemStack(NovaCraftItems.ender_lord_staff), " ZY", "XWZ", "VX ", 'Z', new ItemStack(NovaCraftItems.corrupted_essence), 'Y', new ItemStack(NovaCraftItems.heart_of_the_end), 'X', new ItemStack(NovaCraftItems.reinforced_vanite_ingot), 'W', new ItemStack(NovaCraftItems.ancient_city_artifact), 'V', new ItemStack(NovaCraftItems.klangite_ingot));
 		register("crystal_growth_staff", new ItemStack(NovaCraftItems.crystal_growth_staff), "ZYX", "WTY", "VWU", 'Z', new ItemStack(NovaCraftItems.variegated_shard), 'Y', new ItemStack(NovaCraftItems.null_shard), 'X', new ItemStack(NovaCraftItems.heart_of_the_end), 'W', new ItemStack(NovaCraftItems.dark_essence), 'V', new ItemStack(NovaCraftItems.reinforced_vanite_ingot), 'U', new ItemStack(NovaCraftItems.sculked_shard), 'T', new ItemStack(NovaCraftItems.ancient_city_artifact));
 		
+		register("static_blend", new ItemStack(NovaCraftItems.static_blend, 5), "XZX", "VXY", "XUX", 'X', new ItemStack(NovaCraftItems.deepfire_blend), 'Y', new ItemStack(NovaCraftItems.wardling_dust), 'Z', new ItemStack(NovaCraftItems.static_essence), 'U', new ItemStack(NovaCraftItems.crystallized_end_shard), 'V', new ItemStack(NovaCraftItems.warden_dust));
 	}
 	
 	private static void initializeShapelessRecipes() {
@@ -645,7 +643,7 @@ public class NovaCraftRegistries {
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 5), new ItemStack(NovaCraftBlocks.hydnum_mushroom));
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 13), new ItemStack(NovaCraftBlocks.calvatia_mushroom));
 		registerShapeless("dye", new ItemStack(Items.redstone, 2, 0), new ItemStack(NovaCraftBlocks.pleurotus_mushroom));
-		
+				
 		registerShapeless("gunpowder", new ItemStack(Items.gunpowder), new ItemStack(NovaCraftItems.brimstone_dust), new ItemStack(NovaCraftItems.brimstone_dust), new ItemStack(Items.coal));
 		registerShapeless("gunpowder", new ItemStack(Items.gunpowder), new ItemStack(NovaCraftItems.brimstone_dust), new ItemStack(NovaCraftItems.brimstone_dust), new ItemStack(Items.coal, 1, 1));
 		

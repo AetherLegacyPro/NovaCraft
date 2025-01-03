@@ -33,7 +33,32 @@ public class AncientCityGen implements IWorldGenerator {
 		chunkZ = z * 16 + rand.nextInt(16) + 8;
 		biome = world.getBiomeGenForCoords(x, z);
 		biomeList = BiomeDictionary.getTypesForBiome(biome);
-	      if (rand.nextInt(3000) == 25 && !(ArrayUtils.contains(biomeList, Type.OCEAN)) && !(ArrayUtils.contains(biomeList, Type.RIVER)) && !(ArrayUtils.contains(biomeList, Type.BEACH)) && !(ArrayUtils.contains(biomeList, Type.SWAMP))) {
+		
+		BiomeGenBase biomePosX;
+		Type[] biomeListPosX;
+		biomePosX = world.getBiomeGenForCoords(x + 160, z);
+		biomeListPosX = BiomeDictionary.getTypesForBiome(biomePosX);
+		
+		BiomeGenBase biomeNegX;
+		Type[] biomeListNegX;
+		biomeNegX = world.getBiomeGenForCoords(x - 160, z);
+		biomeListNegX = BiomeDictionary.getTypesForBiome(biomeNegX);
+		
+		BiomeGenBase biomePosZ;
+		Type[] biomeListPosZ;
+		biomePosZ = world.getBiomeGenForCoords(x, z + 150);
+		biomeListPosZ = BiomeDictionary.getTypesForBiome(biomePosZ);
+		
+		BiomeGenBase biomeNegZ;
+		Type[] biomeListNegZ;
+		biomeNegZ = world.getBiomeGenForCoords(x, z - 150);
+		biomeListNegZ = BiomeDictionary.getTypesForBiome(biomeNegZ);
+		
+	      if (rand.nextInt(3000) == 25 && (!(ArrayUtils.contains(biomeList, Type.OCEAN)) && !(ArrayUtils.contains(biomeList, Type.RIVER)) && !(ArrayUtils.contains(biomeList, Type.BEACH)) && !(ArrayUtils.contains(biomeList, Type.SWAMP)))
+	    		&&  (!(ArrayUtils.contains(biomeListPosX, Type.OCEAN)) && !(ArrayUtils.contains(biomeListPosX, Type.RIVER)) && !(ArrayUtils.contains(biomeListPosX, Type.BEACH)) && !(ArrayUtils.contains(biomeListPosX, Type.SWAMP))) 
+	    		&&  (!(ArrayUtils.contains(biomeListNegX, Type.OCEAN)) && !(ArrayUtils.contains(biomeListNegX, Type.RIVER)) && !(ArrayUtils.contains(biomeListNegX, Type.BEACH)) && !(ArrayUtils.contains(biomeListNegX, Type.SWAMP))) 
+	    		&&  (!(ArrayUtils.contains(biomeListPosZ, Type.OCEAN)) && !(ArrayUtils.contains(biomeListPosZ, Type.RIVER)) && !(ArrayUtils.contains(biomeListPosZ, Type.BEACH)) && !(ArrayUtils.contains(biomeListPosZ, Type.SWAMP)))
+	    		&&  (!(ArrayUtils.contains(biomeListNegZ, Type.OCEAN)) && !(ArrayUtils.contains(biomeListNegZ, Type.RIVER)) && !(ArrayUtils.contains(biomeListNegZ, Type.BEACH)) && !(ArrayUtils.contains(biomeListNegZ, Type.SWAMP))) ) {
 	    	  
 	    	  int x1 = x + rand.nextInt(16) + 8;
 	    	  int y1 = 30;
@@ -263,15 +288,16 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  new AncientCityCenterPortalGen5().generate(world, rand, x1, y1 - 17, z1);
 	    	  new AncientCityCenterPortalGen4().generate(world, rand, x1, y1 - 17, z1);
 	    	  new AncientCityCenterPortalGen3().generate(world, rand, x1, y1 - 17, z1);
-	    	  new AncientCityCenterPortalGen2().generate(world, rand, x1, y1 - 17, z1);
+	    	  new AncientCityCenterPortalGen2().generate(world, rand, x1, y1 - 17, z1);	    	  
 	    	  new AncientCityCenterPortalGen1().generate(world, rand, x1, y1 - 17, z1);
-	    	  
+	    	  	    	  
 	    	  new AncientCityStairsGen().generate(world, rand, x1 + 20, y1 - 7, z1 + 23);
 	    	  new AncientCityWardenAltarGen().generate(world, rand, x1 - 8, y1, z1 + 10);
-	    	  
+	    	  	    	  
 	    	  new AncientCityCelingSculkGen().generate(world, rand, x1 + 7, y1 + 14, z1 + 9);	    	  
 	    	  new AncientCitySculkPortalGen().generate(world, rand, x1 + 14, y1 - 10, z1 + 14);
-	    	  
+	    	  new AncientCityUnknownActivationGen().generate(world, rand, x1 + 19, y1 - 3, z1 + 30);
+	    	  	    	  
 	    	  //-Z
 	    	  new AncientCityNegativeHallwayGen1().generate(world, rand, x1 + 16, y1 - 16, z1 - 73);
 	    	  new AncientCityNegativeHallwayGen2().generate(world, rand, x1 + 16, y1 - 16, z1 - 73);
@@ -283,7 +309,7 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  new AncientCitySmallStructure2Gen().generate(world, rand, x1 - 4, y1 - 16, z1 - 23);
 	    	  
 	    	  new AncientCityCobbledDeepslateGen().generate(world, rand, x1 - 4, y1 - 16, z1 - 63);
-	    	  
+	    	  	    	  
 	    	  new AncientCityIceRoomGen1().generate(world, rand, x1 + 31, y1 - 16, z1 - 23);
 	    	  new AncientCityIceRoomGen2().generate(world, rand, x1 + 31, y1 - 16, z1 - 23);
 	    	  
@@ -295,6 +321,7 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  
 	    	  new AncientCityIceRoomAlternateGen1().generate(world, rand, x1 + 39, y1 - 16, z1 - 84);
 	    	  new AncientCityIceRoomAlternateGen2().generate(world, rand, x1 + 39, y1 - 16, z1 - 84);	
+	    	  
 	    	  
 	    	  //+Z
 	    	  new AncientCityPositiveHallwayGen1().generate(world, rand, x1 + 17, y1 - 16, z1 + 68);
@@ -320,7 +347,7 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  new AncientCityIceRoomAlternateGen2().generate(world, rand, x1 + 32, y1 - 16, z1 + 103);
 	    	  
 	    	  new AncientCityNetherPortalGen().generate(world, rand, x1 + 32, y1 - 16, z1 + 131);
-	    	  
+	    	  	    	  
 	    	  //+X
 	    	  new AncientCityPositiveXHallwayGen1().generate(world, rand, x1 + 46, y1 - 16, z1 + 24);
 	    	  new AncientCityPositiveXHallwayGen2().generate(world, rand, x1 + 46, y1 - 16, z1 + 24);
@@ -328,6 +355,7 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  new AncientCityPositiveXHallwayGen4().generate(world, rand, x1 + 46, y1 - 16, z1 + 24);
 	    	  new AncientCityPositiveXHallwayGen5().generate(world, rand, x1 + 46, y1 - 16, z1 + 24);
 	    	  new AncientCityPositiveXHallwayGen6().generate(world, rand, x1 + 46, y1 - 16, z1 + 24);
+	    	  
 	    	  
 	    	  new AncientCityPositiveXHallwayLeftGen1().generate(world, rand, x1 + 50, y1 - 16, z1 + 16);
 	    	  new AncientCityPositiveXHallwayLeftGen2().generate(world, rand, x1 + 50, y1 - 16, z1 + 16);
@@ -421,9 +449,10 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  //Additional Random Structures
 	    	  new AncientCityColumnTopGen().generate(world, rand, x1 + 54, y1 + 15, z1 + 122);
 	    	  new AncientCityColumnGen1().generate(world, rand, x1 + 54, y1 - 16, z1 + 122);
-	    	  new AncientCityColumnGen2().generate(world, rand, x1 + 54, y1 - 16, z1 + 122);	    	  
+	    	  new AncientCityColumnGen2().generate(world, rand, x1 + 54, y1 - 16, z1 + 122);
+	    	  new AncientCityColumnGen3().generate(world, rand, x1 + 54, y1 - 16, z1 + 122);	
 	    	  new AncientCityColumnBottomGen().generate(world, rand, x1 + 54, y1 - 26, z1 + 122);	    	  
-	    	  	    		    	  
+	    	   		    	  
 	    	  new AncientCitySupportGen().generate(world, rand, x1 + 69, y1 - 17, z1 - 40);
 	    	  new AncientCitySupportTopGen().generate(world, rand, x1 + 66, y1 + 14, z1 - 43);
 	    	  
@@ -458,6 +487,7 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  new AncientCitySculkWallNegXGen().generate(world, rand, x1 - 129, y1 - 15, z1 + 15);
 	    	  
 	    	  new AncientCitySculkWallPosX2Gen().generate(world, rand, x1 + 144, y1 - 15, z1 + 21);
+	    	  
 		         }
 	      }
 

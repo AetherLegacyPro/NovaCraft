@@ -63,6 +63,7 @@ import com.NovaCraftBlocks.ores.BlockFrontierslateKlangiteOre;
 import com.NovaCraftBlocks.ores.BlockGlowingCarvedVaniteBricks;
 import com.NovaCraftBlocks.ores.BlockGrimstoneVaniteOre;
 import com.NovaCraftBlocks.ores.BlockInfusedVaniteBlock;
+import com.NovaCraftBlocks.ores.BlockInfusedVaniteBlockNatural;
 import com.NovaCraftBlocks.ores.BlockKlangite;
 import com.NovaCraftBlocks.ores.BlockKlangiteOre;
 import com.NovaCraftBlocks.ores.BlockNetherTophiniteOre;
@@ -140,6 +141,7 @@ import com.NovaCraftBlocks.potion.BlockMoltenVaniteCrystalCauldron;
 import com.NovaCraftBlocks.potion.BlockVaniteCauldron;
 import com.NovaCraftBlocks.potion.BlockVaniteCluster;
 import com.NovaCraftBlocks.sculk.BlockActivatedGrimstoneShrieker;
+import com.NovaCraftBlocks.sculk.BlockActivatedReinforcedNullstone;
 import com.NovaCraftBlocks.sculk.BlockGrimstoneShrieker;
 import com.NovaCraftBlocks.sculk.BlockInkedSculk;
 import com.NovaCraftBlocks.sculk.BlockReinforcedNullstone;
@@ -158,6 +160,8 @@ import com.NovaCraftBlocks.sculk.BlockSculkTendrils;
 import com.NovaCraftBlocks.sculk.BlockSculkTentacle;
 import com.NovaCraftBlocks.sculk.BlockSculkTulip;
 import com.NovaCraftBlocks.sculk.BlockSculkVein;
+import com.NovaCraftBlocks.sculk.BlockUnknownPortal;
+import com.NovaCraftBlocks.sculk.BlockUnknownPortalActivator;
 import com.NovaCraftBlocks.stalactites.BlockIcicle;
 import com.NovaCraftBlocks.stalactites.BlockLargeNullstoneStalactite;
 import com.NovaCraftBlocks.stalactites.BlockLargeStoneStalactite;
@@ -237,7 +241,7 @@ public class NovaCraftBlocks {
 	public static Block vanite_bricks, carved_vanite_bricks, glowing_carved_vanite_bricks, polished_vanite_bricks;
 	public static Block vanite_brick_slab, vanite_brick_double_slab, vanite_brick_stairs, vanite_brick_wall;
 	public static Block carved_vanite_brick_slab, carved_vanite_brick_double_slab, carved_vanite_brick_stairs, carved_vanite_brick_wall;
-	public static Block infused_vanite_block, nullified_vanite;
+	public static Block infused_vanite_block, infused_vanite_block_natural, nullified_vanite;
 	
 	//Explosives
 	public static Block brimstone_ore, block_of_brimstone, brimstone_wire, PETN, PETN_wire;
@@ -302,7 +306,7 @@ public class NovaCraftBlocks {
 	//Boss Summoning
 	public static Block grimstone_shrieker, activated_grimstone_shrieker;
 	public static Block deep_one_egg, deep_one_egg_activated;
-	public static Block reinforced_nullstone;
+	public static Block reinforced_nullstone, activated_reinforced_nullstone, unknown_portal_activator, unknown_portal;
 	
 	//Special
 	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table;
@@ -351,6 +355,8 @@ public class NovaCraftBlocks {
 		cracked_nullstone_tiles = register("cracked_nullstone_tiles", new BlockCrackedNullstoneTiles().setBlockTextureName(NovaCraft.find("cracked_nullstone_tiles")));
 		polished_nullstone = register("polished_nullstone", new BlockPolishedNullstone()).setBlockTextureName(NovaCraft.find("polished_nullstone"));
 		reinforced_nullstone = register("reinforced_nullstone", new BlockReinforcedNullstone());
+		activated_reinforced_nullstone = registerHidden("activated_reinforced_nullstone", new BlockActivatedReinforcedNullstone()).setCreativeTab(null);
+		unknown_portal_activator = register("unknown_portal_activator", new BlockUnknownPortalActivator());
 		chiseled_nullstone = register("chiseled_nullstone", new BlockChiseledNullstone());
 		
 		nullstone_diamond = register("nullstone_diamond", new BlockNullstoneOre().setBlockTextureName(NovaCraft.find("nullstone_diamond_ore")));
@@ -412,6 +418,7 @@ public class NovaCraftBlocks {
 		nullstone_vanite_ore = registerItemBlock("nullstone_vanite_ore", new BlockNullstoneVaniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("nullstone_vanite_ore"));			
 		block_of_vanite = registerItemBlock("block_of_vanite", new BlockVanite(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("block_of_vanite"));
 		block_of_reinforced_vanite = registerItemBlock("block_of_reinforced_vanite", new BlockReinforcedVanite(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("block_of_reinforced_vanite"));		
+		infused_vanite_block_natural = registerItemBlock("infused_vanite_block_natural", new BlockInfusedVaniteBlockNatural(), ItemBlockFireProof.class);
 		infused_vanite_block = registerItemBlock("infused_vanite_block", new BlockInfusedVaniteBlock(), ItemBlockFireProof.class);				
 		vanite_glass = register("vanite_glass", new BlockVaniteGlass(Material.glass, false).setBlockTextureName(NovaCraft.find("vanite_glass")));
 		molten_vanite = registerHidden("molten_vanite", new BlockMoltenVanite());		
@@ -498,6 +505,8 @@ public class NovaCraftBlocks {
 		sculk_grimstone = register("sculk_grimstone", new BlockSculkGrimstone());
 		sculk_nullstone = register("sculk_nullstone", new BlockSculkNullstone());
 		sculk_endstone = register("sculk_endstone", new BlockSculkEndstone());
+		
+		unknown_portal = register("unknown_portal", new BlockUnknownPortal().setBlockTextureName(NovaCraft.find("unknown_portal")));
 		
 		if (Loader.isModLoaded("etfuturum")) {
 		sculk_deepslate = register("sculk_deepslate", new BlockSculkDeepslate());

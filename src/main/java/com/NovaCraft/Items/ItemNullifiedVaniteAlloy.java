@@ -26,5 +26,10 @@ public class ItemNullifiedVaniteAlloy extends Item {
 	public Entity createEntity(final World world, final Entity location, final ItemStack itemstack) {
 	       return (Entity)new EntityFireProofItemNovaCraft(world, location, itemstack);
 	 }
+	
+	@Override
+	public boolean hasEffect(ItemStack stack, int pass) {
+		return true;
+	}
 
 }

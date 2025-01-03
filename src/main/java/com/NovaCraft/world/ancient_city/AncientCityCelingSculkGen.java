@@ -25,7 +25,6 @@ public class AncientCityCelingSculkGen extends WorldGenerator
 
 	}
 	
-	private static final Block grimstone = NovaCraftBlocks.grimstone;
 	private static final Block sculk_grimstone = NovaCraftBlocks.sculk_grimstone;
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
 	private static final Block sculk_tulip = NovaCraftBlocks.sculk_tulip;

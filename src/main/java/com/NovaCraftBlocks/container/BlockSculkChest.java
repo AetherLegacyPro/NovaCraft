@@ -115,13 +115,13 @@ public class BlockSculkChest extends Block {
 		}
 		
 		case 12: if (!world.isRemote) {
-			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.disc_negative1, 1));
+			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.heart_of_the_end, 1));
 			
 			world.spawnEntityInWorld(entityItem);
 		}
 		
 		case 13: if (!world.isRemote) {
-			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.disc_negative2, 1));
+			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.dark_essence, 1 + rand));
 			
 			world.spawnEntityInWorld(entityItem);
 		}

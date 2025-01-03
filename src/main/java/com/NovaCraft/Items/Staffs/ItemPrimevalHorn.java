@@ -39,5 +39,9 @@ public class ItemPrimevalHorn extends ItemSword {
 
 		return itemstack;
 	}
+	
+	public EnumRarity getRarity(ItemStack itemstack) {
+	    return EnumRarity.epic;
+	}
 
 }

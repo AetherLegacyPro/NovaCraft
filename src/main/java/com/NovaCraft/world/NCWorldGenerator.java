@@ -7,7 +7,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.world.ancient_city.AncientCityPositiveHallwayGen1;
-import com.NovaCraft.world.village.VillageWell;
+import com.NovaCraft.world.village.VindicatorWell;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.IWorldGenerator;
@@ -25,9 +25,12 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 public class NCWorldGenerator implements IWorldGenerator {
 	
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world,
-			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-	if ((ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+		if (world.provider.dimensionId == 0) {
+			this.generateOverworldStructures(world, random, chunkX*16, chunkZ*16);
+     	}
+		
+		if ((ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
 			generateOverworld(world, random, chunkX, chunkZ);
 		}  else {
 			switch (world.provider.dimensionId) {
@@ -85,6 +88,7 @@ public class NCWorldGenerator implements IWorldGenerator {
 		}
 	 	
 	 	public void generateOverworld(World world, Random rand, int x, int z) {
+	 		
 	 		if (Configs.enableGrimstone == true) {
 			generateOre(NovaCraftBlocks.grimstone, world, rand, x, z, 1, 100, 1, 8, 24,
 					Blocks.stone);
@@ -123,28 +127,31 @@ public class NCWorldGenerator implements IWorldGenerator {
 						Blocks.stone);
 				}			
 			
-			//Vindicator Villages
+	 	}
+	 	
+	 	public void generateOverworldStructures(World world, Random rand, int x, int z) {
+	 		//Vindicator Villages
 			int i, j, k, num;
 			i = j = k = -1;
 			num = 0;		
-			
 			BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(x, z);
 			if(world.getWorldInfo().getTerrainType().getWorldTypeID() != 1){
 
 				 if(Configs.vindicatorVillageSpawnRate != 0) {
-					if(world.getWorldInfo().getTerrainType().getWorldTypeID() == 1)
-						num = rand.nextInt(((100 - Configs.vindicatorVillageSpawnRate) * 2) + 250);
-					else
-						num = rand.nextInt((100 - Configs.vindicatorVillageSpawnRate* 2) + 125);
-
+					 
+					 if(world.getWorldInfo().getTerrainType().getWorldTypeID() == 1)
+							num = rand.nextInt(((100 - Configs.vindicatorVillageSpawnRate) * 2) + 250);
+						else
+							num = rand.nextInt((100 - Configs.vindicatorVillageSpawnRate* 2) + 125);
+					 
 					if(num == 1){
 						i = x + rand.nextInt(16) + 8;
 						j = z + rand.nextInt(16) + 8;
 						k = world.getTopSolidOrLiquidBlock(i, j);
 						if (k <= 0);
-						new VillageWell().generate(world, rand, i, k, j);
-			 }
-		   }										
-		  }
+						new VindicatorWell().generate(world, rand, i, k, j);
+					}
+				}										
+		    }
 	 	}
 }

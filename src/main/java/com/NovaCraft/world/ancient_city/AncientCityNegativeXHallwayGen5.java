@@ -5,6 +5,7 @@ import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
 
+import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -21,36 +22,66 @@ public class AncientCityNegativeXHallwayGen5 extends WorldGenerator
 	private static final Block deepslate = OtherModBlocks.deepslate;
 	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
 	private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
-	private static final Block soul_sand = Blocks.netherrack;
+	private static final Block SoulLantern = OtherModBlocks.SoulLantern;
+	private static final Block soul_sand = Blocks.soul_sand;
+	private static final Block basalt_nether = OtherModBlocks.Basalt; //netherlicious
+	private static final Block basalt_et = OtherModBlocks.basalt; //et futurum requiem	
+	private static final Block smooth_basalt_nether = OtherModBlocks.BasaltBricks; //netherlicious 6
+	private static final Block smooth_basalt_et = OtherModBlocks.smooth_basalt; //et futurum requiem
 	
 	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
 	private static final Block deepslate_brick_slab = OtherModBlocks.deepslate_brick_slab;
 	private static final Block deepslate_tile_stairs = OtherModBlocks.deepslate_tile_stairs;
 	private static final Block deepslate_brick_stairs = OtherModBlocks.deepslate_brick_stairs;
 	private static final Block polished_deepslate_stairs = OtherModBlocks.polished_deepslate_stairs;
+	private static final Block cobbled_deepslate_stairs = OtherModBlocks.cobbled_deepslate_stairs;
 	private static final Block deepslate_wall = OtherModBlocks.deepslate_wall;
 	private static final Block deepslate_brick_wall = OtherModBlocks.deepslate_brick_wall;
-	private static final Block fence_dark_oak = OtherModBlocks.fence_dark_oak;
-	private static final Block blue_ice = OtherModBlocks.blue_ice;
-	private static final Block iron_trapdoor = OtherModBlocks.iron_trapdoor;
-	
+	private static final Block fence_dark_oak = OtherModBlocks.fence_dark_oak;	
 	private static final Block deepslate_bricks = OtherModBlocks.deepslate_bricks;
-	private static final Block cobbled_deepslate_stairs = OtherModBlocks.cobbled_deepslate_stairs;
+	private static final Block cracked_deepslate_bricks = OtherModBlocks.deepslate_bricks;
+	private static final Block deepslate_tiles = OtherModBlocks.deepslate_bricks;
+	private static final Block cracked_deepslate_tiles = OtherModBlocks.deepslate_bricks;
+	private static final Block chiseled_deepslate = OtherModBlocks.deepslate_bricks;
 	
-	private static final Block basalt = OtherModBlocks.Basalt; //netherlicious
-	private static final Block basalt1 = OtherModBlocks.basalt; //et futurum requiem
+	private Block PlaceDeepslate;
+	private Block PlaceDeepslateBricks;
+	private Block PlaceDeepslateTiles;
+	private Block PlaceCrackedDeepslateTiles;
+	private Block PlaceCrackedDeepslateBricks;
+	private Block PlaceChiseledDeepslate;
+	private Block PlacePolishedDeepslate;
+	private Block PlaceSoulLantern;
+	private Block PlaceCobbledDeepslate;
+	private Block PlaceSoulFire;
+	private Block PlaceDarkOakFence;
+	private Block PlaceBasalt;
+	private Block PlaceSmoothBasalt;
+	private Block ShouldPlaceSoulSand;
 	
-	private static final Block smooth_basalt = OtherModBlocks.BasaltBricks; //netherlicious 6
-	private static final Block smooth_basalt1 = OtherModBlocks.smooth_basalt; //et futurum requiem
+	private Block PlaceDeepslateBrickSlab;
+	private Block PlaceDeepslateTileStairs;
+	private Block PlaceDeepslateBrickStairs;
+	private Block PlacePolishedDeepslateStairs;
+	private Block PlaceCobbledDeepslateStairs;
+	private Block PlaceDeepslateWall;
+	private Block PlaceDeepslateBrickWall;
+	
+	private Block determineIfSoulLanternExists(World world, int x, int y, int z) {
+        Block existingBlock = world.getBlock(x, y, z);
 
-	//0 -> deepslate bricks
-	//1 -> cracked deepslate bricks
-	//2 -> deepslate tiles
-	//3 -> cracked deepslate bricks
-	//4 -> chiseled deepslate bricks
+        if (Configs.disableEtFuturumSoulLanternInAncientCity == true && Loader.isModLoaded("netherlicious") && (existingBlock == null || existingBlock != soul_lantern)) {
+        		return SoulLantern;
+        } else if (Loader.isModLoaded("etfuturum") && (existingBlock == null || existingBlock != SoulLantern)) {
+            return soul_lantern;
+        } else {
+        	return Blocks.air;
+        }
+    }
     
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
-    	
+    	PlaceSoulLantern = determineIfSoulLanternExists(world, i + 84, j + 3, k + 4);
+    		
     	world.setBlock(i + 85, j + 10, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 86, j + 10, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 87, j + 10, k + 1, Blocks.air, 0, 2);
@@ -2385,24 +2416,24 @@ public class AncientCityNegativeXHallwayGen5 extends WorldGenerator
 		world.setBlock(i + 91, j + 12, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 92, j + 12, k + 8, Blocks.air, 0, 2);
 
-		world.setBlock(i + 84, j + 3, k + 4, soul_lantern, 1, 2);
-		world.setBlock(i + 85, j + 3, k + 4, soul_lantern, 1, 2);
-		world.setBlock(i + 5, j + 4, k + 1, soul_lantern, 1, 2);
-		world.setBlock(i + 9, j + 4, k + 1, soul_lantern, 1, 2);
-		world.setBlock(i + 20, j + 4, k + 1, soul_lantern, 1, 2);
-		world.setBlock(i + 36, j + 4, k + 1, soul_lantern, 1, 2);
-		world.setBlock(i + 40, j + 4, k + 1, soul_lantern, 1, 2);
-		world.setBlock(i + 62, j + 4, k + 1, soul_lantern, 1, 2);
-		world.setBlock(i + 66, j + 4, k + 1, soul_lantern, 1, 2);
-		world.setBlock(i + 5, j + 4, k + 7, soul_lantern, 1, 2);
-		world.setBlock(i + 9, j + 4, k + 7, soul_lantern, 1, 2);
-		world.setBlock(i + 20, j + 4, k + 7, soul_lantern, 1, 2);
-		world.setBlock(i + 36, j + 4, k + 7, soul_lantern, 1, 2);
-		world.setBlock(i + 62, j + 4, k + 7, soul_lantern, 1, 2);
-		world.setBlock(i + 66, j + 4, k + 7, soul_lantern, 1, 2);
-		world.setBlock(i + 75, j + 7, k + 4, soul_lantern, 0, 2);
-		world.setBlock(i + 81, j + 7, k + 4, soul_lantern, 0, 2);
-		world.setBlock(i + 87, j + 7, k + 4, soul_lantern, 0, 2);
+		world.setBlock(i + 84, j + 3, k + 4, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 85, j + 3, k + 4, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 5, j + 4, k + 1, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 9, j + 4, k + 1, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 20, j + 4, k + 1, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 36, j + 4, k + 1, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 40, j + 4, k + 1, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 62, j + 4, k + 1, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 66, j + 4, k + 1, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 5, j + 4, k + 7, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 9, j + 4, k + 7, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 20, j + 4, k + 7, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 36, j + 4, k + 7, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 62, j + 4, k + 7, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 66, j + 4, k + 7, PlaceSoulLantern, 1, 2);
+		world.setBlock(i + 75, j + 7, k + 4, PlaceSoulLantern, 0, 2);
+		world.setBlock(i + 81, j + 7, k + 4, PlaceSoulLantern, 0, 2);
+		world.setBlock(i + 87, j + 7, k + 4, PlaceSoulLantern, 0, 2);
     	
     	return true;
     }

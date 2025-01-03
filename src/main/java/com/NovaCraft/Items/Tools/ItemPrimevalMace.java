@@ -13,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
@@ -31,7 +32,7 @@ public class ItemPrimevalMace extends ItemSword
     }
 
 	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
-        tooltip.add(EnumChatFormatting.LIGHT_PURPLE + "" + StatCollector.translateToLocal("tooltip.primeval_mace.desc"));
+        tooltip.add(EnumChatFormatting.AQUA + "" + StatCollector.translateToLocal("tooltip.primeval_mace.desc"));
     }
 	
 	@Override
@@ -72,5 +73,9 @@ public class ItemPrimevalMace extends ItemSword
     
     public Entity createEntity(final World world, final Entity location, final ItemStack itemstack) {
         return (Entity)new EntityFireProofItemNovaCraft(world, location, itemstack);
+    }
+    
+    public EnumRarity getRarity(ItemStack itemstack) {
+        return EnumRarity.epic;
     }
 }

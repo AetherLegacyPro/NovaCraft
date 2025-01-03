@@ -159,6 +159,19 @@ public enum ParticleHandler
         }
 	},
 	
+	PORTAL_PARTICLE((Class)EntityRandomShapedParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+        
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/portal_particle.png");
+        }
+        
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.12f * world.rand.nextFloat(), -1, this.texture, 6 };
+        }
+	},
+	
 	ANCIENT_VIBRATION((Class)EntityRandomShapedParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
         private final ResourceLocation texture;
         
@@ -208,6 +221,19 @@ public enum ParticleHandler
         @Override
         protected Object[] getAdditionalArgs(final World world, final Object... data) {
             return new Object[] { 0, 0.12f * world.rand.nextFloat(), -1, this.texture, 1 };
+        }
+	},
+	
+	IONFLAMELARGE((Class)EntitySculkParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+        
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/ionizatior_flame.png");
+        }
+        
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.36f * world.rand.nextFloat(), -1, this.texture, 1 };
         }
 	},
 	

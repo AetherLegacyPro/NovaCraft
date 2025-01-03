@@ -116,7 +116,7 @@ public class BlockSculk extends Block {
  		if (entity instanceof EntityPlayer && !(hasSculkBoots)) {
  			int rand = (int)(1 + Math.random() * 15);
  			if (rand == 1 && !entity.isSneaking()) {
- 			world.playSoundEffect(x, y, z, "nova_craft:warden_altar.shriek", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 0.9F);
+ 			world.playSoundEffect(x, y, z, "nova_craft:warden_altar.shriek", 0.5F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 0.9F);
  			EntitySculkSymbiote sculk = new EntitySculkSymbiote(world);
  			sculk.setPosition(x + 0.5D, y + 1D, z + 0.5D);
 
@@ -127,7 +127,7 @@ public class BlockSculk extends Block {
  			}
  			int rand2 = (int)(1 + Math.random() * 100);
  			if (rand2 == 10 && !entity.isSneaking()) {
- 	 			world.playSoundEffect(x, y, z, "nova_craft:warden_altar.shriek", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.25F + 0.95F);
+ 	 			world.playSoundEffect(x, y, z, "nova_craft:warden_altar.shriek", 0.5F, world.rand.nextFloat() - world.rand.nextFloat() * 0.25F + 0.95F);
  	 			EntitySculkAbomination sculk2 = new EntitySculkAbomination(world);
  	 			sculk2.setPosition(x + 0.5D, y + 1D, z + 0.5D);
 

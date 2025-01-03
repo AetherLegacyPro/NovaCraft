@@ -57,10 +57,10 @@ public class EntitySculkDweller extends EntityMob
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.55D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.65D);
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10D);
+		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(12D);
 		this.setHealth(100);
 	}
 	
@@ -177,7 +177,7 @@ public class EntitySculkDweller extends EntityMob
 	@Override
     protected String getLivingSound()
     {
-        return "nova_craft:sculk_dweller.living";
+        return "nova_craft:sculk_abomination.living";
     }
 
     /**
@@ -186,7 +186,7 @@ public class EntitySculkDweller extends EntityMob
 	@Override
     protected String getHurtSound()
     {
-        return "nova_craft:sculk_dweller.hurt";
+        return "nova_craft:warden_altar.shriek";
     }
 
     /**
@@ -195,7 +195,7 @@ public class EntitySculkDweller extends EntityMob
 	@Override
     protected String getDeathSound()
     {
-        return "nova_craft:sculk_dweller.death";
+        return "nova_craft:sculk_abomination.death";
     }
 	
 	@Override

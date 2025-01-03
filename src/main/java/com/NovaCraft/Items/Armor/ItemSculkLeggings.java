@@ -8,8 +8,13 @@ import org.apache.logging.log4j.Level;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
@@ -19,12 +24,13 @@ import net.minecraft.item.ItemArmor;
 
 public class ItemSculkLeggings extends ItemArmor
 {
+	
     public ItemSculkLeggings() {
         super(NCArmorMaterial.SCULK, 0, 2);
         this.setCreativeTab(NovaCraftCreativeTabs.tools);
     }
-    
-    public String getArmorTexture(final ItemStack stack, final Entity entity, final int slot, final String type) {
+
+	public String getArmorTexture(final ItemStack stack, final Entity entity, final int slot, final String type) {
         if (stack.getItem() == NovaCraftItems.sculk_leggings) {
             return "nova_craft:textures/armor/sculk_layer_2.png";
         }

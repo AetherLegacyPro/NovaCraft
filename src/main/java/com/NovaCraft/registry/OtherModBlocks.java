@@ -74,6 +74,7 @@ public class OtherModBlocks
     public static Block SoulFire;
     public static Block SoulTorch;
     public static Block EfrineOre;
+    public static Block SoulLantern;
     
     //Vanilla Aether Legacy
     public static Block enchanted_gravitite;
@@ -166,6 +167,7 @@ public class OtherModBlocks
     	OtherModBlocks.SoulFire = GameRegistry.findBlock("netherlicious", "SoulFire");
     	OtherModBlocks.SoulTorch = GameRegistry.findBlock("netherlicious", "SoulTorch");
     	OtherModBlocks.EfrineOre = GameRegistry.findBlock("netherlicious", "EfrineOre");
+    	OtherModBlocks.SoulLantern = GameRegistry.findBlock("netherlicious", "SoulLantern");
     	
     	OtherModBlocks.enchanted_gravitite = GameRegistry.findBlock("aether_legacy", "enchanted_gravitite");
     	OtherModBlocks.ambrosium_ore = GameRegistry.findBlock("aether_legacy", "ambrosium_ore");

@@ -388,6 +388,6 @@ public class ItemKlangitePickaxe extends ItemPickaxe {
 	 }
 	
 	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
-        tooltip.add(EnumChatFormatting.LIGHT_PURPLE + "" + StatCollector.translateToLocal("tooltip.klangite_tools.desc"));
+        tooltip.add(EnumChatFormatting.LIGHT_PURPLE + "" + StatCollector.translateToLocal("tooltip.klangite_pickaxe.desc"));
     }
 }
