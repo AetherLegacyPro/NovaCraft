@@ -5,9 +5,9 @@ This Mod's main goal is to expand upon the base game and make Survival/Hardcore 
 For rules I go by when working on NovaCraft, no new dimensions or biomes as I want to expland upon the realms which are already here. 
 In addition no new GUIS(extentions to ones in vanilla are fine though) as I rather players interact in the world like with farming, exploring, or with strange interactions like throwing an item into the void to get something back.
 
-**NOTE**: I am working on my version of the Ancient City for V1.4 of NovaCraft which will hopefully be out around Christmas 2024.
+**NOTE**: I am working on my version of the Ancient City for V1.4 of NovaCraft which will hopefully be out soon, I still need to finish up the weapon/armor rebalancing and add in the Prisoner content.
 - While not as unique and cool as in 1.19 there will be no vibration mechanic as I have no idea how to add that(leaving that for Roadhog360 or his many contributors to figure out at some point in Et Futurum Requiem as they would manage it with 1-1 parity) 
-- Some of the blocks are missing as well but there will different verisons of the Ancient City one made out the deepslate from Et Futurum Requiem and two more made out of grimstone and nullstone.
+- Some of the blocks are missing as well but there will different verisons of the Ancient City one made out the deepslate from Et Futurum Requiem or grimstone in the config.
 - Basically it will be more like a massive ruined underground dungeon with spawners, traps and actual loot.
 - Hostiles mobs do spawn in and around the structure natually; no idea how to change this...
 - The Warden Altar will be moved here with an outline on how to summon him.
