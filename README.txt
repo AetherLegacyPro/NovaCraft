@@ -7,13 +7,13 @@ In addition no new GUIS(extentions to ones in vanilla are fine though) as I rath
 
 **NOTE**: I am working on my version of the Ancient City for V1.4 of NovaCraft which will hopefully be out soon, I still need to finish up the weapon/armor rebalancing and add in the Prisoner content.
 - While not as unique and cool as in 1.19 there will be no vibration mechanic as I have no idea how to add that(leaving that for Roadhog360 or his many contributors to figure out at some point in Et Futurum Requiem as they would manage it with 1-1 parity) 
-- Some of the blocks are missing as well but there will different verisons of the Ancient City one made out the deepslate from Et Futurum Requiem or grimstone in the config.
+- Some of the blocks are missing as well but there will different versions of the Ancient City one made out the deepslate from Et Futurum Requiem or grimstone in the config.
 - Basically it will be more like a massive ruined underground dungeon with spawners, traps and actual loot.
-- Hostiles mobs do spawn in and around the structure natually; no idea how to change this...
+- Hostiles mobs do spawn in and around the structure naturally; no idea how to change this...
 - The Warden Altar will be moved here with an outline on how to summon him.
 - There is also new buildings/ruins in the city pertaining to features in NovaCraft.
 - Plan is to have it be a rare structure that may or may not have an entrance on the surface to help locate one.
-- Plan is to have post Nether exploration in progression but honestly should be explored after traveling to the End as it is quite difficult since I plan to have minibosses to keep an eye out for when exploring it.
+- Plan is to have post Nether exploration in progression but honestly should be explored after traveling to the End as it is quite difficult since I plan to have mini-bosses to keep an eye out for when exploring it.
 
 
 **Main Features of The Mod**
