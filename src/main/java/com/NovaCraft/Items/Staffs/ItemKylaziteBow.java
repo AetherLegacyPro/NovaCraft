@@ -12,11 +12,15 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
+
+import java.util.List;
 
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
@@ -71,6 +75,10 @@ public class ItemKylaziteBow extends ItemBow {
 		}
 
 		return getIcon(stack, renderPass);
+	}
+	
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+	 	   tooltip.add(EnumChatFormatting.DARK_PURPLE + "" + StatCollector.translateToLocal("tooltip.kylazite_bow.desc"));
 	}
 
 	@Override
@@ -135,7 +143,7 @@ public class ItemKylaziteBow extends ItemBow {
 							entityarrow.setIsCritical(true);
 						}
 						
-						entityarrow.setDamage(entityarrow.getDamage() + (double) f * 1.7D + 1.7D);
+						entityarrow.setDamage(entityarrow.getDamage() + (double) f * 1.5D + 1.5D);
 
 						int j = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
 

@@ -30,8 +30,8 @@ public class ItemSculkedBlade extends ItemSword
     }
 	
 	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-		EntityPlayer player = (EntityPlayer) attacker;
+	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase living) {
+		EntityPlayer player = (EntityPlayer) living;
 		
 		int rand = (int)(1 + Math.random() * 6);
 		switch (rand)
@@ -46,6 +46,6 @@ public class ItemSculkedBlade extends ItemSword
 		
         }
 
-		return super.hitEntity(stack, target, attacker);
+		return super.hitEntity(stack, target, living);
 	}
 }

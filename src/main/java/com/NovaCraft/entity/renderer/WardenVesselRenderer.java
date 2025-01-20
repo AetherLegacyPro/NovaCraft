@@ -5,7 +5,7 @@ import java.util.Random;
 import org.lwjgl.opengl.GL11;
 
 import com.NovaCraft.entity.EntityWardenVessel;
-import com.NovaCraft.entity.models.WardenVesselModel;
+import com.NovaCraft.entity.models.WardlingModel;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -22,7 +22,7 @@ import net.minecraft.util.ResourceLocation;
 public class WardenVesselRenderer extends RenderLiving
 {
 	protected Random rand;
-	private static final ResourceLocation texture = new ResourceLocation("nova_craft", "textures/entity/warden_vessel/warden_vessel.png");	
+	private static final ResourceLocation texture = new ResourceLocation("nova_craft", "textures/entity/warden_vessel/wardling.png");	
 	private static final ResourceLocation bioluminescent;
 	private static final ResourceLocation spots_1;
 	
@@ -30,8 +30,8 @@ public class WardenVesselRenderer extends RenderLiving
 	protected ModelBiped field_82435_l; 
 	
 	public WardenVesselRenderer() {
-		super(new WardenVesselModel(), 0.5f);
-		this.setRenderPassModel((ModelBase)new WardenVesselModel());
+		super(new WardlingModel(), 0.5f);
+		this.setRenderPassModel((ModelBase)new WardlingModel());
 	}
     
     protected int shouldRenderPass(final EntityLivingBase par1EntityLivingBase, final int par2, final float par3) {
@@ -47,7 +47,7 @@ public class WardenVesselRenderer extends RenderLiving
             return -1;
         }
         {
-        this.bindTexture(WardenVesselRenderer.spots_1);
+        //this.bindTexture(WardenVesselRenderer.spots_1);
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
@@ -71,7 +71,7 @@ public class WardenVesselRenderer extends RenderLiving
             return -1;
         }
         {
-        this.bindTexture(WardenVesselRenderer.bioluminescent);
+        //this.bindTexture(WardenVesselRenderer.bioluminescent);
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);

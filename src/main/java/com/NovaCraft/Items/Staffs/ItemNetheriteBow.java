@@ -40,7 +40,7 @@ public class ItemNetheriteBow extends ItemBow {
 		super();
 
 		this.maxStackSize = 1;
-		this.setMaxDamage(888);
+		this.setMaxDamage(1388);
 		this.setFull3D();
 		this.setTextureName(NovaCraft.find("netherite_bow"));
 		this.setCreativeTab(NovaCraftCreativeTabs.tools);

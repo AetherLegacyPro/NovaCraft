@@ -589,7 +589,7 @@ public class NovaCraftRegistries {
 		}
 		}
 		
-		register("enhanced_enflamed_null_cube_slimeball", new ItemStack(NovaCraftItems.enhanced_enflamed_null_cube_slimeball), "ZYZ", "XWX", "ZYZ", 'Z', new ItemStack(NovaCraftItems.flaming_pitcher_petal), 'Y', new ItemStack(Items.blaze_powder), 'X', new ItemStack(NovaCraftItems.enflamed_null_cube_slimeball), 'W', new ItemStack(NovaCraftItems.variegated_shard));
+		register("enhanced_enflamed_null_cube_slimeball", new ItemStack(NovaCraftItems.enhanced_enflamed_null_cube_slimeball, 2), "ZYZ", "XWX", "ZYZ", 'Z', new ItemStack(NovaCraftItems.flaming_pitcher_petal), 'Y', new ItemStack(Items.blaze_powder), 'X', new ItemStack(NovaCraftItems.enflamed_null_cube_slimeball), 'W', new ItemStack(NovaCraftItems.variegated_shard));
 		
 		register("crystalite_sword", new ItemStack(NovaCraftItems.crystalite_sword), "AZY", "XWZ", "VUA", 'Z', new ItemStack(NovaCraftBlocks.variegated_block), 'Y', new ItemStack(NovaCraftBlocks.block_of_reinforced_vanite), 'X', new ItemStack(NovaCraftItems.sculk_star), 'W', new ItemStack(NovaCraftItems.warden_sword), 'V', new ItemStack(NovaCraftItems.heart_of_the_end), 'U', new ItemStack(NovaCraftItems.warden_heart), 'A', new ItemStack(NovaCraftItems.enflamed_null_cube_slimeball));
 		register("crystalite_helmet", new ItemStack(NovaCraftItems.crystalite_helmet), "AZY", "XWZ", "VUA", 'Z', new ItemStack(NovaCraftBlocks.variegated_block), 'Y', new ItemStack(NovaCraftBlocks.block_of_reinforced_vanite), 'X', new ItemStack(NovaCraftItems.sculk_star), 'W', new ItemStack(NovaCraftItems.warden_helmet), 'V', new ItemStack(NovaCraftItems.heart_of_the_end), 'U', new ItemStack(NovaCraftItems.warden_heart), 'A', new ItemStack(NovaCraftItems.enflamed_null_cube_slimeball));

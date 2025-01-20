@@ -304,15 +304,10 @@ public class EntityWardenVessel extends EntityMob
 	        
 	        for (k = 0; k < j; ++k)
 	        {
-	        	this.dropItem(NovaCraftItems.static_essence, 3 + p_70628_2_);
-	        }	
+	        	this.dropItem(NovaCraftItems.static_essence, 1);
+	        }
 	        
-	        j = this.rand.nextInt(1 + p_70628_2_);
-	        
-	        for (k = 0; k < j; ++k)
-	        {
-	        	this.dropItem(NovaCraftItems.wardling_dust, 1 + p_70628_2_);
-	        }	
+	        this.dropItem(NovaCraftItems.wardling_dust, 1 + p_70628_2_);
 	    }
 	 
 	 protected void dropRareDrop(int p_70600_1_)

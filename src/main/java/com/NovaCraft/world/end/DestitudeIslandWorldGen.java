@@ -27,6 +27,8 @@ public class DestitudeIslandWorldGen implements IWorldGenerator {
 	int novacraft_random = Configs.destituteIslandSpawnRate; 
 		
 	public void generateEnd(World world, Random rand, int x, int z) {
+		if(Math.abs(x) < 1000 && Math.abs(z) < 1000) return;
+		
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x + 16, z + 16);
 	      if ((biome == BiomeGenBase.sky || (BiomeDictionary.isBiomeOfType(biome, Type.END))) && Configs.destituteIslandSpawnRate != 0 && rand.nextInt(novacraft_random) == 17) {
 	         byte byte0 = 20;

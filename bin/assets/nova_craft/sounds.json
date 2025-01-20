@@ -386,26 +386,6 @@
     ]
   },
   
-  "-1.record": {
-    "category": "record",
-    "sounds": [
-      {
-        "name": "music/lemuria",
-        "stream": true
-      }
-    ]
-  },
-  
-  "-2.record": {
-    "category": "record",
-    "sounds": [
-      {
-        "name": "music/hidden_den",
-        "stream": true
-      }
-    ]
-  },
-  
   "warden.heartbeat": {
   "category": "hostile",
   "sounds": [

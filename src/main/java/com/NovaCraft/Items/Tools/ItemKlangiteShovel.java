@@ -115,7 +115,7 @@ public class ItemKlangiteShovel extends ItemSpade
 
    			 world.spawnEntityInWorld(entityItem);
    		 	}
-    		else if (!world.isRemote && world.rand.nextInt(4000) == 1) {
+    		else if (!world.isRemote && world.rand.nextInt(900) == 1) {
       		 EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(NovaCraftItems.tophinite_gemstone, 1));
 
       		 world.spawnEntityInWorld(entityItem);

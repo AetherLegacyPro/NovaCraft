@@ -707,6 +707,23 @@ tooltip.tophinite_tools.desc=Extra Drops in the Nether
 tooltip.tophinite_armor.desc=Full set puts out fire
 tooltip.tophinite_hammer.desc=Applies a random negative status effect
 
+tooltip.crystallized_vanite_tools.desc=Extra Drops in the Nether
+tooltip.crystallized_vanite_armor.desc=Full set puts out fire
+
+tooltip.ophidian_sword.desc=50% boost to sharpness and smite
+tooltip.ophidian_tools.desc=Extra Drops in the Nether
+tooltip.ophidian_armor.desc=Slightly Increases Attack Damage Per Piece
+
+tooltip.warden_sword.desc=Heals player when hitting an entity
+tooltip.warden_armor.desc=Slightly Increases Health Per Piece
+tooltip.warden_tools.desc=Decent Efficiency and Durability
+
+tooltip.kylazite_sword.desc=Fires projectiles, consumes xancium pellets
+tooltip.kylazite_pickaxe.desc=Built in Fortune that stacks with the enchantment
+tooltip.kylazite_armor.desc=Full set grants aura that damages hostiles
+tooltip.kylazite_axe.desc=Randomly finds additional logs or charcoal
+tooltip.kylazite_shovel.desc=Randomly finds additional drops based on the realm
+
 tooltip.klangite_pickaxe.desc=Built in Fortune that stacks with the enchantment
 tooltip.klangite_sword.desc=Fires projectiles, consumes xancium pellets
 tooltip.klangite_armor.desc=Full set grants aura that damages hostiles
@@ -725,7 +742,15 @@ tooltip.vanite_trident.desc=Unbreakable
 tooltip.diamond_firecharge.desc=Consumes Firecharges
 tooltip.vanite_firecharge.desc=Consumes Firecharges
 tooltip.klangite_firecharge.desc=Consumes Xancium Firecharges
-tooltip.ancient_leggings.desc=Increases Movement Speed
+tooltip.ancient_leggings.desc=Doubles Movement Speed
+tooltip.blue_vanite_crown.desc=Slightly Increases Movement Speed
+tooltip.red_vanite_crown.desc=Slightly Increases Movement Speed
+tooltip.green_vanite_crown.desc=Slightly Increases Movement Speed
+tooltip.orange_vanite_crown.desc=Slightly Increases Movement Speed
+tooltip.notched_vanite_crown.desc=Moderately Increases Movement Speed
+tooltip.exotic_vanite_crown.desc=Slightly Increases Attack Damage
+tooltip.dark_blue_vanite_crown.desc=Moderately Decreases Knockback
+tooltip.mysterious_vanite_crown.desc=Slightly Increases Max HP
 
 tooltip.explosive_ingot.desc=Throw this into the void!
 tooltip.anicent_city_totem.desc=Use Half HP to banish all lesser sculk mobs nearby!
@@ -734,6 +759,10 @@ tooltip.diamond_bow.desc=+2 damage
 tooltip.netherite_bow.desc=+4 damage
 tooltip.tophinite_bow.desc=+7 damage
 tooltip.klangite_bow.desc=+8 damage
+tooltip.crystallized_vanite_bow.desc=+7 damage
+tooltip.ophidian_bow.desc=+11 damage
+tooltip.kylazite_bow.desc=+9 damage
+tooltip.warden_bow.desc=+12 damage
 
 tooltip.ancient_city_chest.desc=Ancient City Chest
 tooltip.large_ancient_city_chest.desc=Large Ancient City Chest

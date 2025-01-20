@@ -12,11 +12,15 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
+
+import java.util.List;
 
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
@@ -50,6 +54,10 @@ public class ItemWardenBow extends ItemBow {
 	@Override
 	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
 		return repair.getItem() == NovaCraftItems.warden_shard;
+	}
+	
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+	 	   tooltip.add(EnumChatFormatting.DARK_AQUA + "" + StatCollector.translateToLocal("tooltip.warden_bow.desc"));
 	}
 
 	@Override
@@ -135,7 +143,7 @@ public class ItemWardenBow extends ItemBow {
 							entityarrow.setIsCritical(true);
 						}
 						
-						entityarrow.setDamage(entityarrow.getDamage() + (double) f * 1.55D + 1.55D);
+						entityarrow.setDamage(entityarrow.getDamage() + (double) f * 1.7D + 1.7D);
 
 						int j = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
 

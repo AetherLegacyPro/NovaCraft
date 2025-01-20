@@ -39,7 +39,7 @@ public class ItemTophiniteBow extends ItemBow {
 		super();
 
 		this.maxStackSize = 1;
-		this.setMaxDamage(3188);
+		this.setMaxDamage(1588);
 		this.setFull3D();
 		this.setTextureName(NovaCraft.find("tophinite_bow"));
 		this.setCreativeTab(NovaCraftCreativeTabs.tools);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
@@ -13,6 +14,7 @@ import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -38,6 +40,14 @@ public class ItemKlangitePickaxe extends ItemPickaxe {
    	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
    		return repair.getItem() == NovaCraftItems.klangite_ingot;
    	}
+	
+	public boolean hasCustomEntity(final ItemStack stack) {
+        return true;
+    }
+	
+	 public Entity createEntity(final World world, final Entity location, final ItemStack itemstack) {
+	        return (Entity)new EntityFireProofItemNovaCraft(world, location, itemstack);
+	    }
 	
 	@Override
 	public boolean onBlockDestroyed(ItemStack item, World world, Block block, int x, int y, int z, EntityLivingBase living)

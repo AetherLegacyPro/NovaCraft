@@ -6,13 +6,18 @@ import java.util.List;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.Armor.ItemAncientLeggings;
 import com.NovaCraft.Items.Armor.ItemCrystaliteArmor;
-import com.NovaCraft.Items.Armor.ItemGuardianArmor;
+import com.NovaCraft.Items.Armor.ItemCrystallizedVaniteBoots;
+import com.NovaCraft.Items.Armor.ItemCrystallizedVaniteChestplate;
+import com.NovaCraft.Items.Armor.ItemCrystallizedVaniteHelmet;
+import com.NovaCraft.Items.Armor.ItemCrystallizedVaniteLeggings;
 import com.NovaCraft.Items.Armor.ItemKlangiteBoots;
 import com.NovaCraft.Items.Armor.ItemKlangiteChestplate;
 import com.NovaCraft.Items.Armor.ItemKlangiteHelmet;
 import com.NovaCraft.Items.Armor.ItemKlangiteLeggings;
-import com.NovaCraft.Items.Armor.ItemKylaziteArmor;
-import com.NovaCraft.Items.Armor.ItemOphidianArmor;
+import com.NovaCraft.Items.Armor.ItemKylaziteBoots;
+import com.NovaCraft.Items.Armor.ItemKylaziteChestplate;
+import com.NovaCraft.Items.Armor.ItemKylaziteHelmet;
+import com.NovaCraft.Items.Armor.ItemKylaziteLeggings;
 import com.NovaCraft.Items.Armor.ItemPhantomBoots;
 import com.NovaCraft.Items.Armor.ItemPhantomChestplate;
 import com.NovaCraft.Items.Armor.ItemPhantomHelmet;
@@ -29,8 +34,15 @@ import com.NovaCraft.Items.Armor.ItemTophiniteBoots;
 import com.NovaCraft.Items.Armor.ItemTophiniteChestplate;
 import com.NovaCraft.Items.Armor.ItemTophiniteHelmet;
 import com.NovaCraft.Items.Armor.ItemTophiniteLeggings;
-import com.NovaCraft.Items.Armor.ItemVaniteArmor;
-import com.NovaCraft.Items.Armor.ItemWardenArmor;
+import com.NovaCraft.Items.Armor.advanced.ItemGuardianArmor;
+import com.NovaCraft.Items.Armor.advanced.ItemOphidianBoots;
+import com.NovaCraft.Items.Armor.advanced.ItemOphidianChestplate;
+import com.NovaCraft.Items.Armor.advanced.ItemOphidianHelmet;
+import com.NovaCraft.Items.Armor.advanced.ItemOphidianLeggings;
+import com.NovaCraft.Items.Armor.advanced.ItemWardenBoots;
+import com.NovaCraft.Items.Armor.advanced.ItemWardenChestplate;
+import com.NovaCraft.Items.Armor.advanced.ItemWardenHelmet;
+import com.NovaCraft.Items.Armor.advanced.ItemWardenLeggings;
 import com.NovaCraft.Items.Armor.crown.ItemVaniteBlueCrown;
 import com.NovaCraft.Items.Armor.crown.ItemVaniteDarkBlueCrown;
 import com.NovaCraft.Items.Armor.crown.ItemVaniteExoticCrown;
@@ -456,10 +468,10 @@ public class NovaCraftItems {
 		crystallized_vanite_shovel = register("crystallized_vanite_shovel", new ItemCrystallizedVaniteShovel().setTextureName(NovaCraft.find("crystallized_vanite_shovel")));
 		crystallized_vanite_hoe = register("crystallized_vanite_hoe", new ItemCrystallizedVaniteHoe().setTextureName(NovaCraft.find("crystallized_vanite_hoe")));
 		
-		crystallized_vanite_helmet = register("crystallized_vanite_helmet", new ItemVaniteArmor(0, ArmorMaterial.DIAMOND, "crystallized_vanite", null).setMaxDamage(2257).setTextureName(NovaCraft.find("crystallized_vanite_helmet")));
-		crystallized_vanite_chestplate = register("crystallized_vanite_chestplate", new ItemVaniteArmor(1, ArmorMaterial.DIAMOND, "crystallized_vanite", null).setMaxDamage(2313).setTextureName(NovaCraft.find("crystallized_vanite_chestplate")));
-		crystallized_vanite_leggings = register("crystallized_vanite_leggings", new ItemVaniteArmor(2, ArmorMaterial.DIAMOND, "crystallized_vanite", null).setMaxDamage(2300).setTextureName(NovaCraft.find("crystallized_vanite_leggings")));
-		crystallized_vanite_boots = register("crystallized_vanite_boots", new ItemVaniteArmor(3, ArmorMaterial.DIAMOND, "crystallized_vanite", null).setMaxDamage(2277).setTextureName(NovaCraft.find("crystallized_vanite_boots")));
+		crystallized_vanite_helmet = register("crystallized_vanite_helmet", new ItemCrystallizedVaniteHelmet().setTextureName(NovaCraft.find("crystallized_vanite_helmet")));
+		crystallized_vanite_chestplate = register("crystallized_vanite_chestplate", new ItemCrystallizedVaniteChestplate().setTextureName(NovaCraft.find("crystallized_vanite_chestplate")));
+		crystallized_vanite_leggings = register("crystallized_vanite_leggings", new ItemCrystallizedVaniteLeggings().setTextureName(NovaCraft.find("crystallized_vanite_leggings")));
+		crystallized_vanite_boots = register("crystallized_vanite_boots", new ItemCrystallizedVaniteBoots().setTextureName(NovaCraft.find("crystallized_vanite_boots")));
 		
 		ophidian_sword = register("ophidian_sword", new ItemOphidianSword().setTextureName(NovaCraft.find("ophidian_sword")));
 		ophidian_bow = register("ophidian_bow", new ItemOphidianBow());
@@ -468,10 +480,10 @@ public class NovaCraftItems {
 		ophidian_shovel = register("ophidian_shovel", new ItemOphidianShovel().setTextureName(NovaCraft.find("ophidian_shovel")));
 		ophidian_hoe = register("ophidian_hoe", new ItemOphidianHoe().setTextureName(NovaCraft.find("ophidian_hoe")));
 		
-		ophidian_helmet = register("ophidian_helmet", new ItemOphidianArmor(0, ArmorMaterial.DIAMOND, "ophidian", null).setMaxDamage(7747).setTextureName(NovaCraft.find("ophidian_helmet")));
-		ophidian_chestplate = register("ophidian_chestplate", new ItemOphidianArmor(1, ArmorMaterial.DIAMOND, "ophidian", null).setMaxDamage(8089).setTextureName(NovaCraft.find("ophidian_chestplate")));
-		ophidian_leggings = register("ophidian_leggings", new ItemOphidianArmor(2, ArmorMaterial.DIAMOND, "ophidian", null).setMaxDamage(8014).setTextureName(NovaCraft.find("ophidian_leggings")));
-		ophidian_boots = register("ophidian_boots", new ItemOphidianArmor(3, ArmorMaterial.DIAMOND, "ophidian", null).setMaxDamage(7878).setTextureName(NovaCraft.find("ophidian_boots")));	
+		ophidian_helmet = register("ophidian_helmet", new ItemOphidianHelmet().setTextureName(NovaCraft.find("ophidian_helmet")));
+		ophidian_chestplate = register("ophidian_chestplate", new ItemOphidianChestplate().setTextureName(NovaCraft.find("ophidian_chestplate")));
+		ophidian_leggings = register("ophidian_leggings", new ItemOphidianLeggings().setTextureName(NovaCraft.find("ophidian_leggings")));
+		ophidian_boots = register("ophidian_boots", new ItemOphidianBoots().setTextureName(NovaCraft.find("ophidian_boots")));	
 		
 		klangite_sword = register("klangite_sword", new ItemKlangiteSword().setTextureName(NovaCraft.find("klangite_sword")));
 		klangite_bow = register("klangite_bow", new ItemKlangiteBow());
@@ -493,10 +505,10 @@ public class NovaCraftItems {
 		kylazite_shovel = register("kylazite_shovel", new ItemKylaziteShovel().setTextureName(NovaCraft.find("kylazite_shovel")));
 		kylazite_hoe = register("kylazite_hoe", new ItemKylaziteHoe().setTextureName(NovaCraft.find("kylazite_hoe")));
 		
-		kylazite_helmet = register("kylazite_helmet", new ItemKylaziteArmor(0, ArmorMaterial.DIAMOND, "kylazite", null).setMaxDamage(8747).setTextureName(NovaCraft.find("kylazite_helmet")));
-		kylazite_chestplate = register("kylazite_chestplate", new ItemKylaziteArmor(1, ArmorMaterial.DIAMOND, "kylazite", null).setMaxDamage(9089).setTextureName(NovaCraft.find("kylazite_chestplate")));
-		kylazite_leggings = register("kylazite_leggings", new ItemKylaziteArmor(2, ArmorMaterial.DIAMOND, "kylazite", null).setMaxDamage(9014).setTextureName(NovaCraft.find("kylazite_leggings")));
-		kylazite_boots = register("kylazite_boots", new ItemKylaziteArmor(3, ArmorMaterial.DIAMOND, "kylazite", null).setMaxDamage(8878).setTextureName(NovaCraft.find("kylazite_boots")));
+		kylazite_helmet = register("kylazite_helmet", new ItemKylaziteHelmet().setTextureName(NovaCraft.find("kylazite_helmet")));
+		kylazite_chestplate = register("kylazite_chestplate", new ItemKylaziteChestplate().setTextureName(NovaCraft.find("kylazite_chestplate")));
+		kylazite_leggings = register("kylazite_leggings", new ItemKylaziteLeggings().setTextureName(NovaCraft.find("kylazite_leggings")));
+		kylazite_boots = register("kylazite_boots", new ItemKylaziteBoots().setTextureName(NovaCraft.find("kylazite_boots")));
 					
 		warden_sword = register("warden_sword", new ItemWardenSword().setTextureName(NovaCraft.find("warden_sword")));
 		warden_bow = register("warden_bow", new ItemWardenBow());
@@ -505,10 +517,10 @@ public class NovaCraftItems {
 		warden_shovel = register("warden_shovel", new ItemWardenShovel().setTextureName(NovaCraft.find("warden_shovel")));
 		warden_hoe = register("warden_hoe", new ItemWardenHoe().setTextureName(NovaCraft.find("warden_hoe")));
 		
-		warden_helmet = register("warden_helmet", new ItemWardenArmor(0, ArmorMaterial.DIAMOND, "warden", null).setMaxDamage(12747).setTextureName(NovaCraft.find("warden_helmet")));
-		warden_chestplate = register("warden_chestplate", new ItemWardenArmor(1, ArmorMaterial.DIAMOND, "warden", null).setMaxDamage(13089).setTextureName(NovaCraft.find("warden_chestplate")));
-		warden_leggings = register("warden_leggings", new ItemWardenArmor(2, ArmorMaterial.DIAMOND, "warden", null).setMaxDamage(13014).setTextureName(NovaCraft.find("warden_leggings")));
-		warden_boots = register("warden_boots", new ItemWardenArmor(3, ArmorMaterial.DIAMOND, "warden", null).setMaxDamage(12878).setTextureName(NovaCraft.find("warden_boots")));
+		warden_helmet = register("warden_helmet", new ItemWardenHelmet().setTextureName(NovaCraft.find("warden_helmet")));
+		warden_chestplate = register("warden_chestplate", new ItemWardenChestplate().setTextureName(NovaCraft.find("warden_chestplate")));
+		warden_leggings = register("warden_leggings", new ItemWardenLeggings().setTextureName(NovaCraft.find("warden_leggings")));
+		warden_boots = register("warden_boots", new ItemWardenBoots().setTextureName(NovaCraft.find("warden_boots")));
 		
 		ancient_leggings = register("ancient_leggings", new ItemAncientLeggings().setTextureName(NovaCraft.find("ancient_leggings")));
 		
@@ -544,14 +556,14 @@ public class NovaCraftItems {
 		ender_lord_staff = register("ender_lord_staff", new ItemEnderLordStaff().setTextureName(NovaCraft.find("ender_lord_staff")));
 		crystal_growth_staff = register("crystal_growth_staff", new ItemCrystalGrowthStaff().setTextureName(NovaCraft.find("crystal_growth_staff")));
 		
-		vanite_blue_crown = register("vanite_blue_crown", new ItemVaniteBlueCrown(0, ArmorMaterial.DIAMOND, "vanite_blue", null).setMaxDamage(757).setTextureName(NovaCraft.find("vanite_blue_crown")));
-		vanite_red_crown = register("vanite_red_crown", new ItemVaniteRedCrown(0, ArmorMaterial.DIAMOND, "vanite_red", null).setMaxDamage(757).setTextureName(NovaCraft.find("vanite_red_crown")));
-		vanite_green_crown = register("vanite_green_crown", new ItemVaniteGreenCrown(0, ArmorMaterial.DIAMOND, "vanite_green", null).setMaxDamage(757).setTextureName(NovaCraft.find("vanite_green_crown")));
-		vanite_orange_crown = register("vanite_orange_crown", new ItemVaniteOrangeCrown(0, ArmorMaterial.DIAMOND, "vanite_orange", null).setMaxDamage(757).setTextureName(NovaCraft.find("vanite_orange_crown")));
-		vanite_dark_blue_crown = register("vanite_dark_blue_crown", new ItemVaniteDarkBlueCrown(0, ArmorMaterial.DIAMOND, "vanite_dark_blue", null).setMaxDamage(557).setTextureName(NovaCraft.find("vanite_dark_blue_crown")));
-		vanite_notched_crown = register("vanite_notched_crown", new ItemVaniteNotchedCrown(0, ArmorMaterial.DIAMOND, "vanite_notched", null).setMaxDamage(857).setTextureName(NovaCraft.find("vanite_notched_crown")));
-		vanite_exotic_crown = register("vanite_exotic_crown", new ItemVaniteExoticCrown(0, ArmorMaterial.DIAMOND, "vanite_exotic", null).setMaxDamage(1007).setTextureName(NovaCraft.find("vanite_exotic_crown")));
-		vanite_mysterious_crown = register("vanite_mysterious_crown", new ItemVaniteMysteriousCrown(0, ArmorMaterial.DIAMOND, "vanite_mysterious", null).setMaxDamage(1407).setTextureName(NovaCraft.find("vanite_mysterious_crown")));
+		vanite_blue_crown = register("vanite_blue_crown", new ItemVaniteBlueCrown().setTextureName(NovaCraft.find("vanite_blue_crown")));
+		vanite_red_crown = register("vanite_red_crown", new ItemVaniteRedCrown().setTextureName(NovaCraft.find("vanite_red_crown")));
+		vanite_green_crown = register("vanite_green_crown", new ItemVaniteGreenCrown().setTextureName(NovaCraft.find("vanite_green_crown")));
+		vanite_orange_crown = register("vanite_orange_crown", new ItemVaniteOrangeCrown().setTextureName(NovaCraft.find("vanite_orange_crown")));
+		vanite_dark_blue_crown = register("vanite_dark_blue_crown", new ItemVaniteDarkBlueCrown().setTextureName(NovaCraft.find("vanite_dark_blue_crown")));
+		vanite_notched_crown = register("vanite_notched_crown", new ItemVaniteNotchedCrown().setTextureName(NovaCraft.find("vanite_notched_crown")));
+		vanite_exotic_crown = register("vanite_exotic_crown", new ItemVaniteExoticCrown().setTextureName(NovaCraft.find("vanite_exotic_crown")));
+		vanite_mysterious_crown = register("vanite_mysterious_crown", new ItemVaniteMysteriousCrown().setTextureName(NovaCraft.find("vanite_mysterious_crown")));
 		
 		sculk_helmet = register("sculk_helmet", new ItemSculkHelmet().setTextureName(NovaCraft.find("sculk_helmet")));
 		sculk_chestplate = register("sculk_chestplate", new ItemSculkChestplate().setTextureName(NovaCraft.find("sculk_chestplate")));

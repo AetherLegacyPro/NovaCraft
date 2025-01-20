@@ -8,6 +8,7 @@ import java.util.Random;
 import org.apache.logging.log4j.Level;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.google.common.collect.HashMultimap;
@@ -28,6 +29,7 @@ import net.minecraft.item.ItemArmor;
 
 public class ItemAncientLeggings extends ItemArmor
 {
+	int movement_speed;
 	
     public ItemAncientLeggings() {
         super(NCArmorMaterial.ANCIENT, 0, 2);
@@ -46,10 +48,52 @@ public class ItemAncientLeggings extends ItemArmor
  	   tooltip.add(EnumChatFormatting.AQUA + "" + StatCollector.translateToLocal("tooltip.ancient_leggings.desc"));
  	}
     
+    public void onArmorTick(final World world, final EntityPlayer player, final ItemStack itemStack) {
+        boolean hasCrownBlue = false;
+        boolean hasCrownRed = false;
+        boolean hasCrownGreen = false;
+        boolean hasCrownOrange = false;
+        boolean hasNotchedCrown = false;
+        boolean hasAncientLegs = false;
+        final ItemStack helmet = player.getCurrentArmor(3);
+        final ItemStack legs = player.getCurrentArmor(1);
+        if (helmet != null) {
+        	hasCrownBlue = (helmet.getItem() == NovaCraftItems.vanite_blue_crown);  
+        	hasCrownRed = (helmet.getItem() == NovaCraftItems.vanite_red_crown);
+        	hasCrownGreen = (helmet.getItem() == NovaCraftItems.vanite_green_crown);
+        	hasCrownOrange = (helmet.getItem() == NovaCraftItems.vanite_orange_crown);
+        	hasNotchedCrown = (helmet.getItem() == NovaCraftItems.vanite_notched_crown);
+        }
+        if (legs != null) {
+        	hasAncientLegs = (legs.getItem() == NovaCraftItems.ancient_leggings);
+        }
+        if ((hasCrownBlue || hasCrownRed || hasCrownGreen || hasCrownOrange) && hasAncientLegs) {
+        	movement_speed = 0;
+        }
+        if (hasNotchedCrown && hasAncientLegs) {
+        	movement_speed = 2;
+        }
+        if (hasAncientLegs && !(hasCrownBlue || hasCrownRed || hasCrownGreen || hasCrownOrange || hasNotchedCrown)) {
+        	movement_speed = 1;
+        }
+    }
+    
     public Multimap getItemAttributeModifiers() {
-        Multimap multimap = HashMultimap.create();
-        multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "speed_boost", 1.00D, 2));
-        return multimap;
+        if (movement_speed == 0) {
+        	Multimap multimap = HashMultimap.create();
+        	multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "speed_boost", 1.10D, 2));
+        	return multimap;
+        }
+        else if (movement_speed == 2) {
+        	Multimap multimap = HashMultimap.create();
+        	multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "speed_boost", 1.20D, 2));
+        	return multimap;
+        }
+        else {
+        	Multimap multimap = HashMultimap.create();
+        	multimap.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "speed_boost", 1.00D, 2));
+        	return multimap;
+        }
      }
     
     public EnumRarity getRarity(ItemStack itemstack) {
