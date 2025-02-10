@@ -9,6 +9,8 @@ import org.apache.commons.lang3.ArrayUtils;
 import com.NovaCraft.world.end.EndWorldProviderNovaCraft;
 import com.NovaCraft.world.end.NCWorldGeneratorEnd;
 import com.NovaCraft.world.end.WorldGenShadowBloom;
+import com.NovaCraft.world.nether.structure.BlazingSerpentDungeonGen;
+import com.NovaCraft.world.nether.structure.NetherDungeonGen;
 import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -44,6 +46,7 @@ public class NCWorldGeneratorNether implements IWorldGenerator {
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.dimensionId == -1 && rand.nextInt(5) == 1) {
+			
 			int x4;
 			int z4;
 			x4 = chunkX * 16 + rand.nextInt(16) + 8;
@@ -71,16 +74,35 @@ public class NCWorldGeneratorNether implements IWorldGenerator {
 				ion_mushroom.get(0).generate(world, rand, x4, rand.nextInt(32) + 32, z4);	
 				
 				}
-			
+		}
 		
+		if(world.provider.dimensionId == -1) {
 		//Yttrlinsite Gen
-		int x11;
-		int z11;
-		x11 = chunkX * 16 + rand.nextInt(16) + 8;
-		z11 =chunkZ * 16 + rand.nextInt(16) + 8;
-		if(rand.nextInt(250) == 1) {
-			new YttrlinsiteGeoGen().generate(world, rand, x11, rand.nextInt(5) + 15, z11);
-		  }
-		}		
+			int x1;
+			int z1;
+			x1 = chunkX * 16 + rand.nextInt(16) + 8;
+			z1 = chunkZ * 16 + rand.nextInt(16) + 8;
+			if(rand.nextInt(250) == 1) {
+				new YttrlinsiteGeoGen().generate(world, rand, x1, rand.nextInt(5) + 15, z1);
+			 }
+				
+		//Nether Dungeon Gen
+			int x2;
+			int z2;
+			x2 = chunkX * 16 + rand.nextInt(16) + 8;
+			z2 = chunkZ * 16 + rand.nextInt(16) + 8;
+			if(rand.nextInt(300) == 3) {
+				new NetherDungeonGen().generate(world, rand, x2, rand.nextInt(10) + 8, z2);
+			}
+			
+		//Blazing Serpent Dungeon Gen
+			int x3;
+			int z3;
+			x3 = chunkX * 16 + rand.nextInt(16) + 8;
+			z3 = chunkZ * 16 + rand.nextInt(16) + 8;
+			if(rand.nextInt(280) == 2) {
+				new BlazingSerpentDungeonGen().generate(world, rand, x3, 31, z3);
+			}
+		}
 	}
 }

@@ -16,7 +16,6 @@ public class WorldGenFlamingPitcher extends WorldGenerator
 {
     private Block field_150552_a;
     private int field_150551_b;
-    private static final String __OBFID = "CL_00000410";
 
     public WorldGenFlamingPitcher(Block p_i45452_1_)
     {

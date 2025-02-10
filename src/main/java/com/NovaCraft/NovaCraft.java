@@ -29,9 +29,10 @@ import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.registry.NovaCraftFuelHander;
 import com.NovaCraft.registry.NovaCraftRegistries;
 import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraft.world.NCWorldGenerator;
+import com.NovaCraft.world.NCWorldGeneratorVillages;
 import com.NovaCraft.world.NCWorldGeneratorPlants;
 import com.NovaCraft.world.NCWorldGeneratorPost;
+import com.NovaCraft.world.NCWorldGeneratorPre;
 import com.NovaCraft.world.OreGenEventHandler;
 import com.NovaCraft.world.PopulateChunkEventHandler;
 import com.NovaCraft.world.ancient_city.AncientCityGen;
@@ -121,7 +122,8 @@ public class NovaCraft
         MinecraftForge.ORE_GEN_BUS.register(new OreGenEventHandler());
         MinecraftForge.EVENT_BUS.register(new PopulateChunkEventHandler());
         
-        GameRegistry.registerWorldGenerator((IWorldGenerator)new NCWorldGenerator(), Integer.MAX_VALUE);
+        GameRegistry.registerWorldGenerator((IWorldGenerator)new NCWorldGeneratorPre(), Integer.MAX_VALUE);
+        GameRegistry.registerWorldGenerator((IWorldGenerator)new NCWorldGeneratorVillages(), Integer.MAX_VALUE);
         
         if (Configs.enableSculkInfestedMineshaft) {
         GameRegistry.registerWorldGenerator(new SculkMineshaftGenerator(), 0);

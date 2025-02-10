@@ -66,6 +66,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 	public void generateEnd(final Random random, final int chunkX, final int chunkZ, final World world) {
 		
 		this.addOreSpawnEnd(NovaCraftBlocks.xancium_ore, world, random, chunkX, chunkZ, 8, 10, 9, 0, 90);
+		this.addOreSpawnEnd(NovaCraftBlocks.crystallized_end, world, random, chunkX, chunkZ, 2, 4, 4, 0, 12);
 		this.addOreSpawnEnd(NovaCraftBlocks.end_klangite_ore, world, random, chunkX, chunkZ, 2, 3, 4, 0, 75);
 		this.addOreSpawnFrontierslate(NovaCraftBlocks.frontierslate_klangite_ore, world, random, chunkX, chunkZ, 2, 5, 6, 0, 10);
 	}

@@ -16,43 +16,6 @@ import net.minecraftforge.client.event.FOVUpdateEvent;
 
 public class NovaCraftClientEvents {
 	
-	private void sendPickupPacket(Minecraft mc) {
-		if (mc.objectMouseOver != null) {
-			if (!this.onPickEntity(mc.objectMouseOver, mc.thePlayer, mc.theWorld)) {
-				return;
-			}
-
-			if (mc.thePlayer.capabilities.isCreativeMode) {
-				int index = mc.thePlayer.inventoryContainer.inventorySlots.size() - 9 + mc.thePlayer.inventory.currentItem;
-
-				mc.playerController.sendSlotPacket(mc.thePlayer.inventory.getStackInSlot(mc.thePlayer.inventory.currentItem), index);
-			}
-		}
-	}
-	
-	private boolean onPickEntity(MovingObjectPosition target, EntityPlayer player, World world) {
-		ItemStack result = null;
-		boolean isCreative = player.capabilities.isCreativeMode;
-
-		if (!isCreative) {
-			return false;
-		}
-
-		
-
-		
-		int slot = player.inventory.getFirstEmptyStack();
-
-		if (slot < 0 || slot >= 9) {
-			slot = player.inventory.currentItem;
-		}
-
-		player.inventory.setInventorySlotContents(slot, result);
-		player.inventory.currentItem = slot;
-
-		return true;
-	}
-	
 	@SubscribeEvent
 	public void onBowPulled(FOVUpdateEvent event) {
 		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
@@ -63,7 +26,9 @@ public class NovaCraftClientEvents {
 
 		Item item = player.getCurrentEquippedItem().getItem();
 
-		if (item == NovaCraftItems.diamond_bow || item == NovaCraftItems.klangite_bow || item == NovaCraftItems.crystalite_bow) {
+		if (item == NovaCraftItems.diamond_bow || item == NovaCraftItems.tophinite_bow || item == NovaCraftItems.crystallized_vanite_bow
+				|| item == NovaCraftItems.kylazite_bow || item == NovaCraftItems.warden_bow || item == NovaCraftItems.ophidian_bow	
+				|| item == NovaCraftItems.klangite_bow || item == NovaCraftItems.crystalite_bow) {
 			int i = player.getItemInUseDuration();
 			float f1 = (float) i / 20.0F;
 

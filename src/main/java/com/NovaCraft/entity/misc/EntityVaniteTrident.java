@@ -6,6 +6,8 @@ import java.util.List;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.Items.Staffs.NovaCraftDamageSource;
+import com.NovaCraft.config.Configs;
+import com.NovaCraft.particles.ParticleHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -445,6 +447,23 @@ public class EntityVaniteTrident extends EntityArrow //Entity EntityArrow
             this.setPosition(this.posX, this.posY, this.posZ);
             this.func_145775_I();
         }
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void onEntityUpdate() {
+    	super.onEntityUpdate();
+    	if (this.worldObj.isRemote) {
+    	int k;
+    		for (k = 0; k < 1; ++k)
+        	{
+        	ParticleHandler.TREASURE.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
+        	}
+        
+    		for (k = 0; k < 1; ++k)
+    		{
+        	ParticleHandler.TREASURE.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height + 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);        	
+    	    }
+    	}
     }
 
     /**

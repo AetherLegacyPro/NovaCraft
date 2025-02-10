@@ -26,6 +26,8 @@ public class Configs
     
     public static boolean enableGrimstone;
     public static boolean enableEndstoneBlobs;
+    public static boolean enableFrontierslate;
+    public static boolean enableVacuumSand;
     
     public static int[] DeeperCavesBlacklist;
 	public static boolean DeeperCavesBlacklistAsWhitelist;
@@ -156,6 +158,7 @@ public class Configs
     public static int destituteIslandSpawnRate;
     public static boolean enableDeepoidFortress;
     public static boolean enableSculkInfestedMineshaft;
+    public static boolean enableBlackstoneBricksInNetherStructures;
     
     public static boolean disableDarkOakFenceInAncientCity;
     public static boolean disableDeepslateInAncientCity;
@@ -287,6 +290,8 @@ public class Configs
         
         enableGrimstone = conf.getBoolean("enableGrimstone", catGeneration, true, "Enables Grimstone generation");
         enableEndstoneBlobs = conf.getBoolean("enableEndstoneBlobs", catGeneration, true, "Enables Endstone Blobs to generate throughout the End, if you use HEE or Enderlious this should not be necessary.");
+        enableFrontierslate = conf.getBoolean("enableFrontierslate", catGeneration, true, "Enables Frontierslate to generate throughout the End.");
+        enableVacuumSand = conf.getBoolean("enableVacuumSand", catGeneration, true, "Enables Vacuum Sand to generate throughout the End.");
         
         Property DeeperCavesWorldGenlistProp = conf.get(catGeneration, "DeeperCavesBlacklist", new int[] {});
         DeeperCavesWorldGenlistProp.comment = "Meant for those who play with the Deeper Caves Mod, Grimstone and Nullstone can Generate from y=8 to y=256.";
@@ -317,6 +322,8 @@ public class Configs
         enableSculkInfestedMineshaft = conf.getBoolean("enableSculkInfestedMineshaft", catGeneration, true, "Enables Sculk Infested Mineshafts to generate within Mountain Type Biomes.");
         endIslandSpawnRate = conf.get("Spawn Rate - End Islands", catGeneration, 121).getInt();
         destituteIslandSpawnRate = conf.get("Spawn Rate - Destitute Islands", catGeneration, 300).getInt();
+        
+        enableBlackstoneBricksInNetherStructures = conf.getBoolean("enableBlackstoneBricksInNetherStructures", catGeneration, true, "Use Blackstone Bricks from Netherlicious instead use Nullstone Bricks.");
         
         //Particles
         enableGlowSquidParticles = conf.getBoolean("enableGlowSquidParticles", catParticles, true, "Enables Glow Squid Particles(Causing the log to freak out if Dragon API is installed)");
