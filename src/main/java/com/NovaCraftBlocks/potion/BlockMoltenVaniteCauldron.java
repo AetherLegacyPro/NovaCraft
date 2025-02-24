@@ -24,19 +24,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class BlockMoltenVaniteCauldron extends BlockCauldron {
-
-	@SideOnly(Side.CLIENT)
-	public IIcon field_150029_a;
-	@SideOnly(Side.CLIENT)
-	public IIcon field_150028_b;
-	@SideOnly(Side.CLIENT)
-	public IIcon field_150030_M;
-	@SideOnly(Side.CLIENT)
-	public IIcon lavaIcon;
 	
 	public BlockMoltenVaniteCauldron() {
 		super();
-		//this.setStepSound(Blocks.cauldron.stepSound);
 		this.setHardness(12);
 		this.setResistance(55);
 		this.setTickRandomly(true);
@@ -86,15 +76,6 @@ public class BlockMoltenVaniteCauldron extends BlockCauldron {
 	public int tickRate(World world)
 	{
 		return 0;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister p_149651_1_) {
-		this.field_150029_a = p_149651_1_.registerIcon("nova_craft:vanitecauldron_bottom");
-        this.field_150028_b = p_149651_1_.registerIcon("nova_craft:vanitecauldron_top");
-        this.field_150030_M = p_149651_1_.registerIcon("nova_craft:bottom");
-        this.blockIcon = p_149651_1_.registerIcon("nova_craft:vanitecauldron_side");
 	}
 	
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int l) {		

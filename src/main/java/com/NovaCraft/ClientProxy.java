@@ -16,6 +16,7 @@ import com.NovaCraft.renderer.BlockAetherClusterRenderer;
 import com.NovaCraft.renderer.BlockCopartzClusterRenderer;
 import com.NovaCraft.renderer.BlockEchoClusterRenderer;
 import com.NovaCraft.renderer.BlockEmissiveLayerRenderer;
+import com.NovaCraft.renderer.BlockEmissiveLayerRenderer3D;
 import com.NovaCraft.renderer.BlockEndiumLogRenderer;
 import com.NovaCraft.renderer.BlockEndiumPlantRenderer;
 import com.NovaCraft.renderer.BlockLarimarClusterRenderer;
@@ -50,6 +51,11 @@ public class ClientProxy extends CommonProxy
 	private static int renderIdDeepOneEggActivated;
 	
 	@Override
+	public void init() {
+		registerEvent(new NovaCraftClientEvents());
+	}
+	
+	@Override
     public void registerRenderers() {
 		RenderingRegistry.registerBlockHandler(new BlockCopartzClusterRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockLarimarClusterRenderer());
@@ -75,6 +81,7 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new BlockLegendaryBeaconRenderer());
 		
 		RenderingRegistry.registerBlockHandler(new BlockEmissiveLayerRenderer(RenderIDs.EMISSIVE_DOUBLE_LAYER));
+		RenderingRegistry.registerBlockHandler(new BlockEmissiveLayerRenderer3D(RenderIDs.EMISSIVE_DOUBLE_LAYER_3D));
 		
 		RendersNovaCraft.initialization();
 		
@@ -109,11 +116,6 @@ public class ClientProxy extends CommonProxy
 	@Override
 	public EntityPlayer getPlayer() {
 		return Minecraft.getMinecraft().thePlayer;
-	}
-	
-	@Override
-	public void init() {
-		registerEvent(new NovaCraftClientEvents());
 	}
 	
 }

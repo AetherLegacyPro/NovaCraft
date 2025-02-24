@@ -55,7 +55,7 @@ public class BlockEnderFungusBlock extends Block implements IEmissiveLayerBlock 
     
     @Override
     public int getRenderType() {
-    	return RenderIDs.EMISSIVE_DOUBLE_LAYER;
+    	return RenderIDs.EMISSIVE_DOUBLE_LAYER_3D;    	
     }
     
     @Override

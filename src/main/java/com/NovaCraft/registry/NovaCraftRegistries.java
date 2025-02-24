@@ -753,7 +753,15 @@ public class NovaCraftRegistries {
 		registerShapeless("crystallized_vanite_chestplate", new ItemStack(NovaCraftItems.crystallized_vanite_chestplate), new ItemStack(Items.diamond_chestplate), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(Items.diamond));
 		registerShapeless("crystallized_vanite_leggings", new ItemStack(NovaCraftItems.crystallized_vanite_leggings), new ItemStack(Items.diamond_leggings), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(Items.diamond));
 		registerShapeless("crystallized_vanite_boots", new ItemStack(NovaCraftItems.crystallized_vanite_boots), new ItemStack(Items.diamond_boots), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(Items.diamond));
-			
+		
+		registerShapeless("end_stew", new ItemStack(NovaCraftItems.cave_stew, 2, 4), new ItemStack(NovaCraftBlocks.ender_brain), new ItemStack(NovaCraftBlocks.ender_fungus), new ItemStack(NovaCraftBlocks.ender_sprout), new ItemStack(Items.mushroom_stew), new ItemStack(Items.bowl));
+		registerShapeless("nether_stew", new ItemStack(NovaCraftItems.cave_stew, 2, 3), new ItemStack(NovaCraftBlocks.hell_piliz), new ItemStack(NovaCraftBlocks.ion_mushroom), new ItemStack(NovaCraftBlocks.deepoid_mushroom), new ItemStack(Items.mushroom_stew), new ItemStack(Items.bowl));
+		registerShapeless("sculk_stew", new ItemStack(NovaCraftItems.cave_stew, 2, 2), new ItemStack(NovaCraftBlocks.hydnum_mushroom), new ItemStack(NovaCraftItems.sculk_flesh), new ItemStack(NovaCraftItems.cave_monitor_tongue), new ItemStack(Items.mushroom_stew), new ItemStack(Items.bowl));
+		registerShapeless("deep_stew", new ItemStack(NovaCraftItems.cave_stew, 2, 1), new ItemStack(NovaCraftBlocks.pleurotus_mushroom), new ItemStack(NovaCraftItems.pherithium_carrot), new ItemStack(NovaCraftBlocks.deep_roots), new ItemStack(Items.mushroom_stew), new ItemStack(Items.bowl));
+		registerShapeless("cave_stew", new ItemStack(NovaCraftItems.cave_stew, 2, 0), new ItemStack(NovaCraftBlocks.calvatia_mushroom), new ItemStack(NovaCraftBlocks.glow_lichen), new ItemStack(NovaCraftItems.pherithium_carrot), new ItemStack(Items.mushroom_stew), new ItemStack(Items.bowl));
+
+		registerShapeless("miners_stew", new ItemStack(NovaCraftItems.cave_stew, 2, 5), new ItemStack(NovaCraftBlocks.calvatia_mushroom), new ItemStack(NovaCraftBlocks.pleurotus_mushroom), new ItemStack(NovaCraftBlocks.hydnum_mushroom), new ItemStack(NovaCraftBlocks.lentius_mushroom), new ItemStack(NovaCraftBlocks.rozite_mushroom), new ItemStack(NovaCraftItems.pherithium_carrot), new ItemStack(NovaCraftItems.cave_monitor_tongue), new ItemStack(Items.mushroom_stew), new ItemStack(Items.bowl));
+		
 			}
 		}
 	}

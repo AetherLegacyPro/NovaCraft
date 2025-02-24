@@ -29,7 +29,6 @@ public class BlockCrackedVaniteCauldron extends Block
         super(Material.iron);
         this.setHardness(12);
 		this.setResistance(55);
-		//this.setLightOpacity(0);
 		this.setStepSound(ModSounds.soundNullstone);
 		setHarvestLevel("pickaxe", 3);
     }

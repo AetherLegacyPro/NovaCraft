@@ -2,6 +2,7 @@ package com.NovaCraftBlocks.plants;
 
 import net.minecraft.util.*;
 import net.minecraft.block.material.*;
+import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -9,6 +10,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.*;
 import net.minecraft.block.*;
+import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.*;
 import java.util.*;
 
@@ -36,7 +38,6 @@ public class BlockGlowLichen extends BlockBush implements IEmissiveLayerBlock
         this.setStepSound(ModSounds.soundMoss);
         this.setHardness(0.1f);
         this.setLightOpacity(0);
-        this.func_150089_b(0);
         this.setCreativeTab(NovaCraftCreativeTabs.blocks);
         this.setLightLevel(0.55F);
         this.setTickRandomly(true);
@@ -72,16 +73,6 @@ public class BlockGlowLichen extends BlockBush implements IEmissiveLayerBlock
     public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
     {
         return true;
-    }
-    
-    public void setBlockBoundsForItemRender() {
-        this.func_150089_b(0);
-    }
-    
-    protected void func_150089_b(final int p_150089_1_) {
-        final byte b0 = 0;
-        final float f = 1 * (1 + b0) / 16.0f;
-        this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, f, 1.0f);
     }
     
     public void setBlockBoundsBasedOnState(final IBlockAccess access, final int x, final int y, final int z) {

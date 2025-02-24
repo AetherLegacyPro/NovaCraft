@@ -237,6 +237,7 @@ public class NovaCraftItems {
 	public static Item raw_blazing_charger, cooked_blazing_charger;
 	public static Item raw_chevon, cooked_chevon;
 	public static Item pherithium_carrot;
+	public static Item cave_stew;
 	
 	public static Item pherithium_sword, pherithium_pickaxe, pherithium_shovel, pherithium_axe, pherithium_hoe;
 	public static Item diamond_bow, netherite_bow;
@@ -581,6 +582,7 @@ public class NovaCraftItems {
 		guardian_boots = register("guardian_boots", new ItemGuardianArmor(3, ArmorMaterial.DIAMOND, "guardian", null).setMaxDamage(20277).setTextureName(NovaCraft.find("guardianboots")));
 		
 		sculk_flesh = register("sculk_flesh", new ItemSculkFlesh().setTextureName(NovaCraft.find("sculk_flesh")));
+		cave_stew = register("cave_stew", new ItemCaveStew().setTextureName(NovaCraft.find("cave_stew")));
 		
 		novacraft_spawn_egg = register("novacraft_spawn_egg", new ItemNovaCraftSpawnEgg().setTextureName("spawn_egg"));
 			

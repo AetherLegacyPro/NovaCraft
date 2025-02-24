@@ -25,7 +25,7 @@ import net.minecraft.entity.Entity;
         public WardlingModel() {
             this.textureWidth = 128;
             this.textureHeight = 128;
-            //0 +4 0
+            
             (this.head = new ModelRenderer((ModelBase)this)).setRotationPoint(0.0f, -10.0f, 0.0f);
             this.setRotation(this.head, 0.0973f, 0.0f, 0.0f);
             this.head.setTextureOffset(0, 0).addBox(0.0F, -14.0F, -4.0F, 6, 16, 6);

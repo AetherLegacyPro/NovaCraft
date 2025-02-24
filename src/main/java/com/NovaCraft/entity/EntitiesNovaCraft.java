@@ -188,9 +188,7 @@ public class EntitiesNovaCraft {
 				EntityRegistry.addSpawn(EntityFirefly.class, 2, 4, 2, EnumCreatureType.ambient, BiomeDictionary.getBiomesForType(Type.FOREST));
 			}
 		}			
-		
-		//EntityRegistry.addSpawn(EntityVerglas.class, 2, 1, 2, EnumCreatureType.monster, new BiomeGenBase[] { BiomeGenBase.coldTaiga, BiomeGenBase.coldTaigaHills, BiomeGenBase.coldBeach, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.extremeHillsPlus, BiomeGenBase.iceMountains, BiomeGenBase.icePlains});
-		
+			
 		//Sculk Dweller Spawn Rates
 		if (Configs.enableSpawnSculkDweller) {
 		EntityRegistry.addSpawn(EntitySculkDweller.class, 40, 2, 40, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.WET));

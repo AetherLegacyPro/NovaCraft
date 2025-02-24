@@ -157,6 +157,7 @@ public class NovaCraft
     	NetworkRegistry.INSTANCE.registerGuiHandler((Object)NovaCraft.instance, (IGuiHandler)new CommonProxy());
     	
     	proxy.registerRenderers();
+    	CommonProxy.registerEvent(new NovaCraftClientEvents());
     	CommonProxy.registerEvent(new NovaCraftEventHandler());
   
     }

@@ -20,7 +20,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockDestitude extends Block implements IEmissiveLayerBlock {
 
-	public static final int[] colors = new int[]{0x3f004d};
+	public static final int[] colors = new int[]{0xfdf0fe}; //0x3f004d
 	private IIcon infusedOverlay;
     private IIcon[] icon;
 	
@@ -55,7 +55,7 @@ public class BlockDestitude extends Block implements IEmissiveLayerBlock {
     
     @Override
     public int getRenderType() {
-    	return RenderIDs.EMISSIVE_DOUBLE_LAYER;
+    	return RenderIDs.EMISSIVE_DOUBLE_LAYER_3D;
     }
     
     @Override

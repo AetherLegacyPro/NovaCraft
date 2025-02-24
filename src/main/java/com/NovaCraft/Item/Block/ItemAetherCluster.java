@@ -1,6 +1,7 @@
 package com.NovaCraft.Item.Block;
 
 import com.NovaCraft.core.Utils;
+import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -12,7 +13,7 @@ import net.minecraft.util.IIcon;
 public class ItemAetherCluster extends ItemBlock {
 	
 	private static final String[] item_names = new String[] {"aether_bud", "aether_medium_bud", "aether_large_bud", "aether_cluster"};
-
+	
 	public ItemAetherCluster(Block p_i45328_1_) {
 		super(p_i45328_1_);
 		setHasSubtypes(true);

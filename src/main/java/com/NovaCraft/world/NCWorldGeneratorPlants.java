@@ -15,6 +15,7 @@ import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.world.structure.AetherGeoGen;
 import com.NovaCraft.world.structure.CopartzGeoGen;
 import com.NovaCraft.world.structure.LarimarGeoGen;
+import com.NovaCraft.world.structure.NovaCraftAdvancedTraditionalDungeonGen;
 import com.NovaCraft.world.structure.NovaCraftDungeonGen;
 import com.NovaCraft.world.structure.NovaCraftTraditionalDungeonGen;
 import com.NovaCraft.world.structure.SculkGeoDungeon;
@@ -281,6 +282,15 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			biomeList20 = BiomeDictionary.getTypesForBiome(biome20);
 			if(!(BiomeDictionary.isBiomeOfType(biome20, BiomeDictionary.Type.OCEAN)) && rand.nextInt(210) == 0) {
 				new NovaCraftTraditionalDungeonGen().generate(world, rand, x20, rand.nextInt(20) + 25, z20);
+			}
+			
+			//NovaCraft Traditional Dungeon
+			int x21;
+			int z21;
+			x21 = chunkX * 16 + rand.nextInt(16) + 8;
+			z21 = chunkZ * 16 + rand.nextInt(16) + 8;
+			if(rand.nextInt(330) == 1) {
+				new NovaCraftAdvancedTraditionalDungeonGen().generate(world, rand, x21, rand.nextInt(10) + 10, z21);
 			}
 			
 			//Sea Serpent Spawner

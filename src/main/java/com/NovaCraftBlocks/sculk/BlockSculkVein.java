@@ -19,6 +19,7 @@ import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
+import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;

@@ -1,5 +1,6 @@
 package com.NovaCraftBlocks.plants;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import com.NovaCraft.NovaCraft;
@@ -25,8 +26,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
 
-public class BlockDeepRoot extends BlockMushroom {
+public class BlockDeepRoot extends BlockMushroom implements IShearable {
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
@@ -94,14 +96,22 @@ public class BlockDeepRoot extends BlockMushroom {
         return 1;
     }
 	
-	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
-        return null;
-    }
-	
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {
         return null;
     }
+
+	@Override
+	public Item getItemDropped(int meta, Random random, int fortune) {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
+		 ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+	            ret.add(new ItemStack(NovaCraftBlocks.deep_roots));
+	        return ret;
+	}
 
 }

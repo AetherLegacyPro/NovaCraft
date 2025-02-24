@@ -113,6 +113,13 @@ item.ancient_city_totem.name=Ancient City Totem
 item.warden_dust.name=Warden Dust
 item.static_blend.name=Static Blend
 
+item.cave_stew.end_stew.name=End Stew
+item.cave_stew.cave_stew.name=Cave Stew
+item.cave_stew.deep_stew.name=Deep Stew
+item.cave_stew.sculk_stew.name=Sculk Stew
+item.cave_stew.nether_stew.name=Nether Stew
+item.cave_stew.miners_stew.name=Miners Stew
+
 item.vanite_bucket.name=Vanite Bucket
 item.vanite_bucket_water.name=Water Bucket
 item.vanite_bucket_lava.name=Lava Bucket
@@ -515,42 +522,56 @@ tile.advanced_smithing_table.name=Advanced Smithing Table
 tile.cracked_larimar_block.name=Cracked Block of Larimar
 tile.larimar_block.name=Block Of Larimar
 tile.budding_larimar_block.name=Budding Larimar
-tile.larimar_cluster_1.name=Larimar Bud
-tile.larimar_cluster_2.name=Larimar Cluster
+tile.nova_craft.larimar_bud.name=Larimar Cluster
+tile.nova_craft.larimar_medium_bud.name=Larimar Cluster
+tile.nova_craft.larimar_large_bud.name=Larimar Cluster
+tile.nova_craft.larimar_cluster.name=Larimar Cluster
 
 tile.cracked_copartz_block.name=Cracked Block of Copartz
 tile.copartz_block.name=Block Of Copartz
 tile.budding_copartz_block.name=Budding Copartz
-tile.copartz_cluster_1.name=Copartz Bud
-tile.copartz_cluster_2.name=Copartz Cluster
+tile.nova_craft.copartz_bud.name=Copartz Cluster
+tile.nova_craft.copartz_medium_bud.name=Copartz Cluster
+tile.nova_craft.copartz_large_bud.name=Copartz Cluster
+tile.nova_craft.copartz_cluster.name=Copartz Cluster
 
 tile.cracked_tsavorokite_block.name=Cracked Block of Tsavorokite
 tile.tsavorokite_block.name=Block Of Tsavorokite
 tile.budding_tsavorokite_block.name=Budding Tsavorokite
-tile.tsavorokite_cluster_1.name=Tsavorokite Bud
-tile.tsavorokite_cluster_2.name=Tsavorokite Cluster
+tile.nova_craft.tsavorokite_bud.name=Tsavorokite Cluster
+tile.nova_craft.tsavorokite_medium_bud.name=Tsavorokite Cluster
+tile.nova_craft.tsavorokite_large_bud.name=Tsavorokite Cluster
+tile.nova_craft.tsavorokite_cluster.name=Tsavorokite Cluster
 
 tile.cracked_yttrlinsite_block.name=Cracked Block of Yttrlinsite
 tile.yttrlinsite_block.name=Block Of Yttrlinsite
 tile.budding_yttrlinsite_block.name=Budding Yttrlinsite
-tile.yttrlinsite_cluster_1.name=Yttrlinsite Bud
-tile.yttrlinsite_cluster_2.name=Yttrlinsite Cluster
+tile.nova_craft.yttrlinsite_bud.name=Yttrlinsite Cluster
+tile.nova_craft.yttrlinsite_medium_bud.name=Yttrlinsite Cluster
+tile.nova_craft.yttrlinsite_large_bud.name=Yttrlinsite Cluster
+tile.nova_craft.yttrlinsite_cluster.name=Yttrlinsite Cluster
 
 tile.cracked_aether_block.name=Cracked Block of Aether
 tile.aether_block.name=Block Of Aether
 tile.budding_aether_block.name=Budding Aether
-tile.aether_cluster_1.name=Aether Bud
-tile.aether_cluster_2.name=Aether Cluster
+tile.nova_craft.aether_bud.name=Aether Cluster
+tile.nova_craft.aether_medium_bud.name=Aether Cluster
+tile.nova_craft.aether_large_bud.name=Aether Cluster
+tile.nova_craft.aether_cluster.name=Aether Cluster
 
 tile.echo_block.name=Block of Echo
 tile.budding_echo_block.name=Budding Echo
-tile.echo_cluster_1.name=Echo Bud
-tile.echo_cluster_2.name=Echo Cluster
+tile.nova_craft.echo_bud.name=Echo Cluster
+tile.nova_craft.small_echo_bud.name=Echo Cluster
+tile.nova_craft.medium_large_echo_bud.name=Echo Cluster
+tile.nova_craft.echo_cluster.name=Echo Cluster
 
 tile.null_block.name=Block of Null
 tile.budding_null_block.name=Budding Null
-tile.null_cluster_1.name=Null Bud
-tile.null_cluster_2.name=Null Cluster
+tile.nova_craft.null_bud.name=Null Cluster
+tile.nova_craft.null_medium_bud.name=Null Cluster
+tile.nova_craft.null_large_bud.name=Null Cluster
+tile.nova_craft.null_cluster.name=Null Cluster
 
 tile.variegated_block.name=Block of Variegated Shards
 tile.vanite_cluster.name=Vanite Cluster
@@ -784,6 +805,17 @@ tooltip.potion.fire.resistance.desc=Fire Resistance (24:00)
 tooltip.potion.haste.desc=Haste I (32:00)
 tooltip.potion.hasteII.desc=Haste II (8:00)
 
+tooltip.cave_stew2.desc=Night Vision (4:00)
+tooltip.cave_stew.desc=Haste I (4:00)
+tooltip.deep_stew2.desc=Speed I (4:00)
+tooltip.deep_stew.desc=Haste I (4:00)
+tooltip.sculk_stew2.desc=Night Vision (4:00)
+tooltip.sculk_stew.desc=Resistance I (4:00)
+tooltip.nether_stew.desc=Fire Resistance (4:00)
+tooltip.end_stew2.desc=Strength I (4:00)
+tooltip.end_stew.desc=Regeneration I (4:00)
+tooltip.miners_stew2.desc=Night Vision (8:00)
+tooltip.miners_stew.desc=Haste I (8:00)
 
 #Achievements
 achievement.welcome_to_novacraft=Welcome to NovaCraft!

@@ -13,12 +13,12 @@ import org.lwjgl.opengl.GL11;
 import com.NovaCraft.renderer.OpenGLHelper;
 
 //Credit goes to Thaumcraft and Et Futurum Requiem I think
-public abstract class BlockModelBase implements ISimpleBlockRenderingHandler {
+public abstract class BlockModelBase3D implements ISimpleBlockRenderingHandler {
 
 	private final int modelID;
-	private boolean inventory3D = false;
+	private boolean inventory3D = true;
 
-	protected BlockModelBase(int modelID) {
+	protected BlockModelBase3D(int modelID) {
 		this.modelID = modelID;
 	}
 
@@ -80,7 +80,7 @@ public abstract class BlockModelBase implements ISimpleBlockRenderingHandler {
 		return modelID;
 	}
 
-	public BlockModelBase set2DInventory() {
+	public BlockModelBase3D set2DInventory() {
 		inventory3D = false;
 		return this;
 	}

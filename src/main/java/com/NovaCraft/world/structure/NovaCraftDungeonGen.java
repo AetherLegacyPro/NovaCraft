@@ -20,8 +20,6 @@ import static net.minecraftforge.common.ChestGenHooks.DUNGEON_CHEST;;
 
 public class NovaCraftDungeonGen extends WorldGenerator
 {
-    public static final WeightedRandomChestContent[] field_111189_a = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Items.saddle, 0, 1, 1, 10), new WeightedRandomChestContent(Items.gold_ingot, 0, 1, 4, 10), new WeightedRandomChestContent(NovaCraftItems.pherithium_lump, 0, 1, 1, 10), new WeightedRandomChestContent(NovaCraftItems.copartz_shard, 0, 1, 4, 10), new WeightedRandomChestContent(NovaCraftItems.vanite_chunk, 0, 1, 4, 10), new WeightedRandomChestContent(NovaCraftItems.larimar_shard, 0, 1, 4, 10), new WeightedRandomChestContent(NovaCraftItems.raw_klangite, 0, 1, 1, 10), new WeightedRandomChestContent(Items.golden_apple, 0, 1, 1, 1), new WeightedRandomChestContent(Items.diamond, 0, 1, 4, 10), new WeightedRandomChestContent(NovaCraftItems.disc_fragment_5, 0, 1, 1, 10), new WeightedRandomChestContent(NovaCraftItems.nullwart, 0, 1, 1, 10), new WeightedRandomChestContent(Items.name_tag, 0, 1, 1, 10), new WeightedRandomChestContent(NovaCraftItems.pherithium_chestplate, 0, 1, 1, 2), new WeightedRandomChestContent(NovaCraftItems.pherithium_pickaxe, 0, 1, 1, 5), new WeightedRandomChestContent(NovaCraftItems.pherithium_shovel, 0, 1, 1, 1)};
-    private static final String __OBFID = "CL_00000425";
 
     @Override
     public boolean generate(World p_76484_1_, Random p_76484_2_, int p_76484_3_, int p_76484_4_, int p_76484_5_)
@@ -178,8 +176,7 @@ public class NovaCraftDungeonGen extends WorldGenerator
                                     if (tileentitychest != null)
                                     {
                                         WeightedRandomChestContent.generateChestContents(p_76484_2_, ChestGenHooks.getItems(DUNGEON_CHEST, p_76484_2_), tileentitychest, ChestGenHooks.getCount(DUNGEON_CHEST, p_76484_2_));
-                                        
-                                        ///tileentitychest.setInventorySlotContents(p_76484_2_.nextInt(tileentitychest.getSizeInventory()), this.getNormalLoot(p_76484_2_));
+                                                                                
                                     }
 
                                     break label197;

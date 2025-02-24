@@ -202,6 +202,10 @@ public class RendersNovaCraft {
 	if (Loader.isModLoaded("etfuturum")) {
 	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.netherite_bow, new NovaCraftBowRenderer());
 	}
+	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.kylazite_bow, new NovaCraftBowRenderer());
+	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.ophidian_bow, new NovaCraftBowRenderer());
+	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.crystallized_vanite_bow, new NovaCraftBowRenderer());
+	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.warden_bow, new NovaCraftBowRenderer());
 	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.tophinite_bow, new NovaCraftBowRenderer());
 	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.klangite_bow, new NovaCraftBowRenderer());
 	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.crystalite_bow, new NovaCraftBowRenderer());

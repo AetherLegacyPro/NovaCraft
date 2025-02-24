@@ -4,7 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.NovaCraft.NovaCraft;
+import com.NovaCraft.Item.Block.ItemAetherCluster;
 import com.NovaCraft.Item.Block.ItemBlockFireProof;
+import com.NovaCraft.Item.Block.ItemCopartzCluster;
+import com.NovaCraft.Item.Block.ItemEchoCluster;
+import com.NovaCraft.Item.Block.ItemLarimarCluster;
+import com.NovaCraft.Item.Block.ItemNullCluster;
+import com.NovaCraft.Item.Block.ItemTsavorokiteCluster;
+import com.NovaCraft.Item.Block.ItemYttrlinsiteCluster;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.container.BlockAdvancedEnchantmentTable;
@@ -553,7 +560,7 @@ public class NovaCraftBlocks {
 		
 		null_wart = registerMetaHidden("null_wart", new BlockNullWart().setBlockTextureName(NovaCraft.find("null_wart")));
 		nullwart_bricks = registerMeta("nullwart_bricks", new BlockNullwartBricks().setBlockTextureName(NovaCraft.find("nullwart_bricks")));
-		flaming_nullwart_bricks = registerMeta("flaming_nullwart_bricks", new BlockFlamingNullwartBricks().setBlockTextureName(NovaCraft.find("flaming_nullwart_bricks")));
+		flaming_nullwart_bricks = registerMetaHidden("flaming_nullwart_bricks", new BlockFlamingNullwartBricks().setBlockTextureName(NovaCraft.find("flaming_nullwart_bricks")));
 		
 		luminant_log = registerMeta("luminant_log", new BlockLuminantLog().setBlockTextureName(NovaCraft.find("luminant_log")));
 		luminant_planks = registerMeta("luminant_planks", new BlockLuminantPlanks().setBlockTextureName(NovaCraft.find("luminant_planks")));
@@ -596,7 +603,7 @@ public class NovaCraftBlocks {
 		nullcube_slime_block = registerMeta("nullcube_slime_block", new BlockNullcubeSlime().setBlockTextureName(NovaCraft.find("nullcube_slime_block")));
 			
 		//Blocks With GUIS
-		advanced_smithing_table = register("advanced_smithing_table", new BlockAdvancedSmithingTable());
+		advanced_smithing_table = registerMetaHidden("advanced_smithing_table", new BlockAdvancedSmithingTable());
 		treasure_chest = register("treasure_chest", new BlockTreasureChest());
 		flooded_chest = register("flooded_chest", new BlockFloodedChest());
 		mineshaft_chest = register("mineshaft_chest", new BlockMineshaftChest());
@@ -615,46 +622,46 @@ public class NovaCraftBlocks {
 		cracked_copartz_block = register("cracked_copartz_block", new BlockCopartz().setBlockTextureName(NovaCraft.find("cracked_copartz_block")));
 		copartz_block = register("copartz_block", new BlockCopartz().setBlockTextureName(NovaCraft.find("copartz_block")));
 		budding_copartz_block = register("budding_copartz_block", new BlockBuddingCopartz().setBlockTextureName(NovaCraft.find("budding_copartz")));
-		copartz_cluster_1 = registerMeta("copartz_cluster_1", new BlockCopartzCluster(0));
-		copartz_cluster_2 = registerMeta("copartz_cluster_2", new BlockCopartzCluster(1));
+		copartz_cluster_1 = registerItemBlock("copartz_cluster_1", new BlockCopartzCluster(0), ItemCopartzCluster.class);
+		copartz_cluster_2 = registerItemBlock("copartz_cluster_2", new BlockCopartzCluster(1), ItemCopartzCluster.class);
 		
 		cracked_larimar_block = register("cracked_larimar_block", new BlockLarimar().setBlockTextureName(NovaCraft.find("cracked_larimar_block")));
 		larimar_block = register("larimar_block", new BlockLarimar().setBlockTextureName(NovaCraft.find("larimar_block")));
 		budding_larimar_block = register("budding_larimar_block", new BlockBuddingLarimar().setBlockTextureName(NovaCraft.find("budding_larimar")));
-		larimar_cluster_1 = registerMeta("larimar_cluster_1", new BlockLarimarCluster(0));
-		larimar_cluster_2 = registerMeta("larimar_cluster_2", new BlockLarimarCluster(1));
+		larimar_cluster_1 = registerItemBlock("larimar_cluster_1", new BlockLarimarCluster(0), ItemLarimarCluster.class);
+		larimar_cluster_2 = registerItemBlock("larimar_cluster_2", new BlockLarimarCluster(1), ItemLarimarCluster.class);
 		
 		cracked_tsavorokite_block = register("cracked_tsavorokite_block", new BlockTsavorokite().setBlockTextureName(NovaCraft.find("cracked_tsavorokite_block")));
 		tsavorokite_block = register("tsavorokite_block", new BlockTsavorokite().setBlockTextureName(NovaCraft.find("tsavorokite_block")));
 		budding_tsavorokite_block = register("budding_tsavorokite_block", new BlockBuddingTsavorokite().setBlockTextureName(NovaCraft.find("budding_tsavorokite_block")));
-		tsavorokite_cluster_1 = registerMeta("tsavorokite_cluster_1", new BlockTsavorokiteCluster(0));
-		tsavorokite_cluster_2 = registerMeta("tsavorokite_cluster_2", new BlockTsavorokiteCluster(1));
+		tsavorokite_cluster_1 = registerItemBlock("tsavorokite_cluster_1", new BlockTsavorokiteCluster(0), ItemTsavorokiteCluster.class);
+		tsavorokite_cluster_2 = registerItemBlock("tsavorokite_cluster_2", new BlockTsavorokiteCluster(1), ItemTsavorokiteCluster.class);
 		
 		cracked_yttrlinsite_block = register("cracked_yttrlinsite_block", new BlockYttrlinsite().setBlockTextureName(NovaCraft.find("cracked_yttrlinsite_block")));
 		yttrlinsite_block = register("yttrlinsite_block", new BlockYttrlinsite().setBlockTextureName(NovaCraft.find("yttrlinsite_block")));
 		budding_yttrlinsite_block = register("budding_yttrlinsite_block", new BlockBuddingYttrlinsite().setBlockTextureName(NovaCraft.find("budding_yttrlinsite")));
-		yttrlinsite_cluster_1 = registerMeta("yttrlinsite_cluster_1", new BlockYttrlinsiteCluster(0));
-		yttrlinsite_cluster_2 = registerMeta("yttrlinsite_cluster_2", new BlockYttrlinsiteCluster(1));
+		yttrlinsite_cluster_1 = registerItemBlock("yttrlinsite_cluster_1", new BlockYttrlinsiteCluster(0), ItemYttrlinsiteCluster.class);
+		yttrlinsite_cluster_2 = registerItemBlock("yttrlinsite_cluster_2", new BlockYttrlinsiteCluster(1), ItemYttrlinsiteCluster.class);
 		
 		cracked_aether_block = register("cracked_aether_block", new BlockAether().setBlockTextureName(NovaCraft.find("cracked_block_of_aether")));
 		aether_block = register("aether_block", new BlockAether().setBlockTextureName(NovaCraft.find("block_of_aether")));
 		budding_aether_block = register("budding_aether_block", new BlockBuddingAether().setBlockTextureName(NovaCraft.find("budding_aether")));
-		aether_cluster_1 = registerMeta("aether_cluster_1", new BlockAetherCluster(0));
-		aether_cluster_2 = registerMeta("aether_cluster_2", new BlockAetherCluster(1));
+		aether_cluster_1 = registerItemBlock("aether_cluster_1", new BlockAetherCluster(0), ItemAetherCluster.class);
+		aether_cluster_2 = registerItemBlock("aether_cluster_2", new BlockAetherCluster(1), ItemAetherCluster.class);
 		
 		variegated_block = register("variegated_block", new BlockVariegatedShard().setBlockTextureName(NovaCraft.find("block_of_variegated_shard")));
 		
 		echo_block = register("echo_block", new BlockEcho());
 		budding_echo_block = register("budding_echo_block", new BlockBuddingEcho());
-		echo_cluster_1 = registerMeta("echo_cluster_1", new BlockEchoCluster(0));
-		echo_cluster_2 = registerMeta("echo_cluster_2", new BlockEchoCluster(1));
+		echo_cluster_1 = registerItemBlock("echo_cluster_1", new BlockEchoCluster(0), ItemEchoCluster.class);
+		echo_cluster_2 = registerItemBlock("echo_cluster_2", new BlockEchoCluster(1), ItemEchoCluster.class);
 		
 		crystallized_sculk = register("crystallized_sculk", new BlockAether().setBlockTextureName(NovaCraft.find("crystallized_sculk")));
 		
 		null_block = register("null_block", new BlockNull().setBlockTextureName(NovaCraft.find("block_of_null")));
 		budding_null_block = register("budding_null_block", new BlockBuddingNull().setBlockTextureName(NovaCraft.find("budding_null")));
-		null_cluster_1 = registerMeta("null_cluster_1", new BlockNullCluster(0));
-		null_cluster_2 = registerMeta("null_cluster_2", new BlockNullCluster(1));
+		null_cluster_1 = registerItemBlock("null_cluster_1", new BlockNullCluster(0), ItemNullCluster.class);
+		null_cluster_2 = registerItemBlock("null_cluster_2", new BlockNullCluster(1), ItemNullCluster.class);
 		
 		//Stalagmites and Stalactites
 		pherithium_ore = registerHidden("pherithium_ore", new BlockPherithiumOre().setBlockTextureName(NovaCraft.find("pherithium_ore")));
@@ -808,7 +815,7 @@ public class NovaCraftBlocks {
 		frontierslate_brick_slab = registerSlab("frontierslate_brick_slab", new BlocksNovaCraftSlab("frontierslate_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("frontierslate_bricks")).setHardness(8.0F).setResistance(15.0F), frontierslate_brick_double_slab);
 		
 	}
-	
+
 	public static void initializeHarvestLevels()
 	{
 		//Regular Blocks
@@ -1109,14 +1116,6 @@ public class NovaCraftBlocks {
 		block.setBlockName(name);
 
 		GameRegistry.registerBlock(block, ItemBlockMetadata.class, name);
-
-		return block;
-	}
-
-	public static Block registerBed(String name, Block block) {
-		block.setBlockName(name);
-
-		GameRegistry.registerBlock(block, name);
 
 		return block;
 	}

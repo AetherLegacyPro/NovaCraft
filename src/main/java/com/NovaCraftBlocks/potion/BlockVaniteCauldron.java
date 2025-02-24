@@ -23,15 +23,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class BlockVaniteCauldron extends BlockCauldron {
-
-	@SideOnly(Side.CLIENT)
-	public IIcon field_150029_a;
-	@SideOnly(Side.CLIENT)
-	public IIcon field_150028_b;
-	@SideOnly(Side.CLIENT)
-	public IIcon field_150030_M;
-	@SideOnly(Side.CLIENT)
-	public IIcon lavaIcon;
 	
 	public BlockVaniteCauldron() {
 		super();
@@ -83,15 +74,6 @@ public class BlockVaniteCauldron extends BlockCauldron {
                 world.playSoundEffect((double)(i + 0.5f), (double)(j + 0.5f), (double)(k + 0.5f), "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
            }
 		}
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister p_149651_1_) {
-		this.field_150029_a = p_149651_1_.registerIcon("nova_craft:vanitecauldron_bottom");
-        this.field_150028_b = p_149651_1_.registerIcon("nova_craft:vanitecauldron_top");
-        this.field_150030_M = p_149651_1_.registerIcon("nova_craft:bottom");
-        this.blockIcon = p_149651_1_.registerIcon("nova_craft:vanitecauldron_side");
 	}
 	
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {

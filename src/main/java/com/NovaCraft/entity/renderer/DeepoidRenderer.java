@@ -30,11 +30,11 @@ import net.minecraftforge.client.MinecraftForgeClient;
 
 public class DeepoidRenderer extends RenderLiving
 {
-	private static final ResourceLocation demiGodEyesTextures;
+	private static final ResourceLocation EyesTextures;
     private static final ResourceLocation mobTextures;
     
-    public DeepoidRenderer(final DeepoidModel par1ModelBiped, float par2) {
-        super(par1ModelBiped, par2);
+    public DeepoidRenderer(final DeepoidModel model, float par2) {
+        super(model, par2);
         this.setRenderPassModel((ModelBase)new DeepoidModel());
     }
 
@@ -50,7 +50,7 @@ public class DeepoidRenderer extends RenderLiving
         return this.getEntityTexture((EntityDeepoid)par1Entity);
     }
     
-    protected ResourceLocation getEntityTexture(final EntityDeepoid par1EntityDemiGod) {
+    protected ResourceLocation getEntityTexture(final EntityDeepoid par1EntityDeepoid) {
         return DeepoidRenderer.mobTextures;
     }
     
@@ -63,15 +63,15 @@ public class DeepoidRenderer extends RenderLiving
         return this.shouldRenderPass((EntityDeepoid)par1EntityLivingBase, par2, par3);
     }
     
-    protected int shouldRenderPass(final EntityDeepoid par1XCEntityDemiGod, final int par2, final float par3) {
+    protected int shouldRenderPass(final EntityDeepoid par1EntityDeepoid, final int par2, final float par3) {
         if (par2 != 0) {
             return -1;
         }
-        this.bindTexture(DeepoidRenderer.demiGodEyesTextures);
+        this.bindTexture(DeepoidRenderer.EyesTextures);
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
-        if (par1XCEntityDemiGod.isInvisible()) {
+        if (par1EntityDeepoid.isInvisible()) {
             GL11.glDepthMask(false);
         }
         else {
@@ -86,7 +86,7 @@ public class DeepoidRenderer extends RenderLiving
     }
     
     static {
-        demiGodEyesTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid/deepoid_skin.png");
+        EyesTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid/deepoid_skin.png");
         mobTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid/deepoid.png");
     }
 	

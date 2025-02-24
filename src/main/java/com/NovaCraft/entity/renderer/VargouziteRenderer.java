@@ -30,10 +30,11 @@ import net.minecraftforge.client.MinecraftForgeClient;
 
 public class VargouziteRenderer extends RenderLiving
 {
+	private static final ResourceLocation EyesTextures;
     private static final ResourceLocation mobTextures;
     
-    public VargouziteRenderer(final VargouziteModel par1ModelBiped, float par2) {
-        super(par1ModelBiped, par2);
+    public VargouziteRenderer(final VargouziteModel model, float par2) {
+        super(model, par2);
         this.setRenderPassModel((ModelBase)new VargouziteModel());
     }
 
@@ -49,12 +50,12 @@ public class VargouziteRenderer extends RenderLiving
         return this.getEntityTexture((EntityVargouzite)par1Entity);
     }
     
-    protected ResourceLocation getEntityTexture(final EntityVargouzite par1EntityDemiGod) {
+    protected ResourceLocation getEntityTexture(final EntityVargouzite par1EntityVargouzite) {
         return VargouziteRenderer.mobTextures;
     }
     
     @Override
-  	protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+  	protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
   	    GL11.glScalef(0.8F, 0.8F, 0.8F);
   	}
     
@@ -62,15 +63,15 @@ public class VargouziteRenderer extends RenderLiving
         return this.shouldRenderPass((EntityVargouzite)par1EntityLivingBase, par2, par3);
     }
     
-    protected int shouldRenderPass(final EntityVargouzite par1XCEntityDemiGod, final int par2, final float par3) {
+    protected int shouldRenderPass(final EntityVargouzite par1XCEntityVargouzite, final int par2, final float par3) {
         if (par2 != 0) {
             return -1;
         }
-        //this.bindTexture(VargouziteRenderer.demiGodEyesTextures);
+        this.bindTexture(VargouziteRenderer.EyesTextures);
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
-        if (par1XCEntityDemiGod.isInvisible()) {
+        if (par1XCEntityVargouzite.isInvisible()) {
             GL11.glDepthMask(false);
         }
         else {
@@ -85,6 +86,7 @@ public class VargouziteRenderer extends RenderLiving
     }
     
     static {
+    	EyesTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid/vargouzite_skin.png");
         mobTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid/vargouzite.png");
     }
 	
