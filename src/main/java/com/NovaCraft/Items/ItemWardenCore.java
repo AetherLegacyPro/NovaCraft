@@ -2,6 +2,7 @@ package com.NovaCraft.Items;
 
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
+import com.NovaCraft.entity.EntityPrisoner;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -259,9 +260,18 @@ public class ItemWardenCore extends Item {
 			world.setBlock(x - 3, y + 4, z - 7, NovaCraftBlocks.unknown_portal);
 			world.setBlock(x - 3, y + 4, z - 8, NovaCraftBlocks.unknown_portal);
 			world.setBlock(x - 3, y + 4, z - 9, NovaCraftBlocks.unknown_portal);
+			
+			EntityPrisoner prisoner = new EntityPrisoner(world);
+			if (!player.capabilities.isCreativeMode) {
+				prisoner.setAttackTarget(player);
+			}
+			prisoner.setPosition((double) x - 2.5D, (double) y + 1.5D, (double) z + 1D);
+				world.spawnEntityInWorld(prisoner);
 							
 			world.playSoundEffect(x, y, z, "nova_craft:unknown.ignite", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
 			player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.unknown_portal_activated")));
+			
+			world.setBlock(x, y, z, NovaCraftBlocks.activated_unknown_portal_activator);
 			--heldItem.stackSize;		
 		 }
 		return true;

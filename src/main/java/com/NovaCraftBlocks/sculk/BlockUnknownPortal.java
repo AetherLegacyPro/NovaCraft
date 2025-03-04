@@ -3,6 +3,7 @@ package com.NovaCraftBlocks.sculk;
 import java.util.Random;
 
 import com.NovaCraft.NovaCraft;
+import com.NovaCraft.entity.EntityPrisoner;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.sounds.ModSounds;
 import com.ibm.icu.impl.duration.impl.Utils;
@@ -90,7 +91,9 @@ public class BlockUnknownPortal extends Block {
 	
 	public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity p_149670_5_)
     {
+		if (!(p_149670_5_ instanceof EntityPrisoner)) {
         p_149670_5_.attackEntityFrom(DamageSource.outOfWorld, 2.0F);
+		}
     }
 	
 	public boolean isOpaqueCube() {

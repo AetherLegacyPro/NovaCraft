@@ -27,6 +27,7 @@ import com.NovaCraft.entity.EntityGoat;
 import com.NovaCraft.entity.EntityIceSceptorProjectile;
 import com.NovaCraft.entity.EntityIceologer;
 import com.NovaCraft.entity.EntityIonizatior;
+import com.NovaCraft.entity.EntityNitro;
 import com.NovaCraft.entity.EntityNullifier;
 import com.NovaCraft.entity.EntityPhantom;
 import com.NovaCraft.entity.EntityPhoenix;
@@ -182,6 +183,7 @@ public class RendersNovaCraft {
 	register(EntitySculkIncinerator.class, new SculkIncineratorRenderer(new SculkIncineratorModel(), new SculkIncineratorModel(), 0.6f));
 	register(EntityPrisoner.class, new PrisonerRenderer());
 	register(EntityWardenVessel.class, new WardenVesselRenderer());
+	register(EntityNitro.class, new NitroRenderer());
 	
 	register(EntityVindicator.class, new VindicatorRenderer());
 	register(EntityVindicator.class, new VindicatorOverlayRenderer());

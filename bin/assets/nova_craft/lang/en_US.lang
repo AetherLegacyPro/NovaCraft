@@ -581,6 +581,8 @@ tile.crystallized_sculk.name=Crystallized Sculk
 tile.legendary_beacon.name=Legendary Beacon
 tile.ancient_chest.name=Ancient City Chest
 tile.unbreakable_ancient_chest.name=Locked Ancient City Chest
+tile.activated_unknown_portal_activator.name=Activated Unknown Portal Activator
+tile.nullstone_deactivator.name=Nullstone Deactivator
 
 #Stairs Names
 tile.grimstone_stairs.name=Grimstone Stairs
@@ -787,6 +789,9 @@ tooltip.warden_bow.desc=+12 damage
 
 tooltip.ancient_city_chest.desc=Ancient City Chest
 tooltip.large_ancient_city_chest.desc=Large Ancient City Chest
+
+tooltip.right_click_bed.desc=Respawn Point Set
+tooltip.bed_destroyed.desc=Respawn Point Set to SpawnPoint!
 
 #Potion Tool Tips
 tooltip.potion.resistance.desc=Resistance I (32:00)
@@ -1013,6 +1018,7 @@ entity.nova_craft.sculk_incinerator.name=Sculk Incinerator
 entity.nova_craft.sculk_laser.name=Sculk Laser
 entity.nova_craft.prisoner.name=The Prisoner
 entity.nova_craft.warden_vessel.name=Wardling
+entity.nova_craft.nitro.name=Nitro
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1059,3 +1065,4 @@ entity.sculk_incinerator.name=Sculk Incinerator
 entity.sculk_laser.name=Sculk Laser
 entity.prisoner.name=The Prisoner
 entity.warden_vessel.name=Wardling
+entity.nitro.name=Nitro

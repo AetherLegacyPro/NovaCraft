@@ -5,14 +5,14 @@ import com.NovaCraft.entity.EntityNullifier;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 
-public class EntityAIVoidiferSwell extends EntityAIBase
+public class EntityAINulliferSwell extends EntityAIBase
 {
     /** The creeper that is swelling. */
 	EntityNullifier swellingCreeper;
     /** The creeper's attack target. This is used for the changing of the creeper's state. */
     EntityLivingBase creeperAttackTarget;
 
-    public EntityAIVoidiferSwell(EntityNullifier p_i1655_1_)
+    public EntityAINulliferSwell(EntityNullifier p_i1655_1_)
     {
         this.swellingCreeper = p_i1655_1_;
         this.setMutexBits(1);

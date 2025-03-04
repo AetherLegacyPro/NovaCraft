@@ -6,7 +6,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-//Model inspired by the Vargus mob from Aether Highlands
+//Model inspired by the Varnllyis mob from Aether Highlands
 
 public class DeepoidModel extends ModelBase {
 	private final ModelRenderer body1;

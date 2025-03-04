@@ -4,6 +4,11 @@ import java.util.Random;
 
 import org.apache.commons.lang3.ArrayUtils;
 
+import com.NovaCraft.world.ancient_city.prisoner.AncientCityLargeHangingStructureGen;
+import com.NovaCraft.world.ancient_city.prisoner.AncientCityMediumHangingStructureGen;
+import com.NovaCraft.world.ancient_city.prisoner.AncientCitySmallHangingStructure1Gen;
+import com.NovaCraft.world.ancient_city.prisoner.AncientCitySmallHangingStructure2Gen;
+import com.NovaCraft.world.ancient_city.prisoner.AncientCitySmallHangingStructure3Gen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.IWorldGenerator;
@@ -297,6 +302,12 @@ public class AncientCityGen implements IWorldGenerator {
 	    	  new AncientCityCelingSculkGen().generate(world, rand, x1 + 7, y1 + 14, z1 + 9);	    	  
 	    	  new AncientCitySculkPortalGen().generate(world, rand, x1 + 14, y1 - 10, z1 + 14);
 	    	  new AncientCityUnknownActivationGen().generate(world, rand, x1 + 19, y1 - 3, z1 + 30);
+	    	  
+	    	  new AncientCityLargeHangingStructureGen().generate(world, rand, x1 + 75, y1 + 3, z1 + 29);
+	    	  new AncientCitySmallHangingStructure1Gen().generate(world, rand, x1 + 63, y1 + 2, z1 + 68);
+	    	  new AncientCitySmallHangingStructure2Gen().generate(world, rand, x1 + 63, y1 + 2, z1);
+	    	  new AncientCitySmallHangingStructure3Gen().generate(world, rand, x1 + 27, y1 + 3, z1 + 77);
+	    	  new AncientCityMediumHangingStructureGen().generate(world, rand, x1 + 25, y1 + 3, z1 - 18);
 	    	  	    	  
 	    	  //-Z
 	    	  new AncientCityNegativeHallwayGen1().generate(world, rand, x1 + 16, y1 - 16, z1 - 73);

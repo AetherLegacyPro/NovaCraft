@@ -149,8 +149,10 @@ import com.NovaCraftBlocks.potion.BlockVaniteCauldron;
 import com.NovaCraftBlocks.potion.BlockVaniteCluster;
 import com.NovaCraftBlocks.sculk.BlockActivatedGrimstoneShrieker;
 import com.NovaCraftBlocks.sculk.BlockActivatedReinforcedNullstone;
+import com.NovaCraftBlocks.sculk.BlockActivatedUnknownPortalActivator;
 import com.NovaCraftBlocks.sculk.BlockGrimstoneShrieker;
 import com.NovaCraftBlocks.sculk.BlockInkedSculk;
+import com.NovaCraftBlocks.sculk.BlockNullstoneDeactivator;
 import com.NovaCraftBlocks.sculk.BlockReinforcedNullstone;
 import com.NovaCraftBlocks.sculk.BlockSculk;
 import com.NovaCraftBlocks.sculk.BlockSculkBloom;
@@ -313,7 +315,7 @@ public class NovaCraftBlocks {
 	//Boss Summoning
 	public static Block grimstone_shrieker, activated_grimstone_shrieker;
 	public static Block deep_one_egg, deep_one_egg_activated;
-	public static Block reinforced_nullstone, activated_reinforced_nullstone, unknown_portal_activator, unknown_portal;
+	public static Block reinforced_nullstone, activated_reinforced_nullstone, unknown_portal_activator, activated_unknown_portal_activator, unknown_portal, nullstone_deactivator;
 	
 	//Special
 	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table;
@@ -364,6 +366,8 @@ public class NovaCraftBlocks {
 		reinforced_nullstone = register("reinforced_nullstone", new BlockReinforcedNullstone());
 		activated_reinforced_nullstone = registerHidden("activated_reinforced_nullstone", new BlockActivatedReinforcedNullstone()).setCreativeTab(null);
 		unknown_portal_activator = register("unknown_portal_activator", new BlockUnknownPortalActivator());
+		activated_unknown_portal_activator = registerHidden("activated_unknown_portal_activator", new BlockActivatedUnknownPortalActivator()).setCreativeTab(null);
+		nullstone_deactivator = register("nullstone_deactivator", new BlockNullstoneDeactivator());
 		chiseled_nullstone = register("chiseled_nullstone", new BlockChiseledNullstone());
 		
 		nullstone_diamond = register("nullstone_diamond", new BlockNullstoneOre().setBlockTextureName(NovaCraft.find("nullstone_diamond_ore")));

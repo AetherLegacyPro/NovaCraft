@@ -3,6 +3,7 @@ package com.NovaCraft.entity;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.misc.EntityAINitroSwell;
 import com.NovaCraft.entity.misc.EntityAINulliferSwell;
 import com.NovaCraft.entity.misc.EntityRayfireball;
 import com.NovaCraft.particles.ParticleHandler;
@@ -25,6 +26,7 @@ import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,7 +34,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityNullifier extends EntityMob
+public class EntityNitro extends EntityMob
 {
     /**
      * Time when this creeper was last in an active state (Messed up code here, probably causes creeper animation to go
@@ -41,16 +43,16 @@ public class EntityNullifier extends EntityMob
     private int lastActiveTime;
     /** The amount of time since the creeper was close enough to the player to ignite */
     private int timeSinceIgnited;
-    private int fuseTime = 30;
+    private int fuseTime = 25;
     /** Explosion radius for this creeper. */
-    private int explosionRadius = 4;
+    private int explosionRadius = 3;
 
-    public EntityNullifier(World p_i1733_1_)
+    public EntityNitro(World p_i1733_1_)
     {
         super(p_i1733_1_);
         this.tasks.addTask(1, new EntityAISwimming(this));
-        this.tasks.addTask(2, new EntityAINulliferSwell(this));
-        this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityPhantom.class, 6.0F, 1.0D, 1.2D));
+        this.tasks.addTask(2, new EntityAINitroSwell(this));
+        this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityPhoenix.class, 6.0F, 1.0D, 1.2D));
         this.tasks.addTask(4, new EntityAIAttackOnCollide(this, 1.0D, false));
         this.tasks.addTask(5, new EntityAIWander(this, 0.8D));
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -62,9 +64,23 @@ public class EntityNullifier extends EntityMob
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.55D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public int getBrightnessForRender(float p_70070_1_)
+    {
+        return 15728880;
+    }
+
+    /**
+     * Gets how bright this entity is.
+     */
+    public float getBrightness(float p_70013_1_)
+    {
+        return 0.4F;
     }
 
     /**
@@ -207,22 +223,13 @@ public class EntityNullifier extends EntityMob
     {
         super.onDeath(p_70645_1_);
 
-        if (p_70645_1_.getEntity() instanceof EntityRayfireball)
+        if (p_70645_1_.getEntity() instanceof EntityFireball)
         {
             int i = Item.getIdFromItem(Items.record_13);
             int j = Item.getIdFromItem(Items.record_11);
             int k = i + this.rand.nextInt(j - i + 1);
             this.dropItem(Item.getItemById(k), 1);
         }
-       if(this.getPowered()) { 
-        if (p_70645_1_.getEntity() instanceof EntityPlayer)
-        {
-            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
-            
-            entityplayer.triggerAchievement(AchievementsNovaCraft.electro_nullified);
-            
-        }
-       }
     }
     
     @SideOnly(Side.CLIENT)
@@ -232,8 +239,7 @@ public class EntityNullifier extends EntityMob
     	int k;            	
         	for (k = 0; k < 3; ++k)
         	{
-        		this.worldObj.spawnParticle("portal", this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, (this.rand.nextDouble() - 0.5D) * 2.0D, -this.rand.nextDouble(), (this.rand.nextDouble() - 0.5D) * 2.0D);
-        	} 
+        		ParticleHandler.SMALLREDFLAME.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);        	} 
     	}
     }
 
@@ -268,36 +274,19 @@ public class EntityNullifier extends EntityMob
 
             for (k = 0; k < j; ++k)
             {
-                this.dropItem(NovaCraftItems.small_xancium_dust, 1);
+                this.dropItem(Items.gunpowder, 1 + j);
             }
         }
         
-        int rand2 = (int)(1 + Math.random() * 9);
+        int rand2 = (int)(1 + Math.random() * 2);
 		switch (rand2)
         {
-        case 1: this.dropItem(NovaCraftItems.nullifier_core, 1);
+        case 1: this.dropItem(NovaCraftItems.blazing_coal, 2);
         break;
         case 2: 
         break;
-        case 3: 
-        break;
-        case 4: 
-        break;
-        case 5: 
-        break;
-        case 6: 
-        break;
-        case 7: 
-        break;
-        case 8: 
-        break;
-        case 9: 
-       break;
         }
 		
-		if(this.getPowered()) { 
-		this.dropItem(NovaCraftItems.nullifier_core, 1);	
-		}
     }
 
     /**
@@ -377,4 +366,3 @@ public class EntityNullifier extends EntityMob
         this.dataWatcher.updateObject(18, Byte.valueOf((byte)1));
     }
 }
-

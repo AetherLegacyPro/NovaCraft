@@ -5,7 +5,7 @@ import java.util.Random;
 import org.lwjgl.opengl.GL11;
 
 import com.NovaCraft.entity.EntityPrisoner;
-import com.NovaCraft.entity.models.PrisonerModel;
+import com.NovaCraft.entity.models.PrisonerModelNew;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -22,57 +22,35 @@ import net.minecraft.util.ResourceLocation;
 public class PrisonerRenderer extends RenderLiving
 {
 	protected Random rand;
-	private static final ResourceLocation texture;	
-	private static final ResourceLocation eyes;
-	private static final ResourceLocation eyes2;
-	private static final ResourceLocation eyes3;
-	
-	protected ModelBiped field_82437_k; 
-	protected ModelBiped field_82435_l; 
+	private static final ResourceLocation texture;
+	private static final ResourceLocation eye;
+	private static final ResourceLocation overlay_1;
+	private static final ResourceLocation overlay_2;
+	private static final ResourceLocation overlay_3;
 	
 	public PrisonerRenderer() {
-		super(new PrisonerModel(), 0.5f);
-		this.setRenderPassModel((ModelBase)new PrisonerModel());
+		super(new PrisonerModelNew(), 0.5f);
+		this.setRenderPassModel((ModelBase)new PrisonerModelNew());
 	}
     
     protected int shouldRenderPass(final EntityLivingBase par1EntityLivingBase, final int par2, final float par3) {
         return this.shouldRenderPass((EntityPrisoner)par1EntityLivingBase, par2, par3);
     }
     
-    protected int shouldRenderPass2(final EntityLivingBase par1EntityLivingBase, final int par2, final float par3) {
-        return this.shouldRenderPass2((EntityPrisoner)par1EntityLivingBase, par2, par3);
+    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
+    {
+        GL11.glScalef(3.0F, 3.0F, 3.0F);
     }
 	
-	protected int shouldRenderPass(final EntityPrisoner warden, final int par2, final float par3) {
+	protected int shouldRenderPass(final EntityPrisoner prisoner, final int par2, final float par3) {
 		if (par2 != 0) {
             return -1;
         }
-        int rand = (int)(1 + Math.random() * 3);
-		switch (rand)
-        {
-          case 1:
-        	this.bindTexture(PrisonerRenderer.eyes);
-        	break;
-          case 2:
-          	this.bindTexture(PrisonerRenderer.eyes2);
-          	break;
-          case 3:
-          	this.bindTexture(PrisonerRenderer.eyes3);
-          	break;
-        }
-        return 1;
-    }
-	
-	protected int shouldRenderPass2(final EntityPrisoner warden, final int par2, final float par3) {
-        if (par2 != 0) {
-            return -1;
-        }
-        {
-        //this.bindTexture(PrisonerRenderer.bioluminescent);
+        this.bindTexture(PrisonerRenderer.eye);
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
-        if (warden.isInvisible()) {
+        if (prisoner.isInvisible()) {
             GL11.glDepthMask(false);
         }
         else {
@@ -82,9 +60,22 @@ public class PrisonerRenderer extends RenderLiving
         final int j = 61680;
         final int k = 0;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 61680.0f, 0.0f);
-        GL11.glColor4f(0.3f, 0.3f, 0.3f, 0.3f);
-        return 1;
+        GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+        
+        int rand = (int)(1 + Math.random() * 3);
+		switch (rand)
+        {
+          case 1:
+        	this.bindTexture(PrisonerRenderer.overlay_1);
+        	break;
+          case 2:
+          	this.bindTexture(PrisonerRenderer.overlay_2);
+          	break;
+          case 3:
+          	this.bindTexture(PrisonerRenderer.overlay_3);
+          	break;
         }
+        return 1;
     }
 	
 	@Override
@@ -111,10 +102,11 @@ public class PrisonerRenderer extends RenderLiving
 	 }
 	 
 	 static {
-		 texture = new ResourceLocation("nova_craft", "textures/entity/prisoner/prisoner.png");	
-		 eyes = new ResourceLocation("nova_craft", "textures/entity/prisoner/prisoner_overlay_1.png");
-		 eyes2 = new ResourceLocation("nova_craft", "textures/entity/prisoner/prisoner_overlay_2.png");
-		 eyes3 = new ResourceLocation("nova_craft", "textures/entity/prisoner/prisoner_overlay_3.png");
+		 texture = new ResourceLocation("nova_craft", "textures/entity/prisoner/prisoner.png");
+		 eye = new ResourceLocation("nova_craft", "textures/entity/prisoner/eye.png");	
+		 overlay_1 = new ResourceLocation("nova_craft", "textures/entity/prisoner/prisoner_overlay_1.png");
+		 overlay_2 = new ResourceLocation("nova_craft", "textures/entity/prisoner/prisoner_overlay_2.png");
+		 overlay_3 = new ResourceLocation("nova_craft", "textures/entity/prisoner/prisoner_overlay_3.png");
 	    }
 	
 }

@@ -186,13 +186,6 @@ public class EntityEnderLord extends EntityMob
                     i = MathHelper.floor_double(this.posY + this.rand.nextDouble() * 3.0D);
                     j = MathHelper.floor_double(this.posZ - 2.0D + this.rand.nextDouble() * 4.0D);
                     block = this.worldObj.getBlock(k, i, j);
-
-                    //if (EntityEnderLord.getCarriable(block))
-                    //{
-                        //this.func_146081_a(block);
-                       // this.setCarryingData(this.worldObj.getBlockMetadata(k, i, j));
-                       // this.worldObj.setBlock(k, i, j, Blocks.air);
-                    //}
                 }
             }
             else if (this.rand.nextInt(2000) == 0)

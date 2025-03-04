@@ -125,6 +125,7 @@ public class EntitiesNovaCraft {
 		register(EntityDestituteTentacle.class, "destitumite_tentacle", 53, 0x080909, 0x1b2b1c);
 		register(EntitySculkIncinerator.class, "sculk_incinerator", 55, 0x4ea19f, 0x2a4f59);
 		register(EntityWardenVessel.class, "warden_vessel", 61, 0x7a7a7a, 0x74c7c9);
+		register(EntityNitro.class, "nitro", 62, 0x890009, 0xcb868b);
 		
 		//Bosses
 		register(EntityWarden.class, "warden", 16, 0x256166, 0x171b1e);
@@ -166,6 +167,10 @@ public class EntitiesNovaCraft {
 		
 		if (Configs.enableSpawnBlazingSerpent) {
 			EntityRegistry.addSpawn(EntityBlazingSerpent.class, 6, 3, 6, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+		}
+		
+		if (Configs.enableSpawnNitro) {
+			EntityRegistry.addSpawn(EntityNitro.class, 6, 3, 6, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
 		if (Configs.enableSpawnPhoenix) {

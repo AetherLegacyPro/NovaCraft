@@ -129,6 +129,7 @@ public class Configs
     public static boolean enableSpawnDeathStalker;
     public static boolean enableSpawnRealityDistorter;
     public static boolean enableSpawnDestituteTentacle;
+    public static boolean enableSpawnNitro;
     
     public static boolean enableSpawnFireflyOtherBiomes;
     public static boolean enableNoDespawnFirefly;
@@ -147,6 +148,7 @@ public class Configs
     public static boolean enableWeaponsToAllignWithVanilla;
     
     public static boolean enableTreasureCratesDropDiamonds;
+    public static boolean enableNoSkippingTheNight;
     
     public static boolean enableUniqueLegendaryBeaconBeam;
     
@@ -386,6 +388,7 @@ public class Configs
         enableSpawnDeathStalker = conf.getBoolean("enableSpawnDeathStalker", catMobs, true, "Enables the Spawning of the Death Stalker");
         enableSpawnRealityDistorter = conf.getBoolean("enableSpawnRealityDistorter", catMobs, true, "Enables the Spawning of the Reality Distorter");
         enableSpawnDestituteTentacle = conf.getBoolean("enableSpawnDestituteTentacle", catMobs, true, "Enables the Spawning of the Destitute Tentacle");
+        enableSpawnNitro = conf.getBoolean("enableSpawnNitro", catMobs, true, "Enables the Spawning of the Nitro");
 
         enableIncreasedVanillaNetherMobSpawn = conf.getBoolean("enableIncreasedVanillaNetherMobSpawn", catMobs, true, "Enables increased spawning of Zombie Pigmen, Magma Cubes, and Ghasts in all Nether Biomes");
         enableIncreasedVanillaOverworldMobSpawn = conf.getBoolean("enableIncreasedVanillaOverworldMobSpawn", catMobs, true, "Enables increased spawning of Skeletons, Creepers, Zombies, and Witches.");
@@ -405,7 +408,8 @@ public class Configs
         enableCrystalGolemAura = conf.getBoolean("enableCrystalGolemAura", catMisc, true, "Enables the auras of the various crystal golems.");
         enableLuminantLeavesGlow = conf.getBoolean("enableLuminantLeavesGlow", catMisc, true, "Enables luminant leaves to have a slight glow effect.(Disable this if you use dynamic leaves)");
         enableAncientCityTotem = conf.getBoolean("enableAncientCityTotem", catMisc, true, "Enables crafting recipe for Ancient City Totem");
-        enableSculkStoneSpreading = conf.getBoolean("enableSculkStoneSpreading", catMisc, true, "Enables sculk stone to spread to nearby stone type blocks like grass.");
+        enableSculkStoneSpreading = conf.getBoolean("enableSculkStoneSpreading", catMisc, true, "Enables sculk stone to spread to nearby stone type blocks like grass.");       
+        enableNoSkippingTheNight = conf.getBoolean("enableNoSkippingTheNight", catMisc, true, "Beds will only set the player's spawnpoint and will not allow them to skip the night.");
 
         //Warden Options
         enableWardenBlindness = conf.getBoolean("enableWardenBlindness", catWarden, true, "Enables the Warden Applying blindess to the player when within 5 Blocks: Note if False the Player will be given Slowness II Instead");

@@ -18,6 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -53,7 +54,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityPrisoner extends EntityMob implements IBossDisplayData
+public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 {		
 	
 	EntityPlayer player;
@@ -67,17 +68,7 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
 	public EntityPrisoner(final World p_i1745_1_) {
 		super(p_i1745_1_);
 		this.isImmuneToFire = true;
-		getNavigator().setBreakDoors(true);
-		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
-		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
-		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(8, new EntityAILookIdle(this));
-		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-		//addRandomArmor();
-		setSize(1F, 3F);
+		setSize(1F, 8F);
 		this.experienceValue = 500;
 	}
 	
@@ -85,13 +76,20 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(11D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(666.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50D);
-		this.setHealth(600);		
+		this.setHealth(1000);		
 		
+	}
+	
+	@Override
+	protected boolean isMovementBlocked() {
+		return true;
+	}
+	
+	@Override
+	public boolean canBePushed() {
+		return false;
 	}
 	
 	public boolean canBreatheUnderwater()
@@ -99,16 +97,15 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
         return true;
     }
 	
-	 public int getTotalArmorValue()
-	    {
-	        return 17;
-	    }
+	public int getTotalArmorValue()
+	{
+	    return 17;
+	}
 	
 	public void onLivingUpdate()
 	{
-		//this.playSound("nova_craft:warden.heartbeat", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
 
-		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(5, 5, 5));
+		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(8, 8, 8));
 		{
 		if(Configs.enableWardenBlindness == true) {
         for(Entity entity : volume) {
@@ -116,9 +113,6 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
         	}
 		}
 		else {
-		//for(Entity entity : volume) {
-	        //if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
-	         //}
 		for(Entity entity : volume) {
 	        if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
 	         }
@@ -156,20 +150,15 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
 	    		}
 	    		
 	    	int k;
-	    	final float f = MathHelper.cos((48 + this.ticksExisted) * 0.13f + 3.1415927f);
-            final float f2 = MathHelper.cos((48 + this.ticksExisted + 1) * 0.13f + 3.1415927f);
-            if (f > 0.0f && f2 <= 0.0f) {
-	    	this.playSound("nova_craft:warden.heartbeat", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-            }
 	    	if (Configs.enableWardenParticles) {
 	    	for (k = 0; k < 1; ++k)
 	        {
-	        	ParticleHandler.VOIDLARGE.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
+	        	ParticleHandler.PORTAL_PARTICLE.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
 	        }
 	        
 	        for (k = 0; k < 1; ++k)
 	        {
-	        	ParticleHandler.VOIDLARGE.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height + 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
+	        	ParticleHandler.PORTAL_PARTICLE.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height + 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
 	        	}
 	    	  }
 	    	}
@@ -223,13 +212,11 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
             ItemStack chest = ((EntityPlayer) target).getCurrentArmor(2);
             ItemStack legs = ((EntityPlayer) target).getCurrentArmor(1);
             ItemStack boots = ((EntityPlayer) target).getCurrentArmor(0);
-            //ItemStack hand = ((EntityPlayer) target).getCurrentEquippedItem();
 
             boolean hasWardenHelmet = false;
             boolean hasWardenChest = false;
             boolean hasWardenLegs = false;
             boolean hasWardenBoots = false;
-           // boolean hasWardenHand = false;
 
 
             if(helmet != null)
@@ -243,9 +230,6 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
 
             if(boots != null)
                 hasWardenBoots = boots.getItem() == NovaCraftItems.warden_boots || boots.getItem() == NovaCraftItems.crystalite_boots;
-
-           // if(hand != null)
-                //hasWardenHand = boots.getItem() == Items.Warden_sword;
 
 
             if (hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) {
@@ -300,67 +284,11 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
 			}
 				
 		}
-		
-		//this.worldObj.spawnParticle("snowshovel", this.posX + (this.rand.nextGaussian() / 5D), this.posY + (this.rand.nextGaussian() / 5D), this.posZ + (this.rand.nextGaussian() / 3D), 0.0D, 0.0D, 0.0D);
-		
+				
 		if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
 			this.setDead();
 		}
 	}
-	
-	protected void onDeathUpdate()
-    {
-		 ++this.deathTicks;
-	        if (this.deathTicks >= 180 && this.deathTicks <= 200)
-	        {
-	            float f = (this.rand.nextFloat() - 0.5F) * 8.0F;
-	            float f1 = (this.rand.nextFloat() - 0.5F) * 4.0F;
-	            float f2 = (this.rand.nextFloat() - 0.5F) * 8.0F;
-	            this.worldObj.spawnParticle("hugeexplosion", this.posX + (double)f, this.posY + 2.0D + (double)f1, this.posZ + (double)f2, 0.0D, 0.0D, 0.0D);
-	           
-	         }
-
-	        int i;
-	        int j;
-
-	        if (!this.worldObj.isRemote)
-	        {
-	            if (this.deathTicks > 150 && this.deathTicks % 5 == 0)
-	            {
-	                i = 1000;
-
-	                while (i > 0)
-	                {
-	                    j = EntityXPOrb.getXPSplit(i);
-	                    i -= j;
-	                    this.worldObj.spawnEntityInWorld(new EntityXPOrb(this.worldObj, this.posX, this.posY, this.posZ, j));
-	                }
-	            }
-
-	            if (this.deathTicks == 1)
-	            {
-	                this.worldObj.playBroadcastSound(1018, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
-	            }
-	        }
-
-	        this.moveEntity(0.0D, 0.10000000149011612D, 0.0D);
-	        this.renderYawOffset = this.rotationYaw += 20.0F;
-
-	        if (this.deathTicks == 200 && !this.worldObj.isRemote)
-	        {
-	            i = 500;
-
-	            while (i > 0)
-	            {
-	                j = EntityXPOrb.getXPSplit(i);
-	                i -= j;
-	                this.worldObj.spawnEntityInWorld(new EntityXPOrb(this.worldObj, this.posX, this.posY, this.posZ, j));
-	            }
-
-	            //this.createloot(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ));
-	            this.setDead();
-	        }
-    }
 	
 	/**
      * Called when the mob's health reaches 0.
@@ -371,9 +299,9 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
 
         if (p_70645_1_.getEntity() instanceof EntityPlayer)
         {
-            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            //EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
             
-            entityplayer.triggerAchievement(AchievementsNovaCraft.reached_for_things_I_didnt_need);
+            //entityplayer.triggerAchievement(AchievementsNovaCraft.reached_for_things_I_didnt_need);
             
         }
             
@@ -531,5 +459,10 @@ public class EntityPrisoner extends EntityMob implements IBossDisplayData
 	public boolean canDespawn() {
         return false;
     }
+
+	@Override
+	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
+		return null;
+	}
 
 }
