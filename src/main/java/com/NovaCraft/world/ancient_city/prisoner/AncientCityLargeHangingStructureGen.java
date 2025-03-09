@@ -358,7 +358,7 @@ public class AncientCityLargeHangingStructureGen extends WorldGenerator
 	            world.setBlock(i + 5, j + 18, k + 7, NovaCraftBlocks.vanite_brick_wall, 0, 2);	            
 	        }			 
 			
-			world.setBlock(i + 5, j + 6, k + 4, NovaCraftBlocks.nullstone_deactivator, 0, 2);
+			world.setBlock(i + 5, j + 6, k + 4, NovaCraftBlocks.cracked_nullstone_deactivator, 0, 2);
 			
 			world.setBlock(i + 8, j + 6, k + 4, Blocks.chest, 4, 2);
 			TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 8, j + 6, k + 4);

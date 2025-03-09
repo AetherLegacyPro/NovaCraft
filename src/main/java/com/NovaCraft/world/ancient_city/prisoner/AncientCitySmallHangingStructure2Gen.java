@@ -98,7 +98,7 @@ public class AncientCitySmallHangingStructure2Gen extends WorldGenerator
 	            world.setBlock(i + 2, j + 17, k + 2, NovaCraftBlocks.vanite_brick_wall, 0, 2);	            
 	        }
 			
-			world.setBlock(i + 2, j + 4, k + 2, NovaCraftBlocks.nullstone_deactivator, 0, 2);
+			world.setBlock(i + 2, j + 4, k + 2, NovaCraftBlocks.cracked_nullstone_deactivator, 0, 2);
 			
 			world.setBlock(i + 4, j + 0, k + 2, Blocks.mob_spawner, 0, 2);
 			TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 4, j + 0, k + 2);

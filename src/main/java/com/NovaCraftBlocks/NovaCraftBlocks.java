@@ -150,6 +150,7 @@ import com.NovaCraftBlocks.potion.BlockVaniteCluster;
 import com.NovaCraftBlocks.sculk.BlockActivatedGrimstoneShrieker;
 import com.NovaCraftBlocks.sculk.BlockActivatedReinforcedNullstone;
 import com.NovaCraftBlocks.sculk.BlockActivatedUnknownPortalActivator;
+import com.NovaCraftBlocks.sculk.BlockCrackedNullstoneDeactivator;
 import com.NovaCraftBlocks.sculk.BlockGrimstoneShrieker;
 import com.NovaCraftBlocks.sculk.BlockInkedSculk;
 import com.NovaCraftBlocks.sculk.BlockNullstoneDeactivator;
@@ -171,6 +172,7 @@ import com.NovaCraftBlocks.sculk.BlockSculkTulip;
 import com.NovaCraftBlocks.sculk.BlockSculkVein;
 import com.NovaCraftBlocks.sculk.BlockUnknownPortal;
 import com.NovaCraftBlocks.sculk.BlockUnknownPortalActivator;
+import com.NovaCraftBlocks.sculk.BlockUnknownPortalSealed;
 import com.NovaCraftBlocks.stalactites.BlockIcicle;
 import com.NovaCraftBlocks.stalactites.BlockLargeNullstoneStalactite;
 import com.NovaCraftBlocks.stalactites.BlockLargeStoneStalactite;
@@ -315,7 +317,8 @@ public class NovaCraftBlocks {
 	//Boss Summoning
 	public static Block grimstone_shrieker, activated_grimstone_shrieker;
 	public static Block deep_one_egg, deep_one_egg_activated;
-	public static Block reinforced_nullstone, activated_reinforced_nullstone, unknown_portal_activator, activated_unknown_portal_activator, unknown_portal, nullstone_deactivator;
+	public static Block reinforced_nullstone, activated_reinforced_nullstone, unknown_portal_activator, activated_unknown_portal_activator;
+	public static Block unknown_portal_sealed, unknown_portal, cracked_nullstone_deactivator, nullstone_deactivator;
 	
 	//Special
 	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table;
@@ -367,6 +370,7 @@ public class NovaCraftBlocks {
 		activated_reinforced_nullstone = registerHidden("activated_reinforced_nullstone", new BlockActivatedReinforcedNullstone()).setCreativeTab(null);
 		unknown_portal_activator = register("unknown_portal_activator", new BlockUnknownPortalActivator());
 		activated_unknown_portal_activator = registerHidden("activated_unknown_portal_activator", new BlockActivatedUnknownPortalActivator()).setCreativeTab(null);
+		cracked_nullstone_deactivator = register("cracked_nullstone_deactivator", new BlockCrackedNullstoneDeactivator());
 		nullstone_deactivator = register("nullstone_deactivator", new BlockNullstoneDeactivator());
 		chiseled_nullstone = register("chiseled_nullstone", new BlockChiseledNullstone());
 		
@@ -518,6 +522,7 @@ public class NovaCraftBlocks {
 		sculk_endstone = register("sculk_endstone", new BlockSculkEndstone());
 		
 		unknown_portal = register("unknown_portal", new BlockUnknownPortal().setBlockTextureName(NovaCraft.find("unknown_portal")));
+		unknown_portal_sealed = register("unknown_portal_sealed", new BlockUnknownPortalSealed().setBlockTextureName(NovaCraft.find("unknown_portal_sealed")));
 		
 		if (Loader.isModLoaded("etfuturum")) {
 		sculk_deepslate = register("sculk_deepslate", new BlockSculkDeepslate());
@@ -578,7 +583,7 @@ public class NovaCraftBlocks {
 		luminant_sapling = registerMeta("luminant_sapling", new BlockLuminantSapling(new LuminantTreeGen(NovaCraftBlocks.luminant_leaves, NovaCraftBlocks.luminant_leaves, 50, 5, true)).setBlockTextureName(NovaCraft.find("luminant_sapling")));
 		
 		flaming_pitcher_bottom = registerMeta("flaming_pitcher_bottom", new BlockFlamingPitcherBottom().setBlockTextureName(NovaCraft.find("flaming_pitcher")));
-		flaming_pitcher_top = registerMetaHidden("flaming_pitcher_top", new BlockFlamingPitcherTop().setBlockTextureName(NovaCraft.find("pitcher_top")));		
+		flaming_pitcher_top = registerMetaHidden("flaming_pitcher_top", new BlockFlamingPitcherTop().setBlockTextureName(NovaCraft.find("pitcher_top"))).setCreativeTab(null);
 		hell_piliz = registerMeta("hell_piliz", new BlockHellPiliz().setBlockTextureName(NovaCraft.find("hell_piliz")));
 		deepoid_mushroom = registerMeta("deepoid_mushroom", new BlockDeepoidMushroom().setBlockTextureName(NovaCraft.find("deepoid_mushroom")));
 		ion_mushroom = registerMeta("ion_mushroom", new BlockIonMushroom().setBlockTextureName(NovaCraft.find("ion_mushroom")));

@@ -210,7 +210,7 @@ public class NovaCraftItems {
 	public static Item nullwart, nullwart_blend;
 	public static Item nullified_dust, wardling_dust, warden_dust;
 	public static Item static_essence, destitute_tentacle;
-	public static Item ancient_city_artifact, powered_ancient_city_artifact, vanite_lead;
+	public static Item ancient_city_artifact, powered_ancient_city_artifact, nulk_dust, dimensional_sealent;
 	
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy;
@@ -363,6 +363,8 @@ public class NovaCraftItems {
 		ancient_city_artifact = register("ancient_city_artifact", new ItemNovaCraft(NovaCraftCreativeTabs.items).setMaxStackSize(1).setTextureName(NovaCraft.find("ancient_city_artifact")));
 		powered_ancient_city_artifact = register("powered_ancient_city_artifact", new ItemPoweredAncientCityArtifact().setTextureName(NovaCraft.find("powered_ancient_city_artifact")));
 		static_blend = register("static_blend", new ItemStaticBlend().setTextureName(NovaCraft.find("static_blend")));
+		nulk_dust = register("nulk_dust", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("nulk_dust")));
+		dimensional_sealent = register("dimensional_sealent", new ItemDimensionalSealent().setTextureName(NovaCraft.find("dimensional_sealent")));
 		
 		vanite_bucket = register("vanite_bucket", new ItemVaniteBucket(Blocks.air).setMaxStackSize(16).setTextureName(NovaCraft.find("vanite_bucket")));
 		vanite_bucket_water = register("vanite_bucket_water", new ItemVaniteBucket(Blocks.flowing_water).setTextureName(NovaCraft.find("vanite_bucket_water")));

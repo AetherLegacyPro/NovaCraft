@@ -40,7 +40,7 @@ public class RealityDistorterRenderer extends RenderLiving
         return this.shouldRenderPass((EntityRealityDistorter)par1EntityLivingBase, par2, par3);
     }
     
-    protected int shouldRenderPass(final EntityRealityDistorter par1XCEntityDemiGod, final int par2, final float par3) {
+    protected int shouldRenderPass(final EntityRealityDistorter entity, final int par2, final float par3) {
         if (par2 != 0) {
             return -1;
         }

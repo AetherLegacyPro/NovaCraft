@@ -2806,7 +2806,7 @@ public class AncientCitySmallHouseGen1 extends WorldGenerator
 			case 27: 
 				return new ItemStack(Items.gunpowder, random.nextInt(6) + 5);
 			case 28: 
-				return new ItemStack(Items.diamond, 1);
+				return new ItemStack(NovaCraftItems.ancient_city_artifact, 1);
 			case 29: 
 				return new ItemStack(NovaCraftItems.ancient_city_artifact, 1);
 			case 30: 

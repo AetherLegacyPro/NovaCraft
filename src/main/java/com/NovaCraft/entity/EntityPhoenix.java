@@ -318,11 +318,6 @@ public class EntityPhoenix extends EntityAnimal implements IMob
         return true;
     }
     
-    //protected Item getDropItem()
-    //{
-       // return NovaCraftItems.phoenix_feather;
-   // }
-    
     @Override
     public EntityPhoenix createChild(EntityAgeable p_90011_1_)
     {

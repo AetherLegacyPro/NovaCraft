@@ -4,207 +4,95 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.MathHelper;
 
 public class PrisonerModel extends ModelBase {
 	
-	ModelRenderer head;
-	ModelRenderer right_ear;
-	ModelRenderer left_ear;
-	ModelRenderer body;
-	ModelRenderer top_left_tent1;
-	ModelRenderer top_right_tent1;
-	ModelRenderer mid_left_tent1;
-	ModelRenderer mid_right_tent1;
-	ModelRenderer bottom_left_tent1;
-	ModelRenderer bottom_right_tent1;
-	ModelRenderer top_left_tent2;
-	ModelRenderer left_arm;	
-	ModelRenderer right_arm;
-	ModelRenderer mid_right_tent2;
-	ModelRenderer bottom_left_tent2;
-	ModelRenderer bottom_right_tent2;
-	ModelRenderer mid_left_tent2;
-	ModelRenderer top_right_tent2;
-	
-	ModelRenderer eye1;
-	ModelRenderer eye2;
-	ModelRenderer eye3;
-	ModelRenderer eye4;
-	ModelRenderer largeEye1;
-	ModelRenderer largeEye2;
+	private final ModelRenderer portal;
+	private final ModelRenderer eye;
+	private final ModelRenderer tentacle_1;
+	private final ModelRenderer tentacle_2;
+	private final ModelRenderer tentacle_3;
+	private final ModelRenderer tentacle_4;
+	private final ModelRenderer tentacle_5;
+	private final ModelRenderer tentacle_6;
+	private final ModelRenderer tentacle_7;
+	private final ModelRenderer tentacle_8;
+	private final ModelRenderer tentacle_9;
+	private final ModelRenderer tentacle_10;
 
 	public PrisonerModel() {
 		textureWidth = 128;
 		textureHeight = 128;
 		
-		(this.head = new ModelRenderer((ModelBase)this)).setRotationPoint(0.0f, -10.0f, 0.0f);
-        this.head.setTextureOffset(0, 33).addBox(-8.0f, -16.0f, -6.0f, 16, 16, 10);
-
-		(this.right_ear = new ModelRenderer((ModelBase)this)).setRotationPoint(-8.0f, -12.5f, 0.0f);
-        this.head.addChild(this.right_ear);
-        this.setRotation(this.right_ear, 0.0f, 0.0f, 0.0873f);
-        this.right_ear.setTextureOffset(78, 78).addBox(-10.0f, -6.5f, -1.0f, 10, 10, 0);
+		(this.portal = new ModelRenderer((ModelBase)this, 0, 0)).setRotationPoint(0.0f, 24.0F, 0.0F);
+        this.portal.addBox(0.0F, -16.0F, -16.0F, 1, 16, 32, 0.0f);
+        this.setRotationAngle(this.portal, 0.0f, 0.0f, 0.0f);
         
-		(this.left_ear = new ModelRenderer((ModelBase)this)).setRotationPoint(7.0f, -12.5f, 0.0f); //8
-        this.head.addChild(this.left_ear);
-        this.setRotation(this.left_ear, 0.0f, 0.0f, -0.0873f);
-        this.left_ear.setTextureOffset(78, 57).addBox(0.0f, -6.5f, -1.0f, 10, 10, 0);
-
-		(this.body = new ModelRenderer((ModelBase)this)).setRotationPoint(0.0f, -10.0f, -1.0f);
-        this.setRotation(this.body, 0.0873f, 0.0f, 0.0f);
-        this.body.setTextureOffset(0, 0).addBox(-9.0f, 0.0f, -5.0f, 18, 21, 11);
-        		
-		(this.left_arm = new ModelRenderer((ModelBase)this)).setRotationPoint(11.0f, -6.0f, 0.0f);
-        this.setRotation(this.left_arm, 0.2182f, 0.0f, 0.0f);
-        this.left_arm.setTextureOffset(61, 60).addBox(-2.0f, -4.0f, -4.0f, 4, 24, 4);
-		
-		(this.right_arm = new ModelRenderer((ModelBase)this)).setRotationPoint(-11.0f, -6.0f, 0.0f);
-        this.setRotation(this.right_arm, 0.2182f, 0.0f, 0.0f);
-        this.right_arm.setTextureOffset(61, 60).addBox(-2.0f, -4.0f, -4.0f, 4, 24, 4); //-6
+        (this.eye = new ModelRenderer((ModelBase)this, 0, 0)).setRotationPoint(0.0f, 24.0F, 0.0F);
+        this.eye.addBox(1.0F, -15.0F, -3.0F, 2, 7, 7, 0.0F);
+        this.setRotationAngle(this.eye, 0.0f, 0.0f, 0.0f);
         
+        (this.tentacle_1 = new ModelRenderer((ModelBase)this, 6, 59)).setRotationPoint(0.0f, 24.0F, 0.0F);
+        this.tentacle_1.addBox(5.0F, -14.0F, 9.0F, 5, 2, 2, 0.0F);
+        this.setRotationAngle(this.tentacle_1, 0.0f, 0.0f, 0.0f);
         
+        (this.tentacle_2 = new ModelRenderer((ModelBase)this, 28, 58)).setRotationPoint(5.0F, -7.0F, 12.0F);
+        this.tentacle_2.addBox(-4.0F, -3.0F, -1.0F, 5, 3, 3, 0.0F);
+        this.setRotationAngle(this.tentacle_2, 0.0F, 0.0F, 0.0873F);
+        this.portal.addChild(this.tentacle_2);
         
+        (this.tentacle_3 = new ModelRenderer((ModelBase)this, 24, 61)).setRotationPoint(4.0F, -1.0F, -8.0F);
+        this.tentacle_3.addBox(-3.0F, -3.0F, -1.0F, 4, 3, 3, 0.0F);
+        this.setRotationAngle(this.tentacle_3, 0.0F, 0.0F, -0.0873F);
+        this.portal.addChild(this.tentacle_3);
         
+        (this.tentacle_4 = new ModelRenderer((ModelBase)this, 24, 62)).setRotationPoint(8.0F, -8.0F, -5.0F);
+        this.tentacle_4.addBox(-2.0F, -2.0F, -1.0F, 3, 2, 2, 0.0F);
+        this.setRotationAngle(this.tentacle_4, 0.2182F, 0.0F, -0.1309F);
+        this.portal.addChild(this.tentacle_4);
         
-        (this.top_left_tent1 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(9.0F, -33.0F, 1.0F, 18, 4, 4);
-		this.top_left_tent1.setTextureSize(128, 128);
-		top_left_tent1.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.top_left_tent1.mirror = true;
-
-        (this.top_right_tent1 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(-27.0F, -33.0F, 1.0F, 18, 4, 4);
-		this.top_right_tent1.setTextureSize(128, 128); //-18, -2
-		top_right_tent1.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.top_right_tent1.mirror = true;
+        (this.tentacle_5 = new ModelRenderer((ModelBase)this, 41, 55)).setRotationPoint(5.0F, -6.0F, -6.0F);
+        this.tentacle_5.addBox(-4.0F, -4.0F, -1.0F, 5, 4, 4, 0.0F);
+        this.setRotationAngle(this.tentacle_5, 0.2182F, 0.0F, -0.1309F);
+        this.portal.addChild(this.tentacle_5);
         
-        (this.mid_left_tent1 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(9.0F, -27.0F, 1.0F, 14, 4, 4);
-		this.mid_left_tent1.setTextureSize(128, 128); //-14, -2
-		mid_left_tent1.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.mid_left_tent1.mirror = true;
+        (this.tentacle_6 = new ModelRenderer((ModelBase)this, 24, 54)).setRotationPoint(6.0F, -4.0F, -13.0F);
+        this.tentacle_6.addBox(-5.0F, -3.0F, -1.0F, 6, 3, 3, 0.0F);
+        this.setRotationAngle(this.tentacle_6, 0.0F, 0.0F, -0.0873F);
+        this.portal.addChild(this.tentacle_6);
         
-        (this.mid_right_tent1 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(-23.0F, -27.0F, 1.0F, 14, 4, 4);
-		this.mid_right_tent1.setTextureSize(128, 128);
-		mid_right_tent1.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.mid_right_tent1.mirror = true;
-
-        (this.bottom_left_tent1 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(9.0F, -21.0F, 1.0F, 12, 4, 4);
-		this.bottom_left_tent1.setTextureSize(128, 128);
-		bottom_left_tent1.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.bottom_left_tent1.mirror = true;
-
-        (this.bottom_right_tent1 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(-21.0F, -21.0F, 1.0F, 12, 4, 4);
-		this.bottom_right_tent1.setTextureSize(128, 128);
-		bottom_right_tent1.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.bottom_right_tent1.mirror = true;
-		
-        (this.top_left_tent2 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(27.0F, -42.0F, 1.0F, 4, 12, 4);
-        this.top_left_tent2.setTextureSize(128, 128);
-		top_left_tent2.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.top_left_tent2.mirror = true;
+        (this.tentacle_7 = new ModelRenderer((ModelBase)this, 2, 59)).setRotationPoint(9.0F, -4.0F, 4.0F);
+        this.tentacle_7.addBox(-9.0F, -3.0F, -1.0F, 10, 3, 3, 0.0F);
+        this.setRotationAngle(this.tentacle_7, 0.0F, 0.0F, 0.1745F);
+        this.portal.addChild(this.tentacle_7);
         
-        (this.mid_right_tent2 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(19.0F, -36.0F, 5.0F, 4, 12, 4);
-		this.mid_right_tent2.setTextureSize(128, 128);
-		mid_right_tent2.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.mid_right_tent2.mirror = true;
-
-        (this.bottom_left_tent2 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(17.0F, -20.0F, 5.0F, 4, 6, 4);
-		this.bottom_left_tent2.setTextureSize(128, 128);
-		bottom_left_tent2.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.bottom_left_tent2.mirror = true;
+        (this.tentacle_8 = new ModelRenderer((ModelBase)this, 48, 59)).setRotationPoint(4.0F, -11.0F, 9.0F);
+        this.tentacle_8.addBox(-3.0F, -4.0F, -1.0F, 4, 4, 4, 0.0F);
+        this.setRotationAngle(this.tentacle_8, 0.0F, 0.0F, -0.0436F);
+        this.portal.addChild(this.tentacle_8);
         
-        (this.bottom_right_tent2 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(-21.0F, -20.0F, 5.0F, 4, 6, 4);
-		this.bottom_right_tent2.setTextureSize(128, 128);
-		bottom_right_tent2.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.bottom_right_tent2.mirror = true;
-		
-        (this.mid_left_tent2 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(-23.0F, -36.0F, 5.0F, 4, 12, 4);
-		this.mid_left_tent2.setTextureSize(128, 128);
-		mid_left_tent2.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.mid_left_tent2.mirror = true;
-		
-        (this.top_right_tent2 = new ModelRenderer((ModelBase)this, 50, 102)).addBox(-31.0F, -42.0F, 1.0F, 4, 12, 4);
-		this.top_right_tent2.setTextureSize(128, 128);
-		top_right_tent2.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.top_right_tent2.mirror = true;
+        (this.tentacle_9 = new ModelRenderer((ModelBase)this, 29, 58)).setRotationPoint(5.0F, -2.0F, 9.0F);
+        this.tentacle_9.addBox(-5.0F, -3.0F, -1.0F, 6, 3, 3, 0.0F);
+        this.setRotationAngle(this.tentacle_9, -0.1309F, 0.0F, 0.1309F);
+        this.portal.addChild(this.tentacle_9);
         
-        (this.eye1 = new ModelRenderer((ModelBase)this, 0, 92)).addBox(26.0F, -48.0F, 0.0F, 6, 6, 6);
-		this.eye1.setTextureSize(128, 128);
-		eye1.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.eye1.mirror = true;
+        (this.tentacle_10 = new ModelRenderer((ModelBase)this, 7, 58)).setRotationPoint(8.0F, -9.0F, -11.0F);
+        this.tentacle_10.addBox(-7.0F, -3.0F, -1.0F, 8, 3, 3, 0.0F);
+        this.setRotationAngle(this.tentacle_10, -0.2182F, 0.0F, 0.0F);
+        this.portal.addChild(this.tentacle_10);
         
-        (this.eye2 = new ModelRenderer((ModelBase)this, 0, 92)).addBox(-32.0F, -48.0F, 0.0F, 6, 6, 6);
-		this.eye2.setTextureSize(128, 128);
-		eye2.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.eye2.mirror = true;
-
-        (this.eye3 = new ModelRenderer((ModelBase)this, 0, 92)).addBox(18.0F, -42.0F, 4.0F, 6, 6, 6);
-		this.eye3.setTextureSize(128, 128);
-		eye3.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.eye3.mirror = true;
-
-        (this.eye4 = new ModelRenderer((ModelBase)this, 0, 92)).addBox(-24.0F, -42.0F, 4.0F, 6, 6, 6);
-		this.eye4.setTextureSize(128, 128);
-		eye4.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.eye4.mirror = true;
-
-        (this.largeEye1 = new ModelRenderer((ModelBase)this, 0, 66)).addBox(15.0F, -14.0F, 3.0F, 8, 8, 8);
-		this.largeEye1.setTextureSize(128, 128);
-		largeEye1.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.largeEye1.mirror = true;
-
-        (this.largeEye2 = new ModelRenderer((ModelBase)this, 0, 66)).addBox(-23.0F, -14.0F, 3.0F, 8, 8, 8);
-		this.largeEye2.setTextureSize(128, 128);
-		largeEye2.setRotationPoint(0.0F, 24.0F, 0.0F);
-        //this.largeEye2.mirror = true;
 	}
 
+	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		super.render(entity, f, f1, f2, f3, f4, f5);
-        this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		head.render(f5);
-		body.render(f5);
-		top_left_tent1.render(f5);
-		top_right_tent1.render(f5);
-		mid_left_tent1.render(f5);
-		mid_right_tent1.render(f5);
-		bottom_left_tent1.render(f5);
-		bottom_right_tent1.render(f5);
-		top_left_tent2.render(f5);
-		left_arm.render(f5);
-		right_arm.render(f5);
-		mid_right_tent2.render(f5);
-		bottom_left_tent2.render(f5);
-		bottom_right_tent2.render(f5);
-		mid_left_tent2.render(f5);
-		top_right_tent2.render(f5);
-		eye1.render(f5);
-		eye2.render(f5);
-		eye3.render(f5);
-		eye4.render(f5);
-		largeEye1.render(f5);
-		largeEye2.render(f5);
+		portal.render(f5);
+		eye.render(f5);
 	}
 
-	public void setRotation(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
 	}
-	
-	@Override
-    public void setRotationAngles(float limbSwing, float limbSwingAngle, float entityTickTime, float rotationYaw, float rotationPitch, float unitPixel, Entity entity) {
-    	super.setRotationAngles(limbSwing, limbSwingAngle, entityTickTime, rotationYaw, rotationPitch, unitPixel, entity);
-    	
-        this.head.rotateAngleY = rotationYaw / 57.295776f;
-        this.head.rotateAngleX = rotationPitch / 57.295776f;
-        
-        this.left_ear.rotateAngleY = rotationYaw / 57.295776f;
-        this.left_ear.rotateAngleX = rotationPitch / 57.295776f;
-        this.right_ear.rotateAngleY = rotationYaw / 57.295776f;
-        this.right_ear.rotateAngleX = rotationPitch / 57.295776f;
-        
-        this.right_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662f + 3.1415927f) * limbSwingAngle;
-        this.left_arm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662f) * limbSwingAngle;
-                  
-    }
 }
+

@@ -3,7 +3,9 @@ package com.NovaCraft.entity;
 import java.util.Iterator;
 import java.util.List;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.NovaCraft;
+import com.NovaCraft.ServerMessage;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
@@ -17,6 +19,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -47,7 +50,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
@@ -56,7 +61,7 @@ import net.minecraft.world.World;
 
 public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 {		
-	
+	boolean angry = false;
 	EntityPlayer player;
 	public EntityPrisoner warden;
 	public int shootTime;
@@ -82,14 +87,28 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 		
 	}
 	
+
+	@Override
+	public void addVelocity(double x, double y, double z) {
+
+	}
+	
 	@Override
 	protected boolean isMovementBlocked() {
 		return true;
 	}
 	
 	@Override
+	public void moveEntity(double x, double y, double z) {
+	}
+	
+	@Override
 	public boolean canBePushed() {
 		return false;
+	}
+	
+	@Override
+	public void onCollideWithPlayer(EntityPlayer player) {
 	}
 	
 	public boolean canBreatheUnderwater()
@@ -102,8 +121,30 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	    return 17;
 	}
 	
+	public void summonMinions() {
+    	if (!this.worldObj.isRemote) {
+    		EntityNulk nulk = new EntityNulk(this.worldObj);
+    		nulk.setLocationAndAngles(this.posX + 3, this.posY, this.posZ, this.rotationYaw, 0.0F);
+    		nulk.setAttackTarget(this.getAttackTarget());
+    		this.worldObj.spawnEntityInWorld(nulk);
+    		this.playSound("nova_craft:sculk.break", 0.5f, 1.0f);
+    	}
+    	
+    }
+	
 	public void onLivingUpdate()
 	{
+		if (this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY) - 1, MathHelper.floor_double(this.posZ)) != NovaCraftBlocks.unknown_portal_sealed) {
+			this.setHealth(1000.0F);
+		}
+		else if (this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY) - 1, MathHelper.floor_double(this.posZ)) == NovaCraftBlocks.unknown_portal_sealed && angry == false) {
+			this.playSound("nova_craft:warden.roar", 0.5f, 1.0f);
+			angry = true;
+		}
+		
+		if (this.rand.nextInt(10) == 1 && this.getEntityToAttack() != null) {
+            this.summonMinions();
+        }
 
 		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(8, 8, 8));
 		{
@@ -131,11 +172,6 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
         	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
         	}
 		}
-        
-        if (isWet()){
-            this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 300, 4));
-            this.heal(10.0F);	
-            }
 		
 		super.onLivingUpdate();
 	}	
@@ -167,6 +203,62 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	@Override
     public boolean attackEntityFrom(DamageSource source, float amount)
     {
+		Entity entity2 = source.getEntity();
+		if (entity2 instanceof EntityPlayer)
+        {
+		int random1 = (int)(1 + Math.random() * 100);
+       	 if(random1 <= 25 ) {
+       		this.playSound("nova_craft:sculk.break", 0.5f, 1.0f);
+       		EntityNulk nulk = new EntityNulk(this.worldObj);
+    		nulk.setLocationAndAngles(this.posX + 3, this.posY, this.posZ, this.rotationYaw, 0.0F);
+    		nulk.setAttackTarget(this.getAttackTarget());
+
+               if (!this.worldObj.isRemote) {
+                   this.worldObj.spawnEntityInWorld(nulk);
+               	}
+               
+          	EntityNulk nulk2 = new EntityNulk(this.worldObj);
+          	nulk2.setLocationAndAngles(this.posX + 6, this.posY, this.posZ, this.rotationYaw, 0.0F);
+          	nulk2.setAttackTarget(this.getAttackTarget());
+
+                if (!this.worldObj.isRemote) {
+                    this.worldObj.spawnEntityInWorld(nulk2);
+                }
+               
+       		}
+       	if(random1 > 25 && random1 <= 50) {
+       		this.playSound("nova_craft:sculk.break", 1.0f, 1.0f);
+       		EntityNuxx nuxx = new EntityNuxx(this.worldObj);
+       		nuxx.setLocationAndAngles(this.posX + 3, this.posY, this.posZ, this.rotationYaw, 0.0F);
+       		nuxx.setAttackTarget(this.getAttackTarget());
+
+               if (!this.worldObj.isRemote) {
+                   this.worldObj.spawnEntityInWorld(nuxx);
+               	}
+               
+            EntityNuxx nuxx2 = new EntityNuxx(this.worldObj);
+            nuxx2.setLocationAndAngles(this.posX + 6, this.posY, this.posZ, this.rotationYaw, 0.0F);
+          	nuxx2.setAttackTarget(this.getAttackTarget());
+
+               if (!this.worldObj.isRemote) {
+                   this.worldObj.spawnEntityInWorld(nuxx2);
+               }
+               
+           EntityNuxx nuxx3 = new EntityNuxx(this.worldObj);
+           nuxx3.setLocationAndAngles(this.posX + 7, this.posY, this.posZ, this.rotationYaw, 0.0F);
+           nuxx3.setAttackTarget(this.getAttackTarget());
+
+               if (!this.worldObj.isRemote) {
+                   this.worldObj.spawnEntityInWorld(nuxx3);
+               }
+               
+       		}
+       	
+       	if(random1 > 50 && random1 <= 100) {
+       		
+       		}
+        }
+		
 		if (source == DamageSource.drown || source == DamageSource.wither || source == DamageSource.inWall  || source.isProjectile() || source.isExplosion())
         {
             return false;
@@ -196,15 +288,36 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 		
     }
 	
+	@Override
+    public void applyEntityCollision(Entity entity) {
+            boolean flag = entity.attackEntityFrom(DamageSource.generic, 30.0F);
+
+            if (flag && entity instanceof EntityLivingBase) {
+            	entity.addVelocity(entity.motionY, 3.0D, entity.motionZ);
+                this.worldObj.playSoundEffect(this.posX, this.posY, this.posZ, "nova_craft:null_explosion", 1.5F, 1.0F / (this.rand.nextFloat() * 0.2F + 0.9F));
+            }
+    }
+	
+	@Override
+    protected void collideWithNearbyEntities() {
+        List<?> list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(0.20000000298023224D, 8.0D, 0.20000000298023224D));
+
+        if (list != null && !list.isEmpty()) {
+            for (int i = 0; i < list.size(); ++i) {
+                Entity entity = (Entity) list.get(i);
+
+                this.applyEntityCollision(entity);
+            }
+        }
+    }
+	
 	
 	public boolean attackEntityAsMob(final Entity target) {
 		
 		boolean flag = super.attackEntityAsMob(target);
         		      	
 		this.heal(10.0F);
-		this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 150, 4));
-		this.addPotionEffect(new PotionEffect(Potion.jump.id, 100, 2));
-        this.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 100, 1));               
+		this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 150, 4));             
 
         if (target instanceof EntityPlayer) {
 
@@ -234,12 +347,12 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 
             if (hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) {
 
-            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 22.0F);
-            	target.attackEntityFrom(DamageSource.magic, 12.0F);
+            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 32.0F);
+            	target.attackEntityFrom(DamageSource.magic, 8.0F);
             }
             
             else {
-            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 64.0F);
+            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 74.0F);
             	target.attackEntityFrom(DamageSource.magic, 12.0F);
             	target.attackEntityFrom(DamageSource.wither, 2.0F);
             	target.attackEntityFrom(DamageSource.outOfWorld, 1.0F);
@@ -267,7 +380,7 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 				double d = this.getEntityToAttack().posX - this.posX;
 				double d1 = this.getEntityToAttack().posZ - this.posZ;
 
-				this.getLookHelper().setLookPositionWithEntity(this.getEntityToAttack(), 30.0F, 30.0F);
+				this.getLookHelper().setLookPositionWithEntity(this.getEntityToAttack(), 100.0F, 100.0F);
 
 				if (this.shootTime >= 20 && this.canEntityBeSeen(this.getEntityToAttack())) {
 					this.shootTarget();
@@ -293,19 +406,19 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	/**
      * Called when the mob's health reaches 0.
      */
-    public void onDeath(DamageSource p_70645_1_)
-    {
-        super.onDeath(p_70645_1_);
+	public void onDeath(DamageSource source) {
+	    super.onDeath(source);
 
-        if (p_70645_1_.getEntity() instanceof EntityPlayer)
-        {
-            //EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
-            
-            //entityplayer.triggerAchievement(AchievementsNovaCraft.reached_for_things_I_didnt_need);
-            
-        }
-            
-    }
+	    if (source.getEntity() instanceof EntityPlayer) {
+	        World world = this.worldObj;
+
+	        Hardmode data = Hardmode.get(world);
+	        data.triggerEvent(world);
+
+	        world.mapStorage.saveAllData();
+	        ServerMessage.broadcastMessage("Hardmode Enabled");
+	    }
+	}
 	
 	private void createloot(int p_70975_1_, int p_70975_2_, int p_70975_3_)
     {
@@ -345,17 +458,6 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 			
 		}
 	}
-	
-	protected Entity findEnemyToAttack() {
-        final List list = this.worldObj.getEntitiesWithinAABBExcludingEntity((Entity)this, this.boundingBox.expand(8.0, 4.0, 8.0));
-        for (int i = 0; i < list.size(); ++i) {
-            final Entity entity = (Entity) list.get(i);
-            if (entity != null && (entity instanceof EntitySlime || entity instanceof EntityMob || entity instanceof EntityAnimal)) {
-                this.entityToAttack = entity;
-            }
-        }
-        return null;
-    }
 	
 	 protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
 	    {
@@ -419,31 +521,16 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	      return "nova_craft:sculk_horn.vibration";
 	 }
 	
-	/**
-     * Returns the sound this mob makes while it's alive.
-     */
-	@Override
-    protected String getLivingSound()
-    {
-        return "nova_craft:sculk_dweller.living";
+	protected String getLivingSound() {
+        return "nova_craft:reality_distorter.living";
     }
-
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
-	@Override
-    protected String getHurtSound()
-    {
-        return "nova_craft:sculk_dweller.hurt";
+    
+    protected String getHurtSound() {
+        return "nova_craft:reality_distorter.hurt";
     }
-
-    /**
-     * Returns the sound this mob makes on death.
-     */
-	@Override
-    protected String getDeathSound()
-    {
-        return "nova_craft:sculk_dweller.death";
+    
+    protected String getDeathSound() {
+        return "nova_craft:reality_distorter.death";
     }
 	
 	public World func_82194_d()

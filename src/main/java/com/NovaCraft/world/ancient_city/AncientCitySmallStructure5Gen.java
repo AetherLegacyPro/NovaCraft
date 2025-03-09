@@ -1694,7 +1694,7 @@ public class AncientCitySmallStructure5Gen extends WorldGenerator
 			case 30: 
 				return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(15) + 8);
 			case 31: 
-				return new ItemStack(NovaCraftItems.primeval_horn, 1);
+				return new ItemStack(NovaCraftItems.ancient_city_artifact, 1);
 			default: {
 				return new ItemStack(NovaCraftBlocks.sculk_block, random.nextInt(9) + 2);
 			}

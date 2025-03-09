@@ -45,7 +45,7 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
         this.tasks.addTask(0, (EntityAIBase)new EntityAIWatchClosest((EntityLiving)this, (Class)EntityPlayer.class, 30.0f));
         this.tasks.addTask(1, (EntityAIBase)new EntityAILookIdle((EntityLiving)this));
         this.setSize(2.0f, 2.0f);
-        this.experienceValue = 5;
+        this.experienceValue = 10;
         this.base = (this.getRNG().nextFloat() - this.getRNG().nextFloat()) * 0.2F + 1.0F;
     }
     
@@ -386,7 +386,7 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
     
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(15.0);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(2D);
         this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.30D);
     }

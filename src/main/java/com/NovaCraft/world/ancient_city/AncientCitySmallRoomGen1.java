@@ -2373,7 +2373,7 @@ public class AncientCitySmallRoomGen1 extends WorldGenerator
 			case 30: 
 				return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(15) + 8);
 			case 31: 
-				return new ItemStack(NovaCraftItems.primeval_horn, 1);
+				return new ItemStack(NovaCraftItems.ancient_city_artifact, 1);
 			case 32: 
 				return new ItemStack(NovaCraftItems.ancient_city_totem, 1);
 			default: {

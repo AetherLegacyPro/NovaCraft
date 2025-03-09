@@ -1,14 +1,20 @@
 package com.NovaCraft.registry;
 
+import java.util.Iterator;
+
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class NovaCraftRegistries {
@@ -17,6 +23,7 @@ public class NovaCraftRegistries {
 	public static void register() {
 		initializeRecipes();
 		initializeShapelessRecipes();
+		removeRecipes();
 		
 		OreDictionary.registerOre("oreIron", NovaCraftBlocks.grimstone_iron);
 		OreDictionary.registerOre("oreIron", NovaCraftBlocks.nullstone_iron);
@@ -244,6 +251,8 @@ public class NovaCraftRegistries {
 		register("carved_vanite_bricks", new ItemStack(NovaCraftBlocks.carved_vanite_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.vanite_bricks);
 		
 		register("ender_fungus_block", new ItemStack(NovaCraftBlocks.ender_fungus_block), "XX", "XX", 'X', NovaCraftBlocks.ender_fungus_stem);
+		
+		register("dimensional_sealent", new ItemStack(NovaCraftItems.dimensional_sealent), "XXX", "ZYW", "XXX", 'X', NovaCraftItems.static_essence, 'Y', NovaCraftItems.powered_ancient_city_artifact, 'Z', NovaCraftItems.nulk_dust, 'W', NovaCraftItems.warden_dust);	
 		
 		register("crystallized_end", new ItemStack(NovaCraftBlocks.crystallized_end), "XXX", "XXX", "XXX", 'X', NovaCraftItems.crystallized_end_shard);			
 		register("klangite_ingot", new ItemStack(NovaCraftItems.klangite_ingot, 9), "X", 'X', NovaCraftBlocks.block_of_klangite);
@@ -766,6 +775,11 @@ public class NovaCraftRegistries {
 		}
 	}
 	
+	private static void removeRecipes() {
+		removeFirstRecipeFor(Items.golden_apple, 1);
+		
+	}
+	
 	
 	private static void register(String name, ItemStack stack, Object... recipe) {
 		GameRegistry.addRecipe(stack, recipe);
@@ -774,5 +788,29 @@ public class NovaCraftRegistries {
 	private static void registerShapeless(String name, ItemStack stack, Object... recipe) {
 		GameRegistry.addShapelessRecipe(stack, recipe);
 	}
+	
+	private static void removeFirstRecipeFor(Block block) {
+		removeFirstRecipeFor(Item.getItemFromBlock(block));
+	}
+	
+	private static void removeFirstRecipeFor(Item item) {
+		removeFirstRecipeFor(item, OreDictionary.WILDCARD_VALUE);
+	}
+	
+	private static void removeFirstRecipeFor(Item item, int meta) {
+		Iterator<IRecipe> iterator = (Iterator<IRecipe>) CraftingManager.getInstance().getRecipeList().iterator();
+		while (iterator.hasNext()) {
+			IRecipe recipe = iterator.next();
+			if (recipe != null) {
+				ItemStack stack = recipe.getRecipeOutput();
+				if (stack != null && stack.getItem() != null && stack.getItem() == item && (meta == OreDictionary.WILDCARD_VALUE || meta == stack.getItemDamage())) {
+					iterator.remove();
+					return;
+				}
+			}
+		}
+	}
+	
+	
 
 }

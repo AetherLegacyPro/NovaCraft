@@ -7,10 +7,17 @@ import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.ItemNovaCraftSpawnEgg;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
+import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
+import com.NovaCraft.entity.hardmode.EntityHardmodeMagmaCube;
+import com.NovaCraft.entity.hardmode.EntityHardmodeSkeleton;
+import com.NovaCraft.entity.hardmode.EntityHardmodeSlime;
+import com.NovaCraft.entity.hardmode.EntityHardmodeSpider;
+import com.NovaCraft.entity.hardmode.EntityHardmodeZombie;
 import com.NovaCraft.entity.illager.EntityIllagerChief;
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraft.entity.misc.EntityBloviatorProjectile;
@@ -124,14 +131,24 @@ public class EntitiesNovaCraft {
 		register(EntityDestitumite.class, "destitumite", 52, 0x080909, 0x1b1b1b);
 		register(EntityDestituteTentacle.class, "destitumite_tentacle", 53, 0x080909, 0x1b2b1c);
 		register(EntitySculkIncinerator.class, "sculk_incinerator", 55, 0x4ea19f, 0x2a4f59);
-		register(EntityWardenVessel.class, "warden_vessel", 61, 0x7a7a7a, 0x74c7c9);
+		register(EntityWardenVessel.class, "warden_vessel", 61, 0x022e31, 0x226e95);
 		register(EntityNitro.class, "nitro", 62, 0x890009, 0xcb868b);
+		register(EntityNulk.class, "nulk", 63, 0x19141a, 0x564d61);
+		register(EntityNuxx.class, "nuxx", 64, 0x07051f, 0x3d3347);
+		
+		//Hardmode
+		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);
+		register(EntityHardmodeSpider.class, "hardmode_spider", 66, 0x0b0c0c, 0x888585);
+		register(EntityHardmodeZombie.class, "hardmode_zombie", 67, 0x3b363a, 0x9f9faf);
+		register(EntityHardmodeSkeleton.class, "hardmode_skeleton", 68, 0x918491, 0xcfbcce);
+		register(EntityHardmodeSlime.class, "hardmode_slime", 69, 0x8ea070, 0xc8d6b4);
+		register(EntityHardmodeMagmaCube.class, "hardmode_magmacube", 70, 0x000000, 0xff3100);
 		
 		//Bosses
 		register(EntityWarden.class, "warden", 16, 0x256166, 0x171b1e);
 		register(EntityDeepoidDragon.class, "deepoid_dragon", 45, 0x68395f, 0xd2323a);
 		register(EntityBloviator.class, "bloviator", 47, 0x28395f, 0x12323a);
-		register(EntityPrisoner.class, "prisoner", 57, 0x356166, 0x171b1e);
+		register(EntityPrisoner.class, "prisoner", 57, 64, 20, true);
 		
 		if (Configs.enableSpawnGlowSquid) {
 		EntityRegistry.addSpawn((Class)EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] { BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});
@@ -192,7 +209,7 @@ public class EntitiesNovaCraft {
 				EntityRegistry.addSpawn(EntityFirefly.class, 2, 4, 2, EnumCreatureType.ambient, BiomeDictionary.getBiomesForType(Type.PLAINS));
 				EntityRegistry.addSpawn(EntityFirefly.class, 2, 4, 2, EnumCreatureType.ambient, BiomeDictionary.getBiomesForType(Type.FOREST));
 			}
-		}			
+		}
 			
 		//Sculk Dweller Spawn Rates
 		if (Configs.enableSpawnSculkDweller) {
@@ -231,7 +248,8 @@ public class EntitiesNovaCraft {
 					}
 				}
 			}
-		}
+		}				
+		
 		if (Configs.enableSpawnSculkAbomination) {
 		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
 			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];

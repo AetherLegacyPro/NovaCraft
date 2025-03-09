@@ -20,7 +20,7 @@ public class SculkDwellerRenderer extends RenderBiped
 	
 	public SculkDwellerRenderer() {
 		super(new ModelZombie(), 0.4f);
-		this.scale = 1.0f; //1.1
+		this.scale = 1.0f;
 	}
 	
 	@Override

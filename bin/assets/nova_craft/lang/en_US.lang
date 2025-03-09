@@ -112,6 +112,8 @@ item.powered_ancient_city_artifact.name=Powered Ancient City Artifact
 item.ancient_city_totem.name=Ancient City Totem
 item.warden_dust.name=Warden Dust
 item.static_blend.name=Static Blend
+item.nulk_dust.name=Nulk Dust
+item.dimensional_sealent.name=Dimensional Sealent
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -412,6 +414,7 @@ tile.reinforced_nullstone.name=Reinforced Nullstone
 tile.activated_reinforced_nullstone.name=Activated Reinforced Nullstone
 tile.unknown_portal.name=Portal To The Unknown
 tile.unknown_portal_activator.name=Unknown Portal Activator
+tile.unknown_portal_sealed.name=Sealed Portal To The Unknown
 
 
 tile.vanite_cauldron.name=Vanite Cauldron
@@ -583,6 +586,7 @@ tile.ancient_chest.name=Ancient City Chest
 tile.unbreakable_ancient_chest.name=Locked Ancient City Chest
 tile.activated_unknown_portal_activator.name=Activated Unknown Portal Activator
 tile.nullstone_deactivator.name=Nullstone Deactivator
+tile.cracked_nullstone_deactivator.name=Cracked Nullstone Deactivator
 
 #Stairs Names
 tile.grimstone_stairs.name=Grimstone Stairs
@@ -707,7 +711,7 @@ gui.warden_altar_invaild_structure=The altar seemed to accept the Sculk Star yet
 gui.reinforced_nullstone=This block radiates a chilling aura. A slot similar to that of a furnace is accessable from all sides of the block, perhaps it needs some kinda fuel/blend to activate this "portal"?
 gui.unknown_portal_activator=This device while flaming radiates a chilling aura. Perhaps adding the correct fuel to each of the reinforced nullstone blocks will ignite the "portal"?
 gui.unknown_portal_activator_ignited=The surrounding reinforced nullstone blocks have been ignited with the correct fuel yet nothing is happening... Perhaps something is missing from the control device? There is an indentation within the center of a star that perhaps activates the portal?
-gui.unknown_portal_activated=The air turns cold and day instantly turns to night and time "stops". Reality itself begins to fracture around the portal to the unknown. You feel as if someone or something is watching you. Perhaps The Warden was not just guarding you from opening the portal but also ensuring the "Prisoner" from escaping...
+gui.unknown_portal_activated=The air turns cold and day instantly turns to night and time "stops". Reality itself begins to fracture around the portal to the unknown. You feel as if someone or something is watching you. Perhaps The Warden was not just guarding you from opening the portal but also keeping the "Prisoner" from escaping...
 
 #Tool Tips
 tooltip.horn.ponder.desc=Ponder
@@ -792,6 +796,15 @@ tooltip.large_ancient_city_chest.desc=Large Ancient City Chest
 
 tooltip.right_click_bed.desc=Respawn Point Set
 tooltip.bed_destroyed.desc=Respawn Point Set to SpawnPoint!
+
+tooltip.dimensional_sealent.desc=Use on Cracked Nullstone Deactivators while holding shift
+tooltip.dimensional_sealent2.desc=and the Unknown Portal Activator last
+tooltip.sealed_unknown_portal.desc=The portal is sealed but the evil that was briefly released still persists in the world...
+tooltip.activated_unknown_portal_activator.desc=The rift between the two realms is breaking, perhaps the Ancient Builders behind somekind of failsafe to seal the portal once again?
+
+tooltip.nullstone_deactivators_cracked.desc=The rift between the two realms is breaking, activating it now will do nothing. I first need to stabilize the portal using the dimensional sealant on the cracked nullstone deactivators left behind by the Ancient Builders.
+
+tooltip.nullstone_deactivator.desc=The device has engravings on it as if perfectly cut all along it. Perhaps using somekind of sealant on it will fix it?
 
 #Potion Tool Tips
 tooltip.potion.resistance.desc=Resistance I (32:00)
@@ -1019,6 +1032,14 @@ entity.nova_craft.sculk_laser.name=Sculk Laser
 entity.nova_craft.prisoner.name=The Prisoner
 entity.nova_craft.warden_vessel.name=Wardling
 entity.nova_craft.nitro.name=Nitro
+entity.nova_craft.nulk.name=Nulk
+entity.nova_craft.nuxx.name=Nuxx
+entity.nova_craft.hardmode_creeper.name=Creeper
+entity.nova_craft.hardmode_spider.name=Spider
+entity.nova_craft.hardmode_zombie.name=Zombie
+entity.nova_craft.hardmode_skeleton.name=Skeleton
+entity.nova_craft.hardmode_slime.name=Slime
+entity.nova_craft.hardmode_magmacube.name=Magma Cube
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1066,3 +1087,11 @@ entity.sculk_laser.name=Sculk Laser
 entity.prisoner.name=The Prisoner
 entity.warden_vessel.name=Wardling
 entity.nitro.name=Nitro
+entity.nulk.name=Nulk
+entity.nuxx.name=Nuxx
+entity.hardmode_creeper.name=Hardmode Creeper
+entity.hardmode_spider.name=Hardmode Spider
+entity.hardmode_zombie.name=Hardmode Zombie
+entity.hardmode_skeleton.name=Hardmode Skeleton
+entity.hardmode_slime.name=Hardmode Slime
+entity.hardmode_magmacube.name=Hardmode Magma Cube

@@ -146,6 +146,7 @@ public class Configs
     public static boolean enableNovaCraftGloves;
     
     public static boolean enableWeaponsToAllignWithVanilla;
+    public static boolean enableHardmode;
     
     public static boolean enableTreasureCratesDropDiamonds;
     public static boolean enableNoSkippingTheNight;
@@ -410,6 +411,7 @@ public class Configs
         enableAncientCityTotem = conf.getBoolean("enableAncientCityTotem", catMisc, true, "Enables crafting recipe for Ancient City Totem");
         enableSculkStoneSpreading = conf.getBoolean("enableSculkStoneSpreading", catMisc, true, "Enables sculk stone to spread to nearby stone type blocks like grass.");       
         enableNoSkippingTheNight = conf.getBoolean("enableNoSkippingTheNight", catMisc, true, "Beds will only set the player's spawnpoint and will not allow them to skip the night.");
+        enableHardmode = conf.getBoolean("enableHardmode", catMisc, false, "Enables Hardmode");
 
         //Warden Options
         enableWardenBlindness = conf.getBoolean("enableWardenBlindness", catWarden, true, "Enables the Warden Applying blindess to the player when within 5 Blocks: Note if False the Player will be given Slowness II Instead");

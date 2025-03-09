@@ -3,16 +3,25 @@ package com.NovaCraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.Block.SoundType;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.BiomeDictionary.Type;
 
 import java.io.File;
+import java.util.List;
 import java.util.Random;
 
 import com.NovaCraft.Items.NovaCraftItems;
@@ -24,6 +33,12 @@ import com.NovaCraft.config.Configs;
 import com.NovaCraft.config.ConfigsMain;
 import com.NovaCraft.config.ConfigsTextureOverride;
 import com.NovaCraft.entity.EntitiesNovaCraft;
+import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
+import com.NovaCraft.entity.hardmode.EntityHardmodeMagmaCube;
+import com.NovaCraft.entity.hardmode.EntityHardmodeSkeleton;
+import com.NovaCraft.entity.hardmode.EntityHardmodeSlime;
+import com.NovaCraft.entity.hardmode.EntityHardmodeSpider;
+import com.NovaCraft.entity.hardmode.EntityHardmodeZombie;
 import com.NovaCraft.legendarybeacon.LegendaryBeaconRenderer;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.registry.NovaCraftFuelHander;
@@ -54,6 +69,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
@@ -62,9 +78,13 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerAboutToStartEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -141,7 +161,7 @@ public class NovaCraft
     }
     
     @EventHandler
-	public void init(FMLInitializationEvent event) {
+	public void init(FMLInitializationEvent event) {    	
     	EntitiesNovaCraft.initialization();
     	EntitiesNovaCraft.addSpawns();
     	NovaCraftCreativeTabs.initialization();
@@ -171,6 +191,41 @@ public class NovaCraft
       	GameRegistry.registerWorldGenerator(NCWorldGeneratorPlants.INSTANCE, Integer.MAX_VALUE);
       	
     }
+    
+    @EventHandler
+    public void serverStarting(FMLServerStartingEvent event) {
+        World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+
+        if (data.getHardmode()) {
+            System.out.println("Hardmode is active! Spawning hardmode mobs...");
+            registerHardmodeMobs(world);
+        }
+    }      
+    
+    public void registerHardmodeMobs(World world) {
+        for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
+            BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
+
+            if (biome != null && overworldBiome(biome)) {
+                EntityRegistry.addSpawn(EntityHardmodeCreeper.class, 12, 3, 12, EnumCreatureType.monster, biome);
+                EntityRegistry.addSpawn(EntityHardmodeSpider.class, 10, 4, 10, EnumCreatureType.monster, biome);
+                EntityRegistry.addSpawn(EntityHardmodeZombie.class, 15, 5, 15, EnumCreatureType.monster, biome);
+                EntityRegistry.addSpawn(EntityHardmodeSkeleton.class, 15, 5, 15, EnumCreatureType.monster, biome);
+                EntityRegistry.addSpawn(EntityHardmodeSlime.class, 2, 3, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.SWAMP));
+            }
+        }
+        
+        EntityRegistry.addSpawn(EntityHardmodeMagmaCube.class, 8, 2, 8, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+    }
+    
+    public static boolean overworldBiome(BiomeGenBase biome) {
+	    List<SpawnListEntry> monsterList = ObfuscationReflectionHelper.getPrivateValue(BiomeGenBase.class, biome, "as", "field_76761_J", "spawnableMonsterList");
+	    for(SpawnListEntry entity : monsterList) {
+	        if(entity.entityClass == EntityZombie.class) return true;
+	    }
+	    return false;
+	}
     
     public static ResourceLocation locate(String location) {
 		return new ResourceLocation(MOD_ID, location);

@@ -386,6 +386,17 @@
     ]
   },
   
+  "warden.roar": {
+  "category": "hostile",
+  "sounds": [
+      "entity/warden/roar1",
+      "entity/warden/roar2",
+      "entity/warden/roar3",
+      "entity/warden/roar4",
+      "entity/warden/roar5"
+    ]
+  },
+  
   "warden.heartbeat": {
   "category": "hostile",
   "sounds": [
@@ -829,6 +840,20 @@
     "category": "neutral",
     "sounds": [
       "misc/ignite_unknown"
+    ]
+  },
+  
+  "unknown.activated": {
+    "category": "neutral",
+    "sounds": [
+      "misc/activated"
+    ]
+  },
+  
+  "unknown.sealedportal": {
+    "category": "neutral",
+    "sounds": [
+      "misc/sealed_portal"
     ]
   },
   

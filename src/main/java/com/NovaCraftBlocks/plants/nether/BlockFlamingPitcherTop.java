@@ -26,6 +26,7 @@ public class BlockFlamingPitcherTop extends BlockBush {
 		this.setHardness(0.0F);
 		this.setTickRandomly(true);
 		this.setStepSound(soundTypeGrass);
+		this.setCreativeTab(null);
 		this.setBlockBounds(0.5F - 0.2F, 0.0F, 0.5F - 0.2F, 0.5F + 0.2F, 0.2F * 3.0F, 0.5F + 0.2F);
 	}
 

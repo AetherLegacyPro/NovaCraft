@@ -1185,6 +1185,8 @@ public class AncientCityWardenAltarGen extends WorldGenerator
 					return new ItemStack(NovaCraftBlocks.sculk_bush, random.nextInt(3) + 1);
 				case 8:
 					return new ItemStack(NovaCraftBlocks.sculk_bloom, random.nextInt(2) + 1);
+				case 9:
+					return new ItemStack(NovaCraftItems.ancient_city_artifact, 1);
 				default: {
 					return new ItemStack(NovaCraftBlocks.sculk_block, random.nextInt(9) + 2);
 				}

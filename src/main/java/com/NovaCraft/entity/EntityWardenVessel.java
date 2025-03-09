@@ -246,10 +246,6 @@ public class EntityWardenVessel extends EntityMob
 			}
 				
 		}
-		
-		//if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
-		//	this.setDead();
-		//}
 	}
 	
 	private boolean shouldAttackPlayer(EntityPlayer p_70821_1_)
@@ -264,10 +260,7 @@ public class EntityWardenVessel extends EntityMob
         
     }
 
-	public void shootTarget() { //shootTarget
-		if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
-			return;
-		}		
+	public void shootTarget() { //shootTarget		
 		
 		if (isWet()) {
 		EntityWardenProjectile entityarrow2 = new EntityWardenProjectile(this.worldObj, this, 20.0F);

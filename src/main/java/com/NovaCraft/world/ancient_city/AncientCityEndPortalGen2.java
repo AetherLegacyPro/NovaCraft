@@ -999,6 +999,8 @@ public class AncientCityEndPortalGen2 extends WorldGenerator
 			    itemStack4.addEnchantment(enchantment44, maxLevel44);
 			    
 			    return itemStack4;
+			case 11:
+				return new ItemStack(NovaCraftItems.ancient_city_artifact, 1);
 			default: {
 				return new ItemStack(NovaCraftBlocks.sculk_block, random.nextInt(9) + 2);
 			}

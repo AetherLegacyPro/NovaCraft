@@ -5,7 +5,7 @@ import java.util.Random;
 import org.lwjgl.opengl.GL11;
 
 import com.NovaCraft.entity.EntityPrisoner;
-import com.NovaCraft.entity.models.PrisonerModelNew;
+import com.NovaCraft.entity.models.PrisonerModel;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
@@ -29,8 +29,8 @@ public class PrisonerRenderer extends RenderLiving
 	private static final ResourceLocation overlay_3;
 	
 	public PrisonerRenderer() {
-		super(new PrisonerModelNew(), 0.5f);
-		this.setRenderPassModel((ModelBase)new PrisonerModelNew());
+		super(new PrisonerModel(), 0.5f);
+		this.setRenderPassModel((ModelBase)new PrisonerModel());
 	}
     
     protected int shouldRenderPass(final EntityLivingBase par1EntityLivingBase, final int par2, final float par3) {
