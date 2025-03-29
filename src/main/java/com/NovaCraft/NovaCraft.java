@@ -33,7 +33,10 @@ import com.NovaCraft.config.Configs;
 import com.NovaCraft.config.ConfigsMain;
 import com.NovaCraft.config.ConfigsTextureOverride;
 import com.NovaCraft.entity.EntitiesNovaCraft;
+import com.NovaCraft.entity.EntityOutsider;
+import com.NovaCraft.entity.EntityOutsiderEye;
 import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
+import com.NovaCraft.entity.hardmode.EntityHardmodeGhast;
 import com.NovaCraft.entity.hardmode.EntityHardmodeMagmaCube;
 import com.NovaCraft.entity.hardmode.EntityHardmodeSkeleton;
 import com.NovaCraft.entity.hardmode.EntityHardmodeSlime;
@@ -156,8 +159,10 @@ public class NovaCraft
 		MapGenStructureIO.registerStructure(MapGenNetherBridgeNovaCraft.Start.class, "NovaFortress");
 		StructureNovaCraftNetherBridgePieces.registerStructureNovaCraftNetherBridgePieces();
         }
-             
+        
+        if (Configs.enableAncientCity) {
     	GameRegistry.registerWorldGenerator((IWorldGenerator)new AncientCityGen(), Integer.MAX_VALUE);
+        }
     }
     
     @EventHandler
@@ -171,7 +176,7 @@ public class NovaCraft
     	NovaCraftTileEntities.initialization();
     	
     	GameRegistry.registerWorldGenerator((IWorldGenerator)new EndIslandWorldGen(), Integer.MAX_VALUE);
-    	GameRegistry.registerWorldGenerator((IWorldGenerator)new LivingEnderIslandWorldGen(), Integer.MAX_VALUE);
+    	//GameRegistry.registerWorldGenerator((IWorldGenerator)new LivingEnderIslandWorldGen(), Integer.MAX_VALUE);
     	GameRegistry.registerWorldGenerator((IWorldGenerator)new DestitudeIslandWorldGen(), Integer.MAX_VALUE);
     	
     	NetworkRegistry.INSTANCE.registerGuiHandler((Object)NovaCraft.instance, (IGuiHandler)new CommonProxy());
@@ -213,10 +218,21 @@ public class NovaCraft
                 EntityRegistry.addSpawn(EntityHardmodeZombie.class, 15, 5, 15, EnumCreatureType.monster, biome);
                 EntityRegistry.addSpawn(EntityHardmodeSkeleton.class, 15, 5, 15, EnumCreatureType.monster, biome);
                 EntityRegistry.addSpawn(EntityHardmodeSlime.class, 2, 3, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.SWAMP));
+                EntityRegistry.addSpawn(EntityOutsiderEye.class, 2, 2, 2, EnumCreatureType.monster, biome);
+                EntityRegistry.addSpawn(EntityOutsider.class, 2, 2, 2, EnumCreatureType.monster, biome);
+            }
+            
+            if (biome != null) {
+            EntityRegistry.addSpawn(EntityHardmodeMagmaCube.class, 8, 2, 8, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+            EntityRegistry.addSpawn(EntityHardmodeGhast.class, 10, 1, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+            EntityRegistry.addSpawn(EntityOutsiderEye.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+            EntityRegistry.addSpawn(EntityOutsider.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+            
+            EntityRegistry.addSpawn(EntityOutsiderEye.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.END));
+            EntityRegistry.addSpawn(EntityOutsider.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.END));
             }
         }
         
-        EntityRegistry.addSpawn(EntityHardmodeMagmaCube.class, 8, 2, 8, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
     }
     
     public static boolean overworldBiome(BiomeGenBase biome) {

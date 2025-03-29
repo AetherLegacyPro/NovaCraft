@@ -1,5 +1,6 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.AI.EntityAILavaSwimming;
@@ -33,6 +34,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
@@ -60,13 +62,24 @@ public class EntityBlazingSerpent extends EntityMob
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(6.55D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(110.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30D);
-		this.setHealth(110);
+		
+		World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode() == true) {
+        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(6.65D);
+    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(220.0D);
+    		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
+    		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
+    		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30D);
+    		this.setHealth(220);
+        } else {
+        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(6.55D);
+    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(110.0D);
+    		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
+    		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10D);
+    		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30D);
+    		this.setHealth(110);
+        }
 	}
 	
 	 public int getTotalArmorValue() {
@@ -171,7 +184,7 @@ public class EntityBlazingSerpent extends EntityMob
     }
     
     protected String getChargeSound() {
-        return "nova_craft:blazing_serpent.living";
+        return null;
     }
 	
 	@Override

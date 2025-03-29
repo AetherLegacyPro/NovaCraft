@@ -3,6 +3,7 @@ package com.NovaCraft.entity.hardmode;
 import java.util.Calendar;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -217,6 +218,14 @@ public class EntityHardmodeSkeleton extends EntityMob implements IRangedAttackMo
             {
                 entityplayer.triggerAchievement(AchievementList.snipeSkeleton);
             }
+        }
+        
+        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            
+            entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
+            
         }
     }
 

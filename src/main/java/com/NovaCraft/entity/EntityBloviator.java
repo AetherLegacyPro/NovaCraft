@@ -11,6 +11,7 @@ import net.minecraft.util.*;
 
 import java.util.Random;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.misc.EntityBloviatorProjectile;
 
@@ -19,6 +20,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
 
 public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayData
 {
@@ -407,16 +409,32 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
         super.onCollideWithPlayer(player);
         if (!player.capabilities.isCreativeMode && !this.worldObj.isRemote && this.getEntitySenses().canSee((Entity)player) && this.getDistanceToEntity((Entity)player) <= 1.8f && player.boundingBox.maxY >= this.boundingBox.minY && player.boundingBox.minY <= this.boundingBox.maxY && this.attackTime <= 0 && this.attackEntityAsMob((player))) {
             this.attackTime = 10;
-            player.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase)this), 15.0f);
+            World world = MinecraftServer.getServer().worldServers[0];
+            Hardmode data = Hardmode.get(world);
+            if (data.getHardmode() == true) {
+            	player.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase)this), 25.0f);
+            }
+            else {
+            	player.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase)this), 15.0f);	
+            }
             this.playSound("nova_craft:ender_ray.hurt", 1.0f, 1.0f);
         }
     }
     
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(350.0);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(16D);
-        this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.60D);
+        
+        World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode() == true) {
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(700.0);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(18D);
+            this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.60D);
+        } else {
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(350.0);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(16D);
+            this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.60D);
+        }
     }
     
     protected void fall(final float p_70069_1_) {

@@ -273,7 +273,7 @@ public class ItemWardenCore extends Item {
 							
 			world.playSoundEffect(x, y, z, "nova_craft:unknown.ignite", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
 			player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.unknown_portal_activated")));
-			
+			player.triggerAchievement(AchievementsNovaCraft.history_repeats_itself);
 			world.setBlock(x, y, z, NovaCraftBlocks.activated_unknown_portal_activator);
 			--heldItem.stackSize;		
 		 }

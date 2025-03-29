@@ -622,6 +622,9 @@ public class NovaCraftRegistries {
 		register("crystal_growth_staff", new ItemStack(NovaCraftItems.crystal_growth_staff), "ZYX", "WTY", "VWU", 'Z', new ItemStack(NovaCraftItems.variegated_shard), 'Y', new ItemStack(NovaCraftItems.null_shard), 'X', new ItemStack(NovaCraftItems.heart_of_the_end), 'W', new ItemStack(NovaCraftItems.dark_essence), 'V', new ItemStack(NovaCraftItems.reinforced_vanite_ingot), 'U', new ItemStack(NovaCraftItems.sculked_shard), 'T', new ItemStack(NovaCraftItems.ancient_city_artifact));
 		
 		register("static_blend", new ItemStack(NovaCraftItems.static_blend, 5), "XZX", "VXY", "XUX", 'X', new ItemStack(NovaCraftItems.deepfire_blend), 'Y', new ItemStack(NovaCraftItems.wardling_dust), 'Z', new ItemStack(NovaCraftItems.static_essence), 'U', new ItemStack(NovaCraftItems.crystallized_end_shard), 'V', new ItemStack(NovaCraftItems.warden_dust));
+	
+		register("impure_outsider_ingot", new ItemStack(NovaCraftItems.impure_outsider_ingot, 1), "XYX", "YZY", "WUW", 'X', new ItemStack(NovaCraftItems.enhanced_enflamed_null_cube_slimeball), 'Y', new ItemStack(NovaCraftItems.outsider_essence), 'Z', new ItemStack(NovaCraftItems.klangite_ingot), 'U', new ItemStack(NovaCraftItems.warden_dust), 'W', new ItemStack(NovaCraftItems.nulk_dust));
+
 	}
 	
 	private static void initializeShapelessRecipes() {

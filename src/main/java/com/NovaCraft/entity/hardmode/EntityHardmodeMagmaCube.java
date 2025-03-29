@@ -1,5 +1,7 @@
 package com.NovaCraft.entity.hardmode;
 
+import com.NovaCraft.achievements.AchievementsNovaCraft;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLiving;
@@ -236,6 +238,22 @@ public class EntityHardmodeMagmaCube extends EntityLiving implements IMob
         }
 
         super.setDead();
+    }
+    
+    /**
+     * Called when the mob's health reaches 0.
+     */
+    public void onDeath(DamageSource p_70645_1_)
+    {
+        super.onDeath(p_70645_1_);
+
+        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            
+            entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
+            
+        }
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
@@ -32,6 +33,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
@@ -61,12 +63,22 @@ public class EntityDeepoid extends EntityMob implements IDeepoidBreathAttacker
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(70.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.40D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5D);
-		this.setHealth(70);
+		
+		World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode() == true) {
+        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.45D);
+    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(140.0D);
+    		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.40D);
+    		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(12D);
+    		this.setHealth(140);
+        } else {
+        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
+    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(70.0D);
+    		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.40D);
+    		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5D);
+    		this.setHealth(70);
+        }
 	}
 	
 	 public int getTotalArmorValue()
@@ -210,22 +222,6 @@ public class EntityDeepoid extends EntityMob implements IDeepoidBreathAttacker
 	      }
 	 }
 	
-	//public boolean attackEntityAsMob(final Entity target) {		
-		//boolean flag = super.attackEntityAsMob(target);
-		
-		//{
-		//if (!target.isImmuneToFire()) {
-		//target.attackEntityFrom(DamageSource.inFire, 5.0F);
-		//target.attackEntityFrom(DamageSource.magic, 1.0F);
-		//}
-		//else {
-		//target.attackEntityFrom(DamageSource.generic, 4.0F);
-		//target.attackEntityFrom(DamageSource.magic, 2.0F);	
-		//	}
-		//}
-		///return true;
-	//}
-	
 	public EnumCreatureAttribute getCreatureAttribute()
     {
         return EnumCreatureAttribute.UNDEFINED;
@@ -283,15 +279,33 @@ public class EntityDeepoid extends EntityMob implements IDeepoidBreathAttacker
 	{
 		if (!target.isImmuneToFire() && target.attackEntityFrom(DamageSource.inFire, BREATH_DAMAGE))
     	{
-    		target.setFire(BREATH_DURATION);
-    		target.attackEntityFrom(DamageSource.inFire, 5.0F);
-    		target.attackEntityFrom(DamageSource.magic, 1.0F);
+			World world = MinecraftServer.getServer().worldServers[0];
+	        Hardmode data = Hardmode.get(world);
+	        if (data.getHardmode() == true) {
+	        	target.setFire(BREATH_DURATION);
+	        	target.attackEntityFrom(DamageSource.inFire, 10.0F);
+	        	target.attackEntityFrom(DamageSource.magic, 2.0F);
+	        }
+	        else {
+	        	target.setFire(BREATH_DURATION);
+	        	target.attackEntityFrom(DamageSource.inFire, 5.0F);
+	        	target.attackEntityFrom(DamageSource.magic, 1.0F);
+	        }
     	}
 		else
 		{
-			target.setFire(BREATH_DURATION);
-			target.attackEntityFrom(DamageSource.generic, 3.0F);
-			target.attackEntityFrom(DamageSource.magic, 3.0F);	
+			World world = MinecraftServer.getServer().worldServers[0];
+	        Hardmode data = Hardmode.get(world);
+	        if (data.getHardmode() == true) {
+	        	target.setFire(BREATH_DURATION);
+				target.attackEntityFrom(DamageSource.generic, 6.0F);
+				target.attackEntityFrom(DamageSource.magic, 4.0F);
+	        }
+	        else {
+	        	target.setFire(BREATH_DURATION);
+				target.attackEntityFrom(DamageSource.generic, 3.0F);
+				target.attackEntityFrom(DamageSource.magic, 3.0F);
+	        }
 			//nice try
 		}
 			

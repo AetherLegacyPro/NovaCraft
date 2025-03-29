@@ -209,8 +209,9 @@ public class NovaCraftItems {
 	public static Item phantom_membrane;
 	public static Item nullwart, nullwart_blend;
 	public static Item nullified_dust, wardling_dust, warden_dust;
-	public static Item static_essence, destitute_tentacle;
+	public static Item static_essence, destitute_tentacle, outsider_essence;
 	public static Item ancient_city_artifact, powered_ancient_city_artifact, nulk_dust, dimensional_sealent;
+	public static Item impure_outsider_ingot, outsider_ingot;
 	
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy;
@@ -281,7 +282,7 @@ public class NovaCraftItems {
 	
 	public static Item deepoid_star, eternal_caller, warden_core;
 	
-	public static Item ancient_city_totem;
+	public static Item ancient_city_totem, prisoner_eye, unknown_star;
 	
 	public static Item infused_copartz_shard, infused_larimar_shard, infused_tsavorokite_shard, infused_yttrlinsite_shard, infused_aether_shard;
 	
@@ -365,6 +366,11 @@ public class NovaCraftItems {
 		static_blend = register("static_blend", new ItemStaticBlend().setTextureName(NovaCraft.find("static_blend")));
 		nulk_dust = register("nulk_dust", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("nulk_dust")));
 		dimensional_sealent = register("dimensional_sealent", new ItemDimensionalSealent().setTextureName(NovaCraft.find("dimensional_sealent")));
+		outsider_essence = register("outsider_essence", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("outsider_essence")));
+		prisoner_eye = register("prisoner_eye", new ItemWardenHeart().setTextureName(NovaCraft.find("prisoner_eye")));
+		unknown_star = register("unknown_star", new ItemNullifiedDust().setTextureName(NovaCraft.find("unknown_star")));
+		impure_outsider_ingot = register("impure_outsider_ingot", new ItemImpureOutsiderIngot().setTextureName(NovaCraft.find("impure_outsider_ingot")));
+		outsider_ingot = register("outsider_ingot", new ItemOutsiderIngot().setTextureName(NovaCraft.find("outsider_ingot")));
 		
 		vanite_bucket = register("vanite_bucket", new ItemVaniteBucket(Blocks.air).setMaxStackSize(16).setTextureName(NovaCraft.find("vanite_bucket")));
 		vanite_bucket_water = register("vanite_bucket_water", new ItemVaniteBucket(Blocks.flowing_water).setTextureName(NovaCraft.find("vanite_bucket_water")));

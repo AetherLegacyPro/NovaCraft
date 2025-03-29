@@ -121,6 +121,12 @@ public class PickUpAchievement {
 	if (event.pickedUp.getEntityItem().isItemEqual(new ItemStack(NovaCraftItems.vanite_crystal))) {
 		event.player.addStat((StatBase)AchievementsNovaCraft.crystallized_vanite, 1);
         }
+	if (event.pickedUp.getEntityItem().isItemEqual(new ItemStack(NovaCraftItems.ancient_city_artifact))) {
+		event.player.addStat((StatBase)AchievementsNovaCraft.lost_to_the_ages, 1);
+        }
+	if (event.pickedUp.getEntityItem().isItemEqual(new ItemStack(NovaCraftItems.klangite_ingot))) {
+		event.player.addStat((StatBase)AchievementsNovaCraft.advanced_alloying, 1);
+        }
 	}
 
 }

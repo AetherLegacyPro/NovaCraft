@@ -4,6 +4,7 @@ import java.util.IdentityHashMap;
 import java.util.Random;
 import java.util.UUID;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.particles.ParticleHandler;
@@ -24,6 +25,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
@@ -45,7 +47,6 @@ public class EntityEnderLord extends EntityMob
     private int stareTimer;
     private Entity lastEntityToAttack;
     private boolean isAggressive;
-    private static final String __OBFID = "CL_00001685";
 
     public EntityEnderLord(World p_i1734_1_)
     {
@@ -57,9 +58,18 @@ public class EntityEnderLord extends EntityMob
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35000001192092896D);
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(14.0D);
+        
+        World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode() == true) {
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(160.0D);
+        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.45000001192092896D);
+        	this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(28.0D);
+        } else {
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0D);
+        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35000001192092896D);
+        	this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(14.0D);
+        }
     }
 
     protected void entityInit()

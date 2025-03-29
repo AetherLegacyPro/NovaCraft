@@ -30,6 +30,8 @@ public class AncientCityGen implements IWorldGenerator {
 	   }
 		
 	public void generateOverworld(World world, Random rand, int x, int z) {
+		if(Math.abs(x) < 5000 && Math.abs(z) < 5000) return;
+		
 		int chunkX;
 		int chunkZ;
 		BiomeGenBase biome;
@@ -58,8 +60,8 @@ public class AncientCityGen implements IWorldGenerator {
 		Type[] biomeListNegZ;
 		biomeNegZ = world.getBiomeGenForCoords(x, z - 150);
 		biomeListNegZ = BiomeDictionary.getTypesForBiome(biomeNegZ);
-		
-	      if (rand.nextInt(3000) == 25 && (!(ArrayUtils.contains(biomeList, Type.OCEAN)) && !(ArrayUtils.contains(biomeList, Type.RIVER)) && !(ArrayUtils.contains(biomeList, Type.BEACH)) && !(ArrayUtils.contains(biomeList, Type.SWAMP)))
+		//3000 == 25
+	      if (rand.nextInt(5000) == 25 && (!(ArrayUtils.contains(biomeList, Type.OCEAN)) && !(ArrayUtils.contains(biomeList, Type.RIVER)) && !(ArrayUtils.contains(biomeList, Type.BEACH)) && !(ArrayUtils.contains(biomeList, Type.SWAMP)))
 	    		&&  (!(ArrayUtils.contains(biomeListPosX, Type.OCEAN)) && !(ArrayUtils.contains(biomeListPosX, Type.RIVER)) && !(ArrayUtils.contains(biomeListPosX, Type.BEACH)) && !(ArrayUtils.contains(biomeListPosX, Type.SWAMP))) 
 	    		&&  (!(ArrayUtils.contains(biomeListNegX, Type.OCEAN)) && !(ArrayUtils.contains(biomeListNegX, Type.RIVER)) && !(ArrayUtils.contains(biomeListNegX, Type.BEACH)) && !(ArrayUtils.contains(biomeListNegX, Type.SWAMP))) 
 	    		&&  (!(ArrayUtils.contains(biomeListPosZ, Type.OCEAN)) && !(ArrayUtils.contains(biomeListPosZ, Type.RIVER)) && !(ArrayUtils.contains(biomeListPosZ, Type.BEACH)) && !(ArrayUtils.contains(biomeListPosZ, Type.SWAMP)))

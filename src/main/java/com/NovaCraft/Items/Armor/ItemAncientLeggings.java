@@ -66,6 +66,7 @@ public class ItemAncientLeggings extends ItemArmor
         }
         if (legs != null) {
         	hasAncientLegs = (legs.getItem() == NovaCraftItems.ancient_leggings);
+        	player.triggerAchievement(AchievementsNovaCraft.mach_2);
         }
         if ((hasCrownBlue || hasCrownRed || hasCrownGreen || hasCrownOrange) && hasAncientLegs) {
         	movement_speed = 0;

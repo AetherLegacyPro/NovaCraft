@@ -92,6 +92,7 @@ public class ItemCaveStew extends ItemNovaCraftFood
     		player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 2400, 0));
     	}
     	else if (meta == 5) {
+    		player.triggerAchievement(AchievementsNovaCraft.miners_meal);
     		player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 9600, 0));
     		player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 9600, 0));
     	}

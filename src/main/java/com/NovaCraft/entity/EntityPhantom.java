@@ -258,11 +258,6 @@ public class EntityPhantom extends EntityFlying implements IMob
             if (f > 0.0f && f2 <= 0.0f) {
                 this.worldObj.playSound(this.posX, this.posY, this.posZ, "nova_craft:phantom.flap", 0.95f + this.rand.nextFloat() * 0.05f, 0.95f + this.rand.nextFloat() * 0.05f, false);
             }
-           // if (this.ticksExisted % 10 == 0 && ParticleConfiguration.WarpedRayParticle) {
-                //for (int i = 0; i < 20; ++i) {
-                 //   ParticleHandler.WarpedNyliumBright.spawn(this.worldObj, this.posX + (this.rand.nextFloat() - this.rand.nextFloat()), this.posY + this.rand.nextFloat(), this.posZ + (this.rand.nextFloat() - this.rand.nextFloat()), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-                //}
-           // }
         }
     }
     

@@ -114,6 +114,11 @@ item.warden_dust.name=Warden Dust
 item.static_blend.name=Static Blend
 item.nulk_dust.name=Nulk Dust
 item.dimensional_sealent.name=Dimensional Sealent
+item.outsider_essence.name=Outsider Essence
+item.prisoner_eye.name=Prisoner Eye
+item.unknown_star.name=Unknown Star
+item.impure_outsider_ingot.name=Impure Outsider Ingot
+item.outsider_ingot.name=Outsider Ingot
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -806,6 +811,8 @@ tooltip.nullstone_deactivators_cracked.desc=The rift between the two realms is b
 
 tooltip.nullstone_deactivator.desc=The device has engravings on it as if perfectly cut all along it. Perhaps using somekind of sealant on it will fix it?
 
+tooltip.impure_ousider_ingot.desc=Shift Right Click on the Sealed Portal to the Unknown!
+
 #Potion Tool Tips
 tooltip.potion.resistance.desc=Resistance I (32:00)
 tooltip.potion.speed.desc=Speed I (24:00)
@@ -909,6 +916,14 @@ achievement.fancy_efficiency_VI=Fancy Efficiency VI
 achievement.summoning_the_bloat=Summoning The Bloat
 achievement.a_new_method_of_mining=A New Method of Mining
 achievement.hardcore_enchanter=Hardcore Enchanter!
+achievement.lost_to_the_ages=Lost To The Ages
+achievement.static_ignition=Static Ignition
+achievement.history_repeats_itself=History Repeats Itself...
+achievement.unforeseen_consequences=Unforeseen Consequences
+achievement.a_new_encounter=A New Encounter
+achievement.ancient_loot=Ancient Treasure
+achievement.mach_2=Mach 2!
+achievement.miners_meal=The Miner's Meal!
 
 #Achievement Descriptions
 achievement.welcome_to_novacraft.desc=Collect a common Block/Item from NovaCraft
@@ -954,7 +969,7 @@ achievement.cover_me_with_klangite.desc=Wear a Full Set of Klangite Armor
 achievement.all_geos_discovered.desc=Craft a Block of Variegated Shards
 achievement.explosion.desc=Craft a Block of Xancium TNT
 achievement.hello_darkness_my_old_friend.desc=Obtain Dark Essence
-achievement.advanced_alloying.desc=Craft a Klangite Ingot
+achievement.advanced_alloying.desc=Create a Klangite Ingot
 achievement.speeding_the_rates.desc=Use the Crystal Growth Staff
 achievement.growing_cursed_crystals.desc=Craft a Budding Null Block
 achievement.well_this_complicates_things.desc=Defeat a Void Entity
@@ -978,13 +993,20 @@ achievement.crystallized_vanite.desc=Collect Vanite Crystals
 achievement.super_buff.desc=Drink an Amplified Potion
 achievement.crystallized.desc=Craft any Crystallized Vanite Tool/Armor Piece
 achievement.the_nether_dragon.desc=Summon the Deep One by right clicking a Deep One Egg
-
 achievement.shearing_the_phoenix.desc=Right click a Phoenix with a Phoenix Razor
 achievement.flying_mobs_beware.desc=Craft an Ophidian Bow
 achievement.fancy_efficiency_VI.desc=Craft a Reinforced Pherithium Shickaxe
 achievement.summoning_the_bloat.desc=Summon the Bloviator by using a Call of the End in the End
 achievement.a_new_method_of_mining.desc=Craft a Klangite Firecharge Launcher
 achievement.hardcore_enchanter.desc=Use a Legendary Enchantment Table
+achievement.lost_to_the_ages.desc=Discover an Ancient City
+achievement.static_ignition.desc=Craft Static Blend
+achievement.history_repeats_itself.desc=Summon The Prisoner
+achievement.unforeseen_consequences.desc=Defeat The Prisoner activating Hardmode
+achievement.a_new_encounter.desc=Defeat any Hardmode Mob
+achievement.ancient_loot.desc=Unlock an Ancient Chest
+achievement.mach_2.desc=Equip Ancient Leggings
+achievement.miners_meal.desc=Consume Miner's Stew
 
 #Entities
 entity.nova_craft.XTNT.name=Xancium TNT
@@ -1034,12 +1056,15 @@ entity.nova_craft.warden_vessel.name=Wardling
 entity.nova_craft.nitro.name=Nitro
 entity.nova_craft.nulk.name=Nulk
 entity.nova_craft.nuxx.name=Nuxx
+entity.nova_craft.outsider_eye.name=Outsider Eye
 entity.nova_craft.hardmode_creeper.name=Creeper
 entity.nova_craft.hardmode_spider.name=Spider
 entity.nova_craft.hardmode_zombie.name=Zombie
 entity.nova_craft.hardmode_skeleton.name=Skeleton
 entity.nova_craft.hardmode_slime.name=Slime
 entity.nova_craft.hardmode_magmacube.name=Magma Cube
+entity.nova_craft.hardmode_ghast.name=Ghast
+entity.nova_craft.outsider.name=Outsider
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1089,9 +1114,12 @@ entity.warden_vessel.name=Wardling
 entity.nitro.name=Nitro
 entity.nulk.name=Nulk
 entity.nuxx.name=Nuxx
+entity.outsider_eye.name=Outsider Eye
 entity.hardmode_creeper.name=Hardmode Creeper
 entity.hardmode_spider.name=Hardmode Spider
 entity.hardmode_zombie.name=Hardmode Zombie
 entity.hardmode_skeleton.name=Hardmode Skeleton
 entity.hardmode_slime.name=Hardmode Slime
 entity.hardmode_magmacube.name=Hardmode Magma Cube
+entity.hardmode_ghast.name=Hardmode Ghast
+entity.outsider.name=Outsider

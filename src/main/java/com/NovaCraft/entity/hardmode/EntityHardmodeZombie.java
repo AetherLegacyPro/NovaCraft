@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 
 import net.minecraft.block.Block;
 import net.minecraft.command.IEntitySelector;
@@ -281,6 +282,22 @@ public class EntityHardmodeZombie extends EntityMob
             int k = MathHelper.floor_double(this.posZ);           
 
             return true;
+        }
+    }
+    
+    /**
+     * Called when the mob's health reaches 0.
+     */
+    public void onDeath(DamageSource p_70645_1_)
+    {
+        super.onDeath(p_70645_1_);
+        
+        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            
+            entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
+            
         }
     }
 

@@ -3,6 +3,7 @@ package com.NovaCraft.entity;
 import java.util.Iterator;
 import java.util.List;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
@@ -46,6 +47,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
@@ -76,7 +78,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 		this.tasks.addTask(8, new EntityAILookIdle(this));
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-		//addRandomArmor();
 		setSize(1F, 3F);
 		this.experienceValue = 500;
 	}
@@ -85,12 +86,24 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(11D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(666.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50D);
-		this.setHealth(600);		
+		World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode() == true) {
+        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(14D);
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1200.0D);
+        	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+			this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(30D);
+			this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50D);
+			this.setHealth(1200);
+        }
+        else {
+        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(11D);
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(600.0D);
+        	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+			this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
+			this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50D);
+			this.setHealth(600);
+        }
 		
 	}
 	
@@ -106,7 +119,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	
 	public void onLivingUpdate()
 	{
-		//this.playSound("nova_craft:warden.heartbeat", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
 		
 		int i = MathHelper.floor_double(this.posX);
         int j = MathHelper.floor_double(this.posY);
@@ -132,9 +144,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
         	}
 		}
 		else {
-		//for(Entity entity : volume) {
-	        //if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
-	         //}
 		for(Entity entity : volume) {
 	        if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
 	         }
@@ -239,14 +248,11 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
             ItemStack chest = ((EntityPlayer) target).getCurrentArmor(2);
             ItemStack legs = ((EntityPlayer) target).getCurrentArmor(1);
             ItemStack boots = ((EntityPlayer) target).getCurrentArmor(0);
-            //ItemStack hand = ((EntityPlayer) target).getCurrentEquippedItem();
-
+            
             boolean hasWardenHelmet = false;
             boolean hasWardenChest = false;
             boolean hasWardenLegs = false;
             boolean hasWardenBoots = false;
-           // boolean hasWardenHand = false;
-
 
             if(helmet != null)
                 hasWardenHelmet = helmet.getItem() == NovaCraftItems.warden_helmet || helmet.getItem() == NovaCraftItems.crystalite_helmet;
@@ -259,10 +265,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 
             if(boots != null)
                 hasWardenBoots = boots.getItem() == NovaCraftItems.warden_boots || boots.getItem() == NovaCraftItems.crystalite_boots;
-
-           // if(hand != null)
-                //hasWardenHand = boots.getItem() == Items.Warden_sword;
-
 
             if (hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) {
 
@@ -316,9 +318,7 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 			}
 				
 		}
-		
-		//this.worldObj.spawnParticle("snowshovel", this.posX + (this.rand.nextGaussian() / 5D), this.posY + (this.rand.nextGaussian() / 5D), this.posZ + (this.rand.nextGaussian() / 3D), 0.0D, 0.0D, 0.0D);
-		
+				
 		if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
 			this.setDead();
 		}
@@ -413,7 +413,7 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
         
     }
 
-	public void shootTarget() { //shootTarget
+	public void shootTarget() {
 		if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
 			return;
 		}		
@@ -506,28 +506,19 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	protected String getVibrationSound() {
 	      return "nova_craft:sculk_horn.vibration";
 	 }
-	
-	/**
-     * Returns the sound this mob makes while it's alive.
-     */
+
 	@Override
     protected String getLivingSound()
     {
         return "nova_craft:sculk_dweller.living";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
 	@Override
     protected String getHurtSound()
     {
         return "nova_craft:sculk_dweller.hurt";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
 	@Override
     protected String getDeathSound()
     {

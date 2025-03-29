@@ -163,6 +163,7 @@ public class Configs
     public static boolean enableSculkInfestedMineshaft;
     public static boolean enableBlackstoneBricksInNetherStructures;
     
+    public static boolean enableAncientCity;
     public static boolean disableDarkOakFenceInAncientCity;
     public static boolean disableDeepslateInAncientCity;
     public static boolean disableDeepslateBricksInAncientCity;
@@ -352,6 +353,7 @@ public class Configs
         enableNetheriteInRecipes = conf.getBoolean("enableNetheriteInRecipes", catEtFuturum, true, "Changes Various Recipes to require netherite in their recipes from Et Futurum.(DISABLE if you disabled netherite in Et Futurum Requiem)");
         
         //Ancient City Options
+        enableAncientCity = conf.getBoolean("enableAncientCity", catAncientCity, true, "Enables Ancient Cities to start generating 5k from spawn.");
         disableDarkOakFenceInAncientCity = conf.getBoolean("disableDarkOakFenceInAncientCity", catAncientCity, false, "Do not use Dark Oak Fence from Et Futurum Requiem instead use regular Fences in The Ancient City.");
         disableCobbledDeepslateInAncientCity = conf.getBoolean("disableCobbledDeepslateInAncientCity", catAncientCity, false, "Do not use Cobbled Deepslate from Et Futurum Requiem instead use Cobbled Grimstone in The Ancient City.");
         disableDeepslateInAncientCity = conf.getBoolean("disableDeepslateInAncientCity", catAncientCity, false, "Do not use Deepslate from Et Futurum Requiem instead use Grimstone Blocks in The Ancient City.");
@@ -405,11 +407,11 @@ public class Configs
         
         //Misc
         enableWeaponsToAllignWithVanilla = conf.getBoolean("enableWeaponsToAllignWithVanilla", catMisc, false, "Enables weapons from novacraft to allign with vanilla in terms of damage/durability more rather than other RPG like mods.");       
-        enableTreasureCratesDropDiamonds = conf.getBoolean("enableTreasureCratesDropDiamonds", catMisc, true, "Enables treasure and nether crates have a chance to drop diamonds.");
+        enableTreasureCratesDropDiamonds = conf.getBoolean("enableTreasureCratesDropDiamonds", catMisc, true, "Enables diamonds in novacraft loot tables");
         enableCrystalGolemAura = conf.getBoolean("enableCrystalGolemAura", catMisc, true, "Enables the auras of the various crystal golems.");
         enableLuminantLeavesGlow = conf.getBoolean("enableLuminantLeavesGlow", catMisc, true, "Enables luminant leaves to have a slight glow effect.(Disable this if you use dynamic leaves)");
         enableAncientCityTotem = conf.getBoolean("enableAncientCityTotem", catMisc, true, "Enables crafting recipe for Ancient City Totem");
-        enableSculkStoneSpreading = conf.getBoolean("enableSculkStoneSpreading", catMisc, true, "Enables sculk stone to spread to nearby stone type blocks like grass.");       
+        enableSculkStoneSpreading = conf.getBoolean("enableSculkStoneSpreading", catMisc, false, "Enables sculk stone to spread to nearby stone type blocks like grass.");       
         enableNoSkippingTheNight = conf.getBoolean("enableNoSkippingTheNight", catMisc, true, "Beds will only set the player's spawnpoint and will not allow them to skip the night.");
         enableHardmode = conf.getBoolean("enableHardmode", catMisc, false, "Enables Hardmode");
 

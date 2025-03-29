@@ -13,6 +13,7 @@ import com.NovaCraft.Items.ItemNovaCraftSpawnEgg;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
 import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
+import com.NovaCraft.entity.hardmode.EntityHardmodeGhast;
 import com.NovaCraft.entity.hardmode.EntityHardmodeMagmaCube;
 import com.NovaCraft.entity.hardmode.EntityHardmodeSkeleton;
 import com.NovaCraft.entity.hardmode.EntityHardmodeSlime;
@@ -135,6 +136,8 @@ public class EntitiesNovaCraft {
 		register(EntityNitro.class, "nitro", 62, 0x890009, 0xcb868b);
 		register(EntityNulk.class, "nulk", 63, 0x19141a, 0x564d61);
 		register(EntityNuxx.class, "nuxx", 64, 0x07051f, 0x3d3347);
+		register(EntityOutsiderEye.class, "outsider_eye", 72, 0x0b0710, 0x786f8d);
+		register(EntityOutsider.class, "outsider", 73, 0x000100, 0x120e16);
 		
 		//Hardmode
 		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);
@@ -143,6 +146,7 @@ public class EntitiesNovaCraft {
 		register(EntityHardmodeSkeleton.class, "hardmode_skeleton", 68, 0x918491, 0xcfbcce);
 		register(EntityHardmodeSlime.class, "hardmode_slime", 69, 0x8ea070, 0xc8d6b4);
 		register(EntityHardmodeMagmaCube.class, "hardmode_magmacube", 70, 0x000000, 0xff3100);
+		register(EntityHardmodeGhast.class, "hardmode_ghast", 71, 0xf0c6c6, 0xf9cdcd);
 		
 		//Bosses
 		register(EntityWarden.class, "warden", 16, 0x256166, 0x171b1e);

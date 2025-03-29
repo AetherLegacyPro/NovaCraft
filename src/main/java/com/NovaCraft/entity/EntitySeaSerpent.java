@@ -144,7 +144,7 @@ public class EntitySeaSerpent extends EntityMob
     }
     
     protected String getChargeSound() {
-        return "nova_craft:blazing_serpent.living";
+        return null;
     }
     
     @Override

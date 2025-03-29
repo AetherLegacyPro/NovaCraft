@@ -191,6 +191,9 @@ public class NovaCraftEventHandler {
 		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.legendary_beacon)) {
 			event.player.triggerAchievement(AchievementsNovaCraft.legend);
 		}
+		if (event.crafting.getItem() == (NovaCraftItems.static_blend)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.static_ignition);
+		}
 	}
 
 }

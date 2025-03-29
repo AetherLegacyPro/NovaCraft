@@ -219,6 +219,14 @@ public class EntityHardmodeCreeper extends EntityMob
             int k = i + this.rand.nextInt(j - i + 1);
             this.dropItem(Item.getItemById(k), 1);
         }
+        
+        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            
+            entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
+            
+        }
     }
 
     public boolean attackEntityAsMob(Entity p_70652_1_)

@@ -3,6 +3,7 @@ package com.NovaCraft.entity.DeepoidDragon;
 import java.util.Iterator;
 import java.util.List;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntityIonizatior;
@@ -37,6 +38,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -86,7 +88,6 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     /** The current endercrystal that is healing this dragon */
     public EntityEnderCrystal healingEnderCrystal;
     public EntityLivingBase shootingEntity;
-    private static final String __OBFID = "CL_00001659";
 
     public EntityDeepoidDragon(final World p_i1700_1_)
     {
@@ -104,8 +105,17 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(500.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(400.0D);
+        
+        World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode() == true) {
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(800.0D);
+        	this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(400.0D);
+        }
+        else {
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(500.0D);
+        	this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(400.0D);
+        }
     }
     
     public void registerEntityAI() {
@@ -509,9 +519,32 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
             Entity entity = (Entity)p_70971_1_.get(i);
        if(!((entity instanceof EntityVargouzite) || (entity instanceof EntityIonizatior))) { 
     	   
-            if (entity instanceof EntityLivingBase)
+    	   	World world = MinecraftServer.getServer().worldServers[0];
+           	Hardmode data = Hardmode.get(world);
+            if (entity instanceof EntityLivingBase && data.getHardmode() == true)
             {            
-                entity.attackEntityFrom(DamageSource.magic, 8.0F);
+                entity.attackEntityFrom(DamageSource.magic, 12.0F);
+                entity.attackEntityFrom(DamageSource.outOfWorld, 2.0F);        
+                
+                {
+                if (!entity.isImmuneToFire())
+            	{
+                	entity.setFire(40);
+                	entity.attackEntityFrom(DamageSource.inFire, 28.0F);
+                	entity.attackEntityFrom(DamageSource.magic, 15.0F);
+            	}
+        		else
+        		{
+        			entity.setFire(40);
+        			entity.attackEntityFrom(DamageSource.generic, 25.0F);
+                	entity.attackEntityFrom(DamageSource.magic, 15.0F);	
+        			//nice try
+        		  }
+                }
+             }
+            else if (entity instanceof EntityLivingBase && data.getHardmode() == false) 
+            {
+            	entity.attackEntityFrom(DamageSource.magic, 8.0F);
                 entity.attackEntityFrom(DamageSource.outOfWorld, 2.0F);        
                 
                 {
@@ -529,7 +562,7 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
         			//nice try
         		  }
                 }
-             }
+            }
             
           }
        

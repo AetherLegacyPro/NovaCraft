@@ -2892,8 +2892,13 @@ public class AncientCityPositiveXLeftBranch2Gen4 extends WorldGenerator
 				return new ItemStack(NovaCraftItems.luminant_gel, random.nextInt(8) + 3);
 			case 27: 
 				return new ItemStack(Items.gunpowder, random.nextInt(6) + 5);
-			case 28: 
-				return new ItemStack(Items.diamond, 1);
+			case 28:
+				if (Configs.enableTreasureCratesDropDiamonds == true) {
+					return new ItemStack(Items.diamond, 1);
+				}
+				else {
+					return new ItemStack(Items.iron_ingot, random.nextInt(14) + 7);
+				}
 			case 29: 
 				return new ItemStack(NovaCraftItems.potion_water_breathing_extended, 1);
 			case 30: 

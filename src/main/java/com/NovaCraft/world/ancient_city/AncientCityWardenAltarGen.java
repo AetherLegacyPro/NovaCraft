@@ -8,6 +8,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
@@ -859,7 +860,9 @@ public class AncientCityWardenAltarGen extends WorldGenerator
 			world.setBlock(i + 9, j + 10, k + 3, NovaCraftBlocks.sculk_tiled_wall, 0, 2);
 			world.setBlock(i + 6, j + 10, k + 4, NovaCraftBlocks.sculk_tiled_wall, 0, 2);
 			world.setBlock(i + 8, j + 10, k + 4, NovaCraftBlocks.sculk_tiled_wall, 0, 2);
+			if (Configs.enableTreasureCratesDropDiamonds == false) {
 			world.setBlock(i + 3, j + 10, k + 19, Blocks.diamond_block, 0, 2);
+			}
 			world.setBlock(i + 5, j + 10, k + 21, Blocks.air, 0, 2); //1
 			world.setBlock(i + 4, j + 10, k + 40, NovaCraftBlocks.dim_vanite_torch, 5, 2);
 			world.setBlock(i + 10, j + 10, k + 40, NovaCraftBlocks.dim_vanite_torch, 5, 2);

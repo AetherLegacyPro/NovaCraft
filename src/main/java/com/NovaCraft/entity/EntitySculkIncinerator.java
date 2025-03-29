@@ -9,6 +9,7 @@ import net.minecraft.util.*;
 import java.util.Random;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.misc.EntitySculkLaser;
 import com.NovaCraft.particles.ParticleHandler;
@@ -401,17 +402,6 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
         return false;
     }
     
-    /*public void onEntityUpdate() {
-        super.onEntityUpdate();
-        if (this.worldObj.isRemote) {
-            final float f = MathHelper.cos((48 + this.ticksExisted) * 0.13f + 3.1415927f);
-            final float f2 = MathHelper.cos((48 + this.ticksExisted + 1) * 0.13f + 3.1415927f);
-            if (f > 0.0f && f2 <= 0.0f) {
-                //this.worldObj.playSound(this.posX, this.posY, this.posZ, "nova_craft:sculk_laser.charge", 0.95f + this.rand.nextFloat() * 0.05f, 0.95f + this.rand.nextFloat() * 0.05f, false);
-            }
-        }
-    }*/
-    
     @Override
     protected String getLivingSound() {
         return null;
@@ -437,6 +427,22 @@ public class EntitySculkIncinerator extends EntityFlying implements IMob
     protected float getSoundVolume()
     {
         return 2.0F;
+    }
+    
+    /**
+     * Called when the mob's health reaches 0.
+     */
+    public void onDeath(DamageSource p_70645_1_)
+    {
+        super.onDeath(p_70645_1_);
+
+        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            
+            entityplayer.triggerAchievement(AchievementsNovaCraft.lost_to_the_ages);
+            
+        }
     }
     
     protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)

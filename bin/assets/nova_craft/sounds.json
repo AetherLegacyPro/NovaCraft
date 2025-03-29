@@ -27,6 +27,16 @@
       "entity/glow_squid/death2",
       "entity/glow_squid/death3"
     ]
+  },
+  
+  "outsider.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/outsider/ambient1",
+      "entity/outsider/ambient2",
+      "entity/outsider/ambient3",
+      "entity/outsider/ambient4"
+    ]
   }, 
   
   "deepoid.living": {
@@ -110,32 +120,6 @@
   "category": "hostile",
   "sounds": [
       "entity/destitumite/death"
-    ]
-  },
-  
-  "overworld_lizard.living": {
-  "category": "hostile",
-  "sounds": [
-      "entity/overworld_lizard/ambient0",
-      "entity/overworld_lizard/ambient1"
-    ]
-  },
-  
-  "overworld_lizard.hurt": {
-  "category": "hostile",
-  "sounds": [
-      "entity/overworld_lizard/hurt0",
-      "entity/overworld_lizard/hurt1"
-    ]
-  },
-  
-  "blazing_serpent.living": {
-  "category": "hostile",
-  "sounds": [
-      "entity/blazing_serpent/say0",
-      "entity/blazing_serpent/say1",
-      "entity/blazing_serpent/say2",
-      "entity/blazing_serpent/say3"
     ]
   },
   

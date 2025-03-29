@@ -50,6 +50,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSource;
@@ -81,9 +82,18 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
-		this.setHealth(1000);		
+		World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode() == true) {
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(2000.0D);
+        	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+        	this.setHealth(2000);
+        } 
+        else {
+        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
+        	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+        	this.setHealth(1000);
+        }
 		
 	}
 	
@@ -206,7 +216,7 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 		Entity entity2 = source.getEntity();
 		if (entity2 instanceof EntityPlayer)
         {
-		int random1 = (int)(1 + Math.random() * 100);
+		int random1 = (int)(1 + Math.random() * 150);
        	 if(random1 <= 25 ) {
        		this.playSound("nova_craft:sculk.break", 0.5f, 1.0f);
        		EntityNulk nulk = new EntityNulk(this.worldObj);
@@ -255,6 +265,33 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
        		}
        	
        	if(random1 > 50 && random1 <= 100) {
+       		this.playSound("nova_craft:sculk.break", 1.0f, 1.0f);
+       		EntityOutsiderEye outsider = new EntityOutsiderEye(this.worldObj);
+       		outsider.setLocationAndAngles(this.posX + 30, this.posY, this.posZ, this.rotationYaw, 0.0F);
+       		outsider.setAttackTarget(this.getAttackTarget());
+
+               if (!this.worldObj.isRemote) {
+                   this.worldObj.spawnEntityInWorld(outsider);
+               	}
+               
+               EntityOutsiderEye outsider1 = new EntityOutsiderEye(this.worldObj);
+               outsider1.setLocationAndAngles(this.posX + 10, this.posY, this.posZ, this.rotationYaw, 0.0F);
+               outsider1.setAttackTarget(this.getAttackTarget());
+
+               if (!this.worldObj.isRemote) {
+                   this.worldObj.spawnEntityInWorld(outsider1);
+               }
+               
+               EntityOutsiderEye outsider2 = new EntityOutsiderEye(this.worldObj);
+               outsider2.setLocationAndAngles(this.posX - 30, this.posY, this.posZ, this.rotationYaw, 0.0F);
+               outsider2.setAttackTarget(this.getAttackTarget());
+
+               if (!this.worldObj.isRemote) {
+                   this.worldObj.spawnEntityInWorld(outsider2);
+               }
+       		}
+       	
+       	if(random1 > 100 && random1 <= 150) {
        		
        		}
         }
@@ -347,16 +384,33 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 
             if (hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) {
 
-            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 32.0F);
-            	target.attackEntityFrom(DamageSource.magic, 8.0F);
+            	World world = MinecraftServer.getServer().worldServers[0];
+                Hardmode data = Hardmode.get(world);
+                if (data.getHardmode() == true) {
+                	target.attackEntityFrom(DamageSource.causeMobDamage(this), 48.0F);
+                	target.attackEntityFrom(DamageSource.magic, 12.0F);
+                } 
+                else {
+                	target.attackEntityFrom(DamageSource.causeMobDamage(this), 32.0F);
+                	target.attackEntityFrom(DamageSource.magic, 8.0F);
+                }
             }
             
             else {
-            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 74.0F);
-            	target.attackEntityFrom(DamageSource.magic, 12.0F);
-            	target.attackEntityFrom(DamageSource.wither, 2.0F);
-            	target.attackEntityFrom(DamageSource.outOfWorld, 1.0F);
-            	
+            	World world = MinecraftServer.getServer().worldServers[0];
+                Hardmode data = Hardmode.get(world);
+                if (data.getHardmode() == true) {
+                	target.attackEntityFrom(DamageSource.causeMobDamage(this), 84.0F);
+                	target.attackEntityFrom(DamageSource.magic, 14.0F);
+                	target.attackEntityFrom(DamageSource.wither, 3.0F);
+                	target.attackEntityFrom(DamageSource.outOfWorld, 2.0F);
+                }
+                else {
+                	target.attackEntityFrom(DamageSource.causeMobDamage(this), 74.0F);
+                	target.attackEntityFrom(DamageSource.magic, 12.0F);
+                	target.attackEntityFrom(DamageSource.wither, 2.0F);
+                	target.attackEntityFrom(DamageSource.outOfWorld, 1.0F);
+                }
             	 ((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.harm.id, 20, 1));
             }
              
@@ -418,6 +472,14 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	        world.mapStorage.saveAllData();
 	        ServerMessage.broadcastMessage("Hardmode Enabled");
 	    }
+	    
+	    if (source.getEntity() instanceof EntityPlayer)
+        {
+            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
+            
+            entityplayer.triggerAchievement(AchievementsNovaCraft.unforeseen_consequences);
+            
+        }
 	}
 	
 	private void createloot(int p_70975_1_, int p_70975_2_, int p_70975_3_)
@@ -461,44 +523,17 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	
 	 protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
 	    {
-	        int j;
-	        int k;
-	        {
-	            j = this.rand.nextInt(3 + p_70628_2_);
-
-	            for (k = 0; k < j; ++k)
-	            {
-	                this.dropItem(NovaCraftItems.sculk_flesh, 7);
-	            }
-	        }
+		 	int j;
+		 	int k;
 	        
-	        this.entityDropItem(new ItemStack(NovaCraftItems.warden_heart), 0.5F);
-	        j = this.rand.nextInt(1 + p_70628_2_);
-	        
-	        for (k = 0; k < j; ++k)
-	        {
-	        	this.dropItem(NovaCraftItems.warden_tentacle, p_70628_2_);
-	        }	
-	        
-	        j = this.rand.nextInt(3 + p_70628_2_);
-	        
-	        for (k = 0; k < j; ++k)
-	        {
-	        	this.dropItem(NovaCraftItems.warden_shard, 4 + p_70628_2_);
-	        }	       
-
-	        j = this.rand.nextInt(3 + p_70628_2_);
-
-	        for (k = 0; k < j; ++k)
-	        {
-	        	this.dropItem(Item.getItemFromBlock(NovaCraftBlocks.sculk_block), 12);
-	        }
+	        this.entityDropItem(new ItemStack(NovaCraftItems.prisoner_eye), 0.5F);
+	        this.entityDropItem(new ItemStack(NovaCraftItems.unknown_star), 0.5F);	       
 	        
 	        j = this.rand.nextInt(3 + p_70628_2_);
 
 	        for (k = 0; k < j; ++k)
 	        {
-	        	this.dropItem(NovaCraftItems.anomalous_essence, 6 + p_70628_2_);
+	        	this.dropItem(NovaCraftItems.outsider_essence, 12 + p_70628_2_);
 	        }
 	    }
 	

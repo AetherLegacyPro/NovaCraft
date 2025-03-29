@@ -18,6 +18,8 @@ public class AchievementsNovaCraft {
 							  advanced_alloying, growing_cursed_crystals, speeding_the_rates, well_this_complicates_things, end_transportation, advanced_ritual_preparation, electro_nullified,
 							  summoning_an_ancient_evil, reached_for_things_I_didnt_need, the_next_upgrade, warden_insurance, ascension, end_catalyst, true_teleportation,
 							  
+							  lost_to_the_ages, static_ignition, history_repeats_itself, unforeseen_consequences, a_new_encounter, ancient_loot, mach_2, miners_meal, 
+							  
 							  a_flaming_fortess, hotter_than_fire, extreme_heat, molten_vanite, anomalous_vanite, crystallized_vanite, super_buff, the_nether_dragon, crystallized, legend,
 							  shearing_the_phoenix, flying_mobs_beware, fancy_efficiency_VI, summoning_the_bloat, a_new_method_of_mining, hardcore_enchanter;
 	
@@ -31,6 +33,7 @@ public class AchievementsNovaCraft {
 		
 		
 		the_strange_ore = new NovaCraftAchievement("advancement.nova_craft.the_strange_ore", "the_strange_ore", 2, 1, NovaCraftBlocks.large_pherithium_stalagmite, welcome_to_novacraft).registerStat();
+		miners_meal = new NovaCraftAchievement("advancement.nova_craft.miners_meal", "miners_meal", 4, 1, NovaCraftItems.cave_stew, the_strange_ore).registerStat();
 		efficiency_VI = new NovaCraftAchievement("advancement.nova_craft.efficiency_VI", "efficiency_VI", 4, -1, NovaCraftItems.pherithium_pickaxe, the_strange_ore).registerStat();
 		hardcore_miner = new NovaCraftAchievement("advancement.nova_craft.hardcore_miner", "hardcore_miner", 4, 3, NovaCraftItems.pherithium_chestplate, the_strange_ore).registerStat();
 		
@@ -111,13 +114,23 @@ public class AchievementsNovaCraft {
 		kill_sculk_abomination = new NovaCraftAchievement("advancement.nova_craft.kill_sculk_abomination", "kill_sculk_abomination", 2, 16, NovaCraftItems.sculked_leather, the_deep_dark).registerStat();		
 		kill_sculk_dweller = new NovaCraftAchievement("advancement.nova_craft.kill_sculk_dweller", "kill_sculk_dweller", 2, 14, NovaCraftItems.sculk_dweller_heart, the_deep_dark).registerStat();
 		
-		summoning_an_ancient_evil = new NovaCraftAchievement("advancement.nova_craft.summoning_an_ancient_evil", "summoning_an_ancient_evil", -4, 14, NovaCraftBlocks.grimstone_shrieker, the_deep_dark).registerStat();
+		lost_to_the_ages = new NovaCraftAchievement("advancement.nova_craft.lost_to_the_ages", "lost_to_the_ages", -2, 14, NovaCraftItems.ancient_city_artifact, the_deep_dark).registerStat();		
+		ancient_loot = new NovaCraftAchievement("advancement.nova_craft.ancient_loot", "ancient_loot", -2, 16, NovaCraftItems.powered_ancient_city_artifact, lost_to_the_ages).registerStat();
+		mach_2 = new NovaCraftAchievement("advancement.nova_craft.mach_2", "mach_2", -2, 18, NovaCraftItems.ancient_leggings, ancient_loot).registerStat();
+		
+		summoning_an_ancient_evil = new NovaCraftAchievement("advancement.nova_craft.summoning_an_ancient_evil", "summoning_an_ancient_evil", -4, 14, NovaCraftBlocks.grimstone_shrieker, lost_to_the_ages).registerStat();		
 		reached_for_things_I_didnt_need = new NovaCraftAchievement("advancement.nova_craft.reached_for_things_I_didnt_need", "reached_for_things_I_didnt_need", -4, 16, NovaCraftItems.warden_heart, summoning_an_ancient_evil).registerStat();
+		
+		legend = new NovaCraftAchievement("advancement.nova_craft.legend", "legend", -6, 17, NovaCraftBlocks.legendary_beacon, reached_for_things_I_didnt_need).registerStat();	
 		the_next_upgrade = new NovaCraftAchievement("advancement.nova_craft.the_next_upgrade", "the_next_upgrade", -4, 18, NovaCraftItems.warden_shard, reached_for_things_I_didnt_need).registerStat();
 		warden_insurance = new NovaCraftAchievement("advancement.nova_craft.warden_insurance", "warden_insurance", -4, 20, NovaCraftItems.warden_chestplate, the_next_upgrade).registerStat();
-		ascension = new NovaCraftAchievement("advancement.nova_craft.ascension", "ascension", -4, 22, NovaCraftItems.crystalite_chestplate, warden_insurance).registerStat();
-		legend = new NovaCraftAchievement("advancement.nova_craft.legend", "legend", -6, 16, NovaCraftBlocks.legendary_beacon, reached_for_things_I_didnt_need).registerStat();
-		hardcore_enchanter = new NovaCraftAchievement("advancement.nova_craft.hardcore_enchanter", "hardcore_enchanter", -2, 16, NovaCraftBlocks.legendary_enchantment_table, reached_for_things_I_didnt_need).registerStat();
+		ascension = new NovaCraftAchievement("advancement.nova_craft.ascension", "ascension", -4, 22, NovaCraftItems.crystalite_chestplate, warden_insurance).registerStat();		
+		hardcore_enchanter = new NovaCraftAchievement("advancement.nova_craft.hardcore_enchanter", "hardcore_enchanter", -6, 15, NovaCraftBlocks.legendary_enchantment_table, reached_for_things_I_didnt_need).registerStat();
+		
+		static_ignition = new NovaCraftAchievement("advancement.nova_craft.static_ignition", "static_ignition", -8, 16, NovaCraftItems.static_blend, reached_for_things_I_didnt_need).registerStat();
+		history_repeats_itself = new NovaCraftAchievement("advancement.nova_craft.history_repeats_itself", "history_repeats_itself", -8, 18, NovaCraftItems.warden_core, static_ignition).registerStat();		
+		unforeseen_consequences = new NovaCraftAchievement("advancement.nova_craft.unforeseen_consequences", "unforeseen_consequences", -8, 20, NovaCraftItems.prisoner_eye, history_repeats_itself).registerStat();
+		a_new_encounter = new NovaCraftAchievement("advancement.nova_craft.a_new_encounter", "a_new_encounter", -8, 22, NovaCraftItems.outsider_essence, unforeseen_consequences).registerStat();
 		
 		NCpage = new AchievementPage("NovaCraft", welcome_to_novacraft, time_to_excavate, 
 				the_strange_ore, even_better_than_iron, even_better_than_netherite, the_pink_ore, legendary_ore,
@@ -128,7 +141,7 @@ public class AchievementsNovaCraft {
 				well_this_complicates_things, end_transportation, advanced_ritual_preparation, electro_nullified, summoning_an_ancient_evil, reached_for_things_I_didnt_need,
 				the_next_upgrade, warden_insurance, end_catalyst, true_teleportation, ascension, legend, a_flaming_fortess, hotter_than_fire, extreme_heat, molten_vanite, anomalous_vanite,
 				crystallized_vanite, super_buff, crystallized, the_nether_dragon, shearing_the_phoenix, flying_mobs_beware, fancy_efficiency_VI, summoning_the_bloat, a_new_method_of_mining,
-				hardcore_enchanter 
+				hardcore_enchanter, lost_to_the_ages, static_ignition, history_repeats_itself, unforeseen_consequences, a_new_encounter, ancient_loot, mach_2, miners_meal 
 				);	
 		
 	AchievementPage.registerAchievementPage(NCpage);

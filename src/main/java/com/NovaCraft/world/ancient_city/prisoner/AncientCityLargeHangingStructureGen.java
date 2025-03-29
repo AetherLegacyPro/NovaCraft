@@ -8,6 +8,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
@@ -541,8 +542,13 @@ public class AncientCityLargeHangingStructureGen extends WorldGenerator
 					return new ItemStack(NovaCraftItems.luminant_gel, random.nextInt(8) + 3);
 				case 24: 
 					return new ItemStack(Items.gunpowder, random.nextInt(6) + 5);
-				case 25: 
-					return new ItemStack(Items.diamond, 1);
+				case 25:
+					if (Configs.enableTreasureCratesDropDiamonds == true) {
+						return new ItemStack(Items.diamond, 1);
+					}
+					else {
+						return new ItemStack(Items.iron_ingot, random.nextInt(14) + 7);
+					}
 				case 26: 
 					return new ItemStack(NovaCraftItems.ancient_city_artifact, 1);
 				case 27: 

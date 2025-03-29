@@ -18,6 +18,7 @@ import java.util.*;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.TileEntity.TileEntityAncientChest;
 import com.NovaCraft.TileEntity.TileEntityUnbreakbleAncientChest;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
@@ -263,6 +264,7 @@ public class BlockUnbreakableAncientChest extends BlockContainer
     	  --stack.stackSize;
     	  world.playSoundEffect(x, y, z, "nova_craft:chest.unlock", 1.5f, world.rand.nextFloat() - world.rand.nextFloat() * 0.1f + 0.9f);
     	  world.setBlock(x, y, z, NovaCraftBlocks.ancient_chest, meta, 2);
+    	  par5EntityPlayer.triggerAchievement(AchievementsNovaCraft.ancient_loot);
     	  TileEntityAncientChest chest = (TileEntityAncientChest) world.getTileEntity(x, y, z);
     	  
   		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {

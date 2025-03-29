@@ -1,5 +1,6 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
@@ -34,6 +35,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
@@ -62,13 +64,24 @@ public class EntityVoidEntity extends EntityMob
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(60D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.95D);
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.90D);
-		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
-		this.setHealth(100);
+		
+		World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode() == true) {
+        	this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(60D);
+    		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.05D);
+    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(150.0D);
+    		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.90D);
+    		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(30D);
+    		this.setHealth(150);
+        } else {
+        	this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(60D);
+    		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.95D);
+    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
+    		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.90D);
+    		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
+    		this.setHealth(100);
+        }
 	}
 	
 	@Override

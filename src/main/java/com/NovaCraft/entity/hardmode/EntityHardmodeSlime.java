@@ -1,7 +1,10 @@
 package com.NovaCraft.entity.hardmode;
 
+import com.NovaCraft.achievements.AchievementsNovaCraft;
+
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -228,6 +231,22 @@ public class EntityHardmodeSlime extends EntityLiving implements IMob
         }
 
         super.setDead();
+    }
+    
+    /**
+     * Called when the mob's health reaches 0.
+     */
+    public void onDeath(DamageSource p_70645_1_)
+    {
+        super.onDeath(p_70645_1_);
+        
+        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            
+            entityplayer.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
+            
+        }
     }
 
     /**

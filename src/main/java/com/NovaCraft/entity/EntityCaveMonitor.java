@@ -2,6 +2,7 @@ package com.NovaCraft.entity;
 
 import java.util.Random;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -15,6 +16,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -51,9 +53,18 @@ public class EntityCaveMonitor extends EntityMob
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.000000011920929D);
+        
+        World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode() == true) {
+        	this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.100000011920929D);
+        } else {
+        	this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.000000011920929D);
+        }
     }
     
     public boolean canBreatheUnderwater()
@@ -80,28 +91,16 @@ public class EntityCaveMonitor extends EntityMob
         }
     }
 
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
-    protected String getLivingSound()
-    {
-        return "nova_craft:overworld_lizard.living";
+    protected String getHurtSound() {
+        return "nova_craft:blazing_serpent.hurt";
     }
-
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
-    protected String getHurtSound()
-    {
-        return "nova_craft:overworld_lizard.hurt";
+    
+    protected String getDeathSound() {
+        return "nova_craft:blazing_serpent.hurt";
     }
-
-    /**
-     * Returns the sound this mob makes on death.
-     */
-    protected String getDeathSound()
-    {
-        return "nova_craft:overworld_lizard.hurt";
+    
+    protected String getLivingSound() {
+    	return null;
     }
 
     /**

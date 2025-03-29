@@ -41,8 +41,6 @@ public class EnderLordRenderer extends RenderLiving
      */
     public void doRender(EntityEnderLord p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-        //this.endermanModel.isCarrying = p_76986_1_.func_146080_bZ().getMaterial() != Material.air;
-        //this.endermanModel.isAttacking = p_76986_1_.isScreaming();
 
         if (p_76986_1_.isScreaming())
         {
@@ -126,7 +124,7 @@ public class EnderLordRenderer extends RenderLiving
     }
     
     @Override
-    protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+    protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
         GL11.glScalef(1.25F, 1.25F, 1.25F);
     }
 

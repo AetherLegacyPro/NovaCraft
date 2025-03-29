@@ -3,6 +3,7 @@ package com.NovaCraft.entity;
 import java.util.Random;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.misc.EntitySculkedMonitorProjectile;
 
 import net.minecraft.block.Block;
@@ -19,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
@@ -120,28 +122,16 @@ public class EntitySculkedMonitor extends EntityMob
         }
     }
 
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
-    protected String getLivingSound()
-    {
-        return "nova_craft:overworld_lizard.living";
+    protected String getHurtSound() {
+        return "nova_craft:blazing_serpent.hurt";
     }
-
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
-    protected String getHurtSound()
-    {
-        return "nova_craft:overworld_lizard.hurt";
+    
+    protected String getDeathSound() {
+        return "nova_craft:blazing_serpent.hurt";
     }
-
-    /**
-     * Returns the sound this mob makes on death.
-     */
-    protected String getDeathSound()
-    {
-        return "nova_craft:overworld_lizard.hurt";
+    
+    protected String getLivingSound() {
+    	return null;
     }
 
     /**
@@ -325,6 +315,22 @@ public class EntitySculkedMonitor extends EntityMob
         this.worldObj.playSoundAtEntity(this, "nova_craft:overworld_lizard.hurt", 2.0f, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2f + 1.0f);
         if (!this.worldObj.isRemote) {
             this.worldObj.spawnEntityInWorld(projectile);
+        }
+    }
+    
+    /**
+     * Called when the mob's health reaches 0.
+     */
+    public void onDeath(DamageSource p_70645_1_)
+    {
+        super.onDeath(p_70645_1_);
+
+        if (p_70645_1_.getEntity() instanceof EntityPlayer)
+        {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            
+            entityplayer.triggerAchievement(AchievementsNovaCraft.lost_to_the_ages);
+            
         }
     }
 
