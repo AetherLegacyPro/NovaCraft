@@ -54,6 +54,7 @@ import com.NovaCraft.world.NCWorldGeneratorPre;
 import com.NovaCraft.world.OreGenEventHandler;
 import com.NovaCraft.world.PopulateChunkEventHandler;
 import com.NovaCraft.world.ancient_city.AncientCityGen;
+import com.NovaCraft.world.bastion.treasure.BastionGen;
 import com.NovaCraft.world.end.DestitudeIslandWorldGen;
 import com.NovaCraft.world.end.EndIslandWorldGen;
 import com.NovaCraft.world.end.LivingEnderIslandWorldGen;
@@ -92,11 +93,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = NovaCraft.MOD_ID, version = "1.4", name = "NovaCraft")
+@Mod(modid = NovaCraft.MOD_ID, version = "1.4.1", name = "NovaCraft")
 public class NovaCraft
 {
     public static final String MOD_ID = "nova_craft";
-    public static final String VERSION = "1.4";
+    public static final String VERSION = "1.4.1";
     public static Random rand;
     private World worldObj;
     
@@ -163,6 +164,8 @@ public class NovaCraft
         if (Configs.enableAncientCity) {
     	GameRegistry.registerWorldGenerator((IWorldGenerator)new AncientCityGen(), Integer.MAX_VALUE);
         }
+        
+        GameRegistry.registerWorldGenerator((IWorldGenerator)new BastionGen(), Integer.MAX_VALUE);
     }
     
     @EventHandler
@@ -181,6 +184,7 @@ public class NovaCraft
     	
     	NetworkRegistry.INSTANCE.registerGuiHandler((Object)NovaCraft.instance, (IGuiHandler)new CommonProxy());
     	
+    	proxy.init();
     	proxy.registerRenderers();
     	CommonProxy.registerEvent(new NovaCraftClientEvents());
     	CommonProxy.registerEvent(new NovaCraftEventHandler());

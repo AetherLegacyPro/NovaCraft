@@ -82,18 +82,18 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 
-		World world = MinecraftServer.getServer().worldServers[0];
-        Hardmode data = Hardmode.get(world);
-        if (data.getHardmode() == true) {
-        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(2000.0D);
-        	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
-        	this.setHealth(2000);
-        } 
-        else {
+		//World world = MinecraftServer.getServer().worldServers[0];
+        //Hardmode data = Hardmode.get(world);
+        //if (data.getHardmode() == true) {
+        //	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(2000.0D);
+        //	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+        //	this.setHealth(2000);
+        //} 
+        //else {
         	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
         	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
         	this.setHealth(1000);
-        }
+        //}
 		
 	}
 	

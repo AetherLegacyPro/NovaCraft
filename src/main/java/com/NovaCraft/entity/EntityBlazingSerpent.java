@@ -63,23 +63,23 @@ public class EntityBlazingSerpent extends EntityMob
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		
-		World world = MinecraftServer.getServer().worldServers[0];
-        Hardmode data = Hardmode.get(world);
-        if (data.getHardmode() == true) {
-        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(6.65D);
-    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(220.0D);
-    		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
-    		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
-    		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30D);
-    		this.setHealth(220);
-        } else {
+		//World world = MinecraftServer.getServer().worldServers[0];
+        //Hardmode data = Hardmode.get(world);
+        //if (data.getHardmode() == true) {
+        	//this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(6.65D);
+    		//this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(220.0D);
+    		//this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
+    		//this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
+    		//this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30D);
+    		//this.setHealth(220);
+        //} else {
         	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(6.55D);
     		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(110.0D);
     		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
     		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10D);
     		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30D);
     		this.setHealth(110);
-        }
+        //}
 	}
 	
 	 public int getTotalArmorValue() {

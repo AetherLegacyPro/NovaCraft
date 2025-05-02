@@ -64,21 +64,21 @@ public class EntityDeepoid extends EntityMob implements IDeepoidBreathAttacker
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		
-		World world = MinecraftServer.getServer().worldServers[0];
-        Hardmode data = Hardmode.get(world);
-        if (data.getHardmode() == true) {
-        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.45D);
-    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(140.0D);
-    		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.40D);
-    		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(12D);
-    		this.setHealth(140);
-        } else {
+		//World world = MinecraftServer.getServer().worldServers[0];
+        //Hardmode data = Hardmode.get(world);
+        //if (data.getHardmode() == true) {
+        	//this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.45D);
+    		//this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(140.0D);
+    		//this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.40D);
+    		//this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(12D);
+    		//this.setHealth(140);
+        //} else {
         	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
     		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(70.0D);
     		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.40D);
     		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5D);
     		this.setHealth(70);
-        }
+        //}
 	}
 	
 	 public int getTotalArmorValue()

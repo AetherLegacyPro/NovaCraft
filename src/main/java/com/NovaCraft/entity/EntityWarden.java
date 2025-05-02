@@ -86,24 +86,24 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 
-		World world = MinecraftServer.getServer().worldServers[0];
-        Hardmode data = Hardmode.get(world);
-        if (data.getHardmode() == true) {
-        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(14D);
-        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1200.0D);
-        	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
-			this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(30D);
-			this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50D);
-			this.setHealth(1200);
-        }
-        else {
+		//World world = MinecraftServer.getServer().worldServers[0];
+        //Hardmode data = Hardmode.get(world);
+        //if (data.getHardmode() == true) {
+        //	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(14D);
+        //	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1200.0D);
+        	//this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+			//this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(30D);
+			//this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50D);
+			//this.setHealth(1200);
+        //}
+        //else {
         	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(11D);
         	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(600.0D);
         	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
 			this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
 			this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50D);
 			this.setHealth(600);
-        }
+        //}
 		
 	}
 	

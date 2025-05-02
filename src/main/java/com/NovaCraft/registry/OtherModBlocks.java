@@ -60,6 +60,9 @@ public class OtherModBlocks
     public static Block copper_ore;
     public static Block prismarine_block;
     public static Block sea_lantern;
+    public static Block magma;
+    public static Block chain;
+    public static Block lantern;
     
     //Netherlicious
     public static Block Nether_Gravel;
@@ -75,6 +78,7 @@ public class OtherModBlocks
     public static Block SoulTorch;
     public static Block EfrineOre;
     public static Block SoulLantern;
+    public static Block Lantern;
     
     //Vanilla Aether Legacy
     public static Block enchanted_gravitite;
@@ -155,6 +159,9 @@ public class OtherModBlocks
     	OtherModBlocks.copper_ore = GameRegistry.findBlock("etfuturum", "copper_ore");
     	OtherModBlocks.prismarine_block = GameRegistry.findBlock("etfuturum", "prismarine_block");
     	OtherModBlocks.sea_lantern = GameRegistry.findBlock("etfuturum", "sea_lantern");
+    	OtherModBlocks.magma = GameRegistry.findBlock("etfuturum", "magma");
+    	OtherModBlocks.chain = GameRegistry.findBlock("etfuturum", "chain");
+    	OtherModBlocks.lantern = GameRegistry.findBlock("etfuturum", "lantern");
     	
     	OtherModBlocks.Nether_Gravel = GameRegistry.findBlock("netherlicious", "Nether_Gravel");
     	OtherModBlocks.Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");    	
@@ -168,6 +175,7 @@ public class OtherModBlocks
     	OtherModBlocks.SoulTorch = GameRegistry.findBlock("netherlicious", "SoulTorch");
     	OtherModBlocks.EfrineOre = GameRegistry.findBlock("netherlicious", "EfrineOre");
     	OtherModBlocks.SoulLantern = GameRegistry.findBlock("netherlicious", "SoulLantern");
+    	OtherModBlocks.Lantern = GameRegistry.findBlock("netherlicious", "Lantern");
     	
     	OtherModBlocks.enchanted_gravitite = GameRegistry.findBlock("aether_legacy", "enchanted_gravitite");
     	OtherModBlocks.ambrosium_ore = GameRegistry.findBlock("aether_legacy", "ambrosium_ore");

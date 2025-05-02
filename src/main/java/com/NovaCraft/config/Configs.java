@@ -29,6 +29,8 @@ public class Configs
     public static boolean enableFrontierslate;
     public static boolean enableVacuumSand;
     
+    public static boolean enableBasal;
+    
     public static int[] DeeperCavesBlacklist;
 	public static boolean DeeperCavesBlacklistAsWhitelist;
     
@@ -150,6 +152,7 @@ public class Configs
     
     public static boolean enableTreasureCratesDropDiamonds;
     public static boolean enableNoSkippingTheNight;
+    public static boolean disableEnchantedGoldenAppleRecipe;
     
     public static boolean enableUniqueLegendaryBeaconBeam;
     
@@ -174,6 +177,8 @@ public class Configs
     public static boolean disableIronTrapdoorInAncientCity;
     public static boolean disableNetherliciousBasaltInAncientCity;
     public static boolean disableNetherliciousSmoothBasaltInAncientCity;
+    public static boolean disableMagmaBlock;
+    public static boolean disableChain;
     
     public static final String catAncientCity = "Ancient City Customization";
     public static final String catGeneration = "New generation";
@@ -304,6 +309,7 @@ public class Configs
         
         enableNullstone = conf.getBoolean("enableNullstone", catGeneration, true, "Enables Nullstone generation");
         enableEtherstone = conf.getBoolean("enableEtherstone", catGeneration, true, "Enables Etherstone generation");
+        enableBasal = conf.getBoolean("enableBasal", catGeneration, true, "Enables Basal generation");
         
         enableMountainOres = conf.getBoolean("enableMountainOres", catGeneration, true, "Enables Coal, Iron, Gold, and Emerald generating above y = 90.");
         enableExtraEmeraldOreGeneration = conf.getBoolean("enableExtraEmeraldOreGeneration", catGeneration, true, "Enables Emerald Ore to rarely generate in all biomes from y = 0 to y = 90");
@@ -346,7 +352,6 @@ public class Configs
         enableCalciteBrickRecipe = conf.getBoolean("enableCalciteBrickRecipe", catEtFuturum, true, "Enables the recipe for Calcite Bricks: DISABLE if calcite is disabled in Et Futurum Requiem.");
         enableTuffBrickRecipe = conf.getBoolean("enableTuffBrickRecipe", catEtFuturum, true, "Enables the recipe for Tuff Bricks: DISABLE if calcite is disabled in Et Futurum Requiem.");
         enablePrismarineInStructures = conf.getBoolean("enablePrismarineInStructures", catEtFuturum, true, "Enables the use of Prismarine in structures: DISABLE if prismarine is disabled in Et Futurum Requiem.");
-
         
         enableBlockOfRawNetheriteRecipe = conf.getBoolean("enableBlockOfRawNetheriteRecipe", catEtFuturum, true, "Enables the crafting recipe of Blocks of Raw Netherite.(DISABLE if you disabled Netherite in Et Futurum Requiem)");
         enableAlternateAmpJumpPotionRecipe = conf.getBoolean("enableAlternateAmpJumpPotionRecipe", catEtFuturum, true, "Changes Recipe of the extended jump potion to require rabbit foot from Et Futurum.(DISABLE if you disabled rabbits/rabbit foot in Et Futurum Requiem)");
@@ -364,6 +369,9 @@ public class Configs
         disableIronTrapdoorInAncientCity = conf.getBoolean("disableIronTrapdoorInAncientCity", catAncientCity, false, "Do not use Iron Trapdoor from Et Futurum Requiem instead use regular trapdoor in The Ancient City.");
         disableNetherliciousBasaltInAncientCity = conf.getBoolean("disableNetherliciousBasaltInAncientCity", catAncientCity, true, "Do not use Netherlicious basalt and instead use the one from Et Futurum Requiem, if those do not exist then use Polished Vanite Bricks.");
         disableNetherliciousSmoothBasaltInAncientCity = conf.getBoolean("disableNetherliciousSmoothBasaltInAncientCity", catAncientCity, true, "Do not use Netherlicious smooth basalt and instead use the one from Et Futurum Requiem, if those do not exist then use Polished Vanite Bricks.");
+        disableMagmaBlock = conf.getBoolean("disableMagmaBlock", catEtFuturum, false, "Enables the use of Magma Block in structures: DISABLE if magma blocks are disabled in Et Futurum Requiem.");
+        disableChain = conf.getBoolean("disableChain", catEtFuturum, false, "Enables the use of Chains in structures: DISABLE if chains are disabled in Et Futurum Requiem.");
+
         
         //Mobs
         enableSpawnGlowSquid = conf.getBoolean("enableSpawnGlowSquid", catMobs, true, "Enables the Spawning of Glow Squids");
@@ -414,6 +422,7 @@ public class Configs
         enableSculkStoneSpreading = conf.getBoolean("enableSculkStoneSpreading", catMisc, false, "Enables sculk stone to spread to nearby stone type blocks like grass.");       
         enableNoSkippingTheNight = conf.getBoolean("enableNoSkippingTheNight", catMisc, true, "Beds will only set the player's spawnpoint and will not allow them to skip the night.");
         enableHardmode = conf.getBoolean("enableHardmode", catMisc, false, "Enables Hardmode");
+        disableEnchantedGoldenAppleRecipe = conf.getBoolean("disableEnchantedGoldenAppleRecipe", catMisc, true, "Disables recipe for Enchanted Golden Apples.");
 
         //Warden Options
         enableWardenBlindness = conf.getBoolean("enableWardenBlindness", catWarden, true, "Enables the Warden Applying blindess to the player when within 5 Blocks: Note if False the Player will be given Slowness II Instead");

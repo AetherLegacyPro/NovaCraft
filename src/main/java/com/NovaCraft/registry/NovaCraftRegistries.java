@@ -207,6 +207,8 @@ public class NovaCraftRegistries {
 		register("nullstone_bricks", new ItemStack(NovaCraftBlocks.nullstone_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.nullstone);
 		register("nullstone_tiles", new ItemStack(NovaCraftBlocks.nullstone_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.nullstone_bricks);
 		
+		register("basal_bricks", new ItemStack(NovaCraftBlocks.basal_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.basal);
+		
 		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe == true) {
 		register("tuff_bricks", new ItemStack(NovaCraftBlocks.tuff_bricks, 4), "XX", "XX", 'X', OtherModBlocks.tuff);
 		register("tuff_tiles", new ItemStack(NovaCraftBlocks.tuff_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.tuff_bricks);
@@ -228,7 +230,8 @@ public class NovaCraftRegistries {
 		register("chiseled_grimstone", new ItemStack(NovaCraftBlocks.chiseled_grimstone, 1), "X", "X", 'X', NovaCraftBlocks.grimstone_brick_slab);
 		register("chiseled_nullstone", new ItemStack(NovaCraftBlocks.chiseled_nullstone, 1), "X", "X", 'X', NovaCraftBlocks.nullstone_brick_slab);
 		register("chiseled_sculk", new ItemStack(NovaCraftBlocks.chiseled_sculk, 1), "X", "X", 'X', NovaCraftBlocks.sculk_brick_slab);
-		register("carved_frontierslate_bricks", new ItemStack(NovaCraftBlocks.carved_frontierslate_bricks, 1), "X", "X", 'X', NovaCraftBlocks.frontierslate_brick_slab);
+		register("carved_frontierslate_bricks", new ItemStack(NovaCraftBlocks.carved_frontierslate_bricks, 1), "X", "X", 'X', NovaCraftBlocks.frontierslate_brick_slab);		
+		register("chiseled_basal", new ItemStack(NovaCraftBlocks.chiseled_basal, 1), "X", "X", 'X', NovaCraftBlocks.basal_brick_slab);
 		
 		register("sculk_bricks", new ItemStack(NovaCraftBlocks.sculk_bricks, 2), "XXX", "XYX", "XXX", 'X', NovaCraftBlocks.sculk_vein, 'Y', NovaCraftBlocks.grimstone_bricks);
 		register("sculk_bricks", new ItemStack(NovaCraftBlocks.sculk_bricks, 3), " X ", "XYX", " X ", 'X', NovaCraftBlocks.sculk_tentacle_2, 'Y', NovaCraftBlocks.grimstone_bricks);
@@ -460,6 +463,9 @@ public class NovaCraftRegistries {
 		register("lacuna_stairs", new ItemStack(NovaCraftBlocks.lacuna_stairs, 4), "Z  ", "ZZ ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.lacuna_planks));
 		register("luminant_stairs", new ItemStack(NovaCraftBlocks.luminant_stairs, 4), "Z  ", "ZZ ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.luminant_planks));
 		
+		register("basal_stairs", new ItemStack(NovaCraftBlocks.basal_stairs, 4), "Z  ", "ZZ ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal));
+		register("basal_brick_stairs", new ItemStack(NovaCraftBlocks.basal_brick_stairs, 4), "Z  ", "ZZ ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal_bricks));
+		
 		//Walls
 		register("grimstone_wall", new ItemStack(NovaCraftBlocks.grimstone_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.grimstone));
 		register("cobbled_grimstone_wall", new ItemStack(NovaCraftBlocks.cobbled_grimstone_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cobbled_grimstone));
@@ -481,7 +487,9 @@ public class NovaCraftRegistries {
 		
 		register("calcite_brick_wall", new ItemStack(NovaCraftBlocks.calcite_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.calcite_bricks));
 		register("calcite_tiled_wall", new ItemStack(NovaCraftBlocks.calcite_tiled_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.calcite_tiles));
-				
+		
+		register("basal_wall", new ItemStack(NovaCraftBlocks.basal_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal));
+		register("basal_brick_wall", new ItemStack(NovaCraftBlocks.basal_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal_bricks));		
 				
 		register("nullwart_bricks_wall", new ItemStack(NovaCraftBlocks.nullwart_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.nullwart_bricks));
 		register("vanite_brick_wall", new ItemStack(NovaCraftBlocks.vanite_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.vanite_bricks));
@@ -511,6 +519,9 @@ public class NovaCraftRegistries {
 		register("cobbled_etherstone_slab", new ItemStack(NovaCraftBlocks.cobbled_etherstone_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.cobbled_etherstone));
 		register("etherstone_brick_slab", new ItemStack(NovaCraftBlocks.etherstone_brick_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.etherstone_bricks));
 		register("etherstone_tiled_slab", new ItemStack(NovaCraftBlocks.etherstone_tiled_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.etherstone_tiles));
+		
+		register("basal_slab", new ItemStack(NovaCraftBlocks.basal_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal));
+		register("basal_brick_slab", new ItemStack(NovaCraftBlocks.basal_brick_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.basal_bricks));
 		
 		register("sculk_brick_slab", new ItemStack(NovaCraftBlocks.sculk_brick_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.sculk_bricks));
 		register("sculk_tiled_slab", new ItemStack(NovaCraftBlocks.sculk_tiled_slab, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.sculk_tiles));
@@ -779,8 +790,9 @@ public class NovaCraftRegistries {
 	}
 	
 	private static void removeRecipes() {
+		if (Configs.disableEnchantedGoldenAppleRecipe == true) {
 		removeFirstRecipeFor(Items.golden_apple, 1);
-		
+		}
 	}
 	
 	

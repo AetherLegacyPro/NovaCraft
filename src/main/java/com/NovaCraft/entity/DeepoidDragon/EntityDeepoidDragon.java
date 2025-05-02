@@ -106,16 +106,16 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     {
         super.applyEntityAttributes();
         
-        World world = MinecraftServer.getServer().worldServers[0];
-        Hardmode data = Hardmode.get(world);
-        if (data.getHardmode() == true) {
-        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(800.0D);
-        	this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(400.0D);
-        }
-        else {
+        //World world = MinecraftServer.getServer().worldServers[0];
+        //Hardmode data = Hardmode.get(world);
+        //if (data.getHardmode() == true) {
+        //	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(800.0D);
+        //	this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(400.0D);
+        //}
+       // else {
         	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(500.0D);
         	this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(400.0D);
-        }
+        //}
     }
     
     public void registerEntityAI() {

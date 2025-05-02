@@ -77,6 +77,10 @@ public class BlocksNovaCraftSlab extends BlockSlab {
 			return NovaCraftBlocks.vanite_brick_slab;
 		} else if (this == NovaCraftBlocks.carved_vanite_brick_double_slab) {
 			return NovaCraftBlocks.carved_vanite_brick_slab;
+		} else if (this == NovaCraftBlocks.basal_brick_double_slab) {
+			return NovaCraftBlocks.basal_brick_slab;
+		} else if (this == NovaCraftBlocks.basal_double_slab) {
+			return NovaCraftBlocks.basal_slab;
 		}
 		else {
 			return this;

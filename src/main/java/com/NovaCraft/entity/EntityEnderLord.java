@@ -59,17 +59,17 @@ public class EntityEnderLord extends EntityMob
     {
         super.applyEntityAttributes();
         
-        World world = MinecraftServer.getServer().worldServers[0];
-        Hardmode data = Hardmode.get(world);
-        if (data.getHardmode() == true) {
-        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(160.0D);
-        	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.45000001192092896D);
-        	this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(28.0D);
-        } else {
+        //World world = MinecraftServer.getServer().worldServers[0];
+        //Hardmode data = Hardmode.get(world);
+        //if (data.getHardmode() == true) {
+        //	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(160.0D);
+        //	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.45000001192092896D);
+        //	this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(28.0D);
+        //} else {
         	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0D);
         	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35000001192092896D);
         	this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(14.0D);
-        }
+       // }
     }
 
     protected void entityInit()

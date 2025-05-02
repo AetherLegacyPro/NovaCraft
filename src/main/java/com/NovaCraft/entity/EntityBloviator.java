@@ -424,17 +424,17 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         
-        World world = MinecraftServer.getServer().worldServers[0];
-        Hardmode data = Hardmode.get(world);
-        if (data.getHardmode() == true) {
-        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(700.0);
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(18D);
-            this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.60D);
-        } else {
+        //World world = MinecraftServer.getServer().worldServers[0];
+        //Hardmode data = Hardmode.get(world);
+        //if (data.getHardmode() == true) {
+        	//this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(700.0);
+            //this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(18D);
+            //this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.60D);
+        //} else {
         	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(350.0);
             this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(16D);
             this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.60D);
-        }
+        //}
     }
     
     protected void fall(final float p_70069_1_) {

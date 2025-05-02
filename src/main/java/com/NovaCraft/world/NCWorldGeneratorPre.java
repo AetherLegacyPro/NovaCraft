@@ -22,6 +22,8 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 	protected final WorldGenMinable nullstoneGen = new WorldGenMinable(NovaCraftBlocks.nullstone, 48, Blocks.stone);
 	protected final WorldGenMinable etherstoneGen = new WorldGenMinable(NovaCraftBlocks.etherstone, 32, Blocks.stone);
 	
+	protected final WorldGenMinable basalGen = new WorldGenMinable(NovaCraftBlocks.basal, 48, Blocks.netherrack);
+	
 	protected final WorldGenMinable additionalDeepslateGen = new WorldGenMinable(OtherModBlocks.deepslate, 48, Blocks.stone);
 	protected final WorldGenMinable additionalCalciteGen = new WorldGenMinable(OtherModBlocks.calcite, 32, Blocks.stone);
 	protected final WorldGenMinable alternateTuffGen = new WorldGenMinable(OtherModBlocks.tuff, 32, Blocks.stone);
@@ -79,6 +81,10 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 		
 		if (world.provider.dimensionId == 1 && Configs.enableVacuumSand == true) {
 			this.generateVacuumSand(vaccumSandGen, world, rand, chunkX, chunkZ, 3, 48, 128);
+		}
+		
+		if (world.provider.dimensionId == -1 && Configs.enableBasal == true) {
+			this.generateOre(basalGen, world, rand, chunkX, chunkZ, 3, 6, 30);
 		}
 	}
 	

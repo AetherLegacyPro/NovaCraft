@@ -202,6 +202,7 @@ public class NovaCraftBlocks {
 	public static Block grimstone, cobbled_grimstone, grimstone_bricks, cracked_grimstone_bricks, grimstone_tiles, cracked_grimstone_tiles, chiseled_grimstone, polished_grimstone;
 	public static Block nullstone, cobbled_nullstone, nullstone_bricks, cracked_nullstone_bricks, nullstone_tiles, cracked_nullstone_tiles, chiseled_nullstone, polished_nullstone;
 	public static Block etherstone, cobbled_etherstone, etherstone_bricks, cracked_etherstone_bricks, etherstone_tiles, cracked_etherstone_tiles, chiseled_etherstone;
+	public static Block basal, basal_bricks, cracked_basal_bricks, glowing_basal, chiseled_basal, basal_scrap;
 	public static Block sculk_bricks, cracked_sculk_bricks, sculk_tiles, cracked_sculk_tiles, chiseled_sculk;
 	public static Block tuff_bricks, cracked_tuff_bricks, tuff_tiles, cracked_tuff_tiles, chiseled_tuff;
 	public static Block calcite_bricks, cracked_calcite_bricks, calcite_tiles, cracked_calcite_tiles, chiseled_calcite;
@@ -227,6 +228,9 @@ public class NovaCraftBlocks {
 	public static Block etherstone_brick_slab, etherstone_brick_double_slab, etherstone_brick_stairs, etherstone_brick_wall;
 	public static Block cobbled_etherstone_slab, cobbled_etherstone_double_slab, cobbled_etherstone_stairs, cobbled_etherstone_wall;
 	public static Block etherstone_tiled_slab, etherstone_tiled_double_slab, etherstone_tiled_stairs, etherstone_tiled_wall;
+	
+	public static Block basal_slab, basal_double_slab, basal_stairs, basal_wall;
+	public static Block basal_brick_slab, basal_brick_double_slab, basal_brick_stairs, basal_brick_wall;
 	
 	public static Block sculk_brick_slab, sculk_brick_double_slab, sculk_brick_stairs, sculk_brick_wall;
 	public static Block sculk_tiled_slab, sculk_tiled_double_slab, sculk_tiled_stairs, sculk_tiled_wall;
@@ -395,7 +399,14 @@ public class NovaCraftBlocks {
 		etherstone_gold = register("etherstone_gold", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_gold_ore")));
 		etherstone_iron = register("etherstone_iron", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_iron_ore")));
 		etherstone_brimstone = register("etherstone_brimstone", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_brimstone_ore")));
-			
+		
+		basal = register("basal", new BlockBasal());
+		basal_bricks = register("basal_bricks", new BlockBasalBuildingBlocks().setBlockTextureName(NovaCraft.find("basal_bricks")));
+		cracked_basal_bricks = register("cracked_basal_bricks", new BlockBasalBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_basal_bricks")));
+		chiseled_basal = register("chiseled_basal", new BlockBasalBuildingBlocks().setBlockTextureName(NovaCraft.find("chiseled_basal")));
+		glowing_basal = register("glowing_basal", new BlockBasalBuildingBlocks().setLightLevel(0.7775F).setBlockTextureName(NovaCraft.find("glowing_basal")));
+		basal_scrap = registerMeta("basal_scrap", new BlockBasalScrap());
+		
 		tuff_bricks = register("tuff_bricks", new BlockTuffBricks().setBlockTextureName(NovaCraft.find("tuff_bricks")));
 		cracked_tuff_bricks = register("cracked_tuff_bricks", new BlockCrackedTuffBricks().setBlockTextureName(NovaCraft.find("cracked_tuff_bricks")));
 		tuff_tiles = register("tuff_tiles", new BlockTuffTiles().setBlockTextureName(NovaCraft.find("tuff_tiles")));
@@ -705,6 +716,9 @@ public class NovaCraftBlocks {
 		etherstone_brick_stairs = register("etherstone_brick_stairs", new BlockNovaCraftStairs(etherstone_bricks));
 		etherstone_tiled_stairs = register("etherstone_tiled_stairs", new BlockNovaCraftStairs(etherstone_tiles));
 		
+		basal_stairs = register("basal_stairs", new BlockNovaCraftStairs(basal));
+		basal_brick_stairs = register("basal_brick_stairs", new BlockNovaCraftStairs(basal_bricks));
+		
 		tuff_brick_stairs = register("tuff_brick_stairs", new BlockNovaCraftStairs(tuff_bricks));
 		tuff_tiled_stairs = register("tuff_tiled_stairs", new BlockNovaCraftStairs(tuff_tiles));
 		
@@ -740,6 +754,9 @@ public class NovaCraftBlocks {
 		cobbled_etherstone_wall = register("cobbled_etherstone_wall", new BlockNovaCraftWall(cobbled_etherstone));
 		etherstone_brick_wall = register("etherstone_brick_wall", new BlockNovaCraftWall(etherstone_bricks));
 		etherstone_tiled_wall = register("etherstone_tiled_wall", new BlockNovaCraftWall(etherstone_tiles));
+		
+		basal_wall = register("basal_wall", new BlockNovaCraftWall(basal));
+		basal_brick_wall = register("basal_brick_wall", new BlockNovaCraftWall(basal_bricks));
 		
 		sculk_brick_wall = register("sculk_brick_wall", new BlockNovaCraftWall(sculk_bricks));
 		sculk_tiled_wall = register("sculk_tiled_wall", new BlockNovaCraftWall(sculk_tiles));
@@ -778,6 +795,11 @@ public class NovaCraftBlocks {
 		
 		nullwart_brick_double_slab = register("nullwart_brick_double_slab", new BlocksNovaCraftSlab("nullwart_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("nullwart_brick")).setHardness(1.5F).setResistance(3.0F)).setCreativeTab(null);
 		nullwart_brick_slab = registerSlab("nullwart_brick_slab", new BlocksNovaCraftSlab("nullwart_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("nullwart_brick")).setHardness(1.5F).setResistance(3.0F), nullwart_brick_double_slab);
+		
+		basal_double_slab = register("basal_double_slab", new BlocksNovaCraftSlab("basal_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("basal")).setHardness(1.5F).setResistance(12.0F)).setCreativeTab(null);
+		basal_slab = registerSlab("basal_slab", new BlocksNovaCraftSlab("basal_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("basal")).setHardness(1.5F).setResistance(12.0F), basal_double_slab);		
+		basal_brick_double_slab = register("basal_brick_double_slab", new BlocksNovaCraftSlab("basal_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("basal_bricks")).setHardness(1.5F).setResistance(12.0F)).setCreativeTab(null);
+		basal_brick_slab = registerSlab("basal_brick_slab", new BlocksNovaCraftSlab("basal_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("basal_bricks")).setHardness(1.5F).setResistance(12.0F), basal_brick_double_slab);
 		
 		vanite_brick_double_slab = register("vanite_brick_double_slab", new BlocksNovaCraftSlab("vanite_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("vanite_bricks")).setHardness(3.5F).setResistance(3.0F)).setCreativeTab(null);
 		vanite_brick_slab = registerSlab("vanite_brick_slab", new BlocksNovaCraftSlab("vanite_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("vanite_bricks")).setHardness(1.5F).setResistance(6.0F), vanite_brick_double_slab);

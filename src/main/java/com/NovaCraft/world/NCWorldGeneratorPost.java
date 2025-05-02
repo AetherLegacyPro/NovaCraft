@@ -40,7 +40,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 	
 	public void generateNether(final Random random, final int chunkX, final int chunkZ, final World world) {
 		
-		this.addNetherOres(NovaCraftBlocks.nether_tophinite_ore, world, random, chunkX, chunkZ, 2, 4, 5, 0, 10);		
+		this.addNetherOres(NovaCraftBlocks.nether_tophinite_ore, world, random, chunkX, chunkZ, 3, 5, 6, 0, 20);		
 	}
 	
 	public void addOreSpawnEnd(final Block block, final World world, final Random random, final int blockXPos, final int blockZPos, final int minVeinSize, final int maxVeinSize, final int chancesToSpawn, final int minY, final int maxY) {
@@ -93,7 +93,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
     }
 	
 	public void addNetherOres(final Block block, final World world, final Random random, final int blockXPos, final int blockZPos, final int minVeinSize, final int maxVeinSize, final int chancesToSpawn, final int minY, final int maxY) {
-        final WorldGenMinable minable = new WorldGenMinable(block, minVeinSize + random.nextInt(maxVeinSize - minVeinSize), Blocks.netherrack);
+        final WorldGenMinable minable = new WorldGenMinable(block, minVeinSize + random.nextInt(maxVeinSize - minVeinSize), NovaCraftBlocks.basal);
         for (int i = 0; i < chancesToSpawn; ++i) {
             final int posX = blockXPos + random.nextInt(16);
             final int posY = minY + random.nextInt(maxY - minY);
@@ -128,11 +128,11 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 			
 			//Override of vanilla ore generation
 			this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 12, 14, 18, 24, 128);
-			this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 8, 9, 10, 0, 64);
+			this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 7, 9, 10, 0, 64);
 			this.addVanillaOres(Blocks.gold_ore, world, random, chunkX, chunkZ, 2, 3, 4, 0, 32);
-			this.addVanillaOres(Blocks.redstone_ore, world, random, chunkX, chunkZ, 5, 8, 10, 0, 24);
-			this.addVanillaOres(Blocks.lapis_ore, world, random, chunkX, chunkZ, 2, 4, 6, 0, 32);
-			this.addVanillaOres(Blocks.diamond_ore, world, random, chunkX, chunkZ, 2, 4, 6, 0, 16);
+			this.addVanillaOres(Blocks.redstone_ore, world, random, chunkX, chunkZ, 4, 8, 10, 0, 24);
+			this.addVanillaOres(Blocks.lapis_ore, world, random, chunkX, chunkZ, 3, 5, 7, 0, 32);
+			this.addVanillaOres(Blocks.diamond_ore, world, random, chunkX, chunkZ, 3, 4, 6, 0, 16);
 			
 			if (Configs.enableExtraEmeraldOreGeneration) {
 			this.addVanillaOres(Blocks.emerald_ore, world, random, chunkX, chunkZ, 1, 3, 7, 20, 90);

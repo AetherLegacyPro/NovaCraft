@@ -592,6 +592,12 @@ tile.unbreakable_ancient_chest.name=Locked Ancient City Chest
 tile.activated_unknown_portal_activator.name=Activated Unknown Portal Activator
 tile.nullstone_deactivator.name=Nullstone Deactivator
 tile.cracked_nullstone_deactivator.name=Cracked Nullstone Deactivator
+tile.basal.name=Basal
+tile.basal_bricks.name=Basal Bricks
+tile.cracked_basal_bricks.name=Cracked Basal Bricks
+tile.glowing_basal.name=Glowing Basal
+tile.chiseled_basal.name=Chiseled Basal
+tile.basal_scrap.name=Basal Scrap
 
 #Stairs Names
 tile.grimstone_stairs.name=Grimstone Stairs
@@ -619,6 +625,8 @@ tile.lacuna_stairs.name=Lacuna Plank Stairs
 tile.luminant_stairs.name=Luminant Plank Stairs
 tile.vanite_brick_stairs.name=Vanite Brick Stairs
 tile.carved_vanite_brick_stairs.name=Carved Vanite Brick Stairs
+tile.basal_stairs.name=Basal Stairs
+tile.basal_brick_stairs.name=Basal Brick Stairs
 
 #Wall Names
 tile.grimstone_wall.name=Grimstone Wall
@@ -644,6 +652,8 @@ tile.calcite_brick_wall.name=Calcite Brick Wall
 tile.calcite_tiled_wall.name=Calcite Tiled Wall
 tile.vanite_brick_wall.name=Vanite Brick Wall
 tile.carved_vanite_brick_wall.name=Carved Vanite Brick Wall
+tile.basal_wall.name=Basal Wall
+tile.basal_brick_wall.name=Basal Brick Wall
 
 #Slab Names
 grimstone_slab.name=Grimstone Slab
@@ -671,6 +681,8 @@ lacuna_slab.name=Lacuna Plank Slab
 luminant_slab.name=Luminant Plank Slab
 vanite_brick_slab.name=Vanite Brick Slab
 carved_vanite_brick_slab.name=Carved Vanite Brick Slab
+basal_slab.name=Basal Slab
+basal_brick_slab.name=Basal Brick Slab
 
 
 #Double Slab Names
@@ -699,6 +711,8 @@ tile.lacuna_double_slab.name=Lacuna Plank Double Slab
 tile.luminant_double_slab.name=Luminant Plank Double Slab
 tile.vanite_brick_double_slab.name=Vanite Brick Double Slab
 tile.carved_vanite_brick_double_slab.name=Carved Vanite Brick Double Slab
+tile.basal_double_slab.name=Basal Double Slab
+tile.basal_brick_double_slab.name=Basal Brick Double Slab
 
 #Tabs
 tab.novacraft_tools=Novacraft Tools
