@@ -430,12 +430,9 @@ public class ItemSculkStar extends Item {
 				--heldItem.stackSize;
 		}
 		else {
-			if (world.isRemote) {
-		          return true;
-		      }
-			else {
+				if (world.isRemote) {
 			player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.warden_altar_invaild_structure")));
-			}
+				}
 		}
 		
 		return true;

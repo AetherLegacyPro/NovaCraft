@@ -165,6 +165,7 @@ public class Configs
     public static boolean enableDeepoidFortress;
     public static boolean enableSculkInfestedMineshaft;
     public static boolean enableBlackstoneBricksInNetherStructures;
+    public static boolean enableInfestedBastion;
     
     public static boolean enableAncientCity;
     public static boolean disableDarkOakFenceInAncientCity;
@@ -334,6 +335,7 @@ public class Configs
         destituteIslandSpawnRate = conf.get("Spawn Rate - Destitute Islands", catGeneration, 300).getInt();
         
         enableBlackstoneBricksInNetherStructures = conf.getBoolean("enableBlackstoneBricksInNetherStructures", catGeneration, true, "Use Blackstone Bricks from Netherlicious instead use Nullstone Bricks.");
+        enableInfestedBastion = conf.getBoolean("enableInfestedBastion", catGeneration, true, "Enables infested bastion to generate in the Nether.");
         
         //Particles
         enableGlowSquidParticles = conf.getBoolean("enableGlowSquidParticles", catParticles, true, "Enables Glow Squid Particles(Causing the log to freak out if Dragon API is installed)");

@@ -61,7 +61,9 @@ public class ItemEternalCaller extends Item {
                 }
                 
         } else {
-        	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.invaild.dimension")));	
+        	if (world.isRemote) {
+        	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.invaild.dimension")));
+        	}
         }
         return true;
     }

@@ -211,6 +211,7 @@ public class NovaCraftBlocks {
 	public static Block luminant_log, luminant_sapling, luminant_leaves, luminant_planks;
 	public static Block luminant_slab, luminant_double_slab, luminant_stairs, luminant_fence, luminant_fence_gate;
 	public static Block glow_torch, vanite_torch, dim_vanite_torch;
+	public static Block blazing_coal_block;
 	
 	//Decoration Blocks
 	public static Block grimstone_slab, grimstone_double_slab, grimstone_stairs, grimstone_wall;
@@ -323,6 +324,7 @@ public class NovaCraftBlocks {
 	public static Block deep_one_egg, deep_one_egg_activated;
 	public static Block reinforced_nullstone, activated_reinforced_nullstone, unknown_portal_activator, activated_unknown_portal_activator;
 	public static Block unknown_portal_sealed, unknown_portal, cracked_nullstone_deactivator, nullstone_deactivator;
+	public static Block trap_tophinite;
 	
 	//Special
 	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table;
@@ -404,8 +406,8 @@ public class NovaCraftBlocks {
 		basal_bricks = register("basal_bricks", new BlockBasalBuildingBlocks().setBlockTextureName(NovaCraft.find("basal_bricks")));
 		cracked_basal_bricks = register("cracked_basal_bricks", new BlockBasalBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_basal_bricks")));
 		chiseled_basal = register("chiseled_basal", new BlockBasalBuildingBlocks().setBlockTextureName(NovaCraft.find("chiseled_basal")));
-		glowing_basal = register("glowing_basal", new BlockBasalBuildingBlocks().setLightLevel(0.7775F).setBlockTextureName(NovaCraft.find("glowing_basal")));
-		basal_scrap = registerMeta("basal_scrap", new BlockBasalScrap());
+		glowing_basal = register("glowing_basal", new BlockGlowingBasal().setLightLevel(0.7775F).setBlockTextureName(NovaCraft.find("glowing_basal")));
+		basal_scrap = registerMeta("basal_scrap", new BlockBasalScrap().setBlockTextureName(NovaCraft.find("basal_scrap")));
 		
 		tuff_bricks = register("tuff_bricks", new BlockTuffBricks().setBlockTextureName(NovaCraft.find("tuff_bricks")));
 		cracked_tuff_bricks = register("cracked_tuff_bricks", new BlockCrackedTuffBricks().setBlockTextureName(NovaCraft.find("cracked_tuff_bricks")));
@@ -469,9 +471,11 @@ public class NovaCraftBlocks {
 		nether_tophinite_ore = registerItemBlock("nether_tophinite_ore", new BlockNetherTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("nether_tophinite_ore"));				
 		block_of_tophinite = registerItemBlock("block_of_tophinite", new BlockTophinite(), ItemBlockFireProof.class);
 		
+		trap_tophinite = registerHidden("trap_tophinite", new BlockTrapTophinite());
+		blazing_coal_block = register("blazing_coal_block", new BlockBlazingCoal().setBlockTextureName(NovaCraft.find("blazing_coal_block")));
 		
 		deepfire = registerHidden("deepfire", new BlockDeepFire().setCreativeTab(null));
-		blazlinite_blend = register("blazlinite_blend", new BlockBlazliniteBlend());
+		blazlinite_blend = register("blazlinite_blend", new BlockBlazliniteBlend().setBlockTextureName(NovaCraft.find("blazlinite_blend")));
 		blazlinite = registerHidden("blazlinite", new BlockBlazlinite().setCreativeTab(null));
 		vanite_cauldron = registerHidden("vanite_cauldron", new BlockVaniteCauldron().setCreativeTab(null));
 		molten_vanite_cauldron = registerHidden("molten_vanite_cauldron", new BlockMoltenVaniteCauldron().setCreativeTab(null));

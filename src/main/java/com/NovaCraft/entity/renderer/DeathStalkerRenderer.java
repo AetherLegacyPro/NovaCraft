@@ -41,7 +41,7 @@ private static final ResourceLocation texture;
     }
     
     @Override
-    protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+    protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
         GL11.glScalef(1.35F, 1.35F, 1.35F);
     }
     

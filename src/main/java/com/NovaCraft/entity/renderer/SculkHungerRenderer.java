@@ -76,7 +76,7 @@ public class SculkHungerRenderer extends RenderLiving
     }
     
     @Override
-    protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+    protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
         GL11.glScalef(1.34F, 1.34F, 1.34F);
     }
     
@@ -203,7 +203,7 @@ public class SculkHungerRenderer extends RenderLiving
     
     protected void func_82422_c()
     {
-        GL11.glTranslatef(0.0F, 0.3875F, -0.1675F); //0.1875
+        GL11.glTranslatef(0.0F, 0.3875F, -0.1675F);
     }
     
     protected void renderEquippedItems(EntityLivingBase p_77029_1_, float p_77029_2_)

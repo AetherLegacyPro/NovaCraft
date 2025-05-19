@@ -65,16 +65,15 @@ public class BlockGrimstoneShrieker extends Block {
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		if (world.isRemote) {
-	          return true;
-	      }
 		
     	Block block = world.getBlock(x, y, z);
 		int meta = world.getBlockMetadata(x, y, z);
 		
 		ItemStack stack = player.inventory.getCurrentItem();
         if (stack != null && stack.getItem() != null && stack.getItem() != NovaCraftItems.sculk_star) {
+        	 if (world.isRemote) {	
         	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.warden_altar")));
+        	 }
         }
         
         return true;

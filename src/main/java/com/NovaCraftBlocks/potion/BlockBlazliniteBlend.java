@@ -27,38 +27,6 @@ public class BlockBlazliniteBlend extends Block {
 		this.setHarvestLevel("pickaxe", 2);
 	}
 	
-	@SideOnly(Side.CLIENT)
-	private IIcon iconTop;
-	private IIcon blockIconBottom;
-	private IIcon blockIconTop;
-	
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister registry) {
-		this.blockIcon = registry.registerIcon("nova_craft:blazlinite_blend_side");
-		this.blockIconTop = registry.registerIcon("nova_craft:blazlinite_blend_top");
-		this.blockIconBottom = registry.registerIcon("nova_craft:blazlinite_blend_bottom");
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta) {
-		return side == 1 ? this.blockIconTop : (side == 0 ? this.blockIconBottom : this.blockIcon);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
-		if (side == 1) {
-			return this.blockIconTop;
-		} else if (side == 0) {
-			return this.blockIconBottom;
-		}
-
-		return this.blockIcon;
-	}
-	
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
 

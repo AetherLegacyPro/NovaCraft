@@ -22,7 +22,6 @@ public class EnderLordRenderer extends RenderLiving
 {
     private static final ResourceLocation endermanEyesTexture = new ResourceLocation("nova_craft","textures/entity/ender_brute/ender_brute_eyes.png");
     private static final ResourceLocation endermanTextures = new ResourceLocation("nova_craft","textures/entity/ender_brute/ender_brute.png");
-    /** The model of the enderman */
     private EnderLordModel endermanModel;
     private Random rnd = new Random();
 
@@ -33,12 +32,6 @@ public class EnderLordRenderer extends RenderLiving
         this.setRenderPassModel(this.endermanModel);
     }
 
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
     public void doRender(EntityEnderLord p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
 
@@ -52,9 +45,6 @@ public class EnderLordRenderer extends RenderLiving
         super.doRender((EntityLiving)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(EntityEnderLord p_110775_1_)
     {
         return endermanTextures;
@@ -86,9 +76,6 @@ public class EnderLordRenderer extends RenderLiving
         }
     }
 
-    /**
-     * Queries whether should render the specified pass or not.
-     */
     protected int shouldRenderPass(EntityEnderLord p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
         if (p_77032_2_ != 0)
@@ -128,20 +115,11 @@ public class EnderLordRenderer extends RenderLiving
         GL11.glScalef(1.25F, 1.25F, 1.25F);
     }
 
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
     public void doRender(EntityLiving p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
         this.doRender((EntityEnderLord)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    /**
-     * Queries whether should render the specified pass or not.
-     */
     protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
         return this.shouldRenderPass((EntityEnderLord)p_77032_1_, p_77032_2_, p_77032_3_);
@@ -152,31 +130,16 @@ public class EnderLordRenderer extends RenderLiving
         this.renderEquippedItems((EntityEnderLord)p_77029_1_, p_77029_2_);
     }
 
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
     public void doRender(EntityLivingBase p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
         this.doRender((EntityEnderLord)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(Entity p_110775_1_)
     {
         return this.getEntityTexture((EntityEnderLord)p_110775_1_);
     }
 
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
     public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
         this.doRender((EntityEnderLord)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);

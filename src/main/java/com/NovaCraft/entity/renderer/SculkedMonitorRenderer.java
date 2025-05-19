@@ -49,7 +49,7 @@ public class SculkedMonitorRenderer extends RenderLiving
         return this.getEntityTexture((EntitySculkedMonitor)par1Entity);
     }
     
-    protected ResourceLocation getEntityTexture(final EntitySculkedMonitor par1EntityDemiGod) {
+    protected ResourceLocation getEntityTexture(final EntitySculkedMonitor monitor) {
         return SculkedMonitorRenderer.mobTextures;
     }
     
@@ -58,11 +58,11 @@ public class SculkedMonitorRenderer extends RenderLiving
     }
     
     @Override
-  	protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+  	protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
   	    GL11.glScalef(1.2F, 1.2F, 1.2F);
   	}
     
-    protected int shouldRenderPass(final EntitySculkedMonitor par1XCEntityDemiGod, final int par2, final float par3) {
+    protected int shouldRenderPass(final EntitySculkedMonitor monitor, final int par2, final float par3) {
         if (par2 != 0) {
             return -1;
         }
@@ -70,7 +70,7 @@ public class SculkedMonitorRenderer extends RenderLiving
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
-        if (par1XCEntityDemiGod.isInvisible()) {
+        if (monitor.isInvisible()) {
             GL11.glDepthMask(false);
         }
         else {

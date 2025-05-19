@@ -30,10 +30,9 @@ public class BlockMoltenVanite extends BlockFluidClassic
     public static IIcon MoltenVaniteCrystal;
     
     public BlockMoltenVanite() {
-        super(FluidRegistry.getFluid("molten_vanite"), Material.water);
+        super(FluidRegistry.getFluid("molten_vanite"), Material.lava);
         this.lightOpacity = 0;
         this.setLightLevel(1.0f);
-        //this.setCreativeTab((CreativeTabs)null);
     }
     
     public void registerBlockIcons(final IIconRegister iconRegister) {
@@ -75,12 +74,10 @@ public class BlockMoltenVanite extends BlockFluidClassic
     }
     
     public void onBlockAdded(final World world, final int x, final int y, final int z) {
-        //this.solidifyBlock(world, x, y, z);
         super.onBlockAdded(world, x, y, z);
     }
     
     public void onNeighborBlockChange(final World world, final int x, final int y, final int z, final Block block) {
-        //this.solidifyBlock(world, x, y, z);
         super.onNeighborBlockChange(world, x, y, z, block);
     }
     

@@ -16,7 +16,6 @@ public class DrifterRenderer extends RenderLiving
 {
     private static final ResourceLocation blazeTextures = new ResourceLocation("nova_craft", "textures/entity/drifter/drifter.png");
     private int field_77068_a;
-    private static final String __OBFID = "CL_00000980";
 
     public DrifterRenderer()
     {

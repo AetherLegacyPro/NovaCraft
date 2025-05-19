@@ -38,7 +38,7 @@ public class VoidEntityRenderer extends RenderBiped
         return this.getEntityTexture((EntityVoidEntity)par1Entity);
     }
     
-    protected ResourceLocation getEntityTexture(final EntityVoidEntity par1EntityDemiGod) {
+    protected ResourceLocation getEntityTexture(final EntityVoidEntity entity) {
         return VoidEntityRenderer.mobTextures;
     }
     
@@ -50,7 +50,7 @@ public class VoidEntityRenderer extends RenderBiped
         return this.shouldRenderPass((EntityVoidEntity)par1EntityLivingBase, par2, par3);
     }
     
-    protected int shouldRenderPass(final EntityVoidEntity par1XCEntityDemiGod, final int par2, final float par3) {
+    protected int shouldRenderPass(final EntityVoidEntity entity, final int par2, final float par3) {
         if (par2 != 0) {
             return -1;
         }
@@ -58,7 +58,7 @@ public class VoidEntityRenderer extends RenderBiped
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
-        if (par1XCEntityDemiGod.isInvisible()) {
+        if (entity.isInvisible()) {
             GL11.glDepthMask(false);
         }
         else {

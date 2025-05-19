@@ -43,6 +43,7 @@ import com.NovaCraft.Items.Armor.advanced.ItemWardenBoots;
 import com.NovaCraft.Items.Armor.advanced.ItemWardenChestplate;
 import com.NovaCraft.Items.Armor.advanced.ItemWardenHelmet;
 import com.NovaCraft.Items.Armor.advanced.ItemWardenLeggings;
+import com.NovaCraft.Items.Armor.crown.ItemSerpentCrown;
 import com.NovaCraft.Items.Armor.crown.ItemVaniteBlueCrown;
 import com.NovaCraft.Items.Armor.crown.ItemVaniteDarkBlueCrown;
 import com.NovaCraft.Items.Armor.crown.ItemVaniteExoticCrown;
@@ -215,7 +216,7 @@ public class NovaCraftItems {
 	
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy;
-	public static Item deepfire_blend, static_blend;
+	public static Item blazinite_powder, deepfire_blend, static_blend;
 	
 	public static Item potion_speed_extended, potion_speed_III;
 	public static Item potion_strength_extended, potion_strength_III;
@@ -269,6 +270,7 @@ public class NovaCraftItems {
 	public static Item ancient_leggings;
 	
 	public static Item vanite_blue_crown, vanite_red_crown, vanite_green_crown, vanite_orange_crown, vanite_mysterious_crown, vanite_exotic_crown, vanite_notched_crown, vanite_dark_blue_crown;
+	public static Item serpent_crown;
 	
 	public static Item eerie_sword, sculked_blade, scythe, diablo, sculk_horn, vanite_trident;
 	
@@ -351,7 +353,8 @@ public class NovaCraftItems {
 		blazing_serpent_tooth = register("blazing_serpent_tooth", new ItemFireproof().setTextureName(NovaCraft.find("blazing_serpent_tooth")));
 		phoenix_feather = register("phoenix_feather", new ItemFireproof().setTextureName(NovaCraft.find("phoenix_feather")));
 		ionizatior_rod = register("ionizatior_rod", new ItemFireproof().setTextureName(NovaCraft.find("ionizatior_rod")));
-		ionizatior_powder = register("ionizatior_powder", new ItemFireproof().setTextureName(NovaCraft.find("ionizatior_powder")));
+		ionizatior_powder = register("ionizatior_powder", new ItemFireproof().setTextureName(NovaCraft.find("ionizatior_powder")));		
+		blazinite_powder = register("blazinite_powder", new ItemFireproof().setTextureName(NovaCraft.find("blazinite_powder")));		
 		deepoid_scales = register("deepoid_scales", new ItemFireproof().setTextureName(NovaCraft.find("deepoid_scales")));
 		deepoid_horn = register("deepoid_horn", new ItemFireproof().setTextureName(NovaCraft.find("deepoid_horn")));
 		deep_one_scales = register("deep_one_scales", new ItemFireproof().setTextureName(NovaCraft.find("deep_one_scales")));
@@ -565,6 +568,7 @@ public class NovaCraftItems {
 		ender_lord_staff = register("ender_lord_staff", new ItemEnderLordStaff().setTextureName(NovaCraft.find("ender_lord_staff")));
 		crystal_growth_staff = register("crystal_growth_staff", new ItemCrystalGrowthStaff().setTextureName(NovaCraft.find("crystal_growth_staff")));
 		
+		serpent_crown = register("serpent_crown", new ItemSerpentCrown().setTextureName(NovaCraft.find("serpent_crown")));
 		vanite_blue_crown = register("vanite_blue_crown", new ItemVaniteBlueCrown().setTextureName(NovaCraft.find("vanite_blue_crown")));
 		vanite_red_crown = register("vanite_red_crown", new ItemVaniteRedCrown().setTextureName(NovaCraft.find("vanite_red_crown")));
 		vanite_green_crown = register("vanite_green_crown", new ItemVaniteGreenCrown().setTextureName(NovaCraft.find("vanite_green_crown")));

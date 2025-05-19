@@ -254,14 +254,11 @@ public class BlockUnbreakableAncientChest extends BlockContainer
       }
   }
   
-  public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
-      if (world.isRemote) {
-          return true;
-      }
-      int meta = world.getBlockMetadata(x, y, z);
+  public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {	  
+	  int meta = world.getBlockMetadata(x, y, z);
       ItemStack stack = par5EntityPlayer.inventory.getCurrentItem();
       if (stack != null && stack.getItem() != null && stack.getItem() == NovaCraftItems.powered_ancient_city_artifact) {
-    	  --stack.stackSize;
+    	  --stack.stackSize;	
     	  world.playSoundEffect(x, y, z, "nova_craft:chest.unlock", 1.5f, world.rand.nextFloat() - world.rand.nextFloat() * 0.1f + 0.9f);
     	  world.setBlock(x, y, z, NovaCraftBlocks.ancient_chest, meta, 2);
     	  par5EntityPlayer.triggerAchievement(AchievementsNovaCraft.ancient_loot);
@@ -273,7 +270,9 @@ public class BlockUnbreakableAncientChest extends BlockContainer
   		}
       }
       else {
+    	  if (world.isRemote) {	 
     	  par5EntityPlayer.addChatComponentMessage(new ChatComponentText(I18n.format("gui.ancient_city_chest")));
+    	  }
       }
       return true;
   }

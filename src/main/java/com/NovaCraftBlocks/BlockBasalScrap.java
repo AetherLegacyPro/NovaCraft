@@ -29,9 +29,6 @@ import net.minecraftforge.event.ForgeEventFactory;
 
 public class BlockBasalScrap extends Block {
 	
-	@SideOnly(Side.CLIENT)
-	private IIcon iconFace, iconTop;
-	
 	public BlockBasalScrap() {
 		super(Material.rock);
 		this.setHardness(4);
@@ -39,20 +36,6 @@ public class BlockBasalScrap extends Block {
 		this.setLightLevel(0.15F);
 		this.setStepSound(ModSounds.soundGrimstoneBricks);
 		this.setHarvestLevel("pickaxe", 3);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta){
-		return side == 0 || side == 1 ? iconTop : meta >= 1 && side-1 == meta ? iconFace : blockIcon;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister){
-		blockIcon = iconRegister.registerIcon("nova_craft:basal_scrap_side");
-		iconFace = iconRegister.registerIcon("nova_craft:basal_scrap_top");
-		iconTop = iconRegister.registerIcon("nova_craft:basal_scrap_top");
 	}
 	
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
@@ -83,8 +66,8 @@ public class BlockBasalScrap extends Block {
 	 }
 	
 	 public int quantityDropped(final Random random) {
-		 int a = random.nextInt(10);
-		 if (a <= 3) {
+		 int a = random.nextInt(20);
+		 if (a <= 5) {
 			 return 1;
 		 }
 		 else {

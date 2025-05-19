@@ -6,6 +6,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntitySavageSerpent;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -1873,7 +1874,6 @@ public class BastionTreasureRoomGen7 extends WorldGenerator
 		world.setBlock(i + 37, j + 27, k + 18, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 27, k + 19, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 27, k + 19, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 3, j + 27, k + 19, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 36, j + 27, k + 19, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 37, j + 27, k + 19, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 27, k + 20, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1966,7 +1966,6 @@ public class BastionTreasureRoomGen7 extends WorldGenerator
 		world.setBlock(i + 37, j + 27, k + 32, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 27, k + 33, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 27, k + 33, NovaCraftBlocks.basal, 0, 2);
-		world.setBlock(i + 12, j + 27, k + 33, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 16, j + 27, k + 33, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 17, j + 27, k + 33, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 18, j + 27, k + 33, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -2754,6 +2753,20 @@ public class BastionTreasureRoomGen7 extends WorldGenerator
 		world.setBlock(i + 33, j + 29, k + 12, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 34, j + 29, k + 12, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 35, j + 29, k + 12, NovaCraftBlocks.basal, 0, 2);
+		
+		EntitySavageSerpent serpent = new EntitySavageSerpent(world);
+		serpent.setPosition(i + 3, j + 27, k + 19);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent);
+		}
+		
+		EntitySavageSerpent serpent2 = new EntitySavageSerpent(world);
+		serpent2.setPosition(i + 12, j + 27, k + 33);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent2);
+		}
 		
 		return true;
 	}

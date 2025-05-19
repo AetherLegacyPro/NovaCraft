@@ -457,29 +457,22 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 		}
 	}
 	
-	/**
-     * Called when the mob's health reaches 0.
-     */
+	@Override
 	public void onDeath(DamageSource source) {
 	    super.onDeath(source);
 
-	    if (source.getEntity() instanceof EntityPlayer) {
+	    if (!this.worldObj.isRemote && source.getEntity() instanceof EntityPlayer) {
 	        World world = this.worldObj;
-
 	        Hardmode data = Hardmode.get(world);
-	        data.triggerEvent(world);
 
-	        world.mapStorage.saveAllData();
-	        ServerMessage.broadcastMessage("Hardmode Enabled");
+	        if (!data.getHardmode()) {
+	            data.triggerEvent(world);
+	            MinecraftServer.getServer().worldServers[0].mapStorage.saveAllData();
+	            ServerMessage.broadcastMessage("Hardmode Enabled");
+	        }
+
+	        ((EntityPlayer) source.getEntity()).triggerAchievement(AchievementsNovaCraft.unforeseen_consequences);
 	    }
-	    
-	    if (source.getEntity() instanceof EntityPlayer)
-        {
-            EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
-            
-            entityplayer.triggerAchievement(AchievementsNovaCraft.unforeseen_consequences);
-            
-        }
 	}
 	
 	private void createloot(int p_70975_1_, int p_70975_2_, int p_70975_3_)

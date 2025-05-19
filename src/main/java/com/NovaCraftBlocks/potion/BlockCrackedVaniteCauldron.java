@@ -81,7 +81,7 @@ public class BlockCrackedVaniteCauldron extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister){
 		blockIcon = iconRegister.registerIcon("nova_craft:vanite_crystal_cauldron_side");
-		iconFace = iconRegister.registerIcon("nova_craft:vanite_crystal_cauldron_bottom");
+		iconFace = iconRegister.registerIcon("nova_craft:vanite_cauldron_bottom");
 		iconTop = iconRegister.registerIcon("nova_craft:vanite_crystal_cauldron_top");
 	}
 }

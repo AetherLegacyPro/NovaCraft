@@ -23,7 +23,6 @@ public class WardenVesselRenderer extends RenderLiving
 {
 	protected Random rand;
 	private static final ResourceLocation texture = new ResourceLocation("nova_craft", "textures/entity/warden_vessel/wardling.png");	
-	private static final ResourceLocation bioluminescent;
 	private static final ResourceLocation spots_1;
 	
 	protected ModelBiped field_82437_k; 
@@ -47,7 +46,6 @@ public class WardenVesselRenderer extends RenderLiving
             return -1;
         }
         {
-        //this.bindTexture(WardenVesselRenderer.spots_1);
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
@@ -71,7 +69,6 @@ public class WardenVesselRenderer extends RenderLiving
             return -1;
         }
         {
-        //this.bindTexture(WardenVesselRenderer.bioluminescent);
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
@@ -113,7 +110,6 @@ public class WardenVesselRenderer extends RenderLiving
 	 }
 	 
 	 static {
-		 bioluminescent = new ResourceLocation("nova_craft", "textures/entity/warden_vessel/warden_vessel_bioluminescent_layer.png");
 		 spots_1 = new ResourceLocation("nova_craft", "textures/entity/warden_vessel/warden_vessel_pulsating_spots.png");
 	    }
 	

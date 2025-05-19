@@ -68,12 +68,11 @@ public class BlazingSerpentModel extends ModelBase
         this.Head4.setTextureSize(128, 64);
         this.Head4.mirror = true;
         this.setRotation(this.Head4, 0.3316126f, -0.5934119f, -1.029744f);
-        (this.Head5 = new ModelRenderer((ModelBase)this, 0, 45)).addBox(-3.0f, 0.0f, 0.0f, 6, 1, 16); //-3.0f, 0.0f, 0.0f, 6, 1, 16
+        (this.Head5 = new ModelRenderer((ModelBase)this, 0, 45)).addBox(-3.0f, 0.0f, 0.0f, 6, 1, 16);
         this.Head5.setRotationPoint(0.0f, 15.0f, -33.0f);
         this.Head5.setTextureSize(128, 64);
         this.Head5.mirror = true;
         this.setRotation(this.Head5, 0.1919862f, 0.0f, 0.0f);
-        //this.Head1.addChild(this.Head5);
         (this.Body1 = new ModelRenderer((ModelBase)this, 45, 45)).addBox(-3.0f, -2.0f, 0.0f, 6, 4, 10);
         this.Body1.setRotationPoint(0.0f, 19.0f, -24.0f);
         this.Body1.setTextureSize(128, 64);
@@ -166,45 +165,17 @@ public class BlazingSerpentModel extends ModelBase
         this.Teeth2.render(f5);
         this.Head3.render(f5);
         this.Head4.render(f5);
-        //this.Head5.render(f5);
         this.Body1.render(f5);
         this.Body2.render(f5);
         this.Body3.render(f5);
         this.Body4.render(f5);
         this.Body5.render(f5);
-        //this.Tail1.render(f5);
-        //this.Tail2.render(f5);
-        //this.Fin1.render(f5);
-        //this.Fin2.render(f5);
-        //this.Fin3.render(f5);
-        //this.Fin4.render(f5);
         this.Upperfin1.render(f5);
         this.Upperfin2.render(f5);
         this.Upperfin3.render(f5);
         this.Upperfin4.render(f5);
         this.Upperfin5.render(f5);
     }
-    
-    //public void Entity(final EntityLivingBase par1EntityLiving, final float par2, final float par3, final float par4) { //final md par1EntityLiving, final float par2, final float par3, final float par4
-        //final float f1 = (0.5f + Math.max(par3, par4 - 1.0f)) * 0.25f;
-        //final float f2 = par2 * 0.3f;
-        //this.Body1.rotateAngleX = MathHelper.cos(f2 - 0.6f) * f1;
-        //this.Upperfin1.rotateAngleX = MathHelper.cos(f2 - 0.6f) * f1;
-        //this.Body2.rotateAngleX = MathHelper.cos(f2 - 0.67499995f) * f1;
-        //this.Upperfin2.rotateAngleX = MathHelper.cos(f2 - 0.67499995f) * f1;
-        //this.Fin1.rotateAngleX = MathHelper.cos(f2 - 0.67499995f) * f1;
-        //this.Fin2.rotateAngleX = MathHelper.cos(f2 - 0.67499995f) * f1;
-        //this.Body3.rotateAngleX = MathHelper.cos(f2 - 0.75f) * f1;
-        //this.Upperfin3.rotateAngleX = MathHelper.cos(f2 - 0.75f) * f1;
-        //this.Body4.rotateAngleX = MathHelper.cos(f2 - 0.82500005f) * f1;
-        //this.Upperfin4.rotateAngleX = MathHelper.cos(f2 - 0.82500005f) * f1;
-        //this.Fin3.rotateAngleX = MathHelper.cos(f2 - 0.82500005f) * f1;
-        //this.Fin4.rotateAngleX = MathHelper.cos(f2 - 0.82500005f) * f1;
-        //this.Body5.rotateAngleX = MathHelper.cos(f2 - 0.90000004f) * f1;
-        //this.Upperfin5.rotateAngleX = MathHelper.cos(f2 - 0.90000004f) * f1;
-        //this.Tail1.rotateAngleX = MathHelper.cos(f2 - 0.97499996f) * f1;
-        //this.Tail2.rotateAngleX = MathHelper.cos(f2 - 0.97499996f) * f1;
-    //}
     
     private void setRotation(final ModelRenderer model, final float x, final float y, final float z) {
         model.rotateAngleX = x;
@@ -223,8 +194,6 @@ public class BlazingSerpentModel extends ModelBase
         this.Head3.rotateAngleY = netHeadYaw * 0.017453292f;
         this.Head4.rotateAngleX = headPitch * 0.017453292f;
         this.Head4.rotateAngleY = netHeadYaw * 0.017453292f;
-        //this.Head5.rotateAngleX = headPitch * 0.017453292f; //17
-        //this.Head5.rotateAngleY = netHeadYaw * 0.017453292f;
         this.Teeth1.rotateAngleX = headPitch * 0.017453292f;
         this.Teeth1.rotateAngleY = netHeadYaw * 0.017453292f;
         this.Teeth2.rotateAngleX = headPitch * 0.017453292f;
@@ -236,7 +205,7 @@ public class BlazingSerpentModel extends ModelBase
         this.Teeth2.rotateAngleX = 0.34906584f - jawLower;
         
         final float tailVal = limbSwing * 0.3f + ageInTicks * 0.06f;
-        final float tailSway1 = MathHelper.cos(tailVal) / 9.0f; //3
+        final float tailSway1 = MathHelper.cos(tailVal) / 9.0f;
         final float tailSwaySin1 = MathHelper.sin(tailVal) / 8.0f;
         final float tailSway2 = MathHelper.sin(tailVal) / 7.0f;
         final float tailSwaySin2 = MathHelper.sin(tailVal) / 6.0f;

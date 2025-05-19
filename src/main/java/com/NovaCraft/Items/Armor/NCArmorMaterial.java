@@ -20,6 +20,7 @@ public class NCArmorMaterial {
 	
 	public static ItemArmor.ArmorMaterial BASE_CROWN;
 	public static ItemArmor.ArmorMaterial SPECIAL_CROWN;
+	public static ItemArmor.ArmorMaterial SERPENT_CROWN;
 
 	public static ItemArmor.ArmorMaterial ANCIENT;
 	
@@ -47,6 +48,7 @@ public class NCArmorMaterial {
 		NCArmorMaterial.ANCIENT = EnumHelper.addArmorMaterial("ANCIENT", 90, new int[]{3, 8, 6, 3}, 18);		
 		NCArmorMaterial.BASE_CROWN = EnumHelper.addArmorMaterial("BASE_CROWN", 45, new int[]{2, 9, 6, 3}, 19);
 		NCArmorMaterial.SPECIAL_CROWN = EnumHelper.addArmorMaterial("SPECIAL_CROWN", 75, new int[]{3, 9, 6, 3}, 22);
+		NCArmorMaterial.SERPENT_CROWN = EnumHelper.addArmorMaterial("SERPENT_CROWN", 35, new int[]{1, 9, 6, 3}, 24);
 		
 	}
 }

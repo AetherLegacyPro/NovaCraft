@@ -30,7 +30,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 
 public class CaveMonitorRenderer extends RenderLiving
 {
-	private static final ResourceLocation demiGodEyesTextures;
+	private static final ResourceLocation eyes;
     private static final ResourceLocation mobTextures;
     
     public CaveMonitorRenderer(final CaveMonitorModel par1ModelBiped, float par2) {
@@ -50,7 +50,7 @@ public class CaveMonitorRenderer extends RenderLiving
         return this.getEntityTexture((EntityCaveMonitor)par1Entity);
     }
     
-    protected ResourceLocation getEntityTexture(final EntityCaveMonitor par1EntityDemiGod) {
+    protected ResourceLocation getEntityTexture(final EntityCaveMonitor monitor) {
         return CaveMonitorRenderer.mobTextures;
     }
     
@@ -58,15 +58,15 @@ public class CaveMonitorRenderer extends RenderLiving
         return this.shouldRenderPass((EntityCaveMonitor)par1EntityLivingBase, par2, par3);
     }
     
-    protected int shouldRenderPass(final EntityCaveMonitor par1XCEntityDemiGod, final int par2, final float par3) {
+    protected int shouldRenderPass(final EntityCaveMonitor monitor, final int par2, final float par3) {
         if (par2 != 0) {
             return -1;
         }
-        this.bindTexture(CaveMonitorRenderer.demiGodEyesTextures);
+        this.bindTexture(CaveMonitorRenderer.eyes);
         GL11.glEnable(3042);
         GL11.glDisable(3008);
         GL11.glBlendFunc(1, 1);
-        if (par1XCEntityDemiGod.isInvisible()) {
+        if (monitor.isInvisible()) {
             GL11.glDepthMask(false);
         }
         else {
@@ -81,7 +81,7 @@ public class CaveMonitorRenderer extends RenderLiving
     }
     
     static {
-        demiGodEyesTextures = new ResourceLocation("nova_craft", "textures/entity/overworld_lizard/cave_monitor_eyes.png");
+    	eyes = new ResourceLocation("nova_craft", "textures/entity/overworld_lizard/cave_monitor_eyes.png");
         mobTextures = new ResourceLocation("nova_craft", "textures/entity/overworld_lizard/cave_monitor.png");
     }
 	

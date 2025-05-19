@@ -146,22 +146,23 @@ public class BlockUnknownPortalActivator extends Block {
     }
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		if (world.isRemote) {
-	          return true;
-	      }
 		
 		ItemStack stack = player.inventory.getCurrentItem();
         if (stack != null && stack.getItem() != null && stack.getItem() != NovaCraftItems.warden_core
 				&& !(world.getBlock(x - 3, y - 2, z + 11) == NovaCraftBlocks.activated_reinforced_nullstone)
 				&& !(world.getBlock(x - 3, y - 2, z - 10) == NovaCraftBlocks.activated_reinforced_nullstone)
 				&& !(world.getBlock(x - 2, y - 2, z) == NovaCraftBlocks.activated_reinforced_nullstone)) {
+        	if (world.isRemote) {
         	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.unknown_portal_activator")));
+        	}
         }
         else if (stack != null && stack.getItem() != null && stack.getItem() != NovaCraftItems.warden_core
 				&& (world.getBlock(x - 3, y - 2, z + 11) == NovaCraftBlocks.activated_reinforced_nullstone)
 				&& (world.getBlock(x - 3, y - 2, z - 10) == NovaCraftBlocks.activated_reinforced_nullstone)
 				&& (world.getBlock(x - 2, y - 2, z) == NovaCraftBlocks.activated_reinforced_nullstone)) {
+        	if (world.isRemote) {
         	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.unknown_portal_activator_ignited")));
+        	}
         }
         
         return true;

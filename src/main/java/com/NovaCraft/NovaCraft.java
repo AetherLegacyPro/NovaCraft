@@ -15,6 +15,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
+import net.minecraft.world.storage.MapStorage;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -93,11 +94,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@Mod(modid = NovaCraft.MOD_ID, version = "1.4.1", name = "NovaCraft")
+@Mod(modid = NovaCraft.MOD_ID, version = "1.4.3", name = "NovaCraft")
 public class NovaCraft
 {
     public static final String MOD_ID = "nova_craft";
-    public static final String VERSION = "1.4.1";
+    public static final String VERSION = "1.4.3";
     public static Random rand;
     private World worldObj;
     
@@ -165,7 +166,9 @@ public class NovaCraft
     	GameRegistry.registerWorldGenerator((IWorldGenerator)new AncientCityGen(), Integer.MAX_VALUE);
         }
         
+        if (Configs.enableInfestedBastion) {
         GameRegistry.registerWorldGenerator((IWorldGenerator)new BastionGen(), Integer.MAX_VALUE);
+        }
     }
     
     @EventHandler
@@ -210,7 +213,8 @@ public class NovaCraft
             System.out.println("Hardmode is active! Spawning hardmode mobs...");
             registerHardmodeMobs(world);
         }
-    }      
+    }
+
     
     public void registerHardmodeMobs(World world) {
         for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {

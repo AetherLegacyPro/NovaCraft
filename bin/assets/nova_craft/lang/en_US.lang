@@ -119,6 +119,7 @@ item.prisoner_eye.name=Prisoner Eye
 item.unknown_star.name=Unknown Star
 item.impure_outsider_ingot.name=Impure Outsider Ingot
 item.outsider_ingot.name=Outsider Ingot
+item.blazinite_powder.name=Blazinite Powder
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -173,6 +174,7 @@ item.vanite_dark_blue_crown.name=Dark Blue Vanite Crown
 item.vanite_notched_crown.name=Notched Vanite Crown
 item.vanite_exotic_crown.name=Exotic Vanite Crown
 item.vanite_mysterious_crown.name=Mysterious Vanite Crown
+item.serpent_crown.name=Serpent Crown
 
 item.warden_sword.name=Warden Sword
 item.warden_pickaxe.name=Warden Pickaxe
@@ -378,7 +380,7 @@ tile.molten_vanite.name=Molten Vanite
 tile.crystallized_vanite.name=Crystallized Vanite
 tile.cracked_vanite_crystal_cauldron.name=Cracked Vanite Cauldron
 tile.deepfire.name=Deepfire
-tile.blazlinite_blend.name=Blazlinite Blend
+tile.blazlinite_blend.name=Block Of Blazlinite
 tile.deep_one_egg.name=Deep One Dragon Egg
 tile.deep_one_egg_activated.name=Activated Deep One Egg
 tile.vanite_bricks.name=Vanite Bricks
@@ -420,6 +422,8 @@ tile.activated_reinforced_nullstone.name=Activated Reinforced Nullstone
 tile.unknown_portal.name=Portal To The Unknown
 tile.unknown_portal_activator.name=Unknown Portal Activator
 tile.unknown_portal_sealed.name=Sealed Portal To The Unknown
+tile.blazing_coal_block.name=Block Of Blazing Coal
+tile.trap_tophinite.name=Block Of Tophinite
 
 
 tile.vanite_cauldron.name=Vanite Cauldron
@@ -798,6 +802,9 @@ tooltip.exotic_vanite_crown.desc=Slightly Increases Attack Damage
 tooltip.dark_blue_vanite_crown.desc=Moderately Decreases Knockback
 tooltip.mysterious_vanite_crown.desc=Slightly Increases Max HP
 
+tooltip.serpent_crown1.desc=Moderately Increases Movement Speed
+tooltip.serpent_crown2.desc=Puts Out Fire
+
 tooltip.explosive_ingot.desc=Throw this into the void!
 tooltip.anicent_city_totem.desc=Use Half HP to banish all lesser sculk mobs nearby!
 
@@ -1079,6 +1086,8 @@ entity.nova_craft.hardmode_slime.name=Slime
 entity.nova_craft.hardmode_magmacube.name=Magma Cube
 entity.nova_craft.hardmode_ghast.name=Ghast
 entity.nova_craft.outsider.name=Outsider
+entity.nova_craft.savage_serpent.name=Savage Serpent
+entity.nova_craft.serpent_queen.name=The Blazing Serpent Queen
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1137,3 +1146,5 @@ entity.hardmode_slime.name=Hardmode Slime
 entity.hardmode_magmacube.name=Hardmode Magma Cube
 entity.hardmode_ghast.name=Hardmode Ghast
 entity.outsider.name=Outsider
+entity.savage_serpent.name=Savage Serpent
+entity.serpent_queen.name=The Blazing Serpent Queen

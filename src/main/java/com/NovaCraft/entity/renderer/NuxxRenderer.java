@@ -19,8 +19,8 @@ public class NuxxRenderer extends RenderBiped
 	private static final ResourceLocation overlay_1;
 	private static final ResourceLocation overlay_2;
 	private static final ResourceLocation overlay_3;
-	protected ModelBiped field_82437_k; //modelArmourChestplate
-	protected ModelBiped field_82435_l; //modelArmor
+	protected ModelBiped field_82437_k;
+	protected ModelBiped field_82435_l; 
 	
 	public NuxxRenderer() {
 		super(new ModelZombie(), 0.4f);

@@ -50,7 +50,7 @@ public class FireflyRenderer extends RenderLiving
     }
     
     @Override
-    protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+    protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
         GL11.glScalef(0.5F, 0.5F, 0.5F);
     }
     

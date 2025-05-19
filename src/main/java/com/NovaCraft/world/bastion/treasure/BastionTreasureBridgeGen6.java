@@ -6,6 +6,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntitySavageSerpent;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -2419,7 +2420,6 @@ public class BastionTreasureBridgeGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 30, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 30, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 27, j + 30, k + 1, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 30, k + 2, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 1, j + 30, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 30, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 30, k + 2, Blocks.air, 0, 2);
@@ -2572,7 +2572,6 @@ public class BastionTreasureBridgeGen6 extends WorldGenerator
 		world.setBlock(i + 10, j + 30, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 11, j + 30, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 12, j + 30, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 13, j + 30, k + 7, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 14, j + 30, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 15, j + 30, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 16, j + 30, k + 7, Blocks.air, 0, 2);
@@ -2720,6 +2719,20 @@ public class BastionTreasureBridgeGen6 extends WorldGenerator
 		world.setBlock(i + 18, j + 30, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 19, j + 30, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 20, j + 30, k + 12, Blocks.air, 0, 2);
+		
+		EntitySavageSerpent serpent = new EntitySavageSerpent(world);
+		serpent.setPosition(i + 0, j + 30, k + 2);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent);
+		}
+				
+		EntitySavageSerpent serpent2 = new EntitySavageSerpent(world);
+		serpent2.setPosition(i + 13, j + 30, k + 7);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent2);
+		}
 		
 		return true;
 	}

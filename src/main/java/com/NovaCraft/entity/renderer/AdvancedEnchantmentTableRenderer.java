@@ -16,9 +16,8 @@ import com.NovaCraft.TileEntity.TileEntityAdvancedEnchantmentTable;
 @SideOnly(Side.CLIENT)
 public class AdvancedEnchantmentTableRenderer extends TileEntitySpecialRenderer
 {
-    private static final ResourceLocation field_147540_b = new ResourceLocation("nova_craft","textures/entity/advanced_enchanting_table_book.png");
+    private static final ResourceLocation texture = new ResourceLocation("nova_craft","textures/entity/advanced_enchanting_table_book.png");
     private ModelBook field_147541_c = new ModelBook();
-    private static final String __OBFID = "CL_00000966";
 
     public void renderTileEntityAt(TileEntityAdvancedEnchantmentTable p_147500_1_, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_)
     {
@@ -41,7 +40,7 @@ public class AdvancedEnchantmentTableRenderer extends TileEntitySpecialRenderer
         float f3 = p_147500_1_.field_145925_p + f2 * p_147500_8_;
         GL11.glRotatef(-f3 * 180.0F / (float)Math.PI, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(80.0F, 0.0F, 0.0F, 1.0F);
-        this.bindTexture(field_147540_b);
+        this.bindTexture(texture);
         float f4 = p_147500_1_.field_145931_j + (p_147500_1_.field_145933_i - p_147500_1_.field_145931_j) * p_147500_8_ + 0.25F;
         float f5 = p_147500_1_.field_145931_j + (p_147500_1_.field_145933_i - p_147500_1_.field_145931_j) * p_147500_8_ + 0.75F;
         f4 = (f4 - (float)MathHelper.truncateDoubleToInt((double)f4)) * 1.6F - 0.3F;

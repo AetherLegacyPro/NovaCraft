@@ -6,6 +6,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntitySavageSerpent;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -1385,7 +1386,6 @@ public class BastionTreasureRoomGen4 extends WorldGenerator
 		world.setBlock(i + 4, j + 11, k + 15, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 11, k + 15, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 11, k + 15, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 18, j + 11, k + 15, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 31, j + 11, k + 15, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 32, j + 11, k + 15, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 36, j + 11, k + 15, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1508,7 +1508,6 @@ public class BastionTreasureRoomGen4 extends WorldGenerator
 		world.setBlock(i + 4, j + 11, k + 27, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 5, j + 11, k + 27, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 11, k + 27, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 19, j + 11, k + 27, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 32, j + 11, k + 27, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 33, j + 11, k + 27, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 36, j + 11, k + 27, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -2000,7 +1999,6 @@ public class BastionTreasureRoomGen4 extends WorldGenerator
 		world.setBlock(i + 37, j + 12, k + 31, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 12, k + 32, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 12, k + 32, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 25, j + 12, k + 32, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 36, j + 12, k + 32, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 37, j + 12, k + 32, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 12, k + 33, NovaCraftBlocks.basal, 0, 2);
@@ -2734,6 +2732,27 @@ public class BastionTreasureRoomGen4 extends WorldGenerator
 		world.setBlock(i + 2, j + 14, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 14, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
+		
+		EntitySavageSerpent serpent = new EntitySavageSerpent(world);
+		serpent.setPosition(i + 18, j + 11, k + 15);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent);
+		}
+		
+		EntitySavageSerpent serpent2 = new EntitySavageSerpent(world);
+		serpent2.setPosition(i + 19, j + 11, k + 27);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent2);
+		}
+		
+		EntitySavageSerpent serpent3 = new EntitySavageSerpent(world);
+		serpent3.setPosition(i + 25, j + 12, k + 32);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent3);
+		}
 		
 		return true;
 	}

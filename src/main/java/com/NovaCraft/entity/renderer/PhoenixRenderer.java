@@ -24,11 +24,6 @@ public class PhoenixRenderer extends RenderLiving
         this.setRenderPassModel(super.mainModel);
     }
     
-    //@Override
-   // protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
-       // GL11.glScalef(3.00F, 3.00F, 3.00F);
-    //}
-    
     protected int setGlowstuffBrightness(final EntityPhoenix par1EntityRay, final int par2, final float par3) {
         if (par2 != 0) {
             GL11.glDepthMask(true);

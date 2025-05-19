@@ -2,15 +2,22 @@ package com.NovaCraft.world.bastion.treasure;
 
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.world.*;
 import java.util.*;
 
+import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntitySavageSerpent;
 import com.NovaCraft.registry.OtherModBlocks;
+import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 
 public class BastionTreasureRoomGen3 extends WorldGenerator
 {
@@ -117,7 +124,7 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 5, j + 4, k + 16, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 4, k + 16, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 16, j + 4, k + 16, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 19, j + 4, k + 16, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 16, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 20, j + 4, k + 16, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 32, j + 4, k + 16, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 33, j + 4, k + 16, NovaCraftBlocks.basal, 0, 2);
@@ -132,9 +139,9 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 4, j + 4, k + 17, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 4, k + 17, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 4, k + 17, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 17, j + 4, k + 17, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 18, j + 4, k + 17, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 20, j + 4, k + 17, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 17, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 17, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 17, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 32, j + 4, k + 17, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 33, j + 4, k + 17, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 34, j + 4, k + 17, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -147,9 +154,8 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 3, j + 4, k + 18, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 4, k + 18, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 4, k + 18, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 16, j + 4, k + 18, Blocks.diamond_block, 0, 2);
-		world.setBlock(i + 17, j + 4, k + 18, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 20, j + 4, k + 18, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 18, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 18, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 29, j + 4, k + 18, NovaCraftBlocks.basal_brick_stairs, 0, 2);
 		world.setBlock(i + 30, j + 4, k + 18, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 31, j + 4, k + 18, NovaCraftBlocks.basal, 0, 2);
@@ -165,8 +171,8 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 3, j + 4, k + 19, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 4, k + 19, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 4, k + 19, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 17, j + 4, k + 19, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 20, j + 4, k + 19, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 19, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 19, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 31, j + 4, k + 19, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 32, j + 4, k + 19, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 33, j + 4, k + 19, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -181,9 +187,9 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 4, j + 4, k + 20, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 4, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 4, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 17, j + 4, k + 20, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 18, j + 4, k + 20, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 19, j + 4, k + 20, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 20, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 20, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 20, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 32, j + 4, k + 20, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 33, j + 4, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 34, j + 4, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -198,9 +204,8 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 5, j + 4, k + 21, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 4, k + 21, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 16, j + 4, k + 21, NovaCraftBlocks.basal, 0, 2);
-		world.setBlock(i + 17, j + 4, k + 21, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 18, j + 4, k + 21, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 19, j + 4, k + 21, Blocks.chest, 2, 2);
+		world.setBlock(i + 17, j + 4, k + 21, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 21, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 20, j + 4, k + 21, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 21, j + 4, k + 21, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 32, j + 4, k + 21, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -916,7 +921,7 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 4, j + 5, k + 16, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 5, k + 16, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 5, k + 16, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 20, j + 5, k + 16, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 16, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 31, j + 5, k + 16, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 32, j + 5, k + 16, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 33, j + 5, k + 16, NovaCraftBlocks.basal_scrap, 0, 2);
@@ -970,8 +975,7 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 4, j + 5, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 5, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 5, k + 20, NovaCraftBlocks.basal_scrap, 0, 2);
-		world.setBlock(i + 17, j + 5, k + 20, Blocks.emerald_block, 0, 2);
-		world.setBlock(i + 18, j + 5, k + 20, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 20, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 32, j + 5, k + 20, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 33, j + 5, k + 20, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 34, j + 5, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -985,9 +989,8 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 4, j + 5, k + 21, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 5, k + 21, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 5, k + 21, NovaCraftBlocks.basal_scrap, 0, 2);
-		world.setBlock(i + 17, j + 5, k + 21, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 18, j + 5, k + 21, Blocks.gold_block, 0, 2);
-		world.setBlock(i + 20, j + 5, k + 21, Blocks.diamond_block, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 21, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 21, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 33, j + 5, k + 21, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 34, j + 5, k + 21, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 35, j + 5, k + 21, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1407,18 +1410,14 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 36, j + 6, k + 1, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 37, j + 6, k + 1, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 0, j + 6, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 7, j + 6, k + 2, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 9, j + 6, k + 2, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 10, j + 6, k + 2, Blocks.lava, 0, 2);
 		world.setBlock(i + 11, j + 6, k + 2, NovaCraftBlocks.basal, 0, 2);
-		world.setBlock(i + 12, j + 6, k + 2, Blocks.emerald_block, 0, 2);
-		world.setBlock(i + 16, j + 6, k + 2, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 17, j + 6, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 18, j + 6, k + 2, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 19, j + 6, k + 2, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 20, j + 6, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 6, k + 2, NovaCraftBlocks.basal, 0, 2);
-		world.setBlock(i + 29, j + 6, k + 2, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 31, j + 6, k + 2, NovaCraftBlocks.basal_brick_stairs, 0, 2);
 		world.setBlock(i + 32, j + 6, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 33, j + 6, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1460,7 +1459,6 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 18, j + 6, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 19, j + 6, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 20, j + 6, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 28, j + 6, k + 5, Blocks.chest, 2, 2);
 		world.setBlock(i + 34, j + 6, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 35, j + 6, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 36, j + 6, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1506,8 +1504,6 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 37, j + 6, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 6, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 6, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 2, j + 6, k + 9, Blocks.diamond_block, 0, 2);
-		world.setBlock(i + 5, j + 6, k + 9, Blocks.chest, 4, 2);
 		world.setBlock(i + 6, j + 6, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 31, j + 6, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 34, j + 6, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1517,7 +1513,6 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 1, j + 6, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 6, k + 10, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 31, j + 6, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 35, j + 6, k + 10, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 36, j + 6, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 37, j + 6, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 6, k + 11, NovaCraftBlocks.basal, 0, 2);
@@ -1546,7 +1541,6 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 37, j + 6, k + 15, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 6, k + 16, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 6, k + 16, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 3, j + 6, k + 16, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 6, j + 6, k + 16, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 31, j + 6, k + 16, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 36, j + 6, k + 16, NovaCraftBlocks.basal, 0, 2);
@@ -1597,7 +1591,7 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 4, j + 6, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 6, k + 20, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 6, k + 20, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 18, j + 6, k + 20, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 18, j + 6, k + 20, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 31, j + 6, k + 20, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 33, j + 6, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 34, j + 6, k + 20, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1607,7 +1601,7 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 0, j + 6, k + 21, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 1, j + 6, k + 21, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 6, k + 21, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 17, j + 6, k + 21, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 17, j + 6, k + 21, NovaCraftBlocks.blazing_coal_block, 0, 2);
 		world.setBlock(i + 31, j + 6, k + 21, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 34, j + 6, k + 21, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 35, j + 6, k + 21, Blocks.lava, 0, 2);
@@ -1729,7 +1723,6 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 37, j + 6, k + 34, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 0, j + 6, k + 35, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 6, k + 35, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 11, j + 6, k + 35, Blocks.emerald_block, 0, 2);
 		world.setBlock(i + 15, j + 6, k + 35, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 16, j + 6, k + 35, Blocks.lava, 0, 2);
 		world.setBlock(i + 17, j + 6, k + 35, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -2095,7 +2088,6 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 0, j + 7, k + 26, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 7, k + 26, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 7, k + 26, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 18, j + 7, k + 26, Blocks.mob_spawner, 0, 2);
 		world.setBlock(i + 31, j + 7, k + 26, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 36, j + 7, k + 26, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 37, j + 7, k + 26, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -2742,7 +2734,268 @@ public class BastionTreasureRoomGen3 extends WorldGenerator
 		world.setBlock(i + 19, j + 9, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 20, j + 9, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		
+		world.setBlock(i + 17, j + 5, k + 20, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 12, j + 6, k + 2, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		world.setBlock(i + 11, j + 6, k + 35, NovaCraftBlocks.blazing_coal_block, 0, 2);
+		
+		EntitySavageSerpent serpent = new EntitySavageSerpent(world);
+		serpent.setPosition(i + 7, j + 6, k + 2);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent);
+		}
+
+		EntitySavageSerpent serpent2 = new EntitySavageSerpent(world);
+		serpent2.setPosition(i + 16, j + 6, k + 2);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent2);
+		}
+				
+		EntitySavageSerpent serpent3 = new EntitySavageSerpent(world);
+		serpent3.setPosition(i + 16, j + 4, k + 18);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent3);
+		}
+		
+		EntitySavageSerpent serpent4 = new EntitySavageSerpent(world);
+		serpent4.setPosition(i + 20, j + 5, k + 21);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent4);
+		}
+		
+		EntitySavageSerpent serpent5 = new EntitySavageSerpent(world);
+		serpent5.setPosition(i + 29, j + 6, k + 2);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent5);
+		}
+		
+		EntitySavageSerpent serpent6 = new EntitySavageSerpent(world);
+		serpent6.setPosition(i + 2, j + 6, k + 9);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent6);
+		}
+		
+		EntitySavageSerpent serpent7 = new EntitySavageSerpent(world);
+		serpent7.setPosition(i + 35, j + 6, k + 10);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent7);
+		}
+		
+		EntitySavageSerpent serpent8 = new EntitySavageSerpent(world);
+		serpent8.setPosition(i + 3, j + 6, k + 16);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent8);
+		}
+		
+		world.setBlock(i + 19, j + 4, k + 21, Blocks.chest, 2, 2);
+		TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 19, j + 4, k + 21);
+
+		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
+			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBastionLoot(random));
+		}
+		
+		world.setBlock(i + 28, j + 6, k + 5, Blocks.chest, 2, 2);
+		TileEntityChest chest2 = (TileEntityChest) world.getTileEntity(i + 28, j + 6, k + 5);
+
+		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
+			chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getBastionLoot(random));
+		}
+		
+		world.setBlock(i + 5, j + 6, k + 9, Blocks.chest, 4, 2);
+		TileEntityChest chest3 = (TileEntityChest) world.getTileEntity(i + 5, j + 6, k + 9);
+
+		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
+			chest3.setInventorySlotContents(random.nextInt(chest3.getSizeInventory()), this.getBastionLoot(random));
+		}
+		
+		world.setBlock(i + 18, j + 7, k + 26, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 18, j + 7, k + 26);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.blazing_serpent");
+        }
+		
+		
 		return true;
+	}
+	
+	private ItemStack getBastionLoot(Random random) {
+		int item = random.nextInt(34);
+		switch (item) {
+			case 0:
+				return new ItemStack(NovaCraftItems.yttrlinsite_shard, random.nextInt(3) + 1);
+			case 1:
+				return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(3) + 4);
+			case 2:
+				return new ItemStack(NovaCraftItems.blazing_coal, random.nextInt(5) + 4);
+			case 3:
+				return new ItemStack(NovaCraftItems.vanite_chunk, random.nextInt(7) + 4);
+			case 4:
+				return new ItemStack(NovaCraftItems.vanite_bucket, 1);
+			case 5:
+				return new ItemStack(NovaCraftItems.vanite_bucket_lava, 1);
+			case 6:
+				return new ItemStack(NovaCraftItems.vanite_bucket_lava, 1);
+			case 7:
+				return new ItemStack(NovaCraftItems.vanite_bucket_blazlinite, 1);
+			case 8:
+				//Pickaxe enchants
+				int enchant = 1 + random.nextInt(25);
+				if (enchant < 12) {
+					Enchantment[] pickaxeEnchantments = {Enchantment.efficiency};
+				    Enchantment[] pickaxeEnchantments2 = {Enchantment.unbreaking, Enchantment.fortune};
+				    Enchantment enchantment3 = pickaxeEnchantments[random.nextInt(pickaxeEnchantments.length)];
+				    Enchantment enchantment33 = pickaxeEnchantments2[random.nextInt(pickaxeEnchantments2.length)];	
+				    int maxLevel3 = enchantment3.getMinLevel() + 1;			
+				    int maxLevel33 = enchantment33.getMinLevel() + 1;	
+				    ItemStack itemStack3 = new ItemStack(Items.iron_pickaxe);
+				    
+				    itemStack3.addEnchantment(enchantment3, maxLevel3);
+				    itemStack3.addEnchantment(enchantment33, maxLevel33);
+				    
+				    return itemStack3;
+				} 
+				else {
+					Enchantment[] pickaxeEnchantments = {Enchantment.efficiency};
+				    Enchantment[] pickaxeEnchantments2 = {Enchantment.unbreaking, Enchantment.silkTouch};
+				    Enchantment enchantment3 = pickaxeEnchantments[random.nextInt(pickaxeEnchantments.length)];
+				    Enchantment enchantment33 = pickaxeEnchantments2[random.nextInt(pickaxeEnchantments2.length)];	
+				    int maxLevel3 = enchantment3.getMinLevel() + 1;			
+				    int maxLevel33 = enchantment33.getMinLevel();	
+				    ItemStack itemStack3 = new ItemStack(Items.iron_pickaxe);
+				    
+				    itemStack3.addEnchantment(enchantment3, maxLevel3);
+				    itemStack3.addEnchantment(enchantment33, maxLevel33);
+				    
+				    return itemStack3;
+				}
+			case 9:
+				//Axe enchants
+			    Enchantment[] pickaxeEnchantments = {Enchantment.efficiency};
+			    Enchantment[] pickaxeEnchantments2 = {Enchantment.unbreaking, Enchantment.unbreaking, Enchantment.unbreaking, Enchantment.silkTouch};
+			    Enchantment enchantment3 = pickaxeEnchantments[random.nextInt(pickaxeEnchantments.length)];
+			    Enchantment enchantment33 = pickaxeEnchantments2[random.nextInt(pickaxeEnchantments2.length)];	
+			    int maxLevel3 = enchantment3.getMinLevel() + 1;			
+			    int maxLevel33 = enchantment33.getMinLevel();	
+			    ItemStack itemStack3 = new ItemStack(Items.iron_axe);
+			    
+			    itemStack3.addEnchantment(enchantment3, maxLevel3);
+			    itemStack3.addEnchantment(enchantment33, maxLevel33);
+			    
+			    return itemStack3;
+			case 10:
+				//Shovel enchants
+			    Enchantment[] pickaxeEnchantments5 = {Enchantment.efficiency};
+			    Enchantment[] pickaxeEnchantments25 = {Enchantment.unbreaking, Enchantment.unbreaking, Enchantment.unbreaking, Enchantment.silkTouch};
+			    Enchantment enchantment35 = pickaxeEnchantments5[random.nextInt(pickaxeEnchantments5.length)];
+			    Enchantment enchantment335 = pickaxeEnchantments25[random.nextInt(pickaxeEnchantments25.length)];	
+			    int maxLevel35 = enchantment35.getMinLevel() + 1;			
+			    int maxLevel335 = enchantment335.getMinLevel();	
+			    ItemStack itemStack35 = new ItemStack(Items.iron_axe);
+			    
+			    itemStack35.addEnchantment(enchantment35, maxLevel35);
+			    itemStack35.addEnchantment(enchantment335, maxLevel335);
+			    
+			    return itemStack35;
+			case 11:
+				//Sword enchants
+				int enchant2 = 1 + random.nextInt(25);
+				if (enchant2 < 12) {
+					Enchantment[] pickaxeEnchantments6 = {Enchantment.sharpness};
+			    	Enchantment[] pickaxeEnchantments26 = {Enchantment.unbreaking, Enchantment.unbreaking, Enchantment.unbreaking, Enchantment.knockback, Enchantment.fireAspect};
+			    	Enchantment enchantment36 = pickaxeEnchantments6[random.nextInt(pickaxeEnchantments6.length)];
+			    	Enchantment enchantment336 = pickaxeEnchantments26[random.nextInt(pickaxeEnchantments26.length)];	
+			    	int maxLevel36 = enchantment36.getMinLevel() + 1;			
+			    	int maxLevel336 = enchantment336.getMinLevel();	
+			    	ItemStack itemStack36 = new ItemStack(Items.diamond_sword);
+			    
+			    	itemStack36.addEnchantment(enchantment36, maxLevel36);
+			    	itemStack36.addEnchantment(enchantment336, maxLevel336);
+			    
+			    	return itemStack36;
+				}
+				else {
+					Enchantment[] pickaxeEnchantments6 = {Enchantment.smite};
+				    Enchantment[] pickaxeEnchantments26 = {Enchantment.unbreaking, Enchantment.unbreaking, Enchantment.unbreaking, Enchantment.knockback, Enchantment.fireAspect};
+				    Enchantment enchantment36 = pickaxeEnchantments6[random.nextInt(pickaxeEnchantments6.length)];
+				    Enchantment enchantment336 = pickaxeEnchantments26[random.nextInt(pickaxeEnchantments26.length)];	
+				    int maxLevel36 = enchantment36.getMinLevel() + 1;			
+				    int maxLevel336 = enchantment336.getMinLevel();	
+				    ItemStack itemStack36 = new ItemStack(Items.diamond_sword);
+				    
+				    itemStack36.addEnchantment(enchantment36, maxLevel36);
+				    itemStack36.addEnchantment(enchantment336, maxLevel336);
+				    
+				    return itemStack36;
+				}
+			case 12:
+				return new ItemStack(NovaCraftBlocks.glowing_basal, random.nextInt(2) + 1);
+			case 13:
+				if (Loader.isModLoaded("netherlicious")) {
+					return new ItemStack(OtherModBlocks.CryingObsidian, random.nextInt(2) + 1);
+				}
+				else {
+					return new ItemStack(Blocks.obsidian, random.nextInt(2) + 1);
+				}
+			case 14:
+				return new ItemStack(Blocks.obsidian, random.nextInt(5) + 1);
+			case 15:
+				return new ItemStack(NovaCraftItems.luminant_tree_sap, random.nextInt(7) + 7);
+			case 16:
+				return new ItemStack(Items.coal, random.nextInt(15) + 14);
+			case 17:
+				return new ItemStack(Items.iron_ingot, random.nextInt(19) + 7);
+			case 18:
+				return new ItemStack(Items.glowstone_dust, random.nextInt(7) + 3);
+			case 19:
+				int rand3 = 1 + random.nextInt(100);
+				if (Configs.enableTreasureCratesDropDiamonds == true && rand3 > 70) {
+					return new ItemStack(Items.diamond, 1);
+				}
+				else {
+					return new ItemStack(Items.iron_ingot, random.nextInt(19) + 7);
+				}
+			case 20:
+				return new ItemStack(Items.arrow, random.nextInt(16) + 8);
+			case 21:
+				int rand2 = 1 + random.nextInt(100);
+				if (rand2 > 20) {
+					return new ItemStack(Items.bow, 1);
+				}
+				else {
+					return new ItemStack(NovaCraftItems.diamond_bow, 1);
+				}
+			case 22:
+				return new ItemStack(NovaCraftItems.blazing_serpent_scales, random.nextInt(3) + 1);
+			case 23:
+				return new ItemStack(NovaCraftItems.anomalous_essence, random.nextInt(2) + 1);
+			case 24:
+				return new ItemStack(Items.magma_cream, random.nextInt(3) + 2);
+			case 25:
+				return new ItemStack(NovaCraftItems.tophinite_gemstone, 1);
+			case 26:
+				return new ItemStack(NovaCraftItems.vanite_bottle, random.nextInt(7) + 6);
+			case 27:
+				return new ItemStack(NovaCraftBlocks.block_of_vanite, 1);
+			case 28:
+				if (Loader.isModLoaded("etfuturum") && Configs.enableNetheriteInRecipes == true) {
+					return new ItemStack(OtherModItems.netherite_scrap, random.nextInt(2) + 1);
+				}
+				else {
+					return new ItemStack(Items.quartz, random.nextInt(15) + 14);
+				}
+			default: {
+				return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(9) + 7);
+			}
+		}
 	}
 
 }

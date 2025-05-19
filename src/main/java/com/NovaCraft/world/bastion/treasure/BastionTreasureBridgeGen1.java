@@ -1111,7 +1111,7 @@ public class BastionTreasureBridgeGen1 extends WorldGenerator
 		world.setBlock(i + 24, j + 2, k + 0, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 25, j + 2, k + 0, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 2, k + 0, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 27, j + 2, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 2, k + 0, Blocks.lava, 0, 2);
 		world.setBlock(i + 0, j + 2, k + 1, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 1, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1139,7 +1139,7 @@ public class BastionTreasureBridgeGen1 extends WorldGenerator
 		world.setBlock(i + 24, j + 2, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 25, j + 2, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 2, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 27, j + 2, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 2, k + 1, Blocks.lava, 0, 2);
 		world.setBlock(i + 0, j + 2, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1615,7 +1615,7 @@ public class BastionTreasureBridgeGen1 extends WorldGenerator
 		world.setBlock(i + 24, j + 2, k + 18, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 25, j + 2, k + 18, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 2, k + 18, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 27, j + 2, k + 18, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i + 27, j + 2, k + 18, NovaCraftBlocks.cracked_basal_bricks, 0, 2);		
 		world.setBlock(i + 0, j + 3, k + 0, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 3, k + 0, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 3, k + 0, NovaCraftBlocks.cracked_basal_bricks, 0, 2);

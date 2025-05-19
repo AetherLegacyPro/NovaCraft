@@ -28,7 +28,7 @@ public class SlaughterRenderer extends RenderBiped
 	}
 	
 	@Override
-	protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+	protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
 	    GL11.glScalef(1.25F, 1.25F, 1.25F);
 	}
 	

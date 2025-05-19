@@ -18,7 +18,6 @@ public class BloviatorRenderer extends RenderLiving
 {
     private static final ResourceLocation ghastTextures = new ResourceLocation("nova_craft", "textures/entity/bloviator/bloviator.png");
     private static final ResourceLocation ghastShootingTextures = new ResourceLocation("nova_craft", "textures/entity/bloviator/bloviator_fire.png");
-    private static final String __OBFID = "CL_00000997";
 
     public BloviatorRenderer()
     {

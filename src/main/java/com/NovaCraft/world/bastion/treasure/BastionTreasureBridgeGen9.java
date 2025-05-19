@@ -521,7 +521,7 @@ public class BastionTreasureBridgeGen9 extends WorldGenerator
 		world.setBlock(i + 15, j + 41, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 16, j + 41, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 41, k + 15, Blocks.air, 0, 2);
-		world.setBlock(i + 18, j + 41, k + 15, Blocks.gold_block, 0, 2);
+		world.setBlock(i + 18, j + 41, k + 15, NovaCraftBlocks.block_of_vanite, 0, 2);
 		world.setBlock(i + 19, j + 41, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 20, j + 41, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 21, j + 41, k + 15, Blocks.air, 0, 2);

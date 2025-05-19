@@ -6,6 +6,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntitySavageSerpent;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -1508,7 +1509,6 @@ public class BastionTreasureRoomGen9 extends WorldGenerator
 		world.setBlock(i + 1, j + 36, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 8, j + 36, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 36, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 14, j + 36, k + 5, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 16, j + 36, k + 5, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 21, j + 36, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 23, j + 36, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -2746,6 +2746,13 @@ public class BastionTreasureRoomGen9 extends WorldGenerator
 		world.setBlock(i + 16, j + 38, k + 37, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 17, j + 38, k + 37, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 18, j + 38, k + 37, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		
+		EntitySavageSerpent serpent = new EntitySavageSerpent(world);
+		serpent.setPosition(i + 14, j + 36, k + 5);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent);
+		}
 		
 		return true;
 	}

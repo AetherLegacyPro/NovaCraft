@@ -55,8 +55,8 @@ public class EntityBlazingSerpent extends EntityMob
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityVillager.class, 0, true));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPigZombie.class, 0, true));
-		setSize(2.0F, 2.0F);
-		this.experienceValue = 25;
+		setSize(1.0F, 1.0F);
+		this.experienceValue = 15;
 	}
 	
 	@Override
@@ -74,11 +74,11 @@ public class EntityBlazingSerpent extends EntityMob
     		//this.setHealth(220);
         //} else {
         	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(6.55D);
-    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(110.0D);
+    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0D);
     		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
     		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10D);
     		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30D);
-    		this.setHealth(110);
+    		this.setHealth(80);
         //}
 	}
 	
@@ -128,7 +128,7 @@ public class EntityBlazingSerpent extends EntityMob
             this.attackEntityFrom(DamageSource.drown, 1.0F);
         }
 		
-		for (int i = 0; i < 2; ++i)
+		for (int i = 0; i < 1; ++i)
         {
             this.worldObj.spawnParticle("flame", this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, 0.0D, 0.0D, 0.0D);
         }
@@ -189,7 +189,7 @@ public class EntityBlazingSerpent extends EntityMob
 	
 	@Override
     protected float getSoundVolume() {
-        return 3.66F;
+        return 1.66F;
     }
 
 

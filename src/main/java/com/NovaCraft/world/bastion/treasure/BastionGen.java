@@ -20,7 +20,7 @@ public class BastionGen implements IWorldGenerator {
 		if(Math.abs(x) < 500 && Math.abs(z) < 500) return;
 		
 		
-		if (rand.nextInt(250) == 25) {
+		if (rand.nextInt(500) == 25) {
 		int x1 = x + rand.nextInt(16) + 8;
   	  	int y1 = 27;
   	  	int z1 = z + rand.nextInt(16) + 8;
@@ -41,6 +41,10 @@ public class BastionGen implements IWorldGenerator {
 		new BastionTreasureRoomGen10().generate(world, rand, x1, y1 + 5, z1);
 		new BastionTreasureRoomGen11().generate(world, rand, x1, y1 + 5, z1);
 		new BastionTreasureRoomGen12().generate(world, rand, x1, y1 + 5, z1);
+		
+		new BastionSerpentQueenLairGen().generate(world, rand, x1 + 11, y1 - 3, z1 + 11);
+		new BastionTunnelToLairGen().generate(world, rand, x1 + 17, y1 + 1, z1 + 17);
+		new BastionTunnelToLairGen().generate(world, rand, x1 + 17, y1 + 5, z1 + 17);
 		
 		new BastionTreasureBridgeGen1().generate(world, rand, x1 - 2, y1 + 2, z1 - 19);
 		new BastionTreasureBridgeGen2().generate(world, rand, x1 - 2, y1 + 2, z1 - 19);

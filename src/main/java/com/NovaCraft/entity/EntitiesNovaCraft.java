@@ -138,6 +138,7 @@ public class EntitiesNovaCraft {
 		register(EntityNuxx.class, "nuxx", 64, 0x07051f, 0x3d3347);
 		register(EntityOutsiderEye.class, "outsider_eye", 72, 0x0b0710, 0x786f8d);
 		register(EntityOutsider.class, "outsider", 73, 0x000100, 0x120e16);
+		register(EntitySavageSerpent.class, "savage_serpent", 74, 0x930900, 0xe1952b);
 		
 		//Hardmode
 		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);
@@ -153,6 +154,7 @@ public class EntitiesNovaCraft {
 		register(EntityDeepoidDragon.class, "deepoid_dragon", 45, 0x68395f, 0xd2323a);
 		register(EntityBloviator.class, "bloviator", 47, 0x28395f, 0x12323a);
 		register(EntityPrisoner.class, "prisoner", 57, 64, 20, true);
+		register(EntityBlazingSerpentQueen.class, "serpent_queen", 75, 0x2d0000, 0xff0033);
 		
 		if (Configs.enableSpawnGlowSquid) {
 		EntityRegistry.addSpawn((Class)EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] { BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});

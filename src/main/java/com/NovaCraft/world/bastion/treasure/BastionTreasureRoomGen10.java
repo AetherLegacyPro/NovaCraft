@@ -6,6 +6,7 @@ import net.minecraft.world.*;
 import java.util.*;
 
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntitySavageSerpent;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -1630,7 +1631,6 @@ public class BastionTreasureRoomGen10 extends WorldGenerator
 		world.setBlock(i + 35, j + 41, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 41, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 41, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 3, j + 41, k + 2, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 8, j + 41, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 41, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 16, j + 41, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1644,7 +1644,6 @@ public class BastionTreasureRoomGen10 extends WorldGenerator
 		world.setBlock(i + 37, j + 41, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 41, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 41, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 18, j + 41, k + 3, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 36, j + 41, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 37, j + 41, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 41, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1736,7 +1735,6 @@ public class BastionTreasureRoomGen10 extends WorldGenerator
 		world.setBlock(i + 14, j + 41, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 15, j + 41, k + 11, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 16, j + 41, k + 11, NovaCraftBlocks.basal, 0, 2);
-		world.setBlock(i + 33, j + 41, k + 11, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 34, j + 41, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 35, j + 41, k + 11, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 36, j + 41, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1975,7 +1973,6 @@ public class BastionTreasureRoomGen10 extends WorldGenerator
 		world.setBlock(i + 21, j + 41, k + 35, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 25, j + 41, k + 35, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 29, j + 41, k + 35, NovaCraftBlocks.basal, 0, 2);
-		world.setBlock(i + 31, j + 41, k + 35, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 36, j + 41, k + 35, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 37, j + 41, k + 35, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 41, k + 36, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -2617,7 +2614,6 @@ public class BastionTreasureRoomGen10 extends WorldGenerator
 		world.setBlock(i + 36, j + 43, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 37, j + 43, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 43, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 8, j + 43, k + 10, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 11, j + 43, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 43, k + 10, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 13, j + 43, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -2647,7 +2643,6 @@ public class BastionTreasureRoomGen10 extends WorldGenerator
 		world.setBlock(i + 0, j + 43, k + 14, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 43, k + 14, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 6, j + 43, k + 14, PlaceChain, 0, 2);
-		world.setBlock(i + 12, j + 43, k + 14, Blocks.diamond_block, 0, 2);
 		world.setBlock(i + 36, j + 43, k + 14, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 37, j + 43, k + 14, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 0, j + 43, k + 15, NovaCraftBlocks.basal, 0, 2);
@@ -2757,6 +2752,48 @@ public class BastionTreasureRoomGen10 extends WorldGenerator
 		world.setBlock(i + 0, j + 43, k + 29, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 43, k + 29, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 2, j + 43, k + 29, NovaCraftBlocks.basal_bricks, 0, 2);
+		
+		EntitySavageSerpent serpent = new EntitySavageSerpent(world);
+		serpent.setPosition(i + 3, j + 41, k + 2);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent);
+		}
+		
+		EntitySavageSerpent serpent2 = new EntitySavageSerpent(world);
+		serpent2.setPosition(i + 18, j + 41, k + 3);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent2);
+		}
+		
+		EntitySavageSerpent serpent3 = new EntitySavageSerpent(world);
+		serpent3.setPosition(i + 33, j + 41, k + 11);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent3);
+		}
+		
+		EntitySavageSerpent serpent4 = new EntitySavageSerpent(world);
+		serpent4.setPosition(i + 31, j + 41, k + 35);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent4);
+		}
+		
+		EntitySavageSerpent serpent5 = new EntitySavageSerpent(world);
+		serpent5.setPosition(i + 8, j + 43, k + 10);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent5);
+		}
+		
+		EntitySavageSerpent serpent6 = new EntitySavageSerpent(world);
+		serpent6.setPosition(i + 12, j + 43, k + 14);
+
+		if (!world.isRemote) {
+			world.spawnEntityInWorld(serpent6);
+		}
 		
 		return true;
 	}

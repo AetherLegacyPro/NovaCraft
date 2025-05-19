@@ -23,8 +23,7 @@ public class NitroRenderer extends RenderLiving
     private static final ResourceLocation chaotic4;
     private static final ResourceLocation chaotic5;
     private static final ResourceLocation chaotic6;
-    
-    /** The creeper model. */
+
     private ModelBase creeperModel = new NitroModel(2.0F);
 
     public NitroRenderer()
@@ -33,10 +32,6 @@ public class NitroRenderer extends RenderLiving
         this.setRenderPassModel((ModelBase)new NitroModel());
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
     protected void preRenderCallback(EntityNitro p_77041_1_, float p_77041_2_)
     {
         float f1 = p_77041_1_.getCreeperFlashIntensity(p_77041_2_);
@@ -59,9 +54,6 @@ public class NitroRenderer extends RenderLiving
         GL11.glScalef(f3, f4, f3);
     }
 
-    /**
-     * Returns an ARGB int color back. Args: entityLiving, lightBrightness, partialTickTime
-     */
     protected int getColorMultiplier(EntityNitro p_77030_1_, float p_77030_2_, float p_77030_3_)
     {
         float f2 = p_77030_1_.getCreeperFlashIntensity(p_77030_3_);
@@ -91,9 +83,6 @@ public class NitroRenderer extends RenderLiving
         }
     }
 
-    /**
-     * Queries whether should render the specified pass or not.
-     */
     protected int shouldRenderPass(EntityNitro p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
     	if (p_77032_2_ != 0) {
@@ -164,35 +153,22 @@ public class NitroRenderer extends RenderLiving
         return -1;
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(EntityNitro p_110775_1_)
     {
         return NitroRenderer.chaotic1;
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
     protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
     {
         this.preRenderCallback((EntityNitro)p_77041_1_, p_77041_2_);
         GL11.glScalef(1.1F, 1.1F, 1.1F);
     }
 
-    /**
-     * Returns an ARGB int color back. Args: entityLiving, lightBrightness, partialTickTime
-     */
     protected int getColorMultiplier(EntityLivingBase p_77030_1_, float p_77030_2_, float p_77030_3_)
     {
         return this.getColorMultiplier((EntityNitro)p_77030_1_, p_77030_2_, p_77030_3_);
     }
 
-    /**
-     * Queries whether should render the specified pass or not.
-     */
     protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
         return this.shouldRenderPass((EntityNitro)p_77032_1_, p_77032_2_, p_77032_3_);
@@ -203,9 +179,6 @@ public class NitroRenderer extends RenderLiving
         return this.inheritRenderPass((EntityNitro)p_77035_1_, p_77035_2_, p_77035_3_);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(Entity p_110775_1_)
     {
         return this.getEntityTexture((EntityNitro)p_110775_1_);

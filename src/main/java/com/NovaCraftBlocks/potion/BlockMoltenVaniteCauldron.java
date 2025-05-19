@@ -1,5 +1,6 @@
 package com.NovaCraftBlocks.potion;
 
+import java.util.List;
 import java.util.Random;
 
 import com.NovaCraft.Items.NovaCraftItems;
@@ -9,7 +10,9 @@ import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockCauldron;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -18,12 +21,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class BlockMoltenVaniteCauldron extends BlockCauldron {
+	
+	@SideOnly(Side.CLIENT)
+	public IIcon inner, top, bottom, side;
 	
 	public BlockMoltenVaniteCauldron() {
 		super();
@@ -40,6 +47,24 @@ public class BlockMoltenVaniteCauldron extends BlockCauldron {
 	
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return NovaCraftItems.vanite_cauldron_item;
+    }
+	
+	@SideOnly(Side.CLIENT)
+    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
+    {
+        return NovaCraftItems.vanite_cauldron_item;
+    }
+	
+	@Override
+	public boolean isOpaqueCube()
+    {
+        return false;
+    }
+	
+	@Override
+	public boolean renderAsNormalBlock()
+    {
+        return false;
     }
 	
 	@Override
@@ -60,16 +85,34 @@ public class BlockMoltenVaniteCauldron extends BlockCauldron {
 		}
 	}
 	
-	@SideOnly(Side.CLIENT)
-    public static IIcon getCauldronIcon(String p_150026_0_)
-    {
-        return (IIcon) (p_150026_0_.equals("inner") ? NovaCraftBlocks.vanite_cauldron : (p_150026_0_.equals("bottom") ? NovaCraftBlocks.vanite_cauldron : null));
-    }
 	
 	@Override
-	public IIcon getIcon(int side, int meta)
-	{
-		return Blocks.cauldron.getIcon(side, meta);
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int meta) {
+	    if (side == 1) return this.top;
+	    if (side == 0) return this.bottom;
+	    return this.side;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister register) {
+	    this.inner = register.registerIcon("nova_craft:vanite_cauldron_inner");
+	    this.top = register.registerIcon("nova_craft:vanite_cauldron_top");
+	    this.bottom = register.registerIcon("nova_craft:vanite_cauldron_bottom");
+	    this.side = register.registerIcon("nova_craft:vanite_cauldron_side");
+
+	    this.blockIcon = this.side;
+	}
+    
+	@SideOnly(Side.CLIENT)
+	public static IIcon getVaniteCauldronIcon(String name) {
+		BlockMoltenVaniteCauldron block = (BlockMoltenVaniteCauldron) NovaCraftBlocks.vanite_cauldron;
+
+	    if (name.equals("inner")) return block.inner;
+	    if (name.equals("bottom")) return block.bottom;
+
+	    return null;
 	}
 	
 	@Override

@@ -49,14 +49,12 @@ public class BlockCrackedNullstoneDeactivator extends Block {
 	}
 	
 	public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
-		
-		if (world.isRemote) {
-	          return true;
-	      }
 	      int meta = world.getBlockMetadata(x, y, z);
 	      ItemStack stack = par5EntityPlayer.inventory.getCurrentItem();
 	      if (stack != null && stack.getItem() != null && stack.getItem() != NovaCraftItems.dimensional_sealent) {
+	    	  if (world.isRemote) {
 	    	  par5EntityPlayer.addChatComponentMessage(new ChatComponentText(I18n.format("tooltip.nullstone_deactivator.desc")));
+	    	  }
 	      }
 		
 		return true;

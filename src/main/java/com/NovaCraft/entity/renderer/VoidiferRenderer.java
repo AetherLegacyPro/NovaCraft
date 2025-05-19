@@ -18,19 +18,13 @@ public class VoidiferRenderer extends RenderLiving
 {
     private static final ResourceLocation armoredCreeperTextures = new ResourceLocation("textures/entity/creeper/creeper_armor.png");
     private static final ResourceLocation creeperTextures = new ResourceLocation("nova_craft", "textures/entity/nullifier/nullifier.png");
-    /** The creeper model. */
     private ModelBase creeperModel = new VoidiferModel(2.0F);
-    private static final String __OBFID = "CL_00000985";
 
     public VoidiferRenderer()
     {
         super(new VoidiferModel(), 0.5F);
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
     protected void preRenderCallback(EntityNullifier p_77041_1_, float p_77041_2_)
     {
         float f1 = p_77041_1_.getCreeperFlashIntensity(p_77041_2_);
@@ -53,9 +47,6 @@ public class VoidiferRenderer extends RenderLiving
         GL11.glScalef(f3, f4, f3);
     }
 
-    /**
-     * Returns an ARGB int color back. Args: entityLiving, lightBrightness, partialTickTime
-     */
     protected int getColorMultiplier(EntityNullifier p_77030_1_, float p_77030_2_, float p_77030_3_)
     {
         float f2 = p_77030_1_.getCreeperFlashIntensity(p_77030_3_);
@@ -85,9 +76,6 @@ public class VoidiferRenderer extends RenderLiving
         }
     }
 
-    /**
-     * Queries whether should render the specified pass or not.
-     */
     protected int shouldRenderPass(EntityNullifier p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
         if (p_77032_1_.getPowered())
@@ -138,34 +126,21 @@ public class VoidiferRenderer extends RenderLiving
         return -1;
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(EntityNullifier p_110775_1_)
     {
         return creeperTextures;
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
     protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
     {
         this.preRenderCallback((EntityNullifier)p_77041_1_, p_77041_2_);
     }
 
-    /**
-     * Returns an ARGB int color back. Args: entityLiving, lightBrightness, partialTickTime
-     */
     protected int getColorMultiplier(EntityLivingBase p_77030_1_, float p_77030_2_, float p_77030_3_)
     {
         return this.getColorMultiplier((EntityNullifier)p_77030_1_, p_77030_2_, p_77030_3_);
     }
 
-    /**
-     * Queries whether should render the specified pass or not.
-     */
     protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
         return this.shouldRenderPass((EntityNullifier)p_77032_1_, p_77032_2_, p_77032_3_);
@@ -176,9 +151,6 @@ public class VoidiferRenderer extends RenderLiving
         return this.inheritRenderPass((EntityNullifier)p_77035_1_, p_77035_2_, p_77035_3_);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(Entity p_110775_1_)
     {
         return this.getEntityTexture((EntityNullifier)p_110775_1_);

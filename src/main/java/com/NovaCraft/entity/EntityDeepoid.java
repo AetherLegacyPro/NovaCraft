@@ -44,8 +44,8 @@ public class EntityDeepoid extends EntityMob implements IDeepoidBreathAttacker
 {		
 	
 	public static final int BREATH_DURATION = 10;
-    public static final int BREATH_DAMAGE = 4;
-    public static final int BREATH_DAMAGE_NOTFIRE = 4;
+    public static final int BREATH_DAMAGE = 7;
+    public static final int BREATH_DAMAGE_NOTFIRE = 7;
 	
 	public EntityDeepoid(final World p_i1745_1_) {
 		super(p_i1745_1_);
@@ -279,34 +279,16 @@ public class EntityDeepoid extends EntityMob implements IDeepoidBreathAttacker
 	{
 		if (!target.isImmuneToFire() && target.attackEntityFrom(DamageSource.inFire, BREATH_DAMAGE))
     	{
-			World world = MinecraftServer.getServer().worldServers[0];
-	        Hardmode data = Hardmode.get(world);
-	        if (data.getHardmode() == true) {
-	        	target.setFire(BREATH_DURATION);
-	        	target.attackEntityFrom(DamageSource.inFire, 10.0F);
-	        	target.attackEntityFrom(DamageSource.magic, 2.0F);
-	        }
-	        else {
-	        	target.setFire(BREATH_DURATION);
-	        	target.attackEntityFrom(DamageSource.inFire, 5.0F);
-	        	target.attackEntityFrom(DamageSource.magic, 1.0F);
-	        }
+	        target.setFire(BREATH_DURATION);
+	        target.attackEntityFrom(DamageSource.inFire, 5.0F);
+	        target.attackEntityFrom(DamageSource.magic, 1.0F);
     	}
 		else
 		{
-			World world = MinecraftServer.getServer().worldServers[0];
-	        Hardmode data = Hardmode.get(world);
-	        if (data.getHardmode() == true) {
-	        	target.setFire(BREATH_DURATION);
-				target.attackEntityFrom(DamageSource.generic, 6.0F);
-				target.attackEntityFrom(DamageSource.magic, 4.0F);
-	        }
-	        else {
-	        	target.setFire(BREATH_DURATION);
-				target.attackEntityFrom(DamageSource.generic, 3.0F);
-				target.attackEntityFrom(DamageSource.magic, 3.0F);
-	        }
-			//nice try
+	        target.setFire(BREATH_DURATION);
+			target.attackEntityFrom(DamageSource.generic, 3.0F);
+			target.attackEntityFrom(DamageSource.magic, 3.0F);
+
 		}
 			
 	}

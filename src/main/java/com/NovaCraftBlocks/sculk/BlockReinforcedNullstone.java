@@ -65,9 +65,6 @@ public class BlockReinforcedNullstone extends Block {
 	}
 	
 	public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
-	      if (world.isRemote) {
-	          return true;
-	      }
 	      int meta = world.getBlockMetadata(x, y, z);
 	      ItemStack stack = par5EntityPlayer.inventory.getCurrentItem();
 	      if (stack != null && stack.getItem() != null && stack.getItem() == NovaCraftItems.static_blend) {
@@ -76,7 +73,9 @@ public class BlockReinforcedNullstone extends Block {
 	    	  world.setBlock(x, y, z, NovaCraftBlocks.activated_reinforced_nullstone, 0, 2);
 	      }
 	      else {
+	    	  if (world.isRemote) {
 	    	  par5EntityPlayer.addChatComponentMessage(new ChatComponentText(I18n.format("gui.reinforced_nullstone")));
+	    	  }
 	      }
 	      return true;
 	  }

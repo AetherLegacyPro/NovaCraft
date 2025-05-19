@@ -2035,8 +2035,6 @@ public class BastionTreasureRoomGen12 extends WorldGenerator
 		world.setBlock(i + 33, j + 43, k + 22, PlaceLantern, 1, 2);
 		world.setBlock(i + 32, j + 43, k + 27, PlaceLantern, 1, 2);
 		
-		world.setBlock(i + 0, j + 0, k + 0, Blocks.water, 0, 2);
-		
 		return true;
 	}
 

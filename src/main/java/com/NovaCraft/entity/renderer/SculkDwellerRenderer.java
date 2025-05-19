@@ -15,8 +15,8 @@ public class SculkDwellerRenderer extends RenderBiped
 {
 	public static final ResourceLocation texture;
 	private float scale;
-	protected ModelBiped field_82437_k; //modelArmourChestplate
-	protected ModelBiped field_82435_l; //modelArmor
+	protected ModelBiped field_82437_k;
+	protected ModelBiped field_82435_l;
 	
 	public SculkDwellerRenderer() {
 		super(new ModelZombie(), 0.4f);

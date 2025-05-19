@@ -28,7 +28,6 @@ public class DeepoidDragonRenderer extends RenderLiving
     private static final ResourceLocation DeepoidDragonTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon.png");
     /** An instance of the dragon model in RenderDragon */
     protected DeepoidDragonModel modelDragon;
-    private static final String __OBFID = "CL_00000988";
 
     public DeepoidDragonRenderer()
     {

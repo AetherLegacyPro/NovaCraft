@@ -15,17 +15,13 @@ public class VoidCubeRenderer extends RenderLiving
 {
     private static final ResourceLocation VoidCubeTextures = new ResourceLocation("nova_craft", "textures/entity/void_cube/void_cube.png");
     private ModelBase scaleAmount;
-    private static final String __OBFID = "CL_00001024";
 
     public VoidCubeRenderer(ModelBase p_i1267_1_, ModelBase p_i1267_2_, float p_i1267_3_)
     {
         super(p_i1267_1_, p_i1267_3_);
         this.scaleAmount = p_i1267_2_;
     }
-
-    /**
-     * Queries whether should render the specified pass or not.
-     */
+    
     protected int shouldRenderPass(EntityVoidCube p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
         if (p_77032_1_.isInvisible())
@@ -52,10 +48,6 @@ public class VoidCubeRenderer extends RenderLiving
         }
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
     protected void preRenderCallback(EntityVoidCube p_77041_1_, float p_77041_2_)
     {
         float f1 = (float)p_77041_1_.getSlimeSize();
@@ -64,34 +56,21 @@ public class VoidCubeRenderer extends RenderLiving
         GL11.glScalef(f3 * f1, 1.0F / f3 * f1, f3 * f1);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(EntityVoidCube p_110775_1_)
     {
         return VoidCubeTextures;
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
     protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
     {
         this.preRenderCallback((EntityVoidCube)p_77041_1_, p_77041_2_);
     }
 
-    /**
-     * Queries whether should render the specified pass or not.
-     */
     protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
         return this.shouldRenderPass((EntityVoidCube)p_77032_1_, p_77032_2_, p_77032_3_);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(Entity p_110775_1_)
     {
         return this.getEntityTexture((EntityVoidCube)p_110775_1_);

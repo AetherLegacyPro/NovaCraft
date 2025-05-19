@@ -26,7 +26,7 @@ public class SculkDuplicatorRenderer extends RenderLiving {
 	}
 	
 	@Override
-	protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+	protected void preRenderCallback(EntityLivingBase entity, float partialTickTime) {
 	    GL11.glScalef(1.80F, 1.80F, 1.80F);
 	}
 

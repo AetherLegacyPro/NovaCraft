@@ -12,8 +12,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class VindicatorRenderer extends RenderBiped
 {
-	//public static final ResourceLocation texture;
-	//public static final ResourceLocation textureOverlay;
 	private static final ResourceLocation texture = new ResourceLocation("textures/entity/vindicator/vindicator.png");
 	protected ModelBiped field_82437_k; 
 	protected ModelBiped field_82435_l; 
@@ -26,10 +24,5 @@ public class VindicatorRenderer extends RenderBiped
 	protected ResourceLocation getEntityTexture(final Entity p_110775_1_) {
 		return VindicatorRenderer.texture;
 	}
-	
-	//@Override
-	//protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
-	 //   GL11.glScalef(1.25F, 1.25F, 1.25F);
-	//}
 	
 }
