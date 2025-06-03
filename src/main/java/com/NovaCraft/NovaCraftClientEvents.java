@@ -1,13 +1,23 @@
 package com.NovaCraft;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Set;
+
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
@@ -21,10 +31,16 @@ import net.minecraft.util.ChatStyle;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.gen.ChunkProviderServer;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.world.ChunkEvent;
+import net.minecraftforge.event.world.WorldEvent;
 
 public class NovaCraftClientEvents {
 	
@@ -124,4 +140,43 @@ public class NovaCraftClientEvents {
 	   }
 		}
 	
+	@SubscribeEvent
+	public void onWorldTick(TickEvent.WorldTickEvent event) {
+	    if (Configs.enableGlowingObsidian == true) {
+	    	
+	    if (event.phase != TickEvent.Phase.END || event.world.isRemote) return;
+	    
+	    int radius = 24;	    
+	    int radiusSq = radius * radius;
+
+	    for (Object obj : event.world.playerEntities) {
+	        EntityPlayer player = (EntityPlayer) obj;
+
+	        int px = (int) player.posX;
+	        int py = (int) player.posY;
+	        int pz = (int) player.posZ;
+
+	        for (int x = px - radius; x <= px + radius; x++) {
+	            for (int y = py - radius; y <= py + radius; y++) {
+	                for (int z = pz - radius; z <= pz + radius; z++) {
+	                    int dx = x - px;
+	                    int dy = y - py;
+	                    int dz = z - pz;
+
+	                    if (dx * dx + dy * dy + dz * dz <= radiusSq) {
+	                        Block block = event.world.getBlock(x, y, z);
+	                        if (block == Blocks.obsidian) {
+	                            Block below = event.world.getBlock(x, y - 1, z);
+	                            int meta = event.world.getBlockMetadata(x, y - 1, z);
+	                            if (below == Blocks.lava && meta == 0) {
+	                                event.world.setBlock(x, y, z, NovaCraftBlocks.glowing_obsidian);
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    }
+	  }
+	}
 }

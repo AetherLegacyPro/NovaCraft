@@ -149,6 +149,7 @@ public class Configs
     
     public static boolean enableWeaponsToAllignWithVanilla;
     public static boolean enableHardmode;
+    public static boolean enableGlowingObsidian;
     
     public static boolean enableTreasureCratesDropDiamonds;
     public static boolean enableNoSkippingTheNight;
@@ -416,7 +417,7 @@ public class Configs
         enableNovaCraftGloves = conf.getBoolean("enableNovaCraftGloves", catAetherLegacy, false, "Enables the recipe for NovaCraft gloves from Aether Departure.");
         
         //Misc
-        enableWeaponsToAllignWithVanilla = conf.getBoolean("enableWeaponsToAllignWithVanilla", catMisc, false, "Enables weapons from novacraft to allign with vanilla in terms of damage/durability more rather than other RPG like mods.");       
+        enableWeaponsToAllignWithVanilla = conf.getBoolean("enableWeaponsToAllignWithVanilla", catMisc, true, "Enables weapons from novacraft to allign with vanilla in terms of damage/durability more rather than other RPG like mods.");       
         enableTreasureCratesDropDiamonds = conf.getBoolean("enableTreasureCratesDropDiamonds", catMisc, true, "Enables diamonds in novacraft loot tables");
         enableCrystalGolemAura = conf.getBoolean("enableCrystalGolemAura", catMisc, true, "Enables the auras of the various crystal golems.");
         enableLuminantLeavesGlow = conf.getBoolean("enableLuminantLeavesGlow", catMisc, true, "Enables luminant leaves to have a slight glow effect.(Disable this if you use dynamic leaves)");
@@ -425,6 +426,7 @@ public class Configs
         enableNoSkippingTheNight = conf.getBoolean("enableNoSkippingTheNight", catMisc, true, "Beds will only set the player's spawnpoint and will not allow them to skip the night.");
         enableHardmode = conf.getBoolean("enableHardmode", catMisc, false, "Enables Hardmode");
         disableEnchantedGoldenAppleRecipe = conf.getBoolean("disableEnchantedGoldenAppleRecipe", catMisc, true, "Disables recipe for Enchanted Golden Apples.");
+        enableGlowingObsidian = conf.getBoolean("enableGlowingObsidian", catMisc, true, "Obsidian Blocks that are directly above a lava source block convert to Glowing Obsidian.");
 
         //Warden Options
         enableWardenBlindness = conf.getBoolean("enableWardenBlindness", catWarden, true, "Enables the Warden Applying blindess to the player when within 5 Blocks: Note if False the Player will be given Slowness II Instead");

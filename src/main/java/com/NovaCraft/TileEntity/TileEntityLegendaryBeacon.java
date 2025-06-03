@@ -32,7 +32,6 @@ public class TileEntityLegendaryBeacon extends TileEntityBeacon {
     private int secondaryEffect;
     private ItemStack payment;
     private String field_146008_p;
-    private static final String __OBFID = "CL_00000339";
     private final List segments = Lists.newArrayList();
 
     public void updateEntity() {

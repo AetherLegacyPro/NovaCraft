@@ -169,6 +169,7 @@ public class NovaCraft
         if (Configs.enableInfestedBastion) {
         GameRegistry.registerWorldGenerator((IWorldGenerator)new BastionGen(), Integer.MAX_VALUE);
         }
+        
     }
     
     @EventHandler

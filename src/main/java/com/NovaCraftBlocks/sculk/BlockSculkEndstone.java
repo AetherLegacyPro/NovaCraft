@@ -44,7 +44,7 @@ public class BlockSculkEndstone extends Block implements IGrowable {
 		if (!worldIn.isRemote) {
 			if (worldIn.getBlockLightValue(x, y + 1, z) > 3 && worldIn.getBlockLightOpacity(x, y + 1, z) > 2) {
 				worldIn.setBlock(x, y, z, Blocks.end_stone);
-			} else if (worldIn.getBlockLightValue(x, y + 1, z) == 0 && y <= 22.0D && rand.nextInt(50) == 0 && Configs.enableSculkStoneSpreading == true) {
+			} else if (worldIn.getBlockLightValue(x, y + 1, z) == 0 && rand.nextInt(50) == 0 && Configs.enableSculkStoneSpreading == true) {
 				for (int l = 0; l < 4; ++l) {
 					int i1 = x + rand.nextInt(3) - 1;
 					int j1 = y + rand.nextInt(5) - 3;

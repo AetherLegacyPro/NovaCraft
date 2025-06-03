@@ -336,6 +336,10 @@ tile.nullwart_bricks.name=Nullwart Bricks
 tile.treasure_chest.name=Treaure Crate
 tile.infused_vanite_block.name=Infused Block Of Vanite
 tile.infused_vanite_block_natural.name=Impure Infused Block Of Vanite
+tile.deepoid_bricks.name=Deepoid Bricks
+tile.deepoid_power_core.name=Deepoid Power Core
+tile.deepoid_furnace.name=Deepoid Furnace
+tile.lit_deepoid_furnace.name=Deepoid Furnace
 
 tile.sculk_sensor.name=Sculk Grass
 tile.grimstone_shrieker.name=Warden Altar
@@ -584,10 +588,8 @@ tile.nova_craft.null_bud.name=Null Cluster
 tile.nova_craft.null_medium_bud.name=Null Cluster
 tile.nova_craft.null_large_bud.name=Null Cluster
 tile.nova_craft.null_cluster.name=Null Cluster
-
 tile.variegated_block.name=Block of Variegated Shards
 tile.vanite_cluster.name=Vanite Cluster
-
 tile.nullified_vanite.name=Nullified Vanite
 tile.crystallized_sculk.name=Crystallized Sculk
 tile.legendary_beacon.name=Legendary Beacon
@@ -602,6 +604,7 @@ tile.cracked_basal_bricks.name=Cracked Basal Bricks
 tile.glowing_basal.name=Glowing Basal
 tile.chiseled_basal.name=Chiseled Basal
 tile.basal_scrap.name=Basal Scrap
+tile.glowing_obsidian.name=Glowing Obsidian
 
 #Stairs Names
 tile.grimstone_stairs.name=Grimstone Stairs
@@ -735,6 +738,7 @@ gui.reinforced_nullstone=This block radiates a chilling aura. A slot similar to 
 gui.unknown_portal_activator=This device while flaming radiates a chilling aura. Perhaps adding the correct fuel to each of the reinforced nullstone blocks will ignite the "portal"?
 gui.unknown_portal_activator_ignited=The surrounding reinforced nullstone blocks have been ignited with the correct fuel yet nothing is happening... Perhaps something is missing from the control device? There is an indentation within the center of a star that perhaps activates the portal?
 gui.unknown_portal_activated=The air turns cold and day instantly turns to night and time "stops". Reality itself begins to fracture around the portal to the unknown. You feel as if someone or something is watching you. Perhaps The Warden was not just guarding you from opening the portal but also keeping the "Prisoner" from escaping...
+gui.deepoid_furnace.invalid_structure=Deepoid Bricks must be placed around the deepoid furnace and a deepoid power core behind furnace.
 
 #Tool Tips
 tooltip.horn.ponder.desc=Ponder
@@ -822,6 +826,8 @@ tooltip.large_ancient_city_chest.desc=Large Ancient City Chest
 
 tooltip.right_click_bed.desc=Respawn Point Set
 tooltip.bed_destroyed.desc=Respawn Point Set to SpawnPoint!
+
+tooltip.deepoid_furnace.desc=Deepoid Furnace
 
 tooltip.dimensional_sealent.desc=Use on Cracked Nullstone Deactivators while holding shift
 tooltip.dimensional_sealent2.desc=and the Unknown Portal Activator last

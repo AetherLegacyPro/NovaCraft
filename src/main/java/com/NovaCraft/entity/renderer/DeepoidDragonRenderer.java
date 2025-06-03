@@ -17,22 +17,23 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
-import com.NovaCraft.entity.models.DeepoidDragonModel;
+import com.NovaCraft.entity.models.TheDeepOneModel;
+import com.NovaCraft.entity.models.TheDeepOneModel;
 
 @SideOnly(Side.CLIENT)
 public class DeepoidDragonRenderer extends RenderLiving
 {
     private static final ResourceLocation DeepoidDragonExplodingTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon_exploding.png");
     private static final ResourceLocation DeepoidDragonCrystalBeamTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon_endercrystal_beam.png");
-    private static final ResourceLocation DeepoidDragonEyesTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon_eyes.png");
+    private static final ResourceLocation DeepoidDragonEyesTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon_glow.png");
     private static final ResourceLocation DeepoidDragonTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon.png");
     /** An instance of the dragon model in RenderDragon */
-    protected DeepoidDragonModel modelDragon;
+    protected TheDeepOneModel modelDragon;
 
     public DeepoidDragonRenderer()
     {
-        super(new DeepoidDragonModel(0.0F), 0.5F);
-        this.modelDragon = (DeepoidDragonModel)this.mainModel;
+        super(new TheDeepOneModel(), 0.5F);
+        this.modelDragon = (TheDeepOneModel)this.mainModel;
         this.setRenderPassModel(this.mainModel);
     }
 
@@ -62,7 +63,7 @@ public class DeepoidDragonRenderer extends RenderLiving
     protected void preRenderCallback(EntityLivingBase dragon, float partialTickTime)
     {
     	GL11.glTranslated(0, 1.2D, 0);
-        GL11.glScalef(0.8F, 0.8F, 0.8F);
+        GL11.glScalef(2.8F, 2.8F, 2.8F);
     }
 
     /**
@@ -109,48 +110,6 @@ public class DeepoidDragonRenderer extends RenderLiving
     {
     	BossStatus.setBossStatus(p_76986_1_, false);
         super.doRender((EntityLiving)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
-
-        if (p_76986_1_.healingEnderCrystal != null)
-        {
-            float f2 = (float)p_76986_1_.healingEnderCrystal.innerRotation + p_76986_9_;
-            float f3 = MathHelper.sin(f2 * 0.2F) / 2.0F + 0.5F;
-            f3 = (f3 * f3 + f3) * 0.2F;
-            float f4 = (float)(p_76986_1_.healingEnderCrystal.posX - p_76986_1_.posX - (p_76986_1_.prevPosX - p_76986_1_.posX) * (double)(1.0F - p_76986_9_));
-            float f5 = (float)((double)f3 + p_76986_1_.healingEnderCrystal.posY - 1.0D - p_76986_1_.posY - (p_76986_1_.prevPosY - p_76986_1_.posY) * (double)(1.0F - p_76986_9_));
-            float f6 = (float)(p_76986_1_.healingEnderCrystal.posZ - p_76986_1_.posZ - (p_76986_1_.prevPosZ - p_76986_1_.posZ) * (double)(1.0F - p_76986_9_));
-            float f7 = MathHelper.sqrt_float(f4 * f4 + f6 * f6);
-            float f8 = MathHelper.sqrt_float(f4 * f4 + f5 * f5 + f6 * f6);
-            GL11.glPushMatrix();
-            GL11.glTranslatef((float)p_76986_2_, (float)p_76986_4_ + 2.0F, (float)p_76986_6_);
-            GL11.glRotatef((float)(-Math.atan2((double)f6, (double)f4)) * 180.0F / (float)Math.PI - 90.0F, 0.0F, 1.0F, 0.0F);
-            GL11.glRotatef((float)(-Math.atan2((double)f7, (double)f5)) * 180.0F / (float)Math.PI - 90.0F, 1.0F, 0.0F, 0.0F);
-            Tessellator tessellator = Tessellator.instance;
-            RenderHelper.disableStandardItemLighting();
-            GL11.glDisable(GL11.GL_CULL_FACE);
-            this.bindTexture(DeepoidDragonCrystalBeamTextures);
-            GL11.glShadeModel(GL11.GL_SMOOTH);
-            float f9 = 0.0F - ((float)p_76986_1_.ticksExisted + p_76986_9_) * 0.01F;
-            float f10 = MathHelper.sqrt_float(f4 * f4 + f5 * f5 + f6 * f6) / 32.0F - ((float)p_76986_1_.ticksExisted + p_76986_9_) * 0.01F;
-            tessellator.startDrawing(5);
-            byte b0 = 8;
-
-            for (int i = 0; i <= b0; ++i)
-            {
-                float f11 = MathHelper.sin((float)(i % b0) * (float)Math.PI * 2.0F / (float)b0) * 0.75F;
-                float f12 = MathHelper.cos((float)(i % b0) * (float)Math.PI * 2.0F / (float)b0) * 0.75F;
-                float f13 = (float)(i % b0) * 1.0F / (float)b0;
-                tessellator.setColorOpaque_I(0);
-                tessellator.addVertexWithUV((double)(f11 * 0.2F), (double)(f12 * 0.2F), 0.0D, (double)f13, (double)f10);
-                tessellator.setColorOpaque_I(16777215);
-                tessellator.addVertexWithUV((double)f11, (double)f12, (double)f8, (double)f13, (double)f9);
-            }
-
-            tessellator.draw();
-            GL11.glEnable(GL11.GL_CULL_FACE);
-            GL11.glShadeModel(GL11.GL_FLAT);
-            RenderHelper.enableStandardItemLighting();
-            GL11.glPopMatrix();
-        }
     }
 
     /**

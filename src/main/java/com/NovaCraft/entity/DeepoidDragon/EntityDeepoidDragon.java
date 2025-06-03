@@ -55,15 +55,10 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     public double targetX;
     public double targetY;
     public double targetZ;
-    /** Ring buffer array for the last 64 Y-positions and yaw rotations. Used to calculate offsets for the animations. */
     public double[][] ringBuffer = new double[64][3];
-    /** Index into the ring buffer. Incremented once per tick and restarts at 0 once it reaches the end of the buffer. */
     public int ringBufferIndex = -1;
-    /** An array containing all body parts of this dragon */
     public EntityDeepoidDragonPart[] dragonPartArray;
-    /** The head bounding box of a dragon */
     public EntityDeepoidDragonPart dragonPartHead;
-    /** The body bounding box of a dragon */
     public EntityDeepoidDragonPart dragonPartBody;
     public EntityDeepoidDragonPart dragonPartTail1;
     public EntityDeepoidDragonPart dragonPartTail2;
@@ -75,18 +70,12 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     public int attackCounter;
     public int courseChangeCooldown;
     private int field_70846_g;
-    /** Animation time at previous tick. */
     public float prevAnimTime;
-    /** Animation time, used to control the speed of the animation cycles (wings flapping, jaw opening, etc.) */
     public float animTime;
-    /** Force selecting a new flight target at next tick if set to true. */
     public boolean forceNewTarget;
-    /** Activated if the dragon is flying though obsidian, white stone or bedrock. Slows movement and animation speed. */
     public boolean slowed = false;
     private Entity target;
     public int deathTicks;
-    /** The current endercrystal that is healing this dragon */
-    public EntityEnderCrystal healingEnderCrystal;
     public EntityLivingBase shootingEntity;
 
     public EntityDeepoidDragon(final World p_i1700_1_)
@@ -105,17 +94,8 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        
-        //World world = MinecraftServer.getServer().worldServers[0];
-        //Hardmode data = Hardmode.get(world);
-        //if (data.getHardmode() == true) {
-        //	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(800.0D);
-        //	this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(400.0D);
-        //}
-       // else {
-        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(500.0D);
-        	this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(400.0D);
-        //}
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(500.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(400.0D);
     }
     
     public void registerEntityAI() {
@@ -134,10 +114,6 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
         super.entityInit();
     }
     
-    /**
-     * Returns a double[3] array with movement offsets, used to calculate trailing tail/neck positions. [0] = yaw
-     * offset, [1] = y offset, [2] = unused, always 0. Parameters: buffer index offset, partial ticks.
-     */
     public double[] getMovementOffsets(int p_70974_1_, float p_70974_2_)
     {
         if (this.getHealth() <= 0.0F)
@@ -168,9 +144,9 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     		
     		Vec3 look = this.getLookVec();
 
-    		double dist = -3.9; //0.9
+    		double dist = -2.9; //3.9
     		double px = this.posX + look.xCoord * dist;
-    		double py = this.posY + 0.25 + look.yCoord * dist; //0.25
+    		double py = this.posY + 4.25 + look.yCoord * dist; //0.25
     		double pz = this.posZ + look.zCoord * dist;
 
     			for (int i = 0; i < 6; i++)
@@ -189,16 +165,11 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     			dy *= velocity;
     			dz *= velocity;
     			
-    			ParticleHandler.IONFLAME.spawn(worldObj, px, py, pz, -dx, dy, -dz, 0.0f, new Object[0]);
+    			ParticleHandler.IONFLAMELARGE.spawn(worldObj, px, py, pz, -dx, dy, -dz, 0.0f, new Object[0]);
     			}   	  
     	}
     }
 
-    /**
-     * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
-     * use this to react to sunlight and start to burn.
-     */
-    //@Override
     public void onLivingUpdate()
     {
     	
@@ -483,9 +454,6 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
 		worldObj.playSoundEffect(this.posX + 0.5, this.posY + 0.5, this.posZ + 0.5, "nova_craft:deepoid.breath", rand.nextFloat() * 0.5F, rand.nextFloat() * 0.5F); //mob.enderdragon.growl
 	}
 
-    /**
-     * Pushes all entities inside the list away from the enderdragon.
-     */
     private void collideWithEntities(List p_70970_1_)
     {
         double d0 = (this.dragonPartBody.boundingBox.minX + this.dragonPartBody.boundingBox.maxX) / 2.0D;
@@ -509,9 +477,6 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     	this.FireBreath();
     }
 
-    /**
-     * Attacks all entities inside this list, dealing 25 hearts of damage.
-     */
     private void attackEntitiesInList(List p_70971_1_)
     {
         for (int i = 0; i < p_70971_1_.size(); ++i)
@@ -519,9 +484,7 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
             Entity entity = (Entity)p_70971_1_.get(i);
        if(!((entity instanceof EntityVargouzite) || (entity instanceof EntityIonizatior))) { 
     	   
-    	   	World world = MinecraftServer.getServer().worldServers[0];
-           	Hardmode data = Hardmode.get(world);
-            if (entity instanceof EntityLivingBase && data.getHardmode() == true)
+            if (entity instanceof EntityLivingBase)
             {            
                 entity.attackEntityFrom(DamageSource.magic, 12.0F);
                 entity.attackEntityFrom(DamageSource.outOfWorld, 2.0F);        
@@ -541,29 +504,7 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
         			//nice try
         		  }
                 }
-             }
-            else if (entity instanceof EntityLivingBase && data.getHardmode() == false) 
-            {
-            	entity.attackEntityFrom(DamageSource.magic, 8.0F);
-                entity.attackEntityFrom(DamageSource.outOfWorld, 2.0F);        
-                
-                {
-                if (!entity.isImmuneToFire())
-            	{
-                	entity.setFire(20);
-                	entity.attackEntityFrom(DamageSource.inFire, 24.0F);
-                	entity.attackEntityFrom(DamageSource.magic, 15.0F);
-            	}
-        		else
-        		{
-        			entity.setFire(20);
-        			entity.attackEntityFrom(DamageSource.generic, 22.0F);
-                	entity.attackEntityFrom(DamageSource.magic, 15.0F);	
-        			//nice try
-        		  }
-                }
-            }
-            
+             }           
           }
        
        		if (worldObj.isRemote) //good
@@ -573,9 +514,7 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
 
     }
 
-    /**
-     * Sets a new target for the flight AI. It can be a random coordinate or a nearby player.
-     */
+    //This causes the dragon to return to 0,0 for the Ender Dragon, instead the dragon stops moving when a player is not found
     private void setNewTarget()
     {
         this.forceNewTarget = false;
@@ -585,32 +524,23 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
             this.target = (Entity)this.worldObj.playerEntities.get(this.rand.nextInt(this.worldObj.playerEntities.size()));   
                       
         }
+        else if (this.target != null)
+        {
+            float angle = this.rotationYaw * (float)Math.PI / 180.0F;
+            double distance = 20.0D;
+            this.targetX = this.posX + (double)(MathHelper.sin(angle) * distance);
+            this.targetZ = this.posZ - (double)(MathHelper.cos(angle) * distance);
+            this.targetY = this.posY;
+            this.target = null;
+        }
         else
         {
-            boolean flag = false;
-
-            do
-            {
-                this.targetX = 0.0D;
-                this.targetY = (double)(70.0F + this.rand.nextFloat() * 50.0F);
-                this.targetZ = 0.0D;
-                this.targetX += (double)(this.rand.nextFloat() * 120.0F - 60.0F);
-                this.targetZ += (double)(this.rand.nextFloat() * 120.0F - 60.0F);
-                double d0 = this.posX - this.targetX;
-                double d1 = this.posY - this.targetY;
-                double d2 = this.posZ - this.targetZ;
-                flag = d0 * d0 + d1 * d1 + d2 * d2 > 100.0D;
-                              
-            }
-            while (!flag);
-
-            this.target = null;
+            this.targetX = this.posX;
+            this.targetY = this.posY;
+            this.targetZ = this.posZ;
         }
     }
 
-    /**
-     * Simplifies the value of a number by adding/subtracting 180 to the point that the number is between -180 and 180.
-     */
     private float simplifyAngle(double p_70973_1_)
     {
         return (float)MathHelper.wrapAngleTo180_double(p_70973_1_);
@@ -691,10 +621,6 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     {
         return super.attackEntityFrom(p_82195_1_, p_82195_2_);
     }
-    
-    /**
-     * handles entity death timer, experience orb and particle creation
-     */
     
     public int getTotalArmorValue()
     {
@@ -790,17 +716,11 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
                
     } 
 
-    /**
-     * Return the Entity parts making up this Entity (currently only for dragons)
-     */
     public Entity[] getParts()
     {
         return this.dragonPartArray;
     }
 
-    /**
-     * Returns true if other Entities should be prevented from moving through this Entity.
-     */
     public boolean canBeCollidedWith()
     {
         return false;
@@ -811,25 +731,16 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
         return this.worldObj;
     }
 
-    /**
-     * Returns the sound this mob makes while it's alive.
-     */
     protected String getLivingSound()
     {
         return "mob.enderdragon.growl";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
     protected String getHurtSound()
     {
         return "mob.enderdragon.hit";
     }
 
-    /**
-     * Returns the volume for the sounds this mob makes.
-     */
     protected float getSoundVolume()
     {
         return 3.0F;

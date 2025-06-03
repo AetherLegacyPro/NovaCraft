@@ -4,12 +4,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.NovaCraft.TileEntity.ContainerLegendaryBeacon;
+import com.NovaCraft.TileEntity.TileEntityDeepoidFurnace;
 import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
 import com.NovaCraft.container.AdvancedEnchantmentTableContainer;
 import com.NovaCraft.container.AdvancedSmithingTableContainer;
+import com.NovaCraft.container.DeepoidFurnaceContainer;
 import com.NovaCraft.container.LegendaryEnchantmentTableContainer;
 import com.NovaCraft.gui.GuiAdvancedEnchantmentTable;
 import com.NovaCraft.gui.GuiAdvancedSmithingTable;
+import com.NovaCraft.gui.GuiDeepoidFurnace;
 import com.NovaCraft.gui.GuiLegendaryBeacon;
 import com.NovaCraft.gui.GuiLegendaryEnchantmentTable;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -42,55 +45,57 @@ public class CommonProxy implements IGuiHandler
     }
 	
 	@Override
-	public Object getClientGuiElement(final int par1, final EntityPlayer par2EntityPlayer, final World par3World, final int par4, final int par5, final int par6) {
-        final TileEntity var7 = par3World.getTileEntity(par4, par5, par6);
-        switch (par1) {
-            default: {
-                if (par1 == 1) {
-                    return (par1 == 1 && par3World.getBlock(par4, par5, par6) == NovaCraftBlocks.advanced_smithing_table) ? new GuiAdvancedSmithingTable(par2EntityPlayer.inventory, par3World, par4, par5, par6) : null;
-                }
-                if (par1 == 2) {
-                final TileEntity tileentity = par3World.getTileEntity(par4, par5, par6);
+	public Object getClientGuiElement(final int id, final EntityPlayer player, final World world, final int x, final int y, final int z) {
+        final TileEntity tile_entity = world.getTileEntity(x, y, z);
+        switch (id) {
+        	case 1: {
+                return (world.getBlock(x, y, z) == NovaCraftBlocks.advanced_smithing_table) ? new GuiAdvancedSmithingTable(player.inventory, world, x, y, z) : null;
+            }
+        	case 2: {
+                final TileEntity tileentity = world.getTileEntity(x, y, z);
                 if (tileentity instanceof TileEntityLegendaryBeacon) {
-                    return new GuiLegendaryBeacon(par2EntityPlayer.inventory, (TileEntityLegendaryBeacon)tileentity);
+                    return new GuiLegendaryBeacon(player.inventory, (TileEntityLegendaryBeacon)tileentity);
                 }
                 break;
-              }
-                if (par1 == 3) {
-        			return new GuiLegendaryEnchantmentTable(par2EntityPlayer.inventory, par2EntityPlayer.worldObj, par4, par5, par6, null);
-        	  }
-                if (par1 == 4) {
-        			return new GuiAdvancedEnchantmentTable(par2EntityPlayer.inventory, par2EntityPlayer.worldObj, par4, par5, par6, null);
+            }
+        	case 3: {
+        		return new GuiLegendaryEnchantmentTable(player.inventory, player.worldObj, x, y, z, null);
+        	}
+        	case 4: {
+        		return new GuiAdvancedEnchantmentTable(player.inventory, player.worldObj, x, y, z, null);
+        		}
+        	case 5: {
+        		return new GuiDeepoidFurnace(player.inventory, (TileEntityDeepoidFurnace)tile_entity);
         		}
             }
-        }
         
         return null;
     }
     
 	@Override
-    public Object getServerGuiElement(final int par1, final EntityPlayer par2EntityPlayer, final World par3World, final int par4, final int par5, final int par6) {
-        final TileEntity var7 = par3World.getTileEntity(par4, par5, par6);
-        switch (par1) {           
-            default: {
-                if (par1 == 1) {
-                    return (par1 == 1 && par3World.getBlock(par4, par5, par6) == NovaCraftBlocks.advanced_smithing_table) ? new AdvancedSmithingTableContainer(par2EntityPlayer.inventory, par3World, par4, par5, par6) : null;
+    public Object getServerGuiElement(final int id, final EntityPlayer player, final World world, final int x, final int y, final int z) {
+        final TileEntity tile_entity = world.getTileEntity(x, y, z);
+        switch (id) {           
+        	case 1: {
+                    return (world.getBlock(x, y, z) == NovaCraftBlocks.advanced_smithing_table) ? new AdvancedSmithingTableContainer(player.inventory, world, x, y, z) : null;
                 }
-                if (par1 == 2) {
-                final TileEntity tileentity = par3World.getTileEntity(par4, par5, par6);
+        	case 2: {
+                final TileEntity tileentity = world.getTileEntity(x, y, z);
                 if (tileentity instanceof TileEntityLegendaryBeacon) {
-                    return new ContainerLegendaryBeacon(par2EntityPlayer.inventory, (TileEntityLegendaryBeacon)tileentity);
+                    return new ContainerLegendaryBeacon(player.inventory, (TileEntityLegendaryBeacon)tileentity);
                 }
                 break;
               }
-                if (par1 == 3) {
-        			return (par1 == 3 && par3World.getBlock(par4, par5, par6) == NovaCraftBlocks.legendary_enchantment_table) ? new LegendaryEnchantmentTableContainer(par2EntityPlayer.inventory, par2EntityPlayer.worldObj, par4, par5, par6) : null;
+        	case 3: {
+        			return (world.getBlock(x, y, z) == NovaCraftBlocks.legendary_enchantment_table) ? new LegendaryEnchantmentTableContainer(player.inventory, player.worldObj, x, y, z) : null;
         	  }
-                if (par1 == 4) {
-        			return (par1 == 4 && par3World.getBlock(par4, par5, par6) == NovaCraftBlocks.advanced_enchantment_table) ? new AdvancedEnchantmentTableContainer(par2EntityPlayer.inventory, par2EntityPlayer.worldObj, par4, par5, par6) : null;
+        	case 4: {
+        			return (world.getBlock(x, y, z) == NovaCraftBlocks.advanced_enchantment_table) ? new AdvancedEnchantmentTableContainer(player.inventory, player.worldObj, x, y, z) : null;
+        	  } 
+        	case 5: {
+        		return new DeepoidFurnaceContainer(player.inventory, (TileEntityDeepoidFurnace)tile_entity);
         	  }
             }
-        }
         return null;
     }
 	

@@ -17,6 +17,7 @@ import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.container.BlockAdvancedEnchantmentTable;
 import com.NovaCraftBlocks.container.BlockAdvancedSmithingTable;
 import com.NovaCraftBlocks.container.BlockAncientChest;
+import com.NovaCraftBlocks.container.BlockDeepoidFurnace;
 import com.NovaCraftBlocks.container.BlockFloodedChest;
 import com.NovaCraftBlocks.container.BlockLegendaryBeacon;
 import com.NovaCraftBlocks.container.BlockLegendaryEnchantmentTable;
@@ -211,7 +212,7 @@ public class NovaCraftBlocks {
 	public static Block luminant_log, luminant_sapling, luminant_leaves, luminant_planks;
 	public static Block luminant_slab, luminant_double_slab, luminant_stairs, luminant_fence, luminant_fence_gate;
 	public static Block glow_torch, vanite_torch, dim_vanite_torch;
-	public static Block blazing_coal_block;
+	public static Block blazing_coal_block, glowing_obsidian;
 	
 	//Decoration Blocks
 	public static Block grimstone_slab, grimstone_double_slab, grimstone_stairs, grimstone_wall;
@@ -330,6 +331,7 @@ public class NovaCraftBlocks {
 	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table;
 	public static Block unbreakable_ancient_chest, ancient_chest;
 	public static Block nullwart_brick_bookshelf, sculk_brick_bookshelf;
+	public static Block deepoid_bricks, deepoid_power_core, deepoid_furnace, lit_deepoid_furnace;
 	
 	//9x Duplication Structure
 	public static Block raw_divineral, raw_netherite;
@@ -401,6 +403,8 @@ public class NovaCraftBlocks {
 		etherstone_gold = register("etherstone_gold", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_gold_ore")));
 		etherstone_iron = register("etherstone_iron", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_iron_ore")));
 		etherstone_brimstone = register("etherstone_brimstone", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_brimstone_ore")));
+		
+		glowing_obsidian = register("glowing_obsidian", new BlockGlowingObsidian().setBlockTextureName(NovaCraft.find("glowing_obsidian")));
 		
 		basal = register("basal", new BlockBasal());
 		basal_bricks = register("basal_bricks", new BlockBasalBuildingBlocks().setBlockTextureName(NovaCraft.find("basal_bricks")));
@@ -485,6 +489,11 @@ public class NovaCraftBlocks {
 		crystallized_vanite = register("crystallized_vanite", new BlockCrystallizedVanite().setBlockTextureName(NovaCraft.find("crystallized_vanite")));
 		vanite_cluster = registerMeta("vanite_cluster", new BlockVaniteCluster(0));
 		nullified_vanite = register("nullified_vanite", new BlockCrystallizedVanite().setBlockTextureName(NovaCraft.find("nullified_vanite")));
+
+		deepoid_bricks = registerItemBlock("deepoid_bricks", new BlockVaniteBricks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("deepoid_bricks"));
+		deepoid_power_core = register("deepoid_power_core", new BlockDeepoidPowerCore().setLightLevel(0.9775F).setBlockTextureName(NovaCraft.find("deepoid_power_core")));		
+		deepoid_furnace = register("deepoid_furnace", new BlockDeepoidFurnace(false).setBlockTextureName(NovaCraft.find("deepoid_furnace")));
+		lit_deepoid_furnace = registerHidden("lit_deepoid_furnace", new BlockDeepoidFurnace(true).setLightLevel(0.9775F).setCreativeTab(null));
 		
 		deep_one_egg = register("deep_one_egg", new BlockDeepOneEgg().setBlockTextureName(NovaCraft.find("deep_one_egg")));
 		deep_one_egg_activated = registerHidden("deep_one_egg_activated", new BlockDeepOneEggActivated().setBlockTextureName(NovaCraft.find("deep_one_egg_activated")));
