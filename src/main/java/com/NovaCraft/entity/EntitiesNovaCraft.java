@@ -205,7 +205,7 @@ public class EntitiesNovaCraft {
 		}
 		
 		if (Configs.enableSpawnDeathStalker) {
-			EntityRegistry.addSpawn(EntityDeathStalker.class, 6, 4, 6, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.SANDY));
+			EntityRegistry.addSpawn(EntityDeathStalker.class, 10, 4, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.SANDY));
 		}
 		
 		if (Configs.enableSpawnFirefly) {

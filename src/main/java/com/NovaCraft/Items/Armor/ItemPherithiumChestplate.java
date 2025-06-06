@@ -26,7 +26,7 @@ public class ItemPherithiumChestplate extends ItemArmor
 {
     public ItemPherithiumChestplate() {
         super(NCArmorMaterial.PHERITHIUM, 0, 1);
-        this.setCreativeTab(NovaCraftCreativeTabs.tools); //.setMaxDamage(313)
+        this.setCreativeTab(NovaCraftCreativeTabs.tools);
     }
     
     public String getArmorTexture(final ItemStack stack, final Entity entity, final int slot, final String type) {

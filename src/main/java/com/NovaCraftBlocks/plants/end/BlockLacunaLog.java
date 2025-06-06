@@ -23,6 +23,7 @@ import net.minecraft.world.World;
 
 public class BlockLacunaLog extends Block {
 	
+	//Credit to Et Futurum
 	private IIcon[][] icon;
 	
 	public BlockLacunaLog() {

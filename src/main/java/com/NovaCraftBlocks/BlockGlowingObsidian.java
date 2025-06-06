@@ -17,6 +17,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
@@ -28,7 +29,7 @@ public class BlockGlowingObsidian extends Block {
 	public BlockGlowingObsidian() {
 		super(Material.rock);
 		this.setTickRandomly(true);
-		this.setLightLevel(0.38F);
+		this.setLightLevel(0.48F);
 		this.setHardness(50F);
 		this.setResistance(6000F);
 		this.setStepSound(soundTypeStone);
@@ -40,26 +41,40 @@ public class BlockGlowingObsidian extends Block {
  		if (!entity.isImmuneToFire()) {
 			entity.setFire(3);
  		}
+ 		
+ 		entity.motionX *= 0.55D;
+ 		entity.motionZ *= 0.55D;
 	}
-
-    public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity p_149670_5_)
-    {	
-        p_149670_5_.motionX *= 0.75D;
-        p_149670_5_.motionZ *= 0.75D;
+    
+    @Override
+    public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata) {
+        return true;
     }
     
     public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
         return Item.getItemFromBlock(Blocks.obsidian);
     }
     
-    protected boolean canSilkHarvest() {
-        return false;
+    @Override
+	public int damageDropped(int meta) {
+		return 0;
+	}
+    
+    @Override
+    public int quantityDropped(Random random) {
+        return 1;
+    }
+
+    @Override
+    public ItemStack createStackedBlock(int metadata) {
+        return new ItemStack(this, 1, 1);
     }
     
     @Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
+    	int meta = world.getBlockMetadata(i, j, k);
     	
-    	if (world.getBlock(i, j - 1, k) != Blocks.lava) {   		
+    	if (world.getBlock(i, j - 1, k) != Blocks.lava && meta == 0) {   		
     		world.setBlock(i, j, k, Blocks.obsidian, 0, 2);
             world.playSoundEffect((double)(i + 0.5f), (double)(j + 0.5f), (double)(k + 0.5f), "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);    		
     	}

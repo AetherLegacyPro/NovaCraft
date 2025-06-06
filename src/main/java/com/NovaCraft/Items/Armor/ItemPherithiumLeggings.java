@@ -21,7 +21,7 @@ public class ItemPherithiumLeggings extends ItemArmor
 {
     public ItemPherithiumLeggings() {
         super(NCArmorMaterial.PHERITHIUM, 0, 2);
-        this.setCreativeTab(NovaCraftCreativeTabs.tools); //.setMaxDamage(300)
+        this.setCreativeTab(NovaCraftCreativeTabs.tools);
     }
     
     public String getArmorTexture(final ItemStack stack, final Entity entity, final int slot, final String type) {

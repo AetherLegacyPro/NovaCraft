@@ -21,6 +21,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockLacunaFruit extends Block {
 	
+	//Credit to Et Futurum
 	@SideOnly(Side.CLIENT)
 	private IIcon deadIcon;
 
@@ -205,7 +206,6 @@ public class BlockLacunaFruit extends Block {
 			{
 				ForgeDirection[] horizontal = {ForgeDirection.NORTH, ForgeDirection.SOUTH, ForgeDirection.WEST, ForgeDirection.EAST};
 				ForgeDirection ForgeDirection = horizontal[rand.nextInt(horizontal.length)];
-//                BlockPos blockpos1 = bp1.up(i).offset(ForgeDirection);
 				int bp1x = x + ForgeDirection.offsetX;
 				int bp1y = y + ForgeDirection.offsetY + i;
 				int bp1z = z + ForgeDirection.offsetZ;

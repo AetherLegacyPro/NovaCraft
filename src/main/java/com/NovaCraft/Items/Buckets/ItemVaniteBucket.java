@@ -23,9 +23,7 @@ import net.minecraftforge.event.entity.player.FillBucketEvent;
 
 public class ItemVaniteBucket extends Item
 {
-    /** field for checking if the bucket has been filled. */
     private Block isFull;
-    private static final String __OBFID = "CL_00000000";
 
     public ItemVaniteBucket(Block p_i45331_1_)
     {
@@ -34,9 +32,6 @@ public class ItemVaniteBucket extends Item
         this.setCreativeTab(NovaCraftCreativeTabs.items);
     }
 
-    /**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-     */
     public ItemStack onItemRightClick(ItemStack p_77659_1_, World p_77659_2_, EntityPlayer p_77659_3_)
     {
         boolean flag = this.isFull == Blocks.air;
@@ -193,9 +188,6 @@ public class ItemVaniteBucket extends Item
         }
     }
 
-    /**
-     * Attempts to place the liquid contained inside the bucket.
-     */
     public boolean tryPlaceContainedLiquid(World p_77875_1_, int p_77875_2_, int p_77875_3_, int p_77875_4_)
     {
         if (this.isFull == Blocks.air)

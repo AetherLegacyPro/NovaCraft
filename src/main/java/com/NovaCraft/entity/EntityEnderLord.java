@@ -462,7 +462,7 @@ public class EntityEnderLord extends EntityMob
     protected void dropRareDrop(int p_70600_1_)
     {
 
-       this.dropItem(NovaCraftItems.heart_of_the_end, 1);
+       this.dropItem(NovaCraftItems.fractured_heart_of_the_end, 1);
 
     }
 

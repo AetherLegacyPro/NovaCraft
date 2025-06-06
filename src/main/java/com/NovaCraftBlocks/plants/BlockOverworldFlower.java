@@ -15,11 +15,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 
-public class BlockCyanRose extends BlockBush {
+public class BlockOverworldFlower extends BlockBush {
 
 	public AxisAlignedBB FLOWER_AABB = AxisAlignedBB.getBoundingBox(0.30000001192092896D, 0.0D, 0.30000001192092896D, 0.699999988079071D, 0.6000000238418579D, 0.699999988079071D);
 
-	public BlockCyanRose() {
+	public BlockOverworldFlower() {
 		this.setHardness(0.0F);
 		this.setTickRandomly(true);
 		this.setStepSound(soundTypeGrass);

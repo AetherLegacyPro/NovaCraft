@@ -14,31 +14,14 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockCrackedCalciteBricks extends Block {
+public class BlockCalciteBuildingBlocks extends Block {
 
-	@SideOnly(Side.CLIENT)
-	private IIcon iconFace, iconTop;
-	
-	public BlockCrackedCalciteBricks() {
+	public BlockCalciteBuildingBlocks() {
 		super(Material.rock);
 		this.setHardness(0.75F);
 		this.setResistance(2);
 		this.setStepSound(ModSounds.soundSculkBricks);
 		this.setHarvestLevel("pickaxe", 0);
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta){
-		return side == 0 || side == 1 ? iconTop : meta >= 1 && side-1 == meta ? iconFace : blockIcon;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister){
-		blockIcon = iconRegister.registerIcon("nova_craft:cracked_calcite_bricks");
-		iconFace = iconRegister.registerIcon("nova_craft:cracked_calcite_bricks");
-		iconTop = iconRegister.registerIcon("nova_craft:cracked_calcite_bricks");
 	}
 
 }

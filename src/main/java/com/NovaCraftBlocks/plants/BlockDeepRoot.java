@@ -54,10 +54,7 @@ public class BlockDeepRoot extends BlockMushroom implements IShearable {
 		iconFace = iconRegister.registerIcon("nova_craft:deep_roots");
 		iconTop = iconRegister.registerIcon("nova_craft:deep_roots");
 	}
-	
-	/**
-     * is the block grass, dirt or farmland
-     */
+
     protected boolean canPlaceBlockOn(Block p_149854_1_)
     {
         return (p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == Blocks.stone || p_149854_1_ == OtherModBlocks.deepslate
@@ -65,9 +62,6 @@ public class BlockDeepRoot extends BlockMushroom implements IShearable {
         		|| p_149854_1_ == NovaCraftBlocks.sculk_grimstone || p_149854_1_ == NovaCraftBlocks.sculk_stone);
     }
 
-    /**
-     * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
-     */
     public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_)
     {
         return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);

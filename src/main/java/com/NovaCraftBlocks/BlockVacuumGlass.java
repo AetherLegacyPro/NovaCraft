@@ -16,8 +16,6 @@ public class BlockVacuumGlass extends BlockBreakable
 {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
-	
-    private static final String __OBFID = "CL_00000249";
 
     public BlockVacuumGlass(Material p_i45408_1_, boolean p_i45408_2_)
     {

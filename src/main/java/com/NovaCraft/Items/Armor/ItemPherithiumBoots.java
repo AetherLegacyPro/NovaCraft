@@ -21,7 +21,7 @@ public class ItemPherithiumBoots extends ItemArmor
 {
     public ItemPherithiumBoots () {
         super(NCArmorMaterial.PHERITHIUM, 0, 3);
-        this.setCreativeTab(NovaCraftCreativeTabs.tools); //.setMaxDamage(277)
+        this.setCreativeTab(NovaCraftCreativeTabs.tools);
     }
     
     public String getArmorTexture(final ItemStack stack, final Entity entity, final int slot, final String type) {

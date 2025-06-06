@@ -45,10 +45,7 @@ public class BlockPETNWire extends Block {
             world.setBlockToAir(x, y, z);
         }
 	}
-	
-	/**
-     * Called whenever the block is added into the world. Args: world, x, y, z
-     */
+
     public void onBlockAdded(World world, int x, int y, int z)
     {
         super.onBlockAdded(world, x, y, z);

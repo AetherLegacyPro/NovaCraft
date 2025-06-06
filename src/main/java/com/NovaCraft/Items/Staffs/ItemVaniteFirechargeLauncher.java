@@ -137,7 +137,7 @@ public class ItemVaniteFirechargeLauncher extends ItemBow {
 				float f = getArrowVelocity(i);
 
 				if ((double) f >= 0.1D) {
-					boolean flag1 = entityplayer.capabilities.isCreativeMode; //|| EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0
+					boolean flag1 = entityplayer.capabilities.isCreativeMode;
 
 					if (!worldIn.isRemote) {
 						float f2 = 2.0F;

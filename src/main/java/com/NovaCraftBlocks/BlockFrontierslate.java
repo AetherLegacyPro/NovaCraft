@@ -19,9 +19,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockFrontierslate extends Block {
-
-	@SideOnly(Side.CLIENT)
-	private IIcon iconFace, iconTop;
 	
 	public BlockFrontierslate() {
 		super(Material.rock);
@@ -29,20 +26,6 @@ public class BlockFrontierslate extends Block {
 		this.setResistance(15);
 		this.setStepSound(ModSounds.soundFrontierslate);
 		this.setHarvestLevel("pickaxe", 3);
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta){
-		return side == 0 || side == 1 ? iconTop : meta >= 1 && side-1 == meta ? iconFace : blockIcon;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister){
-		blockIcon = iconRegister.registerIcon("nova_craft:frontierslate");
-		iconFace = iconRegister.registerIcon("nova_craft:frontierslate");
-		iconTop = iconRegister.registerIcon("nova_craft:frontierslate");
 	}
 	
 }

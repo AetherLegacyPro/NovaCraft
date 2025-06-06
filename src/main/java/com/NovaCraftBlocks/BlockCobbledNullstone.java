@@ -23,7 +23,7 @@ public class BlockCobbledNullstone extends Block {
 	public BlockCobbledNullstone() {
 		super(Material.rock);
 		this.setHardness(5);
-		this.setResistance(30);
+		this.setResistance(12);
 		this.setStepSound(ModSounds.soundNullstone);
 		this.setHarvestLevel("pickaxe", 3);
 	}

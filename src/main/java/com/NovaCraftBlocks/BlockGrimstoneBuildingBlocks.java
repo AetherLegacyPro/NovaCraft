@@ -15,32 +15,14 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockCrackedGrimstoneBricks extends Block {
-
-	@SideOnly(Side.CLIENT)
-	private IIcon iconFace, iconTop;
+public class BlockGrimstoneBuildingBlocks extends Block {
 	
-	public BlockCrackedGrimstoneBricks() {
+	public BlockGrimstoneBuildingBlocks() {
 		super(Material.rock);
 		this.setHardness(3);
 		this.setResistance(6);
 		this.setStepSound(ModSounds.soundGrimstoneBricks);
 		this.setHarvestLevel("pickaxe", 1);
 	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta){
-		return side == 0 || side == 1 ? iconTop : meta >= 1 && side-1 == meta ? iconFace : blockIcon;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister){
-		blockIcon = iconRegister.registerIcon("nova_craft:cracked_grimstone_bricks");
-		iconFace = iconRegister.registerIcon("nova_craft:cracked_grimstone_bricks");
-		iconTop = iconRegister.registerIcon("nova_craft:cracked_grimstone_bricks");
-	}
 
 }
-

@@ -24,7 +24,6 @@ public class BlockNullWart extends BlockBush
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] field_149883_a;
-    private static final String __OBFID = "CL_00000274";
 
     public BlockNullWart()
     {
@@ -34,25 +33,16 @@ public class BlockNullWart extends BlockBush
         this.setCreativeTab((CreativeTabs)null);
     }
 
-    /**
-     * is the block grass, dirt or farmland
-     */
     protected boolean canPlaceBlockOn(Block p_149854_1_)
     {
         return p_149854_1_ == NovaCraftBlocks.nullstone;
     }
 
-    /**
-     * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
-     */
     public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_)
     {
         return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
     }
 
-    /**
-     * Ticks the block if it's been scheduled
-     */
     public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_)
     {
         int l = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
@@ -66,26 +56,17 @@ public class BlockNullWart extends BlockBush
         super.updateTick(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_, p_149674_5_);
     }
 
-    /**
-     * Gets the block's texture. Args: side, meta
-     */
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int p_149691_1_, int p_149691_2_)
     {
         return p_149691_2_ >= 3 ? this.field_149883_a[2] : (p_149691_2_ > 0 ? this.field_149883_a[1] : this.field_149883_a[0]);
     }
 
-    /**
-     * The type of render function that is called for this block
-     */
     public int getRenderType()
     {
         return 6;
     }
 
-    /**
-     * Drops the block items with a specified chance of dropping the specified items
-     */
     @SuppressWarnings("unused")
     public void dropBlockAsItemWithChance(World p_149690_1_, int p_149690_2_, int p_149690_3_, int p_149690_4_, int p_149690_5_, float p_149690_6_, int p_149690_7_)
     {
@@ -117,17 +98,11 @@ public class BlockNullWart extends BlockBush
         return null;
     }
 
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
     public int quantityDropped(Random p_149745_1_)
     {
         return 0;
     }
 
-    /**
-     * Gets an item for the block being called on. Args: world, x, y, z
-     */
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {

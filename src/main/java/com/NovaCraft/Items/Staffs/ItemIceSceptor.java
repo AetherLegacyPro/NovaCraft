@@ -86,7 +86,6 @@ public class ItemIceSceptor extends ItemSword {
 			par2World.playSoundAtEntity(par3EntityPlayer, "nova_craft:snow_projectile.step", 2.0F, 2.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
 			if (flag) {
-				//entityarrow.canBePickedUp = 2;
 			} else {
 				par3EntityPlayer.inventory.consumeInventoryItem(Items.snowball);
 			}

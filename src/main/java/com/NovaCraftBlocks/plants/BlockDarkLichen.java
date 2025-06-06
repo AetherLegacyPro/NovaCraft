@@ -448,12 +448,6 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
 				double d3 = (p_149734_5_.nextFloat() - 0.5D) * 0.5D;
 				double d4 = (p_149734_5_.nextFloat() - 0.5D) * 0.5D;
 				double d5 = (p_149734_5_.nextFloat() - 0.5D) * 0.5D;
-
-				//ParticleDarkLichen obj = new ParticleDarkLichen(p_149734_1_, d, d1, d2, d3, d4, d5);
-				//FMLClientHandler.instance().getClient().effectRenderer.addEffect(obj);
-				
-				//ParticleDarkLichenTwo obj2 = new ParticleDarkLichenTwo(p_149734_1_, d, d1, d2, d3, d4, d5);
-				//FMLClientHandler.instance().getClient().effectRenderer.addEffect(obj2);
 				
 				ParticleDarkLichenThree obj3 = new ParticleDarkLichenThree(p_149734_1_, d, d1, d2, d3, d4, d5);
 				FMLClientHandler.instance().getClient().effectRenderer.addEffect(obj3);

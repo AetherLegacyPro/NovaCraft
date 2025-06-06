@@ -61,14 +61,12 @@ import com.NovaCraftBlocks.explosives.BlockPETNWire;
 import com.NovaCraftBlocks.explosives.BlockXanciumTNT;
 import com.NovaCraftBlocks.explosives.BlockXanciumWire;
 import com.NovaCraftBlocks.ores.BlockBrimstoneOre;
-import com.NovaCraftBlocks.ores.BlockCarvedVaniteBricks;
 import com.NovaCraftBlocks.ores.BlockCrystallizedEnd;
 import com.NovaCraftBlocks.ores.BlockDeepslateKlangiteOre;
 import com.NovaCraftBlocks.ores.BlockDeepslateTophiniteOre;
 import com.NovaCraftBlocks.ores.BlockDeepslateVaniteOre;
 import com.NovaCraftBlocks.ores.BlockEndKlangiteOre;
 import com.NovaCraftBlocks.ores.BlockFrontierslateKlangiteOre;
-import com.NovaCraftBlocks.ores.BlockGlowingCarvedVaniteBricks;
 import com.NovaCraftBlocks.ores.BlockGrimstoneVaniteOre;
 import com.NovaCraftBlocks.ores.BlockInfusedVaniteBlock;
 import com.NovaCraftBlocks.ores.BlockInfusedVaniteBlockNatural;
@@ -87,7 +85,7 @@ import com.NovaCraftBlocks.ores.BlockStoneTophiniteOre;
 import com.NovaCraftBlocks.ores.BlockStoneVaniteOre;
 import com.NovaCraftBlocks.ores.BlockTophinite;
 import com.NovaCraftBlocks.ores.BlockVanite;
-import com.NovaCraftBlocks.ores.BlockVaniteBricks;
+import com.NovaCraftBlocks.ores.BlockVaniteBuildingBlocks;
 import com.NovaCraftBlocks.ores.BlockXancium;
 import com.NovaCraftBlocks.ores.BlockXanciumOre;
 import com.NovaCraftBlocks.ores.vanilla.BlockEtherstoneOre;
@@ -99,7 +97,6 @@ import com.NovaCraftBlocks.plants.BlockArcticMoss;
 import com.NovaCraftBlocks.plants.BlockArcticMossCarpet;
 import com.NovaCraftBlocks.plants.BlockBloomingBarb;
 import com.NovaCraftBlocks.plants.BlockBrightLichen;
-import com.NovaCraftBlocks.plants.BlockCyanRose;
 import com.NovaCraftBlocks.plants.BlockDarkLichen;
 import com.NovaCraftBlocks.plants.BlockDeepRoot;
 import com.NovaCraftBlocks.plants.BlockGlowLichen;
@@ -112,6 +109,7 @@ import com.NovaCraftBlocks.plants.BlockMoss;
 import com.NovaCraftBlocks.plants.BlockMossCarpet;
 import com.NovaCraftBlocks.plants.BlockNovaCraftMushroom;
 import com.NovaCraftBlocks.plants.BlockNullWart;
+import com.NovaCraftBlocks.plants.BlockOverworldFlower;
 import com.NovaCraftBlocks.plants.BlockTorchFlower;
 import com.NovaCraftBlocks.plants.LuminantTreeGen;
 import com.NovaCraftBlocks.plants.end.BlockChorusGrass;
@@ -352,11 +350,11 @@ public class NovaCraftBlocks {
 		//Normal Blocks
 		grimstone = register("grimstone", new BlockGrimstone());
 		cobbled_grimstone = register("cobbled_grimstone", new BlockCobbledGrimstone());
-		grimstone_bricks = register("grimstone_bricks", new BlockGrimstoneBricks().setBlockTextureName(NovaCraft.find("grimstone_bricks")));
-		cracked_grimstone_bricks = register("cracked_grimstone_bricks", new BlockCrackedGrimstoneBricks().setBlockTextureName(NovaCraft.find("cracked_grimstone_bricks")));
-		grimstone_tiles = register("grimstone_tiles", new BlockGrimstoneTiles().setBlockTextureName(NovaCraft.find("grimstone_tiles")));
-		cracked_grimstone_tiles = register("cracked_grimstone_tiles", new BlockCrackedGrimstoneTiles().setBlockTextureName(NovaCraft.find("cracked_grimstone_tiles")));
-		polished_grimstone = register("polished_grimstone", new BlockPolishedGrimstone()).setBlockTextureName(NovaCraft.find("polished_grimstone"));
+		grimstone_bricks = register("grimstone_bricks", new BlockGrimstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("grimstone_bricks")));
+		cracked_grimstone_bricks = register("cracked_grimstone_bricks", new BlockGrimstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_grimstone_bricks")));
+		grimstone_tiles = register("grimstone_tiles", new BlockGrimstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("grimstone_tiles")));
+		cracked_grimstone_tiles = register("cracked_grimstone_tiles", new BlockGrimstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_grimstone_tiles")));
+		polished_grimstone = register("polished_grimstone", new BlockGrimstoneBuildingBlocks()).setBlockTextureName(NovaCraft.find("polished_grimstone"));
 		chiseled_grimstone = register("chiseled_grimstone", new BlockChiseledGrimstone());
 		
 		grimstone_diamond = register("grimstone_diamond", new BlockGrimstoneOre().setBlockTextureName(NovaCraft.find("grimstone_diamond_ore")));
@@ -369,11 +367,11 @@ public class NovaCraftBlocks {
 		
 		nullstone = register("nullstone", new BlockNullstone());
 		cobbled_nullstone = register("cobbled_nullstone", new BlockCobbledNullstone());
-		nullstone_bricks = register("nullstone_bricks", new BlockNullstoneBricks());	
-		cracked_nullstone_bricks = register("cracked_nullstone_bricks", new BlockCrackedNullstoneBricks().setBlockTextureName(NovaCraft.find("cracked_nullstone_bricks")));
-		nullstone_tiles = register("nullstone_tiles", new BlockNullstoneTiles().setBlockTextureName(NovaCraft.find("nullstone_tiles")));
-		cracked_nullstone_tiles = register("cracked_nullstone_tiles", new BlockCrackedNullstoneTiles().setBlockTextureName(NovaCraft.find("cracked_nullstone_tiles")));
-		polished_nullstone = register("polished_nullstone", new BlockPolishedNullstone()).setBlockTextureName(NovaCraft.find("polished_nullstone"));
+		nullstone_bricks = register("nullstone_bricks", new BlockNullstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("nullstone_bricks")));	
+		cracked_nullstone_bricks = register("cracked_nullstone_bricks", new BlockNullstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_nullstone_bricks")));
+		nullstone_tiles = register("nullstone_tiles", new BlockNullstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("nullstone_tiles")));
+		cracked_nullstone_tiles = register("cracked_nullstone_tiles", new BlockNullstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_nullstone_tiles")));
+		polished_nullstone = register("polished_nullstone", new BlockNullstoneBuildingBlocks()).setBlockTextureName(NovaCraft.find("polished_nullstone"));
 		reinforced_nullstone = register("reinforced_nullstone", new BlockReinforcedNullstone());
 		activated_reinforced_nullstone = registerHidden("activated_reinforced_nullstone", new BlockActivatedReinforcedNullstone()).setCreativeTab(null);
 		unknown_portal_activator = register("unknown_portal_activator", new BlockUnknownPortalActivator());
@@ -392,10 +390,10 @@ public class NovaCraftBlocks {
 		
 		etherstone = register("etherstone", new BlockEtherstone());
 		cobbled_etherstone = register("cobbled_etherstone", new BlockCobbledEtherstone());	
-		etherstone_bricks = register("etherstone_bricks", new BlockEtherstoneBricks().setBlockTextureName(NovaCraft.find("etherstone_bricks")));
-		cracked_etherstone_bricks = register("cracked_etherstone_bricks", new BlockCrackedEtherstoneBricks().setBlockTextureName(NovaCraft.find("cracked_etherstone_bricks")));
-		etherstone_tiles = register("etherstone_tiles", new BlockEtherstoneTiles().setBlockTextureName(NovaCraft.find("etherstone_tiles")));
-		cracked_etherstone_tiles = register("cracked_etherstone_tiles", new BlockCrackedEtherstoneTiles().setBlockTextureName(NovaCraft.find("cracked_etherstone_tiles")));
+		etherstone_bricks = register("etherstone_bricks", new BlockEtherstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("etherstone_bricks")));
+		cracked_etherstone_bricks = register("cracked_etherstone_bricks", new BlockEtherstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_etherstone_bricks")));
+		etherstone_tiles = register("etherstone_tiles", new BlockEtherstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("etherstone_tiles")));
+		cracked_etherstone_tiles = register("cracked_etherstone_tiles", new BlockEtherstoneBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_etherstone_tiles")));
 		chiseled_etherstone = register("chiseled_etherstone", new BlockChiseledEtherstone());
 		
 		etherstone_coal = register("etherstone_coal", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_coal_ore")));
@@ -404,7 +402,7 @@ public class NovaCraftBlocks {
 		etherstone_iron = register("etherstone_iron", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_iron_ore")));
 		etherstone_brimstone = register("etherstone_brimstone", new BlockEtherstoneOre().setBlockTextureName(NovaCraft.find("etherstone_brimstone_ore")));
 		
-		glowing_obsidian = register("glowing_obsidian", new BlockGlowingObsidian().setBlockTextureName(NovaCraft.find("glowing_obsidian")));
+		glowing_obsidian = registerMeta("glowing_obsidian", new BlockGlowingObsidian().setBlockTextureName(NovaCraft.find("glowing_obsidian")));
 		
 		basal = register("basal", new BlockBasal());
 		basal_bricks = register("basal_bricks", new BlockBasalBuildingBlocks().setBlockTextureName(NovaCraft.find("basal_bricks")));
@@ -413,18 +411,18 @@ public class NovaCraftBlocks {
 		glowing_basal = register("glowing_basal", new BlockGlowingBasal().setLightLevel(0.7775F).setBlockTextureName(NovaCraft.find("glowing_basal")));
 		basal_scrap = registerMeta("basal_scrap", new BlockBasalScrap().setBlockTextureName(NovaCraft.find("basal_scrap")));
 		
-		tuff_bricks = register("tuff_bricks", new BlockTuffBricks().setBlockTextureName(NovaCraft.find("tuff_bricks")));
-		cracked_tuff_bricks = register("cracked_tuff_bricks", new BlockCrackedTuffBricks().setBlockTextureName(NovaCraft.find("cracked_tuff_bricks")));
-		tuff_tiles = register("tuff_tiles", new BlockTuffTiles().setBlockTextureName(NovaCraft.find("tuff_tiles")));
-		cracked_tuff_tiles = register("cracked_tuff_tiles", new BlockCrackedTuffTiles().setBlockTextureName(NovaCraft.find("cracked_tuff_tiles")));
+		tuff_bricks = register("tuff_bricks", new BlockTuffBuildingBlocks().setBlockTextureName(NovaCraft.find("tuff_bricks")));
+		cracked_tuff_bricks = register("cracked_tuff_bricks", new BlockTuffBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_tuff_bricks")));
+		tuff_tiles = register("tuff_tiles", new BlockTuffBuildingBlocks().setBlockTextureName(NovaCraft.find("tuff_tiles")));
+		cracked_tuff_tiles = register("cracked_tuff_tiles", new BlockTuffBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_tuff_tiles")));
 		
-		calcite_bricks = register("calcite_bricks", new BlockCalciteBricks().setBlockTextureName(NovaCraft.find("calcite_bricks")));
-		cracked_calcite_bricks = register("cracked_calcite_bricks", new BlockCrackedCalciteBricks().setBlockTextureName(NovaCraft.find("cracked_calcite_bricks")));
-		calcite_tiles = register("calcite_tiles", new BlockCalciteTiles().setBlockTextureName(NovaCraft.find("calcite_tiles")));
-		cracked_calcite_tiles = register("cracked_calcite_tiles", new BlockCrackedCalciteTiles().setBlockTextureName(NovaCraft.find("cracked_calcite_tiles")));
+		calcite_bricks = register("calcite_bricks", new BlockCalciteBuildingBlocks().setBlockTextureName(NovaCraft.find("calcite_bricks")));
+		cracked_calcite_bricks = register("cracked_calcite_bricks", new BlockCalciteBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_calcite_bricks")));
+		calcite_tiles = register("calcite_tiles", new BlockCalciteBuildingBlocks().setBlockTextureName(NovaCraft.find("calcite_tiles")));
+		cracked_calcite_tiles = register("cracked_calcite_tiles", new BlockCalciteBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_calcite_tiles")));
 		
-		frontierslate = register("frontierslate", new BlockFrontierslate());
-		frontierslate_bricks = register("frontierslate_bricks", new BlockFrontierslateBricks());
+		frontierslate = register("frontierslate", new BlockFrontierslate().setBlockTextureName(NovaCraft.find("frontierslate")));
+		frontierslate_bricks = register("frontierslate_bricks", new BlockFrontierslateBricks().setBlockTextureName(NovaCraft.find("frontierslate_bricks")));
 		carved_frontierslate_bricks = register("carved_frontierslate_bricks", new BlockCarvedFrontierslateBricks());
 		
 		crystallized_end = register("crystallized_end", new BlockCrystallizedEnd());
@@ -454,10 +452,10 @@ public class NovaCraftBlocks {
 		infused_vanite_block = registerItemBlock("infused_vanite_block", new BlockInfusedVaniteBlock(), ItemBlockFireProof.class);				
 		vanite_glass = register("vanite_glass", new BlockVaniteGlass(Material.glass, false).setBlockTextureName(NovaCraft.find("vanite_glass")));
 		molten_vanite = registerHidden("molten_vanite", new BlockMoltenVanite());		
-		vanite_bricks = registerItemBlock("vanite_bricks", new BlockVaniteBricks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("vanite_bricks"));	
-		polished_vanite_bricks = registerItemBlock("polished_vanite_bricks", new BlockVaniteBricks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("polished_vanite_bricks"));	
-		carved_vanite_bricks = registerItemBlock("carved_vanite_bricks", new BlockCarvedVaniteBricks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("carved_vanite_bricks"));		
-		glowing_carved_vanite_bricks = registerItemBlock("glowing_carved_vanite_bricks", new BlockGlowingCarvedVaniteBricks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("glowing_carved_vanite_bricks"));		
+		vanite_bricks = registerItemBlock("vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("vanite_bricks"));	
+		polished_vanite_bricks = registerItemBlock("polished_vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("polished_vanite_bricks"));	
+		carved_vanite_bricks = registerItemBlock("carved_vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("carved_vanite_bricks"));		
+		glowing_carved_vanite_bricks = registerItemBlock("glowing_carved_vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setLightLevel(1.0F).setBlockTextureName(NovaCraft.find("glowing_carved_vanite_bricks"));		
 
 		glow_torch = register("glow_torch", new BlockGlowTorch().setBlockTextureName(NovaCraft.find("glow_torch")));
 		vanite_torch = register("vanite_torch", new BlockVaniteTorch().setBlockTextureName(NovaCraft.find("vanite_torch")));
@@ -490,7 +488,7 @@ public class NovaCraftBlocks {
 		vanite_cluster = registerMeta("vanite_cluster", new BlockVaniteCluster(0));
 		nullified_vanite = register("nullified_vanite", new BlockCrystallizedVanite().setBlockTextureName(NovaCraft.find("nullified_vanite")));
 
-		deepoid_bricks = registerItemBlock("deepoid_bricks", new BlockVaniteBricks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("deepoid_bricks"));
+		deepoid_bricks = registerItemBlock("deepoid_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("deepoid_bricks"));
 		deepoid_power_core = register("deepoid_power_core", new BlockDeepoidPowerCore().setLightLevel(0.9775F).setBlockTextureName(NovaCraft.find("deepoid_power_core")));		
 		deepoid_furnace = register("deepoid_furnace", new BlockDeepoidFurnace(false).setBlockTextureName(NovaCraft.find("deepoid_furnace")));
 		lit_deepoid_furnace = registerHidden("lit_deepoid_furnace", new BlockDeepoidFurnace(true).setLightLevel(0.9775F).setCreativeTab(null));
@@ -531,10 +529,10 @@ public class NovaCraftBlocks {
 		//Sculk
 		sculk_block = register("sculk_block", new BlockSculk());
 		inked_sculk_block = register("inked_sculk_block", new BlockInkedSculk());	
-		sculk_bricks = register("sculk_bricks", new BlockSculkBricks());
-		cracked_sculk_bricks = register("cracked_sculk_bricks", new BlockCrackedSculkBricks());
-		sculk_tiles = register("sculk_tiles", new BlockSculkTiles());
-		cracked_sculk_tiles = register("cracked_sculk_tiles", new BlockCrackedSculkTiles());
+		sculk_bricks = register("sculk_bricks", new BlockSculkBuildingBlocks().setBlockTextureName(NovaCraft.find("sculk_bricks")));
+		cracked_sculk_bricks = register("cracked_sculk_bricks", new BlockSculkBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_sculk_bricks")));
+		sculk_tiles = register("sculk_tiles", new BlockSculkBuildingBlocks().setBlockTextureName(NovaCraft.find("sculk_tiles")));
+		cracked_sculk_tiles = register("cracked_sculk_tiles", new BlockSculkBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_sculk_tiles")));
 		chiseled_sculk = register("chiseled_sculk", new BlockChiseledSculk());
 		
 		grimstone_shrieker = register("grimstone_shrieker", new BlockGrimstoneShrieker());
@@ -573,16 +571,15 @@ public class NovaCraftBlocks {
 		
 		glow_lichen = registerMeta("glow_lichen", new BlockGlowLichen().setBlockTextureName(NovaCraft.find("glow_lichen")));
 		grim_lichen = registerMeta("grim_lichen", new BlockGrimLichen().setBlockTextureName(NovaCraft.find("grim_lichen")));
-		dark_lichen = registerMeta("dark_lichen", new BlockDarkLichen().setBlockTextureName(NovaCraft.find("dark_lichen")));
-		
+		dark_lichen = registerMeta("dark_lichen", new BlockDarkLichen().setBlockTextureName(NovaCraft.find("dark_lichen")));		
 		bright_lichen = registerMeta("bright_lichen", new BlockBrightLichen().setBlockTextureName(NovaCraft.find("bright_lichen")));
 		
-		cyan_rose = registerMeta("cyan_rose", new BlockCyanRose().setBlockTextureName(NovaCraft.find("cyan_rose")));
-		purple_rose = registerMeta("purple_rose", new BlockCyanRose().setBlockTextureName(NovaCraft.find("purple_rose")));
+		cyan_rose = registerMeta("cyan_rose", new BlockOverworldFlower().setBlockTextureName(NovaCraft.find("cyan_rose")));
+		purple_rose = registerMeta("purple_rose", new BlockOverworldFlower().setBlockTextureName(NovaCraft.find("purple_rose")));
 		torchflower = registerMeta("torchflower", new BlockTorchFlower().setBlockTextureName(NovaCraft.find("torchflower")));		
-		cosmos = registerMeta("cosmos", new BlockCyanRose().setBlockTextureName(NovaCraft.find("cosmos")));
-		violet = registerMeta("violet", new BlockCyanRose().setBlockTextureName(NovaCraft.find("violet")));
-		desert_bloom = registerMeta("desert_bloom", new BlockCyanRose().setBlockTextureName(NovaCraft.find("desert_bloom")));
+		cosmos = registerMeta("cosmos", new BlockOverworldFlower().setBlockTextureName(NovaCraft.find("cosmos")));
+		violet = registerMeta("violet", new BlockOverworldFlower().setBlockTextureName(NovaCraft.find("violet")));
+		desert_bloom = registerMeta("desert_bloom", new BlockOverworldFlower().setBlockTextureName(NovaCraft.find("desert_bloom")));
 		blooming_barb = registerMeta("blooming_barb", new BlockBloomingBarb().setBlockTextureName(NovaCraft.find("blooming_barb")));
 		
 		calvatia_mushroom = registerMeta("calvatia_mushroom", new BlockNovaCraftMushroom().setBlockTextureName(NovaCraft.find("calvatia_mushroom")));
@@ -862,14 +859,7 @@ public class NovaCraftBlocks {
 
 	public static void initializeHarvestLevels()
 	{
-		//Regular Blocks
-		NovaCraftBlocks.grimstone.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.cobbled_grimstone.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.chiseled_grimstone.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.grimstone_bricks.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.cracked_grimstone_bricks.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.cracked_grimstone_tiles.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.grimstone_tiles.setHarvestLevel("pickaxe", 1);		
+		//Regular Blocks	
 		NovaCraftBlocks.grimstone_diamond.setHarvestLevel("pickaxe", 2);
 		NovaCraftBlocks.grimstone_emerald.setHarvestLevel("pickaxe", 2);
 		NovaCraftBlocks.grimstone_gold.setHarvestLevel("pickaxe", 2);
@@ -902,21 +892,6 @@ public class NovaCraftBlocks {
 		NovaCraftBlocks.nullstone_redstone.setHarvestLevel("pickaxe", 3);
 		NovaCraftBlocks.lit_nullstone_redstone.setHarvestLevel("pickaxe", 3);
 		
-		NovaCraftBlocks.nullstone.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.cracked_nullstone_bricks.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.cracked_nullstone_tiles.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.cobbled_nullstone.setHarvestLevel("pickaxe", 3);		
-		NovaCraftBlocks.nullstone_bricks.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.nullstone_tiles.setHarvestLevel("pickaxe", 3);
-		
-		NovaCraftBlocks.etherstone.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.cobbled_etherstone.setHarvestLevel("pickaxe", 1);	
-		NovaCraftBlocks.chiseled_etherstone.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.etherstone_bricks.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.cracked_etherstone_bricks.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.cracked_etherstone_tiles.setHarvestLevel("pickaxe", 1);
-		NovaCraftBlocks.etherstone_tiles.setHarvestLevel("pickaxe", 1);	
-		
 		NovaCraftBlocks.etherstone_gold.setHarvestLevel("pickaxe", 2);
 		NovaCraftBlocks.etherstone_emerald.setHarvestLevel("pickaxe", 2);
 		NovaCraftBlocks.etherstone_brimstone.setHarvestLevel("pickaxe", 2);
@@ -924,97 +899,15 @@ public class NovaCraftBlocks {
 		NovaCraftBlocks.etherstone_iron.setHarvestLevel("pickaxe", 1);
 		
 		NovaCraftBlocks.brimstone_ore.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.block_of_brimstone.setHarvestLevel("pickaxe", 2);
 		
 		NovaCraftBlocks.grimstone_vanite_ore.setHarvestLevel("pickaxe", 3);
 		NovaCraftBlocks.nullstone_vanite_ore.setHarvestLevel("pickaxe", 3);
 		NovaCraftBlocks.block_of_vanite.setHarvestLevel("pickaxe", 3);
 		
 		NovaCraftBlocks.xancium_ore.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.block_of_xancium.setHarvestLevel("pickaxe", 3);
 		
 		NovaCraftBlocks.klangite_ore.setHarvestLevel("pickaxe", 3);
 		NovaCraftBlocks.end_klangite_ore.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.block_of_raw_klangite.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.block_of_klangite.setHarvestLevel("pickaxe", 3);
-		
-		NovaCraftBlocks.frontierslate.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.frontierslate_bricks.setHarvestLevel("pickaxe", 3);
-		
-		NovaCraftBlocks.sculk_block.setHarvestLevel("shovel", 0);
-		NovaCraftBlocks.inked_sculk_block.setHarvestLevel("shovel", 0);
-		NovaCraftBlocks.sculk_growth.setHarvestLevel("shovel", 0);
-		NovaCraftBlocks.sculk_vein.setHarvestLevel("shovel", 0);
-		NovaCraftBlocks.sculk_tentacle_1.setHarvestLevel("axe", 0);
-		NovaCraftBlocks.sculk_tentacle_2.setHarvestLevel("axe", 0);
-		NovaCraftBlocks.sculk_bush.setHarvestLevel("axe", 0);
-		NovaCraftBlocks.sculk_spike.setHarvestLevel("axe", 0);
-		
-		NovaCraftBlocks.sculk_stone.setHarvestLevel("pickaxe", 0);
-		NovaCraftBlocks.sculk_grimstone.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.sculk_nullstone.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.sculk_endstone.setHarvestLevel("pickaxe", 0);
-		
-		NovaCraftBlocks.sculk_bricks.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.cracked_sculk_bricks.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.sculk_tiles.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.cracked_sculk_tiles.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.chiseled_sculk.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.nullwart_bricks.setHarvestLevel("pickaxe", 1);
-		
-		//Containers
-		NovaCraftBlocks.advanced_smithing_table.setHarvestLevel("pickaxe", 2);
-		
-		//Plants
-		NovaCraftBlocks.moss_block.setHarvestLevel("shovel", 0);
-		NovaCraftBlocks.moss_carpet.setHarvestLevel("shovel", 0);
-		
-		NovaCraftBlocks.glow_lichen.setHarvestLevel("axe", 0);
-		NovaCraftBlocks.grim_lichen.setHarvestLevel("axe", 0);
-		NovaCraftBlocks.dark_lichen.setHarvestLevel("axe", 0);
-		
-		//Crystal Blocks
-		NovaCraftBlocks.cracked_larimar_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.larimar_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.budding_larimar_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.larimar_cluster_1.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.larimar_cluster_2.setHarvestLevel("pickaxe", 2);
-		
-		NovaCraftBlocks.cracked_copartz_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.copartz_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.budding_copartz_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.copartz_cluster_1.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.copartz_cluster_2.setHarvestLevel("pickaxe", 2);
-		
-		NovaCraftBlocks.cracked_tsavorokite_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.tsavorokite_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.budding_tsavorokite_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.tsavorokite_cluster_1.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.tsavorokite_cluster_2.setHarvestLevel("pickaxe", 2);
-		
-		NovaCraftBlocks.cracked_yttrlinsite_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.yttrlinsite_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.budding_yttrlinsite_block.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.yttrlinsite_cluster_1.setHarvestLevel("pickaxe", 2);
-		NovaCraftBlocks.yttrlinsite_cluster_2.setHarvestLevel("pickaxe", 2);
-		
-		NovaCraftBlocks.variegated_block.setHarvestLevel("pickaxe", 3);
-		
-		NovaCraftBlocks.cracked_aether_block.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.aether_block.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.budding_aether_block.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.aether_cluster_1.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.aether_cluster_2.setHarvestLevel("pickaxe", 3);
-		
-		NovaCraftBlocks.echo_block.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.budding_echo_block.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.echo_cluster_1.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.echo_cluster_2.setHarvestLevel("pickaxe", 3);
-		
-		NovaCraftBlocks.null_block.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.budding_null_block.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.null_cluster_1.setHarvestLevel("pickaxe", 3);
-		NovaCraftBlocks.null_cluster_2.setHarvestLevel("pickaxe", 3);
 		
 		//Stairs
 		NovaCraftBlocks.grimstone_stairs.setHarvestLevel("pickaxe", 1);

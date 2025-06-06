@@ -170,7 +170,8 @@ public class BlockSculk extends Block {
               	break;	
           	case 4:
               	break;	
-          		
+          	default:
+          		break;
           }
         }
 

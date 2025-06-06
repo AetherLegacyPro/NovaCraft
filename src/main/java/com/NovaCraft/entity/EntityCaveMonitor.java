@@ -23,7 +23,6 @@ import net.minecraft.world.World;
 
 public class EntityCaveMonitor extends EntityMob
 {
-    private static final String __OBFID = "CL_00001699";
 
     public EntityCaveMonitor(World p_i1743_1_)
     {

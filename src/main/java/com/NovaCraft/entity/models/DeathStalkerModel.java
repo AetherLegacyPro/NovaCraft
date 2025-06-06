@@ -146,7 +146,6 @@ public class DeathStalkerModel extends ModelBase
     
     public void render(final Entity par1Entity, final float par2, final float par3, final float par4, final float par5, final float par6, final float par7) {
     	this.setRotationAngles(par2, par3, par4, par5, par6, par7, par1Entity);
-        if(par1Entity instanceof EntityDeathStalker && !((EntityDeathStalker)par1Entity).getProvoked())GL11.glTranslatef(0, 0.625f, 0);
         this.Tail1.render(par7);
         this.Tail2.render(par7);
         this.Tail3.render(par7);

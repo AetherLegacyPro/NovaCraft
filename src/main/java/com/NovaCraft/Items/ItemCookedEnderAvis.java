@@ -42,7 +42,6 @@ public class ItemCookedEnderAvis extends ItemNovaCraftFood {
 	@Override
 	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
 		player.addPotionEffect(new PotionEffect(Potion.resistance.id, 100, 0));
-		//player.addPotionEffect(new PotionEffect(Potion.confusion.id, 100, 0));
 	}
 
 	@Override

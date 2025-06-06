@@ -165,128 +165,108 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 
 public class NovaCraftItems {
 	
-	public static Item copartz_shard;
-	public static Item larimar_shard;
-	public static Item tsavorokite_shard;
-	public static Item yttrlinsite_shard;
-	public static Item aether_shard;
-	public static Item variegated_shard;
-	public static Item anomalous_shard;
-	public static Item null_shard;
-	public static Item echo_shard;
-	public static Item sculked_shard;
-	public static Item crystallized_end_shard;
-	public static Item nullified_vanite_alloy;
+	//Crystals
+	public static Item copartz_shard, larimar_shard, tsavorokite_shard, yttrlinsite_shard, aether_shard, echo_shard, null_shard;
+	public static Item sculked_shard, variegated_shard, crystallized_end_shard, anomalous_shard;
+	public static Item infused_copartz_shard, infused_larimar_shard, infused_tsavorokite_shard, infused_yttrlinsite_shard, infused_aether_shard;
 	
-	public static Item brimstone_dust;
-	public static Item petn_powder;
-	public static Item pherithium_scraps;
-	public static Item pherithium_lump;
-	public static Item pherithium_ingot;
-	public static Item vanite_chunk;
-	public static Item vanite_ingot;
-	public static Item reinforced_vanite_ingot, luminant_ingot;
-	public static Item xancium_dust, small_xancium_dust;
-	public static Item nullifier_core;
-	public static Item xancium_ingot, xancium_pellet;
-	public static Item raw_klangite, klangite_blend;
-	public static Item impure_klangite_ingot, explosive_klangite_ingot, klangite_ingot;
-	public static Item tophinite_gemstone;
-	public static Item flaming_pitcher_petal, blazing_coal;
+	//Resources
+	public static Item brimstone_dust, petn_powder;
+	public static Item luminant_tree_sap, luminant_gel, luminant_ingot;
+	public static Item pherithium_scraps, pherithium_lump, pherithium_ingot;
+	public static Item vanite_chunk, vanite_ingot, reinforced_vanite_ingot;
+	public static Item xancium_dust, xancium_ingot, xancium_pellet;
+	public static Item disc_fragment_5, disc_5, xancium_firecharge;
+	public static Item sculk_star, dark_essence, corrupted_essence;
+	public static Item raw_klangite, klangite_blend, impure_klangite_ingot, explosive_klangite_ingot, klangite_ingot;
+	public static Item tophinite_gemstone, flaming_pitcher_petal, blazing_coal, ophidian_scales;
+	public static Item superheated_magma_cream, enflamed_null_cube_slimeball, enhanced_enflamed_null_cube_slimeball;
+	public static Item deepoid_star, eternal_caller, warden_core;
+	public static Item warden_dust, ancient_city_artifact, powered_ancient_city_artifact, dimensional_sealent;
+	public static Item prisoner_eye, unknown_star, impure_outsider_ingot, outsider_ingot;
 	
-	public static Item heart_of_the_end, fractured_heart_of_the_end;
-	public static Item null_cube_slime, superheated_magma_cream, enflamed_null_cube_slimeball, enhanced_enflamed_null_cube_slimeball;
-	public static Item sculk_dweller_heart;
-	public static Item sea_serpent_scales, sea_serpent_venom_sac;
-	public static Item cave_monitor_scales, cave_monitor_tongue;
-	public static Item sculked_monitor_scales, sculked_monitor_eye;
-	public static Item warden_heart, warden_tentacle, warden_shard;
-	public static Item blazing_serpent_scales, blazing_serpent_tooth;
-	public static Item phoenix_feather, ionizatior_rod, ionizatior_powder;
-	public static Item deepoid_scales;
-	public static Item deep_one_scales, deep_one_bone;
-	public static Item ophidian_scales;
-	public static Item glow_ink_sac;
-	public static Item phantom_membrane;
+	//Mob Drops Overworld
+	public static Item glow_ink_sac, cave_monitor_tongue, sea_serpent_venom_sac, sculked_monitor_eye;
+	public static Item cave_monitor_scales, sea_serpent_scales, sculked_monitor_scales, sculked_leather;	
+	public static Item goat_horn_ponder, goat_horn_sing, goat_horn_seek, goat_horn_feel, goat_horn_admire, goat_horn_call, goat_horn_yearn, goat_horn_dream;
+	public static Item sculk_dweller_heart, wardling_dust, warden_heart, warden_tentacle, warden_shard;
+	public static Item nulk_dust, outsider_essence;
+	
+	//Mob Drops Nether
+	public static Item deepoid_scales, blazing_serpent_scales, deep_one_scales;
+	public static Item anomalous_essence, blazing_serpent_tooth, phoenix_feather, ionizatior_rod, ionizatior_powder;
+	public static Item deepoid_horn, deep_one_bone;
+	
+	//Mob Drops End
+	public static Item fractured_heart_of_the_end, heart_of_the_end, nullified_dust;
+	public static Item enderavis_feather, phantom_membrane, null_cube_slime, small_xancium_dust, nullifier_core;
+	public static Item static_essence, destitute_tentacle;
+	
+	//Potions
 	public static Item nullwart, nullwart_blend;
-	public static Item nullified_dust, wardling_dust, warden_dust;
-	public static Item static_essence, destitute_tentacle, outsider_essence;
-	public static Item ancient_city_artifact, powered_ancient_city_artifact, nulk_dust, dimensional_sealent;
-	public static Item impure_outsider_ingot, outsider_ingot;
-	
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
-	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy;
+	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy, nullified_vanite_alloy;
 	public static Item blazinite_powder, deepfire_blend, static_blend;
 	
 	public static Item potion_speed_extended, potion_speed_III;
 	public static Item potion_strength_extended, potion_strength_III;
-	public static Item potion_regen_extended, potion_regen_III;	
+	public static Item potion_regen_extended, potion_regen_III;
 	public static Item potion_haste, potion_haste_II;
 	public static Item potion_resistance;
 	public static Item potion_jump_extended, potion_jump_III;
-	public static Item potion_water_breathing_extended;
-	public static Item potion_night_vision_extended;
-	public static Item potion_invisibility_extended;
-	public static Item potion_fire_resistance_extended;
+	public static Item potion_water_breathing_extended, potion_night_vision_extended, potion_invisibility_extended, potion_fire_resistance_extended;
 	
-	public static Item disc_fragment_5;
-	public static Item disc_5;
-	public static Item luminant_apple, luminant_tree_sap, luminant_gel;
-	
-	public static Item raw_enderavis, cooked_enderavis, enderavis_feather;
-	public static Item sculk_flesh, sculked_leather;
+	//Food
+	public static Item cave_stew, sculk_flesh, luminant_apple, pherithium_carrot;
+	public static Item raw_chevon, cooked_chevon;
 	public static Item raw_glow_squid, cooked_glow_squid;
 	public static Item raw_blazing_charger, cooked_blazing_charger;
-	public static Item raw_chevon, cooked_chevon;
-	public static Item pherithium_carrot;
-	public static Item cave_stew;
+	public static Item raw_enderavis, cooked_enderavis;
 	
-	public static Item pherithium_sword, pherithium_pickaxe, pherithium_shovel, pherithium_axe, pherithium_hoe;
-	public static Item diamond_bow, netherite_bow;
+	//-------------------------------------------------------------------------------------------------------------------------------
+	//Weapons and Tools Overworld
+	public static Item diamond_bow, netherite_bow, eerie_sword, sculked_blade, vanite_trident, crystal_growth_staff, ice_sceptor, ancient_city_totem;
+	public static Item pherithium_sword, pherithium_pickaxe, pherithium_shovel, pherithium_axe, pherithium_hoe, pherithium_shickaxe, reinforced_pherithium_shickaxe;
+	public static Item warden_sword, warden_pickaxe, warden_bow, warden_shovel, warden_axe, warden_hoe;
+	public static Item crystalite_sword, crystalite_pickaxe, crystalite_bow;
+	public static Item diamond_firecharge_launcher, klangite_firecharge_launcher, vanite_firecharge_launcher, primeval_horn, sculk_horn;
+	
+	//Weapons and Tools Nether
+	public static Item phoenix_razor, scythe, diablo, primeval_mace;
 	public static Item tophinite_sword, tophinite_pickaxe, tophinite_bow, tophinite_shovel, tophinite_axe, tophinite_hoe, tophinite_hammer;
 	public static Item crystallized_vanite_sword, crystallized_vanite_pickaxe, crystallized_vanite_bow, crystallized_vanite_shovel, crystallized_vanite_axe, crystallized_vanite_hoe;
 	public static Item ophidian_sword, ophidian_pickaxe, ophidian_bow, ophidian_shovel, ophidian_axe, ophidian_hoe;
+	
+	//Weapons and Tools End
+	public static Item ender_lord_staff;
 	public static Item klangite_sword, klangite_pickaxe, klangite_bow, klangite_shovel, klangite_axe, klangite_hoe;
-	public static Item warden_sword, warden_pickaxe, warden_bow, warden_shovel, warden_axe, warden_hoe;
 	public static Item kylazite_sword, kylazite_pickaxe, kylazite_bow, kylazite_shovel, kylazite_axe, kylazite_hoe;
-	public static Item crystalite_sword, crystalite_pickaxe, crystalite_bow;
+	//-------------------------------------------------------------------------------------------------------------------------------
 	
-	public static Item pherithium_shickaxe, reinforced_pherithium_shickaxe;
 	
-	public static Item diamond_firecharge_launcher, klangite_firecharge_launcher, vanite_firecharge_launcher;
-	public static Item goat_horn_ponder, goat_horn_sing, goat_horn_seek, goat_horn_feel, goat_horn_admire, goat_horn_call, goat_horn_yearn, goat_horn_dream;
-	public static Item deepoid_horn, primeval_horn;
-	
+	//-------------------------------------------------------------------------------------------------------------------------------
+	//Overworld Armor
+	public static Item pherithium_helmet, pherithium_chestplate, pherithium_leggings, pherithium_boots;
 	public static Item sculk_helmet, sculk_chestplate, sculk_leggings, sculk_boots;
-	public static Item pherithium_helmet, pherithium_chestplate, pherithium_leggings, pherithium_boots;	
-	public static Item tophinite_helmet, tophinite_chestplate, tophinite_leggings, tophinite_boots;
-	public static Item crystallized_vanite_helmet, crystallized_vanite_chestplate, crystallized_vanite_leggings, crystallized_vanite_boots;
-	public static Item ophidian_helmet, ophidian_chestplate, ophidian_leggings, ophidian_boots;	
-	public static Item klangite_helmet, klangite_chestplate, klangite_leggings, klangite_boots;
-	public static Item kylazite_helmet, kylazite_chestplate, kylazite_leggings, kylazite_boots;
 	public static Item warden_helmet, warden_chestplate, warden_leggings, warden_boots;
 	public static Item crystalite_helmet, crystalite_chestplate, crystalite_leggings, crystalite_boots;
-	public static Item guardian_helmet, guardian_chestplate, guardian_leggings, guardian_boots;
 	public static Item ancient_leggings;
 	
-	public static Item vanite_blue_crown, vanite_red_crown, vanite_green_crown, vanite_orange_crown, vanite_mysterious_crown, vanite_exotic_crown, vanite_notched_crown, vanite_dark_blue_crown;
-	public static Item serpent_crown;
+	//Nether Armor
+	public static Item tophinite_helmet, tophinite_chestplate, tophinite_leggings, tophinite_boots;
+	public static Item crystallized_vanite_helmet, crystallized_vanite_chestplate, crystallized_vanite_leggings, crystallized_vanite_boots;
+	public static Item ophidian_helmet, ophidian_chestplate, ophidian_leggings, ophidian_boots;
+	public static Item vanite_blue_crown, vanite_red_crown, vanite_green_crown, vanite_orange_crown, vanite_mysterious_crown;
+	public static Item vanite_exotic_crown, vanite_notched_crown, vanite_dark_blue_crown, serpent_crown;
 	
-	public static Item eerie_sword, sculked_blade, scythe, diablo, sculk_horn, vanite_trident;
-	
-	public static Item ender_lord_staff, crystal_growth_staff, ice_sceptor, phoenix_razor, primeval_mace;
-	
+	//End Armor
 	public static Item phantom_helmet, phantom_chestplate, phantom_leggings, phantom_boots;
+	public static Item klangite_helmet, klangite_chestplate, klangite_leggings, klangite_boots;
+	public static Item kylazite_helmet, kylazite_chestplate, kylazite_leggings, kylazite_boots;	
+	public static Item guardian_helmet, guardian_chestplate, guardian_leggings, guardian_boots;
+	//-------------------------------------------------------------------------------------------------------------------------------
 	
-	public static Item novacraft_spawn_egg, xancium_firecharge;
-	
-	public static Item sculk_star, dark_essence, anomalous_essence, corrupted_essence;
-	
-	public static Item deepoid_star, eternal_caller, warden_core;
-	
-	public static Item ancient_city_totem, prisoner_eye, unknown_star;
-	
-	public static Item infused_copartz_shard, infused_larimar_shard, infused_tsavorokite_shard, infused_yttrlinsite_shard, infused_aether_shard;
+	public static Item novacraft_spawn_egg;
 	
 	public static void initialization() {
 		
@@ -452,8 +432,7 @@ public class NovaCraftItems {
 		pherithium_boots = register("pherithium_boots", new ItemPherithiumBoots().setTextureName(NovaCraft.find("pherithium_boots")));
 		
 		diamond_bow = register("diamond_bow", new ItemDiamondBow());
-		diamond_firecharge_launcher = register("diamond_firecharge_launcher", new ItemDiamondFirechargeLauncher());
-		
+		diamond_firecharge_launcher = register("diamond_firecharge_launcher", new ItemDiamondFirechargeLauncher());		
 		vanite_firecharge_launcher = register("vanite_firecharge_launcher", new ItemVaniteFirechargeLauncher());
 		
 		if (Loader.isModLoaded("etfuturum")) {

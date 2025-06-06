@@ -90,7 +90,6 @@ public class ItemEnderLordStaff extends ItemSword {
 			par2World.playSoundAtEntity(par3EntityPlayer, "portal.portal", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
 			if (flag) {
-				//entityarrow.canBePickedUp = 2;
 			} else {
 				par3EntityPlayer.inventory.consumeInventoryItem(Items.ender_pearl);
 			}

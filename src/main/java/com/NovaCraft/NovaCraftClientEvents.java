@@ -142,11 +142,11 @@ public class NovaCraftClientEvents {
 	
 	@SubscribeEvent
 	public void onWorldTick(TickEvent.WorldTickEvent event) {
-	    if (Configs.enableGlowingObsidian == true) {
+	    if (Configs.enableGlowingObsidian == true) { //Sure there is a better way to do this but it just works for now
 	    	
 	    if (event.phase != TickEvent.Phase.END || event.world.isRemote) return;
 	    
-	    int radius = 24;	    
+	    int radius = 12;	    
 	    int radiusSq = radius * radius;
 
 	    for (Object obj : event.world.playerEntities) {

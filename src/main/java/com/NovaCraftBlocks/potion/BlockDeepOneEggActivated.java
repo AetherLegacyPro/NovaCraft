@@ -72,10 +72,7 @@ public class BlockDeepOneEggActivated extends BlockContainer
     public TileEntity createNewTileEntity(final World par1World, final int par1) {
         return new TileEntityDeepOneEggActivated();
     }
-
-    /**
-     * Gets an item for the block being called on. Args: world, x, y, z
-     */
+    
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
