@@ -1,0 +1,974 @@
+{
+  "glow_squid.living": {
+  "category": "neutral",
+  "sounds": [
+      "entity/glow_squid/ambient1",
+      "entity/glow_squid/ambient2",
+      "entity/glow_squid/ambient3",
+      "entity/glow_squid/ambient4",
+      "entity/glow_squid/ambient5"
+    ]
+  },
+  
+  "glow_squid.hurt": {
+  "category": "neutral",
+  "sounds": [
+      "entity/glow_squid/hurt1",
+      "entity/glow_squid/hurt2",
+      "entity/glow_squid/hurt3",
+      "entity/glow_squid/hurt4"
+    ]
+  },
+  
+  "glow_squid.death": {
+  "category": "neutral",
+  "sounds": [
+      "entity/glow_squid/death1",
+      "entity/glow_squid/death2",
+      "entity/glow_squid/death3"
+    ]
+  },
+  
+  "frog.living": {
+  "category": "neutral",
+  "sounds": [
+      "entity/frog/idle1",
+      "entity/frog/idle2",
+      "entity/frog/idle3",
+      "entity/frog/idle4",
+      "entity/frog/idle5",
+      "entity/frog/idle6",
+      "entity/frog/idle7",
+      "entity/frog/idle8"
+    ]
+  },
+  
+  "frog.hurt": {
+  "category": "neutral",
+  "sounds": [
+      "entity/frog/hurt1",
+      "entity/frog/hurt2",
+      "entity/frog/hurt3",
+      "entity/frog/hurt4",
+      "entity/frog/hurt5"
+    ]
+  },
+  
+  "frog.death": {
+  "category": "neutral",
+  "sounds": [
+      "entity/frog/death1",
+      "entity/frog/death2",
+      "entity/frog/death3"
+    ]
+  },
+  
+  "frog.step": {
+  "category": "neutral",
+  "sounds": [
+      "entity/frog/step1",
+      "entity/frog/step2",
+      "entity/frog/step3",
+      "entity/frog/step4"
+    ]
+  },
+  
+  "outsider.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/outsider/ambient1",
+      "entity/outsider/ambient2",
+      "entity/outsider/ambient3",
+      "entity/outsider/ambient4"
+    ]
+  }, 
+  
+  "deepoid.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/deepoid/ambient1",
+      "entity/deepoid/ambient2"
+    ]
+  },
+  
+  "deepoid.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/deepoid/hurt0",
+      "entity/deepoid/hurt1",
+      "entity/deepoid/hurt2",
+      "entity/deepoid/hurt3"
+    ]
+  },
+  
+  "deepoid.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/deepoid/death"
+    ]
+  },
+  
+  "creaking.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/creaking/hurt1",
+      "entity/creaking/hurt2",
+      "entity/creaking/hurt3",
+      "entity/creaking/hurt4"
+    ]
+  },
+  
+  "creaking.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/creaking/idle1",
+      "entity/creaking/idle2",
+      "entity/creaking/idle3",
+      "entity/creaking/idle4",
+      "entity/creaking/idle5",
+      "entity/creaking/idle6"
+    ]
+  },
+  
+  "creaking.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/creaking/death"
+    ]
+  },
+  
+  "creaking.step": {
+  "category": "hostile",
+  "sounds": [
+      "entity/creaking/step1",
+      "entity/creaking/step2",
+      "entity/creaking/step3",
+      "entity/creaking/step4",
+      "entity/creaking/step5"
+    ]
+  },
+  
+  "null_explosion": {
+  "category": "hostile",
+  "sounds": [
+      "misc/null_explosion"
+    ]
+  },
+  
+  "deepoid.breath": {
+  "category": "hostile",
+  "sounds": [
+      "entity/deepoid/breath"
+    ]
+  },
+  
+  "reality_distorter.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/reality_distorter/hurt0",
+      "entity/reality_distorter/hurt1"
+    ]
+  },
+  
+  "reality_distorter.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/reality_distorter/ambient0",
+      "entity/reality_distorter/ambient1",
+      "entity/reality_distorter/ambient2"
+    ]
+  },
+  
+  "reality_distorter.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/reality_distorter/death"
+    ]
+  },
+  
+   "destitumite.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/destitumite/hurt"
+    ]
+  },
+  
+  "destitumite.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/destitumite/ambient"
+    ]
+  },
+  
+  "destitumite.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/destitumite/death"
+    ]
+  },
+  
+  "blazing_serpent.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/blazing_serpent/hurt0",
+      "entity/blazing_serpent/hurt1",
+      "entity/blazing_serpent/hurt2",
+      "entity/blazing_serpent/hurt3"
+    ]
+  },
+  
+  "phoenix.living": {
+  "category": "neutral",
+  "sounds": [
+      "entity/phoenix/ambient1",
+      "entity/phoenix/ambient2",
+      "entity/phoenix/ambient3"
+    ]
+  },
+  
+  "phoenix.hurt": {
+  "category": "neutral",
+  "sounds": [
+      "entity/phoenix/hurt0",
+      "entity/phoenix/hurt1",
+      "entity/phoenix/hurt2"
+    ]
+  },
+  
+  "sculk_laser.laser_fire": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_laser/laser_fire1",
+      "entity/sculk_laser/laser_fire2",
+      "entity/sculk_laser/laser_fire3",
+      "entity/sculk_laser/laser_fire4",
+      "entity/sculk_laser/laser_fire5"
+    ]
+  },
+  
+  "sculk_laser.charge": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_laser/charge"
+    ]
+  },
+  
+  "goat.horn.0": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat_horn/call0"
+    ]
+  },
+  
+  "goat.horn.1": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat_horn/call1"
+    ]
+  },
+  
+  "goat.horn.2": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat_horn/call2"
+    ]
+  },
+  
+  "goat.horn.3": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat_horn/call3"
+    ]
+  },
+  
+  "goat.horn.4": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat_horn/call4"
+    ]
+  },
+  
+  "goat.horn.5": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat_horn/call5"
+    ]
+  },
+  
+  "goat.horn.6": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat_horn/call6"
+    ]
+  },
+  
+  "goat.horn.7": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat_horn/call7"
+    ]
+  },
+  
+  "goat.living": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat/ambient1",
+      "entity/goat/ambient2",
+      "entity/goat/ambient3",
+      "entity/goat/ambient4",
+      "entity/goat/ambient5",
+      "entity/goat/ambient6",
+      "entity/goat/ambient7",
+      "entity/goat/ambient8"
+    ]
+  },
+  
+  "goat.hurt": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat/hurt1",
+      "entity/goat/hurt2",
+      "entity/goat/hurt3",
+      "entity/goat/hurt4"
+    ]
+  },
+  
+  "goat.death": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat/death1",
+      "entity/goat/death2",
+      "entity/goat/death3",
+      "entity/goat/death4",
+      "entity/goat/death5"
+    ]
+  },
+  
+  "goat.step": {
+  "category": "neutral",
+  "sounds": [
+      "entity/goat/step1",
+      "entity/goat/step2",
+      "entity/goat/step3",
+      "entity/goat/step4",
+      "entity/goat/step5",
+      "entity/goat/step6"
+    ]
+  },
+  
+  "trident.impact": {
+  "category": "neutral",
+  "sounds": [
+      "misc/vanite_trident/ground_impact1",
+      "misc/vanite_trident/ground_impact2",
+      "misc/vanite_trident/ground_impact3",
+      "misc/vanite_trident/ground_impact4"
+    ]
+  },
+  
+  "trident.thrown": {
+  "category": "neutral",
+  "sounds": [
+      "misc/vanite_trident/throw1",
+      "misc/vanite_trident/throw2",
+      "misc/vanite_trident/throw3"
+    ]
+  },
+  
+  "trident.pickup": {
+  "category": "neutral",
+  "sounds": [
+      "misc/vanite_trident/return1",
+      "misc/vanite_trident/return2",
+      "misc/vanite_trident/return3"
+    ]
+  },
+  
+  "sculk_abomination.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_abomination/ambient1",
+      "entity/sculk_abomination/ambient2",
+      "entity/sculk_abomination/ambient3"
+    ]
+  },
+  
+  "sculk_abomination.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_abomination/hurt1"
+    ]
+  },
+  
+  "sculk_abomination.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_abomination/death1"
+    ]
+  },
+  
+   
+   "void_entity.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/void_entity/ambient1",
+      "entity/void_entity/ambient2",
+      "entity/void_entity/ambient3",
+      "entity/void_entity/ambient4"
+    ]
+  },
+  
+  "void_entity.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/void_entity/hurt1",
+      "entity/void_entity/hurt2"
+    ]
+  },
+  
+  "void_entity.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/void_entity/death1",
+      "entity/void_entity/death2"
+    ]
+  },
+    
+  "sculk_horn.vibration": {
+  "category": "neutral",
+  "sounds": [
+      "entity/sculk_horn/sonic_boom1",
+      "entity/sculk_horn/sonic_boom2",
+      "entity/sculk_horn/sonic_boom3",
+      "entity/sculk_horn/sonic_boom4"
+    ]
+  },
+  
+  "5.record": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "music/5",
+        "stream": true
+      }
+    ]
+  },
+  
+  "warden.roar": {
+  "category": "hostile",
+  "sounds": [
+      "entity/warden/roar1",
+      "entity/warden/roar2",
+      "entity/warden/roar3",
+      "entity/warden/roar4",
+      "entity/warden/roar5"
+    ]
+  },
+  
+  "warden.heartbeat": {
+  "category": "hostile",
+  "sounds": [
+      "entity/warden/heartbeat1",
+      "entity/warden/heartbeat2",
+      "entity/warden/heartbeat3",
+      "entity/warden/heartbeat4"
+    ]
+  },
+  
+  "sculk_dweller.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_dweller/ambient1",
+      "entity/sculk_dweller/ambient2",
+      "entity/sculk_dweller/ambient3",
+      "entity/sculk_dweller/ambient4",
+      "entity/sculk_dweller/ambient5",
+      "entity/sculk_dweller/ambient6",
+      "entity/sculk_dweller/ambient7",
+      "entity/sculk_dweller/ambient8",
+      "entity/sculk_dweller/ambient9",
+      "entity/sculk_dweller/ambient10",
+      "entity/sculk_dweller/ambient11",
+      "entity/sculk_dweller/ambient12"
+    ]
+  },
+  
+  "sculk_dweller.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_dweller/hurt1",
+      "entity/sculk_dweller/hurt2",
+      "entity/sculk_dweller/hurt3",
+      "entity/sculk_dweller/hurt4"
+    ]
+  },
+  
+  "sculk_dweller.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/sculk_dweller/death1",
+      "entity/sculk_dweller/death2"
+    ]
+  },
+  
+  "vindicator.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/vindicator/ambient1",
+      "entity/vindicator/ambient2",
+      "entity/vindicator/ambient3",
+      "entity/vindicator/ambient4",
+      "entity/vindicator/ambient5"
+    ]
+  },
+  
+  "snow_projectile.step": {
+  "category": "block",
+  "sounds": [
+      "block/snow_projectile/step1",
+      "block/snow_projectile/step2",
+      "block/snow_projectile/step3",
+      "block/snow_projectile/step4",
+      "block/snow_projectile/step5",
+      "block/snow_projectile/step6",
+      "block/snow_projectile/step7",
+      "block/snow_projectile/step8",
+      "block/snow_projectile/step9",
+      "block/snow_projectile/step10"
+    ]
+  },
+  
+  "vindicator.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/vindicator/hurt1",
+      "entity/vindicator/hurt2",
+      "entity/vindicator/hurt3"
+    ]
+  },
+  
+  "vindicator.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/vindicator/death1",
+      "entity/vindicator/death2"
+    ]
+  },
+  
+  "warden_altar.shriek": {
+    "category": "block",
+    "sounds": [
+      "block/warden_altar/shriek1",
+      "block/warden_altar/shriek2",
+      "block/warden_altar/shriek3",
+      "block/warden_altar/shriek4",
+      "block/warden_altar/shriek5"
+    ]
+  },
+  
+  "sculk.step": {
+    "category": "block",
+    "sounds": [
+      "block/sculk/step1",
+      "block/sculk/step2",
+      "block/sculk/step3",
+      "block/sculk/step4",
+      "block/sculk/step5",
+      "block/sculk/step6"
+    ]
+  },
+  
+  "sculk.break": {
+    "category": "block",
+    "sounds": [
+      "block/sculk/break1",
+      "block/sculk/break2",
+      "block/sculk/break3",
+      "block/sculk/break4",
+      "block/sculk/break5",
+      "block/sculk/break6",
+      "block/sculk/break7",
+      "block/sculk/break8",
+      "block/sculk/break9",
+      "block/sculk/break10",
+      "block/sculk/break11",
+      "block/sculk/break12",
+      "block/sculk/break13",
+      "block/sculk/break14"
+    ]
+  },
+  
+  "sculk_vein.break": {
+    "category": "block",
+    "sounds": [
+      "block/sculk_vein/break1",
+      "block/sculk_vein/break2",
+      "block/sculk_vein/break3",
+      "block/sculk_vein/break4",
+      "block/sculk_vein/break5"   
+    ]
+  },
+  
+  "sculk.place": {
+    "category": "block",
+    "sounds": [
+      "block/sculk/place1",
+      "block/sculk/place2",
+      "block/sculk/place3",
+      "block/sculk/place4",
+      "block/sculk/place5"
+    ]
+  },
+  
+  "crystal.step": {
+    "category": "block",
+    "sounds": [
+      "block/crystal/step1",
+      "block/crystal/step2",
+      "block/crystal/step3",
+      "block/crystal/step4",
+      "block/crystal/step5",
+      "block/crystal/step6",
+      "block/crystal/step7",
+      "block/crystal/step8",
+      "block/crystal/step9",
+      "block/crystal/step10",
+      "block/crystal/step11",
+      "block/crystal/step12",
+      "block/crystal/step13",
+      "block/crystal/step14"
+    ]
+  },
+  
+  "crystal.break": {
+    "category": "block",
+    "sounds": [
+      "block/crystal/break1",
+      "block/crystal/break2",
+      "block/crystal/break3",
+      "block/crystal/break4"
+    ]
+  },
+  
+  "crystal.place": {
+    "category": "block",
+    "sounds": [
+      "block/crystal/place1",
+      "block/crystal/place2",
+      "block/crystal/place3",
+      "block/crystal/place4"
+    ]
+  },
+  
+  "crystal_cluster.break": {
+    "category": "block",
+    "sounds": [
+      "block/crystal_cluster/break1",
+      "block/crystal_cluster/break2",
+      "block/crystal_cluster/break3",
+      "block/crystal_cluster/break4"
+    ]
+  },
+  
+  "crystal_cluster.place": {
+    "category": "block",
+    "sounds": [
+      "block/crystal_cluster/place1",
+      "block/crystal_cluster/place2",
+      "block/crystal_cluster/place3",
+      "block/crystal_cluster/place4"
+    ]
+  },
+  
+  "crystal.shimmer": {
+    "category": "block",
+    "sounds": [
+      "block/crystal/shimmer"
+    ]
+  },
+  
+  "boss.summoning": {
+    "category": "block",
+    "sounds": [
+      "block/summoning/boss_summoning"
+    ]
+  },
+  
+  "boss.DOsummoning": {
+    "category": "block",
+    "sounds": [
+      "block/summoning/deep_one_summoning"
+    ]
+  },
+  
+  "boss.Wardensummoning": {
+    "category": "block",
+    "sounds": [
+      "block/summoning/warden_summoning"
+    ]
+  },
+  
+  "chest.unlock": {
+    "category": "block",
+    "sounds": [
+      "misc/chest/unlock"
+    ]
+  },
+  
+  "chest.close": {
+    "category": "block",
+    "sounds": [
+      "misc/chest/stone_chest_close"
+    ]
+  },
+  
+  "chest.open": {
+    "category": "block",
+    "sounds": [
+      "misc/chest/stone_chest_open"
+    ]
+  },
+  
+  "totem.use": {
+    "category": "block",
+    "sounds": [
+      "misc/ancient_city_totem"
+    ]
+  },
+  
+  "nullstone.break": {
+    "category": "block",
+    "sounds": [
+      "block/nullstone/break1",
+      "block/nullstone/break2",
+      "block/nullstone/break3",
+      "block/nullstone/break4",
+      "block/nullstone/break5"   
+    ]
+  },
+  
+  "grimstone.break": {
+    "category": "block",
+    "sounds": [
+      "block/grimstone/break1",
+      "block/grimstone/break2",
+      "block/grimstone/break3",
+      "block/grimstone/break4"
+    ]
+  },
+  "grimstone.step": {
+    "category": "block",
+    "sounds": [
+      "block/grimstone/step1",
+      "block/grimstone/step2",
+      "block/grimstone/step3",
+      "block/grimstone/step4",
+      "block/grimstone/step5",
+      "block/grimstone/step6"
+    ]
+  },
+  
+  "grimstone.place": {
+    "category": "block",
+    "sounds": [
+      "block/grimstone/place1",
+      "block/grimstone/place2",
+      "block/grimstone/place3",
+      "block/grimstone/place4",
+      "block/grimstone/place5",
+      "block/grimstone/place6"
+    ]
+  },
+  
+  "grimstone_bricks.break": {
+    "category": "block",
+    "sounds": [
+      "block/grimstone_bricks/break1",
+      "block/grimstone_bricks/break2",
+      "block/grimstone_bricks/break3",
+      "block/grimstone_bricks/break4"
+    ]
+  },
+  "grimstone_bricks.step": {
+    "category": "block",
+    "sounds": [
+      "block/grimstone_bricks/step1",
+      "block/grimstone_bricks/step2",
+      "block/grimstone_bricks/step3",
+      "block/grimstone_bricks/step4",
+      "block/grimstone_bricks/step5"
+    ]
+  },
+  
+  "grimstone_bricks.place": {
+    "category": "block",
+    "sounds": [
+      "block/grimstone_bricks/place1",
+      "block/grimstone_bricks/place2",
+      "block/grimstone_bricks/place3",
+      "block/grimstone_bricks/place4",
+      "block/grimstone_bricks/place5",
+      "block/grimstone_bricks/place6"
+    ]
+  },
+  
+  "moss.break": {
+    "category": "block",
+    "sounds": [
+      "block/moss/break1",
+      "block/moss/break2",
+      "block/moss/break3",
+      "block/moss/break4",
+      "block/moss/break5"
+    ]
+  },
+  "moss.step": {
+    "category": "block",
+    "sounds": [
+      "block/moss/step1",
+      "block/moss/step2",
+      "block/moss/step3",
+      "block/moss/step4",
+      "block/moss/step5",
+      "block/moss/step6"
+    ]
+  },
+  
+  "ender_avis.living": {
+  "category": "neutral",
+  "sounds": [
+      "entity/ender_avis/ambient1",
+      "entity/ender_avis/ambient2",
+      "entity/ender_avis/ambient3",
+      "entity/ender_avis/ambient4"
+    ]
+  },
+  
+  "ender_avis.death": {
+  "category": "neutral",
+  "sounds": [
+      "entity/ender_avis/death"
+    ]
+  },
+  
+  "ender_ray.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/ender_ray/ambient1",
+      "entity/ender_ray/ambient2"
+    ]
+  },
+  
+  "ender_ray.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/ender_ray/hurt1",
+      "entity/ender_ray/hurt2",
+      "entity/ender_ray/hurt3",
+      "entity/ender_ray/hurt4"
+    ]
+  },
+  
+  "ender_ray.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/ender_ray/death"
+    ]
+  },
+  
+  "ender_ray.charge": {
+  "category": "hostile",
+  "sounds": [
+      "entity/ender_ray/charge"
+    ]
+  },
+  
+  "unknown.portal": {
+    "category": "neutral",
+    "sounds": [
+      "misc/portal_unknown"
+    ]
+  },
+  
+  "deepfire": {
+    "category": "neutral",
+    "sounds": [
+      "misc/flame"
+    ]
+  },
+  
+  "blend.use": {
+    "category": "neutral",
+    "sounds": [
+      "misc/blend_use"
+    ]
+  },
+  
+  "unknown.ignite": {
+    "category": "neutral",
+    "sounds": [
+      "misc/ignite_unknown"
+    ]
+  },
+  
+  "unknown.activated": {
+    "category": "neutral",
+    "sounds": [
+      "misc/activated"
+    ]
+  },
+  
+  "unknown.sealedportal": {
+    "category": "neutral",
+    "sounds": [
+      "misc/sealed_portal"
+    ]
+  },
+  
+  "phantom.living": {
+  "category": "hostile",
+  "sounds": [
+      "entity/phantom/idle1",
+      "entity/phantom/idle2",
+      "entity/phantom/idle3",
+      "entity/phantom/idle4",
+      "entity/phantom/idle5"
+    ]
+  },
+  
+  "phantom.hurt": {
+  "category": "hostile",
+  "sounds": [
+      "entity/phantom/hurt1",
+      "entity/phantom/hurt2",
+      "entity/phantom/hurt3"
+    ]
+  },
+  "phantom.death": {
+  "category": "hostile",
+  "sounds": [
+      "entity/phantom/death1",
+      "entity/phantom/death2",
+      "entity/phantom/death3"
+    ]
+  },
+  "phantom.flap": {
+  "category": "hostile",
+  "sounds": [
+      "entity/phantom/flap1",
+      "entity/phantom/flap2",
+      "entity/phantom/flap3",
+      "entity/phantom/flap4",
+      "entity/phantom/flap5",
+      "entity/phantom/flap6"
+    ]
+  },
+  
+  "phantom.attack": {
+  "category": "hostile",
+  "sounds": [
+      "entity/phantom/bite1",
+      "entity/phantom/bite2"
+    ]
+  }
+}

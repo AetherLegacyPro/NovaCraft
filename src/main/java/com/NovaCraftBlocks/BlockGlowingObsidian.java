@@ -1,0 +1,136 @@
+package com.NovaCraftBlocks;
+
+import java.util.Random;
+
+import com.NovaCraft.NovaCraft;
+import com.NovaCraft.particles.ParticleHandler;
+import com.NovaCraft.sounds.ModSounds;
+import com.ibm.icu.impl.duration.impl.Utils;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRotatedPillar;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+
+public class BlockGlowingObsidian extends Block {
+
+	@SideOnly(Side.CLIENT)
+	private IIcon[] icons;
+	public BlockGlowingObsidian() {
+		super(Material.rock);
+		this.setTickRandomly(true);
+		this.setLightLevel(0.48F);
+		this.setHardness(50F);
+		this.setResistance(6000F);
+		this.setStepSound(soundTypeStone);
+		this.setHarvestLevel("pickaxe", 3);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister registry) {
+		this.icons = new IIcon[3];
+		this.icons[0] = registry.registerIcon("nova_craft:glowing_obsidian_0");
+		this.icons[1] = registry.registerIcon("nova_craft:glowing_obsidian_1");
+		this.icons[2] = registry.registerIcon("nova_craft:glowing_obsidian_2");
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
+		int hash = x * 3129871 ^ z * 116129781 ^ y;
+		hash = hash * hash * 42317861 + hash * 11;
+		int choice = (hash >> 16) & 3;
+
+		return this.icons[choice % this.icons.length];
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int meta) {
+		return icons[0];
+	}
+	
+	@Override
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+ 		if (!entity.isImmuneToFire()) {
+			entity.setFire(3);
+ 		}
+ 		
+ 		entity.motionX *= 0.55D;
+ 		entity.motionZ *= 0.55D;
+	}
+    
+    @Override
+    public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata) {
+        return true;
+    }
+    
+    public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
+        return Item.getItemFromBlock(Blocks.obsidian);
+    }
+    
+    @Override
+	public int damageDropped(int meta) {
+		return 0;
+	}
+    
+    @Override
+    public int quantityDropped(Random random) {
+        return 1;
+    }
+
+    @Override
+    public ItemStack createStackedBlock(int metadata) {
+        return new ItemStack(this, 1, 1);
+    }
+    
+    @Override
+	public void updateTick(World world, int i, int j, int k, Random random) {
+    	int meta = world.getBlockMetadata(i, j, k);
+    	
+    	if (world.getBlock(i, j - 1, k) != Blocks.lava && meta == 0) {   		
+    		world.setBlock(i, j, k, Blocks.obsidian, 0, 2);
+            world.playSoundEffect((double)(i + 0.5f), (double)(j + 0.5f), (double)(k + 0.5f), "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);    		
+    	}
+    	
+    }
+	
+	@SideOnly(Side.CLIENT)
+    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
+    {		
+		if (!p_149734_1_.isRemote) {
+			return;
+		}
+
+		if (net.minecraft.client.Minecraft.getMinecraft().gameSettings.particleSetting == 2) {
+			return;
+		}
+		
+        int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
+        double d0 = (double)((float)p_149734_2_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
+        double d1 = (double)((float)p_149734_3_ + 1.0F);
+        double d2 = (double)((float)p_149734_4_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
+        double d3 = 0.2199999988079071D;
+        double d4 = 0.27000001072883606D;
+
+        if (p_149734_1_.getBlock(p_149734_2_, p_149734_3_ + 1, p_149734_4_) == Blocks.water || p_149734_1_.getBlock(p_149734_2_, p_149734_3_ + 1, p_149734_4_) == Blocks.flowing_water) {
+        	  
+        	p_149734_1_.spawnParticle("largesmoke", (double)p_149734_2_ + Math.random(), (double)p_149734_3_ + 1.2D, (double)p_149734_4_ + Math.random(), 0.0D, 0.0D, 0.0D);
+
+        }
+    }
+
+}

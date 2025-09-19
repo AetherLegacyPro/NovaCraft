@@ -1,0 +1,2943 @@
+package com.NovaCraft.world.ancient_city;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.block.*;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentData;
+import net.minecraft.world.*;
+import java.util.*;
+
+import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.config.Configs;
+import com.NovaCraft.registry.OtherModBlocks;
+import com.NovaCraft.registry.OtherModItems;
+import com.NovaCraftBlocks.NovaCraftBlocks;
+
+import cpw.mods.fml.common.Loader;
+import net.minecraft.init.*;
+import net.minecraft.item.ItemEnchantedBook;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityMobSpawner;
+import net.minecraft.util.MathHelper;
+
+public class AncientCityPositiveXLeftBranch2Gen4 extends WorldGenerator
+{
+	public AncientCityPositiveXLeftBranch2Gen4() {
+
+	}
+	
+	private Block PlaceDeepslate;
+	private Block PlaceDeepslateBricks;
+	private Block PlaceDeepslateTiles;
+	private Block PlaceCrackedDeepslateTiles;
+	private Block PlaceCrackedDeepslateBricks;
+	private Block PlaceChiseledDeepslate;
+	private Block PlacePolishedDeepslate;
+	private Block PlaceCobbledDeepslate;
+	private Block PlaceBasalt;
+	private Block PlaceDeepslateBrickSlab;
+	private Block PlaceDeepslateTileStairs;
+	private Block PlaceDeepslateBrickStairs;
+	private Block PlaceDeepslateBrickWall;
+
+	private Block determineIfCobbledDeepslateExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableCobbledDeepslateInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block cobbled_deepslate = GameRegistry.findBlock("etfuturum", "cobbled_deepslate");
+				if (cobbled_deepslate != null && (existingBlock == null || existingBlock != cobbled_deepslate)) {
+					return cobbled_deepslate;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Cobbled Deepslate from Et Futurum Requiem, using Cobbled Grimstone instead...");
+				}
+				return NovaCraftBlocks.cobbled_grimstone;
+			}
+		}
+
+		return NovaCraftBlocks.cobbled_grimstone;
+	}
+
+	private Block determineIfDeepslateExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate = GameRegistry.findBlock("etfuturum", "deepslate");
+				if (deepslate != null && (existingBlock == null || existingBlock != deepslate)) {
+					return deepslate;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Deepslate from Et Futurum Requiem, using Grimstone instead...");
+				}
+				return NovaCraftBlocks.grimstone;
+			}
+		}
+
+		return NovaCraftBlocks.grimstone;
+	}
+
+	private Block determineIfDeepslateBricksExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
+				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
+					return deepslate_bricks;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Deepslate Bricks from Et Futurum Requiem, using Grimstone Bricks instead...");
+				}
+				return NovaCraftBlocks.grimstone_bricks;
+			}
+		}
+
+		return NovaCraftBlocks.grimstone_bricks;
+	}
+
+	private Block determineIfCrackedDeepslateBricksExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
+				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
+					return deepslate_bricks;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Cracked Deepslate Bricks from Et Futurum Requiem, using Cracked Grimstone Bricks instead...");
+				}
+				return NovaCraftBlocks.cracked_grimstone_bricks;
+			}
+		}
+
+		return NovaCraftBlocks.cracked_grimstone_bricks;
+	}
+
+	private Block determineIfDeepslateTilesExist(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
+				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
+					return deepslate_bricks;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Deepslate Tiles from Et Futurum Requiem, using Grimstone Tiles instead...");
+				}
+				return NovaCraftBlocks.grimstone_tiles;
+			}
+		}
+
+		return NovaCraftBlocks.grimstone_tiles;
+	}
+
+	private Block determineIfCrackedDeepslateTilesExist(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
+				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
+					return deepslate_bricks;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Cracked Deepslate Tiles from Et Futurum Requiem, using Cracked Grimstone Tiles instead...");
+				}
+				return NovaCraftBlocks.cracked_grimstone_tiles;
+			}
+		}
+
+		return NovaCraftBlocks.cracked_grimstone_tiles;
+	}
+
+	private Block determineIfPolishedDeepslateExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block polished_deepslate = GameRegistry.findBlock("etfuturum", "polished_deepslate");
+				if (polished_deepslate != null && (existingBlock == null || existingBlock != polished_deepslate)) {
+					return polished_deepslate;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Polished Deepslate from Et Futurum Requiem, using Polished Grimstone instead...");
+				}
+				return NovaCraftBlocks.polished_grimstone;
+			}
+		}
+
+		return NovaCraftBlocks.polished_grimstone;
+	}
+
+	private Block determineIfChiseledDeepslateExist(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
+				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
+					return deepslate_bricks;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Chiseled Deepslate from Et Futurum Requiem, using Chiseled Grimstone instead...");
+				}
+				return NovaCraftBlocks.chiseled_grimstone;
+			}
+		}
+
+		return NovaCraftBlocks.chiseled_grimstone;
+	}
+
+	private Block determineIfDeepslateTileStairsExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_tile_stairs = GameRegistry.findBlock("etfuturum", "deepslate_tile_stairs");
+				if (deepslate_tile_stairs != null && (existingBlock == null || existingBlock != deepslate_tile_stairs)) {
+					return deepslate_tile_stairs;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Deepslate Tile Stairs from Et Futurum Requiem, using Grimstone Tile Stairs instead...");
+				}
+				return NovaCraftBlocks.grimstone_tiled_stairs;
+			}
+		}
+
+		return NovaCraftBlocks.grimstone_tiled_stairs;
+	}
+
+	private Block determineIfBasaltExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+
+		if (!(Configs.disableNetherliciousBasaltInAncientCity) && Loader.isModLoaded("netherlicious")) {
+			try {
+				Block nether_Basalt = GameRegistry.findBlock("netherlicious", "Basalt");
+				if (nether_Basalt != null && (existingBlock == null || existingBlock != nether_Basalt)) {
+					return nether_Basalt;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Failed to Find Netherlicious basalt, trying Et Futurum Requiem...");
+				}
+			}
+		}
+
+		if (Loader.isModLoaded("etfuturum")) {
+			try {
+				Block et_basalt = GameRegistry.findBlock("etfuturum", "basalt");
+				if (et_basalt != null && (existingBlock == null || existingBlock != et_basalt)) {
+					return et_basalt;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Failed to Find Et Futurum Requiem basalt, placing Polished Vanite Bricks...");
+				}
+			}
+		}
+
+		return NovaCraftBlocks.polished_vanite_bricks;
+	}
+
+	private Block determineIfDeepslateBrickStairsExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_brick_stairs = GameRegistry.findBlock("etfuturum", "deepslate_brick_stairs");
+				if (deepslate_brick_stairs != null && (existingBlock == null || existingBlock != deepslate_brick_stairs)) {
+					return deepslate_brick_stairs;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Deepslate Tile Stairs from Et Futurum Requiem, using Grimstone Tile Stairs instead...");
+				}
+				return NovaCraftBlocks.grimstone_brick_stairs;
+			}
+		}
+
+		return NovaCraftBlocks.grimstone_brick_stairs;
+	}
+
+	private Block determineIfDeepslateSlabExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_brick_wall = GameRegistry.findBlock("etfuturum", "deepslate_brick_wall");
+				if (deepslate_brick_wall != null && (existingBlock == null || existingBlock != deepslate_brick_wall)) {
+					return deepslate_brick_wall;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Deepslate Brick Wall from Et Futurum Requiem, using Grimstone Brick Wall instead...");
+				}
+				return NovaCraftBlocks.grimstone_brick_wall;
+			}
+		}
+
+		return NovaCraftBlocks.grimstone_brick_wall;
+	}
+
+	private Block determineIfDeepslateBrickWallExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_brick_slab = GameRegistry.findBlock("etfuturum", "deepslate_brick_slab");
+				if (deepslate_brick_slab != null && (existingBlock == null || existingBlock != deepslate_brick_slab)) {
+					return deepslate_brick_slab;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Deepslate Brick Slab from Et Futurum Requiem, using Grimstone Brick Slab instead...");
+				}
+				return NovaCraftBlocks.grimstone_brick_slab;
+			}
+		}
+
+		return NovaCraftBlocks.grimstone_brick_slab;
+	}
+    
+    public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
+    	PlaceCobbledDeepslate = determineIfCobbledDeepslateExists(world, i + 21, j + 4, k + 14);
+    	PlaceDeepslate = determineIfDeepslateExists(world, i + 37, j + 4, k + 9);
+    	PlaceBasalt = determineIfBasaltExists(world, i + 10, j + 4, k + 31);
+    	
+    	PlaceDeepslateBricks = determineIfDeepslateBricksExists(world, i + 10, j + 3, k + 41);
+    	PlaceCrackedDeepslateBricks = determineIfCrackedDeepslateBricksExists(world, i + 36, j + 4, k + 13);
+    	PlaceDeepslateTiles = determineIfDeepslateTilesExist(world, i + 21, j + 4, k + 0);
+    	PlaceCrackedDeepslateTiles = determineIfCrackedDeepslateTilesExist(world, i + 23, j + 4, k + 0);
+    	PlaceChiseledDeepslate = determineIfChiseledDeepslateExist(world, i + 10, j + 4, k + 0);
+    	PlacePolishedDeepslate = determineIfPolishedDeepslateExists(world, i + 7, j + 3, k + 41);
+    	
+    	PlaceDeepslateBrickStairs = determineIfDeepslateBrickStairsExists(world, i + 25, j + 4, k + 5);
+    	PlaceDeepslateBrickWall = determineIfDeepslateBrickWallExists(world, i + 27, j + 5, k + 9);
+    	PlaceDeepslateTileStairs = determineIfDeepslateTileStairsExists(world, i + 22, j + 4, k + 6);  	
+    	PlaceDeepslateBrickSlab = determineIfDeepslateSlabExists(world, i + 35, j + 4, k + 10);
+    	
+    	world.setBlock(i + 25, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 3, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 3, k + 41, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 3, k + 41, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 3, k + 41, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 3, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 0, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 11, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 23, j + 4, k + 0, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 24, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 0, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 26, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 27, j + 4, k + 0, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 28, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 29, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 30, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 31, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 32, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 33, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 34, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 35, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 36, j + 4, k + 0, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 37, j + 4, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 4, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 23, j + 4, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 24, j + 4, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 25, j + 4, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 26, j + 4, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 27, j + 4, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 28, j + 4, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 29, j + 4, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 30, j + 4, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 31, j + 4, k + 1, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 32, j + 4, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 33, j + 4, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 34, j + 4, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 35, j + 4, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 36, j + 4, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 37, j + 4, k + 1, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 38, j + 4, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 2, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 11, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 2, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 2, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 38, j + 4, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 3, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 22, j + 4, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 23, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 26, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 31, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 34, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 3, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 37, j + 4, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 4, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 4, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 4, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 4, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 4, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 4, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 23, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 4, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 26, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 4, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 29, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 4, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 31, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 4, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 34, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 4, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 37, j + 4, k + 4, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 38, j + 4, k + 4, NovaCraftBlocks.sculk_vein, 5, 2);
+		world.setBlock(i + 0, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 5, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 5, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 5, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 23, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 5, PlaceDeepslateBrickStairs, 3, 2);
+		world.setBlock(i + 26, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 5, PlaceDeepslateBrickStairs, 3, 2);
+		world.setBlock(i + 29, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 5, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 31, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 5, PlaceDeepslateBrickStairs, 3, 2);
+		world.setBlock(i + 34, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 5, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 37, j + 4, k + 5, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 38, j + 4, k + 5, NovaCraftBlocks.sculk_vein, 5, 2);
+		world.setBlock(i + 0, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 6, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 6, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 23, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 6, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 30, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 6, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 32, j + 4, k + 6, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 33, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 6, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 37, j + 4, k + 6, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 4, k + 6, NovaCraftBlocks.sculk_vein, 5, 2);
+		world.setBlock(i + 0, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 7, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 11, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 7, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 7, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 25, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 7, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 29, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 7, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 33, j + 4, k + 7, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 34, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 7, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 8, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 11, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 8, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 8, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 29, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 8, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 32, j + 4, k + 8, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 33, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 8, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 4, k + 8, NovaCraftBlocks.sculk_vein, 5, 2);
+		world.setBlock(i + 0, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 9, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 28, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 9, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 31, j + 4, k + 9, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 32, j + 4, k + 9, NovaCraftBlocks.sculk_spike, 1, 2);
+		world.setBlock(i + 33, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 9, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 36, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 9, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 10, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 10, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 10, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 10, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 27, j + 4, k + 10, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 10, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 29, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 10, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 31, j + 4, k + 10, NovaCraftBlocks.sculk_spike, 1, 2);
+		world.setBlock(i + 32, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 10, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 35, j + 4, k + 10, PlaceDeepslateBrickSlab, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 10, PlaceDeepslateBrickStairs, 2, 2);
+		world.setBlock(i + 37, j + 4, k + 10, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 11, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 11, PlaceDeepslateBrickSlab, 1, 2);
+		world.setBlock(i + 28, j + 4, k + 11, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 29, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 11, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 31, j + 4, k + 11, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 32, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 11, PlaceDeepslateBrickStairs, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 11, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 11, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 12, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 11, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 12, PlaceDeepslateBrickSlab, 1, 2);
+		world.setBlock(i + 28, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 12, PlaceDeepslateBrickStairs, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 12, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 12, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 13, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 13, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 28, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 13, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 35, j + 4, k + 13, PlaceDeepslateBrickStairs, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 13, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 37, j + 4, k + 13, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 14, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 11, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 14, PlaceCobbledDeepslate, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 14, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 35, j + 4, k + 14, PlaceDeepslateBrickSlab, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 14, PlaceDeepslateBrickStairs, 3, 2);
+		world.setBlock(i + 37, j + 4, k + 14, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 15, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 15, PlaceCobbledDeepslate, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 15, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 36, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 15, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 16, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 16, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 16, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 16, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 16, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 27, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 16, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 4, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 17, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 17, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 38, j + 4, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 18, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 11, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 18, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 22, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 18, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 25, j + 4, k + 18, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 26, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 18, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 34, j + 4, k + 18, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 35, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 18, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 4, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 19, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 19, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 22, j + 4, k + 19, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 23, j + 4, k + 19, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 24, j + 4, k + 19, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 25, j + 4, k + 19, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 26, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 19, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 19, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 19, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 19, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 19, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 34, j + 4, k + 19, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 35, j + 4, k + 19, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 36, j + 4, k + 19, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 37, j + 4, k + 19, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 4, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 20, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 11, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 20, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 21, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 21, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 21, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 22, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 11, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 22, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 23, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 23, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 24, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 24, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 25, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 25, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 25, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 25, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 26, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 27, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 11, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 27, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 28, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 28, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 28, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 28, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 28, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 28, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 28, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 28, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 28, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 28, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 28, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 29, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 30, Blocks.ladder, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 30, PlaceDeepslateTileStairs, 1, 2);
+		world.setBlock(i + 25, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 30, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 31, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 1, j + 4, k + 31, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 2, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 3, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 4, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 5, j + 4, k + 31, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 6, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 7, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 8, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 31, Blocks.ladder, 4, 2);
+		world.setBlock(i + 10, j + 4, k + 31, PlaceBasalt, 1, 2);
+		world.setBlock(i + 11, j + 4, k + 31, Blocks.ladder, 5, 2);
+		world.setBlock(i + 12, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 14, j + 4, k + 31, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 15, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 16, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 17, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 18, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 19, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 20, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 21, j + 4, k + 31, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 22, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 23, j + 4, k + 31, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 24, j + 4, k + 31, PlaceDeepslateTileStairs, 1, 2);
+		world.setBlock(i + 25, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 31, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 31, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 34, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 35, j + 4, k + 31, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 36, j + 4, k + 31, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 31, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 4, k + 31, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 0, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 32, Blocks.ladder, 3, 2);
+		world.setBlock(i + 11, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 32, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 32, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 33, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 34, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 34, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 34, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 34, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 34, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 34, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 34, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 34, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 34, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 34, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 34, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 34, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 35, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 35, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 36, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 36, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 37, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 37, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 37, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 37, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 38, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 11, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 38, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 39, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 39, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 40, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 40, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 4, k + 41, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 8, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 41, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 11, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 4, k + 41, PlacePolishedDeepslate, 0, 2);
+		world.setBlock(i + 14, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 4, k + 41, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 0, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 0, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j + 5, k + 0, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 0, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 0, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 11, j + 5, k + 0, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 0, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 0, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 0, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 0, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 22, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 23, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 24, j + 5, k + 0, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 25, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 26, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 27, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 28, j + 5, k + 0, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 29, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 30, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 31, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 32, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 33, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 34, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 35, j + 5, k + 0, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 36, j + 5, k + 0, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 37, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 0, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 1, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 7, j + 5, k + 1, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 8, j + 5, k + 1, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 1, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 1, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 1, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 1, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 1, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 1, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 5, k + 1, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 23, j + 5, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 24, j + 5, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 25, j + 5, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 26, j + 5, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 27, j + 5, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 28, j + 5, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 29, j + 5, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 30, j + 5, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 31, j + 5, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 32, j + 5, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 33, j + 5, k + 1, Blocks.skull, 1, 2);
+		world.setBlock(i + 34, j + 5, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 35, j + 5, k + 1, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 36, j + 5, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 37, j + 5, k + 1, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 5, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 2, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 2, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j + 5, k + 2, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 2, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 10, j + 5, k + 2, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 2, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 2, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 2, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 2, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 15, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 2, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 22, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 2, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 5, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 3, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 3, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j + 5, k + 3, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 3, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 3, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 3, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 12, j + 5, k + 3, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 3, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 3, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 5, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 23, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 3, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 26, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 3, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 29, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 31, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 34, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 3, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 37, j + 5, k + 3, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 38, j + 5, k + 3, NovaCraftBlocks.sculk_vein, 5, 2);
+		world.setBlock(i + 0, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 4, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 4, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j + 5, k + 4, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 4, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 4, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 11, j + 5, k + 4, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 4, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 4, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 4, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 4, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 22, j + 5, k + 4, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 23, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 26, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 29, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 4, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 31, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 4, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 37, j + 5, k + 4, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 5, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j + 5, k + 5, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 5, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 11, j + 5, k + 5, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 5, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 5, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 15, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 5, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 5, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 23, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 5, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 37, j + 5, k + 5, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 6, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 6, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j + 5, k + 6, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 6, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 6, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 6, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 6, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 6, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 14, j + 5, k + 6, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 6, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 6, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 7, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 7, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j + 5, k + 7, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 7, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 7, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 7, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 7, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 7, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 7, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 15, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 7, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 8, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 8, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j + 5, k + 8, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 8, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 8, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 8, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 8, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 8, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 14, j + 5, k + 8, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 15, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 8, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 8, NovaCraftBlocks.sculk_vein, 1, 2);
+		world.setBlock(i + 38, j + 5, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 9, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 7, j + 5, k + 9, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j + 5, k + 9, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 9, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 10, j + 5, k + 9, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 11, j + 5, k + 9, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 9, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 9, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 9, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 9, PlaceDeepslateBrickWall, 1, 2);
+		world.setBlock(i + 28, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 9, PlaceDeepslateBrickStairs, 2, 2);
+		world.setBlock(i + 38, j + 5, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 10, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 7, j + 5, k + 10, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j + 5, k + 10, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 10, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 10, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 10, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 10, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 10, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 14, j + 5, k + 10, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 10, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 10, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 11, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 11, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j + 5, k + 11, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 11, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 11, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 11, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 11, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 11, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 11, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 11, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 37, j + 5, k + 11, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 5, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 12, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 12, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j + 5, k + 12, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 12, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 12, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 12, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 12, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 12, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 12, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 15, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 12, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 37, j + 5, k + 12, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 38, j + 5, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 13, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 13, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 8, j + 5, k + 13, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 13, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 13, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 13, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 13, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 13, PlaceChiseledDeepslate, 4, 2);
+		world.setBlock(i + 14, j + 5, k + 13, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 15, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 13, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 13, NovaCraftBlocks.dim_vanite_torch, 5, 2);
+		world.setBlock(i + 37, j + 5, k + 13, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 38, j + 5, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 14, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j + 5, k + 14, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 14, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 14, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 14, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 14, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 14, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 14, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 14, PlaceDeepslateBrickWall, 1, 2);
+		world.setBlock(i + 28, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 14, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 15, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 7, j + 5, k + 15, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j + 5, k + 15, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 15, NovaCraftBlocks.sculk_block, 0, 2);
+		world.setBlock(i + 10, j + 5, k + 15, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 11, j + 5, k + 15, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 15, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 15, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 15, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 15, PlaceCobbledDeepslate, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 15, PlaceDeepslateBrickStairs, 3, 2);
+		world.setBlock(i + 38, j + 5, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 16, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 16, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j + 5, k + 16, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 16, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 16, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 16, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 16, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 16, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 14, j + 5, k + 16, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 16, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 16, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 17, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 17, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j + 5, k + 17, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 17, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 17, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 11, j + 5, k + 17, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 17, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 17, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 17, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 15, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 17, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 25, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 26, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 34, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 35, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 17, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 18, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j + 5, k + 18, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j + 5, k + 18, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 18, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 18, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 11, j + 5, k + 18, Blocks.wool, 7, 2);
+		world.setBlock(i + 12, j + 5, k + 18, Blocks.wool, 7, 2);
+		world.setBlock(i + 13, j + 5, k + 18, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 14, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 19, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 20, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 21, j + 5, k + 18, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 22, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 23, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 24, j + 5, k + 18, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 25, j + 5, k + 18, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 26, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 27, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 28, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 29, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 30, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 31, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 32, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 33, j + 5, k + 18, PlaceDeepslateTiles, 2, 2);
+		world.setBlock(i + 34, j + 5, k + 18, PlaceCrackedDeepslateTiles, 3, 2);
+		world.setBlock(i + 35, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 36, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 37, j + 5, k + 18, PlaceDeepslate, 0, 2);
+		world.setBlock(i + 38, j + 5, k + 18, Blocks.air, 0, 2);
+		world.setBlock(i + 0, j + 5, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 5, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 5, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 5, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 5, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 5, k + 19, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 5, k + 19, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 7, j + 5, k + 19, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j + 5, k + 19, Blocks.wool, 7, 2);
+		world.setBlock(i + 9, j + 5, k + 19, Blocks.wool, 7, 2);
+		world.setBlock(i + 10, j + 5, k + 19, Blocks.air, 0, 2);
+		
+		world.setBlock(i + 34, j + 4, k + 6, Blocks.mob_spawner, 0, 2);
+		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 34, j + 4, k + 6);
+        
+        if (tileentitymobspawner != null)
+        {
+        	tileentitymobspawner.func_145881_a().setEntityName("nova_craft.sculk_hunger");
+        }
+        
+        world.setBlock(i + 34, j + 4, k + 16, Blocks.mob_spawner, 0, 2);
+        TileEntityMobSpawner tileentitymobspawner2 = (TileEntityMobSpawner)world.getTileEntity(i + 34, j + 4, k + 16);
+        
+        if (tileentitymobspawner2 != null)
+        {
+        	tileentitymobspawner2.func_145881_a().setEntityName("nova_craft.sculk_dweller");
+        }
+		
+		world.setBlock(i + 36, j + 4, k + 8, Blocks.chest, 4, 2);
+		TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 36, j + 4, k + 8);
+
+		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
+			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
+			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
+		}
+		
+		world.setBlock(i + 36, j + 4, k + 16, Blocks.chest, 4, 2);
+		TileEntityChest chest2 = (TileEntityChest) world.getTileEntity(i + 36, j + 4, k + 16);
+
+		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
+			chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getBasicLoot(random));
+			chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getBasicLoot(random));
+		}
+    	
+    	return true;
+    }
+    
+    private ItemStack getBasicLoot(Random random) {
+		int item = random.nextInt(34);
+		switch (item) {
+			case 0:
+				return new ItemStack(Items.coal, random.nextInt(9) + 6);
+			case 1:
+				return new ItemStack(Items.bone, random.nextInt(14) + 1);
+			case 2:
+				return new ItemStack(NovaCraftItems.larimar_shard, random.nextInt(2) + 1);
+			case 3:
+				return new ItemStack(NovaCraftItems.copartz_shard, random.nextInt(3) + 1);
+			case 4:
+				return new ItemStack(NovaCraftItems.tsavorokite_shard, random.nextInt(1) + 1);
+			case 5:
+				return new ItemStack(NovaCraftItems.yttrlinsite_shard, 1);
+			case 6:
+				if (Loader.isModLoaded("netherlicious")) {
+					return new ItemStack(OtherModBlocks.SoulTorch, random.nextInt(14) + 1);
+				}
+				if (Loader.isModLoaded("etfuturum")) {
+					return new ItemStack(OtherModBlocks.soul_torch, random.nextInt(14) + 1);
+				}
+				else {
+					return new ItemStack(NovaCraftBlocks.dim_vanite_torch, random.nextInt(14) + 1);
+				}
+			case 7: 
+				return new ItemStack(NovaCraftItems.disc_fragment_5, 1);
+			case 8: 
+				return new ItemStack(Items.book, random.nextInt(7) + 2);
+			case 9: 
+				Enchantment enchantment = Enchantment.enchantmentsBookList[random.nextInt(Enchantment.enchantmentsBookList.length)];
+		        		        
+				int minLevel = enchantment.getMinLevel();
+		        int maxLevel = enchantment.getMaxLevel();
+		        int level = MathHelper.getRandomIntegerInRange(random, minLevel, maxLevel);
+		        ItemStack itemStack = Items.enchanted_book.getEnchantedItemStack(new EnchantmentData(enchantment, maxLevel));
+                
+                return itemStack;
+			case 10: 
+				Enchantment enchantment2 = Enchantment.enchantmentsBookList[random.nextInt(Enchantment.enchantmentsBookList.length)];
+		        
+		        int minLevel2 = enchantment2.getMinLevel();
+		        int maxLevel2 = enchantment2.getMaxLevel();
+		        int level2 = MathHelper.getRandomIntegerInRange(random, minLevel2, maxLevel2);		       
+		        ItemStack itemStack2 = Items.enchanted_book.getEnchantedItemStack(new EnchantmentData(enchantment2, maxLevel2));
+                
+                return itemStack2;
+                
+			case 11: 
+				return new ItemStack(Items.potionitem, 1, 8257);
+			case 12: 
+				if (Loader.isModLoaded("etfuturum")) {
+					return new ItemStack(OtherModItems.amethyst_shard, random.nextInt(14) + 1);
+				}
+				else {
+					return new ItemStack(NovaCraftItems.copartz_shard, random.nextInt(14) + 1);
+				}
+			case 13: 
+				return new ItemStack(NovaCraftBlocks.sculk_block, random.nextInt(6) + 4);
+			case 14: 
+				return new ItemStack(Items.experience_bottle, random.nextInt(2) + 1);
+			case 15:
+				//Helmet enchants
+			    Enchantment[] helmetEnchantments = {Enchantment.protection, Enchantment.projectileProtection, Enchantment.unbreaking, Enchantment.respiration};
+			    Enchantment[] helmetEnchantments2 = {Enchantment.aquaAffinity, Enchantment.fireProtection, Enchantment.blastProtection};
+			    Enchantment enchantment3 = helmetEnchantments[random.nextInt(helmetEnchantments.length)];
+			    Enchantment enchantment33 = helmetEnchantments2[random.nextInt(helmetEnchantments2.length)];	
+			    int maxLevel3 = enchantment3.getMaxLevel();			
+			    int maxLevel33 = enchantment33.getMaxLevel();	
+			    ItemStack itemStack3 = new ItemStack(Items.diamond_helmet);
+			    
+			    itemStack3.addEnchantment(enchantment3, maxLevel3);
+			    itemStack3.addEnchantment(enchantment33, maxLevel33);
+			    
+			    return itemStack3;
+			case 16:
+				//Chestplate enchants
+			    Enchantment[] chestplateEnchantments = {Enchantment.protection, Enchantment.blastProtection};
+			    Enchantment[] chestplateEnchantments2 = {Enchantment.unbreaking, Enchantment.fireProtection, Enchantment.projectileProtection};
+			    
+			    //Selects a random enchantment
+			    Enchantment enchantment4 = chestplateEnchantments[random.nextInt(chestplateEnchantments.length)];		    
+			    int maxLevel4 = enchantment4.getMaxLevel();		    
+			    
+			    Enchantment enchantment44 = chestplateEnchantments2[random.nextInt(chestplateEnchantments2.length)];		    
+			    int maxLevel44 = enchantment44.getMaxLevel();
+			    
+			    //Creates an ItemStack for diamond chestplate
+			    ItemStack itemStack4 = new ItemStack(Items.diamond_chestplate);
+			    
+			    //Adds the enchantment
+			    itemStack4.addEnchantment(enchantment4, maxLevel4);
+			    itemStack4.addEnchantment(enchantment44, maxLevel44);
+			    
+			    return itemStack4;			
+			case 17:
+				//Legging enchants
+			    Enchantment[] leggingsEnchantments = {Enchantment.protection, Enchantment.fireProtection};
+			    Enchantment[] leggingsEnchantments2 = {Enchantment.unbreaking, Enchantment.blastProtection, Enchantment.projectileProtection};
+			    Enchantment enchantment5 = leggingsEnchantments[random.nextInt(leggingsEnchantments.length)];
+			    Enchantment enchantment55 = leggingsEnchantments2[random.nextInt(leggingsEnchantments2.length)];
+			    int maxLevel5 = enchantment5.getMaxLevel();
+			    int maxLevel55 = enchantment55.getMaxLevel();
+			    ItemStack itemStack5 = new ItemStack(Items.diamond_leggings);
+			    
+			    itemStack5.addEnchantment(enchantment5, maxLevel5);
+			    itemStack5.addEnchantment(enchantment55, maxLevel55);
+			    
+			    return itemStack5;
+			case 18:
+				//Boot enchants
+				Enchantment[] bootEnchantments = {Enchantment.protection, Enchantment.unbreaking};
+			    Enchantment[] bootEnchantments2 = {Enchantment.projectileProtection, Enchantment.featherFalling, Enchantment.blastProtection, Enchantment.fireProtection};
+			    Enchantment enchantment6 = bootEnchantments[random.nextInt(bootEnchantments.length)];
+			    Enchantment enchantment66 = bootEnchantments2[random.nextInt(bootEnchantments2.length)];
+			    int maxLevel6 = enchantment6.getMaxLevel();
+			    int maxLevel66 = enchantment66.getMaxLevel();
+			    ItemStack itemStack6 = new ItemStack(Items.diamond_boots);
+			    
+			    itemStack6.addEnchantment(enchantment6, maxLevel6);
+			    itemStack6.addEnchantment(enchantment66, maxLevel66);
+			    
+			    return itemStack6;
+			case 19: 
+				return new ItemStack(Items.iron_ingot, random.nextInt(14) + 7);
+			case 20: 
+				return new ItemStack(Items.gold_ingot, random.nextInt(7) + 3);
+			case 21: 
+				return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(15) + 8);
+			case 22: 
+				return new ItemStack(Items.golden_apple, 1, 1);
+			case 23:
+				return new ItemStack(NovaCraftItems.sculk_leggings, 1);
+			case 24: 
+				return new ItemStack(NovaCraftItems.sculk_dweller_heart, 1);
+			case 25: 
+				return new ItemStack(NovaCraftItems.sculked_monitor_scales, random.nextInt(2) + 1);
+			case 26: 
+				return new ItemStack(NovaCraftItems.luminant_gel, random.nextInt(8) + 3);
+			case 27: 
+				return new ItemStack(Items.gunpowder, random.nextInt(6) + 5);
+			case 28:
+				if (Configs.enableTreasureCratesDropDiamonds == true) {
+					return new ItemStack(Items.diamond, 1);
+				}
+				else {
+					return new ItemStack(Items.iron_ingot, random.nextInt(14) + 7);
+				}
+			case 29: 
+				return new ItemStack(NovaCraftItems.potion_water_breathing_extended, 1);
+			case 30: 
+				return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(15) + 8);
+			case 31: 
+				return new ItemStack(NovaCraftItems.primeval_horn, 1);
+			default: {
+				return new ItemStack(NovaCraftBlocks.sculk_block, random.nextInt(9) + 2);
+			}
+		}
+	}
+
+}
