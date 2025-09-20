@@ -61,6 +61,18 @@ public class AncientCityGen implements IWorldGenerator {
 		BiomeGenBase biomeNegZ = world.getBiomeGenForCoords(x, z - 150);
 		Type[] biomeListNegZ = BiomeDictionary.getTypesForBiome(biomeNegZ);
 
+		BiomeGenBase biomePosXPosZ = world.getBiomeGenForCoords(x + 160, z + 150);
+		Type[] biomeListPosXPosZ = BiomeDictionary.getTypesForBiome(biomePosXPosZ);
+
+		BiomeGenBase biomeNegXNegZ = world.getBiomeGenForCoords(x - 160, z - 150);
+		Type[] biomeListNegXNegZ = BiomeDictionary.getTypesForBiome(biomeNegXNegZ);
+
+		BiomeGenBase biomePosXNegZ = world.getBiomeGenForCoords(x + 160, z - 150);
+		Type[] biomeListPosXNegZ = BiomeDictionary.getTypesForBiome(biomePosXNegZ);
+
+		BiomeGenBase biomeNegXPosZ = world.getBiomeGenForCoords(x - 160, z + 150);
+		Type[] biomeListNegXPosZ = BiomeDictionary.getTypesForBiome(biomeNegXPosZ);
+
 		//The minimum distance between Ancient Cities, so they do not overlap
 		final int spacing = 750;
 
@@ -75,7 +87,11 @@ public class AncientCityGen implements IWorldGenerator {
 				&& !ArrayUtils.contains(biomeListPosX, Type.OCEAN) && !ArrayUtils.contains(biomeListPosX, Type.BEACH) && !ArrayUtils.contains(biomeListPosX, Type.SWAMP)
 				&& !ArrayUtils.contains(biomeListNegX, Type.OCEAN) && !ArrayUtils.contains(biomeListNegX, Type.BEACH) && !ArrayUtils.contains(biomeListNegX, Type.SWAMP)
 				&& !ArrayUtils.contains(biomeListPosZ, Type.OCEAN) && !ArrayUtils.contains(biomeListPosZ, Type.BEACH) && !ArrayUtils.contains(biomeListPosZ, Type.SWAMP)
-				&& !ArrayUtils.contains(biomeListNegZ, Type.OCEAN) && !ArrayUtils.contains(biomeListNegZ, Type.BEACH) && !ArrayUtils.contains(biomeListNegZ, Type.SWAMP)) {
+				&& !ArrayUtils.contains(biomeListNegZ, Type.OCEAN) && !ArrayUtils.contains(biomeListNegZ, Type.BEACH) && !ArrayUtils.contains(biomeListNegZ, Type.SWAMP)
+				&& !ArrayUtils.contains(biomeListPosXPosZ, Type.OCEAN) && !ArrayUtils.contains(biomeListPosXPosZ, Type.BEACH) && !ArrayUtils.contains(biomeListPosXPosZ, Type.SWAMP)
+				&& !ArrayUtils.contains(biomeListNegXNegZ, Type.OCEAN) && !ArrayUtils.contains(biomeListNegXNegZ, Type.BEACH) && !ArrayUtils.contains(biomeListNegXNegZ, Type.SWAMP)
+				&& !ArrayUtils.contains(biomeListPosXNegZ, Type.OCEAN) && !ArrayUtils.contains(biomeListPosXNegZ, Type.BEACH) && !ArrayUtils.contains(biomeListPosXNegZ, Type.SWAMP)
+				&& !ArrayUtils.contains(biomeListNegXPosZ, Type.OCEAN) && !ArrayUtils.contains(biomeListNegXPosZ, Type.BEACH) && !ArrayUtils.contains(biomeListNegXPosZ, Type.SWAMP)) {
 
 			int baseX = regionX * spacing + regionRand.nextInt(spacing);
 			int baseZ = regionZ * spacing + regionRand.nextInt(spacing);

@@ -810,12 +810,34 @@ public class NovaCraftBlocks {
 		
 		basal_stairs = register("basal_stairs", new BlockNovaCraftStairs(basal));
 		basal_brick_stairs = register("basal_brick_stairs", new BlockNovaCraftStairs(basal_bricks));
-		
-		tuff_brick_stairs = register("tuff_brick_stairs", new BlockNovaCraftStairs(tuff_bricks));
-		tuff_tiled_stairs = register("tuff_tiled_stairs", new BlockNovaCraftStairs(tuff_tiles));
-		
-		calcite_brick_stairs = register("calcite_brick_stairs", new BlockNovaCraftStairs(calcite_bricks));
-		calcite_tiled_stairs = register("calcite_tiled_stairs", new BlockNovaCraftStairs(calcite_tiles));
+
+		if (Loader.isModLoaded("etfuturum")) {
+			try {
+				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
+				if (tuff != null) {
+					tuff_brick_stairs = register("tuff_brick_stairs", new BlockNovaCraftStairs(tuff_bricks));
+					tuff_tiled_stairs = register("tuff_tiled_stairs", new BlockNovaCraftStairs(tuff_tiles));
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Tuff from Et Futurum Requiem is missing, skipping Tuff Building Blocks...");
+				}
+			}
+		}
+
+		if (Loader.isModLoaded("etfuturum")) {
+			try {
+				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
+				if (calcite != null) {
+					calcite_brick_stairs = register("calcite_brick_stairs", new BlockNovaCraftStairs(calcite_bricks));
+					calcite_tiled_stairs = register("calcite_tiled_stairs", new BlockNovaCraftStairs(calcite_tiles));
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Calcite from Et Futurum Requiem is missing, skipping Calcite Building Blocks...");
+				}
+			}
+		}
 		
 		sculk_brick_stairs = register("sculk_brick_stairs", new BlockNovaCraftStairs(sculk_bricks));
 		sculk_tiled_stairs = register("sculk_tiled_stairs", new BlockNovaCraftStairs(sculk_tiles));
@@ -852,12 +874,34 @@ public class NovaCraftBlocks {
 		
 		sculk_brick_wall = register("sculk_brick_wall", new BlockNovaCraftWall(sculk_bricks));
 		sculk_tiled_wall = register("sculk_tiled_wall", new BlockNovaCraftWall(sculk_tiles));
-		
-		tuff_brick_wall = register("tuff_brick_wall", new BlockNovaCraftWall(tuff_bricks));
-		tuff_tiled_wall = register("tuff_tiled_wall", new BlockNovaCraftWall(tuff_tiles));
-		
-		calcite_brick_wall = register("calcite_brick_wall", new BlockNovaCraftWall(calcite_bricks));
-		calcite_tiled_wall = register("calcite_tiled_wall", new BlockNovaCraftWall(calcite_tiles));
+
+		if (Loader.isModLoaded("etfuturum")) {
+			try {
+				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
+				if (tuff != null) {
+					tuff_brick_wall = register("tuff_brick_wall", new BlockNovaCraftWall(tuff_bricks));
+					tuff_tiled_wall = register("tuff_tiled_wall", new BlockNovaCraftWall(tuff_tiles));
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Tuff from Et Futurum Requiem is missing, skipping Tuff Building Blocks...");
+				}
+			}
+		}
+
+		if (Loader.isModLoaded("etfuturum")) {
+			try {
+				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
+				if (calcite != null) {
+					calcite_brick_wall = register("calcite_brick_wall", new BlockNovaCraftWall(calcite_bricks));
+					calcite_tiled_wall = register("calcite_tiled_wall", new BlockNovaCraftWall(calcite_tiles));
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Calcite from Et Futurum Requiem is missing, skipping Calcite Building Blocks...");
+				}
+			}
+		}
 		
 		frontierslate_wall = register("frontierslate_wall", new BlockNovaCraftWall(frontierslate));
 		frontierslate_brick_wall = register("frontierslate_brick_wall", new BlockNovaCraftWall(frontierslate_bricks));
@@ -909,17 +953,38 @@ public class NovaCraftBlocks {
 		sculk_brick_slab = registerSlab("sculk_brick_slab", new BlocksNovaCraftSlab("sculk_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("sculk_bricks")).setHardness(3.0F).setResistance(6.0F), sculk_brick_double_slab);
 		sculk_tiled_double_slab = register("sculk_tiled_double_slab", new BlocksNovaCraftSlab("sculk_tiled_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("sculk_tiles")).setHardness(3.0F).setResistance(6.0F)).setCreativeTab(null);
 		sculk_tiled_slab = registerSlab("sculk_tiled_slab", new BlocksNovaCraftSlab("sculk_tiled_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("sculk_tiles")).setHardness(3.0F).setResistance(6.0F), sculk_tiled_double_slab);
-		
-		tuff_brick_double_slab = register("tuff_brick_double_slab", new BlocksNovaCraftSlab("tuff_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("tuff_bricks")).setHardness(0.75F).setResistance(1.0F)).setCreativeTab(null);
-		tuff_brick_slab = registerSlab("tuff_brick_slab", new BlocksNovaCraftSlab("tuff_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("tuff_bricks")).setHardness(0.75F).setResistance(1.0F), tuff_brick_double_slab);
-		tuff_tiled_double_slab = register("tuff_tiled_double_slab", new BlocksNovaCraftSlab("tuff_tiled_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("tuff_tiles")).setHardness(0.75F).setResistance(1.0F)).setCreativeTab(null);
-		tuff_tiled_slab = registerSlab("tuff_tiled_slab", new BlocksNovaCraftSlab("tuff_tiled_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("tuff_tiles")).setHardness(0.75F).setResistance(1.0F), tuff_tiled_double_slab);
-		
-		calcite_brick_double_slab = register("calcite_brick_double_slab", new BlocksNovaCraftSlab("calcite_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("calcite_bricks")).setHardness(0.75F).setResistance(2.0F)).setCreativeTab(null);
-		calcite_brick_slab = registerSlab("calcite_brick_slab", new BlocksNovaCraftSlab("calcite_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("calcite_bricks")).setHardness(0.75F).setResistance(2.0F), calcite_brick_double_slab);
-		calcite_tiled_double_slab = register("calcite_tiled_double_slab", new BlocksNovaCraftSlab("calcite_tiled_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("calcite_tiles")).setHardness(0.75F).setResistance(2.0F)).setCreativeTab(null);
-		calcite_tiled_slab = registerSlab("calcite_tiled_slab", new BlocksNovaCraftSlab("calcite_tiled_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("calcite_tiles")).setHardness(0.75F).setResistance(2.0F), calcite_tiled_double_slab);
-		
+
+		if (Loader.isModLoaded("etfuturum")) {
+			try {
+				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
+				if (tuff != null) {
+					tuff_brick_double_slab = register("tuff_brick_double_slab", new BlocksNovaCraftSlab("tuff_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("tuff_bricks")).setHardness(0.75F).setResistance(1.0F)).setCreativeTab(null);
+					tuff_brick_slab = registerSlab("tuff_brick_slab", new BlocksNovaCraftSlab("tuff_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("tuff_bricks")).setHardness(0.75F).setResistance(1.0F), tuff_brick_double_slab);
+					tuff_tiled_double_slab = register("tuff_tiled_double_slab", new BlocksNovaCraftSlab("tuff_tiled_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("tuff_tiles")).setHardness(0.75F).setResistance(1.0F)).setCreativeTab(null);
+					tuff_tiled_slab = registerSlab("tuff_tiled_slab", new BlocksNovaCraftSlab("tuff_tiled_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("tuff_tiles")).setHardness(0.75F).setResistance(1.0F), tuff_tiled_double_slab);
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Tuff from Et Futurum Requiem is missing, skipping Tuff Building Blocks...");
+				}
+			}
+		}
+
+		if (Loader.isModLoaded("etfuturum")) {
+			try {
+				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
+				if (calcite != null) {
+					calcite_brick_double_slab = register("calcite_brick_double_slab", new BlocksNovaCraftSlab("calcite_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("calcite_bricks")).setHardness(0.75F).setResistance(2.0F)).setCreativeTab(null);
+					calcite_brick_slab = registerSlab("calcite_brick_slab", new BlocksNovaCraftSlab("calcite_brick_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("calcite_bricks")).setHardness(0.75F).setResistance(2.0F), calcite_brick_double_slab);
+					calcite_tiled_double_slab = register("calcite_tiled_double_slab", new BlocksNovaCraftSlab("calcite_tiled_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("calcite_tiles")).setHardness(0.75F).setResistance(2.0F)).setCreativeTab(null);
+					calcite_tiled_slab = registerSlab("calcite_tiled_slab", new BlocksNovaCraftSlab("calcite_tiled_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("calcite_tiles")).setHardness(0.75F).setResistance(2.0F), calcite_tiled_double_slab);
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Calcite from Et Futurum Requiem is missing, skipping Calcite Building Blocks...");
+				}
+			}
+		}
 		
 		etherstone_double_slab = register("etherstone_double_slab", new BlocksNovaCraftSlab("etherstone_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("etherstone_top")).setHardness(2.0F).setResistance(3.0F)).setCreativeTab(null);
 		etherstone_slab = registerSlab("etherstone_slab", new BlocksNovaCraftSlab("etherstone_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("etherstone_top")).setHardness(2.0F).setResistance(3.0F), etherstone_double_slab);		

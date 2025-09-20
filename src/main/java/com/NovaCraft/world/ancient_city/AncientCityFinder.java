@@ -54,12 +54,20 @@ public class AncientCityFinder {
                     BiomeGenBase biomeNegX = world.getBiomeGenForCoords(chunkCornerX - 160, chunkCornerZ);
                     BiomeGenBase biomePosZ = world.getBiomeGenForCoords(chunkCornerX, chunkCornerZ + 150);
                     BiomeGenBase biomeNegZ = world.getBiomeGenForCoords(chunkCornerX, chunkCornerZ - 150);
+                    BiomeGenBase biomePosXPosZ = world.getBiomeGenForCoords(chunkCornerX + 160, chunkCornerZ + 150);
+                    BiomeGenBase biomeNegXNegZ = world.getBiomeGenForCoords(chunkCornerX - 160, chunkCornerZ - 150);
+                    BiomeGenBase biomePosXNegZ = world.getBiomeGenForCoords(chunkCornerX + 160, chunkCornerZ - 150);
+                    BiomeGenBase biomeNegXPosZ = world.getBiomeGenForCoords(chunkCornerX - 160, chunkCornerZ + 150);
 
                     Type[] biomeList = BiomeDictionary.getTypesForBiome(biome);
                     Type[] biomeListPosX = BiomeDictionary.getTypesForBiome(biomePosX);
                     Type[] biomeListNegX = BiomeDictionary.getTypesForBiome(biomeNegX);
                     Type[] biomeListPosZ = BiomeDictionary.getTypesForBiome(biomePosZ);
                     Type[] biomeListNegZ = BiomeDictionary.getTypesForBiome(biomeNegZ);
+                    Type[] biomeListPosXPosZ = BiomeDictionary.getTypesForBiome(biomePosXPosZ);
+                    Type[] biomeListNegXNegZ = BiomeDictionary.getTypesForBiome(biomeNegXNegZ);
+                    Type[] biomeListPosXNegZ = BiomeDictionary.getTypesForBiome(biomePosXNegZ);
+                    Type[] biomeListNegXPosZ = BiomeDictionary.getTypesForBiome(biomeNegXPosZ);
 
                     boolean bad = ArrayUtils.contains(biomeList, Type.OCEAN) || ArrayUtils.contains(biomeList, Type.BEACH) ||
                             ArrayUtils.contains(biomeList, Type.SWAMP) || ArrayUtils.contains(biomeListPosX, Type.OCEAN) ||
@@ -68,7 +76,13 @@ public class AncientCityFinder {
                             ArrayUtils.contains(biomeListNegX, Type.SWAMP) || ArrayUtils.contains(biomeListPosZ, Type.OCEAN) ||
                             ArrayUtils.contains(biomeListPosZ, Type.BEACH) || ArrayUtils.contains(biomeListPosZ, Type.SWAMP) ||
                             ArrayUtils.contains(biomeListNegZ, Type.OCEAN) || ArrayUtils.contains(biomeListNegZ, Type.BEACH) ||
-                            ArrayUtils.contains(biomeListNegZ, Type.SWAMP);
+                            ArrayUtils.contains(biomeListNegZ, Type.SWAMP) || ArrayUtils.contains(biomeListPosXPosZ, Type.OCEAN) ||
+                            ArrayUtils.contains(biomeListPosXPosZ, Type.BEACH) || ArrayUtils.contains(biomeListPosXPosZ, Type.SWAMP) ||
+                            ArrayUtils.contains(biomeListNegXNegZ, Type.OCEAN) || ArrayUtils.contains(biomeListNegXNegZ, Type.BEACH) ||
+                            ArrayUtils.contains(biomeListNegXNegZ, Type.SWAMP)|| ArrayUtils.contains(biomeListPosXNegZ, Type.OCEAN) ||
+                            ArrayUtils.contains(biomeListPosXNegZ, Type.BEACH) || ArrayUtils.contains(biomeListPosXNegZ, Type.SWAMP) ||
+                            ArrayUtils.contains(biomeListNegXPosZ, Type.OCEAN) || ArrayUtils.contains(biomeListNegXPosZ, Type.BEACH) ||
+                            ArrayUtils.contains(biomeListNegXPosZ, Type.SWAMP);
 
                     if (bad) {
                         if (DEBUG) System.out.println("skip: bad biome for chunkCorner " + chunkCornerX + "," + chunkCornerZ);
