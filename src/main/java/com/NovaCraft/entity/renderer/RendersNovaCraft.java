@@ -142,6 +142,7 @@ public class RendersNovaCraft {
 	register(EntityCreaking.class, new CreakingRenderer());
 	register(EntityCrystalSlime.class, new CrystalSlimeRenderer(new CrystalSlimeModel(16), new CrystalSlimeModel(0), 0.25F));
 	register(EntitySoloid.class, new SoloidRenderer(new SoloidModel(), 1.0f));
+	register(EntityGiantFrog.class, new GiantFrogRenderer(new GiantFrogModel(), 1.0f));
 	
 	register(EntityHardmodeCreeper.class, new HardmodeCreeperRenderer());
 	register(EntityHardmodeSpider.class, new HardmodeSpiderRenderer());

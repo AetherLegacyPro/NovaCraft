@@ -182,8 +182,8 @@ public class Configs
     public static int vindicatorVillageSpawnRate;
     public static boolean enableVindicatorForestHouseGeneration;
     public static boolean enableOceanDungeonsGeneration;
-
     public static boolean enableDesertCreeperStatueGeneration;
+    public static boolean enableSlimeStatueGeneration;
     public static int endIslandSpawnRate;
     public static int destituteIslandSpawnRate;
     public static boolean enableDeepoidFortress;
@@ -363,6 +363,8 @@ public class Configs
         enableLuminantTreeGeneration = conf.getBoolean("enableLuminantTreeGeneration", catGeneration, true, "Enables luminant tree generation.");
         enableLargeLuminantTreeGeneration = conf.getBoolean("enableLargeLuminantTreeGeneration", catGeneration, true, "Enables large luminant tree generation.");
         enableDesertCreeperStatueGeneration = conf.getBoolean("enableDesertCreeperStatueGeneration", catGeneration, true, "Enables Sandstone Creeper Statue generation.");
+        enableSlimeStatueGeneration = conf.getBoolean("enableSlimeStatueGeneration", catGeneration, true, "Enables Stone Slime Statue generation.");
+
         vindicatorVillageSpawnRate = conf.get("Spawn Rate - Vindicator Villages", catGeneration, 25).getInt();
         enableVindicatorForestHouseGeneration = conf.getBoolean("enableVindicatorForestHouseGeneration", catGeneration, true, "Enables random small Vindicator houses in Forests.");
         enableOceanDungeonsGeneration = conf.getBoolean("enableOceanDungeonsGeneration", catGeneration, true, "Enables small dungeons with sea serpent spawners to generate at the bottom of oceans.");

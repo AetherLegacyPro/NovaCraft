@@ -429,7 +429,7 @@ public class NovaCraftBlocks {
 		glowing_basal = register("glowing_basal", new BlockGlowingBasal().setLightLevel(0.7775F).setBlockTextureName(NovaCraft.find("glowing_basal")));
 		basal_scrap = registerMeta("basal_scrap", new BlockBasalScrap().setBlockTextureName(NovaCraft.find("basal_scrap")));
 
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe) {
 			try {
 				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
 				if (tuff != null) {
@@ -445,7 +445,7 @@ public class NovaCraftBlocks {
 			}
 		}
 
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe) {
 			try {
 				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
 				if (calcite != null) {
@@ -811,7 +811,7 @@ public class NovaCraftBlocks {
 		basal_stairs = register("basal_stairs", new BlockNovaCraftStairs(basal));
 		basal_brick_stairs = register("basal_brick_stairs", new BlockNovaCraftStairs(basal_bricks));
 
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe) {
 			try {
 				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
 				if (tuff != null) {
@@ -825,7 +825,7 @@ public class NovaCraftBlocks {
 			}
 		}
 
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe) {
 			try {
 				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
 				if (calcite != null) {
@@ -875,7 +875,7 @@ public class NovaCraftBlocks {
 		sculk_brick_wall = register("sculk_brick_wall", new BlockNovaCraftWall(sculk_bricks));
 		sculk_tiled_wall = register("sculk_tiled_wall", new BlockNovaCraftWall(sculk_tiles));
 
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe) {
 			try {
 				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
 				if (tuff != null) {
@@ -889,7 +889,7 @@ public class NovaCraftBlocks {
 			}
 		}
 
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe) {
 			try {
 				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
 				if (calcite != null) {
@@ -954,7 +954,7 @@ public class NovaCraftBlocks {
 		sculk_tiled_double_slab = register("sculk_tiled_double_slab", new BlocksNovaCraftSlab("sculk_tiled_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("sculk_tiles")).setHardness(3.0F).setResistance(6.0F)).setCreativeTab(null);
 		sculk_tiled_slab = registerSlab("sculk_tiled_slab", new BlocksNovaCraftSlab("sculk_tiled_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("sculk_tiles")).setHardness(3.0F).setResistance(6.0F), sculk_tiled_double_slab);
 
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe) {
 			try {
 				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
 				if (tuff != null) {
@@ -970,7 +970,7 @@ public class NovaCraftBlocks {
 			}
 		}
 
-		if (Loader.isModLoaded("etfuturum")) {
+		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe) {
 			try {
 				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
 				if (calcite != null) {

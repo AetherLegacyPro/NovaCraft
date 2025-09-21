@@ -270,9 +270,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			x20 = chunkX * 16 + rand.nextInt(8) + 8;
 			z20 = chunkZ * 16 + rand.nextInt(8) + 8;
 			BiomeGenBase biome20;
-			Type[] biomeList20;
 			biome20 = world.getBiomeGenForCoords(x20, z20);
-			biomeList20 = BiomeDictionary.getTypesForBiome(biome20);
 			if(!(BiomeDictionary.isBiomeOfType(biome20, BiomeDictionary.Type.OCEAN)) && rand.nextInt(210) == 0) {
 				new NovaCraftTraditionalDungeonGen().generate(world, rand, x20, rand.nextInt(20) + 25, z20);
 			}
@@ -292,9 +290,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			x15 = chunkX * 16 + rand.nextInt(8) + 8;
 			z15 = chunkZ * 16 + rand.nextInt(8) + 8;	
 			BiomeGenBase biome15;
-			Type[] biomeList15;
 			biome15 = world.getBiomeGenForCoords(x15, z15);
-			biomeList15 = BiomeDictionary.getTypesForBiome(biome15);
 			if(BiomeDictionary.isBiomeOfType(biome15, BiomeDictionary.Type.OCEAN) && rand.nextInt(85) == 0 && Configs.enableOceanDungeonsGeneration) {
 				new SeaSerpentSpawner().generate(world, rand, x15, rand.nextInt(2) + 30, z15);
 			}
@@ -307,9 +303,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			z17 = chunkZ * 16 + rand.nextInt(8) + 8;
 			y17 = world.getTopSolidOrLiquidBlock(x17, z17);
 			BiomeGenBase biome17;
-			Type[] biomeList17;
 			biome17 = world.getBiomeGenForCoords(x17, z17);
-			biomeList17 = BiomeDictionary.getTypesForBiome(biome17);
 			if(BiomeDictionary.isBiomeOfType(biome17, BiomeDictionary.Type.FOREST) && rand.nextInt(250) == 0 && Configs.enableVindicatorForestHouseGeneration) {
 				new VindicatorRandomHouse().generate(world, rand, x17, y17 - 1, z17);
 			}
@@ -320,9 +314,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			x16 = chunkX * 16 + rand.nextInt(8) + 8;
 			z16 = chunkZ * 16 + rand.nextInt(8) + 8;	
 			BiomeGenBase biome9;
-			Type[] biomeList9;
 			biome9 = world.getBiomeGenForCoords(x16, z16);
-			biomeList9 = BiomeDictionary.getTypesForBiome(biome9);
 			if (rand.nextInt(20) == 2) {
 			if(BiomeDictionary.isBiomeOfType(biome9, BiomeDictionary.Type.FOREST) && rand.nextInt(8) == 1) {
 				int posX = x16 + rand.nextInt(8) + 8;
@@ -347,11 +339,21 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			z18 = chunkZ * 16 + rand.nextInt(8) + 8;
 			int y18 = world.getHeightValue(x18, z18);
 			BiomeGenBase biome18;
-			Type[] biomeList18;
 			biome18 = world.getBiomeGenForCoords(x18, z18);
-			biomeList18 = BiomeDictionary.getTypesForBiome(biome18);
-			if(BiomeDictionary.isBiomeOfType(biome18, Type.SANDY) && rand.nextInt(580) == 0 && Configs.enableDesertCreeperStatueGeneration) {
+			if(BiomeDictionary.isBiomeOfType(biome18, Type.SANDY) && rand.nextInt(1160) == 0 && Configs.enableDesertCreeperStatueGeneration) {
 				new DesertCreeperStructureGen().generate(world, rand, x18, y18 - 16 + rand.nextInt(6), z18);
+			}
+
+			//Slime Statue
+			int x19;
+			int z19;
+			x19 = chunkX * 16 + rand.nextInt(8) + 8;
+			z19 = chunkZ * 16 + rand.nextInt(8) + 8;
+			int y19 = world.getHeightValue(x19, z19);
+			BiomeGenBase biome19;
+			biome19 = world.getBiomeGenForCoords(x19, z19);
+			if(BiomeDictionary.isBiomeOfType(biome19, Type.SWAMP) && rand.nextInt(260) == 0 && Configs.enableSlimeStatueGeneration) {
+				new SlimeStructureGen().generate(world, rand, x19, y19 - 4 + rand.nextInt(2), z19);
 			}
 				
 			
@@ -362,9 +364,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			x1 = chunkX * 16 + rand.nextInt(8) + 8;
 			z1 = chunkZ * 16 + rand.nextInt(8) + 8;
 			BiomeGenBase biome1;
-			Type[] biomeList1;
 			biome1 = world.getBiomeGenForCoords(x1, z1);
-			biomeList1 = BiomeDictionary.getTypesForBiome(biome1);
 			if((world.getHeightValue(x1, z1) > 0) && BiomeDictionary.isBiomeOfType(biome1, BiomeDictionary.Type.MOUNTAIN)) {
 				sculk_gen.get(0).generate(world, rand, x1, rand.nextInt(5) + 20, z1);
 				sculk_gen.get(0).generate(world, rand, x1, rand.nextInt(10) + 15, z1);

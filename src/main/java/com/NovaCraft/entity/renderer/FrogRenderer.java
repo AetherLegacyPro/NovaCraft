@@ -19,22 +19,6 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 @SideOnly(Side.CLIENT)
 public class FrogRenderer extends RenderLiving
 {
-	private static final ResourceLocation TEXTURE_GREEN  = new ResourceLocation("textures/entity/frog/GREEN.png");
-	private static final ResourceLocation TEXTURE_YELLOW  = new ResourceLocation("textures/entity/frog/YELLOW.png");
-	private static final ResourceLocation TEXTURE_BROWN  = new ResourceLocation("textures/entity/frog/BROWN.png");
-	private static final ResourceLocation TEXTURE_LIGHT_BLUE  = new ResourceLocation("textures/entity/frog/LIGHT_BLUE.png");
-	private static final ResourceLocation TEXTURE_TREE_1  = new ResourceLocation("textures/entity/frog/TREE_1.png");
-	private static final ResourceLocation TEXTURE_TREE_2  = new ResourceLocation("textures/entity/frog/TREE_2.png");
-	private static final ResourceLocation TEXTURE_TREE_3  = new ResourceLocation("textures/entity/frog/TREE_3.png");
-	
-	private static final ResourceLocation TEXTURE_POSION_1  = new ResourceLocation("textures/entity/frog/POSION_1.png");
-	private static final ResourceLocation TEXTURE_POSION_2  = new ResourceLocation("textures/entity/frog/POSION_2.png");
-	private static final ResourceLocation TEXTURE_POSION_3  = new ResourceLocation("textures/entity/frog/POSION_3.png");
-	private static final ResourceLocation TEXTURE_POSION_4  = new ResourceLocation("textures/entity/frog/POSION_4.png");
-	
-	//private static final ResourceLocation TEXTURE_GIANT_1  = new ResourceLocation("textures/entity/frog/GIANT_1.png");
-	//private static final ResourceLocation TEXTURE_GIANT_2  = new ResourceLocation("textures/entity/frog/GIANT_2.png");
-	//private static final ResourceLocation TEXTURE_GIANT_3  = new ResourceLocation("textures/entity/frog/GIANT_3.png");
     
     public FrogRenderer(final ModelBase par1ModelBase, final float par2) {
         super(par1ModelBase, par2);
@@ -50,11 +34,6 @@ public class FrogRenderer extends RenderLiving
         } else if (frog.getType() == EnumFrogType.TREE_1 || frog.getType() == EnumFrogType.TREE_2 || frog.getType() == EnumFrogType.TREE_3) {
         	GL11.glScalef(0.8F, 0.8F, 0.8F); 
         }
-	  	
-	  	//EntityFrog frog = ((EntityFrog) entity);
-	  	//if(frog.getType() == EnumFrogType.GIANT_1 || frog.getType() == EnumFrogType.GIANT_2 || frog.getType() == EnumFrogType.GIANT_3) {
-	  		//GL11.glScalef(3.5F, 3.5F, 3.5F);        	
-        //}
 	}
 
 	@Override

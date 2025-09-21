@@ -3,7 +3,6 @@ package com.NovaCraft.entity.models;
 import org.lwjgl.opengl.GL11;
 
 import com.NovaCraft.entity.EntityFrog;
-import com.NovaCraft.entity.misc.EnumFrogType;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -126,19 +125,19 @@ public class FrogModel extends ModelBase {
     @Override
     public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
-        
+
         EntityFrog frog = ((EntityFrog) entity);
-        if(frog.isChild()) {  
-        	GL11.glScalef(1.0F / 2.0F, 1.0F / 2.0F, 1.0F / 2.0F);
-			GL11.glTranslatef(0.0F, 24.0F * scale, 0.0F);
+        if(frog.isChild()) {
+            GL11.glScalef(0.5F, 0.5F, 0.5F);
+            GL11.glTranslatef(0.0F, 24.0F * scale, 0.0F);
         }
-        
+
         this.croakingBody.isHidden = true;
         root.render(scale);
         this.croakingBody.isHidden = false;
-        
-        if (entity instanceof EntityFrog) {
-            renderCroakingBody(scale, (EntityFrog) entity);
+
+        if (entity instanceof EntityFrog && frog.isCroakingAnim()) {
+            renderCroakingBody(scale, frog);
         }
     }
 
@@ -177,28 +176,23 @@ public class FrogModel extends ModelBase {
         //Add tongue animation here
     }
 
-    
+
     private void renderCroakingBody(float scale, EntityFrog frog) {
         GL11.glPushMatrix();
         GL11.glTranslatef(0.0F, 20.25F * scale, 4.0F * scale);
 
-        if (frog.isCroakingAnim()) {
-            float croakTimer = frog.getCroakTimer();
-            float p = croakTimer / 0.7F;
-            if (p <= 1.0F) {
-                float intensity = (float) Math.sin(p * Math.PI);
-                float scaleFactor = 1.0F + intensity * 0.25F;
-                GL11.glScalef(scaleFactor, scaleFactor, scaleFactor);
-            }
+        float croakTimer = frog.getCroakTimer();
+        float p = croakTimer / 0.7F;
+        if (p <= 1.0F) {
+            float intensity = (float) Math.sin(p * Math.PI);
+            float scaleFactor = 1.0F + intensity * 0.25F;
+            GL11.glScalef(scaleFactor, scaleFactor, scaleFactor);
+
+            croakingBody.render(scale);
         }
 
-        croakingBody.render(scale);
         GL11.glPopMatrix();
     }
-
-
-
-
 
 }
 

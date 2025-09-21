@@ -137,6 +137,7 @@ public class EntitiesNovaCraft {
 		register(EntityFrog.class, "nova_frog", 78, 0x2f6b1e, 0x9fa64f);
 		register(EntityCrystalSlime.class, "crystal_slime", 79, 0xb6b4c4, 0xeae4ea);
 		register(EntitySoloid.class, "soloid", 80, 0x5f322f, 0xd38591);
+		register(EntityGiantFrog.class, "giant_frog", 82, 0x3f6b1e, 0x7fa64f);
 		
 		//Hardmode
 		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);
@@ -155,7 +156,7 @@ public class EntitiesNovaCraft {
 		register(EntityBlazingSerpentQueen.class, "serpent_queen", 75, 0x2d0000, 0xff0033);
 		
 		if (Configs.enableSpawnGlowSquid) {
-		EntityRegistry.addSpawn((Class)EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] {BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});
+		EntityRegistry.addSpawn(EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] {BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});
 		}
 		
 		if (Configs.enableSpawnOverworldPhantom) {

@@ -1135,6 +1135,7 @@ entity.nova_craft.nova_frog.name=Frog
 entity.nova_craft.crystal_slime.name=Rich Slime
 entity.nova_craft.soloid.name=Soloid
 entity.nova_craft.echo_eye.name=Echo Eye
+entity.nova_craft.giant_frog.name=Giant Frog
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1200,3 +1201,4 @@ entity.creaking.name=Creaking
 entity.nova_frog.name=Frog
 entity.crystal_slime.name=Rich Slime
 entity.soloid.name=Soloid
+entity.giant_frog.name=Giant Frog
