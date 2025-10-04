@@ -25,6 +25,7 @@ import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -123,7 +124,9 @@ public class EntityGiantFrog extends EntityMob {
 
     @Override
     public void onLivingUpdate() {
-        super.onLivingUpdate();
+        if (this.worldObj.isDaytime() && !this.worldObj.isRemote && this.worldObj.provider.dimensionId != 1 && this.worldObj.canBlockSeeTheSky(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ))) {
+            this.setFire(4);
+        }
 
         if (this.isCroaking) {
             this.croakTimer += 1.0F / 20.0F;
@@ -153,6 +156,7 @@ public class EntityGiantFrog extends EntityMob {
             this.swimTimer = 0;
         }
 
+        super.onLivingUpdate();
     }
 
     protected int getJumpDelay()
@@ -160,45 +164,37 @@ public class EntityGiantFrog extends EntityMob {
         return this.rand.nextInt(10) + 10;
     }
 
-    @Override
     protected void updateEntityActionState() {
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
-
         if (entityplayer != null) {
             this.faceEntity(entityplayer, 10.0F, 20.0F);
-
             if (this.onGround && this.frogJumpDelay-- <= 0) {
                 this.frogJumpDelay = this.getJumpDelay();
-
                 this.isJumping = true;
-
                 this.playSound(this.getLivingSound(), this.getSoundVolume(), ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) * 0.8F);
-
                 double dx = entityplayer.posX - this.posX;
                 double dz = entityplayer.posZ - this.posZ;
-                double dist = MathHelper.sqrt_double(dx * dx + dz * dz);
-
-                if (dist > 0.0001D) {
+                double dist = (double)MathHelper.sqrt_double(dx * dx + dz * dz);
+                if (dist > 1.0E-4D) {
                     this.motionX = dx / dist * 0.8D;
                     this.motionZ = dz / dist * 0.8D;
                     this.motionY = 1.0D;
                 }
             }
         } else {
-            this.frogJumpDelay = this.rand.nextInt(10) + 10;
+            this.frogJumpDelay = this.rand.nextInt(40);
             if (this.onGround && this.frogJumpDelay-- <= 0) {
-                this.frogJumpDelay = this.rand.nextInt(10) + 10; // wait longer between random moves
-
-                // Pick random direction
-                float angle = this.rand.nextFloat() * (float)Math.PI * 2.0F;
-                double speed = 1.0D; // wandering speed
-                this.motionX = -Math.sin(angle) * speed;
-                this.motionZ =  Math.cos(angle) * speed;
-
-                // Small hop to keep movement noticeable
-                this.motionY = 0.3D;
+                this.frogJumpDelay = this.rand.nextInt(40);
+                float angle = this.rand.nextFloat() * 3.1415927F * 2.0F;
+                double speed = 0.2D;
+                this.motionX = -Math.sin((double)angle) * speed;
+                this.motionZ = Math.cos((double)angle) * speed;
+                this.motionY = 0.15D;
+                this.rotationYaw = (float)(Math.atan2(this.motionZ, this.motionX) * 180.0D / 3.141592653589793D) - 90.0F;
+                this.renderYawOffset = this.rotationYaw;
             }
         }
+
     }
 
     public void onCollideWithPlayer(EntityPlayer p_70100_1_) {
@@ -265,8 +261,11 @@ public class EntityGiantFrog extends EntityMob {
             }
     }
 
-    @Override
-    public boolean canDespawn() {
-        return true;
+    public boolean getCanSpawnHere() {
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+        boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+        return this.posY >= 60.0D && this.worldObj.getBlockLightValue(i, j, k) <= 7 && canSpawn && (this.worldObj.getBlock(i, j - 1, k) == Blocks.grass || this.worldObj.getBlock(i, j - 1, k) == Blocks.dirt);
     }
 }

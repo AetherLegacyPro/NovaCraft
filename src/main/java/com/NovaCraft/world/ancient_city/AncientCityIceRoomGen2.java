@@ -82,7 +82,6 @@ public class AncientCityIceRoomGen2 extends WorldGenerator
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
     	PlaceDeepslateBricks = determineIfDeepslateBricksExists(world, i + 5, j + 7, k + 5);
     	PlaceCrackedDeepslateBricks = determineIfCrackedDeepslateBricksExists(world, i + 16, j + 7, k + 3);
-    	
     	PlaceDeepslateBrickStairs = determineIfDeepslateBrickStairsExists(world, i + 5, j + 8, k + 6);
     	
     	world.setBlock(i + 19, j + 7, k + 2, Blocks.air, 0, 2);

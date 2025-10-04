@@ -216,7 +216,7 @@ public class AncientCityPositiveXHallwayLeftGen1 extends WorldGenerator
 		return NovaCraftBlocks.grimstone_brick_stairs;
 	}
 
-	private Block determineIfDeepslateSlabExists(World world, int x, int y, int z) {
+	private Block determineIfDeepslateBrickWallExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
 		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
 			try {
@@ -226,7 +226,7 @@ public class AncientCityPositiveXHallwayLeftGen1 extends WorldGenerator
 				}
 			} catch (Exception ex) {
 				if (Configs.enableDebugMode) {
-					System.out.println("Missing Deepslate Brick Wall from Et Futurum Requiem, using Grimstone Brick Wall instead...");
+					System.out.println("Missing Deepslate from Et Futurum Requiem, using Grimstone instead...");
 				}
 				return NovaCraftBlocks.grimstone_brick_wall;
 			}
@@ -235,7 +235,7 @@ public class AncientCityPositiveXHallwayLeftGen1 extends WorldGenerator
 		return NovaCraftBlocks.grimstone_brick_wall;
 	}
 
-	private Block determineIfDeepslateBrickWallExists(World world, int x, int y, int z) {
+	private Block determineIfDeepslateSlabExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
 		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
 			try {

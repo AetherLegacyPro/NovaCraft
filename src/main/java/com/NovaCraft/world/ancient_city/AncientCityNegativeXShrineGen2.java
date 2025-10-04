@@ -237,19 +237,19 @@ public class AncientCityNegativeXShrineGen2 extends WorldGenerator
 		Block existingBlock = world.getBlock(x, y, z);
 		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
 			try {
-				Block deepslate_brick_wall = GameRegistry.findBlock("etfuturum", "deepslate_brick_wall");
-				if (deepslate_brick_wall != null && (existingBlock == null || existingBlock != deepslate_brick_wall)) {
-					return deepslate_brick_wall;
+				Block deepslate_brick_slab = GameRegistry.findBlock("etfuturum", "deepslate_brick_slab");
+				if (deepslate_brick_slab != null && (existingBlock == null || existingBlock != deepslate_brick_slab)) {
+					return deepslate_brick_slab;
 				}
 			} catch (Exception ex) {
 				if (Configs.enableDebugMode) {
-					System.out.println("Missing Deepslate Brick Wall from Et Futurum Requiem, using Grimstone Brick Wall instead...");
+					System.out.println("Missing Deepslate Brick Slab from Et Futurum Requiem, using Grimstone Brick Slab instead...");
 				}
-				return NovaCraftBlocks.grimstone_brick_wall;
+				return NovaCraftBlocks.grimstone_brick_slab;
 			}
 		}
 
-		return NovaCraftBlocks.grimstone_brick_wall;
+		return NovaCraftBlocks.grimstone_brick_slab;
 	}
 
 	private Block determineIfShouldPlaceSoulSand(World world, int x, int y, int z) {

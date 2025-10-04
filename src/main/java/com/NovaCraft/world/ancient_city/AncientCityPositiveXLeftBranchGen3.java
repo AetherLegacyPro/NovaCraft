@@ -199,25 +199,6 @@ public class AncientCityPositiveXLeftBranchGen3 extends WorldGenerator
 		Block existingBlock = world.getBlock(x, y, z);
 		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
 			try {
-				Block deepslate_brick_wall = GameRegistry.findBlock("etfuturum", "deepslate_brick_wall");
-				if (deepslate_brick_wall != null && (existingBlock == null || existingBlock != deepslate_brick_wall)) {
-					return deepslate_brick_wall;
-				}
-			} catch (Exception ex) {
-				if (Configs.enableDebugMode) {
-					System.out.println("Missing Deepslate Brick Wall from Et Futurum Requiem, using Grimstone Brick Wall instead...");
-				}
-				return NovaCraftBlocks.grimstone_brick_wall;
-			}
-		}
-
-		return NovaCraftBlocks.grimstone_brick_wall;
-	}
-
-	private Block determineIfDeepslateBrickWallExists(World world, int x, int y, int z) {
-		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
-			try {
 				Block deepslate_brick_slab = GameRegistry.findBlock("etfuturum", "deepslate_brick_slab");
 				if (deepslate_brick_slab != null && (existingBlock == null || existingBlock != deepslate_brick_slab)) {
 					return deepslate_brick_slab;
@@ -231,6 +212,25 @@ public class AncientCityPositiveXLeftBranchGen3 extends WorldGenerator
 		}
 
 		return NovaCraftBlocks.grimstone_brick_slab;
+	}
+
+	private Block determineIfDeepslateBrickWallExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_brick_wall = GameRegistry.findBlock("etfuturum", "deepslate_brick_wall");
+				if (deepslate_brick_wall != null && (existingBlock == null || existingBlock != deepslate_brick_wall)) {
+					return deepslate_brick_wall;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Deepslate from Et Futurum Requiem, using Grimstone instead...");
+				}
+				return NovaCraftBlocks.grimstone_brick_wall;
+			}
+		}
+
+		return NovaCraftBlocks.grimstone_brick_wall;
 	}
     
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {

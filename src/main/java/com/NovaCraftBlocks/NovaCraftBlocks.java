@@ -16,20 +16,7 @@ import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.registry.OtherModItems;
-import com.NovaCraftBlocks.container.BlockAdvancedEnchantmentTable;
-import com.NovaCraftBlocks.container.BlockAdvancedSmithingTable;
-import com.NovaCraftBlocks.container.BlockAncientChest;
-import com.NovaCraftBlocks.container.BlockDeepoidFurnace;
-import com.NovaCraftBlocks.container.BlockFloodedChest;
-import com.NovaCraftBlocks.container.BlockLegendaryBeacon;
-import com.NovaCraftBlocks.container.BlockLegendaryEnchantmentTable;
-import com.NovaCraftBlocks.container.BlockMineshaftChest;
-import com.NovaCraftBlocks.container.BlockNetherChest;
-import com.NovaCraftBlocks.container.BlockNullwartBrickBookshelf;
-import com.NovaCraftBlocks.container.BlockSculkBrickBookshelf;
-import com.NovaCraftBlocks.container.BlockSculkChest;
-import com.NovaCraftBlocks.container.BlockTreasureChest;
-import com.NovaCraftBlocks.container.BlockUnbreakableAncientChest;
+import com.NovaCraftBlocks.container.*;
 import com.NovaCraftBlocks.crystals.BlockAether;
 import com.NovaCraftBlocks.crystals.BlockAetherCluster;
 import com.NovaCraftBlocks.crystals.BlockBuddingAether;
@@ -345,7 +332,7 @@ public class NovaCraftBlocks {
 	
 	//Special
 	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table;
-	public static Block unbreakable_ancient_chest, ancient_chest;
+	public static Block unbreakable_ancient_chest, ancient_chest, ancient_warper;
 	public static Block nullwart_brick_bookshelf, sculk_brick_bookshelf;
 	public static Block deepoid_bricks, deepoid_power_core, deepoid_furnace, lit_deepoid_furnace;
 	
@@ -613,6 +600,7 @@ public class NovaCraftBlocks {
 		sculk_grimstone = register("sculk_grimstone", new BlockSculkGrimstone());
 		sculk_nullstone = register("sculk_nullstone", new BlockSculkNullstone());
 		sculk_endstone = register("sculk_endstone", new BlockSculkEndstone());
+		ancient_warper = registerMeta("ancient_warper", new BlockAncientWarper());
 		
 		unknown_portal = register("unknown_portal", new BlockUnknownPortal().setBlockTextureName(NovaCraft.find("unknown_portal")));
 		unknown_portal_sealed = register("unknown_portal_sealed", new BlockUnknownPortalSealed().setBlockTextureName(NovaCraft.find("unknown_portal_sealed")));

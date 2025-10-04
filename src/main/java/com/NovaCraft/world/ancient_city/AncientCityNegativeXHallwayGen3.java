@@ -18,54 +18,17 @@ public class AncientCityNegativeXHallwayGen3 extends WorldGenerator
 	public AncientCityNegativeXHallwayGen3() {
 
 	}
-	
-	private static final Block cobbled_deepslate = OtherModBlocks.cobbled_deepslate;
-	private static final Block deepslate = OtherModBlocks.deepslate;
-	private static final Block sculk_block = NovaCraftBlocks.sculk_block;
-	private static final Block soul_lantern = OtherModBlocks.soul_lantern; //1
-	private static final Block SoulLantern = OtherModBlocks.SoulLantern;
-	private static final Block soul_sand = Blocks.soul_sand;
-	private static final Block basalt_nether = OtherModBlocks.Basalt; //netherlicious
-	private static final Block basalt_et = OtherModBlocks.basalt; //et futurum requiem	
-	private static final Block smooth_basalt_nether = OtherModBlocks.BasaltBricks; //netherlicious 6
-	private static final Block smooth_basalt_et = OtherModBlocks.smooth_basalt; //et futurum requiem
-	
-	private static final Block polished_deepslate = OtherModBlocks.polished_deepslate;
-	private static final Block deepslate_brick_slab = OtherModBlocks.deepslate_brick_slab;
-	private static final Block deepslate_tile_stairs = OtherModBlocks.deepslate_tile_stairs;
-	private static final Block deepslate_brick_stairs = OtherModBlocks.deepslate_brick_stairs;
-	private static final Block polished_deepslate_stairs = OtherModBlocks.polished_deepslate_stairs;
-	private static final Block cobbled_deepslate_stairs = OtherModBlocks.cobbled_deepslate_stairs;
-	private static final Block deepslate_wall = OtherModBlocks.deepslate_wall;
-	private static final Block deepslate_brick_wall = OtherModBlocks.deepslate_brick_wall;
-	private static final Block fence_dark_oak = OtherModBlocks.fence_dark_oak;	
-	private static final Block deepslate_bricks = OtherModBlocks.deepslate_bricks;
-	private static final Block cracked_deepslate_bricks = OtherModBlocks.deepslate_bricks;
-	private static final Block deepslate_tiles = OtherModBlocks.deepslate_bricks;
-	private static final Block cracked_deepslate_tiles = OtherModBlocks.deepslate_bricks;
-	private static final Block chiseled_deepslate = OtherModBlocks.deepslate_bricks;
-	
-	private Block PlaceDeepslate;
+
 	private Block PlaceDeepslateBricks;
 	private Block PlaceDeepslateTiles;
 	private Block PlaceCrackedDeepslateTiles;
 	private Block PlaceCrackedDeepslateBricks;
 	private Block PlaceChiseledDeepslate;
 	private Block PlacePolishedDeepslate;
-	private Block PlaceSoulLantern;
 	private Block PlaceCobbledDeepslate;
-	private Block PlaceSoulFire;
 	private Block PlaceDarkOakFence;
 	private Block PlaceBasalt;
-	private Block PlaceSmoothBasalt;
-	private Block ShouldPlaceSoulSand;
-	
-	private Block PlaceDeepslateBrickSlab;
 	private Block PlaceDeepslateTileStairs;
-	private Block PlaceDeepslateBrickStairs;
-	private Block PlacePolishedDeepslateStairs;
-	private Block PlaceCobbledDeepslateStairs;
-	private Block PlaceDeepslateWall;
 	private Block PlaceDeepslateBrickWall;
 
 	private Block determineIfDarkOakFenceExists(World world, int x, int y, int z) {
@@ -281,7 +244,7 @@ public class AncientCityNegativeXHallwayGen3 extends WorldGenerator
 				}
 			} catch (Exception ex) {
 				if (Configs.enableDebugMode) {
-					System.out.println("Missing Deepslate Brick Slab from Et Futurum Requiem, using Grimstone Brick Slab instead...");
+					System.out.println("Missing Deepslate Brick Wall from Et Futurum Requiem, using Grimstone Brick Wall instead...");
 				}
 				return NovaCraftBlocks.grimstone_brick_wall;
 			}

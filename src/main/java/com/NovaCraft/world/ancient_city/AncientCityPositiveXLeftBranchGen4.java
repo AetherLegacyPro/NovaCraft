@@ -174,13 +174,11 @@ public class AncientCityPositiveXLeftBranchGen4 extends WorldGenerator
     
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
     	PlaceBasalt = determineIfBasaltExists(world, i + 7, j + 5, k + 4);
-    	
     	PlaceDeepslateBricks = determineIfDeepslateBricksExists(world, i + 3, j + 5, k + 0);
     	PlaceCrackedDeepslateBricks = determineIfCrackedDeepslateBricksExists(world, i + 4, j + 5, k + 0);
     	PlaceDeepslateTiles = determineIfDeepslateTilesExist(world, i + 27, j + 5, k + 16);
     	PlaceCrackedDeepslateTiles = determineIfCrackedDeepslateTilesExist(world, i + 7, j + 4, k + 29);
     	PlaceChiseledDeepslate = determineIfChiseledDeepslateExist(world, i + 7, j + 4, k + 30);
-    	
     	PlacePolishedDeepslate = determineIfPolishedDeepslateExists(world, i + 4, j + 4, k + 28);
     	
     	world.setBlock(i + 31, j + 4, k + 26, Blocks.air, 0, 2);

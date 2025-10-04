@@ -2886,6 +2886,12 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 		//for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
 			//chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
 		//}
+
+		world.setBlock(i + 16, j + 3, k + 40, NovaCraftBlocks.ancient_warper, 0, 2);
+		world.setBlock(i + 17, j + 3, k + 40, PlaceDeepslateBrickSlab, 0, 2);
+		world.setBlock(i + 15, j + 3, k + 40, PlaceDeepslateBrickSlab, 0, 2);
+		world.setBlock(i + 16, j + 3, k + 41, PlaceDeepslateBrickSlab, 0, 2);
+		world.setBlock(i + 16, j + 3, k + 39, PlaceDeepslateBrickSlab, 0, 2);
 		
 		EntityWardenVessel warden = new EntityWardenVessel(world);
 		warden.setPosition(i + 16, j + 4, k + 40);

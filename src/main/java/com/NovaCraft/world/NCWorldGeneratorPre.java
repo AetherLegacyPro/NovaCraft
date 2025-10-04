@@ -50,19 +50,19 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		
 		//The 3 main stone types
-		if (world.provider.dimensionId == 0 && Configs.enableGrimstone == true) {
+		if (world.provider.dimensionId == 0 && Configs.enableGrimstone) {
 			this.generateOre(grimstoneGen, world, rand, chunkX, chunkZ, 6, 10, 24);
 		} else if (ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist) {
 			this.generateOreDeeperCaves(grimstoneGen, world, rand, chunkX, chunkZ, 6, 2, 256);	
 		}
 		
-		if (world.provider.dimensionId == 0 && Configs.enableNullstone == true) {
+		if (world.provider.dimensionId == 0 && Configs.enableNullstone) {
 			this.generateOre(nullstoneGen, world, rand, chunkX, chunkZ, 5, 5, 18);
 		} else if (ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist) {
 			this.generateOreDeeperCaves(nullstoneGen, world, rand, chunkX, chunkZ, 6, 2, 256);	
 		}
 		
-		if (world.provider.dimensionId == 0 && Configs.enableEtherstone == true && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {			
+		if (world.provider.dimensionId == 0 && Configs.enableEtherstone && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
 			if (Configs.enableVanillaMountainBiomeAlterations && Configs.enableVanillaBiomeAlterations) {
 				this.generateOre(etherstoneGen, world, rand, chunkX, chunkZ, 6, 146, 256);
 			} else {
@@ -86,23 +86,27 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 		}
 		
 		if (world.provider.dimensionId == 0) {
-            craterGenerator.generateAt(world, chunkX, chunkZ);
-            massiveCraterGenerator.generateAt(world, chunkX, chunkZ);
-        }
+			if (Configs.enableCraters) {
+				this.craterGenerator.generateAt(world, chunkX, chunkZ);
+			}
+			if (Configs.enableMassiveCraters) {
+				this.massiveCraterGenerator.generateAt(world, chunkX, chunkZ);
+			}
+		}
 		
-		if (world.provider.dimensionId == 1 && Configs.enableEndstoneBlobs == true) {
+		if (world.provider.dimensionId == 1 && Configs.enableEndstoneBlobs) {
 			this.generateEndStone(endstoneGen, world, rand, chunkX, chunkZ, 6, 1, 96);
 		}
 		
-		if (world.provider.dimensionId == 1 && Configs.enableFrontierslate == true) {
+		if (world.provider.dimensionId == 1 && Configs.enableFrontierslate) {
 			this.generateFrontierslate(frontierslateGen, world, rand, chunkX, chunkZ, 3, 1, 12);
 		}
 		
-		if (world.provider.dimensionId == 1 && Configs.enableVacuumSand == true) {
+		if (world.provider.dimensionId == 1 && Configs.enableVacuumSand) {
 			this.generateVacuumSand(vaccumSandGen, world, rand, chunkX, chunkZ, 3, 48, 128);
 		}
 		
-		if (world.provider.dimensionId == -1 && Configs.enableBasal == true) {
+		if (world.provider.dimensionId == -1 && Configs.enableBasal) {
 			this.generateOre(basalGen, world, rand, chunkX, chunkZ, 3, 6, 30);
 		}
 	}

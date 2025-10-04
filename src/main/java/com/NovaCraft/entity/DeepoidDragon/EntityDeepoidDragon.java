@@ -624,7 +624,7 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     
     public int getTotalArmorValue()
     {
-        return 17;
+        return 15;
     }
     
     protected void onDeathUpdate()

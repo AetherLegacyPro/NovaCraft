@@ -450,6 +450,7 @@ tile.blazing_coal_block.name=Block Of Blazing Coal
 tile.trap_tophinite.name=Block Of Tophinite
 tile.rich_etherstone.name=Rich Etherstone
 tile.rich_etherstone_spike.name=Etherstone Spike
+tile.ancient_warper.name=Ancient Teleporter
 
 tile.iron_pile.name=Iron Pile
 tile.gold_pile.name=Gold Pile

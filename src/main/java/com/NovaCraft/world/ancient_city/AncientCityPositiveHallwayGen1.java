@@ -196,23 +196,23 @@ public class AncientCityPositiveHallwayGen1 extends WorldGenerator
 		return NovaCraftBlocks.grimstone_stairs;
 	}
 
-	private Block determineIfDeepslateWallExists(World world, int x, int y, int z) {
+	private Block determineIfDeepslateSlabExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
 		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
 			try {
-				Block deepslate_wall = GameRegistry.findBlock("etfuturum", "deepslate_wall");
-				if (deepslate_wall != null && (existingBlock == null || existingBlock != deepslate_wall)) {
-					return deepslate_wall;
+				Block deepslate_brick_slab = GameRegistry.findBlock("etfuturum", "deepslate_brick_slab");
+				if (deepslate_brick_slab != null && (existingBlock == null || existingBlock != deepslate_brick_slab)) {
+					return deepslate_brick_slab;
 				}
 			} catch (Exception ex) {
 				if (Configs.enableDebugMode) {
-					System.out.println("Missing Deepslate from Et Futurum Requiem, using Grimstone instead...");
+					System.out.println("Missing Deepslate Brick Slab from Et Futurum Requiem, using Grimstone Brick Slab instead...");
 				}
-				return NovaCraftBlocks.cobbled_grimstone_wall;
+				return NovaCraftBlocks.grimstone_brick_slab;
 			}
 		}
 
-		return NovaCraftBlocks.cobbled_grimstone_wall;
+		return NovaCraftBlocks.grimstone_brick_slab;
 	}
     
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
@@ -225,7 +225,7 @@ public class AncientCityPositiveHallwayGen1 extends WorldGenerator
     	
     	PlacePolishedDeepslateStairs = determineIfPolishedDeepslateStairsExists(world, i + 2, j + 0, k + 0);
     	PlaceDeepslateBrickStairs = determineIfDeepslateBrickStairsExists(world, i + 1, j + 1, k + 10);
-    	PlaceDeepslateBrickSlab = determineIfDeepslateWallExists(world, i + 1, j + 0, k + 41);
+    	PlaceDeepslateBrickSlab = determineIfDeepslateSlabExists(world, i + 1, j + 0, k + 41);
     	PlaceDeepslateTileStairs = determineIfDeepslateTileStairsExists(world, i + 0, j + 0, k + 10);
     	
 		world.setBlock(i + 0, j + 0, k + 0, Blocks.air, 0, 2);

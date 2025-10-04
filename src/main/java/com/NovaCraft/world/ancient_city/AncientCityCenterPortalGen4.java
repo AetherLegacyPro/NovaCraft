@@ -269,6 +269,25 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 		return NovaCraftBlocks.cobbled_grimstone_wall;
 	}
+
+	private Block determineIfDeepslateBrickSlabExists(World world, int x, int y, int z) {
+		Block existingBlock = world.getBlock(x, y, z);
+		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+			try {
+				Block deepslate_brick_slab = GameRegistry.findBlock("etfuturum", "deepslate_brick_slab");
+				if (deepslate_brick_slab != null && (existingBlock == null || existingBlock != deepslate_brick_slab)) {
+					return deepslate_brick_slab;
+				}
+			} catch (Exception ex) {
+				if (Configs.enableDebugMode) {
+					System.out.println("Missing Deepslate from Et Futurum Requiem, using Grimstone instead...");
+				}
+				return NovaCraftBlocks.grimstone_brick_slab;
+			}
+		}
+
+		return NovaCraftBlocks.grimstone_brick_slab;
+	}
 	
 	public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
 		PlaceDarkOakFence = determineIfDarkOakFenceExists(world, i + 35, j + 6, k + 33);
@@ -284,7 +303,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 		PlaceDeepslateTileStairs = determineIfDeepslateTileStairsExists(world, i + 12, j + 5, k + 58);
 		PlacePolishedDeepslateStairs = determineIfPolishedDeepslateStairsExists(world, i + 32, j + 6, k + 23);
 		PlaceDeepslateWall = determineIfDeepslateWallExists(world, i + 2, j + 6, k + 0);
-		PlaceDeepslateBrickSlab = determineIfDeepslateWallExists(world, i + 28, j + 6, k + 19);
+		PlaceDeepslateBrickSlab = determineIfDeepslateBrickSlabExists(world, i + 28, j + 6, k + 19);
 		
 		world.setBlock(i + 43, j + 5, k + 57, Blocks.wool, 7, 2);
 		world.setBlock(i + 44, j + 5, k + 57, Blocks.wool, 7, 2);

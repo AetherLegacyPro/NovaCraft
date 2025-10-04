@@ -100,7 +100,6 @@ public class AncientCityPositiveXLeftBranchGen6 extends WorldGenerator
 	}
     
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
-    	
     	PlaceDeepslateTiles = determineIfDeepslateTilesExist(world, i + 26, j + 9, k + 16);
     	PlaceCrackedDeepslateTiles = determineIfCrackedDeepslateTilesExist(world, i + 25, j + 9, k + 18);
     	PlaceChiseledDeepslate = determineIfChiseledDeepslateExist(world, i + 25, j + 9, k + 16);

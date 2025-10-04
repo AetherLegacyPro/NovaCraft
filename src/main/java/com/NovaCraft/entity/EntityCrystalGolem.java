@@ -7,6 +7,7 @@ import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.misc.EnumGolemType;
 import com.NovaCraft.registry.OtherModItems;
 
+import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -101,12 +102,18 @@ public class EntityCrystalGolem extends EntityGolem
         super.updateAITick();
     }
 
-    protected void applyEntityAttributes()
-    {
+    protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);
-        this.setHealth(40.0F);
+        if (this.getType() != EnumGolemType.NULLSTONE) {
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);
+            this.setHealth(40.0F);
+        } else {
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23D);
+            this.setHealth(40.0F);
+        }
+
     }
 
     protected int decreaseAirSupply(int p_70682_1_)
@@ -302,67 +309,65 @@ public class EntityCrystalGolem extends EntityGolem
         this.playSound("mob.irongolem.walk", 0.25F, 0.25F);
     }
 
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
-    {
-     if (this.getType() == EnumGolemType.COPARTZ)
-       {
+    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
         int k;
-        k = 3 + this.rand.nextInt(3);
-        for (int l = 0; l < k; ++l)
-        	{
-            this.dropItem(NovaCraftItems.copartz_shard, 1);
-        	}
-       }
-     
-     if (this.getType() == EnumGolemType.LARIMAR)
-     {
-      int k;
-      k = 3 + this.rand.nextInt(3);
-      for (int l = 0; l < k; ++l)
-      	{
-          this.dropItem(NovaCraftItems.larimar_shard, 1);
-      	}
-     }
-     
-     if (this.getType() == EnumGolemType.TSAVOROKITE)
-     {
-      int k;
-      k = 3 + this.rand.nextInt(3);
-      for (int l = 0; l < k; ++l)
-      	{
-          this.dropItem(NovaCraftItems.tsavorokite_shard, 1);
-      	}
-     }
-     
-     if (this.getType() == EnumGolemType.YTTRLINISTE)
-     {
-      int k;
-      k = 3 + this.rand.nextInt(3);
-      for (int l = 0; l < k; ++l)
-      	{
-          this.dropItem(NovaCraftItems.yttrlinsite_shard, 1);
-      	}
-     }
-     
-     if (this.getType() == EnumGolemType.AMETHYST)
-     {
-      int k;
-      k = 3 + this.rand.nextInt(3);
-      for (int l = 0; l < k; ++l)
-      	{
-          this.dropItem(OtherModItems.amethyst_shard, 1);
-      	}
-     }
-     
-     if (this.getType() == EnumGolemType.AETHER)
-     {
-      int k;
-      k = 1 + this.rand.nextInt(1);
-      for (int l = 0; l < k; ++l)
-      	{
-          this.dropItem(NovaCraftItems.aether_shard, 1);
-      	}
-     }
+        int l;
+        if (this.getType() == EnumGolemType.COPARTZ) {
+            k = 3 + this.rand.nextInt(3);
+
+            for(l = 0; l < k; ++l) {
+                this.dropItem(NovaCraftItems.copartz_shard, 1);
+            }
+        }
+
+        if (this.getType() == EnumGolemType.LARIMAR) {
+            k = 3 + this.rand.nextInt(3);
+
+            for(l = 0; l < k; ++l) {
+                this.dropItem(NovaCraftItems.larimar_shard, 1);
+            }
+        }
+
+        if (this.getType() == EnumGolemType.TSAVOROKITE) {
+            k = 3 + this.rand.nextInt(3);
+
+            for(l = 0; l < k; ++l) {
+                this.dropItem(NovaCraftItems.tsavorokite_shard, 1);
+            }
+        }
+
+        if (this.getType() == EnumGolemType.YTTRLINISTE) {
+            k = 3 + this.rand.nextInt(3);
+
+            for(l = 0; l < k; ++l) {
+                this.dropItem(NovaCraftItems.yttrlinsite_shard, 1);
+            }
+        }
+
+        if (this.getType() == EnumGolemType.AMETHYST) {
+            k = 3 + this.rand.nextInt(3);
+
+            for(l = 0; l < k; ++l) {
+                this.dropItem(OtherModItems.amethyst_shard, 1);
+            }
+        }
+
+        if (this.getType() == EnumGolemType.AETHER) {
+            k = 1 + this.rand.nextInt(1);
+
+            for(l = 0; l < k; ++l) {
+                this.dropItem(NovaCraftItems.aether_shard, 1);
+            }
+        }
+
+        if (this.getType() == EnumGolemType.NULLSTONE) {
+            k = 1 + this.rand.nextInt(1);
+
+            for(l = 0; l < k; ++l) {
+                this.dropItem(Item.getItemFromBlock(NovaCraftBlocks.cobbled_nullstone), 1);
+            }
+        }
+
     }
 
 

@@ -31,6 +31,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
@@ -449,13 +450,21 @@ public class EntityCreaking extends EntityMob
     protected boolean isValidLightLevel() {
         return true;
     }
-    
+
     public boolean getCanSpawnHere() {
-        final int i = MathHelper.floor_double(this.posX);
-        final int j = MathHelper.floor_double(this.boundingBox.minY);
-        final int k = MathHelper.floor_double(this.posZ);
-        final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);          
-        return (this.worldObj.getBlock(i, j - 1, k) == Blocks.grass || this.worldObj.getBlock(i, j - 1, k) == Blocks.dirt) && this.worldObj.getBlockLightValue(i, j, k) < 8 && this.posY >= 55.0D && canSpawn;
-                          
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+        boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+        Block blockBelow = this.worldObj.getBlock(i, j - 1, k);
+        if (blockBelow != Blocks.grass && blockBelow != Blocks.dirt) {
+            return false;
+        } else if (this.posY < 55.0D) {
+            return false;
+        } else {
+            int blockLight = this.worldObj.getBlockLightValue(i, j, k);
+            int skyLight = this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k);
+            return blockLight < 8 && skyLight <= this.rand.nextInt(32) ? canSpawn : false;
+        }
     }
 }

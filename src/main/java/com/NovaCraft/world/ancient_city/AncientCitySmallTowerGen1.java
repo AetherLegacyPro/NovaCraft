@@ -139,7 +139,7 @@ public class AncientCitySmallTowerGen1 extends WorldGenerator
 				}
 			} catch (Exception ex) {
 				if (Configs.enableDebugMode) {
-					System.out.println("Missing Deepslate Brick Slab from Et Futurum Requiem, using Grimstone Brick Slab instead...");
+					System.out.println("Missing Deepslate Brick Wall from Et Futurum Requiem, using Grimstone Brick Wall instead...");
 				}
 				return NovaCraftBlocks.grimstone_brick_wall;
 			}

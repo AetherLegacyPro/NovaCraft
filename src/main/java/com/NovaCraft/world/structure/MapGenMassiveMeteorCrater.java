@@ -1,330 +1,408 @@
 package com.NovaCraft.world.structure;
 
-import java.util.Random;
-
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.GameRegistry;
+import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.MapGenBase;
 
 public class MapGenMassiveMeteorCrater extends MapGenBase {
-
     public void generateAt(World world, int chunkX, int chunkZ) {
         this.rand.setSeed(world.getSeed());
-        long xSeed = this.rand.nextLong() >> 2 + 1L;
-        long zSeed = this.rand.nextLong() >> 2 + 1L;
-        long chunkSeed = ((long) chunkX * xSeed + (long) chunkZ * zSeed) ^ world.getSeed();
+        long xSeed = this.rand.nextLong() >> 3;
+        long zSeed = this.rand.nextLong() >> 3;
+        long chunkSeed = (long)chunkX * xSeed + (long)chunkZ * zSeed ^ world.getSeed();
         this.rand.setSeed(chunkSeed);
-
-        recursiveGenerate(world, chunkX, chunkZ, chunkX * 16, chunkZ * 16, null);
+        this.recursiveGenerate(world, chunkX, chunkZ, chunkX * 16, chunkZ * 16, (Block[])null);
     }
 
     public void recursiveGenerate(World world, int chunkX, int chunkZ, int originX, int originZ, Block[] blockArray) {
         Random rand = this.rand;
-
-        if (rand.nextInt(2880) != 0) return;
-
-        int x = chunkX * 16 + rand.nextInt(16);
-        int z = chunkZ * 16 + rand.nextInt(16);
-        int y = world.getTopSolidOrLiquidBlock(x, z);
-
-        if (!world.canBlockSeeTheSky(x, y + 1, z)) return;
-
-        generateCrater(world, rand, x, y, z);
+        if (rand.nextInt(5760) == 0) {
+            int x = chunkX * 16 + rand.nextInt(16);
+            int z = chunkZ * 16 + rand.nextInt(16);
+            int y = world.getTopSolidOrLiquidBlock(x, z);
+            if (world.canBlockSeeTheSky(x, y + 1, z)) {
+                this.generateCrater(world, rand, x, y, z);
+            }
+        }
     }
 
     private void generateCrater(World world, Random rand, int x, int y, int z) {
-        float radius = 36.0F + rand.nextFloat() * 4.0F;
-        int radiusInt = MathHelper.floor_float(radius + 8);
-        int craterBottomY = y - 24;
-        int craterTopY = y + 1;
+        if (y <= 85) {
+            float radius = 36.0F + rand.nextFloat() * 4.0F;
+            int radiusInt = MathHelper.floor_float(radius + 8.0F);
+            int craterBottomY = y - 24;
+            int waterCount = 0;
+            int highestWaterY = -1;
+            int waterCheckRadius = 24;
+            int verticalCheckRange = 32;
 
-        boolean hasWater = false;
-        int highestWaterY = -1;
-        int waterCheckRadius = 24;
-        int verticalCheckRange = 32;
+            int checkX;
+            int checkY;
+            for(int dx = -waterCheckRadius; dx <= waterCheckRadius; ++dx) {
+                for(int dz = -waterCheckRadius; dz <= waterCheckRadius; ++dz) {
+                    if (dx * dx + dz * dz <= waterCheckRadius * waterCheckRadius) {
+                        checkX = x + dx;
+                        int checkZ = z + dz;
 
-        //Looks for water blocks nearby
-        for (int dx = -waterCheckRadius; dx <= waterCheckRadius; dx++) {
-            for (int dz = -waterCheckRadius; dz <= waterCheckRadius; dz++) {
-                int checkX = x + dx;
-                int checkZ = z + dz;
-
-                if (dx * dx + dz * dz > waterCheckRadius * waterCheckRadius) continue;
-
-                for (int dy = -verticalCheckRange; dy <= verticalCheckRange; dy++) {
-                    int checkY = y + dy;
-
-                    if (checkY < 1 || checkY > 255) continue;
-
-                    Block block = world.getBlock(checkX, checkY, checkZ);
-                    if (block == Blocks.water || block == Blocks.flowing_water) {
-                        hasWater = true;
-                        if (checkY > highestWaterY) {
-                            highestWaterY = checkY;
+                        for(int dy = -verticalCheckRange; dy <= verticalCheckRange; ++dy) {
+                            checkY = y + dy;
+                            if (checkY >= 1 && checkY <= 255) {
+                                Block block = world.getBlock(checkX, checkY, checkZ);
+                                if (block == Blocks.water || block == Blocks.flowing_water) {
+                                    ++waterCount;
+                                    if (checkY > highestWaterY) {
+                                        highestWaterY = checkY;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
-        }
 
-        //Creates the Crater
-        for (int dx = -radiusInt; dx <= radiusInt; dx++) {
-            for (int dz = -radiusInt; dz <= radiusInt; dz++) {
-                for (int dy = -24; dy <= 1; dy++) {
-                    int realX = x + dx;
-                    int realY = y + dy;
-                    int realZ = z + dz;
-
-                    double distSq = dx * dx + dz * dz + dy * dy * 4.5;
-
-                    if (distSq < radius * radius) {
-                        Block block = world.getBlock(realX, realY, realZ);
-                        if (block != Blocks.bedrock && block.getMaterial().isSolid()) {
-                            world.setBlockToAir(realX, realY, realZ);
-                        }
-
-                        if (dy == -24 && world.isAirBlock(realX, realY + 1, realZ)) {
-                            Block floor = rand.nextInt(4) == 0 ? Blocks.mossy_cobblestone : Blocks.grass;
-                            world.setBlock(realX, realY, realZ, floor);
-                        }
-
-                        if (hasWater && realY <= highestWaterY && realY > craterBottomY) {
-                            world.setBlock(realX, realY, realZ, Blocks.water, 0, 2);
-                        }
-                    }
-                }
+            BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
+            float temp = biome.getFloatTemperature(x, y, z);
+            checkX = biome.getIntRainfall();
+            int requiredWater = 50;
+            if (temp > 1.0F || checkX < 500) {
+                requiredWater = 200;
             }
-        }
 
-        //Creates air blocks above the crater
-        double radiusSq = radius * radius;
-        int domeHeight = 16;
+            boolean hasWater = waterCount > requiredWater;
 
-        for (int dx = -radiusInt; dx <= radiusInt; dx++) {
-            for (int dz = -radiusInt; dz <= radiusInt; dz++) {
-                double horizDistSq = dx * dx + dz * dz;
-                if (horizDistSq >= radiusSq) continue;
-
-                int maxHeight = (int) (Math.sqrt((radiusSq - horizDistSq) / 0.8));
-                maxHeight = Math.min(maxHeight, domeHeight);
-
-                for (int dy = 1; dy <= maxHeight; dy++) {
-                    int realX = x + dx;
-                    int realY = y + dy;
-                    int realZ = z + dz;
-
-                    if (!world.isAirBlock(realX, realY, realZ)) {
-                        world.setBlockToAir(realX, realY, realZ);
-                    }
-                }
-            }
-        }
-
-        //Adds random ores within the crater walls and around them
-        for (int dx = -radiusInt; dx <= radiusInt; dx++) {
-            for (int dz = -radiusInt; dz <= radiusInt; dz++) {
-                for (int dy = -24; dy <= 1; dy++) {
-                    int realX = x + dx;
-                    int realY = y + dy - rand.nextInt(3);
-                    int realZ = z + dz;
-
-                    double distSq = dx * dx + dz * dz + dy * dy * 4.5;
-                    double diff = Math.abs(distSq - radius * radius);
-
-                    if (diff <= 6.0 && rand.nextFloat() < 0.45F) {
-                        Block target = world.getBlock(realX, realY, realZ);
-                        if (target.getMaterial().isSolid() && target != Blocks.water && target != Blocks.flowing_water && target != Blocks.air && target != Blocks.leaves && target != Blocks.leaves2 && target != Blocks.dirt && target != Blocks.grass) {
-                            Block ore;
-                            int oreType = rand.nextInt(28);
-                            switch (oreType) {
-                                case 0: 
-                                	ore = NovaCraftBlocks.iridium_ore; 
-                                	break;
-                                case 1:
-                                	ore = Blocks.gold_ore;
-                                	break;
-                                case 2: 
-                                	ore = Blocks.gold_ore;
-                                	break;
-                                case 3:
-                                	ore = Blocks.stone; 
-                                	break;
-                                case 4: 
-                                	ore = Blocks.stone; 
-                                	break;
-                                case 5: 
-                                	ore = Blocks.stone; 
-                                	break;
-                                case 6: 
-                                	ore = Blocks.stone; 
-                                	break;
-                                case 7: 
-                                	ore = Blocks.cobblestone;
-                                	break;
-                                case 8: 
-                                	ore = Blocks.iron_ore; 
-                                	break;
-                                case 9: 
-                                	ore = Blocks.iron_ore; 
-                                	break;
-                                case 10: 
-                                	ore = Blocks.iron_ore; 
-                                	break;
-                                case 11: 
-                                	ore = Blocks.obsidian; 
-                                	break;
-                                case 12: 
-                                	ore = Blocks.obsidian; 
-                                	break;
-                                default: 
-                                	ore = NovaCraftBlocks.meteorite_block; 
-                                	break;
+            int realY;
+            int realZ;
+            int dz;
+            for(checkY = -radiusInt; checkY <= radiusInt; ++checkY) {
+                for(dz = -radiusInt; dz <= radiusInt; ++dz) {
+                    for(int dy = -24; dy <= 1; ++dy) {
+                        int realX = x + checkY;
+                        realY = y + dy;
+                        realZ = z + dz;
+                        double distSq = (double)(checkY * checkY + dz * dz) + (double)(dy * dy) * 4.5D;
+                        if (distSq < (double)(radius * radius)) {
+                            Block block = world.getBlock(realX, realY, realZ);
+                            if (block != Blocks.bedrock && block.getMaterial().isSolid()) {
+                                world.setBlockToAir(realX, realY, realZ);
                             }
 
-                            world.setBlock(realX, realY, realZ, ore);
+                            if (dy == -24 && world.isAirBlock(realX, realY + 1, realZ)) {
+                                Block floor = rand.nextInt(4) == 0 ? Blocks.dirt : Blocks.grass;
+                                world.setBlock(realX, realY, realZ, (Block)floor);
+                            }
+
+                            if (hasWater && realY <= highestWaterY && realY > craterBottomY) {
+                                world.setBlock(realX, realY, realZ, Blocks.water, 0, 2);
+                            }
                         }
                     }
                 }
             }
-        }
 
-        //Add grass, sand, or snow at the bottom of the crater if not filled with water
-        if (!hasWater) {
-        	for (int dx = -radiusInt; dx <= radiusInt; dx++) {
-                for (int dz = -radiusInt; dz <= radiusInt; dz++) {
+            for(checkY = -radiusInt; checkY <= radiusInt; ++checkY) {
+                for(dz = -radiusInt; dz <= radiusInt; ++dz) {
+                    double horizDistSq = (double)(checkY * checkY + dz * dz);
+                    if (horizDistSq <= (double)(radius * radius)) {
+                        realY = x + checkY;
+                        realZ = z + dz;
+
+                        for(int realY2 = y + 1; realY2 < world.getActualHeight(); ++realY2) {
+                            if (!world.isAirBlock(realY, realY2, realZ)) {
+                                world.setBlockToAir(realY, realY2, realZ);
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (!hasWater) {
+                this.fillCraterBottom(world, rand, x, y, z, radiusInt, radius);
+                this.clearLiquidsInCrater(world, x, y, z, radiusInt, radius);
+                this.AddFlora(world, rand, x, y, z, radiusInt, radius);
+            } else {
+                this.fillCraterBottomHasWater(world, rand, x, y, z, radiusInt, radius);
+            }
+
+            this.decorateCrater(world, rand, x, y, z, radiusInt, radius);
+        }
+    }
+
+    private void fillCraterBottom(World world, Random rand, int x, int y, int z, int radiusInt, float radius) {
+        for(int dx = -radiusInt; dx <= radiusInt; ++dx) {
+            for(int dz = -radiusInt; dz <= radiusInt; ++dz) {
+                double horizDistSq = (double)(dx * dx + dz * dz);
+                if (horizDistSq <= (double)(radius * radius)) {
                     int realX = x + dx;
                     int realZ = z + dz;
+                    int floorY = -1;
 
-                    double horizDistSq = dx * dx + dz * dz;
-                    if (horizDistSq > radius * radius) continue;
+                    for(int relY = 1; relY >= -24; --relY) {
+                        int realY = y + relY;
+                        if (realY < 0) {
+                            break;
+                        }
 
-                    int topY = world.getTopSolidOrLiquidBlock(realX, realZ) - 1;
+                        if (!world.isAirBlock(realX, realY, realZ)) {
+                            floorY = realY;
+                            break;
+                        }
+                    }
 
-                    if (topY <= 0 || topY > 255) continue;
-
-                    Block block = world.getBlock(realX, topY, realZ);
-                    Block above = world.getBlock(realX, topY + 1, realZ);
-
-                    if (block != Blocks.air && block != Blocks.water && block != Blocks.flowing_water && world.canBlockSeeTheSky(realX, topY + 1, realZ)) {
+                    if (floorY > 0) {
                         String biomeName = world.getBiomeGenForCoords(realX, realZ).biomeName.toLowerCase();
-                        Block surfaceBlock;
-
+                        Block bottomBlock = Blocks.dirt;
+                        //Object bottomBlock;
                         if (biomeName.contains("desert")) {
                             float chance = rand.nextFloat();
-                            if (chance < 0.6f) {
-                                surfaceBlock = Blocks.sand;
-                            } else if (chance < 0.85f) {
-                                surfaceBlock = Blocks.dirt;
-                            } else {
-                                surfaceBlock = Blocks.stone;
-                            }
+                            bottomBlock = chance < 0.85F ? Blocks.sand : Blocks.sandstone;
                         } else {
-                            float chance = rand.nextFloat();
-                           if (rand.nextInt(3) == 0) {
-                            if (chance < 0.5f) {
-                                surfaceBlock = Blocks.grass;
-                            } else if (chance < 0.8f) {
-                                surfaceBlock = Blocks.dirt;
+                            int chanceAllGrass = (int)(1.0D + Math.random() * 4.0D);
+                            if (chanceAllGrass <= 3) {
+                                float chance = rand.nextFloat();
+                                if (chance < 0.5F) {
+                                    bottomBlock = Blocks.grass;
+                                } else if (chance < 0.8F) {
+                                    if (Loader.isModLoaded("etfuturum")) {
+                                        try {
+                                            Block coarse_dirt = GameRegistry.findBlock("etfuturum", "coarse_dirt");
+                                            if (coarse_dirt != null) {
+                                                bottomBlock = coarse_dirt;
+                                            } else {
+                                                bottomBlock = Blocks.dirt;
+                                            }
+                                        } catch (Exception var20) {
+                                            bottomBlock = Blocks.dirt;
+                                        }
+                                    } else {
+                                        bottomBlock = Blocks.dirt;
+                                    }
+                                } else {
+                                    bottomBlock = Blocks.cobblestone;
+                                }
                             } else {
-                                surfaceBlock = Blocks.stone;
-                             }
-                           } else {
-                        	   surfaceBlock = Blocks.grass; 
-                           }
+                                bottomBlock = Blocks.grass;
+                            }
                         }
 
-                        world.setBlock(realX, topY + 1, realZ, surfaceBlock);
-                    }
-                }
-            }
-        
-        for (int dx = -radiusInt; dx <= radiusInt; dx++) {
-            for (int dz = -radiusInt; dz <= radiusInt; dz++) {
-                int realX = x + dx;
-                int realZ = z + dz;
-
-                double horizDistSq = dx * dx + dz * dz;
-                if (horizDistSq > radius * radius) continue;
-
-                int topY = world.getTopSolidOrLiquidBlock(realX, realZ);
-
-                if (topY <= 0 || topY > 255) continue;
-
-                Block ground = world.getBlock(realX, topY - 1, realZ);
-                Block above = world.getBlock(realX, topY, realZ);
-
-                if (above != Blocks.air) continue;
-
-                String biomeName = world.getBiomeGenForCoords(realX, realZ).biomeName.toLowerCase();
-
-                if (biomeName.contains("desert")) {
-                    if (ground == Blocks.sand && rand.nextFloat() < 0.04F && world.isAirBlock(realX, topY + 1, realZ)) {
-                        world.setBlock(realX, topY, realZ, Blocks.cactus);
-                    }
-                } 
-                else if (biomeName.contains("ice") || biomeName.contains("snow")) {
-                	if (rand.nextFloat() < 0.04F && world.isAirBlock(realX, topY + 1, realZ)) {
-                        world.setBlock(realX, topY, realZ, Blocks.snow_layer, 0, 0);
-                    }
-                } else {
-                    if (ground == Blocks.grass) {
-                    	float roll = rand.nextFloat();
-
-                        if (roll < 0.06f) {
-                            world.setBlock(realX, topY, realZ, Blocks.tallgrass, 1, 2);
-                        } else if (roll < 0.10f) {
-                            Block flower = rand.nextBoolean() ? Blocks.red_flower : Blocks.yellow_flower;
-                            world.setBlock(realX, topY, realZ, flower);
-                        } else if (roll < 0.115f) {
-                            world.setBlock(realX, topY, realZ, Blocks.sapling, 0, 2);
+                        Block target = world.getBlock(realX, floorY, realZ);
+                        if (world.isAirBlock(realX, floorY + 1, realZ) && target.getMaterial().isSolid() && target != Blocks.log && target != Blocks.log2 && target != Blocks.leaves && target != Blocks.leaves2) {
+                            world.setBlock(realX, floorY + 1, realZ, (Block)bottomBlock, 0, 2);
                         }
                     }
                 }
             }
         }
-      } else {
-    	    for (int dx = -radiusInt; dx <= radiusInt; dx++) {
-    	        for (int dz = -radiusInt; dz <= radiusInt; dz++) {
-    	            int realX = x + dx;
-    	            int realZ = z + dz;
 
-    	            double horizDistSq = dx * dx + dz * dz;
-    	            if (horizDistSq > radius * radius) continue;
+    }
 
-    	            boolean placedBottomBlock = false;
+    private void AddFlora(World world, Random rand, int x, int y, int z, int radiusInt, float radius) {
+        for(int dx = -radiusInt; dx <= radiusInt; ++dx) {
+            for(int dz = -radiusInt; dz <= radiusInt; ++dz) {
+                double horizDistSq = (double)(dx * dx + dz * dz);
+                if (horizDistSq <= (double)(radius * radius)) {
+                    int realX = x + dx;
+                    int realZ = z + dz;
+                    int floorY = -1;
 
-    	            for (int dy = -24; dy <= 1; dy++) {
-    	                int realY = y + dy;
+                    for(int relY = 1; relY >= -24; --relY) {
+                        int realY = y + relY + 1;
+                        if (realY < 0) {
+                            break;
+                        }
 
-    	                Block current = world.getBlock(realX, realY, realZ);
-    	                Block above = world.getBlock(realX, realY + 1, realZ);
+                        if (!world.isAirBlock(realX, realY, realZ)) {
+                            floorY = realY;
+                            break;
+                        }
+                    }
 
-    	                if ((current.getMaterial().isSolid() && current != Blocks.bedrock) && (above == Blocks.water || above == Blocks.flowing_water)) {
+                    if (floorY > 0) {
+                        String biome = world.getBiomeGenForCoords(realX, realZ).biomeName.toLowerCase();
+                        float chance;
+                        Object bottomBlock;
+                        if (biome.contains("desert")) {
+                            chance = rand.nextFloat();
+                            if ((double)chance < 0.01D) {
+                                bottomBlock = Blocks.cactus;
+                            } else if (chance < 0.02F) {
+                                bottomBlock = NovaCraftBlocks.blooming_barb;
+                            } else if (chance < 0.03F) {
+                                bottomBlock = Blocks.deadbush;
+                            } else {
+                                bottomBlock = Blocks.air;
+                            }
+                        } else if (!biome.contains("ice") && !biome.contains("snow")) {
+                            chance = rand.nextFloat();
+                            if (chance < 0.35F) {
+                                Block target = world.getBlock(realX, floorY, realZ);
+                                if (world.isAirBlock(realX, floorY + 1, realZ) && target.getMaterial().isSolid() && target != Blocks.log && target != Blocks.log2 && target != Blocks.leaves && target != Blocks.leaves2) {
+                                    world.setBlock(realX, floorY + 1, realZ, Blocks.tallgrass, 1, 2);
+                                }
+                                continue;
+                            }
 
-    	                    Block bottomBlock = rand.nextFloat() < 0.8f ? Blocks.gravel : Blocks.clay;
-    	                    world.setBlock(realX, realY + 1, realZ, bottomBlock);
-    	                    placedBottomBlock = true;
-    	                    break;
-    	                }
-    	            }
+                            if (chance < 0.38F) {
+                                bottomBlock = Blocks.yellow_flower;
+                            } else if (chance < 0.39F) {
+                                bottomBlock = Blocks.red_flower;
+                            } else if (chance < 0.4F) {
+                                bottomBlock = NovaCraftBlocks.violet;
+                            } else if (chance < 0.41F) {
+                                bottomBlock = NovaCraftBlocks.cyan_rose;
+                            } else {
+                                bottomBlock = Blocks.air;
+                            }
+                        } else {
+                            bottomBlock = Blocks.snow_layer;
+                        }
 
-    	            // Fallback if no placement done
-    	            if (!placedBottomBlock) {
-    	                int topY = world.getTopSolidOrLiquidBlock(realX, realZ) - 1;
-    	                if (topY > 1 && topY < 255) {
-    	                    Block b = world.getBlock(realX, topY, realZ);
-    	                    if (b == Blocks.water || b == Blocks.flowing_water) {
-    	                        Block fallbackBlock = rand.nextFloat() < 0.8f ? Blocks.gravel : Blocks.clay;
-    	                        world.setBlock(realX, topY - 1, realZ, fallbackBlock);
-    	                    }
-    	                }
-    	            }
-    	        }
-    	    }
-       }
+                        Block target = world.getBlock(realX, floorY, realZ);
+                        if (bottomBlock != Blocks.air && world.isAirBlock(realX, floorY + 1, realZ) && target.getMaterial().isSolid() && target != Blocks.log && target != Blocks.log2 && target != Blocks.leaves && target != Blocks.leaves2) {
+                            world.setBlock(realX, floorY + 1, realZ, (Block)bottomBlock, 0, 2);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    private void fillCraterBottomHasWater(World world, Random rand, int x, int y, int z, int radiusInt, float radius) {
+        for(int dx = -radiusInt; dx <= radiusInt; ++dx) {
+            for(int dz = -radiusInt; dz <= radiusInt; ++dz) {
+                double horizDistSq = (double)(dx * dx + dz * dz);
+                if (horizDistSq <= (double)(radius * radius)) {
+                    int realX = x + dx;
+                    int realZ = z + dz;
+                    int floorY = -1;
+
+                    for(int relY = 1; relY >= -24; --relY) {
+                        int realY = y + relY;
+                        if (realY < 0) {
+                            break;
+                        }
+
+                        if (!world.isAirBlock(realX, realY, realZ)) {
+                            floorY = realY;
+                            break;
+                        }
+                    }
+
+                    if (floorY > 0) {
+                        float chance = rand.nextFloat();
+                        Block bottomBlock = chance < 0.85F ? Blocks.gravel : Blocks.clay;
+                        Block target = world.getBlock(realX, floorY, realZ);
+                        if (world.isAirBlock(realX, floorY + 1, realZ) && target.getMaterial().isSolid() && target != Blocks.log && target != Blocks.log2 && target != Blocks.leaves && target != Blocks.leaves2) {
+                            world.setBlock(realX, floorY + 1, realZ, bottomBlock);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    private void decorateCrater(World world, Random rand, int x, int y, int z, int radiusInt, float radius) {
+        int extraRadius;
+        int dx;
+
+        for(extraRadius = -radiusInt; extraRadius <= radiusInt; ++extraRadius) {
+            for(int dz = -radiusInt; dz <= radiusInt; ++dz) {
+                for(dx = -24; dx <= 0; ++dx) {
+                    dz = x + extraRadius;
+                    int realY = y + dx;
+                    int realZ = z + dz;
+                    double distSq = (double)(extraRadius * extraRadius + dz * dz) + (double)(dx * dx) * 4.5D;
+                    if (Math.abs(distSq - (double)(radius * radius)) < 6.0D && rand.nextFloat() < 0.12F) {
+                        this.tryPlaceOre(world, rand, dz, realY, realZ);
+                    }
+                }
+            }
+        }
+
+        extraRadius = radiusInt + 12;
+        int depth = 20;
+        int dz;
+        for(dx = -extraRadius; dx <= extraRadius; ++dx) {
+            for(dz = -extraRadius; dz <= extraRadius; ++dz) {
+                double horizDistSq = (double)(dx * dx + dz * dz);
+                if (horizDistSq <= (double)(extraRadius * extraRadius)) {
+                    int realX = x + dx;
+                    int realZ = z + dz;
+
+                    for(int dy = -depth; dy <= 0; ++dy) {
+                        int realY = y + dy;
+                        if (realY >= 5 && rand.nextFloat() < 0.04F) {
+                            this.tryPlaceOre(world, rand, realX, realY, realZ);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    private void tryPlaceOre(World world, Random rand, int x, int y, int z) {
+        Block ore = this.pickRandomOre(rand);
+        if (ore != null) {
+            Block target = world.getBlock(x, y, z);
+            if (target != Blocks.air && target.getMaterial().isSolid() && target != Blocks.sand && target != Blocks.water && target != Blocks.flowing_water && (target == Blocks.stone || target == Blocks.sandstone)) {
+                world.setBlock(x, y, z, ore, 0, 2);
+            }
+
+        }
+    }
+
+    private Block pickRandomOre(Random rand) {
+        float chance = rand.nextFloat();
+        if (chance < 0.4F) {
+            return NovaCraftBlocks.meteorite_block;
+        } else if (chance >= 0.4F && chance < 0.7F) {
+            return Blocks.iron_ore;
+        } else if (chance >= 0.7F && chance < 0.89F) {
+            return Blocks.gold_ore;
+        } else if (chance >= 0.89F && chance <= 0.9F) {
+            return Blocks.diamond_ore;
+        } else {
+            return chance > 0.9F && chance <= 0.93F ? NovaCraftBlocks.iridium_ore : NovaCraftBlocks.meteorite_block;
+        }
+    }
+
+    private void clearLiquidsInCrater(World world, int x, int y, int z, int radiusInt, float radius) {
+        for(int dx = -radiusInt; dx <= radiusInt; ++dx) {
+            for(int dz = -radiusInt; dz <= radiusInt; ++dz) {
+                double horizDistSq = (double)(dx * dx + dz * dz);
+                if (horizDistSq <= (double)(radius * radius)) {
+                    int realX = x + dx;
+                    int realZ = z + dz;
+
+                    int dy;
+                    for(dy = y + 1; dy < world.getActualHeight(); ++dy) {
+                        Block block = world.getBlock(realX, dy, realZ);
+                        if (block.getMaterial().isLiquid()) {
+                            world.setBlockToAir(realX, dy, realZ);
+                        }
+                    }
+
+                    for(dy = -24; dy <= 1; ++dy) {
+                        int realY = y + dy;
+                        if (realY >= 0) {
+                            Block block = world.getBlock(realX, realY, realZ);
+                            if (block.getMaterial().isLiquid()) {
+                                world.setBlockToAir(realX, realY, realZ);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

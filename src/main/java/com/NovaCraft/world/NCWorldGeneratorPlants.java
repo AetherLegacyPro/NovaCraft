@@ -355,7 +355,12 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			if(BiomeDictionary.isBiomeOfType(biome19, Type.SWAMP) && rand.nextInt(260) == 0 && Configs.enableSlimeStatueGeneration) {
 				new SlimeStructureGen().generate(world, rand, x19, y19 - 4 + rand.nextInt(2), z19);
 			}
-				
+
+			int x22 = chunkX * 16 + rand.nextInt(8) + 8;
+			int z22 = chunkZ * 16 + rand.nextInt(8) + 8;
+			if (rand.nextInt(3) == 0) {
+				(new VoidTempleGen()).generate(world, rand, x22, 2, z22);
+			}
 			
 			//Sculk Gen
 			if (Configs.enableSculkGeneration && rand.nextInt(5) == 1) {

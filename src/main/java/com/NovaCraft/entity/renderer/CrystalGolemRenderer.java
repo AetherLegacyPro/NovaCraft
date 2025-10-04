@@ -20,18 +20,6 @@ import com.NovaCraft.entity.models.CrystalGolemModel;
 @SideOnly(Side.CLIENT)
 public class CrystalGolemRenderer extends RenderLiving
 {
-	private static final ResourceLocation TEXTURE_COPARTZ  = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/crystal_golem_copartz.png");
-
-	private static final ResourceLocation TEXTURE_LARIMAR = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/crystal_golem_larimar.png");
-	
-	private static final ResourceLocation TEXTURE_TSAVOROKITE = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/crystal_golem_tsavorokite.png");
-	
-	private static final ResourceLocation TEXTURE_YTTRLINISTE = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/crystal_golem_yttrliniste.png");
-	
-	private static final ResourceLocation TEXTURE_AMETHYST = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/crystal_golem_amethyst.png");
-	
-	private static final ResourceLocation TEXTURE_AETHER = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/crystal_golem_aether.png");
-    
     private final CrystalGolemModel crystalGolemModel;
 
     public CrystalGolemRenderer()

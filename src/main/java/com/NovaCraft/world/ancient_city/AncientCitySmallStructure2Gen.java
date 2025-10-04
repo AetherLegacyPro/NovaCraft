@@ -1256,7 +1256,7 @@ public class AncientCitySmallStructure2Gen extends WorldGenerator
 			case 27: 
 				return new ItemStack(Items.gunpowder, random.nextInt(6) + 5);
 			case 28:
-				if (Configs.enableTreasureCratesDropDiamonds == true) {
+				if (Configs.enableTreasureCratesDropDiamonds) {
 					return new ItemStack(Items.diamond, 1);
 				}
 				else {
