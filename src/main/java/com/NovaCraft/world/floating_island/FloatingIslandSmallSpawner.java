@@ -33,7 +33,12 @@ public class FloatingIslandSmallSpawner extends WorldGenAbstractTree
 
         if (tileentitymobspawner != null)
         {
-            tileentitymobspawner.func_145881_a().setEntityName("nova_craft.crystal_slime");
+            int choice = (int)(1 + Math.random() * 30);
+            if (choice <= 15) {
+                tileentitymobspawner.func_145881_a().setEntityName("nova_craft.crystal_slime");
+            } else {
+                tileentitymobspawner.func_145881_a().setEntityName("nova_craft.wyrmling");
+            }
         }
 
         return true;

@@ -18,10 +18,10 @@ public class FloatingIslandGen implements IWorldGenerator {
 
     private void generateSurface(World world, Random rand, int x, int z) {
         BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x + 16, z + 16);
-        if ((biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean) && rand.nextInt(500) == 0) {
+        if ((biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean) && rand.nextInt(2400) == 0) {
 
             // Slightly wider island
-            int minBumps = 45, maxBumps = 75;
+            int minBumps = 55, maxBumps = 75;
             int blocksPerBumpMin = 2, blocksPerBumpMax = 4;
 
             int minHeight = 120, heightVariation = 16;
@@ -58,22 +58,12 @@ public class FloatingIslandGen implements IWorldGenerator {
 
             Block genOre = Blocks.gold_block;
 
-            if (Configs.enableDebugMode) {
+            //if (Configs.enableDebugMode) {
                 System.out.println("Island generated at (X:" + islandX + ", Z:" + islandZ + ")");
-            }
+            //}
 
-            new WorldGenFloatingIsland(
-                bumpsWide, bumpsLong,
-                bumpHeightVarTop, bumpHeightVarBottom,
-                bumpHeightMinTop, bumpHeightMinBottom,
-                blocksPerBumpX, blocksPerBumpZ,
-                blocksPerBumpTopY, blocksPerBumpBottomY,
-                blurPassesTop, blurPassesBottom,
-                spikeHeightVarTop, spikeHeightVarBottom,
-                radialSamples, radialMin, radialVar,
-                radialScaling, radialBlur,
-                genOre
-            ).generate(world, rand, islandX, islandY, islandZ);
+            new WorldGenFloatingIsland(bumpsWide, bumpsLong, bumpHeightVarTop, bumpHeightVarBottom, bumpHeightMinTop, bumpHeightMinBottom, blocksPerBumpX, blocksPerBumpZ, blocksPerBumpTopY, blocksPerBumpBottomY, blurPassesTop, blurPassesBottom, spikeHeightVarTop, spikeHeightVarBottom, radialSamples, radialMin, radialVar, radialScaling, radialBlur, genOre).generate(world, rand, islandX, islandY, islandZ);
+            new FloatingIslandAltar().generate(world, rand, islandX + 40, islandY + 2, islandZ + 70);
         }
     }
 

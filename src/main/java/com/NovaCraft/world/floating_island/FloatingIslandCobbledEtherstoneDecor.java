@@ -27,9 +27,9 @@ public class FloatingIslandCobbledEtherstoneDecor extends WorldGenAbstractTree
     
     public boolean generate(final World world, final Random random, final int x, final int y, final int z) {
         boolean cangen = true;
-        final int height = random.nextInt(this.randHeight) + (this.branches ? 8 : 4);
+        final int height = random.nextInt(this.randHeight) + (this.branches ? 16 : 8);
         for (int x2 = x - 3; x2 < x + 3; ++x2) {
-            for (int y2 = y + 1; y2 < y + (height + 2); ++y2) {
+            for (int y2 = y + 1; y2 < y + (height + 4); ++y2) {
                 for (int z2 = z - 3; z2 < z + 3; ++z2) {
                     if (world.getBlock(x2, y2, z2) != Blocks.air) {
                         cangen = false;
@@ -37,7 +37,7 @@ public class FloatingIslandCobbledEtherstoneDecor extends WorldGenAbstractTree
                 }
             }
         }
-        if (y + (height + 2) > world.getHeight() || !cangen) {
+        if (y + (height + 4) > world.getHeight() || !cangen) {
             return false;
         }
         final Block y3 = world.getBlock(x, y - 1, z);
@@ -56,7 +56,7 @@ public class FloatingIslandCobbledEtherstoneDecor extends WorldGenAbstractTree
             this.setBlockAirCheck(world, x, y4, z + 1, this.air, (random.nextInt(this.airChance) == 0) ? this.air : Blocks.air);
             this.setBlockAirCheck(world, x, y4, z - 1, this.air, (random.nextInt(this.airChance) == 0) ? this.air : Blocks.air);
         }
-        for (int y4 = y + 3; y4 <= y + height; y4 += 2) {
+        for (int y4 = y + 3; y4 <= y + height; y4 += 4) {
             this.setBlockAirCheck(world, x + 1, y4, z + 1, this.air, (random.nextInt(this.airChance) == 0) ? this.air : Blocks.air);
             this.setBlockAirCheck(world, x - 1, y4, z - 1, this.air, (random.nextInt(this.airChance) == 0) ? this.air : Blocks.air);
             this.setBlockAirCheck(world, x + 1, y4, z - 1, this.air, (random.nextInt(this.airChance) == 0) ? this.air : Blocks.air);

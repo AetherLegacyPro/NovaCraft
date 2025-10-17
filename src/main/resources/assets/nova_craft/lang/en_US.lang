@@ -130,6 +130,7 @@ item.iridium_nugget.vanite_nugget.name=Vanite Nugget
 item.diamond_nugget.diamond_nugget.name=Diamond Shard
 item.diamond_nugget.emerald_nugget.name=Emerald Shard
 item.echo_eye.name=Echo Eye
+item.wyrmling_scales.name=Wyrmling Scales
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -1137,6 +1138,7 @@ entity.nova_craft.crystal_slime.name=Rich Slime
 entity.nova_craft.soloid.name=Soloid
 entity.nova_craft.echo_eye.name=Echo Eye
 entity.nova_craft.giant_frog.name=Giant Frog
+entity.nova_craft.wyrmling.name=Wyrmling
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1203,3 +1205,4 @@ entity.nova_frog.name=Frog
 entity.crystal_slime.name=Rich Slime
 entity.soloid.name=Soloid
 entity.giant_frog.name=Giant Frog
+entity.wyrmling.name=Wyrmling

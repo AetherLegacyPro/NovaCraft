@@ -133,6 +133,7 @@ public class Configs {
     public static boolean enableSpawnRealityDistorter;
     public static boolean enableSpawnDestituteTentacle;
     public static boolean enableSpawnNitro;
+    public static boolean enableSpawnWyrmling;
     public static boolean enableSpawnCreepyCube;
     public static boolean enableSpawnCreaking;
     public static boolean enableSpawnCreakinginModdedBiomes;
@@ -180,6 +181,7 @@ public class Configs {
     public static boolean enableEtFuturumSoulLanternInAncientCity;
     public static boolean enableCobbledDeepslateInAncientCity;
     public static boolean enableEtFuturumSoulFireInAncientCity;
+    public static boolean enableBanners;
     public static boolean enableBlueIceInAncientCity;
     public static boolean enableIronTrapdoorInAncientCity;
     public static boolean disableNetherliciousBasaltInAncientCity;
@@ -344,6 +346,8 @@ public class Configs {
         disableNetherliciousSmoothBasaltInAncientCity = conf.getBoolean("disableNetherliciousSmoothBasaltInAncientCity", "Ancient City Customization", true, "Do not use Netherlicious smooth basalt and instead use the one from Et Futurum Requiem, if those do not exist then use Polished Vanite Bricks.");
         disableMagmaBlock = conf.getBoolean("disableMagmaBlock", "Et Futurum Requiem Options", false, "Enables the use of Magma Block in structures: DISABLE if magma blocks are disabled in Et Futurum Requiem.");
         disableChain = conf.getBoolean("disableChain", "Et Futurum Requiem Options", false, "Enables the use of Chains in structures: DISABLE if chains are disabled in Et Futurum Requiem.");
+        enableBanners = conf.getBoolean("enableBanners", "Et Futurum Requiem Options", true, "Enables the use of Banners from Et Futurum Requiem in structures.");
+
         enableSpawnGlowSquid = conf.getBoolean("enableSpawnGlowSquid", "Mobs", true, "Enables the Spawning of Glow Squids");
         enableSpawnPhantom = conf.getBoolean("enableSpawnPhantom", "Mobs", true, "Enables the Spawning of Phantoms");
         enableSpawnOverworldPhantom = conf.getBoolean("enableSpawnOverworldPhantom", "Mobs", false, "Enables the Spawning of Phantoms in the Mountain Biomes");
@@ -384,6 +388,8 @@ public class Configs {
         enableSpawnHardmodeGhast = conf.getBoolean("enableSpawnHardmodeGhast", "Mobs", true, "Enables the Spawning of Hardmode Ghasts once HardMode is enabled.");
         enableSpawnHardmodeSlime = conf.getBoolean("enableSpawnHardmodeSlime", "Mobs", true, "Enables the Spawning of Hardmode Slimes once HardMode is enabled.");
         enableIncreasedVanillaNetherMobSpawn = conf.getBoolean("enableIncreasedVanillaNetherMobSpawn", "Mobs", true, "Enables increased spawning of Zombie Pigmen, Magma Cubes, and Ghasts in all Nether Biomes");
+        enableSpawnWyrmling = conf.getBoolean("enableSpawnWyrmling", "Mobs", true, "Enables the Spawning of Wyrmlings");
+
         enableIncreasedVanillaOverworldMobSpawn = conf.getBoolean("enableIncreasedVanillaOverworldMobSpawn", "Mobs", true, "Enables increased spawning of Skeletons, Creepers, Zombies, and Witches.");
         enableSpawnFireflyOtherBiomes = conf.getBoolean("enableSpawnFireflyOtherBiomes", "Firefly", false, "Enables the Spawning of the Firefly in biomes with Plains or Forest tags.");
         enableNoDespawnFirefly = conf.getBoolean("enableNoDespawnFirefly", "Firefly", false, "Disables the despawning of Fireflies after a certian amount of time; they still despawn natually though.");

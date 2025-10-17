@@ -98,9 +98,9 @@ public class RendersNovaCraft {
 	register(EntityPhoenix.class, new PhoenixRenderer());
 	register(EntityFirefly.class, new FireflyRenderer(new FireflyModel(), new FireflyModel(), 0.7F));
 	register(EntityFrog.class, new FrogRenderer(new FrogModel(), 0.1f));
-	
+
 	//Hostile
-	register(EntityPhantom.class, new PhantomRenderer(new PhantomModel(), new PhantomModel(), 0.7F));
+	register(EntityPhantom.class, new PhantomRenderer(new PhantomModel(), new PhantomModel(), 0.0F));
 	register(EntityDrifter.class, new DrifterRenderer());
 	register(EntityBlazingCharger.class, new BlazingChargerRenderer(new BlazingChargerModel(), 0.6f));
 	register(EntityEnderLord.class, new EnderLordRenderer());
@@ -143,6 +143,7 @@ public class RendersNovaCraft {
 	register(EntityCrystalSlime.class, new CrystalSlimeRenderer(new CrystalSlimeModel(16), new CrystalSlimeModel(0), 0.25F));
 	register(EntitySoloid.class, new SoloidRenderer(new SoloidModel(), 1.0f));
 	register(EntityGiantFrog.class, new GiantFrogRenderer(new GiantFrogModel(), 1.0f));
+	register(EntityWyrmling.class, new WyrmlingRenderer(new WyrmlingModel(), new WyrmlingModel(), 0.F));
 	
 	register(EntityHardmodeCreeper.class, new HardmodeCreeperRenderer());
 	register(EntityHardmodeSpider.class, new HardmodeSpiderRenderer());

@@ -42,6 +42,8 @@ public class OtherModBlocks
     public static Block deepslate_wall;
     public static Block soul_lantern;
     public static Block fence_dark_oak;
+    public static Block fence_birch;
+    public static Block banner;
     public static Block blue_ice;
     public static Block iron_trapdoor;
     public static Block basalt;
@@ -162,6 +164,8 @@ public class OtherModBlocks
     	OtherModBlocks.magma = GameRegistry.findBlock("etfuturum", "magma");
     	OtherModBlocks.chain = GameRegistry.findBlock("etfuturum", "chain");
     	OtherModBlocks.lantern = GameRegistry.findBlock("etfuturum", "lantern");
+        OtherModBlocks.banner = GameRegistry.findBlock("etfuturum", "banner");
+        OtherModBlocks.fence_birch = GameRegistry.findBlock("etfuturum", "fence_birch");
     	
     	OtherModBlocks.Nether_Gravel = GameRegistry.findBlock("netherlicious", "Nether_Gravel");
     	OtherModBlocks.Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");    	

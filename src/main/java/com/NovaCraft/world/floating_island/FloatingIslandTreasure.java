@@ -58,7 +58,7 @@ public class FloatingIslandTreasure extends WorldGenAbstractTree
             case 3:
                 return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(5) + 4);
             case 4:
-                return new ItemStack(NovaCraftItems.iridium_nugget, 0, random.nextInt(4) + 3);
+                return new ItemStack(NovaCraftItems.iridium_nugget, random.nextInt(4) + 3, 0);
             case 5:
                 return new ItemStack(NovaCraftItems.copartz_shard, random.nextInt(3) + 1);
             case 6:

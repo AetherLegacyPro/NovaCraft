@@ -1628,10 +1628,10 @@ public class VoidTempleGen extends WorldGenerator
             }
 
             world.setBlock(i + 8, j + 5, k + 10, Blocks.chest, 4, 2);
-            TileEntityChest chest2 = (TileEntityChest) world.getTileEntity(i + 8, j + 5, k + 10);
+            TileEntityChest chestOther = (TileEntityChest) world.getTileEntity(i + 8, j + 5, k + 10);
 
             for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
-                chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getChestLoot(random));
+                chestOther.setInventorySlotContents(random.nextInt(chestOther.getSizeInventory()), this.getChestLoot(random));
             }
 
         }

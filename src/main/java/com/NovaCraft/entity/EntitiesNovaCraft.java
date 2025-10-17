@@ -138,6 +138,7 @@ public class EntitiesNovaCraft {
 		register(EntityCrystalSlime.class, "crystal_slime", 79, 0xb6b4c4, 0xeae4ea);
 		register(EntitySoloid.class, "soloid", 80, 0x5f322f, 0xd38591);
 		register(EntityGiantFrog.class, "giant_frog", 82, 0x3f6b1e, 0x7fa64f);
+		register(EntityWyrmling.class, "wyrmling", 83, 0x4d4846, 0xc2b5b3);
 		
 		//Hardmode
 		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);
@@ -205,6 +206,10 @@ public class EntitiesNovaCraft {
 		
 		if (Configs.enableSpawnCreepyCube) {
 			EntityRegistry.addSpawn(EntityCreepyCube.class, 10, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
+		}
+
+		if (Configs.enableSpawnWyrmling) {
+			EntityRegistry.addSpawn(EntityWyrmling.class, 2, 1, 3, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 		
 		if (Configs.enableSpawnCreaking) {

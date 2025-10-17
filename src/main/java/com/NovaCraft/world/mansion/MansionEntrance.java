@@ -1,0 +1,163 @@
+package com.NovaCraft.world.mansion;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
+
+public class MansionEntrance extends WorldGenerator
+{
+    public MansionEntrance() {
+
+    }
+
+    @Override
+    public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
+
+        world.setBlock(i + 2, j + 0, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 0, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 4, j + 0, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 5, j + 0, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 6, j + 0, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 7, j + 0, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 8, j + 0, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 1, j + 0, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 2, j + 0, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 0, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 4, j + 0, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 5, j + 0, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 6, j + 0, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 7, j + 0, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 8, j + 0, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 9, j + 0, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 0, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 1, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 2, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 4, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 5, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 6, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 7, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 8, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 9, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 10, j + 0, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 2, j + 1, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 1, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 4, j + 1, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 5, j + 1, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 6, j + 1, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 7, j + 1, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 8, j + 1, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 1, j + 1, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 2, j + 1, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 1, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 4, j + 1, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 5, j + 1, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 6, j + 1, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 7, j + 1, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 8, j + 1, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 9, j + 1, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 0, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 1, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 2, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 4, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 5, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 6, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 7, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 8, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 9, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 10, j + 1, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 2, j + 2, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 2, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 4, j + 2, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 5, j + 2, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 6, j + 2, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 7, j + 2, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 8, j + 2, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 1, j + 2, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 2, j + 2, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 2, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 4, j + 2, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 5, j + 2, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 6, j + 2, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 7, j + 2, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 8, j + 2, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 9, j + 2, k + 1, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 0, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 1, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 2, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 4, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 5, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 6, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 7, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 8, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 9, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 10, j + 2, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 2, j + 3, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 3, j + 3, k + 0, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 4, j + 3, k + 0, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 5, j + 3, k + 0, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 6, j + 3, k + 0, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 7, j + 3, k + 0, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 8, j + 3, k + 0, Blocks.cobblestone, 0, 2);
+        world.setBlock(i + 1, j + 3, k + 1, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 2, j + 3, k + 1, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 3, j + 3, k + 1, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 4, j + 3, k + 1, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 5, j + 3, k + 1, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 6, j + 3, k + 1, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 7, j + 3, k + 1, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 8, j + 3, k + 1, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 9, j + 3, k + 1, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 0, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 1, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 2, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 3, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 4, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 5, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 6, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 7, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 8, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 9, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 10, j + 3, k + 2, Blocks.stone_slab, 3, 2);
+        world.setBlock(i + 0, j + 4, k + 0, Blocks.air, 0, 2);
+        world.setBlock(i + 1, j + 4, k + 0, Blocks.air, 0, 2);
+        world.setBlock(i + 2, j + 4, k + 0, Blocks.torch, 5, 2);
+        world.setBlock(i + 3, j + 4, k + 0, Blocks.air, 0, 2);
+        world.setBlock(i + 4, j + 4, k + 0, Blocks.air, 0, 2);
+        world.setBlock(i + 5, j + 4, k + 0, Blocks.air, 0, 2);
+        world.setBlock(i + 6, j + 4, k + 0, Blocks.air, 0, 2);
+        world.setBlock(i + 7, j + 4, k + 0, Blocks.air, 0, 2);
+        world.setBlock(i + 8, j + 4, k + 0, Blocks.torch, 5, 2);
+        world.setBlock(i + 9, j + 4, k + 0, Blocks.air, 0, 2);
+        world.setBlock(i + 10, j + 4, k + 0, Blocks.air, 0, 2);
+        world.setBlock(i + 0, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 1, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 2, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 3, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 4, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 5, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 6, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 7, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 8, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 9, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 10, j + 4, k + 1, Blocks.air, 0, 2);
+        world.setBlock(i + 0, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 1, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 2, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 3, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 4, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 5, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 6, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 7, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 8, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 9, j + 4, k + 2, Blocks.air, 0, 2);
+        world.setBlock(i + 10, j + 4, k + 2, Blocks.air, 0, 2);
+
+        return true;
+    }
+}

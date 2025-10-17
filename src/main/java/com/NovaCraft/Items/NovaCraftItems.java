@@ -216,7 +216,8 @@ public class NovaCraftItems {
 	
 	//Mob Drops Overworld
 	public static Item glow_ink_sac, cave_monitor_tongue, sea_serpent_venom_sac, sculked_monitor_eye;
-	public static Item cave_monitor_scales, sea_serpent_scales, sculked_monitor_scales, sculked_leather;	
+	public static Item cave_monitor_scales, sea_serpent_scales, sculked_monitor_scales, sculked_leather;
+	public static Item wyrmling_scales;
 	public static Item goat_horn_ponder, goat_horn_sing, goat_horn_seek, goat_horn_feel, goat_horn_admire, goat_horn_call, goat_horn_yearn, goat_horn_dream;
 	public static Item sculk_dweller_heart, wardling_dust, warden_heart, warden_tentacle, warden_shard;
 	public static Item nulk_dust, outsider_essence;
@@ -345,6 +346,7 @@ public class NovaCraftItems {
 		reinforced_iridium_ingot = register("reinforced_iridium_ingot", new ItemFireproof().setTextureName(NovaCraft.find("reinforced_iridium_ingot")));
 		iridium_nugget = register("iridium_nugget", new ItemsFireProofNugget());
 		diamond_nugget = register("diamond_nugget", new ItemNugget());
+		wyrmling_scales = register("wyrmling_scales", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("wyrmling_scales")));
 		heart_of_the_end = register("heart_of_the_end", new ItemHeartOfTheEnd(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("heart_of_the_end")));
 		nullified_dust = register("nullified_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("nullified_dust")));
 		fractured_heart_of_the_end = register("fractured_heart_of_the_end", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("fractured_heart_of_the_end")));

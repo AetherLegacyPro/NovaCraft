@@ -31,6 +31,8 @@ import com.NovaCraft.world.bastion.treasure.BastionGen;
 import com.NovaCraft.world.end.DestitudeIslandWorldGen;
 import com.NovaCraft.world.end.EndIslandWorldGen;
 import com.NovaCraft.world.end.NCWorldGeneratorEnd;
+import com.NovaCraft.world.floating_island.FloatingIslandGen;
+import com.NovaCraft.world.mansion.MansionGen;
 import com.NovaCraft.world.nether.NCWorldGeneratorNether;
 import com.NovaCraft.world.nether.structure.NovaNetherBridgeGenerator;
 import com.NovaCraft.world.nether.structure.StructureNovaCraftNetherBridgePieces;
@@ -41,10 +43,7 @@ import com.NovaCraft.world.sculkshaft.StructureSculkMineshaftStart;
 import com.NovaCraft.world.structure.WorldGenRavineInjector;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.potion.NovaCraftLiquids;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
-import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -112,11 +111,13 @@ public class NovaCraft {
         if (Configs.enableVanillaBiomeAlterations) {
             BiomeAlterations.applyTweaks();
         }
-
         MinecraftForge.TERRAIN_GEN_BUS.register(this);
         MinecraftForge.ORE_GEN_BUS.register(new OreGenEventHandler());
         MinecraftForge.EVENT_BUS.register(new PopulateChunkEventHandler());
+
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorPre(), Integer.MAX_VALUE);
+        GameRegistry.registerWorldGenerator((IWorldGenerator)new FloatingIslandGen(), Integer.MAX_VALUE);
+
         if (Configs.enableSculkInfestedMineshaft) {
             GameRegistry.registerWorldGenerator(new SculkMineshaftGenerator(), 0);
             MapGenStructureIO.registerStructure(StructureSculkMineshaftStart.class, "SculkMineshaft");
@@ -128,6 +129,8 @@ public class NovaCraft {
             MapGenStructureIO.registerStructure(Start.class, "NovaFortress");
             StructureNovaCraftNetherBridgePieces.registerStructureNovaCraftNetherBridgePieces();
         }
+
+        GameRegistry.registerWorldGenerator(new MansionGen(), Integer.MAX_VALUE);
 
         if (Configs.enableAncientCity) {
             GameRegistry.registerWorldGenerator(new AncientCityGen(), Integer.MAX_VALUE);
@@ -154,8 +157,8 @@ public class NovaCraft {
         GameRegistry.registerFuelHandler(new NovaCraftFuelHander());
         AchievementsNovaCraft.initialization();
         NovaCraftTileEntities.initialization();
-        GameRegistry.registerWorldGenerator(new EndIslandWorldGen(), Integer.MAX_VALUE);
-        GameRegistry.registerWorldGenerator(new DestitudeIslandWorldGen(), Integer.MAX_VALUE);
+        GameRegistry.registerWorldGenerator((IWorldGenerator)new EndIslandWorldGen(), Integer.MAX_VALUE);
+        GameRegistry.registerWorldGenerator((IWorldGenerator)new DestitudeIslandWorldGen(), Integer.MAX_VALUE);
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new CommonProxy());
         proxy.init();
         proxy.registerRenderers();
