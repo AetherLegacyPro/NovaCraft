@@ -143,7 +143,8 @@ public class RendersNovaCraft {
 	register(EntityCrystalSlime.class, new CrystalSlimeRenderer(new CrystalSlimeModel(16), new CrystalSlimeModel(0), 0.25F));
 	register(EntitySoloid.class, new SoloidRenderer(new SoloidModel(), 1.0f));
 	register(EntityGiantFrog.class, new GiantFrogRenderer(new GiantFrogModel(), 1.0f));
-	register(EntityWyrmling.class, new WyrmlingRenderer(new WyrmlingModel(), new WyrmlingModel(), 0.F));
+	register(EntityWyrmling.class, new WyrmlingRenderer(new WyrmlingModel(), new WyrmlingModel(), 0.0F));
+	register(EntityRavager.class, new RavagerRenderer(new RavagerModel(), 0.6f));
 	
 	register(EntityHardmodeCreeper.class, new HardmodeCreeperRenderer());
 	register(EntityHardmodeSpider.class, new HardmodeSpiderRenderer());
@@ -164,6 +165,9 @@ public class RendersNovaCraft {
 	
 	register(EntityIceologer.class, new IceologerRenderer());
 	register(EntityIceologer.class, new IceologerOverlayRenderer());
+
+	register(EntityCorruptist.class, new CorruptistRenderer());
+	register(EntityCorruptist.class, new CorruptistOverlayRenderer());
 	
 	register(EntitySlaughter.class, new SlaughterRenderer());
 	register(EntitySlaughter.class, new SlaughterOverlayRenderer());

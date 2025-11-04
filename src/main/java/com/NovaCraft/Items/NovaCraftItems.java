@@ -3,6 +3,7 @@ package com.NovaCraft.Items;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.NovaCraft.Items.Tools.*;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.Armor.ItemAncientLeggings;
 import com.NovaCraft.Items.Armor.ItemCrystaliteArmor;
@@ -114,59 +115,6 @@ import com.NovaCraft.Items.Staffs.ItemSculkHorn;
 import com.NovaCraft.Items.Staffs.ItemTophiniteBow;
 import com.NovaCraft.Items.Staffs.ItemVaniteFirechargeLauncher;
 import com.NovaCraft.Items.Staffs.ItemWardenBow;
-import com.NovaCraft.Items.Tools.ItemCrystalitePickaxe;
-import com.NovaCraft.Items.Tools.ItemCrystaliteSword;
-import com.NovaCraft.Items.Tools.ItemCrystallizedVaniteAxe;
-import com.NovaCraft.Items.Tools.ItemCrystallizedVaniteHoe;
-import com.NovaCraft.Items.Tools.ItemCrystallizedVanitePickaxe;
-import com.NovaCraft.Items.Tools.ItemCrystallizedVaniteShovel;
-import com.NovaCraft.Items.Tools.ItemCrystallizedVaniteSword;
-import com.NovaCraft.Items.Tools.ItemDiablo;
-import com.NovaCraft.Items.Tools.ItemEerieSword;
-import com.NovaCraft.Items.Tools.ItemIridiumAxe;
-import com.NovaCraft.Items.Tools.ItemIridiumHoe;
-import com.NovaCraft.Items.Tools.ItemIridiumPickaxe;
-import com.NovaCraft.Items.Tools.ItemIridiumShovel;
-import com.NovaCraft.Items.Tools.ItemIridiumSword;
-import com.NovaCraft.Items.Tools.ItemKlangiteAxe;
-import com.NovaCraft.Items.Tools.ItemKlangiteHoe;
-import com.NovaCraft.Items.Tools.ItemKlangitePickaxe;
-import com.NovaCraft.Items.Tools.ItemKlangiteShovel;
-import com.NovaCraft.Items.Tools.ItemKlangiteSword;
-import com.NovaCraft.Items.Tools.ItemKylaziteAxe;
-import com.NovaCraft.Items.Tools.ItemKylaziteHoe;
-import com.NovaCraft.Items.Tools.ItemKylazitePickaxe;
-import com.NovaCraft.Items.Tools.ItemKylaziteShovel;
-import com.NovaCraft.Items.Tools.ItemKylaziteSword;
-import com.NovaCraft.Items.Tools.ItemOphidianAxe;
-import com.NovaCraft.Items.Tools.ItemOphidianHoe;
-import com.NovaCraft.Items.Tools.ItemOphidianPickaxe;
-import com.NovaCraft.Items.Tools.ItemOphidianShovel;
-import com.NovaCraft.Items.Tools.ItemOphidianSword;
-import com.NovaCraft.Items.Tools.ItemPherithiumAxe;
-import com.NovaCraft.Items.Tools.ItemPherithiumHoe;
-import com.NovaCraft.Items.Tools.ItemPherithiumPickaxe;
-import com.NovaCraft.Items.Tools.ItemPherithiumShickaxe;
-import com.NovaCraft.Items.Tools.ItemPherithiumShovel;
-import com.NovaCraft.Items.Tools.ItemPherithiumSword;
-import com.NovaCraft.Items.Tools.ItemPhoenixRazor;
-import com.NovaCraft.Items.Tools.ItemPrimevalMace;
-import com.NovaCraft.Items.Tools.ItemReinforcedPherithiumShickaxe;
-import com.NovaCraft.Items.Tools.ItemSculkedBlade;
-import com.NovaCraft.Items.Tools.ItemScythe;
-import com.NovaCraft.Items.Tools.ItemTophiniteAxe;
-import com.NovaCraft.Items.Tools.ItemTophiniteHammer;
-import com.NovaCraft.Items.Tools.ItemTophiniteHoe;
-import com.NovaCraft.Items.Tools.ItemTophinitePickaxe;
-import com.NovaCraft.Items.Tools.ItemTophiniteShovel;
-import com.NovaCraft.Items.Tools.ItemTophiniteSword;
-import com.NovaCraft.Items.Tools.ItemVaniteTrident;
-import com.NovaCraft.Items.Tools.ItemWardenAxe;
-import com.NovaCraft.Items.Tools.ItemWardenHoe;
-import com.NovaCraft.Items.Tools.ItemWardenPickaxe;
-import com.NovaCraft.Items.Tools.ItemWardenShovel;
-import com.NovaCraft.Items.Tools.ItemWardenSword;
-import com.NovaCraft.Items.Tools.NCToolMaterial;
 import com.NovaCraft.Items.goathorn.ItemGoatHorn;
 import com.NovaCraft.Items.goathorn.ItemGoatHornAdmire;
 import com.NovaCraft.Items.goathorn.ItemGoatHornCall;
@@ -270,7 +218,7 @@ public class NovaCraftItems {
 	public static Item ophidian_sword, ophidian_pickaxe, ophidian_bow, ophidian_shovel, ophidian_axe, ophidian_hoe;
 	
 	//Weapons and Tools End
-	public static Item ender_lord_staff;
+	public static Item ender_lord_staff, vanite_scythe;
 	public static Item klangite_sword, klangite_pickaxe, klangite_bow, klangite_shovel, klangite_axe, klangite_hoe;
 	public static Item kylazite_sword, kylazite_pickaxe, kylazite_bow, kylazite_shovel, kylazite_axe, kylazite_hoe;
 	//-------------------------------------------------------------------------------------------------------------------------------
@@ -483,7 +431,7 @@ public class NovaCraftItems {
 		iridium_chestplate = register("iridium_chestplate", new ItemIridiumChestplate().setTextureName(NovaCraft.find("iridium_chestplate")));
 		iridium_leggings = register("iridium_leggings", new ItemIridiumLeggings().setTextureName(NovaCraft.find("iridium_leggings")));
 		iridium_boots = register("iridium_boots", new ItemIridiumBoots().setTextureName(NovaCraft.find("iridium_boots")));
-		
+
 		diamond_bow = register("diamond_bow", new ItemDiamondBow());
 		diamond_firecharge_launcher = register("diamond_firecharge_launcher", new ItemDiamondFirechargeLauncher());		
 		vanite_firecharge_launcher = register("vanite_firecharge_launcher", new ItemVaniteFirechargeLauncher());
@@ -588,6 +536,7 @@ public class NovaCraftItems {
 		crystalite_boots = register("crystalite_boots", new ItemCrystaliteArmor(3, ArmorMaterial.DIAMOND, "crystalite", null).setMaxDamage(15277).setTextureName(NovaCraft.find("crystalite_boots")));
 		
 		vanite_trident = register("vanite_trident", new ItemVaniteTrident(NCToolMaterial.VANITE_TRIDENT).setTextureName(NovaCraft.find("vanite_trident")));
+		vanite_scythe = register("vanite_scythe", new ItemVaniteScythe().setTextureName(NovaCraft.find("vanite_scythe")));
 		eerie_sword = register("eerie_sword", new ItemEerieSword().setTextureName(NovaCraft.find("eerie_sword")));
 		sculked_blade = register("sculked_blade", new ItemSculkedBlade().setTextureName(NovaCraft.find("sculked_blade")));		
 		primeval_mace = register("primeval_mace", new ItemPrimevalMace().setTextureName(NovaCraft.find("primeval_mace")));		

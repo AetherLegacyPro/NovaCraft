@@ -22,7 +22,7 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class AncientCityGen implements IWorldGenerator {
 
-	@Override //Need to add config option at some point, so they can generate in other dimensions at some point
+	@Override //Need to add config option at some point, so they can generate in other dimensions
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if (world.provider.dimensionId == 0) {
 	         this.generateOverworld(world, rand, chunkX * 16, chunkZ * 16);

@@ -28,6 +28,47 @@
       "entity/glow_squid/death3"
     ]
   },
+
+  "ravager.living": {
+    "category": "hostile",
+    "sounds": [
+      "entity/ravager/idle1",
+      "entity/ravager/idle2",
+      "entity/ravager/idle3",
+      "entity/ravager/idle4",
+      "entity/ravager/idle5"
+    ]
+  },
+
+  "ravager.hurt": {
+    "category": "hostile",
+    "sounds": [
+      "entity/ravager/hurt1",
+      "entity/ravager/hurt2",
+      "entity/ravager/hurt3",
+      "entity/ravager/hurt4"
+    ]
+  },
+
+  "ravager.death": {
+    "category": "hostile",
+    "sounds": [
+      "entity/ravager/death1",
+      "entity/ravager/death2",
+      "entity/ravager/death3"
+    ]
+  },
+
+  "ravager.step": {
+    "category": "hostile",
+    "sounds": [
+      "entity/ravager/step1",
+      "entity/ravager/step2",
+      "entity/ravager/step3",
+      "entity/ravager/step4",
+      "entity/ravager/step5"
+    ]
+  },
   
   "frog.living": {
   "category": "neutral",

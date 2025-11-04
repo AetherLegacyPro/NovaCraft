@@ -139,6 +139,8 @@ public class EntitiesNovaCraft {
 		register(EntitySoloid.class, "soloid", 80, 0x5f322f, 0xd38591);
 		register(EntityGiantFrog.class, "giant_frog", 82, 0x3f6b1e, 0x7fa64f);
 		register(EntityWyrmling.class, "wyrmling", 83, 0x4d4846, 0xc2b5b3);
+		register(EntityRavager.class, "nova_ravager", 84, 0x605f5a, 0x5b5049);
+		register(EntityCorruptist.class, "corruptist", 85, 0x96b2b2, 0x424c4e);
 		
 		//Hardmode
 		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);
@@ -208,6 +210,10 @@ public class EntitiesNovaCraft {
 			EntityRegistry.addSpawn(EntityCreepyCube.class, 10, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 
+		if (Configs.enableSpawnGiantFrog) {
+			EntityRegistry.addSpawn(EntityGiantFrog.class, 4, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.PLAINS));
+		}
+
 		if (Configs.enableSpawnWyrmling) {
 			EntityRegistry.addSpawn(EntityWyrmling.class, 2, 1, 3, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
@@ -217,7 +223,7 @@ public class EntitiesNovaCraft {
 			BiomeGenBase.taigaHills, BiomeGenBase.taiga, BiomeGenBase.megaTaiga, BiomeGenBase.megaTaigaHills, BiomeGenBase.birchForest, BiomeGenBase.birchForestHills, BiomeGenBase.jungle,
 			BiomeGenBase.jungleHills, BiomeGenBase.jungleEdge, BiomeGenBase.roofedForest});
 
-			if (Configs.enableSpawnFroginModdedBiomes) {
+			if (Configs.enableSpawnCreakinginModdedBiomes) {
 				EntityRegistry.addSpawn(EntityCreaking.class, 5, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.FOREST));
 				EntityRegistry.addSpawn(EntityCreaking.class, 5, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.JUNGLE));
 			}
@@ -228,9 +234,9 @@ public class EntitiesNovaCraft {
 			BiomeGenBase.jungleHills, BiomeGenBase.jungleEdge, BiomeGenBase.swampland, BiomeGenBase.river});
 			
 			if (Configs.enableSpawnFroginModdedBiomes) {
-				EntityRegistry.addSpawn(EntityCreaking.class, 8, 3, 6, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.FOREST));
-				EntityRegistry.addSpawn(EntityCreaking.class, 8, 3, 6, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.SWAMP));
-				EntityRegistry.addSpawn(EntityCreaking.class, 8, 3, 6, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.JUNGLE));
+				EntityRegistry.addSpawn(EntityFrog.class, 8, 3, 6, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.FOREST));
+				EntityRegistry.addSpawn(EntityFrog.class, 8, 3, 6, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.SWAMP));
+				EntityRegistry.addSpawn(EntityFrog.class, 8, 3, 6, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.JUNGLE));
 			 }
 			}
 		

@@ -74,23 +74,11 @@ public class EntityGoat extends EntityAnimal
         return 0.5F;
     }
 
-    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
-    {
-        int j = this.rand.nextInt(2) + this.rand.nextInt(1 + p_70628_2_);
-        int k;
-
-        j = this.rand.nextInt(2) + 1 + this.rand.nextInt(1 + p_70628_2_);
-
-        for (k = 0; k < j; ++k)
-        {
-            if (this.isBurning())
-            {
-                this.dropItem(NovaCraftItems.cooked_chevon, 1);
-            }
-            else
-            {
-                this.dropItem(NovaCraftItems.raw_chevon, 1);
-            }
+    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
+        if (this.isBurning()) {
+            this.dropItem(NovaCraftItems.cooked_chevon, 1 + this.rand.nextInt(2));
+        } else {
+            this.dropItem(NovaCraftItems.raw_chevon, 1 + this.rand.nextInt(2));
         }
     }
     

@@ -2931,7 +2931,11 @@ public class MansionFloor2Gen2 extends WorldGenerator {
             case 1:
                 return new ItemStack(Items.gold_ingot, random.nextInt(8) + 3);
             case 2:
-                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 2, 0);
+                if (Configs.enableTreasureCratesDropDiamonds) {
+                    return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 2, 0);
+                } else {
+                    return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 2, 1);
+                }
             case 3:
                 return new ItemStack(NovaCraftItems.vanite_ingot, random.nextInt(12) + 4);
             case 4:
@@ -2947,7 +2951,11 @@ public class MansionFloor2Gen2 extends WorldGenerator {
             case 9:
                 return new ItemStack(NovaCraftBlocks.rozite_mushroom, random.nextInt(2) + 1);
             default: {
-                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(2) + 2, 1);
+                if (Configs.enableTreasureCratesDropDiamonds) {
+                    return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 2, 0);
+                } else {
+                    return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 2, 1);
+                }
             }
         }
     }

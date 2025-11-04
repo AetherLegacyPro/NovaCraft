@@ -590,6 +590,7 @@ public class NovaCraftRegistries {
 		register("etherstone_brick_wall", new ItemStack(NovaCraftBlocks.etherstone_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.etherstone_bricks));
 		register("etherstone_tiled_wall", new ItemStack(NovaCraftBlocks.etherstone_tiled_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.etherstone_tiles));
 
+		register("luminant_fence", new ItemStack(NovaCraftBlocks.luminant_fence, 3), "YZY", "YZY", 'Y', new ItemStack(NovaCraftBlocks.luminant_planks), 'Z', new ItemStack(Items.stick));
 
 		register("frontierslate_wall", new ItemStack(NovaCraftBlocks.frontierslate_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.frontierslate));
 		register("frontierslate_brick_wall", new ItemStack(NovaCraftBlocks.frontierslate_brick_wall, 6), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.frontierslate_bricks));

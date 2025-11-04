@@ -35,6 +35,7 @@ public class NCToolMaterial
 	public static Item.ToolMaterial OPHIDIAN_SWORD;
 		
 	public static Item.ToolMaterial SCYTHE;
+	public static Item.ToolMaterial VANITE_SCYTHE;
 	public static Item.ToolMaterial DIABLO;
 	public static Item.ToolMaterial EERIE_SWORD;
 	public static Item.ToolMaterial VANITE_TRIDENT;
@@ -82,6 +83,7 @@ public class NCToolMaterial
 		 	NCToolMaterial.DIABLO = EnumHelper.addToolMaterial("DIABLO", 0, 1541, 0.0f, 7.0f, 19);
 		 	NCToolMaterial.EERIE_SWORD = EnumHelper.addToolMaterial("EERIE_SWORD", 0, 574, 0.0f, 2.0f, 12);
 		 	NCToolMaterial.VANITE_TRIDENT = EnumHelper.addToolMaterial("VANITE_TRIDENT", 0, 1974, 0.0f, 3.0f, 12);
+			 NCToolMaterial.VANITE_SCYTHE = EnumHelper.addToolMaterial("VANITE_SCYTHE", 0, 1974, 0.0f, 3.0f, 12);
 		 	NCToolMaterial.PHOENIX_RAZOR = EnumHelper.addToolMaterial("PHOENIX_RAZOR", 0, 674, 0.0f, 2.0f, 15);
 		 	NCToolMaterial.SCULKED_BLADE = EnumHelper.addToolMaterial("SCULKED_BLADE", 0, 1074, 0.0f, 2.0f, 15);
 		 	NCToolMaterial.PRIMEVAL_MACE = EnumHelper.addToolMaterial("PRIMEVAL_MACE", 0, 6822, 0.0f, 6.0f, 22);
@@ -115,6 +117,7 @@ public class NCToolMaterial
 				 NCToolMaterial.EERIE_SWORD = EnumHelper.addToolMaterial("EERIE_SWORD", 0, 574, 0.0f, 2.0f, 12);
 				 NCToolMaterial.SCULKED_BLADE = EnumHelper.addToolMaterial("SCULKED_BLADE", 0, 1074, 0.0f, 2.0f, 15);
 				 NCToolMaterial.VANITE_TRIDENT = EnumHelper.addToolMaterial("VANITE_TRIDENT", 0, 2374, 0.0f, 4.0f, 12);
+			     NCToolMaterial.VANITE_SCYTHE = EnumHelper.addToolMaterial("VANITE_SCYTHE", 0, 2374, 0.0f, 4.0f, 12);
 				 NCToolMaterial.PHOENIX_RAZOR = EnumHelper.addToolMaterial("PHOENIX_RAZOR", 0, 1174, 0.0f, 3.0f, 15);
 				 NCToolMaterial.PRIMEVAL_MACE = EnumHelper.addToolMaterial("PRIMEVAL_MACE", 0, 10822, 0.0f, 10.0f, 22);				 
 				 NCToolMaterial.IRIDIUM = EnumHelper.addToolMaterial("IRIDIUM", 15, 9222, 16.0f, 4.0f, 19);

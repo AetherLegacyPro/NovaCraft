@@ -37,9 +37,11 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityIceologer extends EntityMob
-{		
+public class EntityIceologer extends EntityMob {
 	public int shootTime;
+
+	private int angerLevel;
+	private Entity lastAggroTarget;
 	
 	public EntityIceologer(final World p_i1745_1_) {
 		super(p_i1745_1_);
@@ -145,9 +147,25 @@ public class EntityIceologer extends EntityMob
 	}
 	
 	public void onLivingUpdate()
-	{		
-		
+	{
 		super.onLivingUpdate();
+
+		EntityLivingBase nearby = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
+		if (nearby == null) {
+			nearby = (EntityLivingBase) this.worldObj.findNearestEntityWithinAABB(EntityVillager.class, this.boundingBox.expand(16.0D, 4.0D, 16.0D), this);
+		}
+
+		if (nearby != null) {
+			this.angerLevel = 20;
+			this.lastAggroTarget = nearby;
+		} else if (angerLevel > 0) {
+			this.angerLevel--;
+			if (angerLevel == 0) this.lastAggroTarget = null;
+		}
+	}
+
+	public boolean isAngry() {
+		return this.angerLevel > 0;
 	}
 	
 	public float getBrightness(float p_70013_1_)
@@ -169,28 +187,19 @@ public class EntityIceologer extends EntityMob
 	protected String getSnowSound() {
         return "nova_craft:snow_projectile.step";
     }
-	
-	/**
-     * Returns the sound this mob makes while it's alive.
-     */
+
 	@Override
     protected String getLivingSound()
     {
         return "nova_craft:vindicator.living";
     }
 
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
 	@Override
     protected String getHurtSound()
     {
         return "nova_craft:vindicator.hurt";
     }
 
-    /**
-     * Returns the sound this mob makes on death.
-     */
 	@Override
     protected String getDeathSound()
     {

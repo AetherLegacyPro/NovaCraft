@@ -131,6 +131,7 @@ item.diamond_nugget.diamond_nugget.name=Diamond Shard
 item.diamond_nugget.emerald_nugget.name=Emerald Shard
 item.echo_eye.name=Echo Eye
 item.wyrmling_scales.name=Wyrmling Scales
+item.vanite_scythe.name=Vanite Scythe
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -452,6 +453,7 @@ tile.trap_tophinite.name=Block Of Tophinite
 tile.rich_etherstone.name=Rich Etherstone
 tile.rich_etherstone_spike.name=Etherstone Spike
 tile.ancient_warper.name=Ancient Teleporter
+tile.luminant_fence.name=Luminant Fence
 
 tile.iron_pile.name=Iron Pile
 tile.gold_pile.name=Gold Pile
@@ -830,6 +832,7 @@ tooltip.ice_sceptor.desc=Consumes Snowballs
 tooltip.end_staff.desc=Teleports players without fall damage
 tooltip.crystal_staff.desc=Use on a crystal bud
 tooltip.vanite_trident.desc=Unbreakable
+tooltip.vanite_scythe.desc=Slows and Withers Entities
 tooltip.diamond_firecharge.desc=Consumes Firecharges
 tooltip.vanite_firecharge.desc=Consumes Firecharges
 tooltip.klangite_firecharge.desc=Consumes Xancium Firecharges
@@ -1139,6 +1142,8 @@ entity.nova_craft.soloid.name=Soloid
 entity.nova_craft.echo_eye.name=Echo Eye
 entity.nova_craft.giant_frog.name=Giant Frog
 entity.nova_craft.wyrmling.name=Wyrmling
+entity.nova_craft.nova_ravager.name=Ravager
+entity.nova_craft.corruptist.name=Cyrologer
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1206,3 +1211,5 @@ entity.crystal_slime.name=Rich Slime
 entity.soloid.name=Soloid
 entity.giant_frog.name=Giant Frog
 entity.wyrmling.name=Wyrmling
+entity.nova_ravager.name=Ravager
+entity.corruptist.name=Cyrologer

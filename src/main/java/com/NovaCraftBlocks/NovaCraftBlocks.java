@@ -664,6 +664,7 @@ public class NovaCraftBlocks {
 		
 		luminant_log = registerMeta("luminant_log", new BlockLuminantLog().setBlockTextureName(NovaCraft.find("luminant_log")));
 		luminant_planks = registerMeta("luminant_planks", new BlockLuminantPlanks().setBlockTextureName(NovaCraft.find("luminant_planks")));
+		luminant_fence = registerMeta("luminant_fence", new BlockLuminantFence());
 		
 		if (Configs.enableLuminantLeavesGlow) {
 			luminant_leaves = registerMeta("luminant_leaves", new BlockLuminantLeaves().setLightLevel(0.2775F).setBlockTextureName(NovaCraft.find("luminant_leaves")));

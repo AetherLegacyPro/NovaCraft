@@ -6,10 +6,8 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.world.structure.LargeLuminantTreeStructure;
 import com.NovaCraft.world.structure.MapGenMassiveMeteorCrater;
 import com.NovaCraft.world.structure.MapGenMeteorCrater;
-import com.NovaCraft.world.structure.NCRavineWorldGen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.IWorldGenerator;
@@ -17,11 +15,8 @@ import cpw.mods.fml.common.Loader;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class NCWorldGeneratorPre implements IWorldGenerator {
 

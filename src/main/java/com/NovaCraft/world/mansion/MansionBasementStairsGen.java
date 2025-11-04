@@ -133,7 +133,6 @@ public class MansionBasementStairsGen extends WorldGenerator {
         world.setBlock(i + 4, j + 2, k + 5, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 0, j + 2, k + 6, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 1, j + 2, k + 6, Blocks.air, 0, 2);
-        world.setBlock(i + 2, j + 2, k + 6, NovaCraftBlocks.vanite_torch, 4, 2);
         world.setBlock(i + 3, j + 2, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 4, j + 2, k + 6, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 0, j + 2, k + 7, placeStoneBricks(random), 0, 2);
@@ -439,7 +438,6 @@ public class MansionBasementStairsGen extends WorldGenerator {
         world.setBlock(i + 0, j + 10, k + 3, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 1, j + 10, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 10, k + 3, NovaCraftBlocks.luminant_log, 0, 2);
-        world.setBlock(i + 3, j + 10, k + 3, NovaCraftBlocks.vanite_torch, 2, 2);
         world.setBlock(i + 4, j + 10, k + 3, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 0, j + 10, k + 4, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 1, j + 10, k + 4, Blocks.air, 0, 2);
@@ -613,7 +611,6 @@ public class MansionBasementStairsGen extends WorldGenerator {
         world.setBlock(i + 4, j + 14, k + 5, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 0, j + 14, k + 6, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 1, j + 14, k + 6, Blocks.air, 0, 2);
-        world.setBlock(i + 2, j + 14, k + 6, NovaCraftBlocks.vanite_torch, 4, 2);
         world.setBlock(i + 3, j + 14, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 4, j + 14, k + 6, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 0, j + 14, k + 7, placeStoneBricks(random), 0, 2);
@@ -797,7 +794,6 @@ public class MansionBasementStairsGen extends WorldGenerator {
         world.setBlock(i + 3, j + 19, k + 2, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 4, j + 19, k + 2, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 0, j + 19, k + 3, placeStoneBricks(random), 0, 2);
-        world.setBlock(i + 1, j + 19, k + 3, NovaCraftBlocks.vanite_torch, 1, 2);
         world.setBlock(i + 2, j + 19, k + 3, NovaCraftBlocks.luminant_log, 0, 2);
         world.setBlock(i + 3, j + 19, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 4, j + 19, k + 3, placeStoneBricks(random), 0, 2);
@@ -1039,7 +1035,6 @@ public class MansionBasementStairsGen extends WorldGenerator {
         world.setBlock(i + 0, j + 25, k + 3, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 1, j + 25, k + 3, Blocks.air, 0, 2);
         world.setBlock(i + 2, j + 25, k + 3, NovaCraftBlocks.luminant_log, 0, 2);
-        world.setBlock(i + 3, j + 25, k + 3, NovaCraftBlocks.vanite_torch, 2, 2);
         world.setBlock(i + 4, j + 25, k + 3, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 0, j + 25, k + 4, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 1, j + 25, k + 4, Blocks.air, 0, 2);
@@ -1213,7 +1208,6 @@ public class MansionBasementStairsGen extends WorldGenerator {
         world.setBlock(i + 4, j + 29, k + 5, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 0, j + 29, k + 6, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 1, j + 29, k + 6, Blocks.air, 0, 2);
-        world.setBlock(i + 2, j + 29, k + 6, NovaCraftBlocks.vanite_torch, 4, 2);
         world.setBlock(i + 3, j + 29, k + 6, Blocks.air, 0, 2);
         world.setBlock(i + 4, j + 29, k + 6, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 0, j + 29, k + 7, placeStoneBricks(random), 0, 2);
@@ -1261,6 +1255,12 @@ public class MansionBasementStairsGen extends WorldGenerator {
         world.setBlock(i + 2, j + 30, k + 7, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 3, j + 30, k + 7, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 4, j + 30, k + 7, placeStoneBricks(random), 0, 2);
+        world.setBlock(i + 2, j + 2, k + 6, NovaCraftBlocks.vanite_torch, 4, 2);
+        world.setBlock(i + 3, j + 10, k + 3, NovaCraftBlocks.vanite_torch, 2, 2);
+        world.setBlock(i + 2, j + 14, k + 6, NovaCraftBlocks.vanite_torch, 4, 2);
+        world.setBlock(i + 1, j + 19, k + 3, NovaCraftBlocks.vanite_torch, 1, 2);
+        world.setBlock(i + 3, j + 25, k + 3, NovaCraftBlocks.vanite_torch, 2, 2);
+        world.setBlock(i + 2, j + 29, k + 6, NovaCraftBlocks.vanite_torch, 4, 2);
 
         world.setBlock(i + 3, j + 1, k + 2, Blocks.chest, 3, 2);
         TileEntityChest chest3 = (TileEntityChest) world.getTileEntity(i + 3, j + 1, k + 2);

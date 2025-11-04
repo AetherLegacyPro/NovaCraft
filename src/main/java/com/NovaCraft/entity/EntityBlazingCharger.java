@@ -1,15 +1,13 @@
 package com.NovaCraft.entity;
 
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.*;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.util.DamageSource;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.init.Items;
@@ -30,7 +28,7 @@ public class EntityBlazingCharger extends EntityMob
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(24.0);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.9);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.9);
     }
     
     public void onLivingUpdate() {
@@ -94,6 +92,25 @@ public class EntityBlazingCharger extends EntityMob
         }
         this.playSound("mob.irongolem.throw", 1.0f, 1.0f);
         return flag;
+    }
+
+    @Override
+    public double getMountedYOffset() {
+        return this.height + 0.6D;
+    }
+
+    public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
+        Object p_110161_1_1 = super.onSpawnWithEgg(p_110161_1_);
+
+        if (this.worldObj.rand.nextInt(6) == 0) {
+            EntitySlaughter entity = new EntitySlaughter(this.worldObj);
+            entity.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+            entity.onSpawnWithEgg(null);
+            this.worldObj.spawnEntityInWorld(entity);
+            entity.mountEntity(this);
+        }
+
+        return (IEntityLivingData)p_110161_1_1;
     }
     
     public EnumCreatureAttribute getCreatureAttribute() {

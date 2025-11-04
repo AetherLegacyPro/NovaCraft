@@ -3,6 +3,7 @@ package com.NovaCraft.entity;
 import java.util.List;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraft.entity.misc.EnumGiantFrogType;
 import net.minecraft.entity.ai.EntityAITargetNonTamed;
 
@@ -21,10 +22,12 @@ import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -204,6 +207,19 @@ public class EntityGiantFrog extends EntityMob {
         }
     }
 
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        if (source.getSourceOfDamage() instanceof EntityArrow) {
+            EntityArrow arrow = (EntityArrow)source.getSourceOfDamage();
+
+            if (arrow.shootingEntity != null && arrow.shootingEntity == this.riddenByEntity) {
+                return false;
+            }
+        }
+
+        return super.attackEntityFrom(source, amount);
+    }
+
     protected String getLivingSound() {
         return "nova_craft:frog.living";
     }
@@ -259,6 +275,25 @@ public class EntityGiantFrog extends EntityMob {
             {
                 this.dropItem(NovaCraftItems.raw_frog_leg, 1);
             }
+    }
+
+    @Override
+    public double getMountedYOffset() {
+        return this.height - 0.3D;
+    }
+
+    public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
+        Object p_110161_1_1 = super.onSpawnWithEgg(p_110161_1_);
+
+        if (this.worldObj.rand.nextInt(12) == 0) {
+            EntitySkeleton entity = new EntitySkeleton(this.worldObj);
+            entity.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+            entity.onSpawnWithEgg(null);
+            this.worldObj.spawnEntityInWorld(entity);
+            entity.mountEntity(this);
+        }
+
+        return (IEntityLivingData)p_110161_1_1;
     }
 
     public boolean getCanSpawnHere() {
