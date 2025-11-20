@@ -153,7 +153,7 @@ public class EntityCrystalGolem extends EntityGolem
             }
         }
         
-        if(Configs.enableCrystalGolemAura == true) {
+        if(Configs.enableCrystalGolemAura) {
             if (this.getType() == EnumGolemType.COPARTZ) {
             	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
             	for(Entity entity : volume) {

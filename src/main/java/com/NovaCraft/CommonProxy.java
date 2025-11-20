@@ -1,8 +1,5 @@
 package com.NovaCraft;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import com.NovaCraft.TileEntity.ContainerLegendaryBeacon;
 import com.NovaCraft.TileEntity.TileEntityDeepoidFurnace;
 import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
@@ -16,21 +13,13 @@ import com.NovaCraft.gui.GuiDeepoidFurnace;
 import com.NovaCraft.gui.GuiLegendaryBeacon;
 import com.NovaCraft.gui.GuiLegendaryEnchantmentTable;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.IGuiHandler;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 
 public class CommonProxy implements IGuiHandler
 {

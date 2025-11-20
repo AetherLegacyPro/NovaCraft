@@ -3,17 +3,7 @@ package com.NovaCraft.world.nether.structure;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import com.NovaCraft.config.Configs;
-import com.NovaCraft.entity.EntityIonizatior;
-import com.google.common.collect.Lists;
-
-import net.minecraft.entity.monster.EntityBlaze;
-import net.minecraft.entity.monster.EntityMagmaCube;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
@@ -50,9 +40,7 @@ public class MapGenNetherBridgeNovaCraft extends MapGenStructure
         return new MapGenNetherBridgeNovaCraft.Start(this.worldObj, this.rand, p_75049_1_, p_75049_2_);
     }
 
-    public static class Start extends StructureStart
-        {
-            private static final String __OBFID = "CL_00000452";
+    public static class Start extends StructureStart {
 
             public Start() {}
 

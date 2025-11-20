@@ -1,9 +1,5 @@
 package com.NovaCraft.world.mansion;
 
-import com.NovaCraft.config.Configs;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;

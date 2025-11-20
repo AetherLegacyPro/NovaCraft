@@ -1,13 +1,8 @@
 package com.NovaCraft.world.bastion.treasure;
 
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
-
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.init.*;
 
 public class BastionTreasureRoomAir extends WorldGenerator

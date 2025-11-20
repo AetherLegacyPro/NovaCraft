@@ -6,12 +6,9 @@ import com.NovaCraft.entity.EntityCorruptist;
 import com.NovaCraft.entity.EntityRavager;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
-import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -2880,6 +2877,7 @@ public class MansionBasementGen3 extends WorldGenerator {
             final EntityRavager ravager = new EntityRavager(world);
             ravager.setLocationAndAngles(i + 36, j + 2, k + 8, 0.0f, 0.0f);
             world.spawnEntityInWorld(ravager);
+            ravager.setType(0);
 
             final EntityVindicator mount = new EntityVindicator(world);
             mount.setLocationAndAngles(i + 36, j + 2, k + 8, 0.0f, 0.0f);
@@ -2891,6 +2889,7 @@ public class MansionBasementGen3 extends WorldGenerator {
             final EntityRavager ravager2 = new EntityRavager(world);
             ravager2.setLocationAndAngles(i + 60, j + 2, k + 5, 0.0f, 0.0f);
             world.spawnEntityInWorld(ravager2);
+            ravager2.setType(0);
 
             final EntityCorruptist mount = new EntityCorruptist(world);
             mount.setLocationAndAngles(i + 60, j + 2, k + 5, 0.0f, 0.0f);
@@ -2902,6 +2901,7 @@ public class MansionBasementGen3 extends WorldGenerator {
             final EntityRavager ravager3 = new EntityRavager(world);
             ravager3.setLocationAndAngles(i + 60, j + 2, k + 38, 0.0f, 0.0f);
             world.spawnEntityInWorld(ravager3);
+            ravager3.setType(0);
 
             final EntityCorruptist mount = new EntityCorruptist(world);
             mount.setLocationAndAngles(i + 60, j + 2, k + 38, 0.0f, 0.0f);

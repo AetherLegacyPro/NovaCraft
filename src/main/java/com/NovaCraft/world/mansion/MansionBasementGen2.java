@@ -4,7 +4,6 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntityCorruptist;
 import com.NovaCraft.entity.EntityGoat;
-import com.NovaCraft.entity.EntityRavager;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;

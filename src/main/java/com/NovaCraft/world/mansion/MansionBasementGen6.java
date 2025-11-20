@@ -73,7 +73,7 @@ public class MansionBasementGen6 extends WorldGenerator {
         world.setBlock(i + 62, j + 8, k + 49, placeTiles(random), 2, 2);
         world.setBlock(i + 63, j + 8, k + 49, placeTiles(random), 2, 2);
         world.setBlock(i + 64, j + 8, k + 49, NovaCraftBlocks.cobbled_grimstone, 0, 2);
-        world.setBlock(i + 0, j + 8, k + 50, NovaCraftBlocks.cobbled_grimstone, 0, 2);
+        world.setBlock(i, j + 8, k + 50, NovaCraftBlocks.cobbled_grimstone, 0, 2);
         world.setBlock(i + 1, j + 8, k + 50, placeTiles(random), 2, 2);
         world.setBlock(i + 2, j + 8, k + 50, placeTiles(random), 2, 2);
         world.setBlock(i + 3, j + 8, k + 50, placeTiles(random), 2, 2);
@@ -138,7 +138,7 @@ public class MansionBasementGen6 extends WorldGenerator {
         world.setBlock(i + 62, j + 8, k + 50, placeTiles(random), 2, 2);
         world.setBlock(i + 63, j + 8, k + 50, placeTiles(random), 2, 2);
         world.setBlock(i + 64, j + 8, k + 50, NovaCraftBlocks.cobbled_grimstone, 0, 2);
-        world.setBlock(i + 0, j + 8, k + 51, NovaCraftBlocks.cobbled_grimstone, 0, 2);
+        world.setBlock(i, j + 8, k + 51, NovaCraftBlocks.cobbled_grimstone, 0, 2);
         world.setBlock(i + 1, j + 8, k + 51, placeTiles(random), 2, 2);
         world.setBlock(i + 2, j + 8, k + 51, placeTiles(random), 2, 2);
         world.setBlock(i + 3, j + 8, k + 51, placeTiles(random), 2, 2);
@@ -203,7 +203,7 @@ public class MansionBasementGen6 extends WorldGenerator {
         world.setBlock(i + 62, j + 8, k + 51, placeTiles(random), 2, 2);
         world.setBlock(i + 63, j + 8, k + 51, placeTiles(random), 2, 2);
         world.setBlock(i + 64, j + 8, k + 51, NovaCraftBlocks.cobbled_grimstone, 0, 2);
-        world.setBlock(i + 0, j + 8, k + 52, NovaCraftBlocks.cobbled_grimstone, 0, 2);
+        world.setBlock(i, j + 8, k + 52, NovaCraftBlocks.cobbled_grimstone, 0, 2);
         world.setBlock(i + 1, j + 8, k + 52, placeTiles(random), 2, 2);
         world.setBlock(i + 2, j + 8, k + 52, placeTiles(random), 2, 2);
         world.setBlock(i + 3, j + 8, k + 52, placeTiles(random), 2, 2);
@@ -268,7 +268,7 @@ public class MansionBasementGen6 extends WorldGenerator {
         world.setBlock(i + 62, j + 8, k + 52, placeTiles(random), 2, 2);
         world.setBlock(i + 63, j + 8, k + 52, placeTiles(random), 2, 2);
         world.setBlock(i + 64, j + 8, k + 52, NovaCraftBlocks.cobbled_grimstone, 0, 2);
-        world.setBlock(i + 0, j + 8, k + 53, NovaCraftBlocks.cobbled_grimstone, 0, 2);
+        world.setBlock(i, j + 8, k + 53, NovaCraftBlocks.cobbled_grimstone, 0, 2);
         world.setBlock(i + 1, j + 8, k + 53, placeTiles(random), 2, 2);
         world.setBlock(i + 2, j + 8, k + 53, placeTiles(random), 2, 2);
         world.setBlock(i + 3, j + 8, k + 53, placeTiles(random), 2, 2);
@@ -333,7 +333,7 @@ public class MansionBasementGen6 extends WorldGenerator {
         world.setBlock(i + 62, j + 8, k + 53, placeTiles(random), 2, 2);
         world.setBlock(i + 63, j + 8, k + 53, placeTiles(random), 2, 2);
         world.setBlock(i + 64, j + 8, k + 53, NovaCraftBlocks.cobbled_grimstone, 0, 2);
-        world.setBlock(i + 0, j + 8, k + 54, NovaCraftBlocks.cobbled_grimstone, 0, 2);
+        world.setBlock(i, j + 8, k + 54, NovaCraftBlocks.cobbled_grimstone, 0, 2);
         world.setBlock(i + 1, j + 8, k + 54, placeTiles(random), 2, 2);
         world.setBlock(i + 2, j + 8, k + 54, placeTiles(random), 2, 2);
         world.setBlock(i + 3, j + 8, k + 54, placeTiles(random), 2, 2);
@@ -398,7 +398,7 @@ public class MansionBasementGen6 extends WorldGenerator {
         world.setBlock(i + 62, j + 8, k + 54, placeTiles(random), 2, 2);
         world.setBlock(i + 63, j + 8, k + 54, placeTiles(random), 2, 2);
         world.setBlock(i + 64, j + 8, k + 54, NovaCraftBlocks.cobbled_grimstone, 0, 2);
-        world.setBlock(i + 0, j + 8, k + 55, NovaCraftBlocks.cobbled_grimstone, 0, 2);
+        world.setBlock(i, j + 8, k + 55, NovaCraftBlocks.cobbled_grimstone, 0, 2);
         world.setBlock(i + 1, j + 8, k + 55, placeTiles(random), 2, 2);
         world.setBlock(i + 2, j + 8, k + 55, placeTiles(random), 2, 2);
         world.setBlock(i + 3, j + 8, k + 55, placeTiles(random), 2, 2);
@@ -463,7 +463,7 @@ public class MansionBasementGen6 extends WorldGenerator {
         world.setBlock(i + 62, j + 8, k + 55, placeTiles(random), 2, 2);
         world.setBlock(i + 63, j + 8, k + 55, placeTiles(random), 2, 2);
         world.setBlock(i + 64, j + 8, k + 55, NovaCraftBlocks.cobbled_grimstone, 0, 2);
-        world.setBlock(i + 0, j + 8, k + 56, NovaCraftBlocks.cobbled_grimstone, 0, 2);
+        world.setBlock(i, j + 8, k + 56, NovaCraftBlocks.cobbled_grimstone, 0, 2);
         world.setBlock(i + 1, j + 8, k + 56, NovaCraftBlocks.cobbled_grimstone, 0, 2);
         world.setBlock(i + 2, j + 8, k + 56, NovaCraftBlocks.cobbled_grimstone, 0, 2);
         world.setBlock(i + 3, j + 8, k + 56, NovaCraftBlocks.cobbled_grimstone, 0, 2);

@@ -1143,7 +1143,7 @@ entity.nova_craft.echo_eye.name=Echo Eye
 entity.nova_craft.giant_frog.name=Giant Frog
 entity.nova_craft.wyrmling.name=Wyrmling
 entity.nova_craft.nova_ravager.name=Ravager
-entity.nova_craft.corruptist.name=Cyrologer
+entity.nova_craft.corruptist.name=Cryologer
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1212,4 +1212,4 @@ entity.soloid.name=Soloid
 entity.giant_frog.name=Giant Frog
 entity.wyrmling.name=Wyrmling
 entity.nova_ravager.name=Ravager
-entity.corruptist.name=Cyrologer
+entity.corruptist.name=Cryologer

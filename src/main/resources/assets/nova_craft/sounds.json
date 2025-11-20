@@ -494,6 +494,136 @@
       }
     ]
   },
+
+  "ambient.cave_new1": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew1",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new2": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew2",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new3": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew3",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new4": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew4",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new5": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew5",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new6": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew6",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new7": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew7",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new8": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew8",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new9": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew9",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new10": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew10",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new11": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew11",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new12": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew12",
+        "stream": false
+      }
+    ]
+  },
+
+  "ambient.cave_new13": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "cave/caveNew13",
+        "stream": false
+      }
+    ]
+  },
   
   "warden.roar": {
   "category": "hostile",

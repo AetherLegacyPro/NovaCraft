@@ -1,12 +1,5 @@
 package com.NovaCraft;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Set;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
@@ -20,33 +13,23 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayer.EnumStatus;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.ChatStyle;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.potion.Potion;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.ChunkProviderServer;
 import net.minecraftforge.client.event.FOVUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.event.world.ChunkEvent;
-import net.minecraftforge.event.world.WorldEvent;
 
 public class NovaCraftClientEvents {
-	
+
 	@SubscribeEvent
 	   public void sleepInBed(PlayerSleepInBedEvent event) {
-		if (Configs.enableNoSkippingTheNight == true) {
+		if (Configs.enableNoSkippingTheNight) {
 		 EntityPlayer player = event.entityPlayer;
 		    int x = event.x;
 		    int y = event.y;
@@ -63,7 +46,7 @@ public class NovaCraftClientEvents {
 	
 	@SubscribeEvent
 	public void onBedBreak(BlockEvent.BreakEvent event) {
-		if (event.block instanceof BlockBed && Configs.enableNoSkippingTheNight == true) {
+		if (event.block instanceof BlockBed && Configs.enableNoSkippingTheNight) {
 	        EntityPlayer player = event.getPlayer();
 	        if (player != null && player.getBedLocation(player.dimension) != null) {
 	            ChunkCoordinates spawn = player.getBedLocation(player.dimension);
@@ -142,7 +125,7 @@ public class NovaCraftClientEvents {
 	
 	@SubscribeEvent
 	public void onWorldTick(TickEvent.WorldTickEvent event) {
-	    if (Configs.enableGlowingObsidian == true) { //Sure there is a better way to do this but it just works for now
+	    if (Configs.enableGlowingObsidian) { //Sure there is a better way to do this but it just works for now
 	    	
 	    if (event.phase != TickEvent.Phase.END || event.world.isRemote) return;
 	    
@@ -178,5 +161,45 @@ public class NovaCraftClientEvents {
 	        }
 	    }
 	  }
+
+		//New Cave Noises
+		Minecraft mc = Minecraft.getMinecraft();
+		EntityPlayer player = mc.thePlayer;
+		if (player == null) return;
+
+		if (player.worldObj.provider.dimensionId == -1) return;
+		if (player.worldObj.provider.dimensionId == 1) return;
+
+		World world = event.world;
+		int x = MathHelper.floor_double(player.posX);
+		int y = MathHelper.floor_double(player.posY);
+		int z = MathHelper.floor_double(player.posZ);
+
+		if (world.rand.nextInt(22000) == 0 && Configs.enableNewCaveSounds) {
+			if (world.getBlockLightValue(x, y, z) <= 0 && y < 32) {
+				System.out.println("Playing Cave Sound");
+				String[] extraCaveSounds = {"nova_craft:ambient.cave_new1", "nova_craft:ambient.cave_new2", "nova_craft:ambient.cave_new3",
+						"nova_craft:ambient.cave_new4", "nova_craft:ambient.cave_new5", "nova_craft:ambient.cave_new6", "nova_craft:ambient.cave_new7",
+						"nova_craft:ambient.cave_new8", "nova_craft:ambient.cave_new9", "nova_craft:ambient.cave_new10", "nova_craft:ambient.cave_new11",
+						"nova_craft:ambient.cave_new12", "nova_craft:ambient.cave_new13"};
+				String chosen = extraCaveSounds[world.rand.nextInt(extraCaveSounds.length)];
+				player.playSound(chosen, 1.0F, 1.0F);
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public void onLivingHeal(LivingHealEvent event) {
+		if (!(event.entity instanceof EntityPlayer)) return;
+		if (!(Configs.enableHalfNaturalRegenInEnd)) return;
+
+		EntityPlayer player = (EntityPlayer) event.entity;
+		if (player.worldObj.provider.dimensionId != 1) return;
+
+		if (event.amount == 1.0F && player.getFoodStats().getFoodLevel() >= 18 && !player.isPotionActive(Potion.regeneration)) {
+			if (player.worldObj.rand.nextInt(8) <= 3) {
+				event.setCanceled(true);
+			}
+		}
 	}
 }

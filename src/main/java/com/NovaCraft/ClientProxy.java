@@ -33,18 +33,14 @@ import com.NovaCraft.renderer.BlockVaniteClusterRenderer;
 import com.NovaCraft.renderer.BlockYttrlinsiteClusterRenderer;
 import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.container.BlockUnbreakableAncientChest;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy
 {	

@@ -77,7 +77,6 @@ public class NovaCraft {
     public static final String MOD_ID = "nova_craft";
     public static final String VERSION = "1.4.5";
     public static Random rand;
-    private World worldObj;
     @Instance("nova_craft")
     public static NovaCraft instance;
     public static Logger logger;
@@ -130,7 +129,9 @@ public class NovaCraft {
             StructureNovaCraftNetherBridgePieces.registerStructureNovaCraftNetherBridgePieces();
         }
 
-        GameRegistry.registerWorldGenerator(new MansionGen(), Integer.MAX_VALUE);
+        if (Configs.enableMansion) {
+            GameRegistry.registerWorldGenerator(new MansionGen(), Integer.MAX_VALUE);
+        }
 
         if (Configs.enableAncientCity) {
             GameRegistry.registerWorldGenerator(new AncientCityGen(), Integer.MAX_VALUE);
@@ -148,6 +149,9 @@ public class NovaCraft {
             MinecraftForge.EVENT_BUS.register(new LightningAlterations());
         }
 
+        if (Configs.enableWitherBossAlterations) {
+            MinecraftForge.EVENT_BUS.register(new WitherBossAlterations());
+        }
         MinecraftForge.EVENT_BUS.register(new WorldGenRavineInjector());
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorVillages(), 0);
         EntitiesNovaCraft.initialization();

@@ -91,6 +91,7 @@ public class MansionGen implements IWorldGenerator {
                     new MansionBasementGen5().generate(world, rand, x2 - 36, y1 - 24, z2 + 21);
                     new MansionBasementGen6().generate(world, rand, x2 - 36, y1 - 24, z2 + 21);
                     new MansionSealedOffRoomGen().generate(world, rand, x2 + 33, y1 - 24, z2 + 33);
+                    new MansionRavagerStatue().generate(world, rand, x2 - 11, y1 - 23, z2 + 65);
                 }
             }
 

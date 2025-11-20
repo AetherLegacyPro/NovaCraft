@@ -1,12 +1,9 @@
 package com.NovaCraft.world.village;
 
 import java.util.Random;
-
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import com.mojang.realmsclient.client.FileUpload;
 import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityVillager;
@@ -19,14 +16,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class VindicatorLaboratory extends WorldGenerator
 {
-	private static final Block GrimstoneBrick = NovaCraftBlocks.grimstone_bricks;
-	private static final Block bookshelf = Blocks.bookshelf;
-	private static final Block ironBars = Blocks.iron_bars;
 	private static final Block NullstoneBrick = NovaCraftBlocks.nullstone_bricks;
-	private static final Block fence = Blocks.iron_bars;
-	private static final Block doorWood = Blocks.iron_door;
-	private static final Block oak_stairs = NovaCraftBlocks.nullstone_brick_stairs;
-	private static final Block pressurePlateGrimstoneBrick = Blocks.stone_slab;
 	private static final Block air = Blocks.air;
 	
 	protected Block[] GetValidSpawnBlocks() {
@@ -98,88 +88,88 @@ public class VindicatorLaboratory extends WorldGenerator
 			return false;
 		}
 
-		world.setBlock(i + 0, j + 1, k + 0, air);
-		world.setBlock(i + 0, j + 1, k + 1, air);
-		world.setBlock(i + 0, j + 1, k + 2, air);
-		world.setBlock(i + 0, j + 1, k + 3, air);
-		world.setBlock(i + 0, j + 1, k + 4, air);
-		world.setBlock(i + 0, j + 1, k + 5, air);
-		world.setBlock(i + 0, j + 1, k + 6, air);
-		world.setBlock(i + 0, j + 1, k + 7, air);
-		world.setBlock(i + 0, j + 1, k + 8, air);
-		world.setBlock(i + 0, j + 2, k + 0, air);
-		world.setBlock(i + 0, j + 2, k + 1, air);
-		world.setBlock(i + 0, j + 2, k + 2, air);
-		world.setBlock(i + 0, j + 2, k + 3, air);
-		world.setBlock(i + 0, j + 2, k + 4, air);
-		world.setBlock(i + 0, j + 2, k + 5, air);
-		world.setBlock(i + 0, j + 2, k + 6, air);
-		world.setBlock(i + 0, j + 2, k + 7, air);
-		world.setBlock(i + 0, j + 2, k + 8, air);
-		world.setBlock(i + 0, j + 3, k + 0, air);
-		world.setBlock(i + 0, j + 3, k + 1, air);
-		world.setBlock(i + 0, j + 3, k + 2, air);
-		world.setBlock(i + 0, j + 3, k + 3, air);
-		world.setBlock(i + 0, j + 3, k + 4, air);
-		world.setBlock(i + 0, j + 3, k + 5, air);
-		world.setBlock(i + 0, j + 3, k + 6, air);
-		world.setBlock(i + 0, j + 3, k + 7, air);
-		world.setBlock(i + 0, j + 3, k + 8, air);
-		world.setBlock(i + 0, j + 4, k + 0, air);
-		world.setBlock(i + 0, j + 4, k + 1, air);
-		world.setBlock(i + 0, j + 4, k + 2, air);
-		world.setBlock(i + 0, j + 4, k + 3, air);
-		world.setBlock(i + 0, j + 4, k + 4, air);
-		world.setBlock(i + 0, j + 4, k + 5, air);
-		world.setBlock(i + 0, j + 4, k + 6, air);
-		world.setBlock(i + 0, j + 4, k + 7, air);
-		world.setBlock(i + 0, j + 4, k + 8, air);
-		world.setBlock(i + 0, j + 5, k + 0, air);
-		world.setBlock(i + 0, j + 5, k + 1, air);
-		world.setBlock(i + 0, j + 5, k + 2, air);
-		world.setBlock(i + 0, j + 5, k + 3, air);
-		world.setBlock(i + 0, j + 5, k + 4, air);
-		world.setBlock(i + 0, j + 5, k + 5, air);
-		world.setBlock(i + 0, j + 5, k + 6, air);
-		world.setBlock(i + 0, j + 5, k + 7, air);
-		world.setBlock(i + 0, j + 5, k + 8, air);
-		world.setBlock(i + 0, j + 6, k + 0, air);
-		world.setBlock(i + 0, j + 6, k + 1, air);
-		world.setBlock(i + 0, j + 6, k + 2, air);
-		world.setBlock(i + 0, j + 6, k + 3, air);
-		world.setBlock(i + 0, j + 6, k + 4, air);
-		world.setBlock(i + 0, j + 6, k + 5, air);
-		world.setBlock(i + 0, j + 6, k + 6, air);
-		world.setBlock(i + 0, j + 6, k + 7, air);
-		world.setBlock(i + 0, j + 6, k + 8, air);
-		world.setBlock(i + 0, j + 7, k + 0, air);
-		world.setBlock(i + 0, j + 7, k + 1, air);
-		world.setBlock(i + 0, j + 7, k + 2, air);
-		world.setBlock(i + 0, j + 7, k + 3, air);
-		world.setBlock(i + 0, j + 7, k + 4, air);
-		world.setBlock(i + 0, j + 7, k + 5, air);
-		world.setBlock(i + 0, j + 7, k + 6, air);
-		world.setBlock(i + 0, j + 7, k + 7, air);
-		world.setBlock(i + 0, j + 7, k + 8, air);
-		world.setBlock(i + 0, j + 8, k + 0, air);
-		world.setBlock(i + 0, j + 8, k + 1, air);
-		world.setBlock(i + 0, j + 8, k + 2, air);
-		world.setBlock(i + 0, j + 8, k + 3, air);
-		world.setBlock(i + 0, j + 8, k + 4, air);
-		world.setBlock(i + 0, j + 8, k + 5, air);
-		world.setBlock(i + 0, j + 8, k + 6, air);
-		world.setBlock(i + 0, j + 8, k + 7, air);
-		world.setBlock(i + 0, j + 8, k + 8, air);
-		world.setBlock(i + 0, j + 9, k + 0, air);
-		world.setBlock(i + 0, j + 9, k + 1, air);
-		world.setBlock(i + 0, j + 9, k + 2, air);
-		world.setBlock(i + 0, j + 9, k + 3, air);
-		world.setBlock(i + 0, j + 9, k + 4, air);
-		world.setBlock(i + 0, j + 9, k + 5, air);
-		world.setBlock(i + 0, j + 9, k + 6, air);
-		world.setBlock(i + 0, j + 9, k + 7, air);
-		world.setBlock(i + 0, j + 9, k + 8, air);
-		world.setBlock(i + 1, j + 1, k + 0, air);
+		world.setBlock(i, j + 1, k, air);
+		world.setBlock(i, j + 1, k + 1, air);
+		world.setBlock(i, j + 1, k + 2, air);
+		world.setBlock(i, j + 1, k + 3, air);
+		world.setBlock(i, j + 1, k + 4, air);
+		world.setBlock(i, j + 1, k + 5, air);
+		world.setBlock(i, j + 1, k + 6, air);
+		world.setBlock(i, j + 1, k + 7, air);
+		world.setBlock(i, j + 1, k + 8, air);
+		world.setBlock(i, j + 2, k, air);
+		world.setBlock(i, j + 2, k + 1, air);
+		world.setBlock(i, j + 2, k + 2, air);
+		world.setBlock(i, j + 2, k + 3, air);
+		world.setBlock(i, j + 2, k + 4, air);
+		world.setBlock(i, j + 2, k + 5, air);
+		world.setBlock(i, j + 2, k + 6, air);
+		world.setBlock(i, j + 2, k + 7, air);
+		world.setBlock(i, j + 2, k + 8, air);
+		world.setBlock(i, j + 3, k, air);
+		world.setBlock(i, j + 3, k + 1, air);
+		world.setBlock(i, j + 3, k + 2, air);
+		world.setBlock(i, j + 3, k + 3, air);
+		world.setBlock(i, j + 3, k + 4, air);
+		world.setBlock(i, j + 3, k + 5, air);
+		world.setBlock(i, j + 3, k + 6, air);
+		world.setBlock(i, j + 3, k + 7, air);
+		world.setBlock(i, j + 3, k + 8, air);
+		world.setBlock(i, j + 4, k, air);
+		world.setBlock(i, j + 4, k + 1, air);
+		world.setBlock(i, j + 4, k + 2, air);
+		world.setBlock(i, j + 4, k + 3, air);
+		world.setBlock(i, j + 4, k + 4, air);
+		world.setBlock(i, j + 4, k + 5, air);
+		world.setBlock(i, j + 4, k + 6, air);
+		world.setBlock(i, j + 4, k + 7, air);
+		world.setBlock(i, j + 4, k + 8, air);
+		world.setBlock(i, j + 5, k, air);
+		world.setBlock(i, j + 5, k + 1, air);
+		world.setBlock(i, j + 5, k + 2, air);
+		world.setBlock(i, j + 5, k + 3, air);
+		world.setBlock(i, j + 5, k + 4, air);
+		world.setBlock(i, j + 5, k + 5, air);
+		world.setBlock(i, j + 5, k + 6, air);
+		world.setBlock(i, j + 5, k + 7, air);
+		world.setBlock(i, j + 5, k + 8, air);
+		world.setBlock(i, j + 6, k, air);
+		world.setBlock(i, j + 6, k + 1, air);
+		world.setBlock(i, j + 6, k + 2, air);
+		world.setBlock(i, j + 6, k + 3, air);
+		world.setBlock(i, j + 6, k + 4, air);
+		world.setBlock(i, j + 6, k + 5, air);
+		world.setBlock(i, j + 6, k + 6, air);
+		world.setBlock(i, j + 6, k + 7, air);
+		world.setBlock(i, j + 6, k + 8, air);
+		world.setBlock(i, j + 7, k, air);
+		world.setBlock(i, j + 7, k + 1, air);
+		world.setBlock(i, j + 7, k + 2, air);
+		world.setBlock(i, j + 7, k + 3, air);
+		world.setBlock(i, j + 7, k + 4, air);
+		world.setBlock(i, j + 7, k + 5, air);
+		world.setBlock(i, j + 7, k + 6, air);
+		world.setBlock(i, j + 7, k + 7, air);
+		world.setBlock(i, j + 7, k + 8, air);
+		world.setBlock(i, j + 8, k, air);
+		world.setBlock(i, j + 8, k + 1, air);
+		world.setBlock(i, j + 8, k + 2, air);
+		world.setBlock(i, j + 8, k + 3, air);
+		world.setBlock(i, j + 8, k + 4, air);
+		world.setBlock(i, j + 8, k + 5, air);
+		world.setBlock(i, j + 8, k + 6, air);
+		world.setBlock(i, j + 8, k + 7, air);
+		world.setBlock(i, j + 8, k + 8, air);
+		world.setBlock(i, j + 9, k, air);
+		world.setBlock(i, j + 9, k + 1, air);
+		world.setBlock(i, j + 9, k + 2, air);
+		world.setBlock(i, j + 9, k + 3, air);
+		world.setBlock(i, j + 9, k + 4, air);
+		world.setBlock(i, j + 9, k + 5, air);
+		world.setBlock(i, j + 9, k + 6, air);
+		world.setBlock(i, j + 9, k + 7, air);
+		world.setBlock(i, j + 9, k + 8, air);
+		world.setBlock(i + 1, j + 1, k, air);
 		world.setBlock(i + 1, j + 1, k + 1, air);
 		world.setBlock(i + 1, j + 1, k + 2, air);
 		world.setBlock(i + 1, j + 1, k + 3, air);
@@ -188,7 +178,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 1, j + 1, k + 6, air);
 		world.setBlock(i + 1, j + 1, k + 7, air);
 		world.setBlock(i + 1, j + 1, k + 8, air);
-		world.setBlock(i + 1, j + 2, k + 0, air);
+		world.setBlock(i + 1, j + 2, k, air);
 		world.setBlock(i + 1, j + 2, k + 1, air);
 		world.setBlock(i + 1, j + 2, k + 2, air);
 		world.setBlock(i + 1, j + 2, k + 3, air);
@@ -197,7 +187,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 1, j + 2, k + 6, air);
 		world.setBlock(i + 1, j + 2, k + 7, air);
 		world.setBlock(i + 1, j + 2, k + 8, air);
-		world.setBlock(i + 1, j + 3, k + 0, air);
+		world.setBlock(i + 1, j + 3, k, air);
 		world.setBlock(i + 1, j + 3, k + 1, air);
 		world.setBlock(i + 1, j + 3, k + 2, air);
 		world.setBlock(i + 1, j + 3, k + 3, air);
@@ -206,7 +196,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 1, j + 3, k + 6, air);
 		world.setBlock(i + 1, j + 3, k + 7, air);
 		world.setBlock(i + 1, j + 3, k + 8, air);
-		world.setBlock(i + 1, j + 4, k + 0, air);
+		world.setBlock(i + 1, j + 4, k, air);
 		world.setBlock(i + 1, j + 4, k + 1, air);
 		world.setBlock(i + 1, j + 4, k + 2, air);
 		world.setBlock(i + 1, j + 4, k + 3, air);
@@ -215,7 +205,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 1, j + 4, k + 6, air);
 		world.setBlock(i + 1, j + 4, k + 7, air);
 		world.setBlock(i + 1, j + 4, k + 8, air);
-		world.setBlock(i + 1, j + 5, k + 0, air);
+		world.setBlock(i + 1, j + 5, k, air);
 		world.setBlock(i + 1, j + 5, k + 1, air);
 		world.setBlock(i + 1, j + 5, k + 2, air);
 		world.setBlock(i + 1, j + 5, k + 3, air);
@@ -224,7 +214,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 1, j + 5, k + 6, air);
 		world.setBlock(i + 1, j + 5, k + 7, air);
 		world.setBlock(i + 1, j + 5, k + 8, air);
-		world.setBlock(i + 1, j + 6, k + 0, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
+		world.setBlock(i + 1, j + 6, k, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 1, j + 6, k + 1, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 1, j + 6, k + 2, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 1, j + 6, k + 3, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
@@ -233,7 +223,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 1, j + 6, k + 6, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 1, j + 6, k + 7, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 1, j + 6, k + 8, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
-		world.setBlock(i + 1, j + 7, k + 0, air);
+		world.setBlock(i + 1, j + 7, k, air);
 		world.setBlock(i + 1, j + 7, k + 1, air);
 		world.setBlock(i + 1, j + 7, k + 2, air);
 		world.setBlock(i + 1, j + 7, k + 3, air);
@@ -242,7 +232,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 1, j + 7, k + 6, air);
 		world.setBlock(i + 1, j + 7, k + 7, air);
 		world.setBlock(i + 1, j + 7, k + 8, air);
-		world.setBlock(i + 1, j + 8, k + 0, air);
+		world.setBlock(i + 1, j + 8, k, air);
 		world.setBlock(i + 1, j + 8, k + 1, air);
 		world.setBlock(i + 1, j + 8, k + 2, air);
 		world.setBlock(i + 1, j + 8, k + 3, air);
@@ -251,7 +241,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 1, j + 8, k + 6, air);
 		world.setBlock(i + 1, j + 8, k + 7, air);
 		world.setBlock(i + 1, j + 8, k + 8, air);
-		world.setBlock(i + 1, j + 9, k + 0, air);
+		world.setBlock(i + 1, j + 9, k, air);
 		world.setBlock(i + 1, j + 9, k + 1, air);
 		world.setBlock(i + 1, j + 9, k + 2, air);
 		world.setBlock(i + 1, j + 9, k + 3, air);
@@ -260,7 +250,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 1, j + 9, k + 6, air);
 		world.setBlock(i + 1, j + 9, k + 7, air);
 		world.setBlock(i + 1, j + 9, k + 8, air);
-		world.setBlock(i + 2, j + 1, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 2, j + 1, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 1, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 1, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 1, k + 3, NullstoneBrick, 0 , 2);
@@ -269,7 +259,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 2, j + 1, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 1, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 1, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 2, j + 2, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 2, j + 2, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 2, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 2, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 2, k + 3, NullstoneBrick, 0 , 2);
@@ -278,7 +268,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 2, j + 2, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 2, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 2, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 2, j + 3, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 2, j + 3, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 3, k + 1, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 3, k + 2, NovaCraftBlocks.vanite_glass, 0 , 2); //iron
 		world.setBlock(i + 2, j + 3, k + 3, NovaCraftBlocks.vanite_glass, 0 , 2); //iron
@@ -287,7 +277,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 2, j + 3, k + 6, NovaCraftBlocks.vanite_glass, 0 , 2); //iron
 		world.setBlock(i + 2, j + 3, k + 7, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 3, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 2, j + 4, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 2, j + 4, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 4, k + 1, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 4, k + 2, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 4, k + 3, NovaCraftBlocks.grimstone_bricks, 0 , 2);
@@ -296,7 +286,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 2, j + 4, k + 6, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 4, k + 7, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 4, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 2, j + 5, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 2, j + 5, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 5, k + 1, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 5, k + 2, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 5, k + 3, NovaCraftBlocks.grimstone_bricks, 0 , 2);
@@ -305,7 +295,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 2, j + 5, k + 6, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 5, k + 7, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 2, j + 5, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 2, j + 6, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 2, j + 6, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 6, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 6, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 6, k + 3, NullstoneBrick, 0 , 2);
@@ -314,7 +304,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 2, j + 6, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 6, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 2, j + 6, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 2, j + 7, k + 0, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
+		world.setBlock(i + 2, j + 7, k, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 2, j + 7, k + 1, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 2, j + 7, k + 2, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 2, j + 7, k + 3, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
@@ -323,7 +313,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 2, j + 7, k + 6, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 2, j + 7, k + 7, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 2, j + 7, k + 8, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
-		world.setBlock(i + 2, j + 8, k + 0, air);
+		world.setBlock(i + 2, j + 8, k, air);
 		world.setBlock(i + 2, j + 8, k + 1, air);
 		world.setBlock(i + 2, j + 8, k + 2, air);
 		world.setBlock(i + 2, j + 8, k + 3, air);
@@ -332,7 +322,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 2, j + 8, k + 6, air);
 		world.setBlock(i + 2, j + 8, k + 7, air);
 		world.setBlock(i + 2, j + 8, k + 8, air);
-		world.setBlock(i + 2, j + 9, k + 0, air);
+		world.setBlock(i + 2, j + 9, k, air);
 		world.setBlock(i + 2, j + 9, k + 1, air);
 		world.setBlock(i + 2, j + 9, k + 2, air);
 		world.setBlock(i + 2, j + 9, k + 3, air);
@@ -341,7 +331,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 2, j + 9, k + 6, air);
 		world.setBlock(i + 2, j + 9, k + 7, air);
 		world.setBlock(i + 2, j + 9, k + 8, air);
-		world.setBlock(i + 3, j + 1, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 3, j + 1, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 1, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 1, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 1, k + 3, NullstoneBrick, 0 , 2);
@@ -350,19 +340,19 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 3, j + 1, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 1, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 1, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 3, j + 2, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 3, j + 2, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 2, k + 1, air);
 		world.setBlock(i + 3, j + 2, k + 2, air);
 		world.setBlock(i + 3, j + 2, k + 7, NovaCraftBlocks.grimstone_bricks, 0 , 2);		
 		world.setBlock(i + 3, j + 3, k + 7, Blocks.chest, 0, 5);
 		TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 3, j + 3, k + 7);
 
-		for (int slot = 0; slot < 3 + rand.nextInt(25); slot++) {
+		for (int slot = 0; slot < 3 + rand.nextInt(20); slot++) {
 			chest.setInventorySlotContents(rand.nextInt(chest.getSizeInventory()), this.getSculkLoot(rand));
 		}
 		
 		world.setBlock(i + 3, j + 2, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 3, j + 3, k + 0, NovaCraftBlocks.grimstone_bricks, 0 , 2);
+		world.setBlock(i + 3, j + 3, k, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 3, j + 3, k + 1, air);
 		world.setBlock(i + 3, j + 3, k + 2, air);
 		world.setBlock(i + 3, j + 3, k + 3, air);
@@ -370,9 +360,9 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 3, j + 3, k + 5, air);
 		world.setBlock(i + 3, j + 3, k + 6, air);
 		world.setBlock(i + 3, j + 3, k + 8, NovaCraftBlocks.grimstone_bricks, 0 , 2);
-		world.setBlock(i + 3, j + 4, k + 0, NovaCraftBlocks.grimstone_bricks, 0 , 2);
+		world.setBlock(i + 3, j + 4, k, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 3, j + 4, k + 8, NovaCraftBlocks.grimstone_bricks, 0 , 2);
-		world.setBlock(i + 3, j + 5, k + 0, NovaCraftBlocks.grimstone_bricks, 0 , 2);
+		world.setBlock(i + 3, j + 5, k, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 3, j + 5, k + 1, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 3, j + 5, k + 2, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 3, j + 5, k + 3, NovaCraftBlocks.grimstone_bricks, 0 , 2);
@@ -381,7 +371,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 3, j + 5, k + 6, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 3, j + 5, k + 7, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 3, j + 5, k + 8, NovaCraftBlocks.grimstone_bricks, 0 , 2);
-		world.setBlock(i + 3, j + 6, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 3, j + 6, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 6, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 6, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 6, k + 3, NullstoneBrick, 0 , 2);
@@ -390,7 +380,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 3, j + 6, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 6, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 6, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 3, j + 7, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 3, j + 7, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 7, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 7, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 7, k + 3, NullstoneBrick, 0 , 2);
@@ -399,7 +389,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 3, j + 7, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 7, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 3, j + 7, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 3, j + 8, k + 0, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
+		world.setBlock(i + 3, j + 8, k, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 3, j + 8, k + 1, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 3, j + 8, k + 2, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 3, j + 8, k + 3, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
@@ -408,7 +398,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 3, j + 8, k + 6, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 3, j + 8, k + 7, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 3, j + 8, k + 8, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
-		world.setBlock(i + 3, j + 9, k + 0, air);
+		world.setBlock(i + 3, j + 9, k, air);
 		world.setBlock(i + 3, j + 9, k + 1, air);
 		world.setBlock(i + 3, j + 9, k + 2, air);
 		world.setBlock(i + 3, j + 9, k + 3, air);
@@ -417,7 +407,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 3, j + 9, k + 6, air);
 		world.setBlock(i + 3, j + 9, k + 7, air);
 		world.setBlock(i + 3, j + 9, k + 8, air);
-		world.setBlock(i + 4, j + 1, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 4, j + 1, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 1, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 1, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 1, k + 3, NullstoneBrick, 0 , 2);
@@ -426,7 +416,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 4, j + 1, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 1, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 1, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 4, j + 2, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 4, j + 2, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 2, k + 1, air);
 		world.setBlock(i + 4, j + 2, k + 2, air);
 		world.setBlock(i + 4, j + 2, k + 3, air);
@@ -435,14 +425,14 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 4, j + 2, k + 6, Blocks.iron_bars, 0 , 2);
 		world.setBlock(i + 4, j + 2, k + 7, NovaCraftBlocks.nullstone_brick_stairs, 2 , 2);
 		world.setBlock(i + 4, j + 2, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 4, j + 3, k + 0, NovaCraftBlocks.vanite_glass, 0 , 2);
+		world.setBlock(i + 4, j + 3, k, NovaCraftBlocks.vanite_glass, 0 , 2);
 		world.setBlock(i + 4, j + 3, k + 1, air);
 		world.setBlock(i + 4, j + 3, k + 2, air);
 		world.setBlock(i + 4, j + 3, k + 3, air);
 		world.setBlock(i + 4, j + 3, k + 5, air);
 		world.setBlock(i + 4, j + 3, k + 7, air);
 		world.setBlock(i + 4, j + 3, k + 8, NovaCraftBlocks.vanite_glass, 0 , 2);
-		world.setBlock(i + 4, j + 4, k + 0, NovaCraftBlocks.vanite_glass, 0 , 2);
+		world.setBlock(i + 4, j + 4, k, NovaCraftBlocks.vanite_glass, 0 , 2);
 		world.setBlock(i + 4, j + 4, k + 1, air);
 		world.setBlock(i + 4, j + 4, k + 2, air);
 		world.setBlock(i + 4, j + 4, k + 3, air);
@@ -451,7 +441,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 4, j + 4, k + 6, air);
 		world.setBlock(i + 4, j + 4, k + 7, air);
 		world.setBlock(i + 4, j + 4, k + 8, NovaCraftBlocks.vanite_glass, 0 , 2);
-		world.setBlock(i + 4, j + 5, k + 0, NovaCraftBlocks.grimstone_bricks, 0 , 2);
+		world.setBlock(i + 4, j + 5, k, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 4, j + 5, k + 1, air);
 		world.setBlock(i + 4, j + 5, k + 2, air);
 		world.setBlock(i + 4, j + 5, k + 3, air);
@@ -460,7 +450,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 4, j + 5, k + 6, air);
 		world.setBlock(i + 4, j + 5, k + 7, air);
 		world.setBlock(i + 4, j + 5, k + 8, NovaCraftBlocks.grimstone_bricks, 0 , 2);
-		world.setBlock(i + 4, j + 6, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 4, j + 6, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 6, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 6, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 6, k + 3, NullstoneBrick, 0 , 2);
@@ -469,7 +459,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 4, j + 6, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 6, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 6, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 4, j + 7, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 4, j + 7, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 7, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 7, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 7, k + 3, NullstoneBrick, 0 , 2);
@@ -478,7 +468,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 4, j + 7, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 7, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 7, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 4, j + 8, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 4, j + 8, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 8, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 8, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 8, k + 3, NullstoneBrick, 0 , 2);
@@ -487,7 +477,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 4, j + 8, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 8, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 4, j + 8, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 4, j + 9, k + 0, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
+		world.setBlock(i + 4, j + 9, k, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 4, j + 9, k + 1, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 4, j + 9, k + 2, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 4, j + 9, k + 3, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
@@ -496,7 +486,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 4, j + 9, k + 6, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 4, j + 9, k + 7, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
 		world.setBlock(i + 4, j + 9, k + 8, NovaCraftBlocks.nullstone_brick_stairs, 0 , 2);
-		world.setBlock(i + 5, j + 1, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 5, j + 1, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 1, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 1, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 1, k + 3, NullstoneBrick, 0 , 2);
@@ -505,7 +495,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 5, j + 1, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 1, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 1, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 5, j + 2, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 5, j + 2, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 2, k + 1, air);
 		world.setBlock(i + 5, j + 2, k + 2, air);
 		world.setBlock(i + 5, j + 2, k + 3, air);
@@ -514,7 +504,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 5, j + 2, k + 6, air);
 		world.setBlock(i + 5, j + 2, k + 7, air);
 		world.setBlock(i + 5, j + 2, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 5, j + 3, k + 0, NovaCraftBlocks.vanite_glass, 0 , 2);
+		world.setBlock(i + 5, j + 3, k, NovaCraftBlocks.vanite_glass, 0 , 2);
 		world.setBlock(i + 5, j + 3, k + 1, air);
 		world.setBlock(i + 5, j + 3, k + 2, air);
 		world.setBlock(i + 5, j + 3, k + 3, air);
@@ -523,7 +513,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 5, j + 3, k + 6, air);
 		world.setBlock(i + 5, j + 3, k + 7, air);
 		world.setBlock(i + 5, j + 3, k + 8, NovaCraftBlocks.vanite_glass, 0 , 2);
-		world.setBlock(i + 5, j + 4, k + 0, NovaCraftBlocks.vanite_glass, 0 , 2);
+		world.setBlock(i + 5, j + 4, k, NovaCraftBlocks.vanite_glass, 0 , 2);
 		world.setBlock(i + 5, j + 4, k + 1, air);
 		world.setBlock(i + 5, j + 4, k + 2, air);
 		world.setBlock(i + 5, j + 4, k + 3, air);
@@ -532,7 +522,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 5, j + 4, k + 6, air);
 		world.setBlock(i + 5, j + 4, k + 7, air);
 		world.setBlock(i + 5, j + 4, k + 8, NovaCraftBlocks.vanite_glass, 0 , 2);
-		world.setBlock(i + 5, j + 5, k + 0, NovaCraftBlocks.grimstone_bricks, 0 , 2);
+		world.setBlock(i + 5, j + 5, k, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 5, j + 5, k + 1, air);
 		world.setBlock(i + 5, j + 5, k + 2, air);
 		world.setBlock(i + 5, j + 5, k + 3, air);
@@ -541,7 +531,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 5, j + 5, k + 6, air);
 		world.setBlock(i + 5, j + 5, k + 7, air);
 		world.setBlock(i + 5, j + 5, k + 8, NovaCraftBlocks.grimstone_bricks, 0 , 2);
-		world.setBlock(i + 5, j + 6, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 5, j + 6, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 6, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 6, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 6, k + 3, NullstoneBrick, 0 , 2);
@@ -550,7 +540,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 5, j + 6, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 6, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 6, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 5, j + 7, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 5, j + 7, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 7, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 7, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 7, k + 3, NullstoneBrick, 0 , 2);
@@ -559,7 +549,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 5, j + 7, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 7, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 7, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 5, j + 8, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 5, j + 8, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 8, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 8, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 8, k + 3, NullstoneBrick, 0 , 2);
@@ -568,7 +558,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 5, j + 8, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 8, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 5, j + 8, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 5, j + 9, k + 0, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
+		world.setBlock(i + 5, j + 9, k, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 5, j + 9, k + 1, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 5, j + 9, k + 2, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 5, j + 9, k + 3, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
@@ -577,7 +567,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 5, j + 9, k + 6, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 5, j + 9, k + 7, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 5, j + 9, k + 8, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
-		world.setBlock(i + 6, j + 1, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 6, j + 1, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 1, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 1, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 1, k + 3, NullstoneBrick, 0 , 2);
@@ -586,7 +576,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 6, j + 1, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 1, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 1, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 6, j + 2, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 6, j + 2, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 2, k + 1, air);
 		world.setBlock(i + 6, j + 2, k + 2, air);
 		world.setBlock(i + 6, j + 2, k + 3, air);
@@ -595,7 +585,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 6, j + 2, k + 6, air);
 		world.setBlock(i + 6, j + 2, k + 7, NovaCraftBlocks.sculk_block, 0 , 2);
 		world.setBlock(i + 6, j + 2, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 6, j + 3, k + 0, NovaCraftBlocks.grimstone_bricks, 0 , 2);
+		world.setBlock(i + 6, j + 3, k, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 6, j + 3, k + 1, air);
 		world.setBlock(i + 6, j + 3, k + 2, air);
 		world.setBlock(i + 6, j + 3, k + 3, air);
@@ -604,7 +594,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 6, j + 3, k + 6, air);
 		world.setBlock(i + 6, j + 3, k + 7, air);
 		world.setBlock(i + 6, j + 3, k + 8, NovaCraftBlocks.grimstone_bricks, 0 , 2);
-		world.setBlock(i + 6, j + 4, k + 0, NovaCraftBlocks.grimstone_bricks, 0 , 2);
+		world.setBlock(i + 6, j + 4, k, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 6, j + 4, k + 1, air);
 		world.setBlock(i + 6, j + 4, k + 2, air);
 		world.setBlock(i + 6, j + 4, k + 3, air);
@@ -613,7 +603,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 6, j + 4, k + 6, air);
 		world.setBlock(i + 6, j + 4, k + 7, air);
 		world.setBlock(i + 6, j + 4, k + 8, NovaCraftBlocks.grimstone_bricks, 0 , 2);
-		world.setBlock(i + 6, j + 5, k + 0, NovaCraftBlocks.grimstone_bricks, 0 , 2);
+		world.setBlock(i + 6, j + 5, k, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 6, j + 5, k + 1, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 6, j + 5, k + 2, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 6, j + 5, k + 3, NovaCraftBlocks.grimstone_bricks, 0 , 2);
@@ -622,7 +612,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 6, j + 5, k + 6, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 6, j + 5, k + 7, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 6, j + 5, k + 8, NovaCraftBlocks.grimstone_bricks, 0 , 2);
-		world.setBlock(i + 6, j + 6, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 6, j + 6, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 6, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 6, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 6, k + 3, NullstoneBrick, 0 , 2);
@@ -631,7 +621,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 6, j + 6, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 6, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 6, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 6, j + 7, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 6, j + 7, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 7, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 7, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 7, k + 3, NullstoneBrick, 0 , 2);
@@ -640,7 +630,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 6, j + 7, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 7, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 6, j + 7, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 6, j + 8, k + 0, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
+		world.setBlock(i + 6, j + 8, k, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 6, j + 8, k + 1, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 6, j + 8, k + 2, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 6, j + 8, k + 3, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
@@ -649,7 +639,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 6, j + 8, k + 6, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 6, j + 8, k + 7, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 6, j + 8, k + 8, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
-		world.setBlock(i + 6, j + 9, k + 0, air);
+		world.setBlock(i + 6, j + 9, k, air);
 		world.setBlock(i + 6, j + 9, k + 1, air);
 		world.setBlock(i + 6, j + 9, k + 2, air);
 		world.setBlock(i + 6, j + 9, k + 3, air);
@@ -658,7 +648,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 6, j + 9, k + 6, air);
 		world.setBlock(i + 6, j + 9, k + 7, air);
 		world.setBlock(i + 6, j + 9, k + 8, air);
-		world.setBlock(i + 7, j + 1, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 7, j + 1, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 1, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 1, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 1, k + 3, NullstoneBrick, 0 , 2);
@@ -667,7 +657,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 7, j + 1, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 1, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 1, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 7, j + 2, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 7, j + 2, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 2, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 2, k + 3, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 2, k + 4, NullstoneBrick, 0 , 2);
@@ -675,7 +665,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 7, j + 2, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 2, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 2, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 7, j + 3, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 7, j + 3, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 3, k + 2, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 3, k + 3, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 3, k + 4, NovaCraftBlocks.vanite_glass, 0 , 2);
@@ -683,7 +673,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 7, j + 3, k + 6, NovaCraftBlocks.vanite_glass, 0 , 2);
 		world.setBlock(i + 7, j + 3, k + 7, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 3, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 7, j + 4, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 7, j + 4, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 4, k + 1, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 4, k + 2, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 4, k + 3, NovaCraftBlocks.grimstone_bricks, 0 , 2);
@@ -692,7 +682,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 7, j + 4, k + 6, NovaCraftBlocks.vanite_glass, 0 , 2);
 		world.setBlock(i + 7, j + 4, k + 7, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 4, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 7, j + 5, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 7, j + 5, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 5, k + 1, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 5, k + 2, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 5, k + 3, NovaCraftBlocks.grimstone_bricks, 0 , 2);
@@ -701,7 +691,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 7, j + 5, k + 6, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 5, k + 7, NovaCraftBlocks.grimstone_bricks, 0 , 2);
 		world.setBlock(i + 7, j + 5, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 7, j + 6, k + 0, NullstoneBrick, 0 , 2);
+		world.setBlock(i + 7, j + 6, k, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 6, k + 1, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 6, k + 2, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 6, k + 3, NullstoneBrick, 0 , 2);
@@ -710,7 +700,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 7, j + 6, k + 6, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 6, k + 7, NullstoneBrick, 0 , 2);
 		world.setBlock(i + 7, j + 6, k + 8, NullstoneBrick, 0 , 2);
-		world.setBlock(i + 7, j + 7, k + 0, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
+		world.setBlock(i + 7, j + 7, k, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 7, j + 7, k + 1, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 7, j + 7, k + 2, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 7, j + 7, k + 3, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
@@ -719,7 +709,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 7, j + 7, k + 6, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 7, j + 7, k + 7, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 7, j + 7, k + 8, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
-		world.setBlock(i + 7, j + 8, k + 0, air);
+		world.setBlock(i + 7, j + 8, k, air);
 		world.setBlock(i + 7, j + 8, k + 1, air);
 		world.setBlock(i + 7, j + 8, k + 2, air);
 		world.setBlock(i + 7, j + 8, k + 3, air);
@@ -728,7 +718,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 7, j + 8, k + 6, air);
 		world.setBlock(i + 7, j + 8, k + 7, air);
 		world.setBlock(i + 7, j + 8, k + 8, air);
-		world.setBlock(i + 7, j + 9, k + 0, air);
+		world.setBlock(i + 7, j + 9, k, air);
 		world.setBlock(i + 7, j + 9, k + 1, air);
 		world.setBlock(i + 7, j + 9, k + 2, air);
 		world.setBlock(i + 7, j + 9, k + 3, air);
@@ -737,7 +727,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 7, j + 9, k + 6, air);
 		world.setBlock(i + 7, j + 9, k + 7, air);
 		world.setBlock(i + 7, j + 9, k + 8, air);
-		world.setBlock(i + 8, j + 1, k + 0, air);
+		world.setBlock(i + 8, j + 1, k, air);
 		world.setBlock(i + 8, j + 1, k + 1, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 8, j + 1, k + 2, air);
 		world.setBlock(i + 8, j + 1, k + 3, air);
@@ -746,7 +736,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 8, j + 1, k + 6, air);
 		world.setBlock(i + 8, j + 1, k + 7, air);
 		world.setBlock(i + 8, j + 1, k + 8, air);
-		world.setBlock(i + 8, j + 2, k + 0, air);
+		world.setBlock(i + 8, j + 2, k, air);
 		world.setBlock(i + 8, j + 2, k + 1, air);
 		world.setBlock(i + 8, j + 2, k + 2, air);
 		world.setBlock(i + 8, j + 2, k + 3, air);
@@ -755,7 +745,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 8, j + 2, k + 6, air);
 		world.setBlock(i + 8, j + 2, k + 7, air);
 		world.setBlock(i + 8, j + 2, k + 8, air);
-		world.setBlock(i + 8, j + 3, k + 0, air);
+		world.setBlock(i + 8, j + 3, k, air);
 		world.setBlock(i + 8, j + 3, k + 1, air);
 		world.setBlock(i + 8, j + 3, k + 2, air);
 		world.setBlock(i + 8, j + 3, k + 3, air);
@@ -764,7 +754,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 8, j + 3, k + 6, air);
 		world.setBlock(i + 8, j + 3, k + 7, air);
 		world.setBlock(i + 8, j + 3, k + 8, air);
-		world.setBlock(i + 8, j + 4, k + 0, air);
+		world.setBlock(i + 8, j + 4, k, air);
 		world.setBlock(i + 8, j + 4, k + 1, air);
 		world.setBlock(i + 8, j + 4, k + 2, air);
 		world.setBlock(i + 8, j + 4, k + 3, air);
@@ -773,7 +763,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 8, j + 4, k + 6, air);
 		world.setBlock(i + 8, j + 4, k + 7, air);
 		world.setBlock(i + 8, j + 4, k + 8, air);
-		world.setBlock(i + 8, j + 5, k + 0, air);
+		world.setBlock(i + 8, j + 5, k, air);
 		world.setBlock(i + 8, j + 5, k + 1, air);
 		world.setBlock(i + 8, j + 5, k + 2, air);
 		world.setBlock(i + 8, j + 5, k + 3, air);
@@ -782,7 +772,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 8, j + 5, k + 6, air);
 		world.setBlock(i + 8, j + 5, k + 7, air);
 		world.setBlock(i + 8, j + 5, k + 8, air);
-		world.setBlock(i + 8, j + 6, k + 0, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
+		world.setBlock(i + 8, j + 6, k, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 8, j + 6, k + 1, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 8, j + 6, k + 2, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 8, j + 6, k + 3, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
@@ -791,7 +781,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 8, j + 6, k + 6, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 8, j + 6, k + 7, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
 		world.setBlock(i + 8, j + 6, k + 8, NovaCraftBlocks.nullstone_brick_stairs, 1 , 2);
-		world.setBlock(i + 8, j + 7, k + 0, air);
+		world.setBlock(i + 8, j + 7, k, air);
 		world.setBlock(i + 8, j + 7, k + 1, air);
 		world.setBlock(i + 8, j + 7, k + 2, air);
 		world.setBlock(i + 8, j + 7, k + 3, air);
@@ -800,7 +790,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 8, j + 7, k + 6, air);
 		world.setBlock(i + 8, j + 7, k + 7, air);
 		world.setBlock(i + 8, j + 7, k + 8, air);
-		world.setBlock(i + 8, j + 8, k + 0, air);
+		world.setBlock(i + 8, j + 8, k, air);
 		world.setBlock(i + 8, j + 8, k + 1, air);
 		world.setBlock(i + 8, j + 8, k + 2, air);
 		world.setBlock(i + 8, j + 8, k + 3, air);
@@ -809,7 +799,7 @@ public class VindicatorLaboratory extends WorldGenerator
 		world.setBlock(i + 8, j + 8, k + 6, air);
 		world.setBlock(i + 8, j + 8, k + 7, air);
 		world.setBlock(i + 8, j + 8, k + 8, air);
-		world.setBlock(i + 8, j + 9, k + 0, air);
+		world.setBlock(i + 8, j + 9, k, air);
 		world.setBlock(i + 8, j + 9, k + 1, air);
 		world.setBlock(i + 8, j + 9, k + 2, air);
 		world.setBlock(i + 8, j + 9, k + 3, air);
@@ -885,15 +875,13 @@ public class VindicatorLaboratory extends WorldGenerator
 						isFloorFinished = true;
 				}
 			}
+			EntityVillager mob = new EntityVillager(world);
+			mob.setPosition(i + 4, j + 3, k + 3);
+			world.spawnEntityInWorld(mob);
 
-		
-			EntityVillager var5 = new EntityVillager(world);
-			var5.setPosition(i + 4, j + 3, k + 3);
-			world.spawnEntityInWorld(var5);
-
-			EntityVillager var6 = new EntityVillager(world);
-			var6.setPosition(i + 4, j + 3, k + 5);
-			world.spawnEntityInWorld(var6);
+			EntityVillager mob2 = new EntityVillager(world);
+			mob2.setPosition(i + 4, j + 3, k + 5);
+			world.spawnEntityInWorld(mob2);
 
 		return true;
 	}

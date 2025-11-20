@@ -1,9 +1,7 @@
 package com.NovaCraft.world.sculkshaft;
 
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CUSTOM;
-
 import java.util.Random;
-
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

@@ -411,7 +411,7 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
             this.attackTime = 10;
             World world = MinecraftServer.getServer().worldServers[0];
             Hardmode data = Hardmode.get(world);
-            if (data.getHardmode() == true) {
+            if (data.getHardmode()) {
             	player.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase)this), 25.0f);
             }
             else {
@@ -462,10 +462,6 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
         return  "nova_craft:ender_ray.living";
     }
     
-    protected String getFlapingSound() {
-        return "nova_craft:ender_ray.charge";
-    }
-    
     protected String getHurtSound() {
         return "nova_craft:ender_ray.hurt";
     }
@@ -494,7 +490,7 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
 
         for (k = 0; k < j; ++k)
         {
-        	this.dropItem(NovaCraftItems.nullified_dust, 6);
+        	this.dropItem(NovaCraftItems.nullified_dust, 6 + j);
         }
     }
     

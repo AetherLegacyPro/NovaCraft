@@ -1,16 +1,10 @@
 package com.NovaCraft.world.nether;
 
 import java.util.Random;
-
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class WorldGenFlamingPitcher extends WorldGenerator
 {
@@ -50,7 +44,7 @@ public class WorldGenFlamingPitcher extends WorldGenerator
             int k1 = z + random.nextInt(4) - random.nextInt(4);
 
             if (world.isAirBlock(i1, j1, k1) && world.getBlock(i1, j1 - 1, k1) == Blocks.lava) {
-            	world.setBlock(i1, j1, k1, this.Pitcher, 1, 2); //7
+            	world.setBlock(i1, j1, k1, this.Pitcher, 1, 2);
             } 
             
         }

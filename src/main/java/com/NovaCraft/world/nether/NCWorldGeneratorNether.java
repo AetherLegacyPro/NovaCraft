@@ -3,22 +3,12 @@ package com.NovaCraft.world.nether;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-
-import org.apache.commons.lang3.ArrayUtils;
-
-import com.NovaCraft.world.end.EndWorldProviderNovaCraft;
-import com.NovaCraft.world.end.NCWorldGeneratorEnd;
-import com.NovaCraft.world.end.WorldGenShadowBloom;
 import com.NovaCraft.world.nether.structure.BlazingSerpentDungeonGen;
 import com.NovaCraft.world.nether.structure.NetherDungeonGen;
 import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.IWorldGenerator;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenFlowers;

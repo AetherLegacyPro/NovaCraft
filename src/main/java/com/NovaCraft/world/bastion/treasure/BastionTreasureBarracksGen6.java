@@ -1,16 +1,10 @@
 package com.NovaCraft.world.bastion.treasure;
 
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.block.*;
 import net.minecraft.world.*;
 import java.util.*;
-
-import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.EntitySavageSerpent;
-import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
-import cpw.mods.fml.common.Loader;
 import net.minecraft.init.*;
 
 public class BastionTreasureBarracksGen6 extends WorldGenerator
@@ -21,7 +15,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 	
 	public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
 		
-		world.setBlock(i + 0, j + 34, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 34, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 34, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 34, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -29,7 +23,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 34, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 34, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 34, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 34, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 3, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 3, NovaCraftBlocks.basal_scrap, 0, 2);
@@ -43,7 +37,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 11, j + 34, k + 3, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 12, j + 34, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 34, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 34, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -71,7 +65,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 34, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 34, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 34, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 34, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -99,7 +93,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 34, k + 5, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 26, j + 34, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 34, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 34, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -127,7 +121,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 34, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 34, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 34, k + 6, NovaCraftBlocks.basal_scrap, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 34, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -155,7 +149,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 34, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 34, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 34, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 34, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -183,7 +177,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 34, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 34, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 34, k + 8, NovaCraftBlocks.basal_scrap, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i, j + 34, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -211,7 +205,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 34, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 34, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 34, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i, j + 34, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -239,7 +233,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 34, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 34, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 34, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 34, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 11, Blocks.air, 0, 2);
@@ -267,7 +261,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 34, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 34, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 34, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 34, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 34, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 34, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 34, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 34, k + 12, Blocks.air, 0, 2);
@@ -295,7 +289,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 34, k + 12, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 34, k + 12, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 34, k + 12, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 35, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 35, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 35, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -303,7 +297,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 35, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 35, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 35, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 35, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 3, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 3, NovaCraftBlocks.basal_scrap, 0, 2);
@@ -317,7 +311,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 11, j + 35, k + 3, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 12, j + 35, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 35, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 35, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 4, NovaCraftBlocks.basal_scrap, 0, 2);
@@ -345,7 +339,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 35, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 35, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 35, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 35, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -373,7 +367,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 35, k + 5, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 26, j + 35, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 35, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 35, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -401,7 +395,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 35, k + 6, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 26, j + 35, k + 6, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 27, j + 35, k + 6, NovaCraftBlocks.basal_scrap, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 35, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -429,7 +423,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 35, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 35, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 35, k + 7, NovaCraftBlocks.basal_scrap, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 35, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -457,7 +451,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 35, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 35, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 35, k + 8, NovaCraftBlocks.basal_scrap, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i, j + 35, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -485,7 +479,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 35, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 35, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 35, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i, j + 35, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -513,7 +507,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 35, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 35, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 35, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 35, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 11, Blocks.air, 0, 2);
@@ -540,7 +534,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 35, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 35, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 35, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 35, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 35, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 35, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 35, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 35, k + 12, Blocks.air, 0, 2);
@@ -568,7 +562,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 35, k + 12, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 26, j + 35, k + 12, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 35, k + 12, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 36, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 36, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 36, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -576,7 +570,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 36, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 36, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 36, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 36, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 36, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 36, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -584,7 +578,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 36, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 36, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 36, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i, j + 36, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 36, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 36, k + 4, Blocks.air, 0, 2);
@@ -612,7 +606,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 36, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 36, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 36, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i, j + 36, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 36, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 36, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -640,7 +634,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 36, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 36, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 36, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i, j + 36, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 36, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 36, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -667,7 +661,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 36, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 36, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 27, j + 36, k + 6, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 36, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 36, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 36, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -695,7 +689,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 36, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 36, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 36, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 36, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 36, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 36, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -723,7 +717,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 36, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 36, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 36, k + 8, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 36, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 36, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 36, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -750,7 +744,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 36, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 36, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 36, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i, j + 36, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 36, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 36, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -778,7 +772,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 36, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 36, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 36, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 36, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 36, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 36, k + 11, Blocks.air, 0, 2);
@@ -806,7 +800,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 36, k + 11, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 36, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 36, k + 11, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 36, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 36, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 36, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 36, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 36, k + 12, Blocks.air, 0, 2);
@@ -834,7 +828,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 36, k + 12, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 26, j + 36, k + 12, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 36, k + 12, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 37, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 37, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 37, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -842,7 +836,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 37, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 37, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 37, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 37, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 37, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 37, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -850,7 +844,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 37, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 37, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 37, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i, j + 37, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 37, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 37, k + 4, Blocks.air, 0, 2);
@@ -878,7 +872,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 37, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 37, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 37, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i, j + 37, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 37, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 37, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -906,7 +900,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 37, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 37, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 37, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i, j + 37, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 37, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 37, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -934,7 +928,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 37, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 37, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 27, j + 37, k + 6, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 37, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 37, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 37, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -962,7 +956,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 37, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 37, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 37, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 37, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 37, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 37, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -990,7 +984,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 37, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 37, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 37, k + 8, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 37, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 37, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 37, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1018,7 +1012,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 37, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 37, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 37, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 37, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 37, k + 10, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 3, j + 37, k + 10, NovaCraftBlocks.basal_scrap, 0, 2);
@@ -1046,7 +1040,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 37, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 37, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 37, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 37, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 37, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 37, k + 11, Blocks.air, 0, 2);
@@ -1074,7 +1068,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 37, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 37, k + 11, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 37, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 37, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 37, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 37, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 37, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 37, k + 12, Blocks.air, 0, 2);
@@ -1102,7 +1096,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 37, k + 12, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 26, j + 37, k + 12, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 27, j + 37, k + 12, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 38, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 38, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 38, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1110,7 +1104,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 38, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 38, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 38, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 38, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 38, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 38, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1118,7 +1112,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 38, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 38, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 38, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 38, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 38, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 38, k + 4, Blocks.air, 0, 2);
@@ -1146,7 +1140,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 38, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 38, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 38, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 38, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 38, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 38, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1174,7 +1168,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 38, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 38, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 38, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 38, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 38, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 38, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1202,7 +1196,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 38, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 38, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 38, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 38, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 38, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 38, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1230,7 +1224,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 38, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 38, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 38, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 38, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 38, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 38, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1258,7 +1252,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 38, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 38, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 38, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 38, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 38, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 38, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1286,7 +1280,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 38, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 38, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 38, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 38, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 10, NovaCraftBlocks.basal, 0, 2);
 		world.setBlock(i + 2, j + 38, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 38, k + 10, NovaCraftBlocks.basal_scrap, 0, 2);
@@ -1314,7 +1308,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 38, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 38, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 38, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 38, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 38, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 38, k + 11, Blocks.air, 0, 2);
@@ -1342,7 +1336,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 38, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 38, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 38, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 38, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 38, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 38, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 38, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 38, k + 12, Blocks.air, 0, 2);
@@ -1370,7 +1364,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 38, k + 12, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 26, j + 38, k + 12, NovaCraftBlocks.basal_scrap, 0, 2);
 		world.setBlock(i + 27, j + 38, k + 12, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 39, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 39, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1378,7 +1372,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 39, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 39, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 39, k + 1, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 39, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 39, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1386,7 +1380,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 39, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 39, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 39, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 39, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 39, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1402,7 +1396,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 23, j + 39, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 39, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 39, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1430,7 +1424,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 39, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 39, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 39, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1458,7 +1452,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 39, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 39, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 39, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1486,7 +1480,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 39, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 39, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 39, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1514,7 +1508,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 39, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 39, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 39, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1542,7 +1536,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 39, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 39, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 39, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1570,7 +1564,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 39, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 39, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 39, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 39, k + 10, Blocks.air, 0, 2);
@@ -1598,7 +1592,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 39, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 39, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 39, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 39, k + 11, Blocks.air, 0, 2);
@@ -1626,7 +1620,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 39, k + 11, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 11, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 39, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 39, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 39, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 39, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 39, k + 12, Blocks.air, 0, 2);
@@ -1654,7 +1648,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 39, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 39, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 27, j + 39, k + 12, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 40, k + 1, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 40, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1662,7 +1656,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 40, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 40, k + 1, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 40, k + 1, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 40, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 40, k + 2, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1670,7 +1664,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 9, j + 40, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 40, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 13, j + 40, k + 2, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 4, j + 40, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 5, j + 40, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1686,7 +1680,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 23, j + 40, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 40, k + 3, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 40, k + 3, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 40, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 40, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1714,7 +1708,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 40, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 40, k + 4, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 40, k + 4, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 40, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 40, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1742,7 +1736,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 40, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 26, j + 40, k + 5, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 40, k + 5, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 40, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 40, k + 6, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1770,7 +1764,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 40, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 40, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 40, k + 6, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 40, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 40, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1798,7 +1792,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 40, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 40, k + 7, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 40, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 40, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 40, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
@@ -1826,7 +1820,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 40, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 40, k + 8, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 40, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 2, j + 40, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 3, j + 40, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
@@ -1854,7 +1848,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 40, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 40, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 40, k + 9, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
+		world.setBlock(i, j + 40, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 40, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 40, k + 10, Blocks.air, 0, 2);
@@ -1882,7 +1876,7 @@ public class BastionTreasureBarracksGen6 extends WorldGenerator
 		world.setBlock(i + 25, j + 40, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 26, j + 40, k + 10, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i + 27, j + 40, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 0, j + 40, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 40, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 40, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 40, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 40, k + 11, Blocks.air, 0, 2);

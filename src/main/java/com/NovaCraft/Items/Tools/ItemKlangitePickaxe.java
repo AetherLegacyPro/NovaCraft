@@ -53,7 +53,7 @@ public class ItemKlangitePickaxe extends ItemPickaxe {
 	public boolean onBlockDestroyed(ItemStack item, World world, Block block, int x, int y, int z, EntityLivingBase living)
     {		
 	  boolean silkTouchModifier = EnchantmentHelper.getSilkTouchModifier(living);
-	  if (silkTouchModifier == false) {
+	  if (!silkTouchModifier) {
 		//----------------------------------Aether Legacy--------------------------------
         if (world.getBlock(x, y, z) == OtherModBlocks.ambrosium_ore) {       
         	
@@ -69,14 +69,14 @@ public class ItemKlangitePickaxe extends ItemPickaxe {
              world.spawnEntityInWorld(entityItem);
              }
         }
-        if (world.getBlock(x, y, z) == OtherModBlocks.arkenium_ore && Configs.enableAetherLegacyDepartureItems) {
+        if (world.getBlock(x, y, z) == OtherModBlocks.arkenium_ore && Configs.enableAetherLegacyOptions) {
         	          	
               if (!world.isRemote) {
               EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.arkenium_fragement, 2));
               world.spawnEntityInWorld(entityItem);
               }
         }
-        if (world.getBlock(x, y, z) == OtherModBlocks.gravitite_ore && Configs.enableAetherLegacyDepartureItems) {
+        if (world.getBlock(x, y, z) == OtherModBlocks.gravitite_ore && Configs.enableAetherLegacyOptions) {
            world.setBlock(x, y, z, Blocks.air);                  	
                              	
               if (!world.isRemote) {
@@ -84,7 +84,7 @@ public class ItemKlangitePickaxe extends ItemPickaxe {
               world.spawnEntityInWorld(entityItem);
               }
         }
-        if (world.getBlock(x, y, z) == OtherModBlocks.primeval_artifact && Configs.enableAetherLegacyDepartureItems) {        	
+        if (world.getBlock(x, y, z) == OtherModBlocks.primeval_artifact && Configs.enableAetherLegacyOptions) {
         	world.setBlock(x, y, z, Blocks.air);                  	
         	                  	
               if (!world.isRemote) {

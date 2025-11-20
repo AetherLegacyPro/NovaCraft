@@ -138,7 +138,7 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 
 		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(5, 5, 5));
 		{
-		if(Configs.enableWardenBlindness == true) {
+		if(Configs.enableWardenBlindness) {
         for(Entity entity : volume) {
         	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 0, true));
         	}
@@ -151,13 +151,13 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 			}
 		}
         
-		if(Configs.enableWardenSlowness == true) {
+		if(Configs.enableWardenSlowness) {
         for(Entity entity : volume) {
         	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
         	}
 		}
         
-		if(Configs.enableWardenWeakness == true) {
+		if(Configs.enableWardenWeakness) {
         for(Entity entity : volume) {
         	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
         	}

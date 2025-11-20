@@ -173,6 +173,7 @@ public class EntityVindicator extends EntityMob
         return 0.7F;
     }
 	
+	@Override
 	public boolean canDespawn() {
         return false;
     }

@@ -1,7 +1,6 @@
 package com.NovaCraft.world.mansion;
 
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntityCrystalGolem;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;

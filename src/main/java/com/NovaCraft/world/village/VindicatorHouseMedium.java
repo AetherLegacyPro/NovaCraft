@@ -1,12 +1,9 @@
 package com.NovaCraft.world.village;
 
 import java.util.Random;
-
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -95,91 +92,91 @@ public class VindicatorHouseMedium extends WorldGenerator
 			return false;
 		}
 
-		world.setBlock(i + 0, j + 1, k + 0, air);
-		world.setBlock(i + 0, j + 1, k + 1, air);
-		world.setBlock(i + 0, j + 1, k + 2, air);
-		world.setBlock(i + 0, j + 1, k + 3, air);
-		world.setBlock(i + 0, j + 1, k + 4, air);
-		world.setBlock(i + 0, j + 1, k + 5, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 6, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 7, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 8, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 9, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 10, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 11, air);
-		world.setBlock(i + 0, j + 2, k + 0, air);
-		world.setBlock(i + 0, j + 2, k + 1, air);
-		world.setBlock(i + 0, j + 2, k + 2, air);
-		world.setBlock(i + 0, j + 2, k + 3, air);
-		world.setBlock(i + 0, j + 2, k + 4, air);
-		world.setBlock(i + 0, j + 2, k + 5, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 6, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 7, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 8, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 9, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 10, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 11, air);
-		world.setBlock(i + 0, j + 3, k + 0, air);
-		world.setBlock(i + 0, j + 3, k + 1, air);
-		world.setBlock(i + 0, j + 3, k + 2, air);
-		world.setBlock(i + 0, j + 3, k + 3, air);
-		world.setBlock(i + 0, j + 3, k + 4, air);
-		world.setBlock(i + 0, j + 3, k + 5, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 3, k + 6, wood, 1, 2);
-		world.setBlock(i + 0, j + 3, k + 7, thinGlass, 0, 2);
-		world.setBlock(i + 0, j + 3, k + 8, thinGlass, 0, 2);
-		world.setBlock(i + 0, j + 3, k + 9, wood, 1, 2);
-		world.setBlock(i + 0, j + 3, k + 10, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 3, k + 11, air);
-		world.setBlock(i + 0, j + 4, k + 0, air);
-		world.setBlock(i + 0, j + 4, k + 1, air);
-		world.setBlock(i + 0, j + 4, k + 2, air);
-		world.setBlock(i + 0, j + 4, k + 3, air);
-		world.setBlock(i + 0, j + 4, k + 4, stairsWoodOak, 2, 2);
-		world.setBlock(i + 0, j + 4, k + 5, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 4, k + 6, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 4, k + 7, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 4, k + 8, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 4, k + 9, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 4, k + 10, cobbledGrimstone, 0, 2);
-		world.setBlock(i + 0, j + 4, k + 11, stairsWoodOak, 3, 2);
-		world.setBlock(i + 0, j + 5, k + 0, air);
-		world.setBlock(i + 0, j + 5, k + 1, air);
-		world.setBlock(i + 0, j + 5, k + 2, air);
-		world.setBlock(i + 0, j + 5, k + 3, air);
-		world.setBlock(i + 0, j + 5, k + 4, air);
-		world.setBlock(i + 0, j + 5, k + 5, stairsWoodOak, 2, 2);
-		world.setBlock(i + 0, j + 5, k + 6, planks, 5, 2);
-		world.setBlock(i + 0, j + 5, k + 7, planks, 5, 2);
-		world.setBlock(i + 0, j + 5, k + 8, planks, 5, 2);
-		world.setBlock(i + 0, j + 5, k + 9, planks, 5, 2);
-		world.setBlock(i + 0, j + 5, k + 10, stairsWoodOak, 3, 2);
-		world.setBlock(i + 0, j + 5, k + 11, air);
-		world.setBlock(i + 0, j + 6, k + 0, air);
-		world.setBlock(i + 0, j + 6, k + 1, air);
-		world.setBlock(i + 0, j + 6, k + 2, air);
-		world.setBlock(i + 0, j + 6, k + 3, air);
-		world.setBlock(i + 0, j + 6, k + 4, air);
-		world.setBlock(i + 0, j + 6, k + 5, air);
-		world.setBlock(i + 0, j + 6, k + 6, stairsWoodOak, 2, 2);
-		world.setBlock(i + 0, j + 6, k + 7, planks, 5, 2);
-		world.setBlock(i + 0, j + 6, k + 8, planks, 5, 2);
-		world.setBlock(i + 0, j + 6, k + 9, stairsWoodOak, 3, 2);
-		world.setBlock(i + 0, j + 6, k + 10, air);
-		world.setBlock(i + 0, j + 6, k + 11, air);
-		world.setBlock(i + 0, j + 7, k + 0, air);
-		world.setBlock(i + 0, j + 7, k + 1, air);
-		world.setBlock(i + 0, j + 7, k + 2, air);
-		world.setBlock(i + 0, j + 7, k + 3, air);
-		world.setBlock(i + 0, j + 7, k + 4, air);
-		world.setBlock(i + 0, j + 7, k + 5, air);
-		world.setBlock(i + 0, j + 7, k + 6, air);
-		world.setBlock(i + 0, j + 7, k + 7, stairsWoodOak, 2, 2);
-		world.setBlock(i + 0, j + 7, k + 8, stairsWoodOak, 3, 2);
-		world.setBlock(i + 0, j + 7, k + 9, air);
-		world.setBlock(i + 0, j + 7, k + 10, air);
-		world.setBlock(i + 0, j + 7, k + 11, air);
-		world.setBlock(i + 1, j + 1, k + 0, air);
+		world.setBlock(i, j + 1, k, air);
+		world.setBlock(i, j + 1, k + 1, air);
+		world.setBlock(i, j + 1, k + 2, air);
+		world.setBlock(i, j + 1, k + 3, air);
+		world.setBlock(i, j + 1, k + 4, air);
+		world.setBlock(i, j + 1, k + 5, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 1, k + 6, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 1, k + 7, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 1, k + 8, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 1, k + 9, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 1, k + 10, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 1, k + 11, air);
+		world.setBlock(i, j + 2, k, air);
+		world.setBlock(i, j + 2, k + 1, air);
+		world.setBlock(i, j + 2, k + 2, air);
+		world.setBlock(i, j + 2, k + 3, air);
+		world.setBlock(i, j + 2, k + 4, air);
+		world.setBlock(i, j + 2, k + 5, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 2, k + 6, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 2, k + 7, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 2, k + 8, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 2, k + 9, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 2, k + 10, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 2, k + 11, air);
+		world.setBlock(i, j + 3, k, air);
+		world.setBlock(i, j + 3, k + 1, air);
+		world.setBlock(i, j + 3, k + 2, air);
+		world.setBlock(i, j + 3, k + 3, air);
+		world.setBlock(i, j + 3, k + 4, air);
+		world.setBlock(i, j + 3, k + 5, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 3, k + 6, wood, 1, 2);
+		world.setBlock(i, j + 3, k + 7, thinGlass, 0, 2);
+		world.setBlock(i, j + 3, k + 8, thinGlass, 0, 2);
+		world.setBlock(i, j + 3, k + 9, wood, 1, 2);
+		world.setBlock(i, j + 3, k + 10, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 3, k + 11, air);
+		world.setBlock(i, j + 4, k, air);
+		world.setBlock(i, j + 4, k + 1, air);
+		world.setBlock(i, j + 4, k + 2, air);
+		world.setBlock(i, j + 4, k + 3, air);
+		world.setBlock(i, j + 4, k + 4, stairsWoodOak, 2, 2);
+		world.setBlock(i, j + 4, k + 5, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 4, k + 6, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 4, k + 7, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 4, k + 8, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 4, k + 9, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 4, k + 10, cobbledGrimstone, 0, 2);
+		world.setBlock(i, j + 4, k + 11, stairsWoodOak, 3, 2);
+		world.setBlock(i, j + 5, k, air);
+		world.setBlock(i, j + 5, k + 1, air);
+		world.setBlock(i, j + 5, k + 2, air);
+		world.setBlock(i, j + 5, k + 3, air);
+		world.setBlock(i, j + 5, k + 4, air);
+		world.setBlock(i, j + 5, k + 5, stairsWoodOak, 2, 2);
+		world.setBlock(i, j + 5, k + 6, planks, 5, 2);
+		world.setBlock(i, j + 5, k + 7, planks, 5, 2);
+		world.setBlock(i, j + 5, k + 8, planks, 5, 2);
+		world.setBlock(i, j + 5, k + 9, planks, 5, 2);
+		world.setBlock(i, j + 5, k + 10, stairsWoodOak, 3, 2);
+		world.setBlock(i, j + 5, k + 11, air);
+		world.setBlock(i, j + 6, k, air);
+		world.setBlock(i, j + 6, k + 1, air);
+		world.setBlock(i, j + 6, k + 2, air);
+		world.setBlock(i, j + 6, k + 3, air);
+		world.setBlock(i, j + 6, k + 4, air);
+		world.setBlock(i, j + 6, k + 5, air);
+		world.setBlock(i, j + 6, k + 6, stairsWoodOak, 2, 2);
+		world.setBlock(i, j + 6, k + 7, planks, 5, 2);
+		world.setBlock(i, j + 6, k + 8, planks, 5, 2);
+		world.setBlock(i, j + 6, k + 9, stairsWoodOak, 3, 2);
+		world.setBlock(i, j + 6, k + 10, air);
+		world.setBlock(i, j + 6, k + 11, air);
+		world.setBlock(i, j + 7, k, air);
+		world.setBlock(i, j + 7, k + 1, air);
+		world.setBlock(i, j + 7, k + 2, air);
+		world.setBlock(i, j + 7, k + 3, air);
+		world.setBlock(i, j + 7, k + 4, air);
+		world.setBlock(i, j + 7, k + 5, air);
+		world.setBlock(i, j + 7, k + 6, air);
+		world.setBlock(i, j + 7, k + 7, stairsWoodOak, 2, 2);
+		world.setBlock(i, j + 7, k + 8, stairsWoodOak, 3, 2);
+		world.setBlock(i, j + 7, k + 9, air);
+		world.setBlock(i, j + 7, k + 10, air);
+		world.setBlock(i, j + 7, k + 11, air);
+		world.setBlock(i + 1, j + 1, k, air);
 		world.setBlock(i + 1, j + 1, k + 1, air);
 		world.setBlock(i + 1, j + 1, k + 2, air);
 		world.setBlock(i + 1, j + 1, k + 3, air);
@@ -191,7 +188,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 1, j + 1, k + 9, planks, 5, 2);
 		world.setBlock(i + 1, j + 1, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 1, j + 1, k + 11, air);
-		world.setBlock(i + 1, j + 2, k + 0, air);
+		world.setBlock(i + 1, j + 2, k, air);
 		world.setBlock(i + 1, j + 2, k + 1, air);
 		world.setBlock(i + 1, j + 2, k + 2, air);
 		world.setBlock(i + 1, j + 2, k + 3, air);
@@ -203,7 +200,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 1, j + 2, k + 9, air);
 		world.setBlock(i + 1, j + 2, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 11, air);
-		world.setBlock(i + 1, j + 3, k + 0, air);
+		world.setBlock(i + 1, j + 3, k, air);
 		world.setBlock(i + 1, j + 3, k + 1, air);
 		world.setBlock(i + 1, j + 3, k + 2, air);
 		world.setBlock(i + 1, j + 3, k + 3, air);
@@ -215,7 +212,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 1, j + 3, k + 9, air);
 		world.setBlock(i + 1, j + 3, k + 10, planks, 5, 2);
 		world.setBlock(i + 1, j + 3, k + 11, air);
-		world.setBlock(i + 1, j + 4, k + 0, air);
+		world.setBlock(i + 1, j + 4, k, air);
 		world.setBlock(i + 1, j + 4, k + 1, air);
 		world.setBlock(i + 1, j + 4, k + 2, air);
 		world.setBlock(i + 1, j + 4, k + 3, air);
@@ -227,7 +224,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 1, j + 4, k + 9, air);
 		world.setBlock(i + 1, j + 4, k + 10, planks, 5, 2);
 		world.setBlock(i + 1, j + 4, k + 11, stairsWoodOak, 3, 2);
-		world.setBlock(i + 1, j + 5, k + 0, air);
+		world.setBlock(i + 1, j + 5, k, air);
 		world.setBlock(i + 1, j + 5, k + 1, air);
 		world.setBlock(i + 1, j + 5, k + 2, air);
 		world.setBlock(i + 1, j + 5, k + 3, air);
@@ -239,7 +236,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 1, j + 5, k + 9, planks, 5, 2);
 		world.setBlock(i + 1, j + 5, k + 10, stairsWoodOak, 3, 2);
 		world.setBlock(i + 1, j + 5, k + 11, air);
-		world.setBlock(i + 1, j + 6, k + 0, air);
+		world.setBlock(i + 1, j + 6, k, air);
 		world.setBlock(i + 1, j + 6, k + 1, air);
 		world.setBlock(i + 1, j + 6, k + 2, air);
 		world.setBlock(i + 1, j + 6, k + 3, air);
@@ -251,7 +248,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 1, j + 6, k + 9, stairsWoodOak, 3, 2);
 		world.setBlock(i + 1, j + 6, k + 10, air);
 		world.setBlock(i + 1, j + 6, k + 11, air);
-		world.setBlock(i + 1, j + 7, k + 0, air);
+		world.setBlock(i + 1, j + 7, k, air);
 		world.setBlock(i + 1, j + 7, k + 1, air);
 		world.setBlock(i + 1, j + 7, k + 2, air);
 		world.setBlock(i + 1, j + 7, k + 3, air);
@@ -263,13 +260,8 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 1, j + 7, k + 9, air);
 		world.setBlock(i + 1, j + 7, k + 10, air);
 		world.setBlock(i + 1, j + 7, k + 11, air);
-		//world.setBlock(i + 2, j + 1, k + 0, Nullstone, 0, 2);
-		//world.setBlock(i + 2, j + 1, k + 1, Nullstone, 0, 2);
-		//world.setBlock(i + 2, j + 1, k + 2, Nullstone, 0, 2);
-		//world.setBlock(i + 2, j + 1, k + 3, Nullstone, 0, 2);
-		//world.setBlock(i + 2, j + 1, k + 4, Nullstone, 0, 2);
 		
-		world.setBlock(i + 2, j + 4, k + 0, NovaCraftBlocks.sculk_brick_slab, 5, 2);
+		world.setBlock(i + 2, j + 4, k, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 2, j + 4, k + 1, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 2, j + 4, k + 2, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 2, j + 4, k + 3, NovaCraftBlocks.sculk_brick_slab, 5, 2);
@@ -282,19 +274,19 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 2, j + 1, k + 9, planks, 5, 2);
 		world.setBlock(i + 2, j + 1, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 2, j + 1, k + 11, NovaCraftBlocks.cobbled_grimstone_stairs, 3, 2);
-		world.setBlock(i + 2, j + 2, k + 0, fence, 0, 2);
+		world.setBlock(i + 2, j + 2, k, fence, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 1, fence, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 2, fence, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 3, fence, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 4, fence, 0, 2);
 		
-		world.setBlock(i + 2, j + 3, k + 0, fence, 0, 2);
+		world.setBlock(i + 2, j + 3, k, fence, 0, 2);
 		world.setBlock(i + 2, j + 3, k + 1, fence, 0, 2);
 		world.setBlock(i + 2, j + 3, k + 2, fence, 0, 2);
 		world.setBlock(i + 2, j + 3, k + 3, fence, 0, 2);
 		world.setBlock(i + 2, j + 3, k + 4, fence, 0, 2);
 		
-		world.setBlock(i + 2, j + 1, k + 0, cobbledGrimstone2, 0, 2);
+		world.setBlock(i + 2, j + 1, k, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 2, j + 1, k + 1, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 2, j + 1, k + 2, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 2, j + 1, k + 3, cobbledGrimstone2, 0, 2);
@@ -302,24 +294,15 @@ public class VindicatorHouseMedium extends WorldGenerator
 		
 		world.setBlock(i + 2, j + 2, k + 5, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 6, stairsWoodOak, 3, 2);
-		world.setBlock(i + 2, j + 2, k + 7, fence, 0, 2); //in house
+		world.setBlock(i + 2, j + 2, k + 7, fence, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 8, air);
 		world.setBlock(i + 2, j + 2, k + 9, air);
 		world.setBlock(i + 2, j + 2, k + 11, air);
-		//world.setBlock(i + 2, j + 3, k + 0, air);
-		//world.setBlock(i + 2, j + 3, k + 1, air);
-		//world.setBlock(i + 2, j + 3, k + 2, air);
-		//world.setBlock(i + 2, j + 3, k + 3, air);
-		//world.setBlock(i + 2, j + 3, k + 4, air);
 		world.setBlock(i + 2, j + 3, k + 5, thinGlass, 0, 2);
 		world.setBlock(i + 2, j + 3, k + 6, air);
 		world.setBlock(i + 2, j + 3, k + 8, air);
 		world.setBlock(i + 2, j + 3, k + 9, air);
 		world.setBlock(i + 2, j + 3, k + 11, air);
-		//world.setBlock(i + 2, j + 4, k + 0, air);
-		//world.setBlock(i + 2, j + 4, k + 1, air);
-		//world.setBlock(i + 2, j + 4, k + 2, air);
-		//world.setBlock(i + 2, j + 4, k + 3, air);
 		world.setBlock(i + 2, j + 4, k + 4, stairsWoodOak, 2, 2);
 		world.setBlock(i + 2, j + 4, k + 5, planks, 5, 2);
 		world.setBlock(i + 2, j + 4, k + 6, air);
@@ -327,7 +310,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 2, j + 4, k + 8, air);
 		world.setBlock(i + 2, j + 4, k + 10, planks, 5, 2);
 		world.setBlock(i + 2, j + 4, k + 11, stairsWoodOak, 3, 2);
-		world.setBlock(i + 2, j + 5, k + 0, air);
+		world.setBlock(i + 2, j + 5, k, air);
 		world.setBlock(i + 2, j + 5, k + 1, air);
 		world.setBlock(i + 2, j + 5, k + 2, air);
 		world.setBlock(i + 2, j + 5, k + 3, air);
@@ -339,7 +322,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 2, j + 5, k + 9, planks, 5, 2);
 		world.setBlock(i + 2, j + 5, k + 10, stairsWoodOak, 3, 2);
 		world.setBlock(i + 2, j + 5, k + 11, air);
-		world.setBlock(i + 2, j + 6, k + 0, air);
+		world.setBlock(i + 2, j + 6, k, air);
 		world.setBlock(i + 2, j + 6, k + 1, air);
 		world.setBlock(i + 2, j + 6, k + 2, air);
 		world.setBlock(i + 2, j + 6, k + 3, air);
@@ -351,7 +334,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 2, j + 6, k + 9, stairsWoodOak, 3, 2);
 		world.setBlock(i + 2, j + 6, k + 10, air);
 		world.setBlock(i + 2, j + 6, k + 11, air);
-		world.setBlock(i + 2, j + 7, k + 0, air);
+		world.setBlock(i + 2, j + 7, k, air);
 		world.setBlock(i + 2, j + 7, k + 1, air);
 		world.setBlock(i + 2, j + 7, k + 2, air);
 		world.setBlock(i + 2, j + 7, k + 3, air);
@@ -363,7 +346,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 2, j + 7, k + 9, air);
 		world.setBlock(i + 2, j + 7, k + 10, air);
 		world.setBlock(i + 2, j + 7, k + 11, air);
-		//world.setBlock(i + 3, j + 1, k + 0, Nullstone, 0, 2);
 		world.setBlock(i + 3, j + 1, k + 1, Nullstone, 0, 2);
 		world.setBlock(i + 3, j + 1, k + 2, Nullstone, 0, 2);
 		world.setBlock(i + 3, j + 1, k + 3, Nullstone, 0, 2);
@@ -372,7 +354,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 3, j + 2, k + 2, NovaCraftBlocks.null_wart, 0, 2);
 		world.setBlock(i + 3, j + 2, k + 3, NovaCraftBlocks.null_wart, 0, 2);
 		
-		world.setBlock(i + 3, j + 4, k + 0, NovaCraftBlocks.sculk_brick_slab, 5, 2);
+		world.setBlock(i + 3, j + 4, k, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 3, j + 4, k + 1, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 3, j + 4, k + 2, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 3, j + 4, k + 3, NovaCraftBlocks.sculk_brick_slab, 5, 2);
@@ -385,12 +367,10 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 3, j + 1, k + 9, planks, 5, 2);
 		world.setBlock(i + 3, j + 1, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 3, j + 1, k + 11, air);
-		world.setBlock(i + 3, j + 2, k + 0, fence, 0, 2);
-		world.setBlock(i + 3, j + 3, k + 0, fence, 0, 2);
-		world.setBlock(i + 3, j + 1, k + 0, cobbledGrimstone2, 0, 2);
+		world.setBlock(i + 3, j + 2, k, fence, 0, 2);
+		world.setBlock(i + 3, j + 3, k, fence, 0, 2);
+		world.setBlock(i + 3, j + 1, k, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 3, j + 2, k + 1, air);
-		//world.setBlock(i + 3, j + 2, k + 2, air);
-		//world.setBlock(i + 3, j + 2, k + 3, air);
 		world.setBlock(i + 3, j + 2, k + 4, air);
 		world.setBlock(i + 3, j + 2, k + 5, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 3, j + 2, k + 6, air);
@@ -399,7 +379,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 3, j + 2, k + 9, air);
 		world.setBlock(i + 3, j + 2, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 3, j + 2, k + 11, air);
-		//world.setBlock(i + 3, j + 3, k + 0, air);
 		world.setBlock(i + 3, j + 3, k + 1, air);
 		world.setBlock(i + 3, j + 3, k + 2, air);
 		world.setBlock(i + 3, j + 3, k + 3, air);
@@ -411,10 +390,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 3, j + 3, k + 9, air);
 		world.setBlock(i + 3, j + 3, k + 10, planks, 5, 2);
 		world.setBlock(i + 3, j + 3, k + 11, air);
-		//world.setBlock(i + 3, j + 4, k + 0, air);
-		//world.setBlock(i + 3, j + 4, k + 1, air);
-		//world.setBlock(i + 3, j + 4, k + 2, air);
-		//world.setBlock(i + 3, j + 4, k + 3, air);
 		world.setBlock(i + 3, j + 4, k + 4, stairsWoodOak, 2, 2);
 		world.setBlock(i + 3, j + 4, k + 5, planks, 5, 2);
 		world.setBlock(i + 3, j + 4, k + 6, air);
@@ -423,7 +398,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 3, j + 4, k + 9, air);
 		world.setBlock(i + 3, j + 4, k + 10, planks, 5, 2);
 		world.setBlock(i + 3, j + 4, k + 11, stairsWoodOak, 3, 2);
-		world.setBlock(i + 3, j + 5, k + 0, air);
+		world.setBlock(i + 3, j + 5, k, air);
 		world.setBlock(i + 3, j + 5, k + 1, air);
 		world.setBlock(i + 3, j + 5, k + 2, air);
 		world.setBlock(i + 3, j + 5, k + 3, air);
@@ -435,7 +410,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 3, j + 5, k + 9, planks, 5, 2);
 		world.setBlock(i + 3, j + 5, k + 10, stairsWoodOak, 3, 2);
 		world.setBlock(i + 3, j + 5, k + 11, air);
-		world.setBlock(i + 3, j + 6, k + 0, air);
+		world.setBlock(i + 3, j + 6, k, air);
 		world.setBlock(i + 3, j + 6, k + 1, air);
 		world.setBlock(i + 3, j + 6, k + 2, air);
 		world.setBlock(i + 3, j + 6, k + 3, air);
@@ -447,7 +422,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 3, j + 6, k + 9, stairsWoodOak, 3, 2);
 		world.setBlock(i + 3, j + 6, k + 10, air);
 		world.setBlock(i + 3, j + 6, k + 11, air);
-		world.setBlock(i + 3, j + 7, k + 0, air);
+		world.setBlock(i + 3, j + 7, k, air);
 		world.setBlock(i + 3, j + 7, k + 1, air);
 		world.setBlock(i + 3, j + 7, k + 2, air);
 		world.setBlock(i + 3, j + 7, k + 3, air);
@@ -459,13 +434,12 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 3, j + 7, k + 9, air);
 		world.setBlock(i + 3, j + 7, k + 10, air);
 		world.setBlock(i + 3, j + 7, k + 11, air);
-		//world.setBlock(i + 4, j + 1, k + 0, Nullstone, 0, 2);
 		world.setBlock(i + 4, j + 1, k + 1, Nullstone, 0, 2);
 		world.setBlock(i + 4, j + 1, k + 2, Nullstone, 0, 2);
 		world.setBlock(i + 4, j + 1, k + 3, Nullstone, 0, 2);
 		world.setBlock(i + 4, j + 1, k + 4, Nullstone, 0, 2);
 		
-		world.setBlock(i + 4, j + 4, k + 0, NovaCraftBlocks.sculk_brick_slab, 5, 2);
+		world.setBlock(i + 4, j + 4, k, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 4, j + 4, k + 1, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 4, j + 4, k + 2, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 4, j + 4, k + 3, NovaCraftBlocks.sculk_brick_slab, 5, 2);
@@ -478,9 +452,9 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 4, j + 1, k + 9, planks, 5, 2);
 		world.setBlock(i + 4, j + 1, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 4, j + 1, k + 11, air);
-		world.setBlock(i + 4, j + 2, k + 0, fence, 0, 2);
-		world.setBlock(i + 4, j + 3, k + 0, fence, 0, 2);
-		world.setBlock(i + 4, j + 1, k + 0, cobbledGrimstone2, 0, 2);
+		world.setBlock(i + 4, j + 2, k, fence, 0, 2);
+		world.setBlock(i + 4, j + 3, k, fence, 0, 2);
+		world.setBlock(i + 4, j + 1, k, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 4, j + 2, k + 1, air);
 		world.setBlock(i + 4, j + 2, k + 2, air);
 		world.setBlock(i + 4, j + 2, k + 3, air);
@@ -492,7 +466,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 4, j + 2, k + 9, air);
 		world.setBlock(i + 4, j + 2, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 4, j + 2, k + 11, air);
-		//world.setBlock(i + 4, j + 3, k + 0, air);
 		world.setBlock(i + 4, j + 3, k + 1, air);
 		world.setBlock(i + 4, j + 3, k + 2, air);
 		world.setBlock(i + 4, j + 3, k + 3, air);
@@ -504,10 +477,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 4, j + 3, k + 9, air);
 		world.setBlock(i + 4, j + 3, k + 10, planks, 5, 2);
 		world.setBlock(i + 4, j + 3, k + 11, air);
-		//world.setBlock(i + 4, j + 4, k + 0, air);
-		//world.setBlock(i + 4, j + 4, k + 1, air);
-		//world.setBlock(i + 4, j + 4, k + 2, air);
-		//world.setBlock(i + 4, j + 4, k + 3, air);
 		world.setBlock(i + 4, j + 4, k + 4, stairsWoodOak, 2, 2);
 		world.setBlock(i + 4, j + 4, k + 5, planks, 5, 2);
 		world.setBlock(i + 4, j + 4, k + 6, air);
@@ -516,7 +485,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 4, j + 4, k + 9, air);
 		world.setBlock(i + 4, j + 4, k + 10, planks, 5, 2);
 		world.setBlock(i + 4, j + 4, k + 11, stairsWoodOak, 3, 2);
-		world.setBlock(i + 4, j + 5, k + 0, air);
+		world.setBlock(i + 4, j + 5, k, air);
 		world.setBlock(i + 4, j + 5, k + 1, air);
 		world.setBlock(i + 4, j + 5, k + 2, air);
 		world.setBlock(i + 4, j + 5, k + 3, air);
@@ -528,7 +497,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 4, j + 5, k + 9, planks, 5, 2);
 		world.setBlock(i + 4, j + 5, k + 10, stairsWoodOak, 3, 2);
 		world.setBlock(i + 4, j + 5, k + 11, air);
-		world.setBlock(i + 4, j + 6, k + 0, air);
+		world.setBlock(i + 4, j + 6, k, air);
 		world.setBlock(i + 4, j + 6, k + 1, air);
 		world.setBlock(i + 4, j + 6, k + 2, air);
 		world.setBlock(i + 4, j + 6, k + 3, air);
@@ -540,7 +509,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 4, j + 6, k + 9, stairsWoodOak, 3, 2);
 		world.setBlock(i + 4, j + 6, k + 10, air);
 		world.setBlock(i + 4, j + 6, k + 11, air);
-		world.setBlock(i + 4, j + 7, k + 0, air);
+		world.setBlock(i + 4, j + 7, k, air);
 		world.setBlock(i + 4, j + 7, k + 1, air);
 		world.setBlock(i + 4, j + 7, k + 2, air);
 		world.setBlock(i + 4, j + 7, k + 3, air);
@@ -552,13 +521,12 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 4, j + 7, k + 9, air);
 		world.setBlock(i + 4, j + 7, k + 10, air);
 		world.setBlock(i + 4, j + 7, k + 11, air);
-		//world.setBlock(i + 5, j + 1, k + 0, Nullstone, 0, 2);
 		world.setBlock(i + 5, j + 1, k + 1, Nullstone, 0, 2);
 		world.setBlock(i + 5, j + 1, k + 2, Nullstone, 0, 2);
 		world.setBlock(i + 5, j + 1, k + 3, Nullstone, 0, 2);
 		world.setBlock(i + 5, j + 1, k + 4, Nullstone, 0, 2);
 		
-		world.setBlock(i + 5, j + 4, k + 0, NovaCraftBlocks.sculk_brick_slab, 5, 2);
+		world.setBlock(i + 5, j + 4, k, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 5, j + 4, k + 1, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 5, j + 4, k + 2, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 5, j + 4, k + 3, NovaCraftBlocks.sculk_brick_slab, 5, 2);
@@ -571,9 +539,9 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 5, j + 1, k + 9, sculkBlock, 0, 2);
 		world.setBlock(i + 5, j + 1, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 5, j + 1, k + 11, air);
-		world.setBlock(i + 5, j + 2, k + 0, fence, 0, 2);
-		world.setBlock(i + 5, j + 3, k + 0, fence, 0, 2);
-		world.setBlock(i + 5, j + 1, k + 0, cobbledGrimstone2, 0, 2);
+		world.setBlock(i + 5, j + 2, k, fence, 0, 2);
+		world.setBlock(i + 5, j + 3, k, fence, 0, 2);
+		world.setBlock(i + 5, j + 1, k, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 5, j + 2, k + 1, air);
 		world.setBlock(i + 5, j + 2, k + 2, air);
 		world.setBlock(i + 5, j + 2, k + 3, air);
@@ -585,7 +553,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 5, j + 2, k + 9, air);
 		world.setBlock(i + 5, j + 2, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 5, j + 2, k + 11, air);
-		//world.setBlock(i + 5, j + 3, k + 0, air);
 		world.setBlock(i + 5, j + 3, k + 1, air);
 		world.setBlock(i + 5, j + 3, k + 2, air);
 		world.setBlock(i + 5, j + 3, k + 3, air);
@@ -597,10 +564,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 5, j + 3, k + 9, air);
 		world.setBlock(i + 5, j + 3, k + 10, thinGlass, 0, 2);
 		world.setBlock(i + 5, j + 3, k + 11, air);
-		//world.setBlock(i + 5, j + 4, k + 0, air);
-		//world.setBlock(i + 5, j + 4, k + 1, air);
-		//world.setBlock(i + 5, j + 4, k + 2, air);
-		//world.setBlock(i + 5, j + 4, k + 3, air);
 		world.setBlock(i + 5, j + 4, k + 4, stairsWoodOak, 2, 2);
 		world.setBlock(i + 5, j + 4, k + 5, planks, 5, 2);
 		world.setBlock(i + 5, j + 4, k + 6, air);
@@ -609,7 +572,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 5, j + 4, k + 9, air);
 		world.setBlock(i + 5, j + 4, k + 10, planks, 5, 2);
 		world.setBlock(i + 5, j + 4, k + 11, stairsWoodOak, 3, 2);
-		world.setBlock(i + 5, j + 5, k + 0, air);
+		world.setBlock(i + 5, j + 5, k, air);
 		world.setBlock(i + 5, j + 5, k + 1, air);
 		world.setBlock(i + 5, j + 5, k + 2, air);
 		world.setBlock(i + 5, j + 5, k + 3, air);
@@ -621,7 +584,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 5, j + 5, k + 9, planks, 5, 2);
 		world.setBlock(i + 5, j + 5, k + 10, stairsWoodOak, 3, 2);
 		world.setBlock(i + 5, j + 5, k + 11, air);
-		world.setBlock(i + 5, j + 6, k + 0, air);
+		world.setBlock(i + 5, j + 6, k, air);
 		world.setBlock(i + 5, j + 6, k + 1, air);
 		world.setBlock(i + 5, j + 6, k + 2, air);
 		world.setBlock(i + 5, j + 6, k + 3, air);
@@ -633,7 +596,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 5, j + 6, k + 9, stairsWoodOak, 3, 2);
 		world.setBlock(i + 5, j + 6, k + 10, air);
 		world.setBlock(i + 5, j + 6, k + 11, air);
-		world.setBlock(i + 5, j + 7, k + 0, air);
+		world.setBlock(i + 5, j + 7, k, air);
 		world.setBlock(i + 5, j + 7, k + 1, air);
 		world.setBlock(i + 5, j + 7, k + 2, air);
 		world.setBlock(i + 5, j + 7, k + 3, air);
@@ -645,13 +608,12 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 5, j + 7, k + 9, air);
 		world.setBlock(i + 5, j + 7, k + 10, air);
 		world.setBlock(i + 5, j + 7, k + 11, air);
-		//world.setBlock(i + 6, j + 1, k + 0, Nullstone, 0, 2);
 		world.setBlock(i + 6, j + 1, k + 1, Nullstone, 0, 2);
 		world.setBlock(i + 6, j + 1, k + 2, Nullstone, 0, 2);
 		world.setBlock(i + 6, j + 1, k + 3, Nullstone, 0, 2);
 		world.setBlock(i + 6, j + 1, k + 4, Nullstone, 0, 2);
 		
-		world.setBlock(i + 6, j + 4, k + 0, NovaCraftBlocks.sculk_brick_slab, 5, 2);
+		world.setBlock(i + 6, j + 4, k, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 6, j + 4, k + 1, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 6, j + 4, k + 2, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 6, j + 4, k + 3, NovaCraftBlocks.sculk_brick_slab, 5, 2);
@@ -664,9 +626,9 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 6, j + 1, k + 9, sculkBlock, 0, 2);
 		world.setBlock(i + 6, j + 1, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 6, j + 1, k + 11, air);
-		world.setBlock(i + 6, j + 2, k + 0, fence, 0, 2);
-		world.setBlock(i + 6, j + 3, k + 0, fence, 0, 2);
-		world.setBlock(i + 6, j + 1, k + 0, cobbledGrimstone2, 0, 2);
+		world.setBlock(i + 6, j + 2, k, fence, 0, 2);
+		world.setBlock(i + 6, j + 3, k, fence, 0, 2);
+		world.setBlock(i + 6, j + 1, k, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 6, j + 2, k + 1, air);
 		world.setBlock(i + 6, j + 2, k + 2, air);
 		world.setBlock(i + 6, j + 2, k + 3, air);
@@ -677,7 +639,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 6, j + 2, k + 9, sculkBlock, 0, 2);
 		world.setBlock(i + 6, j + 2, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 6, j + 2, k + 11, air);
-		//world.setBlock(i + 6, j + 3, k + 0, air);
 		world.setBlock(i + 6, j + 3, k + 1, air);
 		world.setBlock(i + 6, j + 3, k + 2, air);
 		world.setBlock(i + 6, j + 3, k + 3, air);
@@ -688,10 +649,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 6, j + 3, k + 9, air);
 		world.setBlock(i + 6, j + 3, k + 10, planks, 5, 2);
 		world.setBlock(i + 6, j + 3, k + 11, air);
-		//world.setBlock(i + 6, j + 4, k + 0, air);
-		//world.setBlock(i + 6, j + 4, k + 1, air);
-		//world.setBlock(i + 6, j + 4, k + 2, air);
-		//world.setBlock(i + 6, j + 4, k + 3, air);
 		world.setBlock(i + 6, j + 4, k + 4, stairsWoodOak, 2, 2);
 		world.setBlock(i + 6, j + 4, k + 5, planks, 5, 2);
 		world.setBlock(i + 6, j + 4, k + 7, air);
@@ -699,7 +656,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 6, j + 4, k + 9, air);
 		world.setBlock(i + 6, j + 4, k + 10, planks, 5, 2);
 		world.setBlock(i + 6, j + 4, k + 11, stairsWoodOak, 3, 2);
-		world.setBlock(i + 6, j + 5, k + 0, air);
+		world.setBlock(i + 6, j + 5, k, air);
 		world.setBlock(i + 6, j + 5, k + 1, air);
 		world.setBlock(i + 6, j + 5, k + 2, air);
 		world.setBlock(i + 6, j + 5, k + 3, air);
@@ -711,7 +668,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 6, j + 5, k + 9, planks, 5, 2);
 		world.setBlock(i + 6, j + 5, k + 10, stairsWoodOak, 3, 2);
 		world.setBlock(i + 6, j + 5, k + 11, air);
-		world.setBlock(i + 6, j + 6, k + 0, air);
+		world.setBlock(i + 6, j + 6, k, air);
 		world.setBlock(i + 6, j + 6, k + 1, air);
 		world.setBlock(i + 6, j + 6, k + 2, air);
 		world.setBlock(i + 6, j + 6, k + 3, air);
@@ -723,7 +680,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 6, j + 6, k + 9, stairsWoodOak, 3, 2);
 		world.setBlock(i + 6, j + 6, k + 10, air);
 		world.setBlock(i + 6, j + 6, k + 11, air);
-		world.setBlock(i + 6, j + 7, k + 0, air);
+		world.setBlock(i + 6, j + 7, k, air);
 		world.setBlock(i + 6, j + 7, k + 1, air);
 		world.setBlock(i + 6, j + 7, k + 2, air);
 		world.setBlock(i + 6, j + 7, k + 3, air);
@@ -735,22 +692,21 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 6, j + 7, k + 9, air);
 		world.setBlock(i + 6, j + 7, k + 10, air);
 		world.setBlock(i + 6, j + 7, k + 11, air);;
-		//world.setBlock(i + 7, j + 1, k + 0, Nullstone, 0, 2);
 		world.setBlock(i + 7, j + 1, k + 1, Nullstone, 0, 2);
 		world.setBlock(i + 7, j + 1, k + 2, Nullstone, 0, 2);
 		world.setBlock(i + 7, j + 1, k + 3, Nullstone, 0, 2);
 		world.setBlock(i + 7, j + 1, k + 4, Nullstone, 0, 2);
-		
-		world.setBlock(i + 7, j + 4, k + 0, NovaCraftBlocks.sculk_brick_slab, 5, 2);
+		world.setBlock(i + 7, j + 4, k, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 7, j + 4, k + 1, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 7, j + 4, k + 2, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 7, j + 4, k + 3, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 7, j + 4, k + 4, NovaCraftBlocks.sculk_brick_slab, 5, 2);
-		
-		if(rand.nextInt(2) == 0)
-			world.setBlock(i + 5, j + 2, k + 4, Blocks.brown_mushroom, 0, 2);		
-		if(rand.nextInt(2) == 0)
-			world.setBlock(i + 4, j + 2, k + 4, Blocks.red_mushroom, 0, 2);	
+		if(rand.nextInt(2) == 0) {
+			world.setBlock(i + 5, j + 2, k + 4, Blocks.brown_mushroom, 0, 2);
+		}
+		if(rand.nextInt(2) == 0) {
+			world.setBlock(i + 4, j + 2, k + 4, Blocks.red_mushroom, 0, 2);
+		}
 		world.setBlock(i + 7, j + 1, k + 5, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 7, j + 1, k + 6, planks, 5, 2);
 		world.setBlock(i + 7, j + 1, k + 7, sculkBlock, 0, 2);
@@ -758,9 +714,9 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 7, j + 1, k + 9, sculkBlock, 0, 2);
 		world.setBlock(i + 7, j + 1, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 7, j + 1, k + 11, air);
-		world.setBlock(i + 7, j + 2, k + 0, fence, 0, 2);
-		world.setBlock(i + 7, j + 3, k + 0, fence, 0, 2);
-		world.setBlock(i + 7, j + 1, k + 0, cobbledGrimstone2, 0, 2);
+		world.setBlock(i + 7, j + 2, k, fence, 0, 2);
+		world.setBlock(i + 7, j + 3, k, fence, 0, 2);
+		world.setBlock(i + 7, j + 1, k, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 1, air);
 		world.setBlock(i + 7, j + 2, k + 2, air);
 		world.setBlock(i + 7, j + 2, k + 3, air);
@@ -772,7 +728,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 7, j + 2, k + 9, air);
 		world.setBlock(i + 7, j + 2, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 11, air);
-		//world.setBlock(i + 7, j + 3, k + 0, air);
 		world.setBlock(i + 7, j + 3, k + 1, air);
 		world.setBlock(i + 7, j + 3, k + 2, air);
 		world.setBlock(i + 7, j + 3, k + 3, air);
@@ -784,10 +739,6 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 7, j + 3, k + 9, air);
 		world.setBlock(i + 7, j + 3, k + 10, planks, 5, 2);
 		world.setBlock(i + 7, j + 3, k + 11, air);
-		//world.setBlock(i + 7, j + 4, k + 0, air);
-		//world.setBlock(i + 7, j + 4, k + 1, air);
-		//world.setBlock(i + 7, j + 4, k + 2, air);
-		//world.setBlock(i + 7, j + 4, k + 3, air);
 		world.setBlock(i + 7, j + 4, k + 4, stairsWoodOak, 2, 2);
 		world.setBlock(i + 7, j + 4, k + 5, planks, 5, 2);
 		world.setBlock(i + 7, j + 4, k + 6, air);
@@ -796,7 +747,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 7, j + 4, k + 9, air);
 		world.setBlock(i + 7, j + 4, k + 10, planks, 5, 2);
 		world.setBlock(i + 7, j + 4, k + 11, stairsWoodOak, 3, 2);
-		world.setBlock(i + 7, j + 5, k + 0, air);
+		world.setBlock(i + 7, j + 5, k, air);
 		world.setBlock(i + 7, j + 5, k + 1, air);
 		world.setBlock(i + 7, j + 5, k + 2, air);
 		world.setBlock(i + 7, j + 5, k + 3, air);
@@ -808,7 +759,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 7, j + 5, k + 9, planks, 5, 2);
 		world.setBlock(i + 7, j + 5, k + 10, stairsWoodOak, 3, 2);
 		world.setBlock(i + 7, j + 5, k + 11, air);
-		world.setBlock(i + 7, j + 6, k + 0, air);
+		world.setBlock(i + 7, j + 6, k, air);
 		world.setBlock(i + 7, j + 6, k + 1, air);
 		world.setBlock(i + 7, j + 6, k + 2, air);
 		world.setBlock(i + 7, j + 6, k + 3, air);
@@ -820,7 +771,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 7, j + 6, k + 9, stairsWoodOak, 3, 2);
 		world.setBlock(i + 7, j + 6, k + 10, air);
 		world.setBlock(i + 7, j + 6, k + 11, air);
-		world.setBlock(i + 7, j + 7, k + 0, air);
+		world.setBlock(i + 7, j + 7, k, air);
 		world.setBlock(i + 7, j + 7, k + 1, air);
 		world.setBlock(i + 7, j + 7, k + 2, air);
 		world.setBlock(i + 7, j + 7, k + 3, air);
@@ -833,7 +784,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 7, j + 7, k + 10, air);
 		world.setBlock(i + 7, j + 7, k + 11, air);
 		
-		world.setBlock(i + 8, j + 4, k + 0, NovaCraftBlocks.sculk_brick_slab, 5, 2);
+		world.setBlock(i + 8, j + 4, k, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 8, j + 4, k + 1, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 8, j + 4, k + 2, NovaCraftBlocks.sculk_brick_slab, 5, 2);
 		world.setBlock(i + 8, j + 4, k + 3, NovaCraftBlocks.sculk_brick_slab, 5, 2);
@@ -846,19 +797,19 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 8, j + 1, k + 9, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 8, j + 1, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 8, j + 1, k + 11, air);
-		world.setBlock(i + 8, j + 2, k + 0, fence, 0, 2);
+		world.setBlock(i + 8, j + 2, k, fence, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 1, fence, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 2, fence, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 3, fence, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 4, fence, 0, 2);
 		
-		world.setBlock(i + 8, j + 3, k + 0, fence, 0, 2);
+		world.setBlock(i + 8, j + 3, k, fence, 0, 2);
 		world.setBlock(i + 8, j + 3, k + 1, fence, 0, 2);
 		world.setBlock(i + 8, j + 3, k + 2, fence, 0, 2);
 		world.setBlock(i + 8, j + 3, k + 3, fence, 0, 2);
 		world.setBlock(i + 8, j + 3, k + 4, fence, 0, 2);
 		
-		world.setBlock(i + 8, j + 1, k + 0, cobbledGrimstone2, 0, 2);
+		world.setBlock(i + 8, j + 1, k, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 8, j + 1, k + 1, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 8, j + 1, k + 2, cobbledGrimstone2, 0, 2);
 		world.setBlock(i + 8, j + 1, k + 3, cobbledGrimstone2, 0, 2);
@@ -886,7 +837,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 8, j + 4, k + 9, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 8, j + 4, k + 10, cobbledGrimstone, 0, 2);
 		world.setBlock(i + 8, j + 4, k + 11, stairsWoodOak, 3, 2);
-		world.setBlock(i + 8, j + 5, k + 0, air);
+		world.setBlock(i + 8, j + 5, k, air);
 		world.setBlock(i + 8, j + 5, k + 1, air);
 		world.setBlock(i + 8, j + 5, k + 2, air);
 		world.setBlock(i + 8, j + 5, k + 3, air);
@@ -898,7 +849,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 8, j + 5, k + 9, planks, 5, 2);
 		world.setBlock(i + 8, j + 5, k + 10, stairsWoodOak, 3, 2);
 		world.setBlock(i + 8, j + 5, k + 11, air);
-		world.setBlock(i + 8, j + 6, k + 0, air);
+		world.setBlock(i + 8, j + 6, k, air);
 		world.setBlock(i + 8, j + 6, k + 1, air);
 		world.setBlock(i + 8, j + 6, k + 2, air);
 		world.setBlock(i + 8, j + 6, k + 3, air);
@@ -910,7 +861,7 @@ public class VindicatorHouseMedium extends WorldGenerator
 		world.setBlock(i + 8, j + 6, k + 9, stairsWoodOak, 3, 2);
 		world.setBlock(i + 8, j + 6, k + 10, air);
 		world.setBlock(i + 8, j + 6, k + 11, air);
-		world.setBlock(i + 8, j + 7, k + 0, air);
+		world.setBlock(i + 8, j + 7, k, air);
 		world.setBlock(i + 8, j + 7, k + 1, air);
 		world.setBlock(i + 8, j + 7, k + 2, air);
 		world.setBlock(i + 8, j + 7, k + 3, air);
@@ -943,14 +894,13 @@ public class VindicatorHouseMedium extends WorldGenerator
 						isFloorFinished = true;
 				}
 			}
+			EntityIllagerTrader mob = new EntityIllagerTrader(world);
+			mob.setPosition(i + 2, j + 2, k + 12);
+			world.spawnEntityInWorld(mob);
 
-			EntityIllagerTrader var5 = new EntityIllagerTrader(world);
-			var5.setPosition(i+2, j+2, k+12);
-			world.spawnEntityInWorld(var5);
-
-			EntityIllagerTrader var6 = new EntityIllagerTrader(world);
-			var6.setPosition(i+1, j+2, k+12);
-			world.spawnEntityInWorld(var6);
+			EntityIllagerTrader mob2 = new EntityIllagerTrader(world);
+			mob2.setPosition(i + 1, j + 2, k + 12);
+			world.spawnEntityInWorld(mob2);
 
 		return true;
 	}

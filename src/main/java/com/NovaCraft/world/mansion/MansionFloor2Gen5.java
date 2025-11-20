@@ -1,9 +1,5 @@
 package com.NovaCraft.world.mansion;
 
-import com.NovaCraft.config.Configs;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -174,7 +170,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 57, j + 8, k + 73, Blocks.planks, 5, 2);
         world.setBlock(i + 58, j + 8, k + 73, Blocks.planks, 5, 2);
         world.setBlock(i + 59, j + 8, k + 73, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 8, k + 74, Blocks.cobblestone, 0, 2);
+        world.setBlock(i, j + 8, k + 74, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 1, j + 8, k + 74, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 2, j + 8, k + 74, Blocks.planks, 5, 2);
         world.setBlock(i + 3, j + 8, k + 74, Blocks.planks, 5, 2);
@@ -234,7 +230,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 57, j + 8, k + 74, Blocks.planks, 5, 2);
         world.setBlock(i + 58, j + 8, k + 74, Blocks.planks, 5, 2);
         world.setBlock(i + 59, j + 8, k + 74, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 8, k + 75, Blocks.cobblestone_wall, 0, 2);
+        world.setBlock(i, j + 8, k + 75, Blocks.cobblestone_wall, 0, 2);
         world.setBlock(i + 1, j + 8, k + 75, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 26, j + 8, k + 75, Blocks.planks, 5, 2);
         world.setBlock(i + 27, j + 8, k + 75, Blocks.planks, 5, 2);
@@ -304,7 +300,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 57, j + 8, k + 76, Blocks.dark_oak_stairs, 3, 2);
         world.setBlock(i + 58, j + 8, k + 76, Blocks.dark_oak_stairs, 3, 2);
         world.setBlock(i + 59, j + 8, k + 76, Blocks.dark_oak_stairs, 3, 2);
-        world.setBlock(i + 0, j + 9, k + 1, Blocks.cobblestone_wall, 0, 2);
+        world.setBlock(i, j + 9, k + 1, Blocks.cobblestone_wall, 0, 2);
         world.setBlock(i + 1, j + 9, k + 1, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 18, j + 9, k + 1, Blocks.dark_oak_stairs, 2, 2);
         world.setBlock(i + 19, j + 9, k + 1, Blocks.dark_oak_stairs, 2, 2);
@@ -347,7 +343,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 56, j + 9, k + 1, Blocks.dark_oak_stairs, 2, 2);
         world.setBlock(i + 57, j + 9, k + 1, Blocks.dark_oak_stairs, 2, 2);
         world.setBlock(i + 58, j + 9, k + 1, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 9, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i, j + 9, k + 2, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 1, j + 9, k + 2, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 2, j + 9, k + 2, Blocks.planks, 5, 2);
         world.setBlock(i + 3, j + 9, k + 2, Blocks.log2, 9, 2);
@@ -1488,7 +1484,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 49, j + 9, k + 73, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 9, k + 73, Blocks.planks, 5, 2);
         world.setBlock(i + 58, j + 9, k + 73, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 9, k + 74, Blocks.cobblestone, 0, 2);
+        world.setBlock(i, j + 9, k + 74, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 1, j + 9, k + 74, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 2, j + 9, k + 74, Blocks.planks, 5, 2);
         world.setBlock(i + 3, j + 9, k + 74, Blocks.log2, 9, 2);
@@ -1547,7 +1543,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 56, j + 9, k + 74, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 9, k + 74, Blocks.planks, 5, 2);
         world.setBlock(i + 58, j + 9, k + 74, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 9, k + 75, Blocks.cobblestone_wall, 0, 2);
+        world.setBlock(i, j + 9, k + 75, Blocks.cobblestone_wall, 0, 2);
         world.setBlock(i + 1, j + 9, k + 75, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 26, j + 9, k + 75, Blocks.dark_oak_stairs, 3, 2);
         world.setBlock(i + 27, j + 9, k + 75, Blocks.dark_oak_stairs, 3, 2);
@@ -1582,7 +1578,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 56, j + 9, k + 75, Blocks.dark_oak_stairs, 3, 2);
         world.setBlock(i + 57, j + 9, k + 75, Blocks.dark_oak_stairs, 3, 2);
         world.setBlock(i + 58, j + 9, k + 75, Blocks.dark_oak_stairs, 3, 2);
-        world.setBlock(i + 0, j + 10, k + 1, Blocks.cobblestone_wall, 0, 2);
+        world.setBlock(i, j + 10, k + 1, Blocks.cobblestone_wall, 0, 2);
         world.setBlock(i + 1, j + 10, k + 1, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 2, j + 10, k + 1, Blocks.stone_stairs, 6, 2);
         world.setBlock(i + 3, j + 10, k + 1, Blocks.stone_stairs, 5, 2);
@@ -1594,7 +1590,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 15, j + 10, k + 1, Blocks.stone_stairs, 4, 2);
         world.setBlock(i + 16, j + 10, k + 1, Blocks.stone_stairs, 6, 2);
         world.setBlock(i + 17, j + 10, k + 1, Blocks.stone_stairs, 6, 2);
-        world.setBlock(i + 0, j + 10, k + 2, Blocks.cobblestone, 0, 2);
+        world.setBlock(i, j + 10, k + 2, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 1, j + 10, k + 2, Blocks.cobblestone, 0, 2);
         world.setBlock(i + 2, j + 10, k + 2, Blocks.planks, 5, 2);
         world.setBlock(i + 3, j + 10, k + 2, Blocks.planks, 5, 2);
@@ -1652,7 +1648,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 2, Blocks.dark_oak_stairs, 2, 2);
         world.setBlock(i + 56, j + 10, k + 2, Blocks.dark_oak_stairs, 2, 2);
         world.setBlock(i + 57, j + 10, k + 2, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 3, Blocks.stone_stairs, 4, 2);
+        world.setBlock(i, j + 10, k + 3, Blocks.stone_stairs, 4, 2);
         world.setBlock(i + 1, j + 10, k + 3, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 3, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 3, Blocks.planks, 2, 2);
@@ -1710,7 +1706,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 3, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 3, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 3, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 4, Blocks.stone_stairs, 7, 2);
+        world.setBlock(i, j + 10, k + 4, Blocks.stone_stairs, 7, 2);
         world.setBlock(i + 1, j + 10, k + 4, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 4, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 4, Blocks.planks, 2, 2);
@@ -1939,7 +1935,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 7, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 7, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 7, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 8, Blocks.stone_stairs, 6, 2);
+        world.setBlock(i, j + 10, k + 8, Blocks.stone_stairs, 6, 2);
         world.setBlock(i + 1, j + 10, k + 8, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 8, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 8, Blocks.planks, 2, 2);
@@ -1997,7 +1993,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 8, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 8, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 8, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 9, Blocks.stone_stairs, 4, 2);
+        world.setBlock(i, j + 10, k + 9, Blocks.stone_stairs, 4, 2);
         world.setBlock(i + 1, j + 10, k + 9, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 9, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 9, Blocks.planks, 2, 2);
@@ -2055,7 +2051,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 9, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 9, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 9, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 10, Blocks.stone_stairs, 4, 2);
+        world.setBlock(i, j + 10, k + 10, Blocks.stone_stairs, 4, 2);
         world.setBlock(i + 1, j + 10, k + 10, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 10, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 10, Blocks.planks, 2, 2);
@@ -2113,7 +2109,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 10, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 10, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 10, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 11, Blocks.stone_stairs, 4, 2);
+        world.setBlock(i, j + 10, k + 11, Blocks.stone_stairs, 4, 2);
         world.setBlock(i + 1, j + 10, k + 11, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 11, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 11, Blocks.planks, 2, 2);
@@ -2171,7 +2167,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 11, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 11, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 11, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 12, Blocks.stone_stairs, 7, 2);
+        world.setBlock(i, j + 10, k + 12, Blocks.stone_stairs, 7, 2);
         world.setBlock(i + 1, j + 10, k + 12, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 12, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 12, Blocks.planks, 2, 2);
@@ -2400,7 +2396,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 15, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 15, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 15, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 16, Blocks.stone_stairs, 6, 2);
+        world.setBlock(i, j + 10, k + 16, Blocks.stone_stairs, 6, 2);
         world.setBlock(i + 1, j + 10, k + 16, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 16, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 16, Blocks.planks, 2, 2);
@@ -2458,7 +2454,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 16, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 16, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 16, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 17, Blocks.stone_stairs, 4, 2);
+        world.setBlock(i, j + 10, k + 17, Blocks.stone_stairs, 4, 2);
         world.setBlock(i + 1, j + 10, k + 17, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 17, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 17, Blocks.planks, 2, 2);
@@ -2516,7 +2512,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 17, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 17, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 17, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 18, Blocks.stone_stairs, 4, 2);
+        world.setBlock(i, j + 10, k + 18, Blocks.stone_stairs, 4, 2);
         world.setBlock(i + 1, j + 10, k + 18, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 18, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 18, Blocks.planks, 2, 2);
@@ -2574,7 +2570,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 18, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 18, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 18, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 19, Blocks.stone_stairs, 4, 2);
+        world.setBlock(i, j + 10, k + 19, Blocks.stone_stairs, 4, 2);
         world.setBlock(i + 1, j + 10, k + 19, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 19, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 19, Blocks.planks, 2, 2);
@@ -2632,7 +2628,7 @@ public class MansionFloor2Gen5 extends WorldGenerator {
         world.setBlock(i + 55, j + 10, k + 19, Blocks.planks, 5, 2);
         world.setBlock(i + 56, j + 10, k + 19, Blocks.planks, 5, 2);
         world.setBlock(i + 57, j + 10, k + 19, Blocks.dark_oak_stairs, 1, 2);
-        world.setBlock(i + 0, j + 10, k + 20, Blocks.stone_stairs, 7, 2);
+        world.setBlock(i, j + 10, k + 20, Blocks.stone_stairs, 7, 2);
         world.setBlock(i + 1, j + 10, k + 20, Blocks.planks, 5, 2);
         world.setBlock(i + 2, j + 10, k + 20, Blocks.planks, 2, 2);
         world.setBlock(i + 3, j + 10, k + 20, Blocks.planks, 2, 2);

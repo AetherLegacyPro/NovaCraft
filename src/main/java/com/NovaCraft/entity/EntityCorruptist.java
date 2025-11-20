@@ -216,4 +216,9 @@ public class EntityCorruptist extends EntityMob {
         return 0.4F;
     }
 
+    @Override
+    public boolean canDespawn() {
+        return false;
+    }
+
 }

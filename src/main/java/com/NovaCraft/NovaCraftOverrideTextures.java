@@ -1,7 +1,9 @@
 package com.NovaCraft;
 
+import com.NovaCraft.config.Configs;
 import com.NovaCraft.config.ConfigsTextureOverride;
-
+import com.NovaCraft.registry.OtherModBlocks;
+import cpw.mods.fml.common.Loader;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 
@@ -17,6 +19,24 @@ public class NovaCraftOverrideTextures {
             Blocks.lapis_ore.setBlockTextureName("nova_craft:lapis_ore");
             Blocks.redstone_ore.setBlockTextureName("nova_craft:redstone_ore");
             Blocks.lit_redstone_ore.setBlockTextureName("nova_craft:redstone_ore");
+
+            if (Loader.isModLoaded("etfuturum")) {
+                try {
+                    OtherModBlocks.deepslate_coal_ore.setBlockTextureName("deepslate_coal_ore");
+                    OtherModBlocks.deepslate_iron_ore.setBlockTextureName("deepslate_iron_ore");
+                    OtherModBlocks.deepslate_copper_ore.setBlockTextureName("deepslate_copper_ore");
+                    OtherModBlocks.deepslate_lapis_ore.setBlockTextureName("deepslate_lapis_ore");
+                    OtherModBlocks.deepslate_redstone_ore.setBlockTextureName("deepslate_redstone_ore");
+                    OtherModBlocks.deepslate_gold_ore.setBlockTextureName("deepslate_gold_ore");
+                    OtherModBlocks.deepslate_emerald_ore.setBlockTextureName("deepslate_coal_ore");
+                    OtherModBlocks.deepslate_diamond_ore.setBlockTextureName("deepslate_diamond_ore");
+                    OtherModBlocks.copper_ore.setBlockTextureName("copper_ore");
+                } catch (Exception ex) {
+                    if (Configs.enableDebugMode) {
+                        System.out.println("Missing Deepslate Ores, skipping...");
+                    }
+                }
+            }
         }
         if (ConfigsTextureOverride.override_stone_texture) {
             Blocks.stone.setBlockTextureName("nova_craft:stone");
@@ -24,7 +44,6 @@ public class NovaCraftOverrideTextures {
         if (ConfigsTextureOverride.override_gravel_texture) {
             Blocks.gravel.setBlockTextureName("nova_craft:gravel");
         }
-        
         if (ConfigsTextureOverride.override_raw_porkchop_texture) {
         Items.porkchop.setTextureName("nova_craft:porkchop_raw");
         }

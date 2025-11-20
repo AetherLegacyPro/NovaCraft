@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
 public class Configs {
+    //Important Options
     public static float gammaAlterations;
     public static boolean enableGammaAlterations;
     public static boolean enableDebugMode;
@@ -13,6 +14,9 @@ public class Configs {
     public static boolean enableNoSkippingTheNight;
     public static boolean disableEnchantedGoldenAppleRecipe;
     public static boolean enableWeaponsToAllignWithVanilla;
+    public static boolean enableHalfNaturalRegenInEnd;
+
+    //Vanilla Ore Generation Alterations
     public static boolean disableRegularVanillaGen;
     public static boolean disableRegularVanillaOres;
     public static boolean disableCustom;
@@ -27,10 +31,8 @@ public class Configs {
     public static boolean disableNetherQuartz;
     public static boolean disableEmerald;
     public static boolean disableMonsterEgg;
-    public static int[] DeeperCavesBlacklist;
-    public static boolean DeeperCavesBlacklistAsWhitelist;
-    public static int[] WorldGenDimensionBlacklist;
-    public static boolean WorldGenDimensionBlacklistAsWhitelist;
+
+    //Vanilla Biome Alterations
     public static boolean enableVanillaBiomeAlterations;
     public static boolean enableVanillaHillBiomeAlterations;
     public static boolean enableVanillaMountainBiomeAlterations;
@@ -39,6 +41,14 @@ public class Configs {
     public static boolean enableBeachBiomeAlterations;
     public static boolean enableWaterBiomeAlterations;
     public static boolean enableMiscBiomeAlterations;
+
+    //Deeper Caves Compact
+    public static boolean WorldGenDimensionBlacklistAsWhitelist;
+    public static int[] DeeperCavesBlacklist;
+    public static boolean DeeperCavesBlacklistAsWhitelist;
+    public static int[] WorldGenDimensionBlacklist;
+
+    //Grimstone Generation
     public static boolean enableGrimstone;
     public static boolean enableGrimstoneDiamond;
     public static boolean enableGrimstoneIron;
@@ -46,6 +56,8 @@ public class Configs {
     public static boolean enableGrimstoneLapis;
     public static boolean enableGrimstoneRedstone;
     public static boolean enableGrimstoneEmerald;
+
+    //Nullstone Generation
     public static boolean enableNullstone;
     public static boolean enableNullstoneDiamond;
     public static boolean enableNullstoneIron;
@@ -53,12 +65,15 @@ public class Configs {
     public static boolean enableNullstoneLapis;
     public static boolean enableNullstoneRedstone;
     public static boolean enableNullstoneEmerald;
+
+    //Etherstone Generation
     public static boolean enableEtherstone;
     public static boolean enableEtherstoneGold;
     public static boolean enableEtherstoneIron;
     public static boolean enableEtherstoneEmerald;
     public static boolean enableEtherstoneCoal;
-    public static boolean enableMountainOres;
+
+    //Additional Vanilla Ore Generation
     public static boolean enableExtraEmeraldOreGeneration;
     public static boolean enableAdditonalDiamondOreGeneration;
     public static boolean enableAdditonalCoalOreGeneration;
@@ -66,47 +81,77 @@ public class Configs {
     public static boolean enableAdditonalGoldOreGeneration;
     public static boolean enableAdditonalRedstoneOreGeneration;
     public static boolean enableAdditonalLapisOreGeneration;
+    public static boolean enableMountainOres;
+
+    //New Ore Generation and Decoration
     public static boolean enableBrimstoneOre;
+    public static boolean enablePherithiumGeneration;
+    public static boolean enablePherithiumOreGeneration;
+
+    public static boolean enableMossGeneration;
+    public static boolean enableGlowLichenGeneration;
+    public static boolean enableLichenGeneration;
+    public static boolean enableNovaMushrooomGeneration;
     public static boolean enableSculkGeneration;
     public static boolean enableSculkGenerationAllBiomes;
     public static boolean enableStalagAndStalacGeneration;
-    public static boolean enableMossGeneration;
-    public static boolean enableRareCrystalGeneration;
-    public static boolean enablePherithiumGeneration;
-    public static boolean enablePherithiumOreGeneration;
-    public static boolean enableLichenGeneration;
-    public static boolean enableGlowLichenGeneration;
-    public static boolean enableNovaMushrooomGeneration;
-    public static boolean enableYttrlinisteOverworldGeneration;
+
+    public static boolean enableBasal;
     public static boolean enableEndstoneBlobs;
     public static boolean enableFrontierslate;
     public static boolean enableVacuumSand;
-    public static boolean enableBasal;
+
+    //Optional Changes
     public static boolean enableRareOverworldKlangiteOre;
     public static boolean enableRareOverworldTophiniteOre;
+    public static boolean enableRareCrystalGeneration;
+    public static boolean enableYttrlinisteOverworldGeneration;
+
+    //Structures
+    public static boolean enableAncientCity;
+    public static boolean enableInfestedBastion;
+    public static boolean enableMansion;
+    public static boolean enableDeepoidFortress;
+    public static boolean enableSculkInfestedMineshaft;
     public static boolean enableMassiveCraters;
     public static boolean enableCraters;
+    public static int vindicatorVillageSpawnRate;
+    public static boolean enableLuminantTreeGeneration;
+    public static boolean enableLargeLuminantTreeGeneration;
+    public static boolean enableLacunaTreeGeneration;
+    public static boolean enableVindicatorForestHouseGeneration;
+    public static boolean enableOceanDungeonsGeneration;
+    public static boolean enableDesertCreeperStatueGeneration;
+    public static boolean enableSlimeStatueGeneration;
+    public static int endIslandSpawnRate;
+    public static int destituteIslandSpawnRate;
+
+    //Particles
     public static boolean enableGlowSquidParticles;
     public static boolean enableEnderLordParticles;
     public static boolean enableWardenParticles;
     public static boolean enableVoidEntityParticles;
     public static boolean enableFireflyParticles;
     public static boolean enableIonizatiorParticles;
-    public static boolean enableCalciteGeneration;
-    public static boolean enableNovaCraftTuffGeneration;
-    public static boolean enableDeepslateOreGeneration;
-    public static boolean enableRawOreBlocksStructures;
-    public static boolean enableCalciteBrickRecipe;
-    public static boolean enableTuffBrickRecipe;
-    public static boolean enablePrismarineInStructures;
-    public static boolean enableBlockOfRawNetheriteRecipe;
-    public static boolean enableAlternateAmpJumpPotionRecipe;
-    public static boolean enableEtFuturumIronNugget;
-    public static boolean enableNetheriteInRecipes;
+
+    //Misc
     public static boolean enableCrystalGolemAura;
     public static boolean enableLuminantLeavesGlow;
     public static boolean enableAncientCityTotem;
     public static boolean enableSculkStoneSpreading;
+    public static boolean enableAetherLegacyOptions;
+    public static boolean enableRawDivineral;
+    public static boolean enableNovaCraftGloves;
+    public static boolean enableHardmode;
+    public static boolean enableTreasureCratesDropDiamonds;
+    public static boolean enableUniqueLegendaryBeaconBeam;
+    public static boolean enableWardenBlindness;
+    public static boolean enableWardenSlowness;
+    public static boolean enableWardenWeakness;
+    public static boolean enableWitherBossAlterations;
+    public static boolean enableNewCaveSounds;
+
+    //Mob Spawning
     public static boolean enableSpawnGlowSquid;
     public static boolean enableSpawnPhantom;
     public static boolean enableSpawnOverworldPhantom;
@@ -151,30 +196,19 @@ public class Configs {
     public static boolean enableSpawnHardmodeGhast;
     public static boolean enableSpawnFireflyOtherBiomes;
     public static boolean enableNoDespawnFirefly;
-    public static boolean enableAetherLegacyDepartureItems;
-    public static boolean enableRawDivineral;
-    public static boolean enableNovaCraftGloves;
-    public static boolean enableHardmode;
-    public static boolean enableTreasureCratesDropDiamonds;
-    public static boolean enableUniqueLegendaryBeaconBeam;
-    public static boolean enableWardenBlindness;
-    public static boolean enableWardenSlowness;
-    public static boolean enableWardenWeakness;
-    public static boolean enableLuminantTreeGeneration;
-    public static boolean enableLargeLuminantTreeGeneration;
-    public static boolean enableLacunaTreeGeneration;
-    public static int vindicatorVillageSpawnRate;
-    public static boolean enableVindicatorForestHouseGeneration;
-    public static boolean enableOceanDungeonsGeneration;
-    public static boolean enableDesertCreeperStatueGeneration;
-    public static boolean enableSlimeStatueGeneration;
-    public static int endIslandSpawnRate;
-    public static int destituteIslandSpawnRate;
-    public static boolean enableDeepoidFortress;
-    public static boolean enableSculkInfestedMineshaft;
-    public static boolean enableBlackstoneBricksInNetherStructures;
-    public static boolean enableInfestedBastion;
-    public static boolean enableAncientCity;
+
+    //Et Futurum Requiem and Netherlicious Options
+    public static boolean enableCalciteGeneration;
+    public static boolean enableCalciteBrickRecipe;
+    public static boolean enableNovaCraftTuffGeneration;
+    public static boolean enableTuffBrickRecipe;
+    public static boolean enableDeepslateOreGeneration;
+    public static boolean enableRawOreBlocksStructures;
+    public static boolean enablePrismarineInStructures;
+    public static boolean enableBlockOfRawNetheriteRecipe;
+    public static boolean enableAlternateAmpJumpPotionRecipe;
+    public static boolean enableEtFuturumIronNugget;
+    public static boolean enableNetheriteInRecipes;
     public static boolean enableDarkOakFenceInAncientCity;
     public static boolean enableDeepslateInAncientCity;
     public static boolean enableDeepslateBricksInAncientCity;
@@ -182,12 +216,14 @@ public class Configs {
     public static boolean enableCobbledDeepslateInAncientCity;
     public static boolean enableEtFuturumSoulFireInAncientCity;
     public static boolean enableBanners;
+    public static boolean disableMagmaBlock;
+    public static boolean disableChain;
     public static boolean enableBlueIceInAncientCity;
     public static boolean enableIronTrapdoorInAncientCity;
     public static boolean disableNetherliciousBasaltInAncientCity;
     public static boolean disableNetherliciousSmoothBasaltInAncientCity;
-    public static boolean disableMagmaBlock;
-    public static boolean disableChain;
+    public static boolean enableBlackstoneBricksInNetherStructures;
+
     public static final String catVanillaChanges = "Important Options";
     public static final String catAncientCity = "Ancient City Customization";
     public static final String catGeneration = "New generation";
@@ -245,41 +281,50 @@ public class Configs {
         prop = conf.get(category, "disableMonsterEgg", true);
         prop.comment = "Disables Monster Egg (= Silverfish block) generation in Extreme Hills biomes. NOTE: This will be done after chunk population by replacing all Monster Eggs with Stone.";
         disableMonsterEgg = prop.getBoolean();
+
+        //Grimstone
+        enableGrimstone = conf.getBoolean("enableGrimstone", "New generation", true, "Enables Grimstone generation");
         enableGrimstoneRedstone = conf.getBoolean("enableGrimstoneRedstone", "New generation", true, "Enables Grimstone Redstone Ore generation");
         enableGrimstoneLapis = conf.getBoolean("enableGrimstoneLapis", "New generation", true, "Enables Grimstone Lapis Ore generation");
         enableGrimstoneIron = conf.getBoolean("enableGrimstoneIron", "New generation", true, "Enables Grimstone Iron Ore generation");
         enableGrimstoneGold = conf.getBoolean("enableGrimstoneGold", "New generation", true, "Enables Grimstone Gold Ore generation");
         enableGrimstoneDiamond = conf.getBoolean("enableGrimstoneDiamond", "New generation", true, "Enables Grimstone Diamond Ore generation");
         enableGrimstoneEmerald = conf.getBoolean("enableGrimstoneEmerald", "New generation", true, "Enables Grimstone Emerald Ore generation");
+
+        //Nullstone
+        enableNullstone = conf.getBoolean("enableNullstone", "New generation", true, "Enables Nullstone generation");
         enableNullstoneRedstone = conf.getBoolean("enableNullstoneRedstone", "New generation", true, "Enables Nullstone Redstone Ore generation");
         enableNullstoneLapis = conf.getBoolean("enableNullstoneLapis", "New generation", true, "Enables Nullstone Lapis Ore generation");
         enableNullstoneIron = conf.getBoolean("enableNullstoneIron", "New generation", true, "Enables Nullstone Iron Ore generation");
         enableNullstoneGold = conf.getBoolean("enableNullstoneGold", "New generation", true, "Enables Nullstone Gold Ore generation");
         enableNullstoneDiamond = conf.getBoolean("enableNullstoneDiamond", "New generation", true, "Enables Nullstone Diamond Ore generation");
         enableNullstoneEmerald = conf.getBoolean("enableNullstoneEmerald", "New generation", true, "Enables Nullstone Emerald Ore generation");
+
+        //Etherstone
+        enableEtherstone = conf.getBoolean("enableEtherstone", "New generation", true, "Enables Etherstone generation");
         enableEtherstoneIron = conf.getBoolean("enableEtherstoneIron", "New generation", true, "Enables Etherstone Iron Ore generation");
         enableEtherstoneGold = conf.getBoolean("enableEtherstoneGold", "New generation", true, "Enables Etherstone Gold Ore generation");
         enableEtherstoneEmerald = conf.getBoolean("enableEtherstoneEmerald", "New generation", true, "Enables Etherstone Emerald Ore generation");
         enableEtherstoneCoal = conf.getBoolean("enableEtherstoneCoal", "New generation", true, "Enables Etherstone Coal Ore generation");
-        enableBrimstoneOre = conf.getBoolean("enableBrimstoneOre", "New generation", true, "Enables Brimstone Ore generation");
+
         enableAdditonalDiamondOreGeneration = conf.getBoolean("enableAdditonalDiamondOreGeneration", "New generation", false, "Enables More Diamond Ore to generate within Caves.(Enable if you wants diamonds rarer than vanilla but not as rare as in NovaCraft.)");
         enableAdditonalLapisOreGeneration = conf.getBoolean("enableAdditonalLapisOreGeneration", "New generation", false, "Enables More Lapis Ore to generate within Caves.(Not sure why you want more lapis but it here if you want more in world gen.)");
         enableAdditonalIronOreGeneration = conf.getBoolean("enableAdditonalIronOreGeneration", "New generation", true, "Enables More Iron Ore to generate within Caves.");
         enableAdditonalGoldOreGeneration = conf.getBoolean("enableAdditonalGoldOreGeneration", "New generation", false, "Enables More Gold Ore to generate within Caves.");
         enableAdditonalRedstoneOreGeneration = conf.getBoolean("enableAdditonalRedstoneOreGeneration", "New generation", false, "Enables More Redstone Ore to generate within Caves.");
         enableAdditonalCoalOreGeneration = conf.getBoolean("enableAdditonalCoalOreGeneration", "New generation", true, "Enables More Coal Ore to generate within Caves.");
-        Property WorldGenlistProp = conf.get("New generation", "WorldGenDimensionBlacklist", new int[]{0});
-        WorldGenlistProp.comment = "The dimensions NovaCraft Flora and Geos should not spawn in.";
-        WorldGenDimensionBlacklist = WorldGenlistProp.getIntList();
-        WorldGenDimensionBlacklistAsWhitelist = conf.getBoolean("WorldGenDimensionBlacklistAsWhitelist", "New generation", true, "Treat the NovaCraft Flora and Geos dimension blacklist as a whitelist instead, so NovaCraft Flora and Geos will ONLY generate in those dimensions, instead of excluding those dimensions from generation.");
-        enableGrimstone = conf.getBoolean("enableGrimstone", "New generation", true, "Enables Grimstone generation");
+
+        //New Ore and Stone Generation
+        enableMountainOres = conf.getBoolean("enableMountainOres", "New generation", true, "Enables Coal, Iron, Gold, and Emerald generating above y = 90.");
+        enableBrimstoneOre = conf.getBoolean("enableBrimstoneOre", "New generation", true, "Enables Brimstone Ore generation");
+        enablePherithiumGeneration = conf.getBoolean("enablePherithiumGeneration", "New generation", true, "Enables pherithium stalagmites and stalagtites generation.");
+        enablePherithiumOreGeneration = conf.getBoolean("enablePherithiumOreGeneration", "New generation", false, "Enables pherithium ore to generate, by default it is set to false.");
+        enableBasal = conf.getBoolean("enableBasal", "New generation", true, "Enables Basal generation");
         enableEndstoneBlobs = conf.getBoolean("enableEndstoneBlobs", "New generation", true, "Enables Endstone Blobs to generate throughout the End, if you use HEE or Enderlious this should not be necessary.");
         enableFrontierslate = conf.getBoolean("enableFrontierslate", "New generation", true, "Enables Frontierslate to generate throughout the End.");
         enableVacuumSand = conf.getBoolean("enableVacuumSand", "New generation", true, "Enables Vacuum Sand to generate throughout the End.");
-        Property DeeperCavesWorldGenlistProp = conf.get("New generation", "DeeperCavesBlacklist", new int[0]);
-        DeeperCavesWorldGenlistProp.comment = "Meant for those who play with the Deeper Caves Mod, Grimstone and Nullstone can Generate from y=8 to y=256.";
-        DeeperCavesBlacklist = DeeperCavesWorldGenlistProp.getIntList();
-        DeeperCavesBlacklistAsWhitelist = conf.getBoolean("DeeperCavesBlacklistAsWhitelist", "New generation", true, "Treat the Grimstone and Nullstone Generation dimension blacklist as a whitelist instead, so Grimstone and Nullstone can Generate from y=8 to y=256 and will ONLY generate in those dimensions, instead of excluding those dimensions from generation.");
+
+        //Biome Alterations
         enableVanillaBiomeAlterations = conf.getBoolean("enableVanillaBiomeAlterations", "New generation", true, "Enables height changes and randomness to Vanilla Biomes");
         enableVanillaHillBiomeAlterations = conf.getBoolean("enableVanillaHillBiomeAlterations", "New generation", true, "Enables hill subtype biome changes: ForestHills, TagiaHills etc");
         enableVanillaMountainBiomeAlterations = conf.getBoolean("enableVanillaMountainBiomeAlterations", "New generation", true, "Enables extreme hill biome changes: ExtremeHills, ExtremeHillsPlus etc");
@@ -288,40 +333,42 @@ public class Configs {
         enableBeachBiomeAlterations = conf.getBoolean("enableBeachBiomeAlterations", "New generation", true, "Enables beach biomes to be more pronounce and taller along coastlines.");
         enableWaterBiomeAlterations = conf.getBoolean("enableWaterBiomeAlterations", "New generation", true, "Enables rivers, swamps, and oceans to be a bit deeper in world generation.");
         enableMiscBiomeAlterations = conf.getBoolean("enableMiscBiomeAlterations", "New generation", true, "Enables regular biomes to have a slightly higher average height and randomness.");
-        enableNullstone = conf.getBoolean("enableNullstone", "New generation", true, "Enables Nullstone generation");
-        enableEtherstone = conf.getBoolean("enableEtherstone", "New generation", true, "Enables Etherstone generation");
-        enableBasal = conf.getBoolean("enableBasal", "New generation", true, "Enables Basal generation");
-        enableMountainOres = conf.getBoolean("enableMountainOres", "New generation", true, "Enables Coal, Iron, Gold, and Emerald generating above y = 90.");
-        enableRareOverworldKlangiteOre = conf.getBoolean("enableRareOverworldKlangiteOre", "New generation", false, "Enables Klangite Ore to also generate in the Overworld.");
-        enableRareOverworldTophiniteOre = conf.getBoolean("enableRareOverworldTophiniteOre", "New generation", false, "Enables Tophinite Ore to also generate in the Overworld.");
-        enableExtraEmeraldOreGeneration = conf.getBoolean("enableExtraEmeraldOreGeneration", "New generation", true, "Enables Emerald Ore to rarely generate in all biomes from y = 0 to y = 90");
+
         enableSculkGeneration = conf.getBoolean("enableSculkGeneration", "New generation", true, "Enables Sculk and it's variations to generate outside sculk geos/dungeons.");
         enableSculkGenerationAllBiomes = conf.getBoolean("enableSculkGenerationAllBiomes", "New generation", true, "Enables Sculk and it's variations to generate outside sculk geos/dungeons in all overworld biomes.");
+        enableLichenGeneration = conf.getBoolean("enableLichenGeneration", "New generation", true, "Enables Dark and Grim lichen generation.");
+        enableGlowLichenGeneration = conf.getBoolean("enableGlowLichenGeneration", "New generation", true, "Enables Glow lichen generation.");
         enableStalagAndStalacGeneration = conf.getBoolean("enableStalagAndStalacGeneration", "New generation", true, "Enables Stalagmites and Stalactites in world generation.");
         enableRareCrystalGeneration = conf.getBoolean("enableRareCrystalGeneration", "New generation", false, "Enables the various crystals to very rarely generate in caves outside their geos -> for modpacks with insane cave generation due to lack of spawning spaces.");
         enableMossGeneration = conf.getBoolean("enableMossGeneration", "New generation", true, "Enables moss blocks and carpets to generate on the surface and in caves close to the surface.");
-        enablePherithiumGeneration = conf.getBoolean("enablePherithiumGeneration", "New generation", true, "Enables pherithium stalagmites and stalagtites generation.");
-        enablePherithiumOreGeneration = conf.getBoolean("enablePherithiumOreGeneration", "New generation", false, "Enables pherithium ore to generate, by default it is set to false.");
-        enableLichenGeneration = conf.getBoolean("enableLichenGeneration", "New generation", true, "Enables Dark and Grim lichen generation.");
-        enableGlowLichenGeneration = conf.getBoolean("enableGlowLichenGeneration", "New generation", true, "Enables Glow lichen generation.");
         enableNovaMushrooomGeneration = conf.getBoolean("enableNovaMushrooomGeneration", "New generation", true, "Enables all the new types of mushrooms to generate.");
+
+        enableRareOverworldKlangiteOre = conf.getBoolean("enableRareOverworldKlangiteOre", "New generation", false, "Enables Klangite Ore to also generate in the Overworld.");
+        enableRareOverworldTophiniteOre = conf.getBoolean("enableRareOverworldTophiniteOre", "New generation", false, "Enables Tophinite Ore to also generate in the Overworld.");
+        enableExtraEmeraldOreGeneration = conf.getBoolean("enableExtraEmeraldOreGeneration", "New generation", true, "Enables Emerald Ore to rarely generate in all biomes from y = 0 to y = 90");
         enableYttrlinisteOverworldGeneration = conf.getBoolean("enableYttrlinisteOverworldGeneration", "New generation", false, "Enables Yttrlinsite Geos to generate in the Overworld instead of only in the Nether.");
+
+        //Structures
+        enableAncientCity = conf.getBoolean("enableAncientCity", "Ancient City Customization", true, "Enables Ancient Cities to start generating 5k from spawn.");
+        enableInfestedBastion = conf.getBoolean("enableInfestedBastion", "New generation", true, "Enables infested bastion to generate in the Nether.");
+        enableMansion = conf.getBoolean("enableMansion", "New generation", true, "Enables Mansions to start generating 12k from spawn.");
+        enableDeepoidFortress = conf.getBoolean("enableDeepoidFortress", "New generation", true, "Enables Deepoid Fortress Generation in the Nether.");
+        enableSculkInfestedMineshaft = conf.getBoolean("enableSculkInfestedMineshaft", "New generation", true, "Enables Sculk Infested Mineshafts generation.");
+        vindicatorVillageSpawnRate = conf.get("Spawn Rate - Vindicator Villages", "New generation", 25).getInt();
+        enableCraters = conf.getBoolean("enableCraters", "New generation", true, "Enables small craters in world generation.");
+        enableMassiveCraters = conf.getBoolean("enableMassiveCraters", "New generation", true, "Enables massive craters in world generation.");
         enableLacunaTreeGeneration = conf.getBoolean("enableLacunaTreeGeneration", "New generation", true, "Enables Lacuna Trees Generating In the End(May crash when generating with Neodymium; fix unknown).");
         enableLuminantTreeGeneration = conf.getBoolean("enableLuminantTreeGeneration", "New generation", true, "Enables luminant tree generation.");
         enableLargeLuminantTreeGeneration = conf.getBoolean("enableLargeLuminantTreeGeneration", "New generation", true, "Enables large luminant tree generation.");
         enableDesertCreeperStatueGeneration = conf.getBoolean("enableDesertCreeperStatueGeneration", "New generation", true, "Enables Sandstone Creeper Statue generation.");
         enableSlimeStatueGeneration = conf.getBoolean("enableSlimeStatueGeneration", "New generation", true, "Enables Stone Slime Statue generation.");
-        vindicatorVillageSpawnRate = conf.get("Spawn Rate - Vindicator Villages", "New generation", 25).getInt();
         enableVindicatorForestHouseGeneration = conf.getBoolean("enableVindicatorForestHouseGeneration", "New generation", true, "Enables random small Vindicator houses in Forests.");
         enableOceanDungeonsGeneration = conf.getBoolean("enableOceanDungeonsGeneration", "New generation", true, "Enables small dungeons with sea serpent spawners to generate at the bottom of oceans.");
-        enableDeepoidFortress = conf.getBoolean("enableDeepoidFortress", "New generation", true, "Enables Deepoid Fortress Generation in the Nether.");
-        enableSculkInfestedMineshaft = conf.getBoolean("enableSculkInfestedMineshaft", "New generation", true, "Enables Sculk Infested Mineshafts generation.");
         endIslandSpawnRate = conf.get("Spawn Rate - End Islands", "New generation", 121).getInt();
         destituteIslandSpawnRate = conf.get("Spawn Rate - Destitute Islands", "New generation", 300).getInt();
+
+        //Et Futurum Requiem and Netherlicious Compact
         enableBlackstoneBricksInNetherStructures = conf.getBoolean("enableBlackstoneBricksInNetherStructures", "New generation", true, "Use Blackstone Bricks from Netherlicious instead use Nullstone Bricks.");
-        enableInfestedBastion = conf.getBoolean("enableInfestedBastion", "New generation", true, "Enables infested bastion to generate in the Nether.");
-        enableCraters = conf.getBoolean("enableCraters", "New generation", true, "Enables small craters in world generation.");
-        enableMassiveCraters = conf.getBoolean("enableMassiveCraters", "New generation", true, "Enables massive craters in world generation.");
         enableCalciteGeneration = conf.getBoolean("enableCalciteGeneration", "Et Futurum Requiem Options", true, "Enables Calcite from Et Futurum to generate from y=70 to y=100.");
         enableNovaCraftTuffGeneration = conf.getBoolean("enableNovaCraftTuffGeneration", "Et Futurum Requiem Options", false, "Enables Tuff Generation from Et Futurum to generate from y=25 to y=45, instead of at lower y levels.(Disable the Tuff generation in Et Futurum before setting this to true.)");
         enableDeepslateOreGeneration = conf.getBoolean("enableDeepslateOreGeneration", "Et Futurum Requiem Options", false, "Enables Vanite to generate within deepslate from Et Futurum Requiem instead within stone and has a deepslate texture to compensate for it.");
@@ -333,7 +380,6 @@ public class Configs {
         enableAlternateAmpJumpPotionRecipe = conf.getBoolean("enableAlternateAmpJumpPotionRecipe", "Et Futurum Requiem Options", true, "Changes Recipe of the extended jump potion to require rabbit foot from Et Futurum.(DISABLE if you disabled rabbits/rabbit foot in Et Futurum Requiem)");
         enableNetheriteInRecipes = conf.getBoolean("enableNetheriteInRecipes", "Et Futurum Requiem Options", true, "Changes Various Recipes to require netherite in their recipes from Et Futurum.(DISABLE if you disabled netherite in Et Futurum Requiem)");
         enableEtFuturumIronNugget = conf.getBoolean("enableEtFuturumIronNugget", "Et Futurum Requiem Options", true, "Allows recipes and blocks from NovaCraft to use and drop iron nuggets.(DISABLE if you disabled netherite in Et Futurum Requiem)");
-        enableAncientCity = conf.getBoolean("enableAncientCity", "Ancient City Customization", true, "Enables Ancient Cities to start generating 5k from spawn.");
         enableDarkOakFenceInAncientCity = conf.getBoolean("enableDarkOakFenceInAncientCity", "Ancient City Customization", true, "Do not use Dark Oak Fence from Et Futurum Requiem instead use regular Fences in The Ancient City.");
         enableCobbledDeepslateInAncientCity = conf.getBoolean("enableCobbledDeepslateInAncientCity", "Ancient City Customization", true, "Do not use Cobbled Deepslate from Et Futurum Requiem instead use Cobbled Grimstone in The Ancient City.");
         enableDeepslateInAncientCity = conf.getBoolean("enableDeepslateInAncientCity", "Ancient City Customization", true, "Do not use Deepslate from Et Futurum Requiem instead use Grimstone Blocks in The Ancient City.");
@@ -348,6 +394,18 @@ public class Configs {
         disableChain = conf.getBoolean("disableChain", "Et Futurum Requiem Options", false, "Enables the use of Chains in structures: DISABLE if chains are disabled in Et Futurum Requiem.");
         enableBanners = conf.getBoolean("enableBanners", "Et Futurum Requiem Options", true, "Enables the use of Banners from Et Futurum Requiem in structures.");
 
+        //Deeper Caves Compact
+        Property WorldGenlistProp = conf.get("New generation", "WorldGenDimensionBlacklist", new int[]{0});
+        WorldGenlistProp.comment = "The dimensions NovaCraft Flora and Geos should not spawn in.";
+        WorldGenDimensionBlacklist = WorldGenlistProp.getIntList();
+        WorldGenDimensionBlacklistAsWhitelist = conf.getBoolean("WorldGenDimensionBlacklistAsWhitelist", "New generation", true, "Treat the NovaCraft Flora and Geos dimension blacklist as a whitelist instead, so NovaCraft Flora and Geos will ONLY generate in those dimensions, instead of excluding those dimensions from generation.");
+
+        Property DeeperCavesWorldGenlistProp = conf.get("New generation", "DeeperCavesBlacklist", new int[0]);
+        DeeperCavesWorldGenlistProp.comment = "Meant for those who play with the Deeper Caves Mod, Grimstone and Nullstone can Generate from y=8 to y=256.";
+        DeeperCavesBlacklist = DeeperCavesWorldGenlistProp.getIntList();
+        DeeperCavesBlacklistAsWhitelist = conf.getBoolean("DeeperCavesBlacklistAsWhitelist", "New generation", true, "Treat the Grimstone and Nullstone Generation dimension blacklist as a whitelist instead, so Grimstone and Nullstone can Generate from y=8 to y=256 and will ONLY generate in those dimensions, instead of excluding those dimensions from generation.");
+
+        //Mob Spawning
         enableSpawnGlowSquid = conf.getBoolean("enableSpawnGlowSquid", "Mobs", true, "Enables the Spawning of Glow Squids");
         enableSpawnPhantom = conf.getBoolean("enableSpawnPhantom", "Mobs", true, "Enables the Spawning of Phantoms");
         enableSpawnOverworldPhantom = conf.getBoolean("enableSpawnOverworldPhantom", "Mobs", false, "Enables the Spawning of Phantoms in the Mountain Biomes");
@@ -389,22 +447,26 @@ public class Configs {
         enableSpawnHardmodeSlime = conf.getBoolean("enableSpawnHardmodeSlime", "Mobs", true, "Enables the Spawning of Hardmode Slimes once HardMode is enabled.");
         enableIncreasedVanillaNetherMobSpawn = conf.getBoolean("enableIncreasedVanillaNetherMobSpawn", "Mobs", true, "Enables increased spawning of Zombie Pigmen, Magma Cubes, and Ghasts in all Nether Biomes");
         enableSpawnWyrmling = conf.getBoolean("enableSpawnWyrmling", "Mobs", true, "Enables the Spawning of Wyrmlings");
-
         enableIncreasedVanillaOverworldMobSpawn = conf.getBoolean("enableIncreasedVanillaOverworldMobSpawn", "Mobs", true, "Enables increased spawning of Skeletons, Creepers, Zombies, and Witches.");
         enableSpawnFireflyOtherBiomes = conf.getBoolean("enableSpawnFireflyOtherBiomes", "Firefly", false, "Enables the Spawning of the Firefly in biomes with Plains or Forest tags.");
         enableNoDespawnFirefly = conf.getBoolean("enableNoDespawnFirefly", "Firefly", false, "Disables the despawning of Fireflies after a certian amount of time; they still despawn natually though.");
-        enableAetherLegacyDepartureItems = conf.getBoolean("enableAetherLegacyDepartureItems", "Aether Legacy Options", false, "Enables crates to drop of items from my custom fork of Aether Legacy Departure.");
-        enableRawDivineral = conf.getBoolean("enableRawDivineral", "Aether Legacy Options", false, "Enables the Raw Divineral Block.");
-        enableNovaCraftGloves = conf.getBoolean("enableNovaCraftGloves", "Aether Legacy Options", false, "Enables the recipe for NovaCraft gloves from Aether Departure.");
+
+        //Particles
         enableGlowSquidParticles = conf.getBoolean("enableGlowSquidParticles", "New particles", true, "Enables Glow Squid Particles");
         enableEnderLordParticles = conf.getBoolean("enableEnderLordParticles", "New particles", true, "Enables Ender Lord Particles");
         enableWardenParticles = conf.getBoolean("enableWardenParticles", "New particles", true, "Enables Warden Particles");
         enableVoidEntityParticles = conf.getBoolean("enableVoidEntityParticles", "New particles", true, "Enables Void Entity Particles");
         enableFireflyParticles = conf.getBoolean("enableFireflyParticles", "New particles", true, "Enables FireFly Particles");
         enableIonizatiorParticles = conf.getBoolean("enableIonizatiorParticles", "New particles", true, "Enables Ionizatior Particles");
+
+        //Misc
+        enableAetherLegacyOptions = conf.getBoolean("enableAetherLegacyOptions", "Aether Legacy Options", false, "Enables crates to drop of items from my custom fork of Aether Legacy Departure.");
+        enableRawDivineral = conf.getBoolean("enableRawDivineral", "Aether Legacy Options", false, "Enables the Raw Divineral Block.");
+        enableNovaCraftGloves = conf.getBoolean("enableNovaCraftGloves", "Aether Legacy Options", false, "Enables the recipe for NovaCraft gloves from Aether Departure.");
         enableWeaponsToAllignWithVanilla = conf.getBoolean("enableWeaponsToAllignWithVanilla", "Important Options", true, "Enables weapons from novacraft to allign with vanilla in terms of damage/durability more rather than other RPG like mods.");
         enableTreasureCratesDropDiamonds = conf.getBoolean("enableTreasureCratesDropDiamonds", "Misc", true, "Enables diamonds in novacraft loot tables");
         enableCrystalGolemAura = conf.getBoolean("enableCrystalGolemAura", "Misc", true, "Enables the auras of the various crystal golems.");
+        enableWitherBossAlterations = conf.getBoolean("enableWitherBossAlterations", "Misc", true, "Enables the Wither Boss to be more similar to the Bedrock one - makes the fight more difficult.");
         enableLuminantLeavesGlow = conf.getBoolean("enableLuminantLeavesGlow", "Misc", true, "Enables luminant leaves to have a slight glow effect.(Disable this if you use dynamic leaves)");
         enableAncientCityTotem = conf.getBoolean("enableAncientCityTotem", "Misc", true, "Enables crafting recipe for Ancient City Totem");
         enableSculkStoneSpreading = conf.getBoolean("enableSculkStoneSpreading", "Misc", false, "Enables sculk stone to spread to nearby stone type blocks like grass.");
@@ -419,6 +481,8 @@ public class Configs {
         gammaAlterations = (float)conf.get("Gamma Alterations | Range:-1 - 1", "Important Options", 0.0D).getDouble();
         enableGammaAlterations = conf.getBoolean("enableGammaAlterations", "Important Options", true, "Locks the gamma of the game to be whatever is set in gammaAlterations: -0.25 is 25% darker etc");
         enableDebugMode = conf.getBoolean("enableDebugMode", "Important Options", false, "Enables log messages for location of structures generating or if a crash was prevented.");
+        enableNewCaveSounds = conf.getBoolean("enableNewCaveSounds", "Important Options", true, "Enables New Cave Sounds.");
+        enableHalfNaturalRegenInEnd = conf.getBoolean("enableHalfNaturalRegenInEnd", "Important Options", true, "Enables Half Natural Regeneration speed for the player while in the End.");
         if (conf.hasChanged()) {
             conf.save();
         }
