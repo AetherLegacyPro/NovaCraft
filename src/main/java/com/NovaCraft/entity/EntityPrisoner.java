@@ -171,13 +171,13 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 			}
 		}
         
-		if(Configs.enableWardenSlowness == true) {
+		if(Configs.enableWardenSlowness) {
         for(Entity entity : volume) {
         	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
         	}
 		}
         
-		if(Configs.enableWardenWeakness == true) {
+		if(Configs.enableWardenWeakness) {
         for(Entity entity : volume) {
         	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
         	}

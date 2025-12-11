@@ -3,6 +3,7 @@ package com.NovaCraft.entity;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraft.entity.misc.EnumRavagerType;
 import net.minecraft.entity.*;
+import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityWitch;
@@ -12,37 +13,25 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-public class EntityRavager extends EntityMob implements IBossDisplayData
-{
-    public EntityRavager(final World par1World) {
-        super(par1World);
+public class EntityRavager extends EntityMob implements IBossDisplayData {
+    public EntityRavager(final World world) {
+        super(world);
+        EnumRavagerType type = this.getType();
+        if (type == EnumRavagerType.BASE) {
+            this.experienceValue = 20;
+        } else {
+            this.experienceValue = 100;
+        }
+
         this.setSize(2.8f, 1.5f);
     }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(3.25D);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30.0D);
-    }
-
-    public void applyTypeAttributes() {
-        EnumRavagerType type = this.getType();
-
-        if (type == EnumRavagerType.BASE) {
-            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(2.25D);
-            this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30.0D);
-        }
-        else if (type == EnumRavagerType.BOSS) {
-            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(250.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(4.35D);
-            this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(60.0D);
-        }
-
-        this.setHealth(this.getMaxHealth());
     }
 
     protected void entityInit() {
@@ -51,8 +40,19 @@ public class EntityRavager extends EntityMob implements IBossDisplayData
     }
 
     public void onLivingUpdate() {
-
         super.onLivingUpdate();
+
+        if (this.worldObj.isRemote && this.getType() == EnumRavagerType.BOSS) {
+            BossStatus.setBossStatus(this, true);
+        }
+    }
+
+    @Override
+    public String getCommandSenderName() {
+        if (this.getType() == EnumRavagerType.BOSS) {
+            return "The Beast";
+        }
+        return super.getCommandSenderName();
     }
 
     protected String getLivingSound() {
@@ -83,28 +83,19 @@ public class EntityRavager extends EntityMob implements IBossDisplayData
     public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
         Object p_110161_1_1 = super.onSpawnWithEgg(p_110161_1_);
         setType(0);
-        applyTypeAttributes();
 
         int mob = this.worldObj.rand.nextInt(8);
         if (mob <= 3) {
             EntityVindicator entity = new EntityVindicator(this.worldObj);
-            entity.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+            entity.setLocationAndAngles(this.posX, this.posY + 0.2D, this.posZ, this.rotationYaw, 0.0F);
             entity.onSpawnWithEgg(null);
             this.worldObj.spawnEntityInWorld(entity);
             entity.mountEntity(this);
 
             return (IEntityLivingData)p_110161_1_1;
-        } else if (mob == 4 || mob == 5) {
+        } else if (mob == 4 || mob == 5 || mob == 6) {
             EntityCorruptist entity = new EntityCorruptist(this.worldObj);
-            entity.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-            entity.onSpawnWithEgg(null);
-            this.worldObj.spawnEntityInWorld(entity);
-            entity.mountEntity(this);
-
-            return (IEntityLivingData)p_110161_1_1;
-        } else if (mob == 6) {
-            EntityWitch entity = new EntityWitch(this.worldObj);
-            entity.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+            entity.setLocationAndAngles(this.posX, this.posY + 0.2D, this.posZ, this.rotationYaw, 0.0F);
             entity.onSpawnWithEgg(null);
             this.worldObj.spawnEntityInWorld(entity);
             entity.mountEntity(this);
@@ -112,6 +103,15 @@ public class EntityRavager extends EntityMob implements IBossDisplayData
             return (IEntityLivingData)p_110161_1_1;
         } else {
             return (IEntityLivingData)p_110161_1_1;
+        }
+    }
+
+    public int getTotalArmorValue() {
+        EnumRavagerType type = this.getType();
+        if (type == EnumRavagerType.BASE) {
+            return 7;
+        } else {
+            return 17;
         }
     }
 

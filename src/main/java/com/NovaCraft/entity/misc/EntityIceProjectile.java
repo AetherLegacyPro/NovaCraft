@@ -1,5 +1,6 @@
 package com.NovaCraft.entity.misc;
 
+import com.NovaCraft.entity.EntityRavager;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -98,14 +99,15 @@ public class EntityIceProjectile extends EntityArrow implements IThrowableEntity
 			movingobjectposition = new MovingObjectPosition(entity);
 		}
 
-		if (movingobjectposition != null && movingobjectposition.entityHit != null && movingobjectposition.entityHit instanceof EntityPlayer)
-		{
+		if (movingobjectposition != null && movingobjectposition.entityHit != null && movingobjectposition.entityHit instanceof EntityPlayer) {
 			EntityPlayer entityplayer = (EntityPlayer)movingobjectposition.entityHit;
-
-			if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer && !((EntityPlayer)this.shootingEntity).canAttackPlayer(entityplayer))
-			{
+			if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer && !((EntityPlayer)this.shootingEntity).canAttackPlayer(entityplayer)) {
 				movingobjectposition = null;
 			}
+		}
+
+		if (movingobjectposition != null && movingobjectposition.entityHit instanceof EntityRavager) {
+			movingobjectposition = null;
 		}
 
 		super.onUpdate();

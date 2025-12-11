@@ -64,7 +64,7 @@ public class IonizatiorRenderer extends RenderLiving
     }
     
     @Override
-    protected void preRenderCallback(EntityLivingBase aerwhale, float partialTickTime)
+    protected void preRenderCallback(EntityLivingBase entityLivingBase, float partialTickTime)
     {
         GL11.glScalef(1.1F, 1.1F, 1.1F);
     }

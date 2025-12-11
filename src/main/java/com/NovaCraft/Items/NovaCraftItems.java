@@ -199,6 +199,7 @@ public class NovaCraftItems {
 	public static Item raw_chevon, cooked_chevon;
 	public static Item raw_frog_leg, cooked_frog_leg;
 	public static Item raw_glow_squid, cooked_glow_squid;
+	public static Item raw_octoqus, cooked_octoqus;
 	public static Item raw_blazing_charger, cooked_blazing_charger;
 	public static Item raw_enderavis, cooked_enderavis;
 	
@@ -384,7 +385,9 @@ public class NovaCraftItems {
 		glow_ink_sac = register("glow_ink_sac", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("glow_ink_sac")));
 		pherithium_carrot = register("pherithium_carrot", new ItemPherithiumCarrot().setTextureName(NovaCraft.find("pherithium_carrot")));
 		raw_glow_squid = register("raw_glow_squid", new ItemRawGlowSquid().setTextureName(NovaCraft.find("raw_glowsquid")));
-		cooked_glow_squid = register("cooked_glow_squid", new ItemCookedGlowSquid().setTextureName(NovaCraft.find("cooked_glowsquid")));		
+		cooked_glow_squid = register("cooked_glow_squid", new ItemCookedGlowSquid().setTextureName(NovaCraft.find("cooked_glowsquid")));
+		raw_octoqus = register("raw_octoqus", new ItemRawGlowSquid().setTextureName(NovaCraft.find("raw_octoqus")));
+		cooked_octoqus = register("cooked_octoqus", new ItemCookedGlowSquid().setTextureName(NovaCraft.find("cooked_octoqus")));
 		raw_chevon = register("raw_chevon", new ItemRawChevon().setTextureName(NovaCraft.find("raw_chevon")));
 		cooked_chevon = register("cooked_chevon", new ItemCookedChevon().setTextureName(NovaCraft.find("cooked_chevon")));		
 		raw_frog_leg = register("raw_frog_leg", new ItemRawFrogLeg().setTextureName(NovaCraft.find("raw_frog_leg")));

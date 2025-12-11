@@ -257,6 +257,7 @@ public class NovaCraftBlocks {
 	public static Block vanite_brick_slab, vanite_brick_double_slab, vanite_brick_stairs, vanite_brick_wall;
 	public static Block carved_vanite_brick_slab, carved_vanite_brick_double_slab, carved_vanite_brick_stairs, carved_vanite_brick_wall;
 	public static Block infused_vanite_block, infused_vanite_block_natural, nullified_vanite;
+	public static Block vanite_pumpkin;
 	
 	//Iridium
 	public static Block meteorite_block, iridium_ore, block_of_iridium;
@@ -384,6 +385,7 @@ public class NovaCraftBlocks {
 		cracked_nullstone_deactivator = register("cracked_nullstone_deactivator", new BlockCrackedNullstoneDeactivator());
 		nullstone_deactivator = register("nullstone_deactivator", new BlockNullstoneDeactivator());
 		chiseled_nullstone = register("chiseled_nullstone", new BlockChiseledNullstone());
+		vanite_pumpkin = register("vanite_pumpkin", new BlockVanitePumpkin(false));
 		
 		nullstone_diamond = register("nullstone_diamond", new BlockNullstoneOre().setBlockTextureName(NovaCraft.find("nullstone_diamond_ore")));
 		nullstone_emerald = register("nullstone_emerald", new BlockNullstoneOre().setBlockTextureName(NovaCraft.find("nullstone_emerald_ore")));

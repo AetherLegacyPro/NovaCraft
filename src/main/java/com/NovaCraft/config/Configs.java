@@ -196,6 +196,7 @@ public class Configs {
     public static boolean enableSpawnHardmodeGhast;
     public static boolean enableSpawnFireflyOtherBiomes;
     public static boolean enableNoDespawnFirefly;
+    public static boolean enableSpawnOctoqus;
 
     //Et Futurum Requiem and Netherlicious Options
     public static boolean enableCalciteGeneration;
@@ -422,6 +423,7 @@ public class Configs {
         enableSpawnVoidCube = conf.getBoolean("enableSpawnVoidCube", "Mobs", true, "Enables the Spawning of Void Cube");
         enableSpawnNullifier = conf.getBoolean("enableSpawnNullifier", "Mobs", true, "Enables the Spawning of Nullifier");
         enableSpawnGoat = conf.getBoolean("enableSpawnGoat", "Mobs", true, "Enables the Spawning of 1.17 Goat");
+        enableSpawnOctoqus = conf.getBoolean("enableSpawnOctoqus", "Mobs", true, "Enables the Spawning of Octoqus");
         enableSpawnBlazingSerpent = conf.getBoolean("enableSpawnBlazingSerpent", "Mobs", true, "Enables the Spawning of Blazing Serpent");
         enableSpawnSculkAbomination = conf.getBoolean("enableSpawnSculkAbomination", "Mobs", true, "Enables the Spawning of the Sculk Abomination");
         enableSpawnPhoenix = conf.getBoolean("enableSpawnPhoenix", "Mobs", true, "Enables the Spawning of the Phoenix");

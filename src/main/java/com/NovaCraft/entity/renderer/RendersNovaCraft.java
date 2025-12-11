@@ -34,23 +34,7 @@ import com.NovaCraft.entity.renderer.illager.IllagerChiefOverlayRenderer;
 import com.NovaCraft.entity.renderer.illager.IllagerChiefRenderer;
 import com.NovaCraft.entity.renderer.illager.IllagerTraderOverlayRenderer;
 import com.NovaCraft.entity.renderer.illager.IllagerTraderRenderer;
-import com.NovaCraft.entity.renderer.staff.BloviatorProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.DestituteTentacleProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.DiamondFirechargeProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.EnderLordStaffProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.IceProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.IceSceptorProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.IonizatiorProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.KlangiteFirechargeProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.NovaCraftBowRenderer;
-import com.NovaCraft.entity.renderer.staff.NovaCraftHornRenderer;
-import com.NovaCraft.entity.renderer.staff.PrimevalHornProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.SculkHornProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.SculkLaserRenderer;
-import com.NovaCraft.entity.renderer.staff.SculkedMonitorProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.VaniteFirechargeProjectileRenderer;
-import com.NovaCraft.entity.renderer.staff.VaniteTridentRenderer;
-import com.NovaCraft.entity.renderer.staff.WardenProjectileRenderer;
+import com.NovaCraft.entity.renderer.staff.*;
 import com.NovaCraft.legendarybeacon.LegendaryBeaconRenderer;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -90,6 +74,7 @@ public class RendersNovaCraft {
 	register(EntitySculkedMonitorProjectile.class, new SculkedMonitorProjectileRenderer());
 	register(KlangiteSwordProjectile.class, new KlangiteSwordProjectileRenderer());
 	register(EntityEchoEye.class, new RenderSnowball(NovaCraftItems.echo_eye));
+	register(EntityOctoqusProjectile.class, new OctoqusProjectileRenderer());
 	
 	//Passive
 	register(EntityGlowSquid.class, new GlowSquidRenderer(new GlowSquidModel(), 0.7F));
@@ -145,6 +130,7 @@ public class RendersNovaCraft {
 	register(EntityGiantFrog.class, new GiantFrogRenderer(new GiantFrogModel(), 1.0f));
 	register(EntityWyrmling.class, new WyrmlingRenderer(new WyrmlingModel(), new WyrmlingModel(), 0.0F));
 	register(EntityRavager.class, new RavagerRenderer(new RavagerModel(), 0.6f));
+	register(EntityOctoqus.class, new OctoqusRenderer());
 	
 	register(EntityHardmodeCreeper.class, new HardmodeCreeperRenderer());
 	register(EntityHardmodeSpider.class, new HardmodeSpiderRenderer());

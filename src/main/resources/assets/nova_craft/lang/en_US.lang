@@ -132,6 +132,8 @@ item.diamond_nugget.emerald_nugget.name=Emerald Shard
 item.echo_eye.name=Echo Eye
 item.wyrmling_scales.name=Wyrmling Scales
 item.vanite_scythe.name=Vanite Scythe
+item.raw_octoqus.name=Raw Octoqus
+item.cooked_octoqus.name=Cooked Octoqus
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -642,6 +644,7 @@ tile.glowing_obsidian.name=Glowing Obsidian
 tile.meteorite_block.name=Block of Meteorite
 tile.iridium_ore.name=Iridium Ore
 tile.block_of_iridium.name=Block of Iridium
+tile.vanite_pumpkin.name=Vanite Pumpkin
 
 #Stairs Names
 tile.grimstone_stairs.name=Grimstone Stairs
@@ -1144,6 +1147,7 @@ entity.nova_craft.giant_frog.name=Giant Frog
 entity.nova_craft.wyrmling.name=Wyrmling
 entity.nova_craft.nova_ravager.name=Ravager
 entity.nova_craft.corruptist.name=Cryologer
+entity.nova_craft.octoqus.name=Octoqus
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1213,3 +1217,4 @@ entity.giant_frog.name=Giant Frog
 entity.wyrmling.name=Wyrmling
 entity.nova_ravager.name=Ravager
 entity.corruptist.name=Cryologer
+entity.octoqus.name=Octoqus

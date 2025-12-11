@@ -22,12 +22,12 @@ public class EnderLordStaffProjectileRenderer extends Render {
         this.shadowSize = 0.0F;
     }
 
-    public void doRenderNotchWave(EntityEnderLordStaffProjectile notchwave, double par2, double par4, double par6, float par8, float par9) {
+    public void doRenderEntity(EntityEnderLordStaffProjectile projectile, double par2, double par4, double par6, float par8, float par9) {
         GL11.glPushMatrix();
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glTranslated(par2, par4, par6);
 
-        this.bindTexture(this.getEntityTexture(notchwave));
+        this.bindTexture(this.getEntityTexture(projectile));
 
         Tessellator tessellator = Tessellator.instance;
 
@@ -57,7 +57,7 @@ public class EnderLordStaffProjectileRenderer extends Render {
 
     @Override
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
-        this.doRenderNotchWave((EntityEnderLordStaffProjectile) par1Entity, par2, par4, par6, par8, par9);
+        this.doRenderEntity((EntityEnderLordStaffProjectile) par1Entity, par2, par4, par6, par8, par9);
     }
 
     @Override

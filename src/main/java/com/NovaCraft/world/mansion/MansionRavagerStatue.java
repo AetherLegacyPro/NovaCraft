@@ -110,7 +110,7 @@ public class MansionRavagerStatue extends WorldGenerator
         world.setBlock(i + 4, j + 4, k + 2, NovaCraftBlocks.nullstone_bricks, 0, 2);
         world.setBlock(i + 1, j + 5, k + 2, Blocks.iron_block, 0, 2);
         world.setBlock(i + 2, j + 5, k + 2, NovaCraftBlocks.nullstone_bricks, 0, 2);
-        world.setBlock(i + 3, j + 5, k + 2, Blocks.pumpkin, 2, 2);
+        world.setBlock(i + 3, j + 5, k + 2, NovaCraftBlocks.vanite_pumpkin, 2, 2);
         world.setBlock(i + 4, j + 5, k + 2, NovaCraftBlocks.nullstone_bricks, 0, 2);
         world.setBlock(i + 5, j + 5, k + 2, Blocks.iron_block, 0, 2);
         world.setBlock(i + 1, j + 6, k, Blocks.iron_block, 0, 2);

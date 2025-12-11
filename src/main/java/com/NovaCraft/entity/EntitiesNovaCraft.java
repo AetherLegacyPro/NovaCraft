@@ -86,6 +86,7 @@ public class EntitiesNovaCraft {
 		register(EntitySculkedMonitorProjectile.class, "sculked_monitor_projectile", 59, 64, 20, true);
 		register(KlangiteSwordProjectile.class, "klangite_sword_projectile", 60, 150, 2, true);
 		register(EntityEchoEye.class, "echo_eye", 81, 150, 2, true);
+		register(EntityOctoqusProjectile.class, "octoqus_projectile", 87, 64, 20, true);
 		
 		//Mobs
 		register(EntityPrimedXanciumTNT.class, "XTNT", 0, 64, 20, false);
@@ -141,6 +142,7 @@ public class EntitiesNovaCraft {
 		register(EntityWyrmling.class, "wyrmling", 83, 0x4d4846, 0xc2b5b3);
 		register(EntityRavager.class, "nova_ravager", 84, 0x605f5a, 0x5b5049);
 		register(EntityCorruptist.class, "corruptist", 85, 0x96b2b2, 0x424c4e);
+		register(EntityOctoqus.class, "octoqus", 86, 0xbf8ca5, 0x633956);
 		
 		//Hardmode
 		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);
@@ -216,6 +218,11 @@ public class EntitiesNovaCraft {
 
 		if (Configs.enableSpawnWyrmling) {
 			EntityRegistry.addSpawn(EntityWyrmling.class, 2, 1, 3, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
+		}
+
+		if (Configs.enableSpawnOctoqus) {
+			EntityRegistry.addSpawn(EntityOctoqus.class, 5, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.BEACH));
+			EntityRegistry.addSpawn(EntityOctoqus.class, 5, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.OCEAN));
 		}
 		
 		if (Configs.enableSpawnCreaking) {

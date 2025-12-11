@@ -12,7 +12,7 @@ import com.NovaCraft.entity.misc.EntityIceProjectile;
 
 public class IceProjectileRenderer extends Render {
 
-	private static final ResourceLocation pearlTexture = new ResourceLocation("nova_craft", "textures/entity/snowball.png");
+	private static final ResourceLocation snowballTexture = new ResourceLocation("nova_craft", "textures/entity/snowball.png");
 	
     public IceProjectileRenderer() {
         super();
@@ -20,12 +20,12 @@ public class IceProjectileRenderer extends Render {
         this.shadowSize = 0.0F;
     }
 
-    public void doRenderNotchWave(EntityIceProjectile notchwave, double par2, double par4, double par6, float par8, float par9) {
+    public void doRenderNotchWave(EntityIceProjectile projectile, double par2, double par4, double par6, float par8, float par9) {
         GL11.glPushMatrix();
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glTranslated(par2, par4, par6);
 
-        this.bindTexture(this.getEntityTexture(notchwave));
+        this.bindTexture(this.getEntityTexture(projectile));
 
         Tessellator tessellator = Tessellator.instance;
 
@@ -54,7 +54,7 @@ public class IceProjectileRenderer extends Render {
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return pearlTexture;
+        return snowballTexture;
     }
 
 }

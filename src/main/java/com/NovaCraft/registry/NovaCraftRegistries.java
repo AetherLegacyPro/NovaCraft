@@ -101,6 +101,9 @@ public class NovaCraftRegistries {
 		OreDictionary.registerOre("foodGlowsquidraw", new ItemStack(NovaCraftItems.raw_glow_squid));
 		OreDictionary.registerOre("listAllmeatraw", new ItemStack(NovaCraftItems.raw_glow_squid));
 		OreDictionary.registerOre("listAllglowsquidraw", new ItemStack(NovaCraftItems.raw_glow_squid));
+		OreDictionary.registerOre("foodOctoqusraw", new ItemStack(NovaCraftItems.raw_octoqus));
+		OreDictionary.registerOre("listAllmeatraw", new ItemStack(NovaCraftItems.raw_octoqus));
+		OreDictionary.registerOre("listAlloctoqusraw", new ItemStack(NovaCraftItems.raw_octoqus));
 		OreDictionary.registerOre("foodEnderavisraw", new ItemStack(NovaCraftItems.raw_enderavis));
 		OreDictionary.registerOre("listAllmeatraw", new ItemStack(NovaCraftItems.raw_enderavis));
 		OreDictionary.registerOre("listAllenderavisraw", new ItemStack(NovaCraftItems.raw_enderavis));
@@ -117,6 +120,9 @@ public class NovaCraftRegistries {
 		OreDictionary.registerOre("foodGlowsquidcooked", new ItemStack(NovaCraftItems.cooked_glow_squid));
 		OreDictionary.registerOre("listAllmeatcooked", new ItemStack(NovaCraftItems.cooked_glow_squid));
 		OreDictionary.registerOre("listAllglowsquidcooked", new ItemStack(NovaCraftItems.cooked_glow_squid));
+		OreDictionary.registerOre("foodOctoquscooked", new ItemStack(NovaCraftItems.cooked_octoqus));
+		OreDictionary.registerOre("listAllmeatcooked", new ItemStack(NovaCraftItems.cooked_octoqus));
+		OreDictionary.registerOre("listAlloctoquscooked", new ItemStack(NovaCraftItems.cooked_octoqus));
 		OreDictionary.registerOre("foodEnderaviscooked", new ItemStack(NovaCraftItems.cooked_enderavis));
 		OreDictionary.registerOre("listAllmeatcooked", new ItemStack(NovaCraftItems.cooked_enderavis));
 		OreDictionary.registerOre("listAllenderaviscooked", new ItemStack(NovaCraftItems.cooked_enderavis));
@@ -166,6 +172,7 @@ public class NovaCraftRegistries {
 
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_frog_leg), new ItemStack(NovaCraftItems.cooked_frog_leg), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_glow_squid), new ItemStack(NovaCraftItems.cooked_glow_squid), .01F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_octoqus), new ItemStack(NovaCraftItems.cooked_octoqus), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_enderavis), new ItemStack(NovaCraftItems.cooked_enderavis), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_blazing_charger), new ItemStack(NovaCraftItems.cooked_blazing_charger), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_chevon), new ItemStack(NovaCraftItems.cooked_chevon), .01F);
@@ -340,7 +347,7 @@ public class NovaCraftRegistries {
 		register("vanite_ingot", new ItemStack(NovaCraftItems.vanite_ingot), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.iridium_nugget, 0, 1));
 		register("diamond_nugget", new ItemStack(NovaCraftItems.diamond_nugget, 9, 0), "X", 'X', Items.diamond);
 		register("diamond", new ItemStack(Items.diamond), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 0, 0));
-		register("emerald_nugget", new ItemStack(NovaCraftItems.diamond_nugget, 9, 1), "X", 'X', Items.diamond);
+		register("emerald_nugget", new ItemStack(NovaCraftItems.diamond_nugget, 9, 1), "X", 'X', Items.emerald);
 		register("emerald", new ItemStack(Items.emerald), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 0, 1));
 
 		register("legendary_beacon", new ItemStack(NovaCraftBlocks.legendary_beacon), "XXX", "XYX", "ZZZ", 'X', new ItemStack(NovaCraftBlocks.vanite_glass), 'Y', NovaCraftItems.warden_core, 'Z', new ItemStack(NovaCraftBlocks.crystallized_end));
