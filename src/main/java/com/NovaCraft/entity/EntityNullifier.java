@@ -272,27 +272,13 @@ public class EntityNullifier extends EntityMob
             }
         }
         
-        int rand2 = (int)(1 + Math.random() * 9);
-		switch (rand2)
-        {
-        case 1: this.dropItem(NovaCraftItems.nullifier_core, 1);
-        break;
-        case 2: 
-        break;
-        case 3: 
-        break;
-        case 4: 
-        break;
-        case 5: 
-        break;
-        case 6: 
-        break;
-        case 7: 
-        break;
-        case 8: 
-        break;
-        case 9: 
-       break;
+        int chance = (int)(1 + Math.random() * 9);
+		switch (chance) {
+        case 1:
+            this.dropItem(NovaCraftItems.nullifier_core, 1);
+            break;
+        default:
+            break;
         }
 		
 		if(this.getPowered()) { 

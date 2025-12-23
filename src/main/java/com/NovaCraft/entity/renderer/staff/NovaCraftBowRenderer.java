@@ -2,7 +2,6 @@ package com.NovaCraft.entity.renderer.staff;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
-
 import org.lwjgl.opengl.GL11;
 
 public class NovaCraftBowRenderer implements IItemRenderer {
@@ -20,13 +19,11 @@ public class NovaCraftBowRenderer implements IItemRenderer {
 
 	@Override
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-
 		return false;
 	}
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-
 	}
 
 }

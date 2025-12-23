@@ -3,9 +3,7 @@ package com.NovaCraft.entity.renderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.TileEntity.TileEntityDeepOneEggActivated;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.client.renderer.RenderBlocks;

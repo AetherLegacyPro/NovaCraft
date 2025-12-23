@@ -2,6 +2,7 @@ package com.NovaCraft.world.mansion;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntityRavager;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.Loader;
@@ -10,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -2625,7 +2627,6 @@ public class MansionFloor2Gen extends WorldGenerator {
         world.setBlock(i + 6, j, k + 69, Blocks.carpet, 14, 2);
         world.setBlock(i + 7, j, k + 69, Blocks.carpet, 0, 2);
         world.setBlock(i + 9, j, k + 69, Blocks.planks, 5, 2);
-        world.setBlock(i + 12, j, k + 69, Blocks.end_stone, 0, 2);
         world.setBlock(i + 15, j, k + 69, Blocks.oak_stairs, 7, 2);
         world.setBlock(i + 16, j, k + 69, Blocks.oak_stairs, 7, 2);
         world.setBlock(i + 17, j, k + 69, Blocks.oak_stairs, 7, 2);
@@ -2726,6 +2727,19 @@ public class MansionFloor2Gen extends WorldGenerator {
         world.setBlock(i + 57, j, k + 71, Blocks.planks, 5, 2);
         world.setBlock(i + 58, j, k + 71, Blocks.cobblestone_wall, 0, 2);
         world.setBlock(i, j, k + 72, Blocks.stone_stairs, 0, 2);
+        world.setBlock(i + 12, j, k + 69, Blocks.air, 0, 2);
+
+        if (!world.isRemote) {
+            final EntityRavager ravager = new EntityRavager(world);
+            ravager.setLocationAndAngles(i + 12, j, k + 69, 0.0f, 0.0f);
+            world.spawnEntityInWorld(ravager);
+            ravager.setType(0);
+
+            final EntityVindicator mount = new EntityVindicator(world);
+            mount.setLocationAndAngles(i + 12, j, k + 69, 0.0f, 0.0f);
+            world.spawnEntityInWorld(mount);
+            mount.mountEntity(ravager);
+        }
 
         if (!world.isRemote) {
             final EntityVindicator vindicator = new EntityVindicator(world);
@@ -2853,22 +2867,34 @@ public class MansionFloor2Gen extends WorldGenerator {
             world.spawnEntityInWorld(vindicator21);
         }
 
-        world.setBlock(i + 21, j, k + 19, Blocks.chest, 3, 2);
-        TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 21, j, k + 19);
-        for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
-            chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getChestLoot(random));
+        this.setBlockAndNotifyAdequately(world, i + 21, j, k + 19, Blocks.chest, 3);
+        TileEntity tile = world.getTileEntity(i + 21, j, k + 19);
+        if (tile instanceof TileEntityChest) {
+            TileEntityChest chest = (TileEntityChest) tile;
+
+            for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getChestLoot(random));
+            }
         }
 
-        world.setBlock(i + 37, j, k + 43, Blocks.chest, 3, 2);
-        TileEntityChest chest2 = (TileEntityChest) world.getTileEntity(i + 37, j, k + 43);
-        for (int slot = 0; slot < 3 + random.nextInt(7); slot++) {
-            chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getFoodLoot(random));
+        this.setBlockAndNotifyAdequately(world, i + 37, j, k + 43, Blocks.chest, 3);
+        TileEntity tile2 = world.getTileEntity(i + 37, j, k + 43);
+        if (tile2 instanceof TileEntityChest) {
+            TileEntityChest chest = (TileEntityChest) tile2;
+
+            for (int slot = 0; slot < 3 + random.nextInt(7); slot++) {
+                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getFoodLoot(random));
+            }
         }
 
-        world.setBlock(i + 40, j, k + 46, Blocks.chest, 4, 2);
-        TileEntityChest chest3 = (TileEntityChest) world.getTileEntity(i + 40, j, k + 46);
-        for (int slot = 0; slot < 3 + random.nextInt(7); slot++) {
-            chest3.setInventorySlotContents(random.nextInt(chest3.getSizeInventory()), this.getFoodLoot(random));
+        this.setBlockAndNotifyAdequately(world, i + 40, j, k + 46, Blocks.chest, 4);
+        TileEntity tile3 = world.getTileEntity(i + 40, j, k + 46);
+        if (tile3 instanceof TileEntityChest) {
+            TileEntityChest chest = (TileEntityChest) tile3;
+
+            for (int slot = 0; slot < 3 + random.nextInt(7); slot++) {
+                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getFoodLoot(random));
+            }
         }
 
         return true;

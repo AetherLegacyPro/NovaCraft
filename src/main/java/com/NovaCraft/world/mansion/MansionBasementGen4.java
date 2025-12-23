@@ -10,6 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityFlowerPot;
 import net.minecraft.world.World;
@@ -2593,11 +2594,14 @@ public class MansionBasementGen4 extends WorldGenerator {
             world.spawnEntityInWorld(mob);
         }
 
-        world.setBlock(i + 13, j + 5, k + 25, Blocks.chest, 3, 2);
-        TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 13, j + 5, k + 25);
+        this.setBlockAndNotifyAdequately(world, i + 13, j + 5, k + 25, Blocks.chest, 3);
+        TileEntity tile = world.getTileEntity(i + 13, j + 5, k + 25);
+        if (tile instanceof TileEntityChest) {
+            TileEntityChest chest = (TileEntityChest) tile;
 
-        for (int slot = 0; slot < 3 + random.nextInt(14); slot++) {
-            chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getShrineLoot(random));
+            for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getShrineLoot(random));
+            }
         }
         
         return true;

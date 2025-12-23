@@ -4,10 +4,8 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.model.*;
 import net.minecraft.util.*;
 import org.lwjgl.opengl.*;
-
 import com.NovaCraft.entity.EntitySculkAbomination;
 import com.NovaCraft.entity.models.SculkAbominationModel;
-
 import net.minecraft.client.renderer.*;
 import net.minecraft.entity.*;
 
@@ -15,7 +13,6 @@ public class SculkAbominationRenderer extends RenderLiving
 {
     private static final ResourceLocation EntityTexture;
     private static final ResourceLocation EyesTexture;
-    private static final ResourceLocation BlinkTexture;
     
     public SculkAbominationRenderer(final SculkAbominationModel mainModel, final SculkAbominationModel renderPassModel, final float shadowSize) {
         super((ModelBase)mainModel, shadowSize);
@@ -64,6 +61,5 @@ public class SculkAbominationRenderer extends RenderLiving
     static {
         EntityTexture = new ResourceLocation("nova_craft", "textures/entity/sculk_abomination/sculk_abomination.png");
         EyesTexture = new ResourceLocation("nova_craft", "textures/entity/sculk_abomination/sculk_abomination_eye.png");
-        BlinkTexture = new ResourceLocation("nova_craft", "textures/entity/sculk_abomination/sculk_abomination_eye_closed.png");
     }
 }

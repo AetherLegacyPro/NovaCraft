@@ -1,10 +1,7 @@
 package com.NovaCraft.entity.renderer.illager;
 
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.models.IllagerChiefModel;
-import com.NovaCraft.entity.models.VindicatorModel;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;

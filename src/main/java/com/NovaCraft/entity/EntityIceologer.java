@@ -172,12 +172,32 @@ public class EntityIceologer extends EntityMob {
 	{
 		return super.getBrightness(p_70013_1_);
 	}
-	
-	protected Item getDropItem()
-    {
-        return Items.emerald;
-    }
-	
+
+	protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
+		int j;
+		int k;
+		{
+			j = this.rand.nextInt(3 + p_70628_2_);
+
+			for (k = 0; k < j; ++k)
+			{
+				this.entityDropItem(new ItemStack(NovaCraftItems.diamond_nugget, 1, 1), 1.0F);
+			}
+		}
+
+		int chance = (int)(1 + Math.random() * 5);
+		switch (chance) {
+			case 1: this.dropItem(NovaCraftItems.vindicator_insignia, 1);
+				break;
+			default:
+				break;
+		}
+	}
+
+	protected void dropRareDrop(int p_70600_1_)
+	{
+		this.dropItem(Items.emerald, 1);
+	}
 	
 	public EnumCreatureAttribute getCreatureAttribute()
     {

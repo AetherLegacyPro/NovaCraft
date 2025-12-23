@@ -1,14 +1,11 @@
 package com.NovaCraft.entity.renderer.staff;
 
-
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-
 import com.NovaCraft.entity.EntityIceSceptorProjectile;
 
 public class IceSceptorProjectileRenderer extends Render {
@@ -21,12 +18,14 @@ public class IceSceptorProjectileRenderer extends Render {
         this.shadowSize = 0.0F;
     }
 
-    public void doRenderNotchWave(EntityIceSceptorProjectile notchwave, double par2, double par4, double par6, float par8, float par9) {
+    public void doRenderProjectile(EntityIceSceptorProjectile projectile, double par2, double par4, double par6, float par8, float par9) {
         GL11.glPushMatrix();
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glTranslated(par2, par4, par6);
 
-        this.bindTexture(this.getEntityTexture(notchwave));
+        GL11.glScalef(0.5F, 0.5F, 0.5F);
+
+        this.bindTexture(this.getEntityTexture(projectile));
 
         Tessellator tessellator = Tessellator.instance;
 
@@ -50,7 +49,7 @@ public class IceSceptorProjectileRenderer extends Render {
 
     @Override
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
-        this.doRenderNotchWave((EntityIceSceptorProjectile) par1Entity, par2, par4, par6, par8, par9);
+        this.doRenderProjectile((EntityIceSceptorProjectile) par1Entity, par2, par4, par6, par8, par9);
     }
 
     @Override

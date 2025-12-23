@@ -10,6 +10,7 @@ import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -2760,10 +2761,14 @@ public class MansionFloor2Gen3 extends WorldGenerator {
         world.setBlock(i + 58, j + 6, k + 25, Blocks.stone_stairs, 5, 2);
         world.setBlock(i, j + 6, k + 26, Blocks.stone_stairs, 4, 2);
 
-        world.setBlock(i + 17, j + 4, k + 59, Blocks.chest, 3, 2);
-        TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 17, j + 4, k + 59);
-        for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
-            chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBookLoot(random));
+        this.setBlockAndNotifyAdequately(world, i + 17, j + 4, k + 59, Blocks.chest, 3);
+        TileEntity tile = world.getTileEntity(i + 17, j + 4, k + 59);
+        if (tile instanceof TileEntityChest) {
+            TileEntityChest chest = (TileEntityChest) tile;
+
+            for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBookLoot(random));
+            }
         }
 
         return true;

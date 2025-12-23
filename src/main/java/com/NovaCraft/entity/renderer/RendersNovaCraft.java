@@ -74,6 +74,7 @@ public class RendersNovaCraft {
 	register(EntitySculkedMonitorProjectile.class, new SculkedMonitorProjectileRenderer());
 	register(KlangiteSwordProjectile.class, new KlangiteSwordProjectileRenderer());
 	register(EntityEchoEye.class, new RenderSnowball(NovaCraftItems.echo_eye));
+	register(EntityVindicatorEye.class, new RenderSnowball(NovaCraftItems.vindicator_insignia));
 	register(EntityOctoqusProjectile.class, new OctoqusProjectileRenderer());
 	
 	//Passive
@@ -152,7 +153,7 @@ public class RendersNovaCraft {
 	register(EntityIceologer.class, new IceologerRenderer());
 	register(EntityIceologer.class, new IceologerOverlayRenderer());
 
-	register(EntityCorruptist.class, new CorruptistRenderer());
+	register(EntityCorruptist.class, new CryologerRenderer());
 	register(EntityCorruptist.class, new CorruptistOverlayRenderer());
 	
 	register(EntitySlaughter.class, new SlaughterRenderer());

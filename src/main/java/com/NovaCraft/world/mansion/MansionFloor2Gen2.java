@@ -11,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityFlowerPot;
 import net.minecraft.world.World;
@@ -2914,10 +2915,14 @@ public class MansionFloor2Gen2 extends WorldGenerator {
             world.spawnEntityInWorld(vindicator6);
         }
 
-        world.setBlock(i + 34, j + 1, k + 41, Blocks.chest, 5, 2);
-        TileEntityChest chest3 = (TileEntityChest) world.getTileEntity(i + 34, j + 1, k + 41);
-        for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
-            chest3.setInventorySlotContents(random.nextInt(chest3.getSizeInventory()), this.getChestLoot(random));
+        this.setBlockAndNotifyAdequately(world, i + 34, j + 1, k + 41, Blocks.chest, 5);
+        TileEntity tile = world.getTileEntity(i + 34, j + 1, k + 41);
+        if (tile instanceof TileEntityChest) {
+            TileEntityChest chest = (TileEntityChest) tile;
+
+            for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getChestLoot(random));
+            }
         }
 
         return true;

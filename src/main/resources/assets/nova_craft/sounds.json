@@ -396,6 +396,15 @@
       "entity/goat/step6"
     ]
   },
+
+  "vanite_anvil.use": {
+    "category": "neutral",
+    "sounds": [
+      "misc/vanite_anvil/use1",
+      "misc/vanite_anvil/use2",
+      "misc/vanite_anvil/use3"
+    ]
+  },
   
   "trident.impact": {
   "category": "neutral",

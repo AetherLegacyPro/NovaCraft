@@ -1,9 +1,7 @@
 package com.NovaCraft.entity.renderer.illager;
 
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.models.IllagerChiefModel;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
@@ -18,8 +16,8 @@ public class IllagerChiefOverlayRenderer extends IllagerChiefRenderer {
 		super();
 		this.mainModel = new IllagerChiefModel();
 		this.modelBipedMain = (IllagerChiefModel) this.mainModel;
-		this.field_82437_k = new ModelBiped(1.0F); //modelArmourChestplate
-		this.field_82435_l = new ModelBiped(0.5F); //modelArmor
+		this.field_82437_k = new ModelBiped(1.0F);
+		this.field_82435_l = new ModelBiped(0.5F);
 		this.tutModel = new ModelBiped(0.5f);
 	}
 	
@@ -55,16 +53,14 @@ public class IllagerChiefOverlayRenderer extends IllagerChiefRenderer {
 				
 				modelBiped.setLivingAnimations(entity, par2, par3, 0.0F);
 				modelBiped.render(entity, par2, par3, par4, par5, par6, par7);
-				
-				// Start alpha render
+
 				GL11.glDisable(GL11.GL_LIGHTING);
 				this.bindTexture(texture);
 				GL11.glEnable(GL11.GL_ALPHA_TEST);
 				GL11.glEnable(GL11.GL_BLEND);
 				GL11.glAlphaFunc(GL11.GL_GREATER, 0.0F);
 				GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-								
-				
+
 				modelBiped.render(entity, par2, par3, par4, par5, par6, par7);
 				GL11.glDisable(GL11.GL_BLEND);
 				GL11.glEnable(GL11.GL_ALPHA_TEST);

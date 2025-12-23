@@ -1,29 +1,22 @@
 package com.NovaCraft.entity.renderer;
 
 import java.util.Random;
-
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.entity.models.WardlingModel;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.boss.BossStatus;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
 public class WardenVesselRenderer extends RenderLiving
 {
 	protected Random rand;
-	private static final ResourceLocation texture = new ResourceLocation("nova_craft", "textures/entity/warden_vessel/wardling.png");	
-	private static final ResourceLocation spots_1;
+	private static final ResourceLocation texture = new ResourceLocation("nova_craft", "textures/entity/warden_vessel/wardling.png");
 	
 	protected ModelBiped field_82437_k; 
 	protected ModelBiped field_82435_l; 
@@ -108,9 +101,5 @@ public class WardenVesselRenderer extends RenderLiving
 	 public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
 	        this.doRender((EntityWardenVessel)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
 	 }
-	 
-	 static {
-		 spots_1 = new ResourceLocation("nova_craft", "textures/entity/warden_vessel/warden_vessel_pulsating_spots.png");
-	    }
 	
 }

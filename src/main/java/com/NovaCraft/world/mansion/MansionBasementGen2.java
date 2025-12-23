@@ -15,6 +15,7 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -2585,8 +2586,7 @@ public class MansionBasementGen2 extends WorldGenerator {
         world.setBlock(i + 62, j + 2, k, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 63, j + 2, k, placeStoneBricks(random), 0, 2);
         world.setBlock(i + 64, j + 2, k, NovaCraftBlocks.cobbled_grimstone, 0, 2);
-
-        world.setBlock(i + 28, j + 1, k + 45, Block.getBlockById(201), 0, 2);
+        world.setBlock(i + 28, j + 1, k + 45, Blocks.air, 0, 2);
 
         world.setBlock(i + 1, j + 1, k + 49, placeGemstonePile(random), random.nextInt(8), 2);
         world.setBlock(i + 6, j + 1, k + 49, placeGemstonePile(random), random.nextInt(8), 2);
@@ -2838,18 +2838,24 @@ public class MansionBasementGen2 extends WorldGenerator {
             world.spawnEntityInWorld(mob);
         }
 
-        world.setBlock(i + 53, j + 1, k + 12, Blocks.chest, 5, 2);
-        TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 53, j + 1, k + 12);
+        this.setBlockAndNotifyAdequately(world, i + 53, j + 1, k + 12, Blocks.chest, 5);
+        TileEntity tile = world.getTileEntity(i + 53, j + 1, k + 12);
+        if (tile instanceof TileEntityChest) {
+            TileEntityChest chest = (TileEntityChest) tile;
 
-        for (int slot = 0; slot < 3 + random.nextInt(14); slot++) {
-            chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getShrineLoot(random));
+            for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getShrineLoot(random));
+            }
         }
 
-        world.setBlock(i + 49, j + 1, k + 49, Blocks.chest, 5, 2);
-        TileEntityChest chest2 = (TileEntityChest) world.getTileEntity(i + 49, j + 1, k + 49);
+        this.setBlockAndNotifyAdequately(world, i + 49, j + 1, k + 49, Blocks.chest, 5);
+        TileEntity tile2 = world.getTileEntity(i + 49, j + 1, k + 49);
+        if (tile2 instanceof TileEntityChest) {
+            TileEntityChest chest = (TileEntityChest) tile2;
 
-        for (int slot = 0; slot < 3 + random.nextInt(14); slot++) {
-            chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getWheatRoomLoot(random));
+            for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getWheatRoomLoot(random));
+            }
         }
 
         return true;

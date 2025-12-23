@@ -1,7 +1,6 @@
 package com.NovaCraft.entity.renderer;
 
 import com.NovaCraft.entity.models.SculkSymbioteModel;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.entity.RenderLiving;

@@ -5,10 +5,8 @@ import cpw.mods.fml.relauncher.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.entity.*;
 import org.lwjgl.opengl.*;
-
 import com.NovaCraft.entity.EntityPrimedPETN;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.util.*;
 import net.minecraft.client.renderer.texture.*;
 

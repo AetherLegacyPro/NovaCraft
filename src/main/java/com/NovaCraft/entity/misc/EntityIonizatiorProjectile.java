@@ -1,34 +1,31 @@
 package com.NovaCraft.entity.misc;
 
 import java.util.List;
-
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntityDeepoid;
 import com.NovaCraft.entity.EntityIonizatior;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityFireball;
-import net.minecraft.init.Blocks;
 import net.minecraft.network.play.server.S12PacketEntityVelocity;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class EntityIonizatiorProjectile extends EntityFireball
-{
-    private static final String __OBFID = "CL_00001721";
+public class EntityIonizatiorProjectile extends EntityFireball {
 
     public EntityIonizatiorProjectile(World p_i1770_1_)
     {
         super(p_i1770_1_);
-        this.setSize(0.0125F, 0.0125F);
+        this.setSize(0.3125F, 0.3125F);
     }
 
     public EntityIonizatiorProjectile(World p_i1771_1_, EntityLivingBase p_i1771_2_, double p_i1771_3_, double p_i1771_5_, double p_i1771_7_)
@@ -42,107 +39,128 @@ public class EntityIonizatiorProjectile extends EntityFireball
         super(p_i1772_1_, p_i1772_2_, p_i1772_4_, p_i1772_6_, p_i1772_8_, p_i1772_10_, p_i1772_12_);
         this.setSize(0.3125F, 0.3125F);
     }
-    
+
     @SideOnly(Side.CLIENT)
     public void onEntityUpdate() {
-    	super.onEntityUpdate();
-    	if (this.worldObj.isRemote) {
-    	int k;
-        if (Configs.enableIonizatiorParticles) {
-        	for (k = 0; k < 4; ++k)
-        	{
-        		ParticleHandler.IONFLAME.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
-        		}
-        	}
-    	}
-    }
-
-    /**
-     * Called when this EntityFireball hits a block or entity.
-     */
-    protected void onImpact(MovingObjectPosition p_70227_1_)
-    {
-        if (!this.worldObj.isRemote)
-        {
-            if (p_70227_1_.entityHit != null)
-            {              
-                if (p_70227_1_.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 2.0F))
+        super.onEntityUpdate();
+        if (this.worldObj.isRemote) {
+            int k;
+            if (Configs.enableIonizatiorParticles) {
+                for (k = 0; k < 4; ++k)
                 {
-                    p_70227_1_.entityHit.setFire(15);
-                	}           	
-                
-                //p_70227_1_.entityHit.attackEntityFrom(DamageSource.magic, 3.0F);
-                
-                List<?> entityList = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(0.0D, 4.0D, 0.0D));
-                for (int ammount = 0; ammount < entityList.size(); ++ammount) {
-                    Entity entity = (Entity) entityList.get(ammount);
-                    {
-               if (!(entity instanceof EntityIonizatior)) {
-                if (entity.isImmuneToFire()) {
-                	p_70227_1_.entityHit.attackEntityFrom(DamageSource.generic, 5.0F);
-                	p_70227_1_.entityHit.attackEntityFrom(DamageSource.magic, 3.0F);
-                	}
-                else {
-                	p_70227_1_.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 3.0F);
-                	p_70227_1_.entityHit.attackEntityFrom(DamageSource.magic, 3.0F);
-                	}
-                    	}
-                    }
-                	
+                    ParticleHandler.IONFLAME.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
                 }
             }
-            else
-            {
-                int i = p_70227_1_.blockX;
-                int j = p_70227_1_.blockY;
-                int k = p_70227_1_.blockZ;
+        }
+    }
 
-                switch (p_70227_1_.sideHit)
-                {
-                    case 0:
-                        --j;
-                        break;
-                    case 1:
-                        ++j;
-                        break;
-                    case 2:
-                        --k;
-                        break;
-                    case 3:
-                        ++k;
-                        break;
-                    case 4:
-                        --i;
-                        break;
-                    case 5:
-                        ++i;
+    protected void onImpact(MovingObjectPosition mop) {
+        if(mop.entityHit instanceof EntityEnderman || mop.entityHit instanceof EntityIonizatior || mop.entityHit instanceof EntityDeepoid) this.setDead();
+
+        if (!this.worldObj.isRemote) {
+            if (mop.entityHit != null && mop.entityHit != this.shootingEntity) {
+                mop.entityHit.attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 10.0F);
+                mop.entityHit.attackEntityFrom(DamageSource.magic, 6.0F);
+                mop.entityHit.setFire(15);
+            } else {
+                int i = mop.blockX;
+                int j = mop.blockY;
+                int k = mop.blockZ;
+
+                switch (mop.sideHit) {
+                    case 0: --j; break;
+                    case 1: ++j; break;
+                    case 2: --k; break;
+                    case 3: ++k; break;
+                    case 4: --i; break;
+                    case 5: ++i; break;
                 }
 
-                if (this.worldObj.isAirBlock(i, j, k))
-                {
+                if (this.worldObj.isAirBlock(i, j, k)) {
                     this.worldObj.setBlock(i, j, k, NovaCraftBlocks.deepfire);
                 }
             }
-            
-            if (p_70227_1_.entityHit instanceof EntityPlayerMP) {
-				((EntityPlayerMP) p_70227_1_.entityHit).playerNetServerHandler.sendPacket(new S12PacketEntityVelocity(p_70227_1_.entityHit));
-			}
+
+            if (mop.entityHit instanceof EntityPlayerMP) {
+                ((EntityPlayerMP)mop.entityHit).playerNetServerHandler.sendPacket(new S12PacketEntityVelocity(mop.entityHit));
+            }
 
             this.setDead();
         }
     }
 
-    /**
-     * Returns true if other Entities should be prevented from moving through this Entity.
-     */
-    public boolean canBeCollidedWith()
-    {
-        return false;
+    @Override
+    public void onUpdate() {
+
+        this.lastTickPosX = this.posX;
+        this.lastTickPosY = this.posY;
+        this.lastTickPosZ = this.posZ;
+
+        super.onEntityUpdate();
+
+        this.posX += this.motionX;
+        this.posY += this.motionY;
+        this.posZ += this.motionZ;
+        this.setPosition(this.posX, this.posY, this.posZ);
+
+        Vec3 start = Vec3.createVectorHelper(lastTickPosX, lastTickPosY, lastTickPosZ);
+        Vec3 end = Vec3.createVectorHelper(posX, posY, posZ);
+
+        MovingObjectPosition mop = worldObj.rayTraceBlocks(start, end);
+
+        double expand = 0.3D;
+        List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.addCoord(motionX, motionY, motionZ).expand(expand, expand, expand));
+        Entity hitEntity = null;
+        double closestDist = Double.MAX_VALUE;
+
+        for (Object obj : list) {
+            Entity entity = (Entity)obj;
+            if (entity.canBeCollidedWith() && entity != this.shootingEntity) {
+                AxisAlignedBB aabb = entity.boundingBox.expand(0.3D, 0.3D, 0.3D);
+                MovingObjectPosition intercept = aabb.calculateIntercept(start, end);
+                if (intercept != null) {
+                    double dist = start.distanceTo(intercept.hitVec);
+                    if (dist < closestDist) {
+                        closestDist = dist;
+                        hitEntity = entity;
+                    }
+                }
+            }
+        }
+
+        if (hitEntity != null) {
+            mop = new MovingObjectPosition(hitEntity, Vec3.createVectorHelper(hitEntity.posX, hitEntity.posY + hitEntity.height / 2.0D, hitEntity.posZ));
+        }
+
+        if (mop != null) {
+            this.onImpact(mop);
+            return;
+        }
+
+        float drag = 0.99F;
+        this.motionX *= drag;
+        this.motionY *= drag;
+        this.motionZ *= drag;
+
+        if (this.worldObj.isRemote && Configs.enableIonizatiorParticles) {
+            for (int k = 0; k < 2; ++k) {
+                ParticleHandler.IONFLAME.spawn(worldObj, posX + (rand.nextDouble() - 0.5D) * width, posY + rand.nextDouble() * height - 0.25D, posZ + (rand.nextDouble() - 0.5D) * width);
+            }
+        }
+
+        if (this.ticksExisted > 200) {
+            this.setDead();
+        }
     }
 
-    /**
-     * Called when the entity is attacked.
-     */
+
+
+
+    @Override
+    public boolean canBeCollidedWith() {
+        return true;
+    }
+
     public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
     {
         return false;

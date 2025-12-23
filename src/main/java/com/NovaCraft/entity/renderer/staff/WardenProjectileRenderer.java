@@ -4,15 +4,13 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-
 import com.NovaCraft.entity.misc.EntityWardenProjectile;
 
 public class WardenProjectileRenderer extends Render {
 
-	private static final ResourceLocation soundwaveTexture = new ResourceLocation("nova_craft", "textures/entity/vibration.png");
+	private static final ResourceLocation vibrationTexture = new ResourceLocation("nova_craft", "textures/entity/vibration.png");
 	
     public WardenProjectileRenderer() {
         super();
@@ -54,7 +52,7 @@ public class WardenProjectileRenderer extends Render {
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return soundwaveTexture;
+        return vibrationTexture;
     }
 
 }

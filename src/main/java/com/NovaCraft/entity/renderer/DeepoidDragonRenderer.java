@@ -3,7 +3,6 @@ package com.NovaCraft.entity.renderer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
-import net.minecraft.client.model.ModelDragon;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
@@ -15,19 +14,16 @@ import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
-import com.NovaCraft.entity.models.TheDeepOneModel;
 import com.NovaCraft.entity.models.TheDeepOneModel;
 
 @SideOnly(Side.CLIENT)
 public class DeepoidDragonRenderer extends RenderLiving
 {
     private static final ResourceLocation DeepoidDragonExplodingTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon_exploding.png");
-    private static final ResourceLocation DeepoidDragonCrystalBeamTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon_endercrystal_beam.png");
     private static final ResourceLocation DeepoidDragonEyesTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon_glow.png");
     private static final ResourceLocation DeepoidDragonTextures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon.png");
-    /** An instance of the dragon model in RenderDragon */
+
     protected TheDeepOneModel modelDragon;
 
     public DeepoidDragonRenderer()
@@ -66,9 +62,6 @@ public class DeepoidDragonRenderer extends RenderLiving
         GL11.glScalef(2.8F, 2.8F, 2.8F);
     }
 
-    /**
-     * Renders the model in RenderLiving
-     */
     protected void renderModel(EntityDeepoidDragon p_77036_1_, float p_77036_2_, float p_77036_3_, float p_77036_4_, float p_77036_5_, float p_77036_6_, float p_77036_7_)
     {
         if (p_77036_1_.deathTicks > 0)
@@ -100,21 +93,12 @@ public class DeepoidDragonRenderer extends RenderLiving
         }
     }
 
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
     public void doRender(EntityDeepoidDragon p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
     	BossStatus.setBossStatus(p_76986_1_, false);
         super.doRender((EntityLiving)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(EntityDeepoidDragon p_110775_1_)
     {
         return DeepoidDragonTextures;
@@ -180,9 +164,6 @@ public class DeepoidDragonRenderer extends RenderLiving
         }
     }
 
-    /**
-     * Queries whether should render the specified pass or not.
-     */
     protected int shouldRenderPass(EntityDeepoidDragon p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
         if (p_77032_2_ == 1)
@@ -212,20 +193,11 @@ public class DeepoidDragonRenderer extends RenderLiving
         }
     }
 
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
     public void doRender(EntityLiving p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
         this.doRender((EntityDeepoidDragon)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    /**
-     * Queries whether should render the specified pass or not.
-     */
     protected int shouldRenderPass(EntityLivingBase p_77032_1_, int p_77032_2_, float p_77032_3_)
     {
         return this.shouldRenderPass((EntityDeepoidDragon)p_77032_1_, p_77032_2_, p_77032_3_);
@@ -241,39 +213,21 @@ public class DeepoidDragonRenderer extends RenderLiving
         this.rotateCorpse((EntityDeepoidDragon)p_77043_1_, p_77043_2_, p_77043_3_, p_77043_4_);
     }
 
-    /**
-     * Renders the model in RenderLiving
-     */
     protected void renderModel(EntityLivingBase p_77036_1_, float p_77036_2_, float p_77036_3_, float p_77036_4_, float p_77036_5_, float p_77036_6_, float p_77036_7_)
     {
         this.renderModel((EntityDeepoidDragon)p_77036_1_, p_77036_2_, p_77036_3_, p_77036_4_, p_77036_5_, p_77036_6_, p_77036_7_);
     }
 
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
     public void doRender(EntityLivingBase p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
         this.doRender((EntityDeepoidDragon)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(Entity p_110775_1_)
     {
         return this.getEntityTexture((EntityDeepoidDragon)p_110775_1_);
     }
 
-    /**
-     * Actually renders the given argument. This is a synthetic bridge method, always casting down its argument and then
-     * handing it off to a worker function which does the actual work. In all probabilty, the class Render is generic
-     * (Render<T extends Entity) and this method has signature public void func_76986_a(T entity, double d, double d1,
-     * double d2, float f, float f1). But JAD is pre 1.5 so doesn't do that.
-     */
     public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
         this.doRender((EntityDeepoidDragon)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);

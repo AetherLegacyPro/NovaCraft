@@ -1,10 +1,8 @@
 package com.NovaCraft.entity.renderer;
 
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntityDestituteTentacle;
 import com.NovaCraft.entity.models.DestituteTentacleModel;
-
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,7 +21,7 @@ public class DestituteTentacleRenderer extends RenderLiving {
 
     @Override
     protected void preRenderCallback(EntityLivingBase entity, float f) {
-    	EntityDestituteTentacle plant = (EntityDestituteTentacle) entity;
+    	EntityDestituteTentacle tentacle = (EntityDestituteTentacle) entity;
         
         GL11.glScalef(1.1F, 1.1F, 1.1F);
 

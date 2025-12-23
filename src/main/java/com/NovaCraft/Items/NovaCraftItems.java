@@ -158,7 +158,7 @@ public class NovaCraftItems {
 	public static Item raw_klangite, klangite_blend, impure_klangite_ingot, explosive_klangite_ingot, klangite_ingot;
 	public static Item tophinite_gemstone, flaming_pitcher_petal, blazing_coal, ophidian_scales;
 	public static Item superheated_magma_cream, enflamed_null_cube_slimeball, enhanced_enflamed_null_cube_slimeball;
-	public static Item deepoid_star, eternal_caller, warden_core, echo_eye;
+	public static Item deepoid_star, eternal_caller, warden_core, echo_eye, vindicator_insignia, beastly_leather;
 	public static Item warden_dust, ancient_city_artifact, powered_ancient_city_artifact, dimensional_sealent;
 	public static Item prisoner_eye, unknown_star, impure_outsider_ingot, outsider_ingot;
 	
@@ -295,6 +295,8 @@ public class NovaCraftItems {
 		reinforced_iridium_ingot = register("reinforced_iridium_ingot", new ItemFireproof().setTextureName(NovaCraft.find("reinforced_iridium_ingot")));
 		iridium_nugget = register("iridium_nugget", new ItemsFireProofNugget());
 		diamond_nugget = register("diamond_nugget", new ItemNugget());
+		vindicator_insignia = register("vindicator_insignia", new ItemVindicatorInsignia().setTextureName(NovaCraft.find("vindicator_insignia")));
+		beastly_leather = register("beastly_leather", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("beastly_leather")));
 		wyrmling_scales = register("wyrmling_scales", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("wyrmling_scales")));
 		heart_of_the_end = register("heart_of_the_end", new ItemHeartOfTheEnd(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("heart_of_the_end")));
 		nullified_dust = register("nullified_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("nullified_dust")));

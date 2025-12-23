@@ -4,12 +4,9 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-
 import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.Tools.ItemVaniteTrident;
 import com.NovaCraft.entity.misc.EntityVaniteTrident;
 
 public class VaniteTridentRenderer extends Render {
@@ -22,11 +19,11 @@ public class VaniteTridentRenderer extends Render {
         this.doRenderKnife((EntityVaniteTrident) var1, var2, var4, var6, var8, var9);
     }
 
-    public void doRenderKnife(EntityVaniteTrident arr, double d, double d1, double d2, float yaw, float time) {
+    public void doRenderKnife(EntityVaniteTrident entity, double d, double d1, double d2, float yaw, float time) {
         GL11.glPushMatrix();
         GL11.glTranslatef((float) d, (float) d1, (float) d2);
         GL11.glRotatef(yaw, 0F, 1.0F, 0F);
-        GL11.glRotatef(-(arr.prevRotationPitch + (arr.rotationPitch - arr.prevRotationPitch) * time), 1F, 0F, 0F);
+        GL11.glRotatef(-(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * time), 1F, 0F, 0F);
         GL11.glRotatef(45f, 0.0F, 1.0F, 0.0F);
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glTranslatef(-0.5F, 0.0F, -0.5F);
@@ -56,12 +53,12 @@ public class VaniteTridentRenderer extends Render {
         tessellator.addVertexWithUV(f4, 0.0F - f8, 1.0D, texMinX, texMinY);
         tessellator.addVertexWithUV(f4, 0.0F - f8, 0.0D, texMinX, texMaxY);
         tessellator.addVertexWithUV(0.0D, 0.0F - f8, 0.0D, texMaxX, texMaxY);
-        tessellator.draw(); //2d if only up to here
+        tessellator.draw();
 
         tessellator.startDrawingQuads();
         tessellator.setNormal(-1.0F, 0.0F, 0.0F);
 
-        for (int i = 0; i < 16; i++) { //i
+        for (int i = 0; i < 16; i++) {
             float f9 = (float) i / 16F;
             float f13 = (texMaxX + (texMinX - texMaxX) * f9) - 0.001953125F;
             float f17 = f4 * f9;
@@ -91,7 +88,7 @@ public class VaniteTridentRenderer extends Render {
         tessellator.startDrawingQuads();
         tessellator.setNormal(0.0F, 1.0F, 0.0F);
 
-        for (int k = 0; k < 16; k++) { //k
+        for (int k = 0; k < 16; k++) {
             float f11 = (float) k / 16F;
             float f15 = (texMaxY + (texMinY - texMaxY) * f11) - 0.001953125F;
             float f19 = f4 * f11 + 0.0625F;
@@ -106,7 +103,7 @@ public class VaniteTridentRenderer extends Render {
         tessellator.startDrawingQuads();
         tessellator.setNormal(0.0F, -1.0F, 1.0F);
 
-        for (int l = 0; l < 16; l++) { //l
+        for (int l = 0; l < 16; l++) {
             float f12 = (float) l / 16F;
             float f16 = (texMaxY + (texMinY - texMaxY) * f12) - 0.001953125F;
             float f20 = f4 * f12;

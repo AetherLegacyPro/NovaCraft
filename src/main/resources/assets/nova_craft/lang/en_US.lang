@@ -129,11 +129,13 @@ item.iridium_nugget.iridium_nugget.name=Iridium Nugget
 item.iridium_nugget.vanite_nugget.name=Vanite Nugget
 item.diamond_nugget.diamond_nugget.name=Diamond Shard
 item.diamond_nugget.emerald_nugget.name=Emerald Shard
+item.diamond_nugget.farlander_nugget.name=Farlander Shard
 item.echo_eye.name=Echo Eye
 item.wyrmling_scales.name=Wyrmling Scales
 item.vanite_scythe.name=Vanite Scythe
 item.raw_octoqus.name=Raw Octoqus
 item.cooked_octoqus.name=Cooked Octoqus
+item.beastly_leather.name=Beastly Leather
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -165,6 +167,7 @@ item.potion_haste.name=Potion Of Haste
 item.potion_haste_II.name=Potion of Haste II
 item.ancient_city_artifact.name=Ancient City Artifact
 item.primeval_horn.name=Primeval Horn
+item.vindicator_insignia.name=Vindicator Insignia
 
 item.novacraft_spawn_egg.name=Spawn
 
@@ -456,6 +459,8 @@ tile.rich_etherstone.name=Rich Etherstone
 tile.rich_etherstone_spike.name=Etherstone Spike
 tile.ancient_warper.name=Ancient Teleporter
 tile.luminant_fence.name=Luminant Fence
+tile.vanite_anvil.name=Vanite Anvil
+tile.iridium_bricks.name=Iridium Bricks
 
 tile.iron_pile.name=Iron Pile
 tile.gold_pile.name=Gold Pile
@@ -779,6 +784,7 @@ gui.unknown_portal_activator=This device while flaming radiates a chilling aura.
 gui.unknown_portal_activator_ignited=The surrounding reinforced nullstone blocks have been ignited with the correct fuel yet nothing is happening... Perhaps something is missing from the control device? There is an indentation within the center of a star that perhaps activates the portal?
 gui.unknown_portal_activated=The air turns cold and day instantly turns to night and time "stops". Reality itself begins to fracture around the portal to the unknown. You feel as if someone or something is watching you. Perhaps The Warden was not just guarding you from opening the portal but also keeping the "Prisoner" from escaping...
 gui.deepoid_furnace.invalid_structure=Deepoid Bricks must be placed around the deepoid furnace and a deepoid power core behind furnace.
+gui.container.repair=Repair & Surpass
 
 #Tool Tips
 tooltip.horn.ponder.desc=Ponder
@@ -882,6 +888,9 @@ tooltip.nullstone_deactivators_cracked.desc=The rift between the two realms is b
 tooltip.nullstone_deactivator.desc=The device has engravings on it as if perfectly cut all along it. Perhaps using somekind of sealant on it will fix it?
 
 tooltip.impure_ousider_ingot.desc=Shift Right Click on the Sealed Portal to the Unknown!
+
+tooltip.vindicator_insignia.desc=Used to locate Mansions
+tooltip.echo_eye.desc=Used to locate Ancient Cities
 
 #Potion Tool Tips
 tooltip.potion.resistance.desc=Resistance I (32:00)

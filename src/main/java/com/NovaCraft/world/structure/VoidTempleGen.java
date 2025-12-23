@@ -13,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -951,7 +952,7 @@ public class VoidTempleGen extends WorldGenerator
             world.setBlock(i + 15, j + 5, k + 6, Blocks.air, 0, 2);
             world.setBlock(i + 16, j + 5, k + 6, Blocks.air, 0, 2);
             world.setBlock(i + 17, j + 5, k + 6, Blocks.air, 0, 2);
-            world.setBlock(i + 18, j + 5, k + 6, PlaceBasalt, 1, 2);
+            world.setBlock(i + 18, j + 5, k + 6, PlaceBasalt, 1, 2); //???
             world.setBlock(i + 19, j + 5, k + 6, Blocks.air, 0, 2);
             world.setBlock(i + 20, j + 5, k + 6, placeBuildingBlock(random), 0, 2);
             world.setBlock(i + 2, j + 5, k + 7, placeBuildingBlock(random), 0, 2);
@@ -1620,18 +1621,24 @@ public class VoidTempleGen extends WorldGenerator
             world.setBlock(i + 6, j + 1, k + 6, NovaCraftBlocks.ancient_warper, 0, 2);
             world.setBlock(i + 6, j + 2, k + 6, Blocks.air, 0, 2);
 
-            world.setBlock(i + 8, j + 5, k + 2, Blocks.chest, 4, 2);
-            TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 8, j + 5, k + 2);
+            this.setBlockAndNotifyAdequately(world, i + 8, j + 5, k + 2, Blocks.chest, 4);
+            TileEntity tile = world.getTileEntity(i + 8, j + 5, k + 2);
+            if (tile instanceof TileEntityChest) {
+                TileEntityChest chest = (TileEntityChest) tile;
 
-            for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
-                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getChestLoot(random));
+                for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+                    chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getChestLoot(random));
+                }
             }
 
-            world.setBlock(i + 8, j + 5, k + 10, Blocks.chest, 4, 2);
-            TileEntityChest chestOther = (TileEntityChest) world.getTileEntity(i + 8, j + 5, k + 10);
+            this.setBlockAndNotifyAdequately(world, i + 8, j + 5, k + 10, Blocks.chest, 4);
+            TileEntity tile2 = world.getTileEntity(i + 8, j + 5, k + 10);
+            if (tile2 instanceof TileEntityChest) {
+                TileEntityChest chest = (TileEntityChest) tile2;
 
-            for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
-                chestOther.setInventorySlotContents(random.nextInt(chestOther.getSizeInventory()), this.getChestLoot(random));
+                for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+                    chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getChestLoot(random));
+                }
             }
 
         }

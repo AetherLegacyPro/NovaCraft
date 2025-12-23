@@ -3,7 +3,6 @@ package com.NovaCraft.entity.renderer;
 import com.NovaCraft.entity.EntityOctoqus;
 import com.NovaCraft.entity.models.OctoqusModel;
 import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.entity.RenderLiving;

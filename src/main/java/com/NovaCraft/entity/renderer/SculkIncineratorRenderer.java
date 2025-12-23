@@ -1,10 +1,8 @@
 package com.NovaCraft.entity.renderer;
 
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntitySculkIncinerator;
 import com.NovaCraft.entity.models.SculkIncineratorModel;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;

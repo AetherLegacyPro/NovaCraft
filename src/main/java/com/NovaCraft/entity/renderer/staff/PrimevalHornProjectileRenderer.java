@@ -4,15 +4,13 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-
 import com.NovaCraft.entity.misc.EntityPrimevalHornProjectile;
 
 public class PrimevalHornProjectileRenderer extends Render {
 
-	private static final ResourceLocation soundwaveTexture = new ResourceLocation("nova_craft", "textures/entity/vibration.png");
+	private static final ResourceLocation VibrationTexture = new ResourceLocation("nova_craft", "textures/entity/vibration.png");
 	
     public PrimevalHornProjectileRenderer() {
         super();
@@ -20,12 +18,12 @@ public class PrimevalHornProjectileRenderer extends Render {
         this.shadowSize = 0.0F;
     }
 
-    public void doRendersculkwave(EntityPrimevalHornProjectile sculkwave, double par2, double par4, double par6, float par8, float par9) {
+    public void doRenderProjectile(EntityPrimevalHornProjectile projectile, double par2, double par4, double par6, float par8, float par9) {
         GL11.glPushMatrix();
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glTranslated(par2, par4, par6);
 
-        this.bindTexture(this.getEntityTexture(sculkwave));
+        this.bindTexture(this.getEntityTexture(projectile));
 
         Tessellator tessellator = Tessellator.instance;
 
@@ -49,12 +47,12 @@ public class PrimevalHornProjectileRenderer extends Render {
 
     @Override
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
-        this.doRendersculkwave((EntityPrimevalHornProjectile) par1Entity, par2, par4, par6, par8, par9);
+        this.doRenderProjectile((EntityPrimevalHornProjectile) par1Entity, par2, par4, par6, par8, par9);
     }
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return soundwaveTexture;
+        return VibrationTexture;
     }
 
 }

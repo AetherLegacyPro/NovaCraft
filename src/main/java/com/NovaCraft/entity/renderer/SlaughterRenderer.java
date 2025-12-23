@@ -1,9 +1,6 @@
 package com.NovaCraft.entity.renderer;
 
 import org.lwjgl.opengl.GL11;
-
-import com.NovaCraft.entity.EntitySlaughter;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelSkeleton;
 import net.minecraft.client.renderer.entity.RenderBiped;

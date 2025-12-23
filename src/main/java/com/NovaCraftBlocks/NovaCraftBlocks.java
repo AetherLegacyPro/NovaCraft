@@ -49,37 +49,7 @@ import com.NovaCraftBlocks.explosives.BlockPETN;
 import com.NovaCraftBlocks.explosives.BlockPETNWire;
 import com.NovaCraftBlocks.explosives.BlockXanciumTNT;
 import com.NovaCraftBlocks.explosives.BlockXanciumWire;
-import com.NovaCraftBlocks.ores.BlockBrimstoneOre;
-import com.NovaCraftBlocks.ores.BlockCrystallizedEnd;
-import com.NovaCraftBlocks.ores.BlockDeepslateKlangiteOre;
-import com.NovaCraftBlocks.ores.BlockDeepslateTophiniteOre;
-import com.NovaCraftBlocks.ores.BlockDeepslateVaniteOre;
-import com.NovaCraftBlocks.ores.BlockEndKlangiteOre;
-import com.NovaCraftBlocks.ores.BlockFrontierslateKlangiteOre;
-import com.NovaCraftBlocks.ores.BlockGrimstoneVaniteOre;
-import com.NovaCraftBlocks.ores.BlockInfusedVaniteBlock;
-import com.NovaCraftBlocks.ores.BlockInfusedVaniteBlockNatural;
-import com.NovaCraftBlocks.ores.BlockIridium;
-import com.NovaCraftBlocks.ores.BlockIridiumOre;
-import com.NovaCraftBlocks.ores.BlockKlangite;
-import com.NovaCraftBlocks.ores.BlockKlangiteOre;
-import com.NovaCraftBlocks.ores.BlockMeteorite;
-import com.NovaCraftBlocks.ores.BlockNetherTophiniteOre;
-import com.NovaCraftBlocks.ores.BlockNullstoneTophiniteOre;
-import com.NovaCraftBlocks.ores.BlockNullstoneVaniteOre;
-import com.NovaCraftBlocks.ores.BlockPherithiumOre;
-import com.NovaCraftBlocks.ores.BlockRawDivineral;
-import com.NovaCraftBlocks.ores.BlockRawKlangite;
-import com.NovaCraftBlocks.ores.BlockRawNetherite;
-import com.NovaCraftBlocks.ores.BlockReinforcedVanite;
-import com.NovaCraftBlocks.ores.BlockStoneKlangiteOre;
-import com.NovaCraftBlocks.ores.BlockStoneTophiniteOre;
-import com.NovaCraftBlocks.ores.BlockStoneVaniteOre;
-import com.NovaCraftBlocks.ores.BlockTophinite;
-import com.NovaCraftBlocks.ores.BlockVanite;
-import com.NovaCraftBlocks.ores.BlockVaniteBuildingBlocks;
-import com.NovaCraftBlocks.ores.BlockXancium;
-import com.NovaCraftBlocks.ores.BlockXanciumOre;
+import com.NovaCraftBlocks.ores.*;
 import com.NovaCraftBlocks.ores.piles.BlockCrystalPile;
 import com.NovaCraftBlocks.ores.piles.BlockDiamondPile;
 import com.NovaCraftBlocks.ores.piles.BlockEmeraldPile;
@@ -260,7 +230,7 @@ public class NovaCraftBlocks {
 	public static Block vanite_pumpkin;
 	
 	//Iridium
-	public static Block meteorite_block, iridium_ore, block_of_iridium;
+	public static Block meteorite_block, iridium_ore, block_of_iridium, iridium_bricks;
 	
 	//Explosives
 	public static Block brimstone_ore, block_of_brimstone, brimstone_wire, PETN, PETN_wire;
@@ -336,6 +306,7 @@ public class NovaCraftBlocks {
 	public static Block unbreakable_ancient_chest, ancient_chest, ancient_warper;
 	public static Block nullwart_brick_bookshelf, sculk_brick_bookshelf;
 	public static Block deepoid_bricks, deepoid_power_core, deepoid_furnace, lit_deepoid_furnace;
+	public static Block vanite_anvil;
 	
 	//9x Duplication Structure
 	public static Block raw_divineral, raw_netherite;
@@ -484,7 +455,8 @@ public class NovaCraftBlocks {
 		vanite_bricks = registerItemBlock("vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("vanite_bricks"));	
 		polished_vanite_bricks = registerItemBlock("polished_vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("polished_vanite_bricks"));	
 		carved_vanite_bricks = registerItemBlock("carved_vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("carved_vanite_bricks"));		
-		glowing_carved_vanite_bricks = registerItemBlock("glowing_carved_vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setLightLevel(1.0F).setBlockTextureName(NovaCraft.find("glowing_carved_vanite_bricks"));		
+		glowing_carved_vanite_bricks = registerItemBlock("glowing_carved_vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setLightLevel(1.0F).setBlockTextureName(NovaCraft.find("glowing_carved_vanite_bricks"));
+		vanite_anvil = registerMeta("vanite_anvil", new BlockVaniteAnvil());
 
 		glow_torch = register("glow_torch", new BlockGlowTorch().setBlockTextureName(NovaCraft.find("glow_torch")));
 		vanite_torch = register("vanite_torch", new BlockVaniteTorch().setBlockTextureName(NovaCraft.find("vanite_torch")));
@@ -520,6 +492,7 @@ public class NovaCraftBlocks {
 		meteorite_block = registerItemBlock("meteorite_block", new BlockMeteorite(), ItemBlockFireProof.class);
 		iridium_ore = registerItemBlock("iridium_ore", new BlockIridiumOre(), ItemBlockFireProof.class);	
 		block_of_iridium = registerItemBlock("block_of_iridium", new BlockIridium(), ItemBlockFireProof.class);
+		iridium_bricks = registerItemBlock("iridium_bricks", new BlockIridiumBricks(), ItemBlockFireProof.class);
 		
 		iron_pile = registerMeta("iron_pile", new BlockIronPile());
 		gold_pile = registerMeta("gold_pile", new BlockGoldPile());

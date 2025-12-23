@@ -13,7 +13,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
-
 import com.NovaCraft.entity.EntityEnderLord;
 import com.NovaCraft.entity.models.EnderLordModel;
 

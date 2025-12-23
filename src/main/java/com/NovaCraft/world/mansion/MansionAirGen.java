@@ -14,9 +14,9 @@ public class MansionAirGen extends WorldGenerator
 
     @Override
     public boolean generate(final World world, final Random random, final int x, final int y, final int z) {
-        int sizeX = 62; //59
+        int sizeX = 59; //62
         int sizeY = 48; //32
-        int sizeZ = 82; //78
+        int sizeZ = 75; //82
 
         for (int dx = 0; dx < sizeX; dx++) {
             for (int dy = 0; dy < sizeY; dy++) {

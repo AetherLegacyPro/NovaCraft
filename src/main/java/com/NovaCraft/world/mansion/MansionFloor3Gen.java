@@ -1,6 +1,7 @@
 package com.NovaCraft.world.mansion;
 
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntityRavager;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -2818,8 +2819,19 @@ public class MansionFloor3Gen extends WorldGenerator {
         world.setBlock(i + 19, j + 4, k + 12, PlaceDarkOakFence, 0, 2);
         world.setBlock(i + 2, j + 4, k + 13, Blocks.glass_pane, 0, 2);
         world.setBlock(i + 18, j + 4, k + 13, Blocks.glass_pane, 0, 2);
+        world.setBlock(i + 21, j, k + 72, Blocks.air, 0, 2);
 
-        world.setBlock(i + 21, j, k + 72, Block.getBlockById(121), 0, 2);
+        if (!world.isRemote) {
+            final EntityRavager ravager = new EntityRavager(world);
+            ravager.setLocationAndAngles(i + 21, j, k + 72, 0.0f, 0.0f);
+            world.spawnEntityInWorld(ravager);
+            ravager.setType(0);
+
+            final EntityVindicator mount = new EntityVindicator(world);
+            mount.setLocationAndAngles(i + 21, j, k + 72, 0.0f, 0.0f);
+            world.spawnEntityInWorld(mount);
+            mount.mountEntity(ravager);
+        }
 
         if (!world.isRemote) {
             final EntityVindicator vindicator = new EntityVindicator(world);

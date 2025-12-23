@@ -27,6 +27,8 @@ public class EnderLordStaffProjectileRenderer extends Render {
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glTranslated(par2, par4, par6);
 
+        GL11.glScalef(0.5F, 0.5F, 0.5F);
+
         this.bindTexture(this.getEntityTexture(projectile));
 
         Tessellator tessellator = Tessellator.instance;
@@ -49,9 +51,8 @@ public class EnderLordStaffProjectileRenderer extends Render {
         GL11.glPopMatrix();
     }
     
-    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
-    {
-        this.preRenderCallback((EntityBloviator)p_77041_1_, p_77041_2_);
+    protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_) {
+        this.preRenderCallback(p_77041_1_, p_77041_2_);
         GL11.glScalef(0.5F, 0.5F, 0.5F);
     }
 

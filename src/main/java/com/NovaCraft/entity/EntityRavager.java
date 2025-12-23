@@ -1,5 +1,6 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraft.entity.misc.EnumRavagerType;
 import net.minecraft.entity.*;
@@ -30,8 +31,9 @@ public class EntityRavager extends EntityMob implements IBossDisplayData {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(3.25D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(4.25D);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
     }
 
     protected void entityInit() {
@@ -126,8 +128,12 @@ public class EntityRavager extends EntityMob implements IBossDisplayData {
         } else {
             this.dropItem(Items.porkchop, 1 + this.rand.nextInt(2));
         }
-
-        this.dropItem(Items.leather, 1 + this.rand.nextInt(4));
+        EnumRavagerType type = this.getType();
+        if (type == EnumRavagerType.BASE) {
+            this.dropItem(Items.leather, 8 + this.rand.nextInt(8));
+        } else {
+            this.dropItem(NovaCraftItems.beastly_leather, 8 + this.rand.nextInt(8));
+        }
     }
 
     public boolean attackEntityAsMob(final Entity par1Entity) {

@@ -1658,6 +1658,14 @@ public class MansionSealedOffRoomGen extends WorldGenerator {
         world.setBlock(i, j + 3, k + 11, placeSign(random), 4, 2);
         world.setBlock(i, j + 3, k + 12, placeSign(random), 4, 2);
 
+        world.setBlock(i - 5, j + 2, k + 12, Blocks.air, 0, 2);
+        world.setBlock(i - 5, j + 3, k + 12, Blocks.air, 0, 2);
+        world.setBlock(i - 5, j + 4, k + 12, Blocks.air, 0, 2);
+        world.setBlock(i - 5, j + 2, k + 13, Blocks.air, 0, 2);
+        world.setBlock(i - 5, j + 3, k + 13, Blocks.air, 0, 2);
+        world.setBlock(i - 5, j + 2, k + 11, Blocks.air, 0, 2);
+        world.setBlock(i - 5, j + 3, k + 11, Blocks.air, 0, 2);
+
         world.setBlock(i + 9, j + 1, k + 16, Blocks.chest, 5, 2);
         TileEntityChest chest = (TileEntityChest)world.getTileEntity(i + 9, j + 1, k + 16);
         if (chest != null) {

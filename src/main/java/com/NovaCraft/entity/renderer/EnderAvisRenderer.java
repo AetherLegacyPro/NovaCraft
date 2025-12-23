@@ -2,7 +2,6 @@ package com.NovaCraft.entity.renderer;
 
 import com.NovaCraft.entity.EntityEnderAvis;
 import com.NovaCraft.entity.models.EnderAvisModel;
-
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,11 +11,8 @@ import net.minecraft.util.ResourceLocation;
 public class EnderAvisRenderer extends RenderLiving {
 
     private static final ResourceLocation TEXTURE = new ResourceLocation("nova_craft", "textures/entity/ender_avis/ender_avis.png");
-
     private static final ResourceLocation TEXTURE_MARKINGS = new ResourceLocation("nova_craft", "textures/entity/ender_avis/ender_avis_glow.png");
-
     private static final ResourceLocation TEXTURE_SADDLE = new ResourceLocation("nova_craft", "textures/entity/ender_avis/ender_avis_saddle.png");
-
     private final EnderAvisModel saddleModel = new EnderAvisModel();
 
     public EnderAvisRenderer() {
@@ -38,9 +34,9 @@ public class EnderAvisRenderer extends RenderLiving {
         return -1;
     }
     
-    protected float getWingRotation(EntityEnderAvis moa, float f) {
-		float f1 = moa.prevWingRotation + (moa.wingRotation - moa.prevWingRotation) * f;
-		float f2 = moa.prevDestPos + (moa.destPos - moa.prevDestPos) * f;
+    protected float getWingRotation(EntityEnderAvis avis, float f) {
+		float f1 = avis.prevWingRotation + (avis.wingRotation - avis.prevWingRotation) * f;
+		float f2 = avis.prevDestPos + (avis.destPos - avis.prevDestPos) * f;
 
 		return (MathHelper.sin(f1) + 1.0F) * f2;
 	}

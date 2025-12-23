@@ -4,11 +4,8 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.model.*;
 import net.minecraft.util.*;
 import org.lwjgl.opengl.*;
-
 import com.NovaCraft.entity.EntityOutsiderEye;
 import com.NovaCraft.entity.models.OutsiderEyeModel;
-
-import net.minecraft.client.renderer.*;
 import net.minecraft.entity.*;
 
 public class OutsiderEyeRenderer extends RenderLiving

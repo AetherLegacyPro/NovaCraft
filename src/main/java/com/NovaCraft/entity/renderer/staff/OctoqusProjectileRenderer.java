@@ -1,12 +1,12 @@
 package com.NovaCraft.entity.renderer.staff;
 
+import com.NovaCraft.entity.EntityOctoqus;
 import com.NovaCraft.entity.misc.EntityOctoqusProjectile;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -24,6 +24,8 @@ public class OctoqusProjectileRenderer extends Render {
         GL11.glPushMatrix();
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         GL11.glTranslated(par2, par4, par6);
+
+        GL11.glScalef(0.25F, 0.25F, 0.25F);
 
         this.bindTexture(this.getEntityTexture(projectile));
 
@@ -45,8 +47,6 @@ public class OctoqusProjectileRenderer extends Render {
 
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
         GL11.glPopMatrix();
-
-        GL11.glScalef(0.0625F, 0.0625F, 0.0625F);
     }
 
     @Override

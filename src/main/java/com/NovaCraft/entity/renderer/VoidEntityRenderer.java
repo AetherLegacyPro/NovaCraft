@@ -2,9 +2,7 @@ package com.NovaCraft.entity.renderer;
 
 import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntityVoidEntity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.Entity;

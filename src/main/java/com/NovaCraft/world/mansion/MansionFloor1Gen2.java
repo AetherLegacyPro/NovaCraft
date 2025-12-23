@@ -1,6 +1,7 @@
 package com.NovaCraft.world.mansion;
 
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntityRavager;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -2790,6 +2791,7 @@ public class MansionFloor1Gen2 extends WorldGenerator
         world.setBlock(i + 49, j + 3, k + 4, Blocks.log2, 5, 2);
         world.setBlock(i + 51, j + 3, k + 4, Blocks.leaves2, 1, 2);
         world.setBlock(i + 52, j + 3, k + 4, Blocks.leaves2, 1, 2);
+        world.setBlock(i + 12, j, k + 69, Blocks.air, 0, 2);
 
         world.setBlock(i + 50, j, k + 67, Blocks.chest, 5, 2);
         TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 50, j, k + 67);
@@ -2840,7 +2842,17 @@ public class MansionFloor1Gen2 extends WorldGenerator
             world.spawnEntityInWorld(vindicator3);
         }
 
-        world.setBlock(i + 12, j, k + 69, Blocks.end_stone, 0, 2);
+        if (!world.isRemote) {
+            final EntityRavager ravager = new EntityRavager(world);
+            ravager.setLocationAndAngles(i + 12, j, k + 69, 0.0f, 0.0f);
+            world.spawnEntityInWorld(ravager);
+            ravager.setType(0);
+
+            final EntityVindicator mount = new EntityVindicator(world);
+            mount.setLocationAndAngles(i + 12, j, k + 69, 0.0f, 0.0f);
+            world.spawnEntityInWorld(mount);
+            mount.mountEntity(ravager);
+        }
 
         return true;
     }

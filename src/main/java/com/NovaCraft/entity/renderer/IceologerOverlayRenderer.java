@@ -1,13 +1,10 @@
 package com.NovaCraft.entity.renderer;
 
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.models.IceologerModel;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-
 
 public class IceologerOverlayRenderer extends IceologerRenderer {
 

@@ -3,9 +3,7 @@ package com.NovaCraft.entity.renderer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.client.renderer.Tessellator;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.misc.KlangiteSwordProjectile;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
@@ -76,7 +74,7 @@ public class KlangiteSwordProjectileRenderer extends Render
         GL11.glPopMatrix();
     }
     
-    protected void preRenderCallback(EntityLivingBase young_zephyr, float partialTickTime) {
+    protected void preRenderCallback(EntityLivingBase entityLivingBase, float partialTickTime) {
   	    GL11.glScalef(0.5F, 0.5F, 0.5F);
   	}
     

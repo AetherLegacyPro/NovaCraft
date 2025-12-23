@@ -87,6 +87,7 @@ public class EntitiesNovaCraft {
 		register(KlangiteSwordProjectile.class, "klangite_sword_projectile", 60, 150, 2, true);
 		register(EntityEchoEye.class, "echo_eye", 81, 150, 2, true);
 		register(EntityOctoqusProjectile.class, "octoqus_projectile", 87, 64, 20, true);
+		register(EntityVindicatorEye.class, "vindicator_eye", 88, 150, 2, true);
 		
 		//Mobs
 		register(EntityPrimedXanciumTNT.class, "XTNT", 0, 64, 20, false);

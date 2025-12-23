@@ -65,6 +65,6 @@ public class ItemNugget extends Item {
     }
     
     static {
-        types = new String[] { "diamond_nugget", "emerald_nugget" };
+        types = new String[] { "diamond_nugget", "emerald_nugget", "farlander_nugget" };
     }
 }

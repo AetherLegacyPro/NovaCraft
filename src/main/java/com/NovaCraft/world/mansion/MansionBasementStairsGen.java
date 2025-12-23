@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -1262,10 +1263,14 @@ public class MansionBasementStairsGen extends WorldGenerator {
         world.setBlock(i + 3, j + 25, k + 3, NovaCraftBlocks.vanite_torch, 2, 2);
         world.setBlock(i + 2, j + 29, k + 6, NovaCraftBlocks.vanite_torch, 4, 2);
 
-        world.setBlock(i + 3, j + 1, k + 2, Blocks.chest, 3, 2);
-        TileEntityChest chest3 = (TileEntityChest) world.getTileEntity(i + 3, j + 1, k + 2);
-        for (int slot = 0; slot < 3 + random.nextInt(7); slot++) {
-            chest3.setInventorySlotContents(random.nextInt(chest3.getSizeInventory()), this.getFoodLoot(random));
+        this.setBlockAndNotifyAdequately(world, i + 3, j + 1, k + 2, Blocks.chest, 3);
+        TileEntity tile = world.getTileEntity(i + 3, j + 1, k + 2);
+        if (tile instanceof TileEntityChest) {
+            TileEntityChest chest = (TileEntityChest) tile;
+
+            for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+                chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getFoodLoot(random));
+            }
         }
 
         return true;
@@ -1303,10 +1308,8 @@ public class MansionBasementStairsGen extends WorldGenerator {
             case 5:
                 return new ItemStack(Items.mushroom_stew, 1);
             case 6:
-                return new ItemStack(Items.mushroom_stew, 1);
-            case 7:
                 return new ItemStack(NovaCraftItems.raw_chevon, random.nextInt(2) + 3);
-            case 8:
+            case 7:
                 return new ItemStack(NovaCraftItems.raw_glow_squid, random.nextInt(4) + 3);
             default: {
                 return new ItemStack(Items.wheat, random.nextInt(14) + 22);

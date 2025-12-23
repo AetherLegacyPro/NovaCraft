@@ -4,10 +4,8 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.model.*;
 import net.minecraft.util.*;
 import org.lwjgl.opengl.*;
-
 import com.NovaCraft.entity.EntityPhantom;
 import com.NovaCraft.entity.models.PhantomModel;
-
 import net.minecraft.client.renderer.*;
 import net.minecraft.entity.*;
 

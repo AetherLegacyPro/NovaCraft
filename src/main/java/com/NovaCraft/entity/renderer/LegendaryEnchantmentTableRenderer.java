@@ -9,7 +9,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.TileEntity.TileEntityLegendaryEnchantmentTable;
 
 @SideOnly(Side.CLIENT)

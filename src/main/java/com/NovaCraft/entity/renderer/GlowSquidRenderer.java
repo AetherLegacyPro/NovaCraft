@@ -1,6 +1,5 @@
 package com.NovaCraft.entity.renderer;
 
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
@@ -10,8 +9,6 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.entity.EntityGlowSquid;
 
 @SideOnly(Side.CLIENT)

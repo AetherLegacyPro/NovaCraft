@@ -6,7 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class CorruptistOverlayRenderer extends CorruptistRenderer {
+public class CorruptistOverlayRenderer extends CryologerRenderer {
 
     public ResourceLocation slaughter_texture = new ResourceLocation("nova_craft", "textures/entity/iceologer/corruptist_overlay.png");
     public ModelBiped tutModel;

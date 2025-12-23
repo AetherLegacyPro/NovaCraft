@@ -126,8 +126,8 @@ public class EntityOctoqus extends EntityMob {
 
                     for (int i = 0; i < 1; ++i)
                     {
-                        EntityOctoqusProjectile waterball = new EntityOctoqusProjectile(this.worldObj, this, 1.2F);
-                        waterball.posY = this.posY + (double)(this.height / 2.0F) - 0.25D;
+                        EntityOctoqusProjectile waterball = new EntityOctoqusProjectile(this.worldObj, this, 1.15F);
+                        waterball.posY = this.posY + (double)(this.height / 2.0F);
                         this.worldObj.spawnEntityInWorld(waterball);
                     }
                 }

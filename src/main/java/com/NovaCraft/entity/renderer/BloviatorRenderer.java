@@ -9,7 +9,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-
 import com.NovaCraft.entity.EntityBloviator;
 import com.NovaCraft.entity.models.BloviatorModel;
 
@@ -24,18 +23,11 @@ public class BloviatorRenderer extends RenderLiving
         super(new BloviatorModel(), 2.0F);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(EntityBloviator p_110775_1_)
     {
         return p_110775_1_.func_110182_bF() ? ghastShootingTextures : ghastTextures;
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
     protected void preRenderCallback(EntityBloviator p_77041_1_, float p_77041_2_)
     {
         float f1 = ((float)p_77041_1_.prevAttackCounter + (float)(p_77041_1_.attackCounter - p_77041_1_.prevAttackCounter) * p_77041_2_) / 20.0F;
@@ -52,10 +44,6 @@ public class BloviatorRenderer extends RenderLiving
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
 
-    /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
-     */
     protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
     {
         this.preRenderCallback((EntityBloviator)p_77041_1_, p_77041_2_);
@@ -80,9 +68,6 @@ public class BloviatorRenderer extends RenderLiving
         this.doRender((EntityBloviator)p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
     protected ResourceLocation getEntityTexture(Entity p_110775_1_)
     {
         return this.getEntityTexture((EntityBloviator)p_110775_1_);

@@ -424,6 +424,8 @@ public class NovaCraftRegistries {
 
 		register("powered_ancient_city_artifact", new ItemStack(NovaCraftItems.powered_ancient_city_artifact), "XVX", "VYV", "XZX", 'X', NovaCraftItems.static_essence, 'Y', NovaCraftItems.sculked_monitor_eye, 'Z', NovaCraftItems.ancient_city_artifact, 'V', NovaCraftItems.wardling_dust);
 
+		register("iridium_bricks", new ItemStack(NovaCraftBlocks.iridium_bricks, 5), "XYX", "YXY", "XYX", 'X', new ItemStack(NovaCraftBlocks.deepoid_bricks), 'Y', new ItemStack(NovaCraftItems.iridium_ingot));
+
 		if (Loader.isModLoaded("etfuturum")) {
 			try {
 				Block ancient_debris = GameRegistry.findBlock("etfuturum", "ancient_debris");
@@ -681,6 +683,9 @@ public class NovaCraftRegistries {
 
 		register("vanite_cauldron_item", new ItemStack(NovaCraftItems.vanite_cauldron_item), "X X", "XYX", "XXX", 'X', new ItemStack(NovaCraftItems.vanite_ingot), 'Y', new ItemStack(NovaCraftBlocks.block_of_reinforced_vanite));
 
+		register("vindicator_insignia", new ItemStack(NovaCraftItems.vindicator_insignia), "XZX", "XYX", "XXX", 'X', new ItemStack(NovaCraftItems.iridium_nugget, 1, 1), 'Y', new ItemStack(Blocks.pumpkin), 'Z', new ItemStack(Items.emerald));
+
+
 		register("diamond_bow", new ItemStack(NovaCraftItems.diamond_bow), " YX", "YZW", " YX", 'Y', new ItemStack(Items.diamond), 'X', new ItemStack(Items.string), 'Z', new ItemStack(Items.bow), 'W', new ItemStack(Items.iron_ingot));
 		register("crystallized_vanite_bow", new ItemStack(NovaCraftItems.crystallized_vanite_bow), " WX", "YZW", " WX", 'Y', new ItemStack(NovaCraftItems.crystallized_vanite_alloy), 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Z', new ItemStack(NovaCraftItems.tophinite_bow), 'W', new ItemStack(NovaCraftItems.ionizatior_powder));
 
@@ -737,6 +742,8 @@ public class NovaCraftRegistries {
 		register("static_blend", new ItemStack(NovaCraftItems.static_blend, 5), "XZX", "VXY", "XUX", 'X', new ItemStack(NovaCraftItems.deepfire_blend), 'Y', new ItemStack(NovaCraftItems.wardling_dust), 'Z', new ItemStack(NovaCraftItems.static_essence), 'U', new ItemStack(NovaCraftItems.crystallized_end_shard), 'V', new ItemStack(NovaCraftItems.warden_dust));
 
 		register("impure_outsider_ingot", new ItemStack(NovaCraftItems.impure_outsider_ingot, 1), "XYX", "YZY", "WUW", 'X', new ItemStack(NovaCraftItems.enhanced_enflamed_null_cube_slimeball), 'Y', new ItemStack(NovaCraftItems.outsider_essence), 'Z', new ItemStack(NovaCraftItems.klangite_ingot), 'U', new ItemStack(NovaCraftItems.warden_dust), 'W', new ItemStack(NovaCraftItems.nulk_dust));
+
+		register("vanite_anvil", new ItemStack(NovaCraftBlocks.vanite_anvil, 1), "XXX", " Y ", "YYY", 'X', new ItemStack(NovaCraftBlocks.block_of_iridium), 'Y', new ItemStack(NovaCraftBlocks.block_of_reinforced_vanite));
 
 	}
 

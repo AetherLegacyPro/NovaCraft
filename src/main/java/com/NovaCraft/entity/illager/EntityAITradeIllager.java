@@ -8,7 +8,6 @@ import net.minecraft.entity.player.*;
 public class EntityAITradeIllager extends EntityAIBase
 {
     private EntityIllagerTrader villager;
-    private static final String __OBFID = "CL_00001617";
     
     public EntityAITradeIllager(final EntityIllagerTrader p_i1658_1_) {
         this.villager = p_i1658_1_;

@@ -683,8 +683,10 @@ public class EntityIllagerChief extends EntityAgeable implements IMerchant, INpc
           
           buyItem(merchantrecipelist, Item.getItemFromBlock((Block)NovaCraftBlocks.inked_sculk_block), 0, 14 + this.rand.nextInt(15), (Item)NovaCraftItems.sculk_boots, 0, 1, this.rand, this.adjustProbability(0.15f));
           
-          buyItem(merchantrecipelist, NovaCraftItems.sculk_dweller_heart, 0, 1, (Item)NovaCraftItems.nullwart, 0, 1 + this.rand.nextInt(2), this.rand, this.adjustProbability(0.15f));       
-                    
+          buyItem(merchantrecipelist, Items.emerald, 0, 1 + this.rand.nextInt(4), (Item)NovaCraftItems.vindicator_insignia, 0, 1 + this.rand.nextInt(3), this.rand, this.adjustProbability(0.25f));
+
+          buyItem(merchantrecipelist, NovaCraftItems.sculk_dweller_heart, 0, 1, (Item)NovaCraftItems.nullwart, 0, 1 + this.rand.nextInt(2), this.rand, this.adjustProbability(0.15f));
+
           buyItem(merchantrecipelist, Item.getItemFromBlock((Block)NovaCraftBlocks.block_of_vanite), 0, 9 + this.rand.nextInt(5), (Item)NovaCraftItems.tophinite_gemstone, 0, 1 + this.rand.nextInt(1), this.rand, this.adjustProbability(0.06f));
           
       if (merchantrecipelist.isEmpty()) {

@@ -766,6 +766,17 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
       entityvillager.onSpawnWithEgg(null);
       return entityvillager;
   }
+
+    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
+
+        int chance = (int)(1 + Math.random() * 8);
+        switch (chance) {
+            case 1: this.dropItem(NovaCraftItems.vindicator_insignia, 1);
+                break;
+            default:
+                break;
+        }
+    }
   
   public boolean allowLeashing() {
       return false;

@@ -3,15 +3,8 @@ package com.NovaCraft;
 import com.NovaCraft.TileEntity.ContainerLegendaryBeacon;
 import com.NovaCraft.TileEntity.TileEntityDeepoidFurnace;
 import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
-import com.NovaCraft.container.AdvancedEnchantmentTableContainer;
-import com.NovaCraft.container.AdvancedSmithingTableContainer;
-import com.NovaCraft.container.DeepoidFurnaceContainer;
-import com.NovaCraft.container.LegendaryEnchantmentTableContainer;
-import com.NovaCraft.gui.GuiAdvancedEnchantmentTable;
-import com.NovaCraft.gui.GuiAdvancedSmithingTable;
-import com.NovaCraft.gui.GuiDeepoidFurnace;
-import com.NovaCraft.gui.GuiLegendaryBeacon;
-import com.NovaCraft.gui.GuiLegendaryEnchantmentTable;
+import com.NovaCraft.container.*;
+import com.NovaCraft.gui.*;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -56,6 +49,9 @@ public class CommonProxy implements IGuiHandler
         	case 5: {
         		return new GuiDeepoidFurnace(player.inventory, (TileEntityDeepoidFurnace)tile_entity);
         		}
+			case 6: {
+				return (world.getBlock(x, y, z) == NovaCraftBlocks.vanite_anvil) ? new GuiVaniteAnvil(player.inventory, world, x, y, z) : null;
+				}
             }
         
         return null;
@@ -84,6 +80,9 @@ public class CommonProxy implements IGuiHandler
         	case 5: {
         		return new DeepoidFurnaceContainer(player.inventory, (TileEntityDeepoidFurnace)tile_entity);
         	  }
+			case 6: {
+				return (world.getBlock(x, y, z) == NovaCraftBlocks.vanite_anvil) ? new VaniteAnvilContainer(player.inventory, world, x, y, z, player) : null;
+				}
             }
         return null;
     }

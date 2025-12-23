@@ -72,18 +72,15 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = "nova_craft", version = "1.4.5", name = "NovaCraft")
+@Mod(modid = "nova_craft", version = "1.5.0", name = "NovaCraft")
 public class NovaCraft {
     public static final String MOD_ID = "nova_craft";
-    public static final String VERSION = "1.4.5";
+    public static final String VERSION = "1.5.0";
     public static Random rand;
     @Instance("nova_craft")
     public static NovaCraft instance;
     public static Logger logger;
-    @SidedProxy(
-            clientSide = "com.NovaCraft.ClientProxy",
-            serverSide = "com.NovaCraft.CommonProxy"
-    )
+    @SidedProxy(clientSide = "com.NovaCraft.ClientProxy", serverSide = "com.NovaCraft.CommonProxy")
     public static CommonProxy proxy;
     public static SimpleNetworkWrapper networkWrapper;
     public CommonProxy guiHandler = new CommonProxy();
@@ -115,7 +112,7 @@ public class NovaCraft {
         MinecraftForge.EVENT_BUS.register(new PopulateChunkEventHandler());
 
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorPre(), Integer.MAX_VALUE);
-        GameRegistry.registerWorldGenerator((IWorldGenerator)new FloatingIslandGen(), Integer.MAX_VALUE);
+        //GameRegistry.registerWorldGenerator((IWorldGenerator)new FloatingIslandGen(), Integer.MAX_VALUE);
 
         if (Configs.enableSculkInfestedMineshaft) {
             GameRegistry.registerWorldGenerator(new SculkMineshaftGenerator(), 0);
