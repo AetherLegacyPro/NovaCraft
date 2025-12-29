@@ -13,6 +13,7 @@ public class NovaCraftTileEntities {
 		GameRegistry.registerTileEntity(TileEntityAncientChest.class, "ancient_chest");
 		GameRegistry.registerTileEntity(TileEntityUnbreakbleAncientChest.class, "unbreakable_ancient_chest");
 		GameRegistry.registerTileEntity(TileEntityDeepoidFurnace.class, "deepoid_furnace");
+		GameRegistry.registerTileEntity(TileEntityIridiumFurnace.class, "iridium_furnace");
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.NovaCraftBlocks.ores;
 
+import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.sounds.ModSounds;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -20,6 +21,7 @@ public class BlockIridiumBricks extends Block {
         this.setResistance(60000000);
         this.setStepSound(ModSounds.soundNullstone);
         this.setHarvestLevel("pickaxe", 3);
+        this.setCreativeTab(NovaCraftCreativeTabs.blocks);
     }
 
     @Override

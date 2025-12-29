@@ -27,7 +27,6 @@ public class ItemNugget extends Item {
     private IIcon[] textures;
     
     public ItemNugget() {
-    	
         this.setHasSubtypes(true);
         this.setCreativeTab(NovaCraftCreativeTabs.items);
     }

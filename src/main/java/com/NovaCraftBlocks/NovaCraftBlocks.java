@@ -1,21 +1,9 @@
 package com.NovaCraftBlocks;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.NovaCraft.Item.Block.*;
 import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Item.Block.ItemAetherCluster;
-import com.NovaCraft.Item.Block.ItemBlockFireProof;
-import com.NovaCraft.Item.Block.ItemCopartzCluster;
-import com.NovaCraft.Item.Block.ItemEchoCluster;
-import com.NovaCraft.Item.Block.ItemLarimarCluster;
-import com.NovaCraft.Item.Block.ItemNullCluster;
-import com.NovaCraft.Item.Block.ItemTsavorokiteCluster;
-import com.NovaCraft.Item.Block.ItemYttrlinsiteCluster;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.container.*;
 import com.NovaCraftBlocks.crystals.BlockAether;
 import com.NovaCraftBlocks.crystals.BlockAetherCluster;
@@ -230,7 +218,7 @@ public class NovaCraftBlocks {
 	public static Block vanite_pumpkin;
 	
 	//Iridium
-	public static Block meteorite_block, iridium_ore, block_of_iridium, iridium_bricks;
+	public static Block meteorite_block, iridium_ore, block_of_iridium;
 	
 	//Explosives
 	public static Block brimstone_ore, block_of_brimstone, brimstone_wire, PETN, PETN_wire;
@@ -306,6 +294,7 @@ public class NovaCraftBlocks {
 	public static Block unbreakable_ancient_chest, ancient_chest, ancient_warper;
 	public static Block nullwart_brick_bookshelf, sculk_brick_bookshelf;
 	public static Block deepoid_bricks, deepoid_power_core, deepoid_furnace, lit_deepoid_furnace;
+	public static Block iridium_bricks, infused_iridium_bricks, iridium_power_core, iridium_trapdoor, iridium_furnace, lit_iridium_furnace;
 	public static Block vanite_anvil;
 	
 	//9x Duplication Structure
@@ -493,7 +482,12 @@ public class NovaCraftBlocks {
 		iridium_ore = registerItemBlock("iridium_ore", new BlockIridiumOre(), ItemBlockFireProof.class);	
 		block_of_iridium = registerItemBlock("block_of_iridium", new BlockIridium(), ItemBlockFireProof.class);
 		iridium_bricks = registerItemBlock("iridium_bricks", new BlockIridiumBricks(), ItemBlockFireProof.class);
-		
+		iridium_power_core = register("iridium_power_core", new BlockIridiumPowerCore().setLightLevel(0.9775F).setBlockTextureName(NovaCraft.find("iridium_power_core")));
+		infused_iridium_bricks = registerItemBlock("infused_iridium_bricks", new BlockInfusedIridiumBricks().setLightLevel(0.5275F), ItemBlockInfusedIridiumBricks.class);
+		iridium_trapdoor = registerItemBlock("iridium_trapdoor", new BlockIridiumTrapdoor(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("iridium_trapdoor"));
+		iridium_furnace = register("iridium_furnace", new BlockIridiumFurnace(false).setBlockTextureName(NovaCraft.find("deepoid_furnace")));
+		lit_iridium_furnace = registerHidden("lit_iridium_furnace", new BlockIridiumFurnace(true).setLightLevel(0.9775F).setCreativeTab(null));
+
 		iron_pile = registerMeta("iron_pile", new BlockIronPile());
 		gold_pile = registerMeta("gold_pile", new BlockGoldPile());
 		lapis_pile = registerMeta("lapis_pile", new BlockLapisPile());

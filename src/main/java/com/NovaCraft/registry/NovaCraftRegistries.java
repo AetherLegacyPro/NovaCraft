@@ -140,10 +140,20 @@ public class NovaCraftRegistries {
 	private static void initializeRecipes() {
 
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.grimstone_iron), new ItemStack(Items.iron_ingot), .05F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.grimstone_lapis), new ItemStack(Items.dye, 1, 4), .05F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.grimstone_redstone), new ItemStack(Items.redstone), .05F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.grimstone_emerald), new ItemStack(Items.emerald), .1F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.grimstone_diamond), new ItemStack(Items.diamond), .1F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.grimstone_gold), new ItemStack(Items.gold_ingot), .1F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.nullstone_iron), new ItemStack(Items.iron_ingot), .05F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.nullstone_lapis), new ItemStack(Items.dye, 1, 4), .05F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.nullstone_redstone), new ItemStack(Items.redstone), .05F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.nullstone_emerald), new ItemStack(Items.emerald), .1F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.nullstone_diamond), new ItemStack(Items.diamond), .1F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.nullstone_gold), new ItemStack(Items.gold_ingot), .1F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.etherstone_iron), new ItemStack(Items.iron_ingot), .05F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.etherstone_coal), new ItemStack(Items.coal), .05F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.etherstone_brimstone), new ItemStack(NovaCraftItems.brimstone_dust), .05F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.etherstone_gold), new ItemStack(Items.gold_ingot), .1F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.disc_fragment_5), new ItemStack(NovaCraftItems.vanite_ingot), .1F);
 
@@ -424,7 +434,17 @@ public class NovaCraftRegistries {
 
 		register("powered_ancient_city_artifact", new ItemStack(NovaCraftItems.powered_ancient_city_artifact), "XVX", "VYV", "XZX", 'X', NovaCraftItems.static_essence, 'Y', NovaCraftItems.sculked_monitor_eye, 'Z', NovaCraftItems.ancient_city_artifact, 'V', NovaCraftItems.wardling_dust);
 
-		register("iridium_bricks", new ItemStack(NovaCraftBlocks.iridium_bricks, 5), "XYX", "YXY", "XYX", 'X', new ItemStack(NovaCraftBlocks.deepoid_bricks), 'Y', new ItemStack(NovaCraftItems.iridium_ingot));
+		register("iridium_bricks", new ItemStack(NovaCraftBlocks.iridium_bricks, 5), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftBlocks.deepoid_bricks), 'Y', new ItemStack(NovaCraftItems.iridium_ingot), 'Z', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2));
+		register("iridium_power_core", new ItemStack(NovaCraftBlocks.iridium_power_core, 1), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.reinforced_iridium_ingot), 'Z', new ItemStack(NovaCraftBlocks.deepoid_power_core));
+		register("iridium_trapdoor", new ItemStack(NovaCraftBlocks.iridium_trapdoor, 1), "XXX", "YYY", "XXX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.reinforced_iridium_ingot));
+
+		register("infused_iridium_bricks", new ItemStack(NovaCraftBlocks.infused_iridium_bricks, 1, 0), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.copartz_shard), 'Z', new ItemStack(NovaCraftBlocks.iridium_bricks));
+		register("infused_iridium_bricks", new ItemStack(NovaCraftBlocks.infused_iridium_bricks, 1, 1), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.larimar_shard), 'Z', new ItemStack(NovaCraftBlocks.iridium_bricks));
+		register("infused_iridium_bricks", new ItemStack(NovaCraftBlocks.infused_iridium_bricks, 1, 2), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.tsavorokite_shard), 'Z', new ItemStack(NovaCraftBlocks.iridium_bricks));
+		register("infused_iridium_bricks", new ItemStack(NovaCraftBlocks.infused_iridium_bricks, 1, 3), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Z', new ItemStack(NovaCraftBlocks.iridium_bricks));
+		register("infused_iridium_bricks", new ItemStack(NovaCraftBlocks.infused_iridium_bricks, 1, 4), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.aether_shard), 'Z', new ItemStack(NovaCraftBlocks.iridium_bricks));
+		register("infused_iridium_bricks", new ItemStack(NovaCraftBlocks.infused_iridium_bricks, 1, 5), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.null_shard), 'Z', new ItemStack(NovaCraftBlocks.iridium_bricks));
+		register("infused_iridium_bricks", new ItemStack(NovaCraftBlocks.infused_iridium_bricks, 1, 6), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.echo_shard), 'Z', new ItemStack(NovaCraftBlocks.iridium_bricks));
 
 		if (Loader.isModLoaded("etfuturum")) {
 			try {

@@ -496,6 +496,17 @@ tile.icicle.name=Icicle
 tile.glow_torch.name=Glow Torch
 tile.vanite_torch.name=Vanite Torch
 
+tile.iridium_furnace.name=Iridium Furnace
+tile.iridium_power_core.name=Iridium Power Core
+tile.iridium_trapdoor.name=Iridium Trapdoor
+tile.infused_iridium_bricks_copartz_infused_iridium_bricks.name=Copartz Infused Iridium Bricks
+tile.infused_iridium_bricks_larimar_infused_iridium_bricks.name=Larimar Infused Iridium Bricks
+tile.infused_iridium_bricks_tsavorokite_infused_iridium_bricks.name=Tsavorokite Infused Iridium Bricks
+tile.infused_iridium_bricks_yttrlinsite_infused_iridium_bricks.name=Yttrlinsite Infused Iridium Bricks
+tile.infused_iridium_bricks_aether_infused_iridium_bricks.name=Aether Infused Iridium Bricks
+tile.infused_iridium_bricks_null_infused_iridium_bricks.name=Null Infused Iridium Bricks
+tile.infused_iridium_bricks_echo_infused_iridium_bricks.name=Echo Infused Iridium Bricks
+
 tile.grimstone_diamond.name=Grimstone Diamond Ore
 tile.grimstone_emerald.name=Grimstone Emerald Ore
 tile.grimstone_gold.name=Grimstone Gold Ore
@@ -785,6 +796,7 @@ gui.unknown_portal_activator_ignited=The surrounding reinforced nullstone blocks
 gui.unknown_portal_activated=The air turns cold and day instantly turns to night and time "stops". Reality itself begins to fracture around the portal to the unknown. You feel as if someone or something is watching you. Perhaps The Warden was not just guarding you from opening the portal but also keeping the "Prisoner" from escaping...
 gui.deepoid_furnace.invalid_structure=Deepoid Bricks must be placed around the deepoid furnace and a deepoid power core behind furnace.
 gui.container.repair=Repair & Surpass
+gui.iridium_furnace.invalid_structure=Iridium Bricks must be placed around the iridium furnace and a iridium power core behind furnace.
 
 #Tool Tips
 tooltip.horn.ponder.desc=Ponder
@@ -877,6 +889,7 @@ tooltip.right_click_bed.desc=Respawn Point Set
 tooltip.bed_destroyed.desc=Respawn Point Set to SpawnPoint!
 
 tooltip.deepoid_furnace.desc=Deepoid Furnace
+tooltip.iridium_furnace.desc=Iridium Furnace
 
 tooltip.dimensional_sealent.desc=Use on Cracked Nullstone Deactivators while holding shift
 tooltip.dimensional_sealent2.desc=and the Unknown Portal Activator last

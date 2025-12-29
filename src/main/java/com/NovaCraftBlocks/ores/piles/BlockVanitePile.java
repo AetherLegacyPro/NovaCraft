@@ -116,7 +116,7 @@ public class BlockVanitePile extends Block
     	return NovaCraftItems.iridium_nugget;
     }
 
-    public int quantityDropped(World world, EntityPlayer p_149636_2_, int x, int y, int z, Random random)
+    public int quantityDropped(World world, EntityPlayer player, int x, int y, int z, Random random)
     {
     	int meta = world.getBlockMetadata(x, y, z);
     	switch (meta) {

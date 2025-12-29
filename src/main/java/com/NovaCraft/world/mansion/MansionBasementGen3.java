@@ -2771,6 +2771,7 @@ public class MansionBasementGen3 extends WorldGenerator {
         world.setBlock(i + 1, j + 4, k + 52, Blocks.redstone_torch, 1, 2);
         world.setBlock(i + 4, j + 4, k + 49, Blocks.redstone_torch, 3, 2);
 
+        world.setBlock(i + 6, j + 3, k + 55, Blocks.air, 0, 2);
         world.setBlock(i + 62, j + 2, k + 11, Blocks.air, 0, 2);
         world.setBlock(i + 44, j + 2, k + 12, Blocks.air, 0, 2);
         world.setBlock(i + 28, j + 2, k + 28, Blocks.air, 0, 2);

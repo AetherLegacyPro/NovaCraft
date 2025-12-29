@@ -100,7 +100,7 @@ public class ItemVaniteBucket extends Item
                             return this.fillBucket(p_77659_1_, p_77659_3_, NovaCraftItems.vanite_bucket_lava);
                         }
                     	
-                    	else if (block == NovaCraftBlocks.blazlinite && l == 0) 
+                    	else if (block == NovaCraftBlocks.blazlinite && l == 0 && p_77659_2_.getBlock(i,j - 1,k) != NovaCraftBlocks.iridium_bricks)
                         {
                     		p_77659_2_.setBlockToAir(i, j, k);
                     		p_77659_3_.triggerAchievement(AchievementsNovaCraft.extreme_heat);

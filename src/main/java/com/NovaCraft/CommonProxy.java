@@ -2,6 +2,7 @@ package com.NovaCraft;
 
 import com.NovaCraft.TileEntity.ContainerLegendaryBeacon;
 import com.NovaCraft.TileEntity.TileEntityDeepoidFurnace;
+import com.NovaCraft.TileEntity.TileEntityIridiumFurnace;
 import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
 import com.NovaCraft.container.*;
 import com.NovaCraft.gui.*;
@@ -52,6 +53,9 @@ public class CommonProxy implements IGuiHandler
 			case 6: {
 				return (world.getBlock(x, y, z) == NovaCraftBlocks.vanite_anvil) ? new GuiVaniteAnvil(player.inventory, world, x, y, z) : null;
 				}
+			case 7: {
+				return new GuiIridiumFurnace(player.inventory, (TileEntityIridiumFurnace)tile_entity);
+				}
             }
         
         return null;
@@ -82,6 +86,9 @@ public class CommonProxy implements IGuiHandler
         	  }
 			case 6: {
 				return (world.getBlock(x, y, z) == NovaCraftBlocks.vanite_anvil) ? new VaniteAnvilContainer(player.inventory, world, x, y, z, player) : null;
+				}
+			case 7: {
+				return new IridiumFurnaceContainer(player.inventory, (TileEntityIridiumFurnace)tile_entity);
 				}
             }
         return null;
