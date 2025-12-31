@@ -33,13 +33,13 @@ import com.NovaCraft.world.end.EndIslandWorldGen;
 import com.NovaCraft.world.end.NCWorldGeneratorEnd;
 import com.NovaCraft.world.floating_island.FloatingIslandGen;
 import com.NovaCraft.world.mansion.MansionGen;
+import com.NovaCraft.world.meteor.MeteorCraterGen;
 import com.NovaCraft.world.nether.NCWorldGeneratorNether;
 import com.NovaCraft.world.nether.structure.NovaNetherBridgeGenerator;
 import com.NovaCraft.world.nether.structure.StructureNovaCraftNetherBridgePieces;
 import com.NovaCraft.world.nether.structure.MapGenNetherBridgeNovaCraft.Start;
-import com.NovaCraft.world.sculkshaft.SculkMineshaftGenerator;
-import com.NovaCraft.world.sculkshaft.StructureSculkMineshaftPieces;
-import com.NovaCraft.world.sculkshaft.StructureSculkMineshaftStart;
+import com.NovaCraft.world.sculkshaft.WorldGenSculkedMineshaftInjector;
+import com.NovaCraft.world.stronghold.WorldGenStrongholdInjector;
 import com.NovaCraft.world.structure.WorldGenRavineInjector;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.potion.NovaCraftLiquids;
@@ -114,12 +114,6 @@ public class NovaCraft {
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorPre(), Integer.MAX_VALUE);
         //GameRegistry.registerWorldGenerator((IWorldGenerator)new FloatingIslandGen(), Integer.MAX_VALUE);
 
-        if (Configs.enableSculkInfestedMineshaft) {
-            GameRegistry.registerWorldGenerator(new SculkMineshaftGenerator(), 0);
-            MapGenStructureIO.registerStructure(StructureSculkMineshaftStart.class, "SculkMineshaft");
-            StructureSculkMineshaftPieces.registerStructurePieces();
-        }
-
         if (Configs.enableDeepoidFortress) {
             GameRegistry.registerWorldGenerator(new NovaNetherBridgeGenerator(), 0);
             MapGenStructureIO.registerStructure(Start.class, "NovaFortress");
@@ -149,7 +143,13 @@ public class NovaCraft {
         if (Configs.enableWitherBossAlterations) {
             MinecraftForge.EVENT_BUS.register(new WitherBossAlterations());
         }
+
+        if (Configs.enableSculkInfestedMineshaft) {
+            MinecraftForge.EVENT_BUS.register(new WorldGenSculkedMineshaftInjector());
+        }
+        //MinecraftForge.EVENT_BUS.register(new WorldGenStrongholdInjector());
         MinecraftForge.EVENT_BUS.register(new WorldGenRavineInjector());
+        GameRegistry.registerWorldGenerator(new MeteorCraterGen(), 0);
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorVillages(), 0);
         EntitiesNovaCraft.initialization();
         EntitiesNovaCraft.addSpawns();

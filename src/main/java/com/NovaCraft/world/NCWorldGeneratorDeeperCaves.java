@@ -18,8 +18,6 @@ import com.NovaCraft.world.structure.LarimarGeoGen;
 import com.NovaCraft.world.structure.NovaCraftAdvancedTraditionalDungeonGen;
 import com.NovaCraft.world.structure.NovaCraftDungeonGen;
 import com.NovaCraft.world.structure.NovaCraftTraditionalDungeonGen;
-import com.NovaCraft.world.structure.SculkGeoDungeon;
-import com.NovaCraft.world.structure.SculkGeoDungeon2;
 import com.NovaCraft.world.structure.SeaSerpentSpawner;
 import com.NovaCraft.world.structure.TsavorokiteGeoGen;
 import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
@@ -165,16 +163,7 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if((world.getWorldInfo().getTerrainType() != WorldType.FLAT || world.getWorldInfo().getGeneratorOptions().contains("decoration")) && (ArrayUtils.contains(Configs.WorldGenDimensionBlacklist, world.provider.dimensionId) == Configs.WorldGenDimensionBlacklistAsWhitelist)) {
-		   if (ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist) {	
-			
-			 //Sculk Dungeon
-			int x7;
-			int z7;
-			x7 = chunkX * 16 + rand.nextInt(8) + 8;
-			z7 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(256) == 0) {
-				new SculkGeoDungeon().generate(world, rand, x7, rand.nextInt(200) + 9, z7);
-			}
+		   if (ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist) {
 				
 			//NovaCraft Dungeon
 			int x13;
@@ -183,15 +172,6 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 			z13 = chunkZ * 16 + rand.nextInt(8) + 8;
 			if(rand.nextInt(8) == 0) {
 				new NovaCraftDungeonGen().generate(world, rand, x13, rand.nextInt(240) + 9, z13);
-			}
-				
-			//Sculk Dungeon
-			int x14;
-			int z14;
-			x14 = chunkX * 16 + rand.nextInt(8) + 8;
-			z14 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(256) == 0) {
-				new SculkGeoDungeon2().generate(world, rand, x14, rand.nextInt(150) + 9, z14);
 			}
 						
 			//Copartz Geo

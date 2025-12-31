@@ -3,13 +3,9 @@ package com.NovaCraft.world;
 import java.util.Random;
 
 import org.apache.commons.lang3.ArrayUtils;
-
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.world.structure.MapGenMassiveMeteorCrater;
-import com.NovaCraft.world.structure.MapGenMeteorCrater;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.Loader;
 import net.minecraft.init.Blocks;
@@ -34,11 +30,7 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 	protected final WorldGenMinable frontierslateGen = new WorldGenMinable(NovaCraftBlocks.frontierslate, 64, Blocks.air);
 	protected final WorldGenMinable vaccumSandGen = new WorldGenMinable(NovaCraftBlocks.vacuum_sand, 32, Blocks.end_stone);
 	
-	private final MapGenMeteorCrater craterGenerator = new MapGenMeteorCrater();
-	private final MapGenMassiveMeteorCrater massiveCraterGenerator = new MapGenMassiveMeteorCrater();
-	
 	public NCWorldGeneratorPre() {
-		
 	}
 	
 	@Override
@@ -78,15 +70,6 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 		//Changes up the generation of Tuff to be higher up as to have less stone types deeper underground, disable Et Futurum's generation
 		if (Loader.isModLoaded("etfuturum") && (Configs.enableNovaCraftTuffGeneration) && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
 			this.generateOre(alternateTuffGen, world, rand, chunkX, chunkZ, 6, 25, 45);
-		}
-		
-		if (world.provider.dimensionId == 0) {
-			if (Configs.enableCraters) {
-				this.craterGenerator.generateAt(world, chunkX, chunkZ);
-			}
-			if (Configs.enableMassiveCraters) {
-				this.massiveCraterGenerator.generateAt(world, chunkX, chunkZ);
-			}
 		}
 		
 		if (world.provider.dimensionId == 1 && Configs.enableEndstoneBlobs) {

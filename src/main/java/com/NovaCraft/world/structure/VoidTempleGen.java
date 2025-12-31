@@ -952,7 +952,7 @@ public class VoidTempleGen extends WorldGenerator
             world.setBlock(i + 15, j + 5, k + 6, Blocks.air, 0, 2);
             world.setBlock(i + 16, j + 5, k + 6, Blocks.air, 0, 2);
             world.setBlock(i + 17, j + 5, k + 6, Blocks.air, 0, 2);
-            world.setBlock(i + 18, j + 5, k + 6, PlaceBasalt, 1, 2); //???
+            //world.setBlock(i + 18, j + 5, k + 6, PlaceBasalt, 1, 2); //???
             world.setBlock(i + 19, j + 5, k + 6, Blocks.air, 0, 2);
             world.setBlock(i + 20, j + 5, k + 6, placeBuildingBlock(random), 0, 2);
             world.setBlock(i + 2, j + 5, k + 7, placeBuildingBlock(random), 0, 2);

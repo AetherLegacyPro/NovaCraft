@@ -170,7 +170,7 @@ public class MansionGen implements IWorldGenerator {
                         break;
                     }
 
-                    // Replace air, plants, snow layers, fluids, partial blocks, etc.
+                    //Replace air, plants, non-full blocks etc
                     world.setBlock(x, y, z, Blocks.cobblestone, 0, 2);
                 }
             }

@@ -443,10 +443,10 @@ public class StructureSculkMineshaftPieces {
                         this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.05F, 1, 2, k - 1, NovaCraftBlocks.sculk_spike, 0);
                         this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.05F, 1, 2, k + 1, NovaCraftBlocks.sculk_spike, 0);
                         
-                        this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.07F, 1, 2, k + 1, NovaCraftBlocks.sculk_tendrils, 0);                                              
-                        
-                        int rand = (int)(1 + Math.random() * 15);
-                		switch (rand) {
+                        this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.07F, 1, 2, k + 1, NovaCraftBlocks.sculk_tendrils, 0);
+
+                        int chance = p_74875_2_.nextInt(15) + 1;
+                		switch (chance) {
                         case 1:
                         	this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.6F, 1, -1, k + 1, NovaCraftBlocks.sculk_stone, 0);
                             break;
@@ -504,8 +504,8 @@ public class StructureSculkMineshaftPieces {
 
                         if (this.hasSpiders && !this.spawnerPlaced)
                         {
-                        	int rand2 = (int)(1 + Math.random() * 2);
-                    		switch (rand2)
+                            int chance2 = p_74875_2_.nextInt(2) + 1;
+                    		switch (chance2)
                             {
                     		case 1:
                             int l = this.getYWithOffset(0);

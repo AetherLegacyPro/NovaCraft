@@ -189,16 +189,6 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if((world.getWorldInfo().getTerrainType() != WorldType.FLAT || world.getWorldInfo().getGeneratorOptions().contains("decoration")) && (ArrayUtils.contains(Configs.WorldGenDimensionBlacklist, world.provider.dimensionId) == Configs.WorldGenDimensionBlacklistAsWhitelist)) {
 			
-			
-			//Sculk Dungeon
-			int x7;
-			int z7;
-			x7 = chunkX * 16 + rand.nextInt(8) + 8;
-			z7 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(256) == 0) {
-				new SculkGeoDungeon().generate(world, rand, x7, rand.nextInt(18) + 9, z7);
-			}
-			
 			//NovaCraft Dungeon
 			int x13;
 			int z13;
@@ -206,15 +196,6 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			z13 = chunkZ * 16 + rand.nextInt(8) + 8;
 			if(rand.nextInt(8) == 0) {
 				new NovaCraftDungeonGen().generate(world, rand, x13, rand.nextInt(25) + 9, z13);
-			}
-			
-			//Sculk Dungeon
-			int x14;
-			int z14;
-			x14 = chunkX * 16 + rand.nextInt(8) + 8;
-			z14 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(256) == 0) {
-				new SculkGeoDungeon2().generate(world, rand, x14, rand.nextInt(18) + 9, z14);
 			}
 					
 			//Copartz Geo
@@ -359,7 +340,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			int x22 = chunkX * 16 + rand.nextInt(8) + 8;
 			int z22 = chunkZ * 16 + rand.nextInt(8) + 8;
 			if (rand.nextInt(3) == 0) {
-				(new VoidTempleGen()).generate(world, rand, x22, 2, z22);
+				new VoidTempleGen().generate(world, rand, x22, 2, z22);
 			}
 			
 			//Sculk Gen
