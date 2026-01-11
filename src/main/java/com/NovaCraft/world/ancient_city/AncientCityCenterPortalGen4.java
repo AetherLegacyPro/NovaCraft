@@ -1,5 +1,6 @@
 package com.NovaCraft.world.ancient_city;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
@@ -42,7 +43,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfDarkOakFenceExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDarkOakFenceInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDarkOakFence && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block fence_dark_oak = GameRegistry.findBlock("etfuturum", "fence_dark_oak");
 				if (fence_dark_oak != null && (existingBlock == null || existingBlock != fence_dark_oak)) {
@@ -61,7 +62,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfCobbledDeepslateExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableCobbledDeepslateInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableCobbledDeepslate && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block cobbled_deepslate = GameRegistry.findBlock("etfuturum", "cobbled_deepslate");
 				if (cobbled_deepslate != null && (existingBlock == null || existingBlock != cobbled_deepslate)) {
@@ -80,7 +81,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfDeepslateExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslate && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate = GameRegistry.findBlock("etfuturum", "deepslate");
 				if (deepslate != null && (existingBlock == null || existingBlock != deepslate)) {
@@ -99,7 +100,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfDeepslateBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -118,7 +119,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfCrackedDeepslateBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -137,7 +138,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfDeepslateTilesExist(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -156,7 +157,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfCrackedDeepslateTilesExist(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -175,7 +176,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfChiseledDeepslateExist(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -194,7 +195,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfPolishedDeepslateExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block polished_deepslate = GameRegistry.findBlock("etfuturum", "polished_deepslate");
 				if (polished_deepslate != null && (existingBlock == null || existingBlock != polished_deepslate)) {
@@ -215,7 +216,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 	//Slabs, Walls, and Stairs
 	private Block determineIfDeepslateTileStairsExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_tile_stairs = GameRegistry.findBlock("etfuturum", "deepslate_tile_stairs");
 				if (deepslate_tile_stairs != null && (existingBlock == null || existingBlock != deepslate_tile_stairs)) {
@@ -234,7 +235,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfPolishedDeepslateStairsExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block polished_deepslate_stairs = GameRegistry.findBlock("etfuturum", "deepslate_tile_stairs");
 				if (polished_deepslate_stairs != null && (existingBlock == null || existingBlock != polished_deepslate_stairs)) {
@@ -253,7 +254,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfDeepslateWallExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_wall = GameRegistry.findBlock("etfuturum", "deepslate_wall");
 				if (deepslate_wall != null && (existingBlock == null || existingBlock != deepslate_wall)) {
@@ -272,7 +273,7 @@ public class AncientCityCenterPortalGen4 extends WorldGenerator
 
 	private Block determineIfDeepslateBrickSlabExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_brick_slab = GameRegistry.findBlock("etfuturum", "deepslate_brick_slab");
 				if (deepslate_brick_slab != null && (existingBlock == null || existingBlock != deepslate_brick_slab)) {

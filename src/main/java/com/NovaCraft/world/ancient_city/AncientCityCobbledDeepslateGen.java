@@ -1,5 +1,6 @@
 package com.NovaCraft.world.ancient_city;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
@@ -22,7 +23,7 @@ public class AncientCityCobbledDeepslateGen extends WorldGenerator
 
 	private Block determineIfCobbledDeepslateExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableCobbledDeepslateInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableCobbledDeepslate && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block cobbled_deepslate = GameRegistry.findBlock("etfuturum", "cobbled_deepslate");
 				if (cobbled_deepslate != null && (existingBlock == null || existingBlock != cobbled_deepslate)) {

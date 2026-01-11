@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
@@ -37,7 +38,7 @@ public class NovaCraftAdvancedTraditionalDungeonGen extends WorldGenerator {
 
 	private Block determineIfCobbledDeepslateExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableCobbledDeepslateInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableCobbledDeepslate && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block cobbled_deepslate = GameRegistry.findBlock("etfuturum", "cobbled_deepslate");
 				if (cobbled_deepslate != null && (existingBlock == null || existingBlock != cobbled_deepslate)) {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.registry.OtherModItems;
@@ -77,7 +78,7 @@ public class ItemKylaziteShovel extends ItemSpade
 			 world.spawnEntityInWorld(entityItem);
 		 }
     	 else if (!world.isRemote && world.rand.nextInt(360) == 7) {
-    		 if (Loader.isModLoaded("etfuturum") && Configs.enableRawOreBlocksStructures == true) {
+    		 if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableRawOreBlocks) {
     			 EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.raw_ore, 2, 1));
 
     			 world.spawnEntityInWorld(entityItem);
@@ -89,7 +90,7 @@ public class ItemKylaziteShovel extends ItemSpade
     		 }
 		 }
     	 else if (!world.isRemote && world.rand.nextInt(450) == 8) {
-    		 if (Loader.isModLoaded("etfuturum") && Configs.enableRawOreBlocksStructures == true) {
+    		 if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableRawOreBlocks) {
     			 EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.raw_ore, 2, 2));
 
     			 world.spawnEntityInWorld(entityItem);

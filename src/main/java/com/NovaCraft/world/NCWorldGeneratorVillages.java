@@ -2,6 +2,7 @@ package com.NovaCraft.world;
 
 import java.util.Random;
 
+import com.NovaCraft.config.ConfigsStructures;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.NovaCraft.config.Configs;
@@ -39,12 +40,12 @@ public class NCWorldGeneratorVillages implements IWorldGenerator {
 			BiomeGenBase biomegenbase = world.getWorldChunkManager().getBiomeGenAt(x, z);
 			if(world.getWorldInfo().getTerrainType().getWorldTypeID() != 1){
 
-				 if(Configs.vindicatorVillageSpawnRate != 0) {
+				 if(ConfigsStructures.vindicatorVillageSpawnRate != 0) {
 					 
 					 if(world.getWorldInfo().getTerrainType().getWorldTypeID() == 1) {
-						 num = rand.nextInt(((100 - Configs.vindicatorVillageSpawnRate) * 2) + 1000);
+						 num = rand.nextInt(((100 - ConfigsStructures.vindicatorVillageSpawnRate) * 2) + 1000);
 					 } else {
-						 num = rand.nextInt((100 - Configs.vindicatorVillageSpawnRate * 2) + 500);
+						 num = rand.nextInt((100 - ConfigsStructures.vindicatorVillageSpawnRate * 2) + 500);
 					 }
 					if(num == 1){
 						i = x + rand.nextInt(16) + 8;

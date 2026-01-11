@@ -1,5 +1,6 @@
 package com.NovaCraft.world.ancient_city;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
@@ -25,7 +26,7 @@ public class AncientCityColumnGen1 extends WorldGenerator
 
 	private Block determineIfDeepslateExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslate && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate = GameRegistry.findBlock("etfuturum", "deepslate");
 				if (deepslate != null && (existingBlock == null || existingBlock != deepslate)) {

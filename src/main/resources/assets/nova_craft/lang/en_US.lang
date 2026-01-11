@@ -136,6 +136,8 @@ item.vanite_scythe.name=Vanite Scythe
 item.raw_octoqus.name=Raw Octoqus
 item.cooked_octoqus.name=Cooked Octoqus
 item.beastly_leather.name=Beastly Leather
+item.end_portal_sealent.name=End Portal Sealent
+item.relik_dust.name=Relik Dust
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -461,6 +463,7 @@ tile.ancient_warper.name=Ancient Teleporter
 tile.luminant_fence.name=Luminant Fence
 tile.vanite_anvil.name=Vanite Anvil
 tile.iridium_bricks.name=Iridium Bricks
+tile.cracked_end_portal_frame.name=Cracked End Portal Frame
 
 tile.iron_pile.name=Iron Pile
 tile.gold_pile.name=Gold Pile
@@ -1170,6 +1173,7 @@ entity.nova_craft.wyrmling.name=Wyrmling
 entity.nova_craft.nova_ravager.name=Ravager
 entity.nova_craft.corruptist.name=Cryologer
 entity.nova_craft.octoqus.name=Octoqus
+entity.nova_craft.relik.name=Relik
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1240,3 +1244,4 @@ entity.wyrmling.name=Wyrmling
 entity.nova_ravager.name=Ravager
 entity.corruptist.name=Cryologer
 entity.octoqus.name=Octoqus
+entity.relik.name=Relik

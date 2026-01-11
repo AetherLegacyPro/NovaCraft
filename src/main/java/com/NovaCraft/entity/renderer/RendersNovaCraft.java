@@ -40,7 +40,9 @@ import com.NovaCraft.legendarybeacon.LegendaryBeaconRenderer;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Loader;
+import net.minecraft.client.model.ModelSkeleton;
 import net.minecraft.client.model.ModelSlime;
+import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.client.renderer.entity.RenderSnowball;
@@ -132,6 +134,7 @@ public class RendersNovaCraft {
 	register(EntityWyrmling.class, new WyrmlingRenderer(new WyrmlingModel(), new WyrmlingModel(), 0.0F));
 	register(EntityRavager.class, new RavagerRenderer(new RavagerModel(), 0.6f));
 	register(EntityOctoqus.class, new OctoqusRenderer());
+	register(EntityRelik.class, new RelikRenderer());
 	
 	register(EntityHardmodeCreeper.class, new HardmodeCreeperRenderer());
 	register(EntityHardmodeSpider.class, new HardmodeSpiderRenderer());

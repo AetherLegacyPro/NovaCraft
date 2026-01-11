@@ -2,6 +2,7 @@ package com.NovaCraft.world.mansion;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -27,7 +28,7 @@ public class MansionFloor3Gen2 extends WorldGenerator {
 
     private Block determineIfDarkOakFenceExists(World world, int x, int y, int z) {
         Block existingBlock = world.getBlock(x, y, z);
-        if (Configs.enableDarkOakFenceInAncientCity && Loader.isModLoaded("etfuturum")) {
+        if (ConfigsCompact.enableDarkOakFence && Loader.isModLoaded("etfuturum")) {
             try {
                 Block fence_dark_oak = GameRegistry.findBlock("etfuturum", "fence_dark_oak");
                 if (fence_dark_oak != null && (existingBlock == null || existingBlock != fence_dark_oak)) {
@@ -46,7 +47,7 @@ public class MansionFloor3Gen2 extends WorldGenerator {
 
     private Block determineIfBirchFenceExists(World world, int x, int y, int z) {
         Block existingBlock = world.getBlock(x, y, z);
-        if (Configs.enableDarkOakFenceInAncientCity && Loader.isModLoaded("etfuturum")) {
+        if (ConfigsCompact.enableDarkOakFence && Loader.isModLoaded("etfuturum")) {
             try {
                 Block fence_birch = GameRegistry.findBlock("etfuturum", "fence_birch");
                 if (fence_birch != null && (existingBlock == null || existingBlock != fence_birch)) {

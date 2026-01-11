@@ -1,5 +1,6 @@
 package com.NovaCraft.world.structure;
 
+import com.NovaCraft.config.ConfigsCompact;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
@@ -37,7 +38,7 @@ public class SeaSerpentSpawner extends WorldGenerator
     	
     {
 		try {
-			if (Loader.isModLoaded("etfuturum") && Configs.enablePrismarineInStructures) {
+			if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enablePrismarine) {
 				world.setBlock(i + 1, j + 0, k + 1, et_futurum_prismarine, 2, 2);
 				world.setBlock(i + 5, j + 0, k + 1, et_futurum_prismarine, 2, 2);
 				world.setBlock(i + 3, j + 0, k + 2, et_futurum_prismarine, 2, 2);
@@ -73,7 +74,7 @@ public class SeaSerpentSpawner extends WorldGenerator
 		
 	{
 		try {
-			if (Loader.isModLoaded("etfuturum") && Configs.enablePrismarineInStructures) {
+			if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enablePrismarine) {
 				world.setBlock(i + 2, j + 0, k + 2, et_futurum_prismarine, 1, 2);
 				world.setBlock(i + 4, j + 0, k + 2, et_futurum_prismarine, 1, 2);
 				world.setBlock(i + 3, j + 0, k + 3, et_futurum_prismarine, 1, 2);
@@ -118,7 +119,7 @@ public class SeaSerpentSpawner extends WorldGenerator
 		
 	{
 		try {
-			if (Loader.isModLoaded("etfuturum") && Configs.enablePrismarineInStructures) {
+			if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enablePrismarine) {
 				world.setBlock(i + 5, j + 2, k + 5, et_futurum_prismarine, 0, 2);
 				world.setBlock(i + 3, j + 0, k + 0, et_futurum_prismarine, 0, 2);
 				world.setBlock(i + 2, j + 0, k + 1, et_futurum_prismarine, 0, 2);
@@ -187,7 +188,7 @@ public class SeaSerpentSpawner extends WorldGenerator
 		
 	{
 		try {
-			if (Loader.isModLoaded("etfuturum") && Configs.enablePrismarineInStructures) {
+			if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enablePrismarine) {
 				world.setBlock(i + 1, j + 3, k + 1, et_futurum_sea_lantern, 0, 2);
 			} else {
 				world.setBlock(i + 1, j + 3, k + 1, glowing_carved_vanite_bricks, 0, 2);

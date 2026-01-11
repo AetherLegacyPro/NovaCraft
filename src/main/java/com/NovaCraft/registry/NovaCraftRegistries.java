@@ -5,6 +5,8 @@ import java.util.Iterator;
 import com.NovaCraft.Item.Block.ItemBlockFireProof;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
+import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import com.NovaCraftBlocks.ores.BlockRawDivineral;
@@ -57,11 +59,11 @@ public class NovaCraftRegistries {
 		OreDictionary.registerOre("oreVanite", NovaCraftItems.vanite_chunk);
 		OreDictionary.registerOre("ingotVanite", NovaCraftItems.vanite_ingot);
 
-		if (!(Configs.enableNullstone)) {
+		if (!(ConfigsWorld.enableNullstone)) {
 			OreDictionary.registerOre("oreKlangite", NovaCraftBlocks.stone_klangite_ore);
 			OreDictionary.registerOre("oreTophinite", NovaCraftBlocks.stone_tophinite_ore);
 		}
-		if (!(Configs.enableGrimstone) && !(Configs.enableNullstone)) {
+		if (!(ConfigsWorld.enableGrimstone) && !(ConfigsWorld.enableNullstone)) {
 			OreDictionary.registerOre("oreVanite", NovaCraftBlocks.stone_vanite_ore);
 		}
 
@@ -159,11 +161,11 @@ public class NovaCraftRegistries {
 
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.meteorite_block), new ItemStack(Items.iron_ingot), .05F);
 
-		if (!(Configs.enableGrimstone) && !(Configs.enableNullstone)) {
+		if (!(ConfigsWorld.enableGrimstone) && !(ConfigsWorld.enableNullstone)) {
 			GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.stone_vanite_ore), new ItemStack(NovaCraftItems.vanite_chunk), .05F);
 		}
 
-		if (!(Configs.enableNullstone)) {
+		if (!(ConfigsWorld.enableNullstone)) {
 			GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.stone_klangite_ore), new ItemStack(NovaCraftItems.raw_klangite), .25F);
 			GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.stone_tophinite_ore), new ItemStack(NovaCraftItems.tophinite_gemstone), .15F);
 		}
@@ -239,7 +241,7 @@ public class NovaCraftRegistries {
 
 		register("basal_bricks", new ItemStack(NovaCraftBlocks.basal_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.basal);
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableTuffBrickRecipe) {
 			try {
 				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
 				if (tuff != null) {
@@ -261,7 +263,7 @@ public class NovaCraftRegistries {
 			}
 		}
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableCalciteBrickRecipe) {
 			try {
 				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
 				if (calcite != null) {
@@ -449,7 +451,7 @@ public class NovaCraftRegistries {
 		if (Loader.isModLoaded("etfuturum")) {
 			try {
 				Block ancient_debris = GameRegistry.findBlock("etfuturum", "ancient_debris");
-				if (ancient_debris != null && Configs.enableBlockOfRawNetheriteRecipe) {
+				if (ancient_debris != null && ConfigsCompact.enableBlockOfRawNetheriteRecipe) {
 					register("netherite_scrap", new ItemStack(OtherModItems.netherite_scrap, 9), "X", 'X', NovaCraftBlocks.raw_netherite);
 					register("raw_netherite", new ItemStack(NovaCraftBlocks.raw_netherite), "XXX", "XXX", "XXX", 'X', OtherModItems.netherite_scrap);
 				}
@@ -463,7 +465,7 @@ public class NovaCraftRegistries {
 		if (Loader.isModLoaded("etfuturum")) {
 			try {
 				Item rabbit_foot = GameRegistry.findItem("etfuturum", "rabbit_foot");
-				if (rabbit_foot != null && Configs.enableAlternateAmpJumpPotionRecipe) {
+				if (rabbit_foot != null && ConfigsCompact.enableAlternateAmpJumpPotionRecipe) {
 					register("potion_jump_extended", new ItemStack(NovaCraftItems.potion_jump_extended), "   ", " W ", "XYZ", 'X', new ItemStack(Items.potionitem, 1, 8267), 'Y', NovaCraftItems.vanite_bottle, 'Z', OtherModItems.rabbit_foot, 'W', NovaCraftItems.nullwart_blend);
 				}
 				else {
@@ -479,7 +481,7 @@ public class NovaCraftRegistries {
 			register("potion_jump_extended", new ItemStack(NovaCraftItems.potion_jump_extended), "   ", " W ", "XYZ", 'X', new ItemStack(Items.potionitem, 1, 8267), 'Y', NovaCraftItems.vanite_bottle, 'Z', NovaCraftItems.tsavorokite_shard, 'W', NovaCraftItems.nullwart_blend);
 		}
 
-		if (Loader.isModLoaded("aether_legacy") && Configs.enableRawDivineral) {
+		if (Loader.isModLoaded("aether_legacy") && ConfigsCompact.enableRawDivineral) {
 			try {
 				Item enchanted_divineral = GameRegistry.findItem("aether_legacy", "enchanted_divineral");
 				if (enchanted_divineral != null) {
@@ -493,7 +495,7 @@ public class NovaCraftRegistries {
 			}
 		}
 
-		if (Loader.isModLoaded("aether_legacy") && Configs.enableNovaCraftGloves) {
+		if (Loader.isModLoaded("aether_legacy") && ConfigsCompact.enableNovaCraftGloves) {
 			try {
 				Item vanite_gloves = GameRegistry.findItem("aether_legacy", "vanite_gloves");
 				if (vanite_gloves != null) {
@@ -712,7 +714,7 @@ public class NovaCraftRegistries {
 		if (Loader.isModLoaded("etfuturum")) {
 			try {
 				Item netherite_ingot = GameRegistry.findItem("etfuturum", "netherite_ingot");
-				if (netherite_ingot != null && Configs.enableNetheriteInRecipes) {
+				if (netherite_ingot != null && ConfigsCompact.enableNetheriteInRecipes) {
 					register("netherite_bow", new ItemStack(NovaCraftItems.netherite_bow), " WX", "YZW", " WX", 'Y', new ItemStack(OtherModItems.netherite_ingot), 'X', new ItemStack(Items.string), 'Z', new ItemStack(NovaCraftItems.diamond_bow), 'W', new ItemStack(Items.gold_ingot));
 					register("crystallized_vanite_bow", new ItemStack(NovaCraftItems.crystallized_vanite_bow), " WX", "YZW", " WX", 'Y', new ItemStack(NovaCraftItems.crystallized_vanite_alloy), 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Z', new ItemStack(NovaCraftItems.netherite_bow), 'W', new ItemStack(NovaCraftItems.ionizatior_powder));
 					register("tophinite_bow", new ItemStack(NovaCraftItems.tophinite_bow), " WX", "YZW", " WX", 'Y', new ItemStack(NovaCraftItems.tophinite_gemstone), 'X', new ItemStack(Items.magma_cream), 'Z', new ItemStack(NovaCraftItems.netherite_bow), 'W', new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
@@ -798,6 +800,8 @@ public class NovaCraftRegistries {
 
 		registerShapeless("echo_eye", new ItemStack(NovaCraftItems.echo_eye), new ItemStack(Items.ender_eye), new ItemStack(NovaCraftItems.fractured_heart_of_the_end), new ItemStack(NovaCraftItems.echo_shard));
 
+		registerShapeless("end_portal_sealent", new ItemStack(NovaCraftItems.end_portal_sealent, 2), new ItemStack(NovaCraftItems.vanite_bottle), new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), new ItemStack(Items.ender_pearl), new ItemStack(Items.potionitem, 1, 8229), new ItemStack(NovaCraftItems.relik_dust), new ItemStack(NovaCraftItems.vanite_bottle));
+
 		registerShapeless("gunpowder", new ItemStack(Items.gunpowder), new ItemStack(NovaCraftItems.brimstone_dust), new ItemStack(NovaCraftItems.brimstone_dust), new ItemStack(Items.coal));
 		registerShapeless("gunpowder", new ItemStack(Items.gunpowder), new ItemStack(NovaCraftItems.brimstone_dust), new ItemStack(NovaCraftItems.brimstone_dust), new ItemStack(Items.coal, 1, 1));
 
@@ -844,7 +848,7 @@ public class NovaCraftRegistries {
 		if (Loader.isModLoaded("etfuturum")) {
 			try {
 				Block ancient_debris = GameRegistry.findBlock("etfuturum", "ancient_debris");
-				if (ancient_debris != null && Configs.enableNetheriteInRecipes) {
+				if (ancient_debris != null && ConfigsCompact.enableNetheriteInRecipes) {
 					registerShapeless("iridium_sword", new ItemStack(NovaCraftItems.iridium_sword), new ItemStack(OtherModItems.netherite_sword), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
 					registerShapeless("iridium_pickaxe", new ItemStack(NovaCraftItems.iridium_pickaxe), new ItemStack(OtherModItems.netherite_pickaxe), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
 					registerShapeless("iridium_shovel", new ItemStack(NovaCraftItems.iridium_shovel), new ItemStack(OtherModItems.netherite_spade), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));

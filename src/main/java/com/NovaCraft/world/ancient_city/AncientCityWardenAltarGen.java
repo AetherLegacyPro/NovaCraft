@@ -1,5 +1,6 @@
 package com.NovaCraft.world.ancient_city;
 
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.enchantment.Enchantment;
@@ -1147,22 +1148,26 @@ public class AncientCityWardenAltarGen extends WorldGenerator
 			if (!world.isRemote) {
 				world.spawnEntityInWorld(warden2);
 			}
-			
-			
-			
-			world.setBlock(i + 4, j + 10, k + 7, Blocks.chest, 5, 2);
-			TileEntityChest chest3 = (TileEntityChest) world.getTileEntity(i + 4, j + 10, k + 7);
 
-			for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
-				chest3.setInventorySlotContents(random.nextInt(chest3.getSizeInventory()), this.getSculkLoot(random));
-			}
-			
-			world.setBlock(i + 10, j + 10, k + 7, Blocks.chest, 4, 2);
-			TileEntityChest chest4 = (TileEntityChest) world.getTileEntity(i + 10, j + 10, k + 7);
+		 	this.setBlockAndNotifyAdequately(world, i + 4, j + 10, k + 7, Blocks.chest, 5);
+		 	TileEntity tile = world.getTileEntity(i + 4, j + 10, k + 7);
+		 	if (tile instanceof TileEntityChest) {
+			 	TileEntityChest chest = (TileEntityChest) tile;
 
-			for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
-				chest4.setInventorySlotContents(random.nextInt(chest4.getSizeInventory()), this.getSculkLoot(random));
-			}
+			 	for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+					 chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getSculkLoot(random));
+			 	}
+		 	}
+
+		 	this.setBlockAndNotifyAdequately(world, i + 10, j + 10, k + 7, Blocks.chest, 4);
+		 	TileEntity tile2 = world.getTileEntity(i + 10, j + 10, k + 7);
+		 	if (tile2 instanceof TileEntityChest) {
+				 TileEntityChest chest2 = (TileEntityChest) tile2;
+
+				 for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+					 chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getSculkLoot(random));
+			 	}
+		 	}
 		 
 			return true;
 	 }

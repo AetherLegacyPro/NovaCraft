@@ -31,109 +31,104 @@ public class MassiveMeteorCraterStructure extends WorldGenerator {
     }
 
     private void generateCrater(World world, Random rand, int x, int y, int z) {
-        if (y <= 85) {
-            float radius = 36.0F + rand.nextFloat() * 4.0F;
-            int radiusInt = MathHelper.floor_float(radius + 8.0F);
-            int craterBottomY = y - 24;
-            int waterCount = 0;
-            int highestWaterY = -1;
-            int waterCheckRadius = 24;
-            int verticalCheckRange = 32;
+        if (y > 85) return;
 
-            int checkX;
-            int checkY;
-            for(int dx = -waterCheckRadius; dx <= waterCheckRadius; ++dx) {
-                for(int dz = -waterCheckRadius; dz <= waterCheckRadius; ++dz) {
-                    if (dx * dx + dz * dz <= waterCheckRadius * waterCheckRadius) {
-                        checkX = x + dx;
-                        int checkZ = z + dz;
+        float radius = 36.0F + rand.nextFloat() * 4.0F;
+        int radiusInt = MathHelper.floor_float(radius + 8.0F);
+        int craterBottomY = y - 24;
 
-                        for(int dy = -verticalCheckRange; dy <= verticalCheckRange; ++dy) {
-                            checkY = y + dy;
-                            if (checkY >= 1 && checkY <= 255 && world.blockExists(checkX, checkY, checkZ)) {
-                                Block block = world.getBlock(checkX, checkY, checkZ);
-                                if (block == Blocks.water || block == Blocks.flowing_water) {
-                                    ++waterCount;
-                                    if (checkY > highestWaterY) {
-                                        highestWaterY = checkY;
-                                    }
-                                }
-                            }
+        int waterCount = 0;
+        int highestWaterY = -1;
+        int waterCheckRadius = 24;
+        int verticalCheckRange = 32;
+
+        for (int dx = -waterCheckRadius; dx <= waterCheckRadius; dx++) {
+            for (int dz = -waterCheckRadius; dz <= waterCheckRadius; dz++) {
+                if (dx * dx + dz * dz > waterCheckRadius * waterCheckRadius) continue;
+
+                int checkX = x + dx;
+                int checkZ = z + dz;
+
+                for (int dy = -verticalCheckRange; dy <= verticalCheckRange; dy++) {
+                    int checkY = y + dy;
+                    if (checkY < 1 || checkY > 255) continue;
+                    if (!world.blockExists(checkX, checkY, checkZ)) continue;
+
+                    Block block = world.getBlock(checkX, checkY, checkZ);
+                    if (block == Blocks.water || block == Blocks.flowing_water) {
+                        waterCount++;
+                        if (checkY > highestWaterY) {
+                            highestWaterY = checkY;
                         }
                     }
                 }
             }
-
-            BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
-            float temp = biome.getFloatTemperature(x, y, z);
-            checkX = biome.getIntRainfall();
-            int requiredWater = 50;
-            if (temp > 1.0F || checkX < 500) {
-                requiredWater = 200;
-            }
-
-            boolean hasWater = waterCount > requiredWater;
-
-            int realY;
-            int realZ;
-            int dz;
-            for (checkY = -radiusInt; checkY <= radiusInt; ++checkY) {
-                for (dz = -radiusInt; dz <= radiusInt; ++dz) {
-                    for (int dy = -24; dy <= 1; ++dy) {
-                        int realX = x + checkY;
-                        realY = y + dy;
-                        realZ = z + dz;
-
-                        if (!world.blockExists(realX, realY, realZ)) continue;
-
-                        double distSq = (double)(checkY * checkY + dz * dz) + (double)(dy * dy) * 4.5D;
-                        if (distSq < (double)(radius * radius)) {
-                            Block block = world.getBlock(realX, realY, realZ);
-                            if (block != Blocks.bedrock && block.getMaterial().isSolid()) {
-                                world.setBlockToAir(realX, realY, realZ);
-                            }
-
-                            if (dy == -24 && world.isAirBlock(realX, realY + 1, realZ)) {
-                                Block floor = rand.nextInt(4) == 0 ? Blocks.dirt : Blocks.grass;
-                                world.setBlock(realX, realY, realZ, floor);
-                            }
-
-                            if (hasWater && realY <= highestWaterY && realY > craterBottomY) {
-                                world.setBlock(realX, realY, realZ, Blocks.water, 0, 2);
-                            }
-                        }
-                    }
-                }
-            }
-
-            for(checkY = -radiusInt; checkY <= radiusInt; ++checkY) {
-                for(dz = -radiusInt; dz <= radiusInt; ++dz) {
-                    double horizDistSq = (double)(checkY * checkY + dz * dz);
-                    if (horizDistSq <= (double)(radius * radius)) {
-                        realY = x + checkY;
-                        realZ = z + dz;
-
-                        for(int realY2 = y + 1; realY2 < world.getActualHeight(); ++realY2) {
-                            if (!world.blockExists(realY, realY2, realZ)) continue;
-
-                            if (!world.isAirBlock(realY, realY2, realZ)) {
-                                world.setBlockToAir(realY, realY2, realZ);
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (!hasWater) {
-                this.fillCraterBottom(world, rand, x, y, z, radiusInt, radius);
-                this.clearLiquidsInCrater(world, x, y, z, radiusInt, radius);
-                this.AddFlora(world, rand, x, y, z, radiusInt, radius);
-            } else {
-                this.fillCraterBottomHasWater(world, rand, x, y, z, radiusInt, radius);
-            }
-
-            this.decorateCrater(world, rand, x, y, z, radiusInt, radius);
         }
+
+        BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
+        float temp = biome.getFloatTemperature(x, y, z);
+        int rainfall = biome.getIntRainfall();
+
+        int requiredWater = (temp > 1.0F || rainfall < 500) ? 200 : 50;
+        boolean hasWater = waterCount > requiredWater;
+
+        for (int dx = -radiusInt; dx <= radiusInt; dx++) {
+            for (int dz = -radiusInt; dz <= radiusInt; dz++) {
+                for (int dy = -24; dy <= 1; dy++) {
+                    int realX = x + dx;
+                    int realY = y + dy;
+                    int realZ = z + dz;
+
+                    //if (!world.blockExists(realX, realY, realZ)) continue;
+                    if (realY < 0 || realY >= world.getActualHeight()) continue;
+
+                    double distSq = (dx * dx + dz * dz) + (dy * dy) * 4.5D;
+                    if (distSq >= radius * radius) continue;
+
+                    Block block = world.getBlock(realX, realY, realZ);
+                    if (block != Blocks.bedrock && block.getMaterial().isSolid()) {
+                        world.setBlockToAir(realX, realY, realZ);
+                    }
+
+                    if (dy == -24 && world.isAirBlock(realX, realY + 1, realZ)) {
+                        Block floor = rand.nextInt(4) == 0 ? Blocks.dirt : Blocks.grass;
+                        world.setBlock(realX, realY, realZ, floor);
+                    }
+
+                    if (hasWater && realY <= highestWaterY && realY > craterBottomY) {
+                        world.setBlock(realX, realY, realZ, Blocks.water, 0, 2);
+                    }
+                }
+            }
+        }
+
+        for (int dx = -radiusInt; dx <= radiusInt; dx++) {
+            for (int dz = -radiusInt; dz <= radiusInt; dz++) {
+                if (dx * dx + dz * dz > radius * radius) continue;
+
+                int realX = x + dx;
+                int realZ = z + dz;
+
+                for (int realY = y + 1; realY < world.getActualHeight(); realY++) {
+                    //if (!world.blockExists(realX, realY, realZ)) continue;
+                    if (realY < 0 || realY >= world.getActualHeight()) continue;
+
+                    if (!world.isAirBlock(realX, realY, realZ)) {
+                        world.setBlockToAir(realX, realY, realZ);
+                    }
+                }
+            }
+        }
+
+        if (!hasWater) {
+            fillCraterBottom(world, rand, x, y, z, radiusInt, radius);
+            clearLiquidsInCrater(world, x, y, z, radiusInt, radius);
+            AddFlora(world, rand, x, y, z, radiusInt, radius);
+        } else {
+            fillCraterBottomHasWater(world, rand, x, y, z, radiusInt, radius);
+        }
+
+        decorateCrater(world, rand, x, y, z, radiusInt, radius);
     }
 
     private void fillCraterBottom(World world, Random rand, int x, int y, int z, int radiusInt, float radius) {

@@ -19,6 +19,9 @@ public class NovaCraftFuelHander implements IFuelHandler {
 		if(fuel.getItem() == NovaCraftItems.ionizatior_rod) return 2400;
 		if(fuel.getItem() == NovaCraftItems.yttrlinsite_shard) return 1200;
 		if (item == Item.getItemFromBlock(NovaCraftBlocks.yttrlinsite_block)) return 11500;
+		if (item == Item.getItemFromBlock(NovaCraftBlocks.luminant_log)) return 300;
+		if(item == Item.getItemFromBlock(NovaCraftBlocks.luminant_sapling)) return 100;
+
 		return 0;
 	}
 

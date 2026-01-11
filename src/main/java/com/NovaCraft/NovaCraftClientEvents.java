@@ -175,7 +175,7 @@ public class NovaCraftClientEvents {
 		int y = MathHelper.floor_double(player.posY);
 		int z = MathHelper.floor_double(player.posZ);
 
-		if (world.rand.nextInt(22000) == 0 && Configs.enableNewCaveSounds) {
+		if (world.isRemote && world.rand.nextInt(22000) == 0 && Configs.enableNewCaveSounds) {
 			if (world.getBlockLightValue(x, y, z) <= 0 && y < 32) {
 				System.out.println("Playing Cave Sound");
 				String[] extraCaveSounds = {"nova_craft:ambient.cave_new1", "nova_craft:ambient.cave_new2", "nova_craft:ambient.cave_new3",

@@ -1,5 +1,6 @@
 package com.NovaCraft.world.bastion.treasure;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
@@ -20,7 +21,7 @@ public class BastionTreasureRoomGen11 extends WorldGenerator
 
 	private Block determineIfChainExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (!(Configs.disableChain) && Loader.isModLoaded("etfuturum")) {
+		if (!(ConfigsCompact.disableChain) && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block chain = GameRegistry.findBlock("etfuturum", "chain");
 				if (chain != null && (existingBlock == null || existingBlock != chain)) {

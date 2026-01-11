@@ -1,5 +1,6 @@
 package com.NovaCraft.world.ancient_city;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
@@ -31,7 +32,7 @@ public class AncientCityCenterPortalGen2 extends WorldGenerator
 
 	private Block determineIfCobbledDeepslateExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableCobbledDeepslateInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslate && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block cobbled_deepslate = GameRegistry.findBlock("etfuturum", "cobbled_deepslate");
 				if (cobbled_deepslate != null && (existingBlock == null || existingBlock != cobbled_deepslate)) {
@@ -50,7 +51,7 @@ public class AncientCityCenterPortalGen2 extends WorldGenerator
 
 	private Block determineIfDeepslateBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -69,7 +70,7 @@ public class AncientCityCenterPortalGen2 extends WorldGenerator
 
 	private Block determineIfCrackedDeepslateBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -88,7 +89,7 @@ public class AncientCityCenterPortalGen2 extends WorldGenerator
 
 	private Block determineIfDeepslateTilesExist(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -107,7 +108,7 @@ public class AncientCityCenterPortalGen2 extends WorldGenerator
 
 	private Block determineIfCrackedDeepslateTilesExist(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -122,25 +123,6 @@ public class AncientCityCenterPortalGen2 extends WorldGenerator
 		}
 
 		return NovaCraftBlocks.cracked_grimstone_tiles;
-	}
-
-	private Block determineIfPolishedDeepslateExists(World world, int x, int y, int z) {
-		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
-			try {
-				Block polished_deepslate_stairs = GameRegistry.findBlock("etfuturum", "polished_deepslate_stairs");
-				if (polished_deepslate_stairs != null && (existingBlock == null || existingBlock != polished_deepslate_stairs)) {
-					return polished_deepslate_stairs;
-				}
-			} catch (Exception ex) {
-				if (Configs.enableDebugMode) {
-					System.out.println("Missing Polished Deepslate Stairs from Et Futurum Requiem, using Grimstone Brick Stairs instead...");
-				}
-				return NovaCraftBlocks.grimstone_brick_stairs;
-			}
-		}
-
-		return NovaCraftBlocks.grimstone_brick_stairs;
 	}
 
 	public boolean generate(final World world, final Random random, final int i, final int j, final int k) {		

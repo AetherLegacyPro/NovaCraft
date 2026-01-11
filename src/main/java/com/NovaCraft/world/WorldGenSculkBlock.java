@@ -12,11 +12,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class WorldGenSculkBlock extends WorldGenerator
-{
+public class WorldGenSculkBlock extends WorldGenerator {
     private Block field_150552_a;
     private int field_150551_b;
-    private static final String __OBFID = "CL_00000410";
 
     public WorldGenSculkBlock(Block p_i45452_1_)
     {
@@ -50,27 +48,27 @@ public class WorldGenSculkBlock extends WorldGenerator
             int j1 = y + random.nextInt(3) - random.nextInt(3);
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
-            if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 +1, k1) != NovaCraftBlocks.sculk_block || world.getBlock(i1, j1 +1, k1) != Blocks.mob_spawner || world.getBlock(i1, j1 +1, k1) != Blocks.end_portal_frame) && world.getBlock(i1, j1 +1, k1).isSideSolid(world, i1, j1 +1, k1, ForgeDirection.getOrientation(0))) {
+            if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 +1, k1) != NovaCraftBlocks.sculk_block || world.getBlock(i1, j1 +1, k1) != Blocks.mob_spawner || world.getBlock(i1, j1 +1, k1) != Blocks.end_portal_frame || world.getBlock(i1, j1 +1, k1) != NovaCraftBlocks.cracked_end_portal_frame) && world.getBlock(i1, j1 +1, k1).isSideSolid(world, i1, j1 +1, k1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1, j1 + 1, k1, this.Sculk, 0, 2); //1
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 -1, k1) != NovaCraftBlocks.sculk_block || world.getBlock(i1, j1 -1, k1) != Blocks.mob_spawner || world.getBlock(i1, j1 -1, k1) != Blocks.end_portal_frame) && world.getBlock(i1, j1 -1, k1).isSideSolid(world, i1, j1-1, k1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 -1, k1) != NovaCraftBlocks.sculk_block || world.getBlock(i1, j1 -1, k1) != Blocks.mob_spawner || world.getBlock(i1, j1 -1, k1) != Blocks.end_portal_frame || world.getBlock(i1, j1 -1, k1) != NovaCraftBlocks.cracked_end_portal_frame) && world.getBlock(i1, j1 -1, k1).isSideSolid(world, i1, j1-1, k1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1, j1 - 1, k1, this.Sculk, 0, 2); //7
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 +1) != NovaCraftBlocks.sculk_block || world.getBlock(i1, j1 , k1 +1) != Blocks.mob_spawner || world.getBlock(i1, j1 , k1 +1) != Blocks.end_portal_frame) && world.getBlock(i1, j1 , k1 +1).isSideSolid(world, i1, j1, k1+1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 +1) != NovaCraftBlocks.sculk_block || world.getBlock(i1, j1 , k1 +1) != Blocks.mob_spawner || world.getBlock(i1, j1 , k1 +1) != Blocks.end_portal_frame || world.getBlock(i1, j1, k1+1) != NovaCraftBlocks.cracked_end_portal_frame) && world.getBlock(i1, j1 , k1 +1).isSideSolid(world, i1, j1, k1+1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1, j1, k1 + 1, this.Sculk, 0, 2); //8
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 -1) != NovaCraftBlocks.sculk_block || world.getBlock(i1, j1 , k1 -1) != Blocks.mob_spawner || world.getBlock(i1, j1 , k1 -1) != Blocks.end_portal_frame) && world.getBlock(i1, j1 , k1 -1).isSideSolid(world, i1, j1, k1-1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1, j1 , k1 -1) != NovaCraftBlocks.sculk_block || world.getBlock(i1, j1 , k1 -1) != Blocks.mob_spawner || world.getBlock(i1, j1 , k1 -1) != Blocks.end_portal_frame || world.getBlock(i1, j1, k1 -1) != NovaCraftBlocks.cracked_end_portal_frame) && world.getBlock(i1, j1 , k1 -1).isSideSolid(world, i1, j1, k1-1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1, j1, k1 - 1, this.Sculk, 0, 2); //9
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 +1, j1 , k1) != NovaCraftBlocks.sculk_block || world.getBlock(i1 +1, j1 , k1) != Blocks.mob_spawner || world.getBlock(i1 +1, j1 , k1) != Blocks.end_portal_frame) && world.getBlock(i1+1, j1 , k1).isSideSolid(world, i1+1, j1, k1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 +1, j1 , k1) != NovaCraftBlocks.sculk_block || world.getBlock(i1 +1, j1 , k1) != Blocks.mob_spawner || world.getBlock(i1 +1, j1 , k1) != Blocks.end_portal_frame || world.getBlock(i1 +1, j1, k1) != NovaCraftBlocks.cracked_end_portal_frame) && world.getBlock(i1+1, j1 , k1).isSideSolid(world, i1+1, j1, k1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1 + 1, j1, k1, this.Sculk, 0, 2); //10
             }
             
-            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 -1, j1 , k1) != NovaCraftBlocks.sculk_block || world.getBlock(i1 -1, j1 , k1) != Blocks.mob_spawner || world.getBlock(i1 -1, j1 , k1) != Blocks.end_portal_frame) && world.getBlock(i1-1, j1 , k1).isSideSolid(world, i1-1, j1, k1, ForgeDirection.getOrientation(0))) {
+            else if (world.isAirBlock(i1, j1, k1) && (world.getBlock(i1 -1, j1 , k1) != NovaCraftBlocks.sculk_block || world.getBlock(i1 -1, j1 , k1) != Blocks.mob_spawner || world.getBlock(i1 -1, j1 , k1) != Blocks.end_portal_frame || world.getBlock(i1 -1, j1, k1) != NovaCraftBlocks.cracked_end_portal_frame) && world.getBlock(i1-1, j1 , k1).isSideSolid(world, i1-1, j1, k1, ForgeDirection.getOrientation(0))) {
             	world.setBlock(i1 - 1, j1, k1, this.Sculk, 0, 2); //11
             }
             

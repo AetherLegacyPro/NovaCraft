@@ -394,12 +394,28 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
         }
             
     }
-	
-	private void createloot(int p_70975_1_, int p_70975_2_, int p_70975_3_)
-    {
-		this.worldObj.setBlock(p_70975_1_, p_70975_2_, p_70975_3_, NovaCraftBlocks.sculk_chest);
-		this.worldObj.setBlock(p_70975_1_, p_70975_2_ + 1, p_70975_3_, NovaCraftBlocks.sculk_chest);
-    }
+
+	private void createloot(int x, int y, int z) {
+		if (shouldReplaceBlock(x, y, z)) {
+			this.worldObj.setBlock(x, y, z, NovaCraftBlocks.sculk_chest);
+			return;
+		}
+
+		if (shouldReplaceBlock(x, y + 1, z)) {
+			this.worldObj.setBlock(x, y + 1, z, NovaCraftBlocks.sculk_chest);
+		}
+	}
+
+	private boolean shouldReplaceBlock(int x, int y, int z) {
+		Block block = this.worldObj.getBlock(x, y, z);
+
+		if (block.isAir(this.worldObj, x, y, z)) {
+			return true;
+		}
+
+		float hardness = block.getBlockHardness(this.worldObj, x, y, z);
+		return hardness >= 0.0F;
+	}
 	
 	private boolean shouldAttackPlayer(EntityPlayer p_70821_1_)
     {

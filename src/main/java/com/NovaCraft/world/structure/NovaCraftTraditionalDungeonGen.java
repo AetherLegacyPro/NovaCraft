@@ -571,7 +571,7 @@ public class NovaCraftTraditionalDungeonGen extends WorldGenerator {
 			        NBTTagList equipment = new NBTTagList();
 
 			        NBTTagCompound weapon = new NBTTagCompound();
-			        ItemStack sword = new ItemStack(Items.bowl);
+			        ItemStack sword = new ItemStack(Items.bow);
 			        sword.writeToNBT(weapon);
 			        equipment.appendTag(weapon);
 

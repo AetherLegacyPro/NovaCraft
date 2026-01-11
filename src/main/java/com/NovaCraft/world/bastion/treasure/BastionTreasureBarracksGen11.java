@@ -1,5 +1,6 @@
 package com.NovaCraft.world.bastion.treasure;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
@@ -20,7 +21,7 @@ public class BastionTreasureBarracksGen11 extends WorldGenerator
 	private Block determineIfLanternExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
 
-		if (!(Configs.enableEtFuturumSoulLanternInAncientCity) && Loader.isModLoaded("netherlicious")) {
+		if (!(ConfigsCompact.enableSoulLantern) && Loader.isModLoaded("netherlicious")) {
 			try {
 				Block nether_lantern = GameRegistry.findBlock("netherlicious", "Lantern");
 				if (nether_lantern != null && (existingBlock == null || existingBlock != nether_lantern)) {

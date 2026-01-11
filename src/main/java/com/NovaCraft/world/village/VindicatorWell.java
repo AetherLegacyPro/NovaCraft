@@ -2,6 +2,7 @@ package com.NovaCraft.world.village;
 
 import java.util.Random;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsStructures;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.Loader;
@@ -74,7 +75,7 @@ public class VindicatorWell extends WorldGenerator
 			return false;
 		}
 
-		if(world.getBlock(i, j, k) == Blocks.sand && rand.nextInt((50 - Configs.vindicatorVillageSpawnRate) * 500) != 1)
+		if(world.getBlock(i, j, k) == Blocks.sand && rand.nextInt((50 - ConfigsStructures.vindicatorVillageSpawnRate) * 500) != 1)
 			return false;
 
 		if(new VindicatorRoad().canAllHousesSpawn(world, i, j, k) == false)

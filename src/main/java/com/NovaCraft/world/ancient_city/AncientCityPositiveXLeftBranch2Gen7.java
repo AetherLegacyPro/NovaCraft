@@ -1,5 +1,6 @@
 package com.NovaCraft.world.ancient_city;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
@@ -25,7 +26,7 @@ public class AncientCityPositiveXLeftBranch2Gen7 extends WorldGenerator
 
 	private Block determineIfCrackedDeepslateBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -44,7 +45,7 @@ public class AncientCityPositiveXLeftBranch2Gen7 extends WorldGenerator
 
 	private Block determineIfDeepslateBrickStairsExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_brick_stairs = GameRegistry.findBlock("etfuturum", "deepslate_brick_stairs");
 				if (deepslate_brick_stairs != null && (existingBlock == null || existingBlock != deepslate_brick_stairs)) {
@@ -64,7 +65,7 @@ public class AncientCityPositiveXLeftBranch2Gen7 extends WorldGenerator
 	private Block determineIfSoulLanternExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
 
-		if (!(Configs.enableEtFuturumSoulLanternInAncientCity) && Loader.isModLoaded("netherlicious")) {
+		if (!(ConfigsCompact.enableSoulLantern) && Loader.isModLoaded("netherlicious")) {
 			try {
 				Block SoulLantern = GameRegistry.findBlock("netherlicious", "SoulLantern");
 				if (SoulLantern != null && (existingBlock == null || existingBlock != SoulLantern)) {

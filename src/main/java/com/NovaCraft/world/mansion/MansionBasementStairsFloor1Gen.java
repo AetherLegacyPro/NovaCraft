@@ -1,6 +1,7 @@
 package com.NovaCraft.world.mansion;
 
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -20,7 +21,7 @@ public class MansionBasementStairsFloor1Gen extends WorldGenerator
 
     private Block determineIfDarkOakFenceExists(World world, int x, int y, int z) {
         Block existingBlock = world.getBlock(x, y, z);
-        if (Configs.enableDarkOakFenceInAncientCity && Loader.isModLoaded("etfuturum")) {
+        if (ConfigsCompact.enableDarkOakFence && Loader.isModLoaded("etfuturum")) {
             try {
                 Block fence_dark_oak = GameRegistry.findBlock("etfuturum", "fence_dark_oak");
                 if (fence_dark_oak != null && (existingBlock == null || existingBlock != fence_dark_oak)) {

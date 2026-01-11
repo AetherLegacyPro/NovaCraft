@@ -2,6 +2,8 @@ package com.NovaCraft.world;
 
 import java.util.Random;
 
+import com.NovaCraft.config.ConfigsCompact;
+import com.NovaCraft.config.ConfigsWorld;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.NovaCraft.config.Configs;
@@ -18,7 +20,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 public class NCWorldGeneratorPost implements IWorldGenerator {
 	
 	public void generate(final Random random, final int chunkX, final int chunkZ, final World world, final IChunkProvider chunkGenerator, final IChunkProvider chunkProvider) {
-	if ((ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {   
+	if ((ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
 			this.generateSurface(random, chunkX * 16, chunkZ * 16, world);
 		} else {
 			switch (world.provider.dimensionId) {
@@ -39,8 +41,10 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
     }
 	
 	public void generateNether(final Random random, final int chunkX, final int chunkZ, final World world) {
-		
-		this.addNetherOres(NovaCraftBlocks.nether_tophinite_ore, world, random, chunkX, chunkZ, 3, 5, 6, 0, 20);		
+
+		if (ConfigsWorld.enableTophiniteOre) {
+			this.addNetherOres(NovaCraftBlocks.nether_tophinite_ore, world, random, chunkX, chunkZ, 3, 5, 6, 0, 20);
+		}
 	}
 	
 	public void addOreSpawnEnd(final Block block, final World world, final Random random, final int blockXPos, final int blockZPos, final int minVeinSize, final int maxVeinSize, final int chancesToSpawn, final int minY, final int maxY) {
@@ -64,11 +68,19 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
     }	
 	
 	public void generateEnd(final Random random, final int chunkX, final int chunkZ, final World world) {
-		
-		this.addOreSpawnEnd(NovaCraftBlocks.xancium_ore, world, random, chunkX, chunkZ, 4, 10, 9, 1, 90);
-		this.addOreSpawnEnd(NovaCraftBlocks.crystallized_end, world, random, chunkX, chunkZ, 2, 4, 4, 1, 12);
-		this.addOreSpawnEnd(NovaCraftBlocks.end_klangite_ore, world, random, chunkX, chunkZ, 2, 4, 4, 1, 30);
-		this.addOreSpawnFrontierslate(NovaCraftBlocks.frontierslate_klangite_ore, world, random, chunkX, chunkZ, 3, 5, 6, 1, 20);
+
+		if(ConfigsWorld.enableXanciumOre) {
+			this.addOreSpawnEnd(NovaCraftBlocks.xancium_ore, world, random, chunkX, chunkZ, 4, 10, 9, 1, 90);
+		}
+
+		if (ConfigsWorld.enableCrystallizedEnd) {
+			this.addOreSpawnEnd(NovaCraftBlocks.crystallized_end, world, random, chunkX, chunkZ, 2, 4, 4, 1, 12);
+		}
+
+		if (ConfigsWorld.enableKlangiteOre) {
+			this.addOreSpawnEnd(NovaCraftBlocks.end_klangite_ore, world, random, chunkX, chunkZ, 2, 4, 4, 24, 90);
+			this.addOreSpawnFrontierslate(NovaCraftBlocks.frontierslate_klangite_ore, world, random, chunkX, chunkZ, 3, 5, 6, 1, 24);
+		}
 	}
 	    
 	public void addNullstoneOres(final Block block, final World world, final Random random, final int blockXPos, final int blockZPos, final int minVeinSize, final int maxVeinSize, final int chancesToSpawn, final int minY, final int maxY) {
@@ -124,7 +136,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 	
 	public void generateSurface(final Random random, final int chunkX, final int chunkZ, final World world) {
 		
-		if (Configs.disableRegularVanillaGen == true) {
+		if (Configs.disableRegularVanillaGen) {
 			
 			//Override of vanilla ore generation
 			this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 6, 14, 18, 24, 128);
@@ -134,13 +146,13 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 			this.addVanillaOres(Blocks.lapis_ore, world, random, chunkX, chunkZ, 1, 8, 6, 0, 32);
 			this.addVanillaOres(Blocks.diamond_ore, world, random, chunkX, chunkZ, 1, 4, 6, 0, 16);
 			
-			if (Configs.enableExtraEmeraldOreGeneration) {
+			if (ConfigsWorld.enableExtraEmeraldOreGeneration) {
 			this.addVanillaOres(Blocks.emerald_ore, world, random, chunkX, chunkZ, 1, 2, 7, 20, 90);
 			}
 			
 			this.addVanillaOres(Blocks.gravel, world, random, chunkX, chunkZ, 16, 24, 10, 32, 82);
 		}
-		if (Configs.enableMountainOres) {
+		if (ConfigsWorld.enableMountainOres) {
 			//Extra Ores at y levels above 90
 				this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 16, 17, 18, 90, 256);
 				this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 4, 10, 14, 90, 256);
@@ -149,185 +161,188 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		}
 		
 		//Does this first so klangite is not impossible to find
-		if (Configs.enableNullstone == true) {
-			if (Configs.enableRareOverworldKlangiteOre == true) {
+		if (ConfigsWorld.enableNullstone) {
+			if (ConfigsWorld.enableRareOverworldKlangiteOre) {
 				this.addNullstoneOres(NovaCraftBlocks.klangite_ore, world, random, chunkX, chunkZ, 2, 3, 7, 0, 16);
 			}
-			if (Configs.enableRareOverworldTophiniteOre == true) {
-				this.addNullstoneOres(NovaCraftBlocks.nullstone_tophinite_ore, world, random, chunkX, chunkZ, 1, 2, 6, 0, 16);	
+			if (ConfigsWorld.enableRareOverworldTophiniteOre) {
+				this.addNullstoneOres(NovaCraftBlocks.nullstone_tophinite_ore, world, random, chunkX, chunkZ, 1, 2, 6, 0, 16);
 			}
-		this.addNullstoneOres(NovaCraftBlocks.nullstone_vanite_ore, world, random, chunkX, chunkZ, 5, 6, 10, 0, 16);
-		
-		if (ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist) {
-			if (Configs.enableRareOverworldKlangiteOre == true) {
+			if (ConfigsWorld.enableVaniteOre) {
+				this.addNullstoneOres(NovaCraftBlocks.nullstone_vanite_ore, world, random, chunkX, chunkZ, 5, 6, 10, 0, 16);
+			}
+		if (ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist) {
+			if (ConfigsWorld.enableRareOverworldKlangiteOre) {
 				this.addNullstoneOres(NovaCraftBlocks.klangite_ore, world, random, chunkX, chunkZ, 1, 2, 7, 0, 256);
 			}
-			if (Configs.enableRareOverworldTophiniteOre == true) {
+			if (ConfigsWorld.enableRareOverworldTophiniteOre) {
 				this.addNullstoneOres(NovaCraftBlocks.nullstone_tophinite_ore, world, random, chunkX, chunkZ, 1, 2, 6, 0, 256);	
 			}
-		this.addNullstoneOres(NovaCraftBlocks.nullstone_vanite_ore, world, random, chunkX, chunkZ, 5, 6, 10, 0, 256);	
-		}
+			if (ConfigsWorld.enableVaniteOre) {
+				this.addNullstoneOres(NovaCraftBlocks.nullstone_vanite_ore, world, random, chunkX, chunkZ, 5, 6, 10, 0, 256);
+			}
+		  }
 		}
 		
-		if (Configs.enableNullstone == false && Loader.isModLoaded("etfuturum") && Configs.enableDeepslateOreGeneration == true) {
-			if (Configs.enableRareOverworldKlangiteOre == true) {
+		if (!(ConfigsWorld.enableNullstone) && Loader.isModLoaded("etfuturum") && ConfigsCompact.enableDeepslateOreGeneration) {
+			if (ConfigsWorld.enableRareOverworldKlangiteOre) {
 				this.addVanillaOres(NovaCraftBlocks.deepslate_klangite_ore, world, random, chunkX, chunkZ, 2, 3, 7, 0, 16);
 			}
-			if (Configs.enableRareOverworldTophiniteOre == true) {
+			if (ConfigsWorld.enableRareOverworldTophiniteOre) {
 				this.addVanillaOres(NovaCraftBlocks.deepslate_tophinite_ore, world, random, chunkX, chunkZ, 1, 2, 4, 0, 10);
 			}
 		}
 		
-		if (Configs.enableNullstone == false && Configs.enableDeepslateOreGeneration == false) {
-			if (Configs.enableRareOverworldKlangiteOre == true) {
+		if (!(ConfigsWorld.enableNullstone) && !(ConfigsCompact.enableDeepslateOreGeneration)) {
+			if (ConfigsWorld.enableRareOverworldKlangiteOre) {
 				this.addVanillaOres(NovaCraftBlocks.stone_klangite_ore, world, random, chunkX, chunkZ, 3, 5, 6, 0, 16);
 			}
-			if (Configs.enableRareOverworldTophiniteOre == true) {
+			if (ConfigsWorld.enableRareOverworldTophiniteOre) {
 				this.addVanillaOres(NovaCraftBlocks.stone_tophinite_ore, world, random, chunkX, chunkZ, 1, 2, 6, 0, 16);
 			}
 		}
 		
-		if (Configs.enableGrimstone == true) {
+		if (ConfigsWorld.enableGrimstone && ConfigsWorld.enableVaniteOre) {
 		this.addGrimstoneOres(NovaCraftBlocks.grimstone_vanite_ore, world, random, chunkX, chunkZ, 5, 6, 10, 0, 24);
 		}
 		
-		if (Configs.enableGrimstone == false && Configs.enableNullstone == false && Loader.isModLoaded("etfuturum") && Configs.enableDeepslateOreGeneration == true) {
+		if (!(ConfigsWorld.enableGrimstone) && !(ConfigsWorld.enableNullstone) && Loader.isModLoaded("etfuturum") && ConfigsCompact.enableDeepslateOreGeneration) {
 		this.addVanillaOres(NovaCraftBlocks.deepslate_vanite_ore, world, random, chunkX, chunkZ, 5, 6, 10, 0, 18);		
 		}
 		
-		if (Configs.enableGrimstone == false && Configs.enableNullstone == false && Configs.enableDeepslateOreGeneration == false) {
+		if (!(ConfigsWorld.enableGrimstone) && !(ConfigsWorld.enableNullstone) && !(ConfigsCompact.enableDeepslateOreGeneration)) {
 		this.addVanillaOres(NovaCraftBlocks.stone_vanite_ore, world, random, chunkX, chunkZ, 5, 6, 10, 0, 18);	
 		}
 		
-		if (Configs.enableBrimstoneOre == true && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
+		if (ConfigsWorld.enableBrimstoneOre && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
 		this.addVanillaOres(NovaCraftBlocks.brimstone_ore, world, random, chunkX, chunkZ, 4, 5, 8, 42, 196);
 		}
 		
-		if (Configs.enablePherithiumOreGeneration) {
+		if (ConfigsWorld.enablePherithiumOreGeneration) {
 		this.addVanillaOres(NovaCraftBlocks.pherithium_ore, world, random, chunkX, chunkZ, 5, 6, 8, 25, 64);
 		}
 		
-		if (!(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-		if (Configs.enableGrimstoneIron && Configs.enableGrimstone) {
+		if (!(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+		if (ConfigsWorld.enableGrimstoneIron && ConfigsWorld.enableGrimstone) {
 		this.addGrimstoneOres(NovaCraftBlocks.grimstone_iron, world, random, chunkX, chunkZ, 9, 12, 14, 10, 24);
 		}
 		
-		if (Configs.enableGrimstoneGold && Configs.enableGrimstone) {
+		if (ConfigsWorld.enableGrimstoneGold && ConfigsWorld.enableGrimstone) {
 		this.addGrimstoneOres(NovaCraftBlocks.grimstone_gold, world, random, chunkX, chunkZ, 5, 7, 9, 10, 24);
 		}
 		
-		if (Configs.enableGrimstoneRedstone && Configs.enableGrimstone) {
+		if (ConfigsWorld.enableGrimstoneRedstone && ConfigsWorld.enableGrimstone) {
 		this.addGrimstoneOres(NovaCraftBlocks.grimstone_redstone, world, random, chunkX, chunkZ, 5, 9, 8, 10, 18);
 		}
 		
-		if (Configs.enableGrimstoneLapis && Configs.enableGrimstone) {
+		if (ConfigsWorld.enableGrimstoneLapis && ConfigsWorld.enableGrimstone) {
 		this.addGrimstoneOres(NovaCraftBlocks.grimstone_lapis, world, random, chunkX, chunkZ, 2, 5, 8, 18, 24);
 		}
 		
-		if (Configs.enableGrimstoneDiamond && Configs.enableGrimstone) {
+		if (ConfigsWorld.enableGrimstoneDiamond && ConfigsWorld.enableGrimstone) {
 		this.addGrimstoneOres(NovaCraftBlocks.grimstone_diamond, world, random, chunkX, chunkZ, 1, 4, 7, 10, 16);
 		}
 		
-		if (Configs.enableGrimstoneEmerald && Configs.enableGrimstone) {
+		if (ConfigsWorld.enableGrimstoneEmerald && ConfigsWorld.enableGrimstone) {
 		this.addGrimstoneOres(NovaCraftBlocks.grimstone_emerald, world, random, chunkX, chunkZ, 2, 3, 5, 10, 24);
 		}
 		
-		if (Configs.enableNullstoneIron && Configs.enableNullstone) {
+		if (ConfigsWorld.enableNullstoneIron && ConfigsWorld.enableNullstone) {
 		this.addNullstoneOres(NovaCraftBlocks.nullstone_iron, world, random, chunkX, chunkZ, 9, 12, 14, 0, 18);
 		}
 		
-		if (Configs.enableNullstoneGold && Configs.enableNullstone) {
+		if (ConfigsWorld.enableNullstoneGold && ConfigsWorld.enableNullstone) {
 		this.addNullstoneOres(NovaCraftBlocks.nullstone_gold, world, random, chunkX, chunkZ, 5, 7, 9, 0, 18);
 		}
 		
-		if (Configs.enableNullstoneRedstone && Configs.enableNullstone) {
+		if (ConfigsWorld.enableNullstoneRedstone && ConfigsWorld.enableNullstone) {
 		this.addNullstoneOres(NovaCraftBlocks.nullstone_redstone, world, random, chunkX, chunkZ, 2, 8, 8, 0, 18);
 		}
 		
-		if (Configs.enableNullstoneLapis && Configs.enableNullstone) {
+		if (ConfigsWorld.enableNullstoneLapis && ConfigsWorld.enableNullstone) {
 		this.addNullstoneOres(NovaCraftBlocks.nullstone_lapis, world, random, chunkX, chunkZ, 2, 5, 8, 14, 18);
 		}
 		
-		if (Configs.enableNullstoneDiamond && Configs.enableNullstone) {
+		if (ConfigsWorld.enableNullstoneDiamond && ConfigsWorld.enableNullstone) {
 		this.addNullstoneOres(NovaCraftBlocks.nullstone_diamond, world, random, chunkX, chunkZ, 2, 4, 6, 0, 16);
 		}
 		
-		if (Configs.enableNullstoneEmerald && Configs.enableNullstone) {
+		if (ConfigsWorld.enableNullstoneEmerald && ConfigsWorld.enableNullstone) {
 			this.addNullstoneOres(NovaCraftBlocks.nullstone_emerald, world, random, chunkX, chunkZ, 2, 3, 5, 0, 14);
 		 }
 		
 		}
 		
 		
-		if ((ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-			if (Configs.enableGrimstoneIron && Configs.enableGrimstone) {
+		if ((ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+			if (ConfigsWorld.enableGrimstoneIron && ConfigsWorld.enableGrimstone) {
 			this.addGrimstoneOres(NovaCraftBlocks.grimstone_iron, world, random, chunkX, chunkZ, 9, 12, 14, 0, 256);
 			}
 			
-			if (Configs.enableGrimstoneGold && Configs.enableGrimstone) {
+			if (ConfigsWorld.enableGrimstoneGold && ConfigsWorld.enableGrimstone) {
 			this.addGrimstoneOres(NovaCraftBlocks.grimstone_gold, world, random, chunkX, chunkZ, 5, 7, 9, 0, 256);
 			}
 			
-			if (Configs.enableGrimstoneRedstone && Configs.enableGrimstone) {
+			if (ConfigsWorld.enableGrimstoneRedstone && ConfigsWorld.enableGrimstone) {
 			this.addGrimstoneOres(NovaCraftBlocks.grimstone_redstone, world, random, chunkX, chunkZ, 5, 9, 12, 0, 256);
 			}
 			
-			if (Configs.enableGrimstoneLapis && Configs.enableGrimstone) {
+			if (ConfigsWorld.enableGrimstoneLapis && ConfigsWorld.enableGrimstone) {
 			this.addGrimstoneOres(NovaCraftBlocks.grimstone_lapis, world, random, chunkX, chunkZ, 2, 5, 8, 18, 256);
 			}
 			
-			if (Configs.enableGrimstoneDiamond && Configs.enableGrimstone) {
+			if (ConfigsWorld.enableGrimstoneDiamond && ConfigsWorld.enableGrimstone) {
 			this.addGrimstoneOres(NovaCraftBlocks.grimstone_diamond, world, random, chunkX, chunkZ, 2, 3, 7, 0, 256);
 			}
 			
-			if (Configs.enableGrimstoneEmerald && Configs.enableGrimstone) {
+			if (ConfigsWorld.enableGrimstoneEmerald && ConfigsWorld.enableGrimstone) {
 			this.addGrimstoneOres(NovaCraftBlocks.grimstone_emerald, world, random, chunkX, chunkZ, 2, 3, 5, 0, 256);
 			}
 			
-			if (Configs.enableNullstoneIron && Configs.enableNullstone) {
+			if (ConfigsWorld.enableNullstoneIron && ConfigsWorld.enableNullstone) {
 			this.addNullstoneOres(NovaCraftBlocks.nullstone_iron, world, random, chunkX, chunkZ, 9, 12, 14, 0, 256);
 			}
 			
-			if (Configs.enableNullstoneGold && Configs.enableNullstone) {
+			if (ConfigsWorld.enableNullstoneGold && ConfigsWorld.enableNullstone) {
 			this.addNullstoneOres(NovaCraftBlocks.nullstone_gold, world, random, chunkX, chunkZ, 5, 7, 9, 0, 256);
 			}
 			
-			if (Configs.enableNullstoneRedstone && Configs.enableNullstone) {
+			if (ConfigsWorld.enableNullstoneRedstone && ConfigsWorld.enableNullstone) {
 			this.addNullstoneOres(NovaCraftBlocks.nullstone_redstone, world, random, chunkX, chunkZ, 7, 10, 12, 0, 256);
 			}
 			
-			if (Configs.enableNullstoneLapis && Configs.enableNullstone) {
+			if (ConfigsWorld.enableNullstoneLapis && ConfigsWorld.enableNullstone) {
 			this.addNullstoneOres(NovaCraftBlocks.nullstone_lapis, world, random, chunkX, chunkZ, 2, 5, 8, 14, 256);
 			}
 			
-			if (Configs.enableNullstoneDiamond && Configs.enableNullstone) {
+			if (ConfigsWorld.enableNullstoneDiamond && ConfigsWorld.enableNullstone) {
 			this.addNullstoneOres(NovaCraftBlocks.nullstone_diamond, world, random, chunkX, chunkZ, 2, 4, 6, 0, 256);
 			}
 			
-			if (Configs.enableNullstoneEmerald && Configs.enableNullstone) {
+			if (ConfigsWorld.enableNullstoneEmerald && ConfigsWorld.enableNullstone) {
 				this.addNullstoneOres(NovaCraftBlocks.nullstone_emerald, world, random, chunkX, chunkZ, 2, 3, 5, 0, 256);
 			}
 			
 		}
 		
-	if (Configs.enableEtherstone == true && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-		if (Configs.enableEtherstoneCoal) {
+	if (ConfigsWorld.enableEtherstone && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+		if (ConfigsWorld.enableEtherstoneCoal) {
 		this.addEtherstoneOres(NovaCraftBlocks.etherstone_coal, world, random, chunkX, chunkZ, 9, 12, 14, 80, 256);
 		}
 		
-		if (Configs.enableBrimstoneOre == true) {
+		if (ConfigsWorld.enableBrimstoneOre) {
 		this.addEtherstoneOres(NovaCraftBlocks.etherstone_brimstone, world, random, chunkX, chunkZ, 7, 8, 10, 85, 196);
 		}
 		
-		if (Configs.enableEtherstoneIron) {
+		if (ConfigsWorld.enableEtherstoneIron) {
 		this.addEtherstoneOres(NovaCraftBlocks.etherstone_iron, world, random, chunkX, chunkZ, 5, 7, 9, 80, 256);
 		}
 		
-		if (Configs.enableEtherstoneEmerald) {
+		if (ConfigsWorld.enableEtherstoneEmerald) {
 		this.addEtherstoneOres(NovaCraftBlocks.etherstone_emerald, world, random, chunkX, chunkZ, 3, 4, 5, 85, 256);
 		}
 		
-		if (Configs.enableEtherstoneGold) {
+		if (ConfigsWorld.enableEtherstoneGold) {
 		this.addEtherstoneOres(NovaCraftBlocks.etherstone_gold, world, random, chunkX, chunkZ, 2, 5, 6, 90, 256);
 		}
 	}

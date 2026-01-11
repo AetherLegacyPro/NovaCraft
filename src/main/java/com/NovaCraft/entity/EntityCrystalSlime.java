@@ -2,6 +2,7 @@ package com.NovaCraft.entity;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.misc.EntityAICrystalSlimeSwell;
 import com.NovaCraft.entity.misc.EnumCrystalSlimeType;
 import com.NovaCraft.registry.OtherModItems;
@@ -361,7 +362,7 @@ public class EntityCrystalSlime extends EntityLiving implements IMob {
             if (this.getType() == EnumCrystalSlimeType.IRON) {
                 for (int l = 0; l < k; ++l)
                 {
-                    if (Configs.enableEtFuturumIronNugget && Loader.isModLoaded("etfuturum")) {
+                    if (ConfigsCompact.enableIronNugget && Loader.isModLoaded("etfuturum")) {
                         this.entityDropItem(new ItemStack(OtherModItems.nugget_iron, k, 0), 1.0F);
                     } else {
                         this.entityDropItem(new ItemStack(NovaCraftBlocks.cobbled_etherstone, k, 0), 1.0F);

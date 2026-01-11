@@ -4,25 +4,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.commons.lang3.ArrayUtils;
-
-import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsStructures;
+import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.plants.end.BlockChorusGrass;
 import com.NovaCraftBlocks.plants.end.BlockLacunaFruit;
-
 import cpw.mods.fml.common.IWorldGenerator;
-import net.minecraft.block.Block;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class NCWorldGeneratorEnd implements IWorldGenerator {
-	
-	private Random rand;
 	
 	public static final NCWorldGeneratorEnd INSTANCE = new NCWorldGeneratorEnd();
 	
@@ -41,7 +31,7 @@ public class NCWorldGeneratorEnd implements IWorldGenerator {
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.dimensionId == 1) {
 		
-			if (!(world.provider instanceof EndWorldProviderNovaCraft)) {
+			if (!(world.provider instanceof EndWorldProviderNovaCraft) && ConfigsWorld.enableEndFlora) {
 				int x = chunkX * 16 + rand.nextInt(8) + 8;
 				int y = 128;
 				int z = chunkZ * 16 + rand.nextInt(8) + 8;
@@ -51,7 +41,7 @@ public class NCWorldGeneratorEnd implements IWorldGenerator {
 					}
 				}
 			}
-			if (!(world.provider instanceof EndWorldProviderNovaCraft)) {
+			if (!(world.provider instanceof EndWorldProviderNovaCraft) && ConfigsWorld.enableEndFlora) {
 				int x = chunkX * 16 + rand.nextInt(8) + 8;
 				int y = 128;
 				int z = chunkZ * 16 + rand.nextInt(8) + 8;
@@ -61,7 +51,7 @@ public class NCWorldGeneratorEnd implements IWorldGenerator {
 					}
 				}
 			}
-			if (!(world.provider instanceof EndWorldProviderNovaCraft) && rand.nextInt(3) == 1) {
+			if (!(world.provider instanceof EndWorldProviderNovaCraft) && rand.nextInt(3) == 1 && ConfigsWorld.enableEndFlora) {
 				int x = chunkX * 16 + rand.nextInt(8) + 8;
 				int y = 128;
 				int z = chunkZ * 16 + rand.nextInt(8) + 8;
@@ -71,7 +61,7 @@ public class NCWorldGeneratorEnd implements IWorldGenerator {
 					}
 				}
 			}
-			if (Configs.enableLacunaTreeGeneration) {
+			if (ConfigsStructures.enableLacunaTreeGeneration) {
 			if (!(world.provider instanceof EndWorldProviderNovaCraft) && rand.nextInt(5) == 1) {
 				int x = chunkX * 16 + rand.nextInt(8) + 8;
 				int y = 256;
@@ -89,22 +79,5 @@ public class NCWorldGeneratorEnd implements IWorldGenerator {
 						
 		}			
 	}
-		
-	protected int nextHeightInt(Random rand, int i) {
-		if (i <= 1)
-			return 1;
-		return rand.nextInt(i);
-	}
-		
-	public static int getNumEmptyBlocks(final World world, final int x, int y, final int z) {
-	       int dist;
-	       for (dist = 0; y > 5 && !world.isBlockNormalCubeDefault(x, y, z, true) && world.isAirBlock(x, y, z); --y, ++dist) {}
-	       return dist;
-	}
-		
-	public static int randomChoice(final int... val) {
-		    final Random random = new Random();
-		    return val[random.nextInt(val.length)];
-   }
 
 }

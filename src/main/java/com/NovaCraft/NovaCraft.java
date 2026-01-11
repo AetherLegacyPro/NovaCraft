@@ -4,8 +4,7 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.TileEntity.NovaCraftTileEntities;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.achievements.NovaCraftEventHandler;
-import com.NovaCraft.config.Configs;
-import com.NovaCraft.config.ConfigsMain;
+import com.NovaCraft.config.*;
 import com.NovaCraft.entity.EntitiesNovaCraft;
 import com.NovaCraft.entity.EntityOutsider;
 import com.NovaCraft.entity.EntityOutsiderEye;
@@ -31,7 +30,6 @@ import com.NovaCraft.world.bastion.treasure.BastionGen;
 import com.NovaCraft.world.end.DestitudeIslandWorldGen;
 import com.NovaCraft.world.end.EndIslandWorldGen;
 import com.NovaCraft.world.end.NCWorldGeneratorEnd;
-import com.NovaCraft.world.floating_island.FloatingIslandGen;
 import com.NovaCraft.world.mansion.MansionGen;
 import com.NovaCraft.world.meteor.MeteorCraterGen;
 import com.NovaCraft.world.nether.NCWorldGeneratorNether;
@@ -39,17 +37,15 @@ import com.NovaCraft.world.nether.structure.NovaNetherBridgeGenerator;
 import com.NovaCraft.world.nether.structure.StructureNovaCraftNetherBridgePieces;
 import com.NovaCraft.world.nether.structure.MapGenNetherBridgeNovaCraft.Start;
 import com.NovaCraft.world.sculkshaft.WorldGenSculkedMineshaftInjector;
-import com.NovaCraft.world.stronghold.WorldGenStrongholdInjector;
+import com.NovaCraft.world.stronghold.*;
 import com.NovaCraft.world.structure.WorldGenRavineInjector;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.potion.NovaCraftLiquids;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.event.*;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -64,12 +60,15 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.event.terraingen.InitMapGenEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = "nova_craft", version = "1.5.0", name = "NovaCraft")
@@ -104,31 +103,35 @@ public class NovaCraft {
         NovaCraftItems.initialization();
         NovaCraftBlocks.initialization();
         NovaCraftBlocks.initializeHarvestLevels();
-        if (Configs.enableVanillaBiomeAlterations) {
+        if (ConfigsWorld.enableVanillaBiomeAlterations) {
             BiomeAlterations.applyTweaks();
         }
         MinecraftForge.TERRAIN_GEN_BUS.register(this);
         MinecraftForge.ORE_GEN_BUS.register(new OreGenEventHandler());
         MinecraftForge.EVENT_BUS.register(new PopulateChunkEventHandler());
 
+        if (Configs.enableStrongholdAlterations) {
+            MinecraftForge.TERRAIN_GEN_BUS.register(new StrongholdGenHandler());
+        }
+
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorPre(), Integer.MAX_VALUE);
         //GameRegistry.registerWorldGenerator((IWorldGenerator)new FloatingIslandGen(), Integer.MAX_VALUE);
 
-        if (Configs.enableDeepoidFortress) {
+        if (ConfigsStructures.enableDeepoidFortress) {
             GameRegistry.registerWorldGenerator(new NovaNetherBridgeGenerator(), 0);
             MapGenStructureIO.registerStructure(Start.class, "NovaFortress");
             StructureNovaCraftNetherBridgePieces.registerStructureNovaCraftNetherBridgePieces();
         }
 
-        if (Configs.enableMansion) {
+        if (ConfigsStructures.enableMansion) {
             GameRegistry.registerWorldGenerator(new MansionGen(), Integer.MAX_VALUE);
         }
 
-        if (Configs.enableAncientCity) {
+        if (ConfigsStructures.enableAncientCity) {
             GameRegistry.registerWorldGenerator(new AncientCityGen(), Integer.MAX_VALUE);
         }
 
-        if (Configs.enableInfestedBastion) {
+        if (ConfigsStructures.enableInfestedBastion) {
             GameRegistry.registerWorldGenerator(new BastionGen(), Integer.MAX_VALUE);
         }
 
@@ -144,10 +147,17 @@ public class NovaCraft {
             MinecraftForge.EVENT_BUS.register(new WitherBossAlterations());
         }
 
-        if (Configs.enableSculkInfestedMineshaft) {
+        if (Configs.enableStrongholdAlterations) {
+            NCStructureStrongholdPieces.initLoot();
+            NCStructureStrongholdPieces.initFurnace();
+            MapGenStructureIO.registerStructure(MapGenNCStronghold.Start.class, "NCStronghold");
+            NCStructureStrongholdPieces.registerStrongholdPieces();
+            MinecraftForge.TERRAIN_GEN_BUS.register(new NCStrongholdGenHandler());
+        }
+
+        if (ConfigsStructures.enableSculkInfestedMineshaft) {
             MinecraftForge.EVENT_BUS.register(new WorldGenSculkedMineshaftInjector());
         }
-        //MinecraftForge.EVENT_BUS.register(new WorldGenStrongholdInjector());
         MinecraftForge.EVENT_BUS.register(new WorldGenRavineInjector());
         GameRegistry.registerWorldGenerator(new MeteorCraterGen(), 0);
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorVillages(), 0);
@@ -191,43 +201,43 @@ public class NovaCraft {
         for(int i = 0; i < BiomeGenBase.getBiomeGenArray().length; ++i) {
             BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
             if (biome != null && overworldBiome(biome)) {
-                if (Configs.enableSpawnHardmodeCreeper) {
+                if (ConfigsEntities.enableSpawnHardmodeCreeper) {
                     EntityRegistry.addSpawn(EntityHardmodeCreeper.class, 12, 3, 12, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                 }
 
-                if (Configs.enableSpawnHardmodeSpider) {
+                if (ConfigsEntities.enableSpawnHardmodeSpider) {
                     EntityRegistry.addSpawn(EntityHardmodeSpider.class, 10, 4, 10, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                 }
 
-                if (Configs.enableSpawnHardmodeZombie) {
+                if (ConfigsEntities.enableSpawnHardmodeZombie) {
                     EntityRegistry.addSpawn(EntityHardmodeZombie.class, 15, 5, 15, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                 }
 
-                if (Configs.enableSpawnHardmodeSkeleton) {
+                if (ConfigsEntities.enableSpawnHardmodeSkeleton) {
                     EntityRegistry.addSpawn(EntityHardmodeSkeleton.class, 15, 5, 15, EnumCreatureType.monster, new BiomeGenBase[]{biome});
                 }
 
-                if (Configs.enableSpawnHardmodeSlime) {
+                if (ConfigsEntities.enableSpawnHardmodeSlime) {
                     EntityRegistry.addSpawn(EntityHardmodeSlime.class, 2, 3, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.SWAMP));
                 }
 
-                EntityRegistry.addSpawn(EntityOutsiderEye.class, 2, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
-                EntityRegistry.addSpawn(EntityOutsider.class, 2, 2, 2, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                EntityRegistry.addSpawn(EntityOutsiderEye.class, 1, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
+                EntityRegistry.addSpawn(EntityOutsider.class, 1, 1, 1, EnumCreatureType.monster, new BiomeGenBase[]{biome});
             }
 
             if (biome != null) {
-                if (Configs.enableSpawnHardmodeMagmaCube) {
+                if (ConfigsEntities.enableSpawnHardmodeMagmaCube) {
                     EntityRegistry.addSpawn(EntityHardmodeMagmaCube.class, 8, 2, 8, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
                 }
 
-                if (Configs.enableSpawnHardmodeGhast) {
+                if (ConfigsEntities.enableSpawnHardmodeGhast) {
                     EntityRegistry.addSpawn(EntityHardmodeGhast.class, 10, 1, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
                 }
 
-                EntityRegistry.addSpawn(EntityOutsiderEye.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
-                EntityRegistry.addSpawn(EntityOutsider.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
-                EntityRegistry.addSpawn(EntityOutsiderEye.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.END));
-                EntityRegistry.addSpawn(EntityOutsider.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.END));
+                EntityRegistry.addSpawn(EntityOutsiderEye.class, 1, 1, 1, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+                EntityRegistry.addSpawn(EntityOutsider.class, 1, 1, 1, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+                EntityRegistry.addSpawn(EntityOutsiderEye.class, 1, 1, 1, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.END));
+                EntityRegistry.addSpawn(EntityOutsider.class, 1, 1, 1, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.END));
             }
         }
 

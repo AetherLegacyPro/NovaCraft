@@ -157,4 +157,8 @@ public class EntityOutsider extends EntityMob
         return 1.5F;
     }
 
+	public int getMaxSpawnedInChunk() {
+		return 1;
+	}
+
 }

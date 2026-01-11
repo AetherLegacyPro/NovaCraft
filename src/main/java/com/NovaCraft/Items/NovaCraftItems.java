@@ -165,7 +165,7 @@ public class NovaCraftItems {
 	//Mob Drops Overworld
 	public static Item glow_ink_sac, cave_monitor_tongue, sea_serpent_venom_sac, sculked_monitor_eye;
 	public static Item cave_monitor_scales, sea_serpent_scales, sculked_monitor_scales, sculked_leather;
-	public static Item wyrmling_scales;
+	public static Item wyrmling_scales, relik_dust;
 	public static Item goat_horn_ponder, goat_horn_sing, goat_horn_seek, goat_horn_feel, goat_horn_admire, goat_horn_call, goat_horn_yearn, goat_horn_dream;
 	public static Item sculk_dweller_heart, wardling_dust, warden_heart, warden_tentacle, warden_shard;
 	public static Item nulk_dust, outsider_essence;
@@ -184,7 +184,7 @@ public class NovaCraftItems {
 	public static Item nullwart, nullwart_blend;
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy, nullified_vanite_alloy;
-	public static Item blazinite_powder, deepfire_blend, static_blend;
+	public static Item blazinite_powder, deepfire_blend, static_blend, end_portal_sealent;
 	
 	public static Item potion_speed_extended, potion_speed_III;
 	public static Item potion_strength_extended, potion_strength_III;
@@ -298,6 +298,7 @@ public class NovaCraftItems {
 		vindicator_insignia = register("vindicator_insignia", new ItemVindicatorInsignia().setTextureName(NovaCraft.find("vindicator_insignia")));
 		beastly_leather = register("beastly_leather", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("beastly_leather")));
 		wyrmling_scales = register("wyrmling_scales", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("wyrmling_scales")));
+		relik_dust = register("relik_dust", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("relik_dust")));
 		heart_of_the_end = register("heart_of_the_end", new ItemHeartOfTheEnd(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("heart_of_the_end")));
 		nullified_dust = register("nullified_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("nullified_dust")));
 		fractured_heart_of_the_end = register("fractured_heart_of_the_end", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("fractured_heart_of_the_end")));
@@ -359,6 +360,7 @@ public class NovaCraftItems {
 		nullwart_blend = register("nullwart_blend", new ItemNovaCraft(NovaCraftCreativeTabs.potions).setTextureName(NovaCraft.find("nullwart_blend")));
 		vanite_bottle = register("vanite_bottle", new ItemVaniteBottle().setTextureName(NovaCraft.find("vanite_bottle")));
 		deepfire_blend = register("deepfire_blend", new ItemDeepfireBlend().setTextureName(NovaCraft.find("deepfire_blend")));
+		end_portal_sealent = register("end_portal_sealent", new ItemEndPortalSealent().setTextureName(NovaCraft.find("end_portal_sealent")));
 		
 		potion_speed_extended = register("potion_speed_extended", new ItemPotionSpeedExtended().setTextureName(NovaCraft.find("potion_speed")));
 		potion_speed_III = register("potion_speed_III", new ItemPotionSpeedIII().setTextureName(NovaCraft.find("potion_speed")));		

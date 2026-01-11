@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
+import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.Loader;
@@ -29,7 +31,7 @@ public class StructureSculkMineshaftPieces {
         MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Cross.class, "SculkMineshaftCorridorCrossing");
         MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Room.class, "SculkMineshaftCorridorRoom");
         MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Stairs.class, "SculkMineshaftCorridorStairs");
-        MapGenStructureIO.registerStructure(StructureSculkMineshaftStart.class, "SculkMineshaft");
+        MapGenStructureIO.registerStructure(StructureSculkMineshaftStart.class, "Mineshaft");
     }
 
     private static StructureComponent getRandomComponent(List p_78815_0_, Random p_78815_1_, int p_78815_2_, int p_78815_3_, int p_78815_4_, int p_78815_5_, int p_78815_6_)
@@ -372,7 +374,7 @@ public class StructureSculkMineshaftPieces {
                         this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.1F, i + 2, j - 2, 2, NovaCraftBlocks.sculk_block, 0);
                         
                         {
-                        if (Configs.enableBrimstoneOre) {
+                        if (ConfigsWorld.enableBrimstoneOre) {
                         	this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.08F, 0, j - 3, k - 3, NovaCraftBlocks.brimstone_ore, 0); //new
                         	this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.08F, 2, j - 3, k - 3, NovaCraftBlocks.brimstone_ore, 0);
                         	this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.08F, 0, j - 3, k + 3, NovaCraftBlocks.brimstone_ore, 0);
@@ -398,7 +400,7 @@ public class StructureSculkMineshaftPieces {
                         
                         {
                             try {
-                                if (Loader.isModLoaded("etfuturum") && Configs.enableRawOreBlocksStructures) {
+                                if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableRawOreBlocks) {
                                     this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.05F, 0, j + 3, k - 3, OtherModBlocks.raw_ore_block, 0);
                                     this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.05F, 2, j + 3, k - 3, OtherModBlocks.raw_ore_block, 1);
                                     this.func_151552_a(p_74875_1_, p_74875_3_, p_74875_2_, 0.05F, 0, j + 3, k + 3, OtherModBlocks.raw_ore_block, 1);

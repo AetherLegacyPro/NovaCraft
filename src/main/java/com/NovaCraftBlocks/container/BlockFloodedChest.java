@@ -7,6 +7,7 @@ import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.EntitySculkSymbiote;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.OtherModItems;
@@ -116,14 +117,14 @@ public class BlockFloodedChest extends Block {
 			world.spawnEntityInWorld(entityItem);
 		}		
 		case 8: if (!world.isRemote) {
-			if (Loader.isModLoaded("etfuturum") && Configs.enablePrismarineInStructures == true) {
+			if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enablePrismarine) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.prismarine_shard, rand + 5));
 			
 			world.spawnEntityInWorld(entityItem);
 			}
 		}
 		case 9: if (!world.isRemote) {
-			if (Loader.isModLoaded("etfuturum") && Configs.enablePrismarineInStructures == true) {
+			if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enablePrismarine) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.prismarine_crystals, rand + 4));
 			
 			world.spawnEntityInWorld(entityItem);

@@ -3,6 +3,9 @@ package com.NovaCraft.world.nether;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
+import com.NovaCraft.config.ConfigsStructures;
+import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraft.world.nether.structure.BlazingSerpentDungeonGen;
 import com.NovaCraft.world.nether.structure.NetherDungeonGen;
 import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
@@ -37,60 +40,57 @@ public class NCWorldGeneratorNether implements IWorldGenerator {
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if(world.provider.dimensionId == -1 && rand.nextInt(5) == 1) {
 			
-			int x4;
-			int z4;
-			x4 = chunkX * 16 + rand.nextInt(8) + 8;
-			z4 = chunkZ * 16 + rand.nextInt(8) + 8;
-			BiomeGenBase biome4;
-			Type[] biomeList4;
-			biome4 = world.getBiomeGenForCoords(x4, z4);
-			biomeList4 = BiomeDictionary.getTypesForBiome(biome4);
-			if((world.getHeightValue(x4, z4) > 0)) {							
-				flaming_pitcher.get(0).generate(world, rand, x4, rand.nextInt(1) + 32, z4);	
+			int x;
+			int z;
+			x = chunkX * 16 + rand.nextInt(8) + 8;
+			z = chunkZ * 16 + rand.nextInt(8) + 8;
+
+			if((world.getHeightValue(x, z) > 0) && ConfigsWorld.enableFlamingPitcherGeneration) {
+				flaming_pitcher.get(0).generate(world, rand, x, rand.nextInt(1) + 32, z);
 				
 				}
 			
-			if((world.getHeightValue(x4, z4) > 0)) {							
-				hell_piliz.get(0).generate(world, rand, x4, rand.nextInt(60) + 24, z4);	
+			if((world.getHeightValue(x, z) > 0) && ConfigsWorld.enableNetherFlora) {
+				hell_piliz.get(0).generate(world, rand, x, rand.nextInt(60) + 24, z);
 				
 				}
 			
-			if((world.getHeightValue(x4, z4) > 0)) {							
-				deepoid_mushroom.get(0).generate(world, rand, x4, rand.nextInt(24) + 8, z4);	
+			if((world.getHeightValue(x, z) > 0) && ConfigsWorld.enableNetherFlora) {
+				deepoid_mushroom.get(0).generate(world, rand, x, rand.nextInt(24) + 8, z);
 				
 				}
 			
-			if((world.getHeightValue(x4, z4) > 0)) {							
-				ion_mushroom.get(0).generate(world, rand, x4, rand.nextInt(32) + 32, z4);	
+			if((world.getHeightValue(x, z) > 0) && ConfigsWorld.enableNetherFlora) {
+				ion_mushroom.get(0).generate(world, rand, x, rand.nextInt(32) + 32, z);
 				
 				}
 		}
 		
 		if(world.provider.dimensionId == -1) {
-		//Yttrlinsite Gen
+			//Yttrlinsite Gen
 			int x1;
 			int z1;
 			x1 = chunkX * 16 + rand.nextInt(8) + 8;
 			z1 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(250) == 1) {
+			if(rand.nextInt(250) == 1 && ConfigsStructures.enableNetherYttrlinisteGeodes) {
 				new YttrlinsiteGeoGen().generate(world, rand, x1, rand.nextInt(5) + 15, z1);
 			 }
 				
-		//Nether Dungeon Gen
+			//Nether Dungeon Gen
 			int x2;
 			int z2;
 			x2 = chunkX * 16 + rand.nextInt(8) + 8;
 			z2 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(300) == 3) {
+			if(rand.nextInt(300) == 3 && ConfigsStructures.enableTraditionalNetherDungeons) {
 				new NetherDungeonGen().generate(world, rand, x2, rand.nextInt(10) + 8, z2);
 			}
 			
-		//Blazing Serpent Dungeon Gen
+			//Blazing Serpent Dungeon Gen
 			int x3;
 			int z3;
 			x3 = chunkX * 16 + rand.nextInt(8) + 8;
 			z3 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(280) == 2) {
+			if(rand.nextInt(280) == 2 && ConfigsStructures.enableBlazingSerpentDungeons) {
 				new BlazingSerpentDungeonGen().generate(world, rand, x3, 31, z3);
 			}
 		}

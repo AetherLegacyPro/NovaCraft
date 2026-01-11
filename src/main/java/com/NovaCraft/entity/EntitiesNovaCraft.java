@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.NovaCraft.config.ConfigsEntities;
 import com.NovaCraft.entity.misc.*;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.item.EntityEnderEye;
@@ -144,6 +145,7 @@ public class EntitiesNovaCraft {
 		register(EntityRavager.class, "nova_ravager", 84, 0x605f5a, 0x5b5049);
 		register(EntityCorruptist.class, "corruptist", 85, 0x96b2b2, 0x424c4e);
 		register(EntityOctoqus.class, "octoqus", 86, 0xbf8ca5, 0x633956);
+		register(EntityRelik.class, "relik", 89, 0xbf8ca5, 0x633956);
 		
 		//Hardmode
 		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);
@@ -161,104 +163,114 @@ public class EntitiesNovaCraft {
 		register(EntityPrisoner.class, "prisoner", 57, 64, 20, true);
 		register(EntityBlazingSerpentQueen.class, "serpent_queen", 75, 0x2d0000, 0xff0033);
 		
-		if (Configs.enableSpawnGlowSquid) {
+		if (ConfigsEntities.enableSpawnGlowSquid) {
 		EntityRegistry.addSpawn(EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] {BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});
 		}
 		
-		if (Configs.enableSpawnOverworldPhantom) {
+		if (ConfigsEntities.enableSpawnOverworldPhantom) {
 		EntityRegistry.addSpawn(EntityPhantom.class, 10, 4, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 		
-		if (Configs.enableSpawnSlaughter) {
+		if (ConfigsEntities.enableSpawnSlaughter) {
 		EntityRegistry.addSpawn(EntitySlaughter.class, 7, 4, 7, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
-		if (Configs.enableSpawnDrifter) {
+		if (ConfigsEntities.enableSpawnDrifter) {
 		EntityRegistry.addSpawn(EntityDrifter.class, 10, 4, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
-		if (Configs.enableSpawnBlazingCharger) {
+		if (ConfigsEntities.enableSpawnBlazingCharger) {
 		EntityRegistry.addSpawn(EntityBlazingCharger.class, 9, 2, 9, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
-		if (Configs.enableSpawnIceologer) {
+		if (ConfigsEntities.enableSpawnIceologer) {
 		EntityRegistry.addSpawn(EntityIceologer.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 		
-		if (Configs.enableSpawnGoat) {
+		if (ConfigsEntities.enableSpawnGoat) {
 		EntityRegistry.addSpawn(EntityGoat.class, 4, 3, 4, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 		
-		if (Configs.enableSpawnBlazingSerpent) {
+		if (ConfigsEntities.enableSpawnBlazingSerpent) {
 			EntityRegistry.addSpawn(EntityBlazingSerpent.class, 6, 3, 6, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
-		if (Configs.enableSpawnNitro) {
+		if (ConfigsEntities.enableSpawnNitro) {
 			EntityRegistry.addSpawn(EntityNitro.class, 6, 3, 6, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
-		if (Configs.enableSpawnPhoenix) {
+		if (ConfigsEntities.enableSpawnPhoenix) {
 			EntityRegistry.addSpawn(EntityPhoenix.class, 10, 4, 10, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
-		if (Configs.enableSpawnDeepoid) {
+		if (ConfigsEntities.enableSpawnDeepoid) {
 			EntityRegistry.addSpawn(EntityDeepoid.class, 15, 2, 15, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
-		if (Configs.enableSpawnDeathStalker) {
+		if (ConfigsEntities.enableSpawnDeathStalker) {
 			EntityRegistry.addSpawn(EntityDeathStalker.class, 10, 4, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.SANDY));
 		}
 		
-		if (Configs.enableSpawnCreepyCube) {
+		if (ConfigsEntities.enableSpawnCreepyCube) {
 			EntityRegistry.addSpawn(EntityCreepyCube.class, 10, 1, 4, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 
-		if (Configs.enableSpawnGiantFrog) {
+		if (ConfigsEntities.enableSpawnGiantFrog) {
 			EntityRegistry.addSpawn(EntityGiantFrog.class, 4, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.PLAINS));
 		}
 
-		if (Configs.enableSpawnWyrmling) {
+		if (ConfigsEntities.enableSpawnWyrmling) {
 			EntityRegistry.addSpawn(EntityWyrmling.class, 2, 1, 3, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 
-		if (Configs.enableSpawnOctoqus) {
+		if (ConfigsEntities.enableSpawnOctoqus) {
 			EntityRegistry.addSpawn(EntityOctoqus.class, 5, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.BEACH));
 			EntityRegistry.addSpawn(EntityOctoqus.class, 5, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.OCEAN));
 		}
+
+		if (ConfigsEntities.enableSpawnRelik) {
+			for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
+			{
+				if (biome != null)
+				{
+					EntityRegistry.addSpawn(EntityRelik.class, 2, 1, 3, EnumCreatureType.monster, biome);
+				}
+			}
+		}
 		
-		if (Configs.enableSpawnCreaking) {
+		if (ConfigsEntities.enableSpawnCreaking) {
 			EntityRegistry.addSpawn(EntityCreaking.class, 5, 1, 2, EnumCreatureType.monster, new BiomeGenBase[] {BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.taiga,
 			BiomeGenBase.taigaHills, BiomeGenBase.taiga, BiomeGenBase.megaTaiga, BiomeGenBase.megaTaigaHills, BiomeGenBase.birchForest, BiomeGenBase.birchForestHills, BiomeGenBase.jungle,
 			BiomeGenBase.jungleHills, BiomeGenBase.jungleEdge, BiomeGenBase.roofedForest});
 
-			if (Configs.enableSpawnCreakinginModdedBiomes) {
+			if (ConfigsEntities.enableSpawnCreakinginModdedBiomes) {
 				EntityRegistry.addSpawn(EntityCreaking.class, 5, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.FOREST));
 				EntityRegistry.addSpawn(EntityCreaking.class, 5, 1, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.JUNGLE));
 			}
 		}
 		
-		if (Configs.enableSpawnFrog) {
+		if (ConfigsEntities.enableSpawnFrog) {
 			EntityRegistry.addSpawn(EntityFrog.class, 8, 3, 6, EnumCreatureType.creature, new BiomeGenBase[] {BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.birchForest, BiomeGenBase.birchForestHills, BiomeGenBase.jungle,
 			BiomeGenBase.jungleHills, BiomeGenBase.jungleEdge, BiomeGenBase.swampland, BiomeGenBase.river});
 			
-			if (Configs.enableSpawnFroginModdedBiomes) {
+			if (ConfigsEntities.enableSpawnFroginModdedBiomes) {
 				EntityRegistry.addSpawn(EntityFrog.class, 8, 3, 6, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.FOREST));
 				EntityRegistry.addSpawn(EntityFrog.class, 8, 3, 6, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.SWAMP));
 				EntityRegistry.addSpawn(EntityFrog.class, 8, 3, 6, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.JUNGLE));
 			 }
 			}
 		
-		if (Configs.enableSpawnFirefly) {
+		if (ConfigsEntities.enableSpawnFirefly) {
 			EntityRegistry.addSpawn(EntityFirefly.class, 2, 4, 2, EnumCreatureType.ambient, BiomeDictionary.getBiomesForType(Type.SWAMP));
 		
-			if (Configs.enableSpawnFireflyOtherBiomes) {
+			if (ConfigsEntities.enableSpawnFireflyOtherBiomes) {
 				EntityRegistry.addSpawn(EntityFirefly.class, 2, 4, 2, EnumCreatureType.ambient, BiomeDictionary.getBiomesForType(Type.PLAINS));
 				EntityRegistry.addSpawn(EntityFirefly.class, 2, 4, 2, EnumCreatureType.ambient, BiomeDictionary.getBiomesForType(Type.FOREST));
 			}
 		}
 			
 		//Sculk Dweller Spawn Rates
-		if (Configs.enableSpawnSculkDweller) {
+		if (ConfigsEntities.enableSpawnSculkDweller) {
 		EntityRegistry.addSpawn(EntitySculkDweller.class, 40, 2, 40, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.WET));
 		EntityRegistry.addSpawn(EntitySculkDweller.class, 40, 2, 40, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.OCEAN));
 		EntityRegistry.addSpawn(EntitySculkDweller.class, 40, 2, 40, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
@@ -274,13 +286,13 @@ public class EntitiesNovaCraft {
 		}
 		
 		//Increases spawnrates of Hostile Nether Mobs
-		if (Configs.enableIncreasedVanillaNetherMobSpawn) {
+		if (ConfigsEntities.enableIncreasedVanillaNetherMobSpawn) {
 		EntityRegistry.addSpawn(EntityGhast.class, 10, 1, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		EntityRegistry.addSpawn(EntityPigZombie.class, 9, 2, 9, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		EntityRegistry.addSpawn(EntityMagmaCube.class, 10, 2, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
-		if (Configs.enableIncreasedVanillaOverworldMobSpawn) {
+		if (ConfigsEntities.enableIncreasedVanillaOverworldMobSpawn) {
 		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
 		BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
 		if (biome != null){
@@ -296,7 +308,7 @@ public class EntitiesNovaCraft {
 			}
 		}				
 		
-		if (Configs.enableSpawnSculkAbomination) {
+		if (ConfigsEntities.enableSpawnSculkAbomination) {
 		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
 			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
 			if (biome != null){
@@ -306,7 +318,7 @@ public class EntitiesNovaCraft {
 					}
 				}
 		}
-		if (Configs.enableSpawnCaveMonitor) {
+		if (ConfigsEntities.enableSpawnCaveMonitor) {
 			for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
 				BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
 				if (biome != null){
@@ -358,31 +370,31 @@ public class EntitiesNovaCraft {
 			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
 			if (biome != null){
 				if (BiomeDictionary.isBiomeOfType(biome, Type.END)) {
-					if (Configs.enableSpawnPhantom) {
+					if (ConfigsEntities.enableSpawnPhantom) {
 						EntityRegistry.addSpawn(EntityPhantom.class, 3, 2, 3, EnumCreatureType.monster, biome);
 					}
-					if (Configs.enableSpawnEnderLord) {
+					if (ConfigsEntities.enableSpawnEnderLord) {
 						EntityRegistry.addSpawn(EntityEnderLord.class, 2, 1, 4, EnumCreatureType.monster, biome);
 					}					
-					if (Configs.enableSpawnEnderAvis) {
+					if (ConfigsEntities.enableSpawnEnderAvis) {
 						EntityRegistry.addSpawn(EntityEnderAvis.class, 2, 1, 2, EnumCreatureType.creature, biome);
 					}						
-					if (Configs.enableSpawnEnderRay) {
+					if (ConfigsEntities.enableSpawnEnderRay) {
 					    EntityRegistry.addSpawn(EntityEnderRay.class, 1, 1, 1, EnumCreatureType.monster, biome);
 					}
-					if (Configs.enableSpawnVoidEntity) {
+					if (ConfigsEntities.enableSpawnVoidEntity) {
 						EntityRegistry.addSpawn(EntityVoidEntity.class, 3, 4, 3, EnumCreatureType.monster, biome);
 					}					
-					if (Configs.enableSpawnVoidCube) {
+					if (ConfigsEntities.enableSpawnVoidCube) {
 						EntityRegistry.addSpawn(EntityVoidCube.class, 6, 3, 6, EnumCreatureType.monster, biome);
 					}					
-					if (Configs.enableSpawnNullifier) {
+					if (ConfigsEntities.enableSpawnNullifier) {
 						EntityRegistry.addSpawn(EntityNullifier.class, 4, 4, 4, EnumCreatureType.monster, biome);
 					}
-					if (Configs.enableSpawnRealityDistorter) {
+					if (ConfigsEntities.enableSpawnRealityDistorter) {
 						EntityRegistry.addSpawn(EntityRealityDistorter.class, 4, 4, 4, EnumCreatureType.monster, biome);
 					}
-					if (Configs.enableSpawnDestituteTentacle) {
+					if (ConfigsEntities.enableSpawnDestituteTentacle) {
 						EntityRegistry.addSpawn(EntityDestituteTentacle.class, 3, 4, 4, EnumCreatureType.monster, biome);
 					}	
 					

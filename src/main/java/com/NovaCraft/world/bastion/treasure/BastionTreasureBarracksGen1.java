@@ -1,5 +1,6 @@
 package com.NovaCraft.world.bastion.treasure;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
@@ -22,7 +23,7 @@ public class BastionTreasureBarracksGen1 extends WorldGenerator
 	
 	private Block determineIfMagmaExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (!(Configs.disableMagmaBlock) && Loader.isModLoaded("etfuturum")) {
+		if (!(ConfigsCompact.disableMagmaBlock) && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block magma = GameRegistry.findBlock("etfuturum", "magma");
 				if (magma != null && (existingBlock == null || existingBlock != magma)) {

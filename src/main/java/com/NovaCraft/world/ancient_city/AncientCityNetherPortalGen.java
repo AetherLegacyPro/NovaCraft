@@ -1,6 +1,8 @@
 package com.NovaCraft.world.ancient_city;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.world.*;
@@ -29,7 +31,7 @@ public class AncientCityNetherPortalGen extends WorldGenerator
 
 	private Block determineIfDeepslateBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -48,7 +50,7 @@ public class AncientCityNetherPortalGen extends WorldGenerator
 
 	private Block determineIfCrackedDeepslateBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -67,7 +69,7 @@ public class AncientCityNetherPortalGen extends WorldGenerator
 
 	private Block determineIfDeepslateBrickWallExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_brick_wall = GameRegistry.findBlock("etfuturum", "deepslate_brick_wall");
 				if (deepslate_brick_wall != null && (existingBlock == null || existingBlock != deepslate_brick_wall)) {
@@ -86,7 +88,7 @@ public class AncientCityNetherPortalGen extends WorldGenerator
 
 	private Block determineIfDeepslateTileStairsExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_tile_stairs = GameRegistry.findBlock("etfuturum", "deepslate_tile_stairs");
 				if (deepslate_tile_stairs != null && (existingBlock == null || existingBlock != deepslate_tile_stairs)) {
@@ -106,7 +108,7 @@ public class AncientCityNetherPortalGen extends WorldGenerator
 	private Block determineIfSoulLanternExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
 
-		if (!(Configs.enableEtFuturumSoulLanternInAncientCity) && Loader.isModLoaded("netherlicious")) {
+		if (!(ConfigsCompact.enableSoulLantern) && Loader.isModLoaded("netherlicious")) {
 			try {
 				Block SoulLantern = GameRegistry.findBlock("netherlicious", "SoulLantern");
 				if (SoulLantern != null && (existingBlock == null || existingBlock != SoulLantern)) {
@@ -136,80 +138,80 @@ public class AncientCityNetherPortalGen extends WorldGenerator
 	}
     
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
-    	PlaceDeepslateBricks = determineIfDeepslateBricksExists(world, i + 2, j + 0, k + 1);
-    	PlaceCrackedDeepslateBricks = determineIfCrackedDeepslateBricksExists(world, i + 5, j + 0, k + 1);
+    	PlaceDeepslateBricks = determineIfDeepslateBricksExists(world, i + 2, j, k + 1);
+    	PlaceCrackedDeepslateBricks = determineIfCrackedDeepslateBricksExists(world, i + 5, j, k + 1);
     	PlaceDeepslateBrickWall = determineIfDeepslateBrickWallExists(world, i + 3, j + 4, k + 6);
-    	PlaceDeepslateTileStairs = determineIfDeepslateTileStairsExists(world, i + 1, j + 0, k + 0);
+    	PlaceDeepslateTileStairs = determineIfDeepslateTileStairsExists(world, i + 1, j, k + 0);
     	PlaceSoulLantern = determineIfSoulLanternExists(world, i + 3, j + 3, k + 6);
     	
-		world.setBlock(i + 1, j + 0, k + 0, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 2, j + 0, k + 0, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 3, j + 0, k + 0, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 4, j + 0, k + 0, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 5, j + 0, k + 0, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 6, j + 0, k + 0, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 7, j + 0, k + 0, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 0, k + 1, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 1, j + 0, k + 1, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 2, j + 0, k + 1, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 3, j + 0, k + 1, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 4, j + 0, k + 1, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 5, j + 0, k + 1, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 6, j + 0, k + 1, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 7, j + 0, k + 1, PlaceDeepslateTileStairs, 2, 2);
-		world.setBlock(i + 8, j + 0, k + 1, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 0, k + 2, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 1, j + 0, k + 2, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 2, j + 0, k + 2, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 3, j + 0, k + 2, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 4, j + 0, k + 2, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 5, j + 0, k + 2, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 6, j + 0, k + 2, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 7, j + 0, k + 2, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 8, j + 0, k + 2, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 0, k + 3, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 1, j + 0, k + 3, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 2, j + 0, k + 3, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 3, j + 0, k + 3, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 4, j + 0, k + 3, Blocks.obsidian, 0, 2);
-		world.setBlock(i + 5, j + 0, k + 3, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 6, j + 0, k + 3, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 7, j + 0, k + 3, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 8, j + 0, k + 3, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 0, k + 4, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 1, j + 0, k + 4, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 2, j + 0, k + 4, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 3, j + 0, k + 4, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 4, j + 0, k + 4, Blocks.obsidian, 0, 2);
-		world.setBlock(i + 5, j + 0, k + 4, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 6, j + 0, k + 4, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 7, j + 0, k + 4, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 8, j + 0, k + 4, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 0, k + 5, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 1, j + 0, k + 5, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 2, j + 0, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 3, j + 0, k + 5, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 4, j + 0, k + 5, Blocks.obsidian, 0, 2);
-		world.setBlock(i + 5, j + 0, k + 5, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 6, j + 0, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 7, j + 0, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 8, j + 0, k + 5, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 0, j + 0, k + 6, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 1, j + 0, k + 6, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 2, j + 0, k + 6, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 3, j + 0, k + 6, PlaceCrackedDeepslateBricks, 1, 2);
-		world.setBlock(i + 4, j + 0, k + 6, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 5, j + 0, k + 6, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 6, j + 0, k + 6, PlaceDeepslateBricks, 0, 2);
-		world.setBlock(i + 7, j + 0, k + 6, PlaceDeepslateTileStairs, 1, 2);
-		world.setBlock(i + 8, j + 0, k + 6, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 1, j + 0, k + 7, PlaceDeepslateTileStairs, 0, 2);
-		world.setBlock(i + 2, j + 0, k + 7, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 3, j + 0, k + 7, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 4, j + 0, k + 7, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 5, j + 0, k + 7, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 6, j + 0, k + 7, PlaceDeepslateTileStairs, 3, 2);
-		world.setBlock(i + 7, j + 0, k + 7, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 1, j, k, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 2, j, k, PlaceDeepslateTileStairs, 2, 2);
+		world.setBlock(i + 3, j, k, PlaceDeepslateTileStairs, 2, 2);
+		world.setBlock(i + 4, j, k, PlaceDeepslateTileStairs, 2, 2);
+		world.setBlock(i + 5, j, k, PlaceDeepslateTileStairs, 2, 2);
+		world.setBlock(i + 6, j, k, PlaceDeepslateTileStairs, 2, 2);
+		world.setBlock(i + 7, j, k, PlaceDeepslateTileStairs, 1, 2);
+		world.setBlock(i, j, k + 1, PlaceDeepslateTileStairs, 2, 2);
+		world.setBlock(i + 1, j, k + 1, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 2, j, k + 1, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 3, j, k + 1, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 4, j, k + 1, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 5, j, k + 1, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 6, j, k + 1, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j, k + 1, PlaceDeepslateTileStairs, 2, 2);
+		world.setBlock(i + 8, j, k + 1, PlaceDeepslateTileStairs, 1, 2);
+		world.setBlock(i, j, k + 2, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 1, j, k + 2, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 2, j, k + 2, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 3, j, k + 2, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 4, j, k + 2, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 5, j, k + 2, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 6, j, k + 2, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j, k + 2, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j, k + 2, PlaceDeepslateTileStairs, 1, 2);
+		world.setBlock(i, j, k + 3, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 1, j, k + 3, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 2, j, k + 3, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 3, j, k + 3, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 4, j, k + 3, Blocks.obsidian, 0, 2);
+		world.setBlock(i + 5, j, k + 3, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 6, j, k + 3, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j, k + 3, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j, k + 3, PlaceDeepslateTileStairs, 1, 2);
+		world.setBlock(i, j, k + 4, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 1, j, k + 4, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 2, j, k + 4, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 3, j, k + 4, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 4, j, k + 4, Blocks.obsidian, 0, 2);
+		world.setBlock(i + 5, j, k + 4, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 6, j, k + 4, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j, k + 4, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 8, j, k + 4, PlaceDeepslateTileStairs, 1, 2);
+		world.setBlock(i, j, k + 5, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 1, j, k + 5, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 2, j, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 3, j, k + 5, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 4, j, k + 5, Blocks.obsidian, 0, 2);
+		world.setBlock(i + 5, j, k + 5, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 6, j, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 7, j, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 8, j, k + 5, PlaceDeepslateTileStairs, 1, 2);
+		world.setBlock(i, j, k + 6, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 1, j, k + 6, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 2, j, k + 6, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 3, j, k + 6, PlaceCrackedDeepslateBricks, 1, 2);
+		world.setBlock(i + 4, j, k + 6, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 5, j, k + 6, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 6, j, k + 6, PlaceDeepslateBricks, 0, 2);
+		world.setBlock(i + 7, j, k + 6, PlaceDeepslateTileStairs, 1, 2);
+		world.setBlock(i + 8, j, k + 6, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 1, j, k + 7, PlaceDeepslateTileStairs, 0, 2);
+		world.setBlock(i + 2, j, k + 7, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 3, j, k + 7, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 4, j, k + 7, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 5, j, k + 7, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 6, j, k + 7, PlaceDeepslateTileStairs, 3, 2);
+		world.setBlock(i + 7, j, k + 7, PlaceDeepslateTileStairs, 3, 2);
 		world.setBlock(i + 4, j + 1, k + 1, Blocks.obsidian, 0, 2);
 		world.setBlock(i + 6, j + 1, k + 1, NovaCraftBlocks.sculk_vein, 1, 2);
 		world.setBlock(i + 4, j + 1, k + 2, Blocks.obsidian, 0, 2);
@@ -226,13 +228,16 @@ public class AncientCityNetherPortalGen extends WorldGenerator
 		world.setBlock(i + 4, j + 4, k + 3, Blocks.obsidian, 0, 2);
 		world.setBlock(i + 3, j + 4, k + 6, PlaceDeepslateBrickWall, 1, 2);
 		world.setBlock(i + 4, j + 4, k + 6, Blocks.obsidian, 0, 2);
-		
 		world.setBlock(i + 3, j + 3, k + 6, PlaceSoulLantern, 1, 2);
-		world.setBlock(i + 3, j + 1, k + 1, Blocks.chest, 4, 2);		
-		TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 3, j + 1, k + 1);
 
-		for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
-			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getNetherPortalLoot(random));
+		this.setBlockAndNotifyAdequately(world, i + 3, j + 1, k + 1, Blocks.chest, 4);
+		TileEntity tile = world.getTileEntity(i + 3, j + 1, k + 1);
+		if (tile instanceof TileEntityChest) {
+			TileEntityChest chest = (TileEntityChest) tile;
+
+			for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+				chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getNetherPortalLoot(random));
+			}
 		}
     	
     	return true;

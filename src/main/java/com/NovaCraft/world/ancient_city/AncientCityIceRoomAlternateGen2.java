@@ -1,5 +1,6 @@
 package com.NovaCraft.world.ancient_city;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
@@ -23,7 +24,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 	private Block PlaceDeepslateBrickStairs;
 	private Block determineIfDeepslateBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -42,7 +43,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 
 	private Block determineIfCrackedDeepslateBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
 				if (deepslate_bricks != null && (existingBlock == null || existingBlock != deepslate_bricks)) {
@@ -61,7 +62,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 
 	private Block determineIfDeepslateBrickStairsExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableDeepslateBricksInAncientCity && Loader.isModLoaded("etfuturum")) {
+		if (ConfigsCompact.enableDeepslateBricks && Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate_brick_stairs = GameRegistry.findBlock("etfuturum", "deepslate_brick_stairs");
 				if (deepslate_brick_stairs != null && (existingBlock == null || existingBlock != deepslate_brick_stairs)) {
@@ -99,7 +100,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 7, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 7, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 7, k + 14, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 7, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i, j + 7, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 7, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 7, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 7, k + 15, Blocks.air, 0, 2);
@@ -118,26 +119,26 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 7, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 7, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 7, k + 15, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 1, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 2, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 3, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 4, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 6, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 7, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 8, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 9, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 10, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 11, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 12, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 13, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 14, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 15, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 16, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 17, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 18, j + 8, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 8, k, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 1, Blocks.air, 0, 2);
@@ -156,7 +157,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 1, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 2, Blocks.air, 0, 2);
@@ -175,7 +176,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 2, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 3, Blocks.air, 0, 2);
@@ -194,7 +195,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 3, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 4, Blocks.air, 0, 2);
@@ -213,7 +214,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 4, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 17, j + 8, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 4, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 5, Blocks.air, 0, 2);
@@ -232,7 +233,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 17, j + 8, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 5, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 6, Blocks.air, 0, 2);
@@ -251,7 +252,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 6, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 7, Blocks.air, 0, 2);
@@ -270,7 +271,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 8, Blocks.air, 0, 2);
@@ -289,7 +290,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 8, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 9, Blocks.air, 0, 2);
@@ -308,7 +309,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 9, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 10, Blocks.air, 0, 2);
@@ -327,7 +328,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 10, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 11, Blocks.air, 0, 2);
@@ -346,7 +347,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 11, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 12, Blocks.air, 0, 2);
@@ -365,7 +366,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 12, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 13, Blocks.air, 0, 2);
@@ -384,7 +385,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 13, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 14, Blocks.air, 0, 2);
@@ -403,7 +404,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 14, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 8, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i, j + 8, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 8, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 8, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 8, k + 15, Blocks.air, 0, 2);
@@ -422,26 +423,26 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 8, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 8, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 8, k + 15, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 1, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 2, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 3, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 4, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 5, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 6, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 7, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 8, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 9, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 10, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 11, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 12, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 13, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 14, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 15, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 16, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 17, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 18, j + 9, k + 0, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 1, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 1, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 2, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 3, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 4, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 5, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 6, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 7, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 8, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 9, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 10, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 11, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 12, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 13, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 14, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 15, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 16, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 17, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i + 18, j + 9, k, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 1, Blocks.air, 0, 2);
@@ -460,7 +461,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 1, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 1, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 2, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 2, Blocks.air, 0, 2);
@@ -479,7 +480,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 2, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 2, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 3, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 3, Blocks.air, 0, 2);
@@ -498,7 +499,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 3, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 3, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 4, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 4, Blocks.air, 0, 2);
@@ -517,7 +518,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 4, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 17, j + 9, k + 4, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 4, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 5, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 5, Blocks.air, 0, 2);
@@ -536,7 +537,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 5, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 17, j + 9, k + 5, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 5, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 6, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 6, Blocks.air, 0, 2);
@@ -555,7 +556,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 6, PlaceCrackedDeepslateBricks, 1, 2);
 		world.setBlock(i + 17, j + 9, k + 6, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 6, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 7, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 7, Blocks.air, 0, 2);
@@ -574,7 +575,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 7, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 8, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 8, Blocks.air, 0, 2);
@@ -593,7 +594,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 8, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 8, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 9, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 9, Blocks.air, 0, 2);
@@ -612,7 +613,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 9, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 10, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 10, Blocks.air, 0, 2);
@@ -631,7 +632,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 10, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 11, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 11, Blocks.air, 0, 2);
@@ -650,7 +651,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 11, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 11, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 12, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 12, Blocks.air, 0, 2);
@@ -669,7 +670,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 12, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 12, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 13, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 13, Blocks.air, 0, 2);
@@ -688,7 +689,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 13, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 13, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 14, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 14, Blocks.air, 0, 2);
@@ -707,7 +708,7 @@ public class AncientCityIceRoomAlternateGen2 extends WorldGenerator
 		world.setBlock(i + 16, j + 9, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 17, j + 9, k + 14, Blocks.air, 0, 2);
 		world.setBlock(i + 18, j + 9, k + 14, Blocks.air, 0, 2);
-		world.setBlock(i + 0, j + 9, k + 15, Blocks.air, 0, 2);
+		world.setBlock(i, j + 9, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 1, j + 9, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 2, j + 9, k + 15, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 9, k + 15, Blocks.air, 0, 2);

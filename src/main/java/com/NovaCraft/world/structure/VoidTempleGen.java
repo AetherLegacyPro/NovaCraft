@@ -2,6 +2,7 @@ package com.NovaCraft.world.structure;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.EntityCrystalGolem;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -30,7 +31,7 @@ public class VoidTempleGen extends WorldGenerator
     private Block determineIfBasaltExists(World world, int x, int y, int z) {
         Block existingBlock = world.getBlock(x, y, z);
 
-        if (!(Configs.disableNetherliciousBasaltInAncientCity) && Loader.isModLoaded("netherlicious")) {
+        if (!(ConfigsCompact.disableBasalt) && Loader.isModLoaded("netherlicious")) {
             try {
                 Block nether_Basalt = GameRegistry.findBlock("netherlicious", "Basalt");
                 if (nether_Basalt != null && (existingBlock == null || existingBlock != nether_Basalt)) {

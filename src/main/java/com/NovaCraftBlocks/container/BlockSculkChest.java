@@ -5,6 +5,7 @@ import java.util.Random;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.EntitySculkDweller;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.OtherModBlocks;
@@ -315,7 +316,7 @@ public class BlockSculkChest extends Block {
 		}
 		
 		case 37: if (!world.isRemote) {
-			if (Loader.isModLoaded("aether_legacy") && Configs.enableAetherLegacyOptions) {
+			if (Loader.isModLoaded("aether_legacy") && ConfigsCompact.enableAetherLegacyCompact) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.arkenium_chunk, 2 + rand));
 			
 			world.spawnEntityInWorld(entityItem);
@@ -323,7 +324,7 @@ public class BlockSculkChest extends Block {
 		}
 		
 		case 38: if (!world.isRemote) {
-			if (Loader.isModLoaded("aether_legacy") && Configs.enableAetherLegacyOptions) {
+			if (Loader.isModLoaded("aether_legacy") && ConfigsCompact.enableAetherLegacyCompact) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.enchanted_divineral, 2));
 			
 			world.spawnEntityInWorld(entityItem);
@@ -331,7 +332,7 @@ public class BlockSculkChest extends Block {
 		}
 		
 		case 39: if (!world.isRemote) {
-			if (Loader.isModLoaded("aether_legacy") && Configs.enableAetherLegacyOptions) {
+			if (Loader.isModLoaded("aether_legacy") && ConfigsCompact.enableAetherLegacyCompact) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.continuum_orb, 1));
 			
 			world.spawnEntityInWorld(entityItem);
@@ -339,7 +340,7 @@ public class BlockSculkChest extends Block {
 		}
 		
 		case 40: if (!world.isRemote) {
-			if (Loader.isModLoaded("aether_legacy") && Configs.enableAetherLegacyOptions) {
+			if (Loader.isModLoaded("aether_legacy") && ConfigsCompact.enableAetherLegacyCompact) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.continuum_gemstone, 1 + rand));
 			
 			world.spawnEntityInWorld(entityItem);
@@ -347,7 +348,7 @@ public class BlockSculkChest extends Block {
 		}
 		
 		case 41: if (!world.isRemote) {
-			if (Loader.isModLoaded("aether_legacy") && Configs.enableAetherLegacyOptions) {
+			if (Loader.isModLoaded("aether_legacy") && ConfigsCompact.enableAetherLegacyCompact) {
 			EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.divineral_ingot, 1));
 			
 			world.spawnEntityInWorld(entityItem);

@@ -322,6 +322,6 @@ public class EntityOutsiderEye extends EntityFlying implements IMob
     }
     
     public int getMaxSpawnedInChunk() {
-        return 3;
+        return 1;
     }
 }

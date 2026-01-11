@@ -1,5 +1,6 @@
 package com.NovaCraft.world.bastion.treasure;
 
+import com.NovaCraft.config.ConfigsCompact;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
@@ -1491,7 +1492,7 @@ public class BastionSerpentQueenLairGen extends WorldGenerator
 			case 27:
 				return new ItemStack(NovaCraftBlocks.block_of_vanite, 1);
 			case 28:
-				if (Loader.isModLoaded("etfuturum") && Configs.enableNetheriteInRecipes) {
+				if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableNetheriteInRecipes) {
 					return new ItemStack(OtherModItems.netherite_scrap, random.nextInt(2) + 1);
 				}
 				else {

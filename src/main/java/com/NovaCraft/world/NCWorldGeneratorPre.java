@@ -2,6 +2,8 @@ package com.NovaCraft.world;
 
 import java.util.Random;
 
+import com.NovaCraft.config.ConfigsCompact;
+import com.NovaCraft.config.ConfigsWorld;
 import org.apache.commons.lang3.ArrayUtils;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
@@ -37,20 +39,20 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		
 		//The 3 main stone types
-		if (world.provider.dimensionId == 0 && Configs.enableGrimstone) {
+		if (world.provider.dimensionId == 0 && ConfigsWorld.enableGrimstone) {
 			this.generateOre(grimstoneGen, world, rand, chunkX, chunkZ, 6, 10, 24);
-		} else if (ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist) {
+		} else if (ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist) {
 			this.generateOreDeeperCaves(grimstoneGen, world, rand, chunkX, chunkZ, 6, 2, 256);	
 		}
 		
-		if (world.provider.dimensionId == 0 && Configs.enableNullstone) {
+		if (world.provider.dimensionId == 0 && ConfigsWorld.enableNullstone) {
 			this.generateOre(nullstoneGen, world, rand, chunkX, chunkZ, 5, 5, 18);
-		} else if (ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist) {
+		} else if (ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist) {
 			this.generateOreDeeperCaves(nullstoneGen, world, rand, chunkX, chunkZ, 6, 2, 256);	
 		}
 		
-		if (world.provider.dimensionId == 0 && Configs.enableEtherstone && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-			if (Configs.enableVanillaMountainBiomeAlterations && Configs.enableVanillaBiomeAlterations) {
+		if (world.provider.dimensionId == 0 && ConfigsWorld.enableEtherstone && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+			if (ConfigsWorld.enableVanillaMountainBiomeAlterations && ConfigsWorld.enableVanillaBiomeAlterations) {
 				this.generateOre(etherstoneGen, world, rand, chunkX, chunkZ, 6, 146, 256);
 			} else {
 				this.generateOre(etherstoneGen, world, rand, chunkX, chunkZ, 6, 85, 256);
@@ -58,33 +60,33 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 		}
 		
 		//Adds Deepslate to the DeepCave Mod Realms
-		if (Loader.isModLoaded("etfuturum") && ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist) {
+		if (Loader.isModLoaded("etfuturum") && ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist) {
 			this.generateOreDeeperCaves(additionalDeepslateGen, world, rand, chunkX, chunkZ, 6, 2, 256);	
 		}
 		
 		//Allows Calcite to generate in mountain-esc biomes like in 1.18
-		if (Loader.isModLoaded("etfuturum") && (Configs.enableCalciteGeneration) && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
+		if (Loader.isModLoaded("etfuturum") && (ConfigsCompact.enableCalciteGeneration) && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
 			this.generateOre(additionalCalciteGen, world, rand, chunkX, chunkZ, 6, 70, 100);
 		}
 		
 		//Changes up the generation of Tuff to be higher up as to have less stone types deeper underground, disable Et Futurum's generation
-		if (Loader.isModLoaded("etfuturum") && (Configs.enableNovaCraftTuffGeneration) && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
+		if (Loader.isModLoaded("etfuturum") && (ConfigsCompact.enableNovaCraftTuffGeneration) && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
 			this.generateOre(alternateTuffGen, world, rand, chunkX, chunkZ, 6, 25, 45);
 		}
 		
-		if (world.provider.dimensionId == 1 && Configs.enableEndstoneBlobs) {
-			this.generateEndStone(endstoneGen, world, rand, chunkX, chunkZ, 6, 1, 96);
+		if (world.provider.dimensionId == 1 && ConfigsWorld.enableEndstoneBlobs && rand.nextInt(3) == 0) {
+			this.generateEndStone(endstoneGen, world, rand, chunkX, chunkZ, 1, 24, 96);
 		}
 		
-		if (world.provider.dimensionId == 1 && Configs.enableFrontierslate) {
-			this.generateFrontierslate(frontierslateGen, world, rand, chunkX, chunkZ, 3, 1, 12);
+		if (world.provider.dimensionId == 1 && ConfigsWorld.enableFrontierslate && rand.nextInt(4) == 0) {
+			this.generateFrontierslate(frontierslateGen, world, rand, chunkX, chunkZ, 1, 1, 24);
 		}
 		
-		if (world.provider.dimensionId == 1 && Configs.enableVacuumSand) {
+		if (world.provider.dimensionId == 1 && ConfigsWorld.enableVacuumSand) {
 			this.generateVacuumSand(vaccumSandGen, world, rand, chunkX, chunkZ, 3, 48, 128);
 		}
 		
-		if (world.provider.dimensionId == -1 && Configs.enableBasal) {
+		if (world.provider.dimensionId == -1 && ConfigsWorld.enableBasal) {
 			this.generateOre(basalGen, world, rand, chunkX, chunkZ, 3, 6, 30);
 		}
 	}
@@ -123,8 +125,8 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 		if (minY < 0 || maxY < minY || chance <= 0)
 			return;
 
-		for (int i = 0; i < (int)(chance * 0.3); i++) {
-			if (chance >= 1 || random.nextFloat() < chance * 0.3) {
+		for (int i = 0; i < (chance < 1 ? 1 : (int) chance); i++) {
+			if (chance >= 1 || random.nextFloat() < chance) {
 				int xRand = (chunkX << 4) + random.nextInt(16);
 				int yRand = MathHelper.getRandomIntegerInRange(random, minY, maxY);
 				int zRand = (chunkZ << 4) + random.nextInt(16);
@@ -138,8 +140,8 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 		if (minY < 0 || maxY < minY || chance <= 0)
 			return;
 
-		for (int i = 0; i < (int)(chance * 0.25); i++) {
-			if (chance >= 1 || random.nextFloat() < chance * 0.25) {
+		for (int i = 0; i < (chance < 1 ? 1 : (int) chance); i++) {
+			if (chance >= 1 || random.nextFloat() < chance) {
 				int xRand = (chunkX << 4) + random.nextInt(16);
 				int yRand = MathHelper.getRandomIntegerInRange(random, minY, maxY);
 				int zRand = (chunkZ << 4) + random.nextInt(16);

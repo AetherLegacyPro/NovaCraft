@@ -14,6 +14,7 @@ import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.MathHelper;
@@ -32,14 +33,14 @@ public class AncientCitySculkPortalGen extends WorldGenerator
     
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
     	
-		world.setBlock(i + 0, j + 0, k + 8, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 0, k + 10, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 0, k + 28, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 0, k + 29, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 0, k + 31, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 0, k + 35, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 0, k + 36, sculk_block, 0, 2);
-		world.setBlock(i + 3, j + 0, k + 40, sculk_block, 0, 2);
+		world.setBlock(i, j, k + 8, sculk_block, 0, 2);
+		world.setBlock(i, j, k + 10, sculk_block, 0, 2);
+		world.setBlock(i, j, k + 28, sculk_block, 0, 2);
+		world.setBlock(i, j, k + 29, sculk_block, 0, 2);
+		world.setBlock(i, j, k + 31, sculk_block, 0, 2);
+		world.setBlock(i, j, k + 35, sculk_block, 0, 2);
+		world.setBlock(i, j, k + 36, sculk_block, 0, 2);
+		world.setBlock(i + 3, j, k + 40, sculk_block, 0, 2);
 		world.setBlock(i + 2, j + 1, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 6, j + 1, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 1, k + 1, sculk_block, 0, 2);
@@ -50,42 +51,42 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 12, j + 1, k + 4, sculk_block, 0, 2);
 		world.setBlock(i + 13, j + 1, k + 5, sculk_block, 0, 2);
 		world.setBlock(i + 13, j + 1, k + 6, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 7, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 8, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 7, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 8, sculk_block, 0, 2);
 		world.setBlock(i + 11, j + 1, k + 8, sculk_block, 0, 2);
 		world.setBlock(i + 12, j + 1, k + 8, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 9, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 9, sculk_block, 0, 2);
 		world.setBlock(i + 12, j + 1, k + 9, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 10, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 11, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 16, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 17, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 18, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 19, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 23, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 28, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 29, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 31, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 10, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 11, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 16, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 17, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 18, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 19, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 23, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 28, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 29, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 31, sculk_block, 0, 2);
 		world.setBlock(i + 12, j + 1, k + 31, sculk_block, 0, 2);
 		world.setBlock(i + 11, j + 1, k + 32, sculk_block, 0, 2);
 		world.setBlock(i + 12, j + 1, k + 32, sculk_block, 0, 2);
 		world.setBlock(i + 9, j + 1, k + 33, sculk_block, 0, 2);
 		world.setBlock(i + 11, j + 1, k + 33, sculk_block, 0, 2);
 		world.setBlock(i + 12, j + 1, k + 33, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 35, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 35, sculk_block, 0, 2);
 		world.setBlock(i + 10, j + 1, k + 35, sculk_block, 0, 2);
 		world.setBlock(i + 13, j + 1, k + 35, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 36, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 36, sculk_block, 0, 2);
 		world.setBlock(i + 10, j + 1, k + 36, sculk_block, 0, 2);
 		world.setBlock(i + 11, j + 1, k + 36, sculk_block, 0, 2);
 		world.setBlock(i + 10, j + 1, k + 37, sculk_block, 0, 2);
 		world.setBlock(i + 11, j + 1, k + 37, sculk_block, 0, 2);
 		world.setBlock(i + 6, j + 1, k + 39, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 1, k + 39, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 1, k + 40, sculk_block, 0, 2);
+		world.setBlock(i, j + 1, k + 40, sculk_block, 0, 2);
 		world.setBlock(i + 2, j + 1, k + 40, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 0, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 1, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 1, sculk_tendrils, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 2, sculk_block, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 2, sculk_block, 0, 2);
@@ -95,77 +96,77 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 9, j + 2, k + 3, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
 		world.setBlock(i + 11, j + 2, k + 3, nullstone_bricks, 0, 2);
 		world.setBlock(i + 13, j + 2, k + 3, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 4, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 4, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 4, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 5, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 5, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 5, sculk_block, 0, 2);
 		world.setBlock(i + 10, j + 2, k + 5, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
 		world.setBlock(i + 12, j + 2, k + 5, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 6, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 8, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 9, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 6, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 8, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 9, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 9, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 10, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 10, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 10, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 11, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 12, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 12, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 12, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 14, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 15, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 15, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 15, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 16, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 16, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 16, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 16, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 16, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 17, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 17, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 17, sculk_block, 0, 2);
 		world.setBlock(i + 10, j + 2, k + 17, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 18, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 18, sculk_block, 0, 2);
 		world.setBlock(i + 10, j + 2, k + 18, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 19, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 19, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 19, sculk_block, 0, 2);
 		world.setBlock(i + 9, j + 2, k + 19, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 20, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 21, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 21, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 21, sculk_block, 0, 2);
 		world.setBlock(i + 9, j + 2, k + 21, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 22, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 22, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 22, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 22, sculk_block, 0, 2);
 		world.setBlock(i + 9, j + 2, k + 22, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 23, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 23, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 23, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 23, sculk_block, 0, 2);
 		world.setBlock(i + 9, j + 2, k + 23, sculk_block, 0, 2);
 		world.setBlock(i + 10, j + 2, k + 23, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 24, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 24, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 24, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 25, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 26, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 26, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 26, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 27, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 27, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 27, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 27, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 27, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 28, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 28, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 28, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 28, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 29, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 29, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 2, k + 29, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 30, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 30, sculk_block, 0, 2);
 		world.setBlock(i + 12, j + 2, k + 31, sculk_tendrils, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 32, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 32, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 32, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 33, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 2, k + 34, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 33, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 34, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 34, sculk_block, 0, 2);
 		world.setBlock(i + 10, j + 2, k + 35, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
 		world.setBlock(i + 12, j + 2, k + 35, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
 		world.setBlock(i + 1, j + 2, k + 36, sculk_block, 0, 2);
 		world.setBlock(i + 8, j + 2, k + 36, sculk_block, 0, 2);
 		world.setBlock(i + 11, j + 2, k + 36, Blocks.ladder, 2, 2);
-		world.setBlock(i + 0, j + 2, k + 37, sculk_block, 0, 2);
+		world.setBlock(i, j + 2, k + 37, sculk_block, 0, 2);
 		world.setBlock(i + 2, j + 2, k + 37, sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 2, k + 37, sculk_block, 0, 2);
 		world.setBlock(i + 5, j + 2, k + 37, sculk_block, 0, 2);
@@ -173,7 +174,7 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 9, j + 2, k + 37, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
 		world.setBlock(i + 11, j + 2, k + 37, nullstone_bricks, 0, 2);
 		world.setBlock(i + 13, j + 2, k + 37, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
-		world.setBlock(i + 0, j + 3, k + 0, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
+		world.setBlock(i, j + 3, k, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
 		world.setBlock(i + 2, j + 3, k + 3, sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 3, k + 3, sculk_block, 0, 2);
 		world.setBlock(i + 4, j + 3, k + 3, sculk_block, 0, 2);
@@ -185,19 +186,19 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 7, j + 3, k + 5, sculk_block, 0, 2);
 		world.setBlock(i + 10, j + 3, k + 5, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
 		world.setBlock(i + 12, j + 3, k + 5, NovaCraftBlocks.nullstone_brick_wall, 0, 2);
-		world.setBlock(i + 0, j + 3, k + 6, sculk_tendrils, 0, 2);
+		world.setBlock(i, j + 3, k + 6, sculk_tendrils, 0, 2);
 		world.setBlock(i + 1, j + 3, k + 6, sculk_block, 0, 2);
 		world.setBlock(i + 2, j + 3, k + 6, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 3, k + 6, sculk_block, 0, 2);
 		world.setBlock(i + 6, j + 3, k + 8, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 3, k + 8, sculk_block, 0, 2);
-		world.setBlock(i + 0, j + 3, k + 9, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
+		world.setBlock(i, j + 3, k + 9, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
 		world.setBlock(i + 1, j + 3, k + 9, sculk_block, 0, 2);
 		world.setBlock(i + 7, j + 3, k + 9, sculk_block, 0, 2);
 		world.setBlock(i + 1, j + 3, k + 15, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
 		world.setBlock(i + 10, j + 3, k + 17, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
-		world.setBlock(i + 0, j + 3, k + 19, sculk_tendrils, 0, 2);
-		world.setBlock(i + 0, j + 3, k + 22, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
+		world.setBlock(i, j + 3, k + 19, sculk_tendrils, 0, 2);
+		world.setBlock(i, j + 3, k + 22, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
 		world.setBlock(i + 9, j + 3, k + 22, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
 		world.setBlock(i + 1, j + 3, k + 23, sculk_tendrils, 0, 2);
 		world.setBlock(i + 10, j + 3, k + 25, sculk_block, 0, 2);
@@ -635,7 +636,7 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 10, j + 13, k + 38, nullstone_tiles, 0, 2);
 		world.setBlock(i + 11, j + 13, k + 38, nullstone_tiles, 0, 2);
 		world.setBlock(i + 12, j + 13, k + 38, nullstone_tiles, 0, 2);
-		world.setBlock(i + 5, j + 14, k + 0, sculk_block, 0, 2);
+		world.setBlock(i + 5, j + 14, k, sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 5, j + 14, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 5, j + 14, k + 2, sculk_block, 0, 2);
@@ -677,7 +678,7 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 5, j + 14, k + 38, sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 14, k + 39, sculk_block, 0, 2);
 		world.setBlock(i + 4, j + 14, k + 39, sculk_block, 0, 2);
-		world.setBlock(i + 3, j + 15, k + 0, sculk_block, 0, 2);
+		world.setBlock(i + 3, j + 15, k, sculk_block, 0, 2);
 		world.setBlock(i + 5, j + 15, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 3, NovaCraftBlocks.sculk_tentacle_2, 1, 2);
 		world.setBlock(i + 3, j + 15, k + 4, sculk_block, 0, 2);
@@ -699,7 +700,7 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 3, j + 15, k + 38, sculk_block, 0, 2);
 		world.setBlock(i + 5, j + 15, k + 38, sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 15, k + 39, sculk_block, 0, 2);
-		world.setBlock(i + 3, j + 16, k + 0, sculk_block, 0, 2);
+		world.setBlock(i + 3, j + 16, k, sculk_block, 0, 2);
 		world.setBlock(i + 4, j + 16, k + 4, sculk_block, 0, 2);
 		world.setBlock(i + 2, j + 16, k + 5, sculk_block, 0, 2);
 		world.setBlock(i + 6, j + 16, k + 5, sculk_block, 0, 2);
@@ -722,8 +723,8 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 3, j + 16, k + 39, sculk_block, 0, 2);
 		world.setBlock(i + 4, j + 16, k + 39, sculk_block, 0, 2);
 		world.setBlock(i + 5, j + 16, k + 39, sculk_block, 0, 2);
-		world.setBlock(i + 3, j + 17, k + 0, sculk_block, 0, 2);
-		world.setBlock(i + 4, j + 17, k + 0, sculk_block, 0, 2);
+		world.setBlock(i + 3, j + 17, k, sculk_block, 0, 2);
+		world.setBlock(i + 4, j + 17, k, sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 17, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 4, j + 17, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 17, k + 2, sculk_block, 0, 2);
@@ -759,8 +760,8 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 3, j + 17, k + 39, sculk_block, 0, 2);
 		world.setBlock(i + 4, j + 17, k + 39, sculk_block, 0, 2);
 		world.setBlock(i + 5, j + 17, k + 39, sculk_block, 0, 2);
-		world.setBlock(i + 3, j + 18, k + 0, sculk_block, 0, 2);
-		world.setBlock(i + 4, j + 18, k + 0, sculk_block, 0, 2);
+		world.setBlock(i + 3, j + 18, k, sculk_block, 0, 2);
+		world.setBlock(i + 4, j + 18, k, sculk_block, 0, 2);
 		world.setBlock(i + 3, j + 18, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 4, j + 18, k + 1, sculk_block, 0, 2);
 		world.setBlock(i + 5, j + 18, k + 1, sculk_block, 0, 2);
@@ -1136,19 +1137,25 @@ public class AncientCitySculkPortalGen extends WorldGenerator
 		world.setBlock(i + 3, j + 25, k + 8, sculk_tendrils, 0, 2);	
 		world.setBlock(i + 11, j + 10, k + 36, Blocks.trapdoor, 9, 2);
 		world.setBlock(i + 11, j + 10, k + 4, Blocks.trapdoor, 8, 2);
-		
-		world.setBlock(i + 10, j + 11, k + 37, Blocks.chest, 2, 2);
-		TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 10, j + 11, k + 37);
 
-		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
-			chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
+		this.setBlockAndNotifyAdequately(world, i + 10, j + 11, k + 37, Blocks.chest, 2);
+		TileEntity tile = world.getTileEntity(i + 10, j + 11, k + 37);
+		if (tile instanceof TileEntityChest) {
+			TileEntityChest chest = (TileEntityChest) tile;
+
+			for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+				chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
+			}
 		}
-		
-		world.setBlock(i + 10, j + 11, k + 3, Blocks.chest, 3, 2);
-		TileEntityChest chest2 = (TileEntityChest) world.getTileEntity(i + 10, j + 11, k + 3);
-		
-		for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
-			chest2.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
+
+		this.setBlockAndNotifyAdequately(world, i + 10, j + 11, k + 3, Blocks.chest, 3);
+		TileEntity tile2 = world.getTileEntity(i + 10, j + 11, k + 3);
+		if (tile2 instanceof TileEntityChest) {
+			TileEntityChest chest2 = (TileEntityChest) tile2;
+
+			for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+				chest2.setInventorySlotContents(random.nextInt(chest2.getSizeInventory()), this.getBasicLoot(random));
+			}
 		}
 		
 		world.setBlock(i + 3, j + 22, k + 30, Blocks.mob_spawner, 0, 2);

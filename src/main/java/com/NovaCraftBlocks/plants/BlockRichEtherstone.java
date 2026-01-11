@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -67,7 +68,7 @@ public class BlockRichEtherstone extends Block {
 		} else if (choice == 0) {
 			drops.add(new ItemStack(NovaCraftItems.larimar_shard));
 		} else if (choice < 15 && choice >= 10 && Loader.isModLoaded("etfuturum")) {
-			if (Configs.enableEtFuturumIronNugget) {
+			if (ConfigsCompact.enableIronNugget) {
 				drops.add(new ItemStack(OtherModItems.nugget_iron, 1, 0));
 			}  else {
 				drops.add(new ItemStack(Item.getItemFromBlock(NovaCraftBlocks.cobbled_etherstone)));

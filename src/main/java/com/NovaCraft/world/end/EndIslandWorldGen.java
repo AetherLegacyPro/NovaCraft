@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.NovaCraft.config.Configs;
 
+import com.NovaCraft.config.ConfigsStructures;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -24,13 +25,13 @@ public class EndIslandWorldGen implements IWorldGenerator {
 	      }
 	   }
 	
-	int novacraft_random = Configs.endIslandSpawnRate; 
+	int novacraft_random = ConfigsStructures.endIslandSpawnRate;
 		
 	public void generateEnd(World world, Random rand, int x, int z) {
 		if(Math.abs(x) < 1000 && Math.abs(z) < 1000) return;
 		
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x + 16, z + 16);
-	      if ((biome == BiomeGenBase.sky || (BiomeDictionary.isBiomeOfType(biome, Type.END))) && Configs.endIslandSpawnRate != 0 && rand.nextInt(novacraft_random) == 0) {
+	      if ((biome == BiomeGenBase.sky || (BiomeDictionary.isBiomeOfType(biome, Type.END))) && ConfigsStructures.endIslandSpawnRate != 0 && rand.nextInt(novacraft_random) == 0) {
 	         byte byte0 = 20;
 	         byte byte1 = 20;
 	         byte byte2 = 35;

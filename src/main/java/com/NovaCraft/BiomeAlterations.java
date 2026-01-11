@@ -1,5 +1,6 @@
 package com.NovaCraft;
 
+import com.NovaCraft.config.ConfigsWorld;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.HashMap;
@@ -13,7 +14,7 @@ public class BiomeAlterations {
 
     static {
         													
-    	if (Configs.enableVanillaHillBiomeAlterations) {			//height variation
+    	if (ConfigsWorld.enableVanillaHillBiomeAlterations) {			//height variation
     		BIOME_HEIGHTS.put(BiomeGenBase.birchForestHills, new float[]{0.9F, 0.4F});
     		BIOME_HEIGHTS.put(BiomeGenBase.forestHills, new float[]{0.9F, 0.4F});
     		BIOME_HEIGHTS.put(BiomeGenBase.coldTaigaHills, new float[]{0.9F, 0.4F});
@@ -24,20 +25,20 @@ public class BiomeAlterations {
         	BIOME_HEIGHTS.put(BiomeGenBase.iceMountains, new float[]{2.0F, 0.8F});
         	BIOME_HEIGHTS.put(BiomeGenBase.savannaPlateau, new float[]{2.0F, 0.05F});
     	}
-    	if (Configs.enableVanillaMountainBiomeAlterations) {
+    	if (ConfigsWorld.enableVanillaMountainBiomeAlterations) {
     		BIOME_HEIGHTS.put(BiomeGenBase.extremeHillsEdge, new float[]{1.2F, 0.8F});
     		BIOME_HEIGHTS.put(BiomeGenBase.extremeHills, new float[]{2.0F, 0.8F});
     		BIOME_HEIGHTS.put(BiomeGenBase.extremeHillsPlus, new float[]{4.0F, 0.8F});
     		BIOME_HEIGHTS.put(BiomeGenBase.stoneBeach, new float[]{0.15F, 0.8F});
     	}
-    	if (Configs.enableDesertBiomeAlterations) {
+    	if (ConfigsWorld.enableDesertBiomeAlterations) {
     		BIOME_HEIGHTS.put(BiomeGenBase.desert, new float[]{0.175F, 0.01F});
     	}
-        if (Configs.enablePlainsBiomeAlterations) {
+        if (ConfigsWorld.enablePlainsBiomeAlterations) {
         	BIOME_HEIGHTS.put(BiomeGenBase.plains, new float[]{0.175F, 0.01F});        
         	BIOME_HEIGHTS.put(BiomeGenBase.icePlains, new float[]{0.175F, 0.01F});
         }
-        if (Configs.enableMiscBiomeAlterations) {
+        if (ConfigsWorld.enableMiscBiomeAlterations) {
         	BIOME_HEIGHTS.put(BiomeGenBase.jungleEdge, new float[]{0.25F, 0.1F});
         	BIOME_HEIGHTS.put(BiomeGenBase.savanna, new float[]{0.225F, 0.1F});
         	BIOME_HEIGHTS.put(BiomeGenBase.forest, new float[]{0.15F, 0.3F});
@@ -50,14 +51,14 @@ public class BiomeAlterations {
         	BIOME_HEIGHTS.put(BiomeGenBase.mesaPlateau, new float[]{1.6F, 0.03F});
         	BIOME_HEIGHTS.put(BiomeGenBase.mesaPlateau_F, new float[]{1.6F, 0.03F});
         }
-        if (Configs.enableWaterBiomeAlterations) {
+        if (ConfigsWorld.enableWaterBiomeAlterations) {
         	BIOME_HEIGHTS.put(BiomeGenBase.swampland, new float[]{-0.25F, 0.2F});
         	BIOME_HEIGHTS.put(BiomeGenBase.river, new float[]{-0.6F, 0.0F});
         	BIOME_HEIGHTS.put(BiomeGenBase.frozenRiver, new float[]{-0.6F, 0.0F});
         	BIOME_HEIGHTS.put(BiomeGenBase.ocean, new float[]{-1.1F, 0.15F});
         	BIOME_HEIGHTS.put(BiomeGenBase.frozenOcean, new float[]{-1.1F, 0.15F});
         }        
-        if (Configs.enableBeachBiomeAlterations) {
+        if (ConfigsWorld.enableBeachBiomeAlterations) {
         	BIOME_HEIGHTS.put(BiomeGenBase.beach, new float[]{0.1F, 0.025F});
         	BIOME_HEIGHTS.put(BiomeGenBase.coldBeach, new float[]{0.1F, 0.025F});
         	BIOME_HEIGHTS.put(BiomeGenBase.mushroomIslandShore, new float[]{0.1F, 0.025F});

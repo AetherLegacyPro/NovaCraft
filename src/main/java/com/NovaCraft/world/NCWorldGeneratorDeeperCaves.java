@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import com.NovaCraft.config.ConfigsCompact;
+import com.NovaCraft.config.ConfigsStructures;
+import com.NovaCraft.config.ConfigsWorld;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.NovaCraft.config.Configs;
@@ -16,7 +19,6 @@ import com.NovaCraft.world.structure.AetherGeoGen;
 import com.NovaCraft.world.structure.CopartzGeoGen;
 import com.NovaCraft.world.structure.LarimarGeoGen;
 import com.NovaCraft.world.structure.NovaCraftAdvancedTraditionalDungeonGen;
-import com.NovaCraft.world.structure.NovaCraftDungeonGen;
 import com.NovaCraft.world.structure.NovaCraftTraditionalDungeonGen;
 import com.NovaCraft.world.structure.SeaSerpentSpawner;
 import com.NovaCraft.world.structure.TsavorokiteGeoGen;
@@ -162,24 +164,15 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 	
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if((world.getWorldInfo().getTerrainType() != WorldType.FLAT || world.getWorldInfo().getGeneratorOptions().contains("decoration")) && (ArrayUtils.contains(Configs.WorldGenDimensionBlacklist, world.provider.dimensionId) == Configs.WorldGenDimensionBlacklistAsWhitelist)) {
-		   if (ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist) {
-				
-			//NovaCraft Dungeon
-			int x13;
-			int z13;
-			x13 = chunkX * 16 + rand.nextInt(8) + 8;
-			z13 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(8) == 0) {
-				new NovaCraftDungeonGen().generate(world, rand, x13, rand.nextInt(240) + 9, z13);
-			}
+		if((world.getWorldInfo().getTerrainType() != WorldType.FLAT || world.getWorldInfo().getGeneratorOptions().contains("decoration")) && (ArrayUtils.contains(ConfigsCompact.WorldGenDimensionBlacklist, world.provider.dimensionId) == ConfigsCompact.WorldGenDimensionBlacklistAsWhitelist)) {
+		   if (ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist) {
 						
 			//Copartz Geo
 			int x8;
 			int z8;
 			x8 = chunkX * 16 + rand.nextInt(8) + 8;
 			z8 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(212) == 0) {
+			if(rand.nextInt(212) == 0 && ConfigsStructures.enableCopartzGeodes) {
 				new CopartzGeoGen().generate(world, rand, x8, rand.nextInt(200) + 27, z8);
 			}
 				
@@ -188,7 +181,7 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 			int z9;
 			x9 = chunkX * 16 + rand.nextInt(8) + 8;
 			z9 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(312) == 0) {
+			if(rand.nextInt(312) == 0 && ConfigsStructures.enableLarimarGeodes) {
 				new LarimarGeoGen().generate(world, rand, x9, rand.nextInt(200) + 27, z9);
 			}
 				
@@ -197,12 +190,12 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 			int z10;
 			x10 = chunkX * 16 + rand.nextInt(8) + 8;
 			z10 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(332) == 0) {
+			if(rand.nextInt(332) == 0 && ConfigsStructures.enableTsavorokiteGeodes) {
 				new TsavorokiteGeoGen().generate(world, rand, x10, rand.nextInt(200) + 25, z10);
 			}
 				
 			//Yttrlinsite Geo
-			if (Configs.enableYttrlinisteOverworldGeneration) {
+			if (ConfigsStructures.enableYttrlinisteGeodes) {
 			int x11;
 			int z11;
 			x11 = chunkX * 16 + rand.nextInt(8) + 8;
@@ -217,7 +210,7 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 			int z12;
 			x12 = chunkX * 16 + rand.nextInt(8) + 8;
 			z12 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(832) == 0) {
+			if(rand.nextInt(832) == 0 && ConfigsStructures.enableAetherGeodes) {
 				new AetherGeoGen().generate(world, rand, x12, rand.nextInt(200) + 30, z12);
 			}
 				
@@ -230,7 +223,7 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 			Type[] biomeList20;
 			biome20 = world.getBiomeGenForCoords(x20, z20);
 			biomeList20 = BiomeDictionary.getTypesForBiome(biome20);
-			if(!(BiomeDictionary.isBiomeOfType(biome20, BiomeDictionary.Type.OCEAN)) && rand.nextInt(210) == 0) {
+			if(!(BiomeDictionary.isBiomeOfType(biome20, BiomeDictionary.Type.OCEAN)) && rand.nextInt(210) == 0 && ConfigsStructures.enableTraditionalOverworldDungeons) {
 				new NovaCraftTraditionalDungeonGen().generate(world, rand, x20, rand.nextInt(120) + 25, z20);
 			}
 				
@@ -239,13 +232,13 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 			int z21;
 			x21 = chunkX * 16 + rand.nextInt(8) + 8;
 			z21 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(330) == 1) {
+			if(rand.nextInt(330) == 1 && ConfigsStructures.enableAdvancedTraditionalOverworldDungeons) {
 				new NovaCraftAdvancedTraditionalDungeonGen().generate(world, rand, x21, rand.nextInt(200) + 10, z21);
 			}   
 			   
 			   
 			   
-			if (Configs.enableSculkGeneration && rand.nextInt(5) == 1) {
+			if (ConfigsWorld.enableSculkGeneration && rand.nextInt(5) == 1) {
 			int x1;
 			int z1;
 			x1 = chunkX * 16 + rand.nextInt(8) + 8;
@@ -291,12 +284,12 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 			z = chunkZ * 16 + rand.nextInt(8) + 8;
 			biome = world.getBiomeGenForCoords(x, z);
 			biomeList = BiomeDictionary.getTypesForBiome(biome);
-		    if (Configs.enablePherithiumGeneration) {
+		    if (ConfigsWorld.enablePherithiumGeneration) {
 				pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(25) + 15, z);
 				small_pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(23) + 15, z);
 			}
 		    
-				if (Configs.enableStalagAndStalacGeneration) {
+				if (ConfigsWorld.enableStalagAndStalacGeneration) {
 				stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(110) + 35, z);
 				stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(110) + 30, z);
 				large_stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(140) + 33, z);
@@ -318,23 +311,23 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 				large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 8, z);
 				 }
 				
-				if (Configs.enableGlowLichenGeneration) {				
+				if (ConfigsWorld.enableGlowLichenGeneration) {
 				glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(120) + 15, z);
 				glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(50) + 15, z);
 				 }
 				
-				if (Configs.enableLichenGeneration) {
+				if (ConfigsWorld.enableGrimLichenGeneration) {
 				grim_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(90) + 15, z);
 				grim_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(30) + 5, z);
 				    }
 				
 				if((world.getHeightValue(x, z) > 0)) {
-					if (Configs.enableLichenGeneration && rand.nextInt(4) == 1) {
+					if (ConfigsWorld.enableDarkLichenGeneration && rand.nextInt(4) == 1) {
 					dark_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(100) + 60, z);
 					dark_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
 					}
 					
-					if (Configs.enableNovaMushrooomGeneration && rand.nextInt(3) == 1) {
+					if (ConfigsWorld.enableOverworldMushrooomGeneration && rand.nextInt(3) == 1) {
 					mushroom.get(0).generate(world, rand, x, rand.nextInt(120) + 5, z);
 					mushroom.get(0).generate(world, rand, x, rand.nextInt(30) + 5, z);
 					
@@ -353,7 +346,7 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 					}
 				  }
 				
-				if (rand.nextInt(4) == 3) {
+				if (rand.nextInt(4) == 3 && ConfigsWorld.enableDeeprootGeneration) {
 					deep_roots.get(0).generate(world, rand, x, rand.nextInt(20) + 35, z);
 					deep_roots.get(0).generate(world, rand, x, rand.nextInt(18) + 55, z);
 					deep_roots.get(0).generate(world, rand, x, rand.nextInt(15) + 90, z);

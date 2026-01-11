@@ -1,5 +1,6 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.config.ConfigsEntities;
 import net.minecraft.entity.passive.*;
 import net.minecraft.world.*;
 
@@ -71,7 +72,7 @@ public class EntityFirefly extends EntityAmbientCreature
     
     public void onUpdate() {
         super.onUpdate();
-       if (Configs.enableNoDespawnFirefly == true) {
+       if (ConfigsEntities.enableNoDespawnFirefly) {
         if (this.ticksExisted > 7200) {
             this.setDead();
          }

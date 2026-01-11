@@ -7,6 +7,7 @@ import java.util.Random;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraft.sounds.ModSounds;
@@ -73,7 +74,7 @@ public class BlockMeteorite extends Block {
         ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
         Random rand = world.rand;
 
-        if (Configs.enableRawOreBlocksStructures && Loader.isModLoaded("etfuturum")) {
+        if (ConfigsCompact.enableRawOreBlocks && Loader.isModLoaded("etfuturum")) {
             int chance = rand.nextInt(100);
             int meta = chance < 70 ? 1 : 2;
             drops.add(new ItemStack(OtherModItems.raw_ore, 1, meta));
@@ -89,7 +90,7 @@ public class BlockMeteorite extends Block {
     public int getExpDrop(IBlockAccess world, int metadata, int fortune) {
         Random rand = new Random();
 
-        if (Configs.enableRawOreBlocksStructures) {
+        if (ConfigsCompact.enableRawOreBlocks) {
             return MathHelper.getRandomIntegerInRange(rand, 1, 4);
         }
 

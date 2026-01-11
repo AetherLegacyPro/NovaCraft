@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import com.NovaCraft.config.ConfigsCompact;
+import com.NovaCraft.config.ConfigsStructures;
+import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraft.world.structure.*;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -187,23 +190,14 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 	private static LargeLuminantTreeGen tree2 = new LargeLuminantTreeGen(NovaCraftBlocks.luminant_leaves, NovaCraftBlocks.luminant_leaves, 50, 12, true);
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if((world.getWorldInfo().getTerrainType() != WorldType.FLAT || world.getWorldInfo().getGeneratorOptions().contains("decoration")) && (ArrayUtils.contains(Configs.WorldGenDimensionBlacklist, world.provider.dimensionId) == Configs.WorldGenDimensionBlacklistAsWhitelist)) {
-			
-			//NovaCraft Dungeon
-			int x13;
-			int z13;
-			x13 = chunkX * 16 + rand.nextInt(8) + 8;
-			z13 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(8) == 0) {
-				new NovaCraftDungeonGen().generate(world, rand, x13, rand.nextInt(25) + 9, z13);
-			}
-					
+		if((world.getWorldInfo().getTerrainType() != WorldType.FLAT || world.getWorldInfo().getGeneratorOptions().contains("decoration")) && (ArrayUtils.contains(ConfigsCompact.WorldGenDimensionBlacklist, world.provider.dimensionId) == ConfigsCompact.WorldGenDimensionBlacklistAsWhitelist)) {
+
 			//Copartz Geo
 			int x8;
 			int z8;
 			x8 = chunkX * 16 + rand.nextInt(8) + 8;
 			z8 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(212) == 0) {
+			if(rand.nextInt(212) == 0 && ConfigsStructures.enableCopartzGeodes) {
 				new CopartzGeoGen().generate(world, rand, x8, rand.nextInt(18) + 27, z8);
 			}
 			
@@ -212,7 +206,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			int z9;
 			x9 = chunkX * 16 + rand.nextInt(8) + 8;
 			z9 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(312) == 0) {
+			if(rand.nextInt(312) == 0 && ConfigsStructures.enableLarimarGeodes) {
 				new LarimarGeoGen().generate(world, rand, x9, rand.nextInt(14) + 27, z9);
 			}
 			
@@ -221,19 +215,17 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			int z10;
 			x10 = chunkX * 16 + rand.nextInt(8) + 8;
 			z10 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(332) == 0) {
+			if(rand.nextInt(332) == 0 && ConfigsStructures.enableTsavorokiteGeodes) {
 				new TsavorokiteGeoGen().generate(world, rand, x10, rand.nextInt(10) + 25, z10);
 			}
 			
 			//Yttrlinsite Geo
-			if (Configs.enableYttrlinisteOverworldGeneration) {
 			int x11;
 			int z11;
 			x11 = chunkX * 16 + rand.nextInt(8) + 8;
 			z11 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(1032) == 0) {
+			if(rand.nextInt(1032) == 0 && ConfigsStructures.enableYttrlinisteGeodes) {
 				new YttrlinsiteGeoGen().generate(world, rand, x11, rand.nextInt(5) + 10, z11);
-				}
 			}
 			
 			//Aether Geo
@@ -241,7 +233,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			int z12;
 			x12 = chunkX * 16 + rand.nextInt(8) + 8;
 			z12 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(832) == 0) {
+			if(rand.nextInt(832) == 0 && ConfigsStructures.enableAetherGeodes) {
 				new AetherGeoGen().generate(world, rand, x12, rand.nextInt(5) + 30, z12);
 			}
 			
@@ -252,7 +244,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			z20 = chunkZ * 16 + rand.nextInt(8) + 8;
 			BiomeGenBase biome20;
 			biome20 = world.getBiomeGenForCoords(x20, z20);
-			if(!(BiomeDictionary.isBiomeOfType(biome20, BiomeDictionary.Type.OCEAN)) && rand.nextInt(210) == 0) {
+			if(!(BiomeDictionary.isBiomeOfType(biome20, BiomeDictionary.Type.OCEAN)) && rand.nextInt(210) == 0 && ConfigsStructures.enableTraditionalOverworldDungeons) {
 				new NovaCraftTraditionalDungeonGen().generate(world, rand, x20, rand.nextInt(20) + 25, z20);
 			}
 			
@@ -261,7 +253,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			int z21;
 			x21 = chunkX * 16 + rand.nextInt(8) + 8;
 			z21 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(330) == 1) {
+			if(rand.nextInt(330) == 1 && ConfigsStructures.enableAdvancedTraditionalOverworldDungeons) {
 				new NovaCraftAdvancedTraditionalDungeonGen().generate(world, rand, x21, rand.nextInt(10) + 10, z21);
 			}
 			
@@ -272,7 +264,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			z15 = chunkZ * 16 + rand.nextInt(8) + 8;	
 			BiomeGenBase biome15;
 			biome15 = world.getBiomeGenForCoords(x15, z15);
-			if(BiomeDictionary.isBiomeOfType(biome15, BiomeDictionary.Type.OCEAN) && rand.nextInt(85) == 0 && Configs.enableOceanDungeonsGeneration) {
+			if(BiomeDictionary.isBiomeOfType(biome15, BiomeDictionary.Type.OCEAN) && rand.nextInt(85) == 0 && ConfigsStructures.enableOceanDungeonsGeneration) {
 				new SeaSerpentSpawner().generate(world, rand, x15, rand.nextInt(2) + 30, z15);
 			}
 			
@@ -285,7 +277,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			y17 = world.getTopSolidOrLiquidBlock(x17, z17);
 			BiomeGenBase biome17;
 			biome17 = world.getBiomeGenForCoords(x17, z17);
-			if(BiomeDictionary.isBiomeOfType(biome17, BiomeDictionary.Type.FOREST) && rand.nextInt(250) == 0 && Configs.enableVindicatorForestHouseGeneration) {
+			if(BiomeDictionary.isBiomeOfType(biome17, BiomeDictionary.Type.FOREST) && rand.nextInt(250) == 0 && ConfigsStructures.enableVindicatorForestHouseGeneration) {
 				new VindicatorRandomHouse().generate(world, rand, x17, y17 - 1, z17);
 			}
 			
@@ -301,14 +293,14 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 				int posX = x16 + rand.nextInt(8) + 8;
 				int posZ = z16 + rand.nextInt(8) + 8;
 				int posY = world.getHeightValue(posX, posZ);
-				if(Configs.enableLargeLuminantTreeGeneration) tree2.generate(world, rand, posX, 60 + rand.nextInt(10), posZ);
+				if(ConfigsStructures.enableLargeLuminantTreeGeneration) tree2.generate(world, rand, posX, 60 + rand.nextInt(10), posZ);
 			}
 			else {
 				if (BiomeDictionary.isBiomeOfType(biome9, BiomeDictionary.Type.FOREST)) {
 				int posX = x16 + rand.nextInt(8) + 8;
 				int posZ = z16 + rand.nextInt(8) + 8;
 				int posY = world.getHeightValue(posX, posZ);				
-				if(Configs.enableLuminantTreeGeneration) tree.generate(world, rand, posX, 60 + rand.nextInt(10), posZ);
+				if(ConfigsStructures.enableLuminantTreeGeneration) tree.generate(world, rand, posX, 60 + rand.nextInt(10), posZ);
 				}
 			 }
 			}
@@ -321,7 +313,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			int y18 = world.getHeightValue(x18, z18);
 			BiomeGenBase biome18;
 			biome18 = world.getBiomeGenForCoords(x18, z18);
-			if(BiomeDictionary.isBiomeOfType(biome18, Type.SANDY) && rand.nextInt(1160) == 0 && Configs.enableDesertCreeperStatueGeneration) {
+			if(BiomeDictionary.isBiomeOfType(biome18, Type.SANDY) && rand.nextInt(1160) == 0 && ConfigsStructures.enableDesertCreeperStatueGeneration) {
 				new DesertCreeperStructureGen().generate(world, rand, x18, y18 - 16 + rand.nextInt(6), z18);
 			}
 
@@ -333,18 +325,18 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			int y19 = world.getHeightValue(x19, z19);
 			BiomeGenBase biome19;
 			biome19 = world.getBiomeGenForCoords(x19, z19);
-			if(BiomeDictionary.isBiomeOfType(biome19, Type.SWAMP) && rand.nextInt(260) == 0 && Configs.enableSlimeStatueGeneration) {
+			if(BiomeDictionary.isBiomeOfType(biome19, Type.SWAMP) && rand.nextInt(260) == 0 && ConfigsStructures.enableSlimeStatueGeneration) {
 				new SlimeStructureGen().generate(world, rand, x19, y19 - 4 + rand.nextInt(2), z19);
 			}
 
 			int x22 = chunkX * 16 + rand.nextInt(8) + 8;
 			int z22 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if (rand.nextInt(3) == 0) {
+			if (rand.nextInt(3) == 0 && ConfigsStructures.enableVoidTemples) {
 				new VoidTempleGen().generate(world, rand, x22, 2, z22);
 			}
 			
 			//Sculk Gen
-			if (Configs.enableSculkGeneration && rand.nextInt(5) == 1) {
+			if (ConfigsWorld.enableSculkGeneration && rand.nextInt(5) == 1) {
 			int x1;
 			int z1;
 			x1 = chunkX * 16 + rand.nextInt(8) + 8;
@@ -385,7 +377,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 				
 				}
 			
-			if((world.getHeightValue(x1, z1) > 0) && Configs.enableSculkGenerationAllBiomes && rand.nextInt(7) == 1) {
+			if((world.getHeightValue(x1, z1) > 0) && ConfigsWorld.enableSculkGenerationAllBiomes && rand.nextInt(7) == 1) {
 				sculk_gen.get(0).generate(world, rand, x1, rand.nextInt(5) + 20, z1);
 				sculk_gen.get(0).generate(world, rand, x1, rand.nextInt(10) + 15, z1);
 				
@@ -416,7 +408,7 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			
 			}
 			
-			if (Configs.enableRareCrystalGeneration && rand.nextInt(15) == 1) {
+			if (ConfigsWorld.enableRareCrystalGeneration && rand.nextInt(15) == 1) {
 			//Copartz Gen
 			int x2;
 			int z2;
@@ -475,121 +467,124 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 						
 			if((world.getHeightValue(x, z) > 0) && rand.nextInt(3) == 1) {
 				
-				if (Configs.enableMossGeneration && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
+				if (ConfigsWorld.enableMossGeneration && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
 				
 				if(!(BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.COLD) || BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.HOT))) {
-				moss_block_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 40, z);
-				moss_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 50, z);
+					moss_block_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 40, z);
+					moss_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 50, z);
 				}
 				
 				if(BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.COLD)) {
-				arctic_moss_block_gen.get(0).generate(world, rand, x, rand.nextInt(42) + 30, z);
-				arctic_moss_block_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 30, z);
-				arctic_moss_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 30, z);
-				
-				icicle.get(0).generate(world, rand, x, rand.nextInt(10) + 75, z);
-				icicle.get(0).generate(world, rand, x, rand.nextInt(5) + 60, z);
-				icicle.get(0).generate(world, rand, x, rand.nextInt(15) + 40, z);
+					arctic_moss_block_gen.get(0).generate(world, rand, x, rand.nextInt(42) + 30, z);
+					arctic_moss_block_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 30, z);
+					arctic_moss_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 30, z);
 					}
-				}			
+				}
+
+
+				if (ConfigsWorld.enableIcicleGeneration) {
+					icicle.get(0).generate(world, rand, x, rand.nextInt(10) + 75, z);
+					icicle.get(0).generate(world, rand, x, rand.nextInt(5) + 60, z);
+					icicle.get(0).generate(world, rand, x, rand.nextInt(15) + 40, z);
+				}
+
 				
-			  	if (Configs.enableStalagAndStalacGeneration) {
-				stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 35, z);
-				stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 30, z);
-				large_stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 33, z);
-				large_stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 28, z);
-				nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 15, z);
-				nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 5, z);
-				large_nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 13, z);
-				large_nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 4, z);
+			  	if (ConfigsWorld.enableStalagAndStalacGeneration) {
+					stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 35, z);
+					stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 30, z);
+					large_stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 33, z);
+					large_stone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 28, z);
+					nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 15, z);
+					nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 5, z);
+					large_nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 13, z);
+					large_nullstone_stalagmite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 4, z);
+
+					stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 35, z);
+					stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 30, z);
+					large_stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 30, z);
+					large_stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 25, z);
+					nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 10, z);
+					nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 8, z);
+					nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 5, z);
+					large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 8, z);
+					large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 7, z);
+					large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 8, z);
+				}
 				
-				stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 35, z);
-			    stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 30, z);
-				large_stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 30, z);
-				large_stone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 25, z);
-				nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 10, z);
-				nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 8, z);
-				nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 5, z);
-				large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 8, z);
-				large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 7, z);
-				large_nullstone_stalactite_gen.get(0).generate(world, rand, x, rand.nextInt(15) + 8, z);
-				 }
+				if (ConfigsWorld.enableGlowLichenGeneration) {
+					glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 20, z);
+					glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 15, z);
 				
-				if (Configs.enableGlowLichenGeneration) {
-				glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 20, z);
-				glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(40) + 15, z);
+					glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 15, z);
+					glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 15, z);
+				}
 				
-				glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 15, z);
-				glow_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 15, z);
-				 }
-				
-				if (Configs.enableLichenGeneration) {
-				grim_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(30) + 15, z);
-				grim_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(30) + 5, z);
-				  }	
+				if (ConfigsWorld.enableGrimLichenGeneration) {
+					grim_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(30) + 15, z);
+					grim_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(30) + 5, z);
+				}
 																				
-				if (Configs.enableAdditonalCoalOreGeneration && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-				additional_coal.get(0).generate(world, rand, x, rand.nextInt(25) + 30, z);
+				if (ConfigsWorld.enableAdditonalCoalOreGeneration && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+					additional_coal.get(0).generate(world, rand, x, rand.nextInt(25) + 30, z);
 				}
-				if (Configs.enableAdditonalIronOreGeneration && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-				additional_iron.get(0).generate(world, rand, x, rand.nextInt(15) + 25, z);
+				if (ConfigsWorld.enableAdditonalIronOreGeneration && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+					additional_iron.get(0).generate(world, rand, x, rand.nextInt(15) + 25, z);
 				}
-				if (Configs.enableAdditonalGoldOreGeneration && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-				additional_gold.get(0).generate(world, rand, x, rand.nextInt(20) + 6, z);
+				if (ConfigsWorld.enableAdditonalGoldOreGeneration && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+					additional_gold.get(0).generate(world, rand, x, rand.nextInt(20) + 6, z);
 				}
-				if (Configs.enableAdditonalRedstoneOreGeneration && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-				additional_redstone.get(0).generate(world, rand, x, rand.nextInt(25) + 6, z);
+				if (ConfigsWorld.enableAdditonalRedstoneOreGeneration && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+					additional_redstone.get(0).generate(world, rand, x, rand.nextInt(25) + 6, z);
 				}
-				if (Configs.enableAdditonalLapisOreGeneration && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-				additional_lapis.get(0).generate(world, rand, x, rand.nextInt(5) + 20, z);
+				if (ConfigsWorld.enableAdditonalLapisOreGeneration && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+					additional_lapis.get(0).generate(world, rand, x, rand.nextInt(5) + 20, z);
 				}
-				if (Configs.enableAdditonalDiamondOreGeneration && !(ArrayUtils.contains(Configs.DeeperCavesBlacklist, world.provider.dimensionId) == Configs.DeeperCavesBlacklistAsWhitelist)) {
-				additional_diamond.get(0).generate(world, rand, x, rand.nextInt(15) + 6, z);
+				if (ConfigsWorld.enableAdditonalDiamondOreGeneration && !(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
+					additional_diamond.get(0).generate(world, rand, x, rand.nextInt(15) + 6, z);
 				}
 						
 			}
 			
-			if (Configs.enablePherithiumGeneration == true) {
+			if (ConfigsWorld.enablePherithiumGeneration) {
 				pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(25) + 15, z);
 				small_pherithium_gen.get(0).generate(world, rand, x, rand.nextInt(23) + 15, z);
-				}
+			}
 			
-			if ((world.getHeightValue(x, z) > 0) && rand.nextInt(2) == 1) {
-			deep_roots.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
-			deep_roots.get(0).generate(world, rand, x, rand.nextInt(18) + 5, z);
-			deep_roots.get(0).generate(world, rand, x, rand.nextInt(15) + 5, z);
-			deep_roots.get(0).generate(world, rand, x, rand.nextInt(10) + 2, z);
-			deep_roots.get(0).generate(world, rand, x, rand.nextInt(5) + 2, z);
+			if ((world.getHeightValue(x, z) > 0) && rand.nextInt(2) == 1 && ConfigsWorld.enableDeeprootGeneration) {
+				deep_roots.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
+				deep_roots.get(0).generate(world, rand, x, rand.nextInt(18) + 5, z);
+				deep_roots.get(0).generate(world, rand, x, rand.nextInt(15) + 5, z);
+				deep_roots.get(0).generate(world, rand, x, rand.nextInt(10) + 2, z);
+				deep_roots.get(0).generate(world, rand, x, rand.nextInt(5) + 2, z);
 			}			
 			
 			if((world.getHeightValue(x, z) > 0)) {
-				if (Configs.enableLichenGeneration && rand.nextInt(4) == 1) {
-				dark_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 20, z);
-				dark_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
+				if (ConfigsWorld.enableDarkLichenGeneration && rand.nextInt(4) == 1) {
+					dark_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(10) + 20, z);
+					dark_lichen_gen.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
 				}
 				
-				if (Configs.enableNovaMushrooomGeneration && rand.nextInt(3) == 1) {
-				mushroom.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
-				mushroom.get(0).generate(world, rand, x, rand.nextInt(30) + 5, z);
+				if (ConfigsWorld.enableOverworldMushrooomGeneration && rand.nextInt(3) == 1) {
+					mushroom.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
+					mushroom.get(0).generate(world, rand, x, rand.nextInt(30) + 5, z);
 				
-				mushroom2.get(0).generate(world, rand, x, rand.nextInt(15) + 5, z);
-				mushroom2.get(0).generate(world, rand, x, rand.nextInt(30) + 2, z);
+					mushroom2.get(0).generate(world, rand, x, rand.nextInt(15) + 5, z);
+					mushroom2.get(0).generate(world, rand, x, rand.nextInt(30) + 2, z);
 				
-				mushroom3.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
-				mushroom3.get(0).generate(world, rand, x, rand.nextInt(30) + 5, z);
+					mushroom3.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
+					mushroom3.get(0).generate(world, rand, x, rand.nextInt(30) + 5, z);
 				
-				mushroom4.get(0).generate(world, rand, x, rand.nextInt(10) + 5, z);
-				mushroom4.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
+					mushroom4.get(0).generate(world, rand, x, rand.nextInt(10) + 5, z);
+					mushroom4.get(0).generate(world, rand, x, rand.nextInt(20) + 5, z);
 				
-				mushroom5.get(0).generate(world, rand, x, rand.nextInt(8) + 5, z);
-				mushroom5.get(0).generate(world, rand, x, rand.nextInt(18) + 5, z);
+					mushroom5.get(0).generate(world, rand, x, rand.nextInt(8) + 5, z);
+					mushroom5.get(0).generate(world, rand, x, rand.nextInt(18) + 5, z);
 				}
 				
-				}
-			
-			{ 
+			}
+
 			  //Surface Flowers
-			  if (rand.nextInt(4) == 1) {
+			  if (rand.nextInt(4) == 1 && ConfigsWorld.enableOverworldFlowersGeneration) {
 			  x = chunkX * 16 + rand.nextInt(8) + 8;
 			  z = chunkZ * 16 + rand.nextInt(8) + 8;
 			  biome = world.getBiomeGenForCoords(x, z);
@@ -612,20 +607,17 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			  if(ArrayUtils.contains(biomeList, Type.SANDY) && !ArrayUtils.contains(biomeList, Type.COLD) && world.getHeightValue(x, z) > 0) {
 				  blooming_barb.get(0).generate(world, rand, x, nextHeightInt(rand, world.getHeightValue(x, z) * 2), z);
 			  		}
-				}
-			}
-			
-			{ 
+			  }
+
 			//TorchFlowers
-			if (rand.nextInt(3) == 1) {
+			if (rand.nextInt(3) == 1 && ConfigsWorld.enableTorchflowerGeneration) {
 			 x = chunkX * 16 + rand.nextInt(8) + 8;
 			 z = chunkZ * 16 + rand.nextInt(8) + 8;
 			 biome = world.getBiomeGenForCoords(x, z);
 			 biomeList = BiomeDictionary.getTypesForBiome(biome);
 			 if( biome.biomeID == 132 || (ArrayUtils.contains(biomeList, Type.MAGICAL) && !ArrayUtils.contains(biomeList, Type.LUSH) && !ArrayUtils.contains(biomeList, Type.JUNGLE) && world.getHeightValue(x, z) > 0)) {
 				 torchflower.get(0).generate(world, rand, x, nextHeightInt(rand, world.getHeightValue(x, z) * 2), z);
-			 		}
-				}
+			 	}
 			}
 				
 			}

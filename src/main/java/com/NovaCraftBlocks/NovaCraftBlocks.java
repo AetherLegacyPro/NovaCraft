@@ -3,6 +3,8 @@ package com.NovaCraftBlocks;
 import com.NovaCraft.Item.Block.*;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
+import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.container.*;
 import com.NovaCraftBlocks.crystals.BlockAether;
@@ -295,7 +297,7 @@ public class NovaCraftBlocks {
 	public static Block nullwart_brick_bookshelf, sculk_brick_bookshelf;
 	public static Block deepoid_bricks, deepoid_power_core, deepoid_furnace, lit_deepoid_furnace;
 	public static Block iridium_bricks, infused_iridium_bricks, iridium_power_core, iridium_trapdoor, iridium_furnace, lit_iridium_furnace;
-	public static Block vanite_anvil;
+	public static Block vanite_anvil, cracked_end_portal_frame;
 	
 	//9x Duplication Structure
 	public static Block raw_divineral, raw_netherite;
@@ -378,7 +380,7 @@ public class NovaCraftBlocks {
 		glowing_basal = register("glowing_basal", new BlockGlowingBasal().setLightLevel(0.7775F).setBlockTextureName(NovaCraft.find("glowing_basal")));
 		basal_scrap = registerMeta("basal_scrap", new BlockBasalScrap().setBlockTextureName(NovaCraft.find("basal_scrap")));
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableTuffBrickRecipe) {
 			try {
 				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
 				if (tuff != null) {
@@ -394,7 +396,7 @@ public class NovaCraftBlocks {
 			}
 		}
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableCalciteBrickRecipe) {
 			try {
 				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
 				if (calcite != null) {
@@ -425,11 +427,11 @@ public class NovaCraftBlocks {
 		block_of_brimstone = register("block_of_brimstone", new BlockBrimstone().setBlockTextureName(NovaCraft.find("brimstone_block")));
 		brimstone_wire = registerHidden("brimstone_wire", new BlockBrimstoneWire().setBlockTextureName(NovaCraft.find("brimstone_dust_block")));
 		
-		if (!(Configs.enableGrimstone) && !(Configs.enableNullstone) && !(Configs.enableDeepslateOreGeneration)) {
+		if (!(ConfigsWorld.enableGrimstone) && !(ConfigsWorld.enableNullstone) && !(ConfigsCompact.enableDeepslateOreGeneration)) {
 		stone_vanite_ore = registerItemBlock("stone_vanite_ore", new BlockStoneVaniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("stone_vanite_ore"));		
 		}
 		
-		if (!(Configs.enableGrimstone) && !(Configs.enableNullstone) && Loader.isModLoaded("etfuturum") && Configs.enableDeepslateOreGeneration) {
+		if (!(ConfigsWorld.enableGrimstone) && !(ConfigsWorld.enableNullstone) && Loader.isModLoaded("etfuturum") && ConfigsCompact.enableDeepslateOreGeneration) {
 		deepslate_vanite_ore = registerItemBlock("deepslate_vanite_ore", new BlockDeepslateVaniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("deepslate_vanite_ore"));	
 		}
 		
@@ -451,11 +453,11 @@ public class NovaCraftBlocks {
 		vanite_torch = register("vanite_torch", new BlockVaniteTorch().setBlockTextureName(NovaCraft.find("vanite_torch")));
 		dim_vanite_torch = register("dim_vanite_torch", new BlockDimVaniteTorch().setBlockTextureName(NovaCraft.find("dim_vanite_torch")));
 		
-		if (!(Configs.enableNullstone) && !(Configs.enableDeepslateOreGeneration)) {
+		if (!(ConfigsWorld.enableNullstone) && !(ConfigsCompact.enableDeepslateOreGeneration)) {
 		stone_tophinite_ore = registerItemBlock("stone_tophinite_ore", new BlockStoneTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("stone_tophinite_ore"));		
 		}
 		
-		if (!(Configs.enableNullstone) && Loader.isModLoaded("etfuturum") && !(Configs.enableDeepslateOreGeneration)) {
+		if (!(ConfigsWorld.enableNullstone) && Loader.isModLoaded("etfuturum") && !(ConfigsCompact.enableDeepslateOreGeneration)) {
 		deepslate_tophinite_ore = registerItemBlock("deepslate_tophinite_ore", new BlockDeepslateTophiniteOre(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("deepslate_tophinite_ore"));			
 		}
 		
@@ -488,6 +490,8 @@ public class NovaCraftBlocks {
 		iridium_furnace = register("iridium_furnace", new BlockIridiumFurnace(false).setBlockTextureName(NovaCraft.find("deepoid_furnace")));
 		lit_iridium_furnace = registerHidden("lit_iridium_furnace", new BlockIridiumFurnace(true).setLightLevel(0.9775F).setCreativeTab(null));
 
+		cracked_end_portal_frame = registerHidden("cracked_end_portal_frame", new BlockCrackedEndPortalFrame());
+
 		iron_pile = registerMeta("iron_pile", new BlockIronPile());
 		gold_pile = registerMeta("gold_pile", new BlockGoldPile());
 		lapis_pile = registerMeta("lapis_pile", new BlockLapisPile());
@@ -513,11 +517,11 @@ public class NovaCraftBlocks {
 		xancium_TNT = register("xancium_TNT", new BlockXanciumTNT());
 		xancium_wire = registerHidden("xancium_wire", new BlockXanciumWire().setBlockTextureName(NovaCraft.find("xancium_dust_cross")));
 		
-		if (!(Configs.enableNullstone) && !(Configs.enableDeepslateOreGeneration)) {
+		if (!(ConfigsWorld.enableNullstone) && !(ConfigsCompact.enableDeepslateOreGeneration)) {
 		stone_klangite_ore = registerItemBlock("stone_klangite_ore", new BlockStoneKlangiteOre(), ItemBlockFireProof.class);	
 		}
 		
-		if (!(Configs.enableNullstone) && Loader.isModLoaded("etfuturum") && Configs.enableDeepslateOreGeneration) {
+		if (!(ConfigsWorld.enableNullstone) && Loader.isModLoaded("etfuturum") && ConfigsCompact.enableDeepslateOreGeneration) {
 		deepslate_klangite_ore = registerItemBlock("deepslate_klangite_ore", new BlockDeepslateKlangiteOre(), ItemBlockFireProof.class);	
 		}
 		
@@ -527,7 +531,7 @@ public class NovaCraftBlocks {
 		block_of_raw_klangite = registerItemBlock("block_of_raw_klangite", new BlockRawKlangite(), ItemBlockFireProof.class);
 		block_of_klangite = registerItemBlock("block_of_klangite", new BlockKlangite(), ItemBlockFireProof.class);
 
-		if (Loader.isModLoaded("aether_legacy") && Configs.enableRawDivineral) {
+		if (Loader.isModLoaded("aether_legacy") && ConfigsCompact.enableRawDivineral) {
 			try {
 				Item enchanted_divineral = GameRegistry.findItem("aether_legacy", "enchanted_divineral");
 				if (enchanted_divineral != null) {
@@ -540,7 +544,7 @@ public class NovaCraftBlocks {
 			}
 		}
 		
-		if (Loader.isModLoaded("etfuturum") && Configs.enableNetheriteInRecipes) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableNetheriteInRecipes) {
 			try {
 				Block ancient_debris = GameRegistry.findBlock("etfuturum", "ancient_debris");
 				if (ancient_debris != null) {
@@ -574,7 +578,7 @@ public class NovaCraftBlocks {
 		unknown_portal = register("unknown_portal", new BlockUnknownPortal().setBlockTextureName(NovaCraft.find("unknown_portal")));
 		unknown_portal_sealed = register("unknown_portal_sealed", new BlockUnknownPortalSealed().setBlockTextureName(NovaCraft.find("unknown_portal_sealed")));
 		
-		if (Loader.isModLoaded("etfuturum") && Configs.enableDeepslateOreGeneration) {
+		if (Loader.isModLoaded("etfuturum")) {
 			try {
 				Block deepslate = GameRegistry.findBlock("etfuturum", "deepslate");
 				if (deepslate != null) {
@@ -769,7 +773,7 @@ public class NovaCraftBlocks {
 		basal_stairs = register("basal_stairs", new BlockNovaCraftStairs(basal));
 		basal_brick_stairs = register("basal_brick_stairs", new BlockNovaCraftStairs(basal_bricks));
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableTuffBrickRecipe) {
 			try {
 				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
 				if (tuff != null) {
@@ -783,7 +787,7 @@ public class NovaCraftBlocks {
 			}
 		}
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableCalciteBrickRecipe) {
 			try {
 				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
 				if (calcite != null) {
@@ -833,7 +837,7 @@ public class NovaCraftBlocks {
 		sculk_brick_wall = register("sculk_brick_wall", new BlockNovaCraftWall(sculk_bricks));
 		sculk_tiled_wall = register("sculk_tiled_wall", new BlockNovaCraftWall(sculk_tiles));
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableTuffBrickRecipe) {
 			try {
 				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
 				if (tuff != null) {
@@ -847,7 +851,7 @@ public class NovaCraftBlocks {
 			}
 		}
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableCalciteBrickRecipe) {
 			try {
 				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
 				if (calcite != null) {
@@ -912,7 +916,7 @@ public class NovaCraftBlocks {
 		sculk_tiled_double_slab = register("sculk_tiled_double_slab", new BlocksNovaCraftSlab("sculk_tiled_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("sculk_tiles")).setHardness(3.0F).setResistance(6.0F)).setCreativeTab(null);
 		sculk_tiled_slab = registerSlab("sculk_tiled_slab", new BlocksNovaCraftSlab("sculk_tiled_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("sculk_tiles")).setHardness(3.0F).setResistance(6.0F), sculk_tiled_double_slab);
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableTuffBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableTuffBrickRecipe) {
 			try {
 				Block tuff = GameRegistry.findBlock("etfuturum", "tuff");
 				if (tuff != null) {
@@ -928,7 +932,7 @@ public class NovaCraftBlocks {
 			}
 		}
 
-		if (Loader.isModLoaded("etfuturum") && Configs.enableCalciteBrickRecipe) {
+		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableCalciteBrickRecipe) {
 			try {
 				Block calcite = GameRegistry.findBlock("etfuturum", "calcite");
 				if (calcite != null) {

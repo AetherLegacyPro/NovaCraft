@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.registry.OtherModBlocks;
@@ -69,14 +70,14 @@ public class ItemKlangitePickaxe extends ItemPickaxe {
              world.spawnEntityInWorld(entityItem);
              }
         }
-        if (world.getBlock(x, y, z) == OtherModBlocks.arkenium_ore && Configs.enableAetherLegacyOptions) {
+        if (world.getBlock(x, y, z) == OtherModBlocks.arkenium_ore && ConfigsCompact.enableAetherLegacyCompact) {
         	          	
               if (!world.isRemote) {
               EntityItem entityItem = new EntityItem(world, x, y, z, new ItemStack(OtherModItems.arkenium_fragement, 2));
               world.spawnEntityInWorld(entityItem);
               }
         }
-        if (world.getBlock(x, y, z) == OtherModBlocks.gravitite_ore && Configs.enableAetherLegacyOptions) {
+        if (world.getBlock(x, y, z) == OtherModBlocks.gravitite_ore && ConfigsCompact.enableAetherLegacyCompact) {
            world.setBlock(x, y, z, Blocks.air);                  	
                              	
               if (!world.isRemote) {
@@ -84,7 +85,7 @@ public class ItemKlangitePickaxe extends ItemPickaxe {
               world.spawnEntityInWorld(entityItem);
               }
         }
-        if (world.getBlock(x, y, z) == OtherModBlocks.primeval_artifact && Configs.enableAetherLegacyOptions) {
+        if (world.getBlock(x, y, z) == OtherModBlocks.primeval_artifact && ConfigsCompact.enableAetherLegacyCompact) {
         	world.setBlock(x, y, z, Blocks.air);                  	
         	                  	
               if (!world.isRemote) {

@@ -1,5 +1,6 @@
 package com.NovaCraft.world.nether.structure;
 
+import com.NovaCraft.config.ConfigsCompact;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
@@ -28,7 +29,7 @@ public class NetherDungeonGen extends WorldGenerator
 
 	private Block determineIfPolishedBlackstoneBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableBlackstoneBricksInNetherStructures && Loader.isModLoaded("netherlicious")) {
+		if (ConfigsCompact.enableBlackstoneBricks && Loader.isModLoaded("netherlicious")) {
 			try {
 				Block Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");
 				if (Blackstone != null && (existingBlock == null || existingBlock != Blackstone)) {
@@ -47,7 +48,7 @@ public class NetherDungeonGen extends WorldGenerator
 
 	private Block determineIfCrackedBlackstoneBricksExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableBlackstoneBricksInNetherStructures && Loader.isModLoaded("netherlicious")) {
+		if (ConfigsCompact.enableBlackstoneBricks && Loader.isModLoaded("netherlicious")) {
 			try {
 				Block Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");
 				if (Blackstone != null && (existingBlock == null || existingBlock != Blackstone)) {
@@ -66,7 +67,7 @@ public class NetherDungeonGen extends WorldGenerator
 
 	private Block determineIfGildedBlackstoneExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableBlackstoneBricksInNetherStructures && Loader.isModLoaded("netherlicious")) {
+		if (ConfigsCompact.enableBlackstoneBricks && Loader.isModLoaded("netherlicious")) {
 			try {
 				Block Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");
 				if (Blackstone != null && (existingBlock == null || existingBlock != Blackstone)) {
@@ -85,7 +86,7 @@ public class NetherDungeonGen extends WorldGenerator
 
 	private Block determineIfChiseledBlackstoneExists(World world, int x, int y, int z) {
 		Block existingBlock = world.getBlock(x, y, z);
-		if (Configs.enableBlackstoneBricksInNetherStructures && Loader.isModLoaded("netherlicious")) {
+		if (ConfigsCompact.enableBlackstoneBricks && Loader.isModLoaded("netherlicious")) {
 			try {
 				Block Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");
 				if (Blackstone != null && (existingBlock == null || existingBlock != Blackstone)) {
@@ -510,7 +511,7 @@ public class NetherDungeonGen extends WorldGenerator
 						return new ItemStack(Items.iron_ingot, random.nextInt(12) + 18);
 					 }
 				case 17:
-					if (Loader.isModLoaded("etfuturum") && Configs.enableNetheriteInRecipes) {
+					if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableNetheriteInRecipes) {
 						return new ItemStack(OtherModItems.netherite_scrap, 1);
 					}
 					else {
