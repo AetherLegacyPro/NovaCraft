@@ -65,7 +65,7 @@ public class MansionGen implements IWorldGenerator {
                 //Make sure generator runs only in the chunk containing baseX/baseZ
                 if ((x >> 4) == (baseX >> 4) && (z >> 4) == (baseZ >> 4)) {
                     //If baseX and baseZ coords are less than 12k in x or z fail to generate
-                    if (Math.abs(baseX) < 12000 || Math.abs(baseZ) < 12000) return;
+                    if (Math.abs(baseX) < 12000 && Math.abs(baseZ) < 12000) return;
 
                     int x1 = baseX + regionRand.nextInt(8) + 8;
                     int z1 = baseZ + regionRand.nextInt(8) + 8;

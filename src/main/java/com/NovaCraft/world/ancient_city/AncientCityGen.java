@@ -100,7 +100,7 @@ public class AncientCityGen implements IWorldGenerator {
 				//Make sure generator runs only in the chunk containing baseX/baseZ
 				if ((x >> 4) == (baseX >> 4) && (z >> 4) == (baseZ >> 4)) {
 					//If baseX and baseZ coords are less than 5k in x or z fail to generate
-					if (Math.abs(baseX) < 5000 || Math.abs(baseZ) < 5000) return;
+					if (Math.abs(baseX) < 5000 && Math.abs(baseZ) < 5000) return;
 
 					int x1 = baseX + regionRand.nextInt(8) + 8;
 					int y1 = yBase;

@@ -398,7 +398,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	private void createloot(int x, int y, int z) {
 		if (shouldReplaceBlock(x, y, z)) {
 			this.worldObj.setBlock(x, y, z, NovaCraftBlocks.sculk_chest);
-			return;
 		}
 
 		if (shouldReplaceBlock(x, y + 1, z)) {
