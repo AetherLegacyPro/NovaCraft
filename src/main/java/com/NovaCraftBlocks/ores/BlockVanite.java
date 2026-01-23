@@ -381,7 +381,7 @@ public class BlockVanite extends Block {
 				           }
 						}
 						if (random.nextInt(15) == 0 && world.provider.dimensionId == 1) {
-				          if (world.getBlock(i, j + 1, k) == NovaCraftBlocks.grimstone_lapis);
+				          if (world.getBlock(i, j + 1, k) == NovaCraftBlocks.grimstone_lapis)
 				          	world.setBlock(i, j + 1, k, NovaCraftBlocks.nullstone_lapis, 0, 2);
 						}
 						if (random.nextInt(3) == 0) {

@@ -151,7 +151,7 @@ public class ItemSculkStar extends Item {
 			&& (world.getBlock(x + 2, y - 1, z - 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x - 1, y - 1, z - 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x - 2, y - 1, z - 3) == NovaCraftBlocks.sculk_block)
-			&& (world.getBlock(x - 3, y - 1, z - 3) == NovaCraftBlocks.sculk_block)						
+			&& (world.getBlock(x + 3, y - 1, z + 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x, y - 1, z + 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x + 1, y - 1, z + 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x + 2, y - 1, z + 3) == NovaCraftBlocks.sculk_block)
@@ -176,7 +176,7 @@ public class ItemSculkStar extends Item {
 			&& (world.getBlock(x + 2, y, z - 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x - 1, y, z - 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x - 2, y, z - 3) == NovaCraftBlocks.sculk_tentacle_2)
-			&& (world.getBlock(x - 3, y, z - 3) == NovaCraftBlocks.sculk_tentacle_2)						
+			&& (world.getBlock(x + 3, y, z + 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x, y, z + 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x + 1, y, z + 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x + 2, y, z + 3) == NovaCraftBlocks.sculk_tentacle_2)
@@ -347,7 +347,7 @@ public class ItemSculkStar extends Item {
 				world.setBlock(x + 2, y - 1, z - 3, Blocks.air);
 				world.setBlock(x - 1, y - 1, z - 3, Blocks.air);
 				world.setBlock(x - 2, y - 1, z - 3, Blocks.air);
-				world.setBlock(x - 3, y - 1, z - 3, Blocks.air);						
+				world.setBlock(x + 3, y - 1, z + 3, Blocks.air);
 				world.setBlock(x, y - 1, z + 3, Blocks.air);
 				world.setBlock(x + 1, y - 1, z + 3, Blocks.air);
 				world.setBlock(x + 2, y - 1, z + 3, Blocks.air);
@@ -372,7 +372,7 @@ public class ItemSculkStar extends Item {
 				world.setBlock(x + 2, y, z - 3, Blocks.air);
 				world.setBlock(x - 1, y, z - 3, Blocks.air);
 				world.setBlock(x - 2, y, z - 3, Blocks.air);
-				world.setBlock(x - 3, y, z - 3, Blocks.air);						
+				world.setBlock(x + 3, y, z + 3, Blocks.air);
 				world.setBlock(x, y, z + 3, Blocks.air);
 				world.setBlock(x + 1, y, z + 3, Blocks.air);
 				world.setBlock(x + 2, y, z + 3, Blocks.air);

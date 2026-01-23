@@ -59,7 +59,7 @@ public class BlockCrystallizedEnd extends Block {
 	 }
 	
 	 public int quantityDropped(final Random random) {
-	       return 2 + random.nextInt(2);
+	       return 3 + random.nextInt(5);
 	   }
 		
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
