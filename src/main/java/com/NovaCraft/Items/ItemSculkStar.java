@@ -60,7 +60,7 @@ public class ItemSculkStar extends Item {
 			&& (world.getBlock(x, y - 1, z + 1) == NovaCraftBlocks.sculk_bricks)
 			&& (world.getBlock(x + 1, y - 1, z - 1) == NovaCraftBlocks.sculk_bricks)
 			&& (world.getBlock(x + 1, y - 1, z + 1) == NovaCraftBlocks.sculk_bricks)
-			&& (world.getBlock(x - 1, y - 1, z + 1) == NovaCraftBlocks.sculk_bricks)
+			&& (world.getBlock(x - 1, y - 1, z - 1) == NovaCraftBlocks.sculk_bricks)
 			&& (world.getBlock(x - 1, y - 1, z + 1) == NovaCraftBlocks.sculk_bricks)
 						
 			&& (world.getBlock(x + 2, y - 1, z) == NovaCraftBlocks.budding_echo_block)
@@ -252,7 +252,7 @@ public class ItemSculkStar extends Item {
 				world.setBlock(x, y - 1, z + 1, NovaCraftBlocks.cracked_grimstone_bricks);
 				world.setBlock(x + 1, y - 1, z - 1, NovaCraftBlocks.cracked_grimstone_bricks);
 				world.setBlock(x + 1, y - 1, z + 1, NovaCraftBlocks.cracked_grimstone_bricks);
-				world.setBlock(x - 1, y - 1, z + 1, NovaCraftBlocks.cracked_grimstone_bricks);
+				world.setBlock(x - 1, y - 1, z - 1, NovaCraftBlocks.cracked_grimstone_bricks);
 				world.setBlock(x - 1, y - 1, z + 1, NovaCraftBlocks.cracked_grimstone_bricks);
 				
 				world.setBlock(x + 4, y - 1, z + 4, Blocks.air);

@@ -192,7 +192,7 @@ public class NovaCraftRegistries {
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.vacuum_sand), new ItemStack(NovaCraftBlocks.vacuum_glass), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.inked_vacuum_sand), new ItemStack(NovaCraftBlocks.vacuum_glass), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.luminant_tree_sap), new ItemStack(NovaCraftItems.luminant_gel), .01F);
-		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.luminant_log), new ItemStack(Items.coal,1), .01F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.luminant_log), new ItemStack(Items.coal,1,1), .01F);
 
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.cobbled_grimstone), new ItemStack(NovaCraftBlocks.grimstone), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.cobbled_nullstone), new ItemStack(NovaCraftBlocks.nullstone), .01F);
