@@ -74,7 +74,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		}
 
 		if (ConfigsWorld.enableCrystallizedEnd) {
-			this.addOreSpawnFrontierslate(NovaCraftBlocks.crystallized_end, world, random, chunkX, chunkZ, 2, 4, 4, 1, 12);
+			this.addOreSpawnFrontierslate(NovaCraftBlocks.crystallized_end, world, random, chunkX, chunkZ, 2, 4, 12, 1, 24);
 		}
 
 		if (ConfigsWorld.enableKlangiteOre) {
