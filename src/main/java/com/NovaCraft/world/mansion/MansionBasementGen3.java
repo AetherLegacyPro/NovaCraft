@@ -3001,7 +3001,7 @@ public class MansionBasementGen3 extends WorldGenerator {
     }
 
     private ItemStack getBookLoot(Random random) {
-        int item = random.nextInt(10);
+        int item = random.nextInt(11);
         switch (item) {
             case 0:
                 return new ItemStack(Items.paper, random.nextInt(24) + 8);
@@ -3023,6 +3023,8 @@ public class MansionBasementGen3 extends WorldGenerator {
                 ItemStack itemStack = Items.enchanted_book.getEnchantedItemStack(new EnchantmentData(enchantment, maxLevel));
 
                 return itemStack;
+            case 6:
+                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(4) + 3, 2);
             default: {
                 return new ItemStack(Items.paper, random.nextInt(32) + 16);
             }
@@ -3030,7 +3032,7 @@ public class MansionBasementGen3 extends WorldGenerator {
     }
 
     private ItemStack getChestLoot(Random random) {
-        int item = random.nextInt(9);
+        int item = random.nextInt(11);
         switch (item) {
             case 0:
                 return new ItemStack(Items.iron_ingot, random.nextInt(8) + 3);
@@ -3048,6 +3050,22 @@ public class MansionBasementGen3 extends WorldGenerator {
                 return new ItemStack(NovaCraftItems.iridium_nugget, random.nextInt(4) + 3, 0);
             case 5:
                 return new ItemStack(Items.emerald, random.nextInt(12) + 2);
+            case 6:
+                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 7, 2);
+            case 7:
+                if (random.nextDouble() < 0.25) {
+                    return new ItemStack(NovaCraftItems.iridium_axe, 1);
+                } else if (random.nextDouble() < 0.45) {
+                    return new ItemStack(NovaCraftItems.iridium_pickaxe, 1);
+                } else if (random.nextDouble() < 0.65) {
+                    return new ItemStack(NovaCraftItems.iridium_sword, 1);
+                } else if (random.nextDouble() < 0.75) {
+                    return new ItemStack(NovaCraftItems.iridium_shovel, 1);
+                } else {
+                    return new ItemStack(NovaCraftItems.vanite_trident, 1);
+                }
+            case 8:
+                return new ItemStack(NovaCraftItems.hunger_staff, 1);
             default: {
                 return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(16) + 2, 1);
             }

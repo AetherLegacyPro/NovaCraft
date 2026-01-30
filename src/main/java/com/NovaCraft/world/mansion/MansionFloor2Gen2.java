@@ -2930,7 +2930,7 @@ public class MansionFloor2Gen2 extends WorldGenerator {
     }
 
     private ItemStack getChestLoot(Random random) {
-        int item = random.nextInt(13);
+        int item = random.nextInt(14);
         switch (item) {
             case 0:
                 return new ItemStack(Items.iron_ingot, random.nextInt(4) + 3);
@@ -2956,6 +2956,8 @@ public class MansionFloor2Gen2 extends WorldGenerator {
                 return new ItemStack(NovaCraftBlocks.hydnum_mushroom, random.nextInt(2) + 1);
             case 9:
                 return new ItemStack(NovaCraftBlocks.rozite_mushroom, random.nextInt(2) + 1);
+            case 10:
+                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(2) + 3, 2);
             default: {
                 if (Configs.enableTreasureCratesDropDiamonds) {
                     return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 2, 0);

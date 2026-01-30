@@ -35,6 +35,7 @@ public class ConfigsStructures {
     public static boolean enableTraditionalOverworldDungeons;
     public static boolean enableAdvancedTraditionalOverworldDungeons;
     public static boolean enableVoidTemples;
+    public static boolean enableEndDungeon;
 
     public static final String catStructureOverworld = "Overworld Structures";
     public static final String catStructureNether = "Nether Structures";
@@ -75,6 +76,7 @@ public class ConfigsStructures {
 
 
         enableLacunaTreeGeneration = conf.getBoolean("enableLacunaTreeGeneration", "End Structures", true, "Enables Lacuna Trees Generating In the End.");
+        enableEndDungeon = conf.getBoolean("enableEndDungeon", "End Structures", true, "Enables End Dungeon Generation.");
         endIslandSpawnRate = conf.get("Spawn Rate - End Islands", "End Structures", 121).getInt();
         destituteIslandSpawnRate = conf.get("Spawn Rate - Destitute Islands", "End Structures", 300).getInt();
 

@@ -1,17 +1,11 @@
 package com.NovaCraft.renderer;
 
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.ores.BlockReinforcedVanite;
 import com.NovaCraftBlocks.potion.BlockMoltenVanite;
 import com.NovaCraftBlocks.potion.BlockMoltenVaniteCauldron;
-import com.NovaCraftBlocks.potion.BlockVaniteCauldron;
-
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCauldron;
-import net.minecraft.block.BlockLiquid;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.init.Blocks;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
@@ -23,64 +17,44 @@ public class BlockMoltenVaniteCauldronRenderer implements ISimpleBlockRenderingH
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-			BlockMoltenVaniteCauldron cauldron = (BlockMoltenVaniteCauldron) block;
+		BlockMoltenVaniteCauldron cauldron = (BlockMoltenVaniteCauldron) block;
+		Tessellator tessellator = Tessellator.instance;
 
-	        IIcon side = cauldron.side;
-	        IIcon bottom = cauldron.bottom;
-	        IIcon inner = cauldron.inner;
+		renderer.renderStandardBlock(block, x, y, z);
 
-	        double wallHeight = 1.0D;
-	        double wallThickness = 0.125D;
+		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
 
-	        double innerMin = wallThickness;
-	        double innerMax = 1.0D - wallThickness;
-	        double innerBottomY = wallThickness;
+		int color = block.colorMultiplier(world, x, y, z);
+		float r = (color >> 16 & 255) / 255.0F;
+		float g = (color >> 8 & 255) / 255.0F;
+		float b = (color & 255) / 255.0F;
 
-	        final double epsilon = 0.002D;
+		tessellator.setColorOpaque_F(r, g, b);
 
-	        //Outer bottom
-	        renderer.setRenderBounds(0.0D, 0.0D, 0.0D, 1.0D, wallThickness, 1.0D);
-	        //renderer.renderFaceYNeg(block, x, y, z, bottom); //bottom
-	        renderer.renderFaceYPos(block, x, y, z, side);
-	        renderer.renderFaceXNeg(block, x, y, z, side);
-	        renderer.renderFaceXPos(block, x, y, z, side);
-	        renderer.renderFaceZNeg(block, x, y, z, side);
-	        renderer.renderFaceZPos(block, x, y, z, side);
+		IIcon side = cauldron.side;
+		float f4 = 0.125F;
 
-	        //Outer walls
-	        renderer.setRenderBounds(0.0D, 0.0D, 0.0D, wallThickness, wallHeight, 1.0D); //west
-	        renderer.renderStandardBlock(block, x, y, z);
-	        renderer.setRenderBounds(1.0D - wallThickness, 0.0D, 0.0D, 1.0D, wallHeight, 1.0D); //east
-	        renderer.renderStandardBlock(block, x, y, z);
-	        renderer.setRenderBounds(wallThickness, 0.0D, 0.0D, 1.0D - wallThickness, wallHeight, wallThickness); //north
-	        renderer.renderStandardBlock(block, x, y, z);
-	        renderer.setRenderBounds(wallThickness, 0.0D, 1.0D - wallThickness, 1.0D - wallThickness, wallHeight, 1.0D); //south
-	        renderer.renderStandardBlock(block, x, y, z);
+		// outer walls (same as vanilla)
+		renderer.renderFaceXPos(block, x - 1 + f4, y, z, side);
+		renderer.renderFaceXNeg(block, x + 1 - f4, y, z, side);
+		renderer.renderFaceZPos(block, x, y, z - 1 + f4, side);
+		renderer.renderFaceZNeg(block, x, y, z + 1 - f4, side);
 
-	        //Inner bottom
-	        renderer.setRenderBounds(innerMin, innerBottomY, innerMin, innerMax, innerBottomY + 0.001D, innerMax);
-	        renderer.renderFaceYPos(block, x, y + innerBottomY, z, inner);
+		// inner
+		IIcon inner = cauldron.inner;
+		renderer.renderFaceYPos(block, x, y - 1 + 0.25F, z, inner);
+		renderer.renderFaceYNeg(block, x, y + 1 - 0.75F, z, inner);
 
-	        //Inner vertical walls
-	        renderer.setRenderBounds(innerMin + epsilon, innerBottomY, innerMin, innerMin + epsilon * 2, 1.0D, innerMax);
-	        renderer.renderFaceXPos(block, x, y, z, inner);
+		// liquid level
+		//int meta = world.getBlockMetadata(x, y, z);
+		//if (meta == 0)
+		//{
+			IIcon liquid = BlockMoltenVanite.MoltenVaniteStillIcon;
+			float level = 0.95F; //+ //meta * 0.1875F;
+			renderer.renderFaceYPos(block, x, y - 1 + level, z, liquid);
+		//}
 
-	        renderer.setRenderBounds(innerMax - epsilon * 2, innerBottomY, innerMin, innerMax - epsilon, 1.0D, innerMax);
-	        renderer.renderFaceXNeg(block, x, y, z, inner);
-
-	        renderer.setRenderBounds(innerMin, innerBottomY, innerMin + epsilon, innerMax, 1.0D, innerMin + epsilon * 2);
-	        renderer.renderFaceZPos(block, x, y, z, inner);
-
-	        renderer.setRenderBounds(innerMin, innerBottomY, innerMax - epsilon * 2, innerMax, 1.0D, innerMax - epsilon);
-	        renderer.renderFaceZNeg(block, x, y, z, inner);
-	        
-	        //Liquid in Cauldron
-	        IIcon vanite = BlockMoltenVanite.MoltenVaniteStillIcon;
-	        double level = 0.9375D;
-	        renderer.setRenderBounds(innerMin, level, innerMin, innerMax, level + 0.001D, innerMax);
-	        renderer.renderFaceYPos(block, x, y, z, vanite);
-	        
-	        return true;
+		return true;
 	}
 
 	@Override

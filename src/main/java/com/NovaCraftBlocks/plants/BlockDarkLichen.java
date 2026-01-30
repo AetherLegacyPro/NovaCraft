@@ -1,11 +1,13 @@
 package com.NovaCraftBlocks.plants;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.block.material.*;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.item.Item;
 import net.minecraft.world.*;
 import net.minecraft.block.*;
+import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.*;
 import java.util.*;
 
@@ -25,7 +27,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
+public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock, IShearable
 {
 	public static final int[] colors = new int[]{0x110034, 0x110034, 0x110034, 0x110034, 0x110034, 0x110034, 0x110034, 0x110034};
 	private IIcon infusedOverlay;
@@ -454,6 +456,18 @@ public class BlockDarkLichen extends BlockBush implements IEmissiveLayerBlock
 			}
 		} 
         
+    }
+
+    public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
+    {
+        return true;
+    }
+
+    @Override
+    public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1, 0));
+        return ret;
     }
     
 }

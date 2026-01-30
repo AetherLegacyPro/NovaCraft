@@ -60,7 +60,7 @@ public class ItemSculkStar extends Item {
 			&& (world.getBlock(x, y - 1, z + 1) == NovaCraftBlocks.sculk_bricks)
 			&& (world.getBlock(x + 1, y - 1, z - 1) == NovaCraftBlocks.sculk_bricks)
 			&& (world.getBlock(x + 1, y - 1, z + 1) == NovaCraftBlocks.sculk_bricks)
-			&& (world.getBlock(x - 1, y - 1, z + 1) == NovaCraftBlocks.sculk_bricks)
+			&& (world.getBlock(x - 1, y - 1, z - 1) == NovaCraftBlocks.sculk_bricks)
 			&& (world.getBlock(x - 1, y - 1, z + 1) == NovaCraftBlocks.sculk_bricks)
 						
 			&& (world.getBlock(x + 2, y - 1, z) == NovaCraftBlocks.budding_echo_block)
@@ -151,7 +151,7 @@ public class ItemSculkStar extends Item {
 			&& (world.getBlock(x + 2, y - 1, z - 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x - 1, y - 1, z - 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x - 2, y - 1, z - 3) == NovaCraftBlocks.sculk_block)
-			&& (world.getBlock(x - 3, y - 1, z - 3) == NovaCraftBlocks.sculk_block)						
+			&& (world.getBlock(x + 3, y - 1, z + 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x, y - 1, z + 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x + 1, y - 1, z + 3) == NovaCraftBlocks.sculk_block)
 			&& (world.getBlock(x + 2, y - 1, z + 3) == NovaCraftBlocks.sculk_block)
@@ -176,7 +176,7 @@ public class ItemSculkStar extends Item {
 			&& (world.getBlock(x + 2, y, z - 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x - 1, y, z - 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x - 2, y, z - 3) == NovaCraftBlocks.sculk_tentacle_2)
-			&& (world.getBlock(x - 3, y, z - 3) == NovaCraftBlocks.sculk_tentacle_2)						
+			&& (world.getBlock(x + 3, y, z + 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x, y, z + 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x + 1, y, z + 3) == NovaCraftBlocks.sculk_tentacle_2)
 			&& (world.getBlock(x + 2, y, z + 3) == NovaCraftBlocks.sculk_tentacle_2)
@@ -235,14 +235,8 @@ public class ItemSculkStar extends Item {
 			&& (world.getBlock(x - 4, y, z + 4) == NovaCraftBlocks.nullstone_bricks)
 			&& (world.getBlock(x - 4, y + 1, z + 4) == NovaCraftBlocks.nullstone_bricks)
 			&& (world.getBlock(x - 4, y + 2, z + 4) == NovaCraftBlocks.nullstone_bricks)
-			&& (world.getBlock(x - 4, y + 3, z + 4) == Blocks.diamond_block)
-			
-			
-				
-				
-				
-				
-				) {
+			&& (world.getBlock(x - 4, y + 3, z + 4) == Blocks.diamond_block)) {
+
 				player.triggerAchievement(AchievementsNovaCraft.summoning_an_ancient_evil);
 				world.setBlock(x, y, z, NovaCraftBlocks.activated_grimstone_shrieker);
 				
@@ -252,7 +246,7 @@ public class ItemSculkStar extends Item {
 				world.setBlock(x, y - 1, z + 1, NovaCraftBlocks.cracked_grimstone_bricks);
 				world.setBlock(x + 1, y - 1, z - 1, NovaCraftBlocks.cracked_grimstone_bricks);
 				world.setBlock(x + 1, y - 1, z + 1, NovaCraftBlocks.cracked_grimstone_bricks);
-				world.setBlock(x - 1, y - 1, z + 1, NovaCraftBlocks.cracked_grimstone_bricks);
+				world.setBlock(x - 1, y - 1, z - 1, NovaCraftBlocks.cracked_grimstone_bricks);
 				world.setBlock(x - 1, y - 1, z + 1, NovaCraftBlocks.cracked_grimstone_bricks);
 				
 				world.setBlock(x + 4, y - 1, z + 4, Blocks.air);
@@ -347,7 +341,7 @@ public class ItemSculkStar extends Item {
 				world.setBlock(x + 2, y - 1, z - 3, Blocks.air);
 				world.setBlock(x - 1, y - 1, z - 3, Blocks.air);
 				world.setBlock(x - 2, y - 1, z - 3, Blocks.air);
-				world.setBlock(x - 3, y - 1, z - 3, Blocks.air);						
+				world.setBlock(x + 3, y - 1, z + 3, Blocks.air);
 				world.setBlock(x, y - 1, z + 3, Blocks.air);
 				world.setBlock(x + 1, y - 1, z + 3, Blocks.air);
 				world.setBlock(x + 2, y - 1, z + 3, Blocks.air);
@@ -372,7 +366,7 @@ public class ItemSculkStar extends Item {
 				world.setBlock(x + 2, y, z - 3, Blocks.air);
 				world.setBlock(x - 1, y, z - 3, Blocks.air);
 				world.setBlock(x - 2, y, z - 3, Blocks.air);
-				world.setBlock(x - 3, y, z - 3, Blocks.air);						
+				world.setBlock(x + 3, y, z + 3, Blocks.air);
 				world.setBlock(x, y, z + 3, Blocks.air);
 				world.setBlock(x + 1, y, z + 3, Blocks.air);
 				world.setBlock(x + 2, y, z + 3, Blocks.air);
@@ -430,17 +424,12 @@ public class ItemSculkStar extends Item {
 				--heldItem.stackSize;
 		}
 		else {
-				if (world.isRemote) {
-			player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.warden_altar_invaild_structure")));
-				}
+			if (world.isRemote) {
+				player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.warden_altar_invaild_structure")));
+			}
 		}
 		
 		return true;
 	}
-	
-	protected String getShriekerSound()
-    {
-        return "nova_craft:warden_altar.shriek";
-    }
 	
 }

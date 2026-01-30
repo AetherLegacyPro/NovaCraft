@@ -3,6 +3,9 @@ package com.NovaCraft.Items;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.NovaCraft.Item.Block.ItemBlockDeepoidBrewingStand;
+import com.NovaCraft.Items.Potions.*;
+import com.NovaCraft.Items.Staffs.*;
 import com.NovaCraft.Items.Tools.*;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.Armor.ItemAncientLeggings;
@@ -75,46 +78,12 @@ import com.NovaCraft.Items.Food.ItemRawFrogLeg;
 import com.NovaCraft.Items.Food.ItemRawGlowSquid;
 import com.NovaCraft.Items.Food.ItemSculkFlesh;
 import com.NovaCraft.Items.Music.ItemDisk5;
-import com.NovaCraft.Items.Potions.ItemDeepfireBlend;
-import com.NovaCraft.Items.Potions.ItemPotionFireResistanceExtended;
-import com.NovaCraft.Items.Potions.ItemPotionHaste;
-import com.NovaCraft.Items.Potions.ItemPotionHasteII;
-import com.NovaCraft.Items.Potions.ItemPotionInvisibilityExtended;
-import com.NovaCraft.Items.Potions.ItemPotionJumpExtended;
-import com.NovaCraft.Items.Potions.ItemPotionJumpIII;
-import com.NovaCraft.Items.Potions.ItemPotionNightVisionExtended;
-import com.NovaCraft.Items.Potions.ItemPotionRegenExtended;
-import com.NovaCraft.Items.Potions.ItemPotionRegenIII;
-import com.NovaCraft.Items.Potions.ItemPotionResistance;
-import com.NovaCraft.Items.Potions.ItemPotionSpeedExtended;
-import com.NovaCraft.Items.Potions.ItemPotionSpeedIII;
-import com.NovaCraft.Items.Potions.ItemPotionStrengthExtended;
-import com.NovaCraft.Items.Potions.ItemPotionStrengthIII;
-import com.NovaCraft.Items.Potions.ItemPotionWaterBreathingExtended;
-import com.NovaCraft.Items.Potions.ItemVaniteBottle;
 import com.NovaCraft.Items.Shards.ItemAnomalousShard;
 import com.NovaCraft.Items.Shards.ItemInfusedAetherShard;
 import com.NovaCraft.Items.Shards.ItemInfusedCopartzShard;
 import com.NovaCraft.Items.Shards.ItemInfusedLarimarShard;
 import com.NovaCraft.Items.Shards.ItemInfusedTsavorokiteShard;
 import com.NovaCraft.Items.Shards.ItemInfusedYttrlinsiteShard;
-import com.NovaCraft.Items.Staffs.ItemCrystalGrowthStaff;
-import com.NovaCraft.Items.Staffs.ItemCrystaliteBow;
-import com.NovaCraft.Items.Staffs.ItemCrystallizedVaniteBow;
-import com.NovaCraft.Items.Staffs.ItemDiamondBow;
-import com.NovaCraft.Items.Staffs.ItemDiamondFirechargeLauncher;
-import com.NovaCraft.Items.Staffs.ItemEnderLordStaff;
-import com.NovaCraft.Items.Staffs.ItemIceSceptor;
-import com.NovaCraft.Items.Staffs.ItemKlangiteBow;
-import com.NovaCraft.Items.Staffs.ItemKlangiteFirechargeLauncher;
-import com.NovaCraft.Items.Staffs.ItemKylaziteBow;
-import com.NovaCraft.Items.Staffs.ItemNetheriteBow;
-import com.NovaCraft.Items.Staffs.ItemOphidianBow;
-import com.NovaCraft.Items.Staffs.ItemPrimevalHorn;
-import com.NovaCraft.Items.Staffs.ItemSculkHorn;
-import com.NovaCraft.Items.Staffs.ItemTophiniteBow;
-import com.NovaCraft.Items.Staffs.ItemVaniteFirechargeLauncher;
-import com.NovaCraft.Items.Staffs.ItemWardenBow;
 import com.NovaCraft.Items.goathorn.ItemGoatHorn;
 import com.NovaCraft.Items.goathorn.ItemGoatHornAdmire;
 import com.NovaCraft.Items.goathorn.ItemGoatHornCall;
@@ -185,7 +154,8 @@ public class NovaCraftItems {
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy, nullified_vanite_alloy;
 	public static Item blazinite_powder, deepfire_blend, static_blend, end_portal_sealent;
-	
+
+	public static Item awkward_potion;
 	public static Item potion_speed_extended, potion_speed_III;
 	public static Item potion_strength_extended, potion_strength_III;
 	public static Item potion_regen_extended, potion_regen_III;
@@ -205,7 +175,7 @@ public class NovaCraftItems {
 	
 	//-------------------------------------------------------------------------------------------------------------------------------
 	//Weapons and Tools Overworld
-	public static Item diamond_bow, netherite_bow, eerie_sword, sculked_blade, vanite_trident, crystal_growth_staff, ice_sceptor, ancient_city_totem;
+	public static Item diamond_bow, netherite_bow, eerie_sword, sculked_blade, vanite_trident, crystal_growth_staff, ice_sceptor, ancient_city_totem, hunger_staff;
 	public static Item pherithium_sword, pherithium_pickaxe, pherithium_shovel, pherithium_axe, pherithium_hoe, pherithium_shickaxe, reinforced_pherithium_shickaxe;
 	public static Item iridium_sword, iridium_pickaxe, iridium_shovel, iridium_axe, iridium_hoe;
 	public static Item warden_sword, warden_pickaxe, warden_bow, warden_shovel, warden_axe, warden_hoe;
@@ -247,7 +217,8 @@ public class NovaCraftItems {
 	public static Item kylazite_helmet, kylazite_chestplate, kylazite_leggings, kylazite_boots;	
 	public static Item guardian_helmet, guardian_chestplate, guardian_leggings, guardian_boots;
 	//-------------------------------------------------------------------------------------------------------------------------------
-	
+
+	public static Item deepoid_brewing_stand_item;
 	public static Item novacraft_spawn_egg;
 	
 	public static void initialization() {
@@ -327,6 +298,7 @@ public class NovaCraftItems {
 		ionizatior_powder = register("ionizatior_powder", new ItemFireproof().setTextureName(NovaCraft.find("ionizatior_powder")));		
 		blazinite_powder = register("blazinite_powder", new ItemFireproof().setTextureName(NovaCraft.find("blazinite_powder")));		
 		deepoid_scales = register("deepoid_scales", new ItemFireproof().setTextureName(NovaCraft.find("deepoid_scales")));
+		deepoid_brewing_stand_item = register("deepoid_brewing_stand_item", new ItemBlockDeepoidBrewingStand().setTextureName(NovaCraft.find("deepoid_brewing_stand_item")));
 		deepoid_horn = register("deepoid_horn", new ItemFireproof().setTextureName(NovaCraft.find("deepoid_horn")));
 		deep_one_scales = register("deep_one_scales", new ItemFireproof().setTextureName(NovaCraft.find("deep_one_scales")));
 		deep_one_bone = register("deep_one_bone", new ItemFireproof().setTextureName(NovaCraft.find("deep_one_bone")));
@@ -338,7 +310,6 @@ public class NovaCraftItems {
 		wardling_dust = register("wardling_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("wardling_dust")));
 		ancient_city_artifact = register("ancient_city_artifact", new ItemNovaCraft(NovaCraftCreativeTabs.items).setMaxStackSize(1).setTextureName(NovaCraft.find("ancient_city_artifact")));
 		powered_ancient_city_artifact = register("powered_ancient_city_artifact", new ItemPoweredAncientCityArtifact().setTextureName(NovaCraft.find("powered_ancient_city_artifact")));
-		static_blend = register("static_blend", new ItemStaticBlend().setTextureName(NovaCraft.find("static_blend")));
 		nulk_dust = register("nulk_dust", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("nulk_dust")));
 		dimensional_sealent = register("dimensional_sealent", new ItemDimensionalSealent().setTextureName(NovaCraft.find("dimensional_sealent")));
 		outsider_essence = register("outsider_essence", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("outsider_essence")));
@@ -361,22 +332,24 @@ public class NovaCraftItems {
 		vanite_bottle = register("vanite_bottle", new ItemVaniteBottle().setTextureName(NovaCraft.find("vanite_bottle")));
 		deepfire_blend = register("deepfire_blend", new ItemDeepfireBlend().setTextureName(NovaCraft.find("deepfire_blend")));
 		end_portal_sealent = register("end_portal_sealent", new ItemEndPortalSealent().setTextureName(NovaCraft.find("end_portal_sealent")));
-		
-		potion_speed_extended = register("potion_speed_extended", new ItemPotionSpeedExtended().setTextureName(NovaCraft.find("potion_speed")));
-		potion_speed_III = register("potion_speed_III", new ItemPotionSpeedIII().setTextureName(NovaCraft.find("potion_speed")));		
-		potion_strength_extended = register("potion_strength_extended", new ItemPotionStrengthExtended().setTextureName(NovaCraft.find("potion_strength")));
-		potion_strength_III = register("potion_strength_III", new ItemPotionStrengthIII().setTextureName(NovaCraft.find("potion_strength")));		
-		potion_regen_extended = register("potion_regen_extended", new ItemPotionRegenExtended().setTextureName(NovaCraft.find("potion_regen")));
-		potion_regen_III = register("potion_regen_III", new ItemPotionRegenIII().setTextureName(NovaCraft.find("potion_regen")));		
-		potion_jump_extended = register("potion_jump_extended", new ItemPotionJumpExtended().setTextureName(NovaCraft.find("potion_jump")));
-		potion_jump_III = register("potion_jump_III", new ItemPotionJumpIII().setTextureName(NovaCraft.find("potion_jump")));		
-		potion_water_breathing_extended = register("potion_water_breathing_extended", new ItemPotionWaterBreathingExtended().setTextureName(NovaCraft.find("potion_water_breathing")));
-		potion_night_vision_extended = register("potion_night_vision_extended", new ItemPotionNightVisionExtended().setTextureName(NovaCraft.find("potion_night_vision")));
-		potion_invisibility_extended = register("potion_invisibility_extended", new ItemPotionInvisibilityExtended().setTextureName(NovaCraft.find("potion_invisibility")));
-		potion_fire_resistance_extended = register("potion_fire_resistance_extended", new ItemPotionFireResistanceExtended().setTextureName(NovaCraft.find("potion_fire_resistance")));		
+
+		awkward_potion = register("awkward_potion", new ItemAwkwardPotion());
+		potion_speed_extended = register("potion_speed_extended", new ItemPotionSpeedExtended());
+		potion_speed_III = register("potion_speed_III", new ItemPotionSpeedIII());
+		potion_strength_extended = register("potion_strength_extended", new ItemPotionStrengthExtended());
+		potion_strength_III = register("potion_strength_III", new ItemPotionStrengthIII());
+		potion_regen_extended = register("potion_regen_extended", new ItemPotionRegenExtended());
+		potion_regen_III = register("potion_regen_III", new ItemPotionRegenIII());
+		potion_jump_extended = register("potion_jump_extended", new ItemPotionJumpExtended());
+		potion_jump_III = register("potion_jump_III", new ItemPotionJumpIII());
+		potion_water_breathing_extended = register("potion_water_breathing_extended", new ItemPotionWaterBreathingExtended());
+		potion_night_vision_extended = register("potion_night_vision_extended", new ItemPotionNightVisionExtended());
+		potion_invisibility_extended = register("potion_invisibility_extended", new ItemPotionInvisibilityExtended());
+		potion_fire_resistance_extended = register("potion_fire_resistance_extended", new ItemPotionFireResistanceExtended());
 		potion_haste = register("potion_haste", new ItemPotionHaste().setTextureName(NovaCraft.find("potion_haste")));
 		potion_haste_II = register("potion_haste_II", new ItemPotionHasteII().setTextureName(NovaCraft.find("potion_haste")));
 		potion_resistance = register("potion_resistance", new ItemPotionResistance().setTextureName(NovaCraft.find("potion_resistance")));
+		static_blend = register("static_blend", new ItemStaticBlend().setTextureName(NovaCraft.find("static_blend")));
 		
 		dark_essence = register("dark_essence", new ItemDarkEssence().setTextureName(NovaCraft.find("dark_essence")));
 		eternal_caller = register("eternal_caller", new ItemEternalCaller().setTextureName(NovaCraft.find("eternal_caller")));
@@ -565,6 +538,7 @@ public class NovaCraftItems {
 		ice_sceptor = register("ice_sceptor", new ItemIceSceptor().setTextureName(NovaCraft.find("ice_sceptor")));
 		ender_lord_staff = register("ender_lord_staff", new ItemEnderLordStaff().setTextureName(NovaCraft.find("ender_lord_staff")));
 		crystal_growth_staff = register("crystal_growth_staff", new ItemCrystalGrowthStaff().setTextureName(NovaCraft.find("crystal_growth_staff")));
+		hunger_staff = register("hunger_staff", new ItemHungerStaff().setTextureName(NovaCraft.find("hunger_staff")));
 		
 		serpent_crown = register("serpent_crown", new ItemSerpentCrown().setTextureName(NovaCraft.find("serpent_crown")));
 		vanite_blue_crown = register("vanite_blue_crown", new ItemVaniteBlueCrown().setTextureName(NovaCraft.find("vanite_blue_crown")));

@@ -67,7 +67,7 @@ public class ItemsFireProofNugget extends Item {
     }
     
     static {
-        types = new String[] { "iridium_nugget", "vanite_nugget" };
+        types = new String[] { "iridium_nugget", "vanite_nugget", "impure_klangite_nugget" };
     }
     
     public boolean hasCustomEntity(final ItemStack stack) {

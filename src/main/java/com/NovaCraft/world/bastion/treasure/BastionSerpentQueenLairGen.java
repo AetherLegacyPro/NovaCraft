@@ -400,7 +400,7 @@ public class BastionSerpentQueenLairGen extends WorldGenerator
 		world.setBlock(i + 10, j + 1, k + 7, Blocks.air, 0, 2);
 		world.setBlock(i + 11, j + 1, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 12, j + 1, k + 7, Blocks.lava, 0, 2);
-		world.setBlock(i + 13, j + 1, k + 7, NovaCraftBlocks.vanite_cauldron, 0, 2);
+		world.setBlock(i + 13, j + 1, k + 7, NovaCraftBlocks.lava_vanite_cauldron, 0, 2);
 		world.setBlock(i + 15, j + 1, k + 7, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i, j + 1, k + 8, NovaCraftBlocks.basal_bricks, 0, 2);
 		world.setBlock(i + 1, j + 1, k + 8, Blocks.air, 0, 2);
@@ -435,7 +435,7 @@ public class BastionSerpentQueenLairGen extends WorldGenerator
 		world.setBlock(i + 14, j + 1, k + 9, Blocks.air, 0, 2);
 		world.setBlock(i + 15, j + 1, k + 9, NovaCraftBlocks.cracked_basal_bricks, 0, 2);
 		world.setBlock(i, j + 1, k + 10, NovaCraftBlocks.basal_bricks, 0, 2);
-		world.setBlock(i + 1, j + 1, k + 10, Blocks.cauldron, 0, 2);
+		world.setBlock(i + 1, j + 1, k + 10, NovaCraftBlocks.lava_vanite_cauldron, 0, 2);
 		world.setBlock(i + 2, j + 1, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 3, j + 1, k + 10, Blocks.air, 0, 2);
 		world.setBlock(i + 4, j + 1, k + 10, Blocks.air, 0, 2);

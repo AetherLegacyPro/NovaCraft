@@ -217,7 +217,7 @@ public class EntityRelik extends EntityMob
         final int j = MathHelper.floor_double(this.boundingBox.minY);
         final int k = MathHelper.floor_double(this.posZ);
         final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
-        return (this.worldObj.getBlock(i, j - 1, k) == Blocks.stonebrick) && this.worldObj.getBlockLightValue(i, j, k) < 8 && this.worldObj.provider.dimensionId == 0 && this.posY <= 45.0D && canSpawn;
+        return (this.worldObj.getBlock(i, j - 1, k) == Blocks.stonebrick) && this.worldObj.getBlockLightValue(i, j, k) < 11 && this.worldObj.provider.dimensionId == 0 && this.posY <= 45.0D && canSpawn;
 
     }
 

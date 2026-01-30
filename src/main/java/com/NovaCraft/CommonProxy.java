@@ -1,9 +1,6 @@
 package com.NovaCraft;
 
-import com.NovaCraft.TileEntity.ContainerLegendaryBeacon;
-import com.NovaCraft.TileEntity.TileEntityDeepoidFurnace;
-import com.NovaCraft.TileEntity.TileEntityIridiumFurnace;
-import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
+import com.NovaCraft.TileEntity.*;
 import com.NovaCraft.container.*;
 import com.NovaCraft.gui.*;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -56,6 +53,9 @@ public class CommonProxy implements IGuiHandler
 			case 7: {
 				return new GuiIridiumFurnace(player.inventory, (TileEntityIridiumFurnace)tile_entity);
 				}
+			case 8: {
+				return new GuiDeepoidBrewingStand(player.inventory, (TileEntityDeepoidBrewingStand)tile_entity);
+			   }
             }
         
         return null;
@@ -90,6 +90,9 @@ public class CommonProxy implements IGuiHandler
 			case 7: {
 				return new IridiumFurnaceContainer(player.inventory, (TileEntityIridiumFurnace)tile_entity);
 				}
+			case 8: {
+				return new DeepoidBrewingStandContainer(player.inventory, (TileEntityDeepoidBrewingStand)tile_entity);
+			  }
             }
         return null;
     }

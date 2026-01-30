@@ -51,6 +51,7 @@ public class ConfigsWorld {
     public static boolean enableAdditonalRedstoneOreGeneration;
     public static boolean enableAdditonalLapisOreGeneration;
     public static boolean enableMountainOres;
+    public static int diamondOreRarity;
 
     public static boolean enableMossGeneration;
     public static boolean enableGlowLichenGeneration;
@@ -139,6 +140,7 @@ public class ConfigsWorld {
         enableAdditonalGoldOreGeneration = conf.getBoolean("enableAdditonalGoldOreGeneration", "Overworld Decoration", false, "Enables More Gold Ore to generate within Caves.");
         enableAdditonalRedstoneOreGeneration = conf.getBoolean("enableAdditonalRedstoneOreGeneration", "Overworld Decoration", false, "Enables More Redstone Ore to generate within Caves.");
         enableAdditonalCoalOreGeneration = conf.getBoolean("enableAdditonalCoalOreGeneration", "Overworld Decoration", true, "Enables More Coal Ore to generate within Caves.");
+        diamondOreRarity = conf.get("If you do not disable the ore generation changes, Default is 1 attempt per chunk", "diamondOreRarity", 1).getInt();
 
         enableMountainOres = conf.getBoolean("enableMountainOres", "Overworld Decoration", true, "Enables Coal, Iron, Gold, and Emerald generating above y = 90.");
         enableSculkGeneration = conf.getBoolean("enableSculkGeneration", "Overworld Decoration", true, "Enables Sculk and it's variations to generate outside sculk geos/dungeons.");

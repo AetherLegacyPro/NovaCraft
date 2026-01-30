@@ -67,7 +67,7 @@ public class ItemVaniteCauldron extends Item
             if (NovaCraftBlocks.vanite_cauldron.canPlaceBlockAt(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_))
             {
                 --p_77648_1_.stackSize;
-                p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, NovaCraftBlocks.vanite_cauldron);
+                p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, NovaCraftBlocks.lava_vanite_cauldron, 0, 3);
                 p_77648_3_.playSoundEffect(p_77648_4_, p_77648_5_, p_77648_6_, "nova_craft:grimstone_bricks.place", 1.0F, p_77648_3_.rand.nextFloat() - p_77648_3_.rand.nextFloat() * 0.2F + 1.2F);
             }
 

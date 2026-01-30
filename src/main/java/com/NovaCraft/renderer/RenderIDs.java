@@ -22,7 +22,9 @@ public class RenderIDs {
 	
 	public static final int EMISSIVE_DOUBLE_LAYER = RenderingRegistry.getNextAvailableRenderId();
 	public static final int EMISSIVE_DOUBLE_LAYER_3D = RenderingRegistry.getNextAvailableRenderId();
-	
+
+	public static final int POTION_VANITE_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
+	public static final int LAVA_VANITE_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
 	public static final int VANITE_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
 	public static final int MOLTEN_VANITE_CAULDRON = RenderingRegistry.getNextAvailableRenderId();
 	public static final int MOLTEN_VANITE_CRYSTAL_CAULDRON = RenderingRegistry.getNextAvailableRenderId();

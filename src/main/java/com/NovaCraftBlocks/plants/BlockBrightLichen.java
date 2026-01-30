@@ -8,6 +8,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.*;
 import net.minecraft.block.*;
+import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.*;
 import java.util.*;
 
@@ -23,7 +24,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBrightLichen extends BlockBush implements IEmissiveLayerBlock
+public class BlockBrightLichen extends BlockBush implements IEmissiveLayerBlock, IShearable
 {
 	public static final int[] colors = new int[]{0xfbff71, 0xfbff77, 0xcfff77, 0x9dff77, 0x77ffa4, 0x77ffd8, 0x77e8ff, 0x48ffbc};
 	private IIcon infusedOverlay;
@@ -66,11 +67,6 @@ public class BlockBrightLichen extends BlockBush implements IEmissiveLayerBlock
     
     public boolean renderAsNormalBlock() {
         return false;
-    }
-    
-    public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
-    {
-        return true;
     }
     
     public void setBlockBoundsForItemRender() {
@@ -448,15 +444,23 @@ public class BlockBrightLichen extends BlockBush implements IEmissiveLayerBlock
 			}
 		}
     }
-    
-    protected boolean canSilkHarvest() {
-	    return true;
-	 }
-		
+
  	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
 	  {
 	    return null;
 	  }
+
+    public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
+    {
+        return true;
+    }
+
+    @Override
+    public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1, 0));
+        return ret;
+    }
 }
 
 

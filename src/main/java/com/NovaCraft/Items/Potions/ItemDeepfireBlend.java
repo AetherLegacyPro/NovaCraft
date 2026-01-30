@@ -13,8 +13,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class ItemDeepfireBlend extends Item {
 	
@@ -35,6 +39,11 @@ public class ItemDeepfireBlend extends Item {
             meta = 1;
         }
         return this.icon[meta];
+    }
+
+    @Override
+    public boolean hasEffect(ItemStack stack, int pass) {
+        return true;
     }
 	
 	public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
@@ -91,6 +100,11 @@ public class ItemDeepfireBlend extends Item {
             --p_77648_1_.stackSize;
             return true;
         }
+    }
+
+    public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+        tooltip.add(EnumChatFormatting.LIGHT_PURPLE + "" + StatCollector.translateToLocal("tooltip.potion.deepfire_blend.desc"));
+        tooltip.add(EnumChatFormatting.LIGHT_PURPLE + "" + StatCollector.translateToLocal("tooltip.potion.deepfire_blend2.desc"));
     }
 	
 }

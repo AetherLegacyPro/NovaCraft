@@ -15,9 +15,7 @@ import com.NovaCraft.entity.hardmode.EntityHardmodeSkeleton;
 import com.NovaCraft.entity.hardmode.EntityHardmodeSlime;
 import com.NovaCraft.entity.hardmode.EntityHardmodeSpider;
 import com.NovaCraft.entity.hardmode.EntityHardmodeZombie;
-import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraft.registry.NovaCraftFuelHander;
-import com.NovaCraft.registry.NovaCraftRegistries;
+import com.NovaCraft.registry.*;
 import com.NovaCraft.world.NCWorldGeneratorDeeperCaves;
 import com.NovaCraft.world.NCWorldGeneratorPlants;
 import com.NovaCraft.world.NCWorldGeneratorPost;
@@ -165,6 +163,7 @@ public class NovaCraft {
         EntitiesNovaCraft.addSpawns();
         NovaCraftCreativeTabs.initialization();
         NovaCraftRegistries.register();
+        DeepoidBrewingRegistry.init();
         GameRegistry.registerFuelHandler(new NovaCraftFuelHander());
         AchievementsNovaCraft.initialization();
         NovaCraftTileEntities.initialization();

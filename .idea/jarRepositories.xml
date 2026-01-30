@@ -31,5 +31,10 @@
       <option name="name" value="forge" />
       <option name="url" value="https://maven.minecraftforge.net" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="ChickenBones" />
+      <option name="name" value="ChickenBones" />
+      <option name="url" value="http://chickenbones.net/maven/" />
+    </remote-repository>
   </component>
 </project>

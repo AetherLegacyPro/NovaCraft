@@ -2759,8 +2759,10 @@ public class MansionFloor3Gen2 extends WorldGenerator {
                 return new ItemStack(NovaCraftBlocks.hydnum_mushroom, random.nextInt(2) + 1);
             case 9:
                 return new ItemStack(NovaCraftBlocks.rozite_mushroom, random.nextInt(2) + 1);
-            default: {
+            case 10:
                 return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(2) + 2, 1);
+            default: {
+                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(6) + 2, 2);
             }
         }
     }

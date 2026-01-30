@@ -1,14 +1,6 @@
 package com.NovaCraft;
 
-import com.NovaCraft.TileEntity.AncientChestRenderer;
-import com.NovaCraft.TileEntity.TileEntityAncientChest;
-import com.NovaCraft.TileEntity.TileEntityAncientChestRenderer;
-import com.NovaCraft.TileEntity.TileEntityDeepOneEgg;
-import com.NovaCraft.TileEntity.TileEntityDeepOneEggActivated;
-import com.NovaCraft.TileEntity.TileEntityDeepOneEggActivatedRenderer;
-import com.NovaCraft.TileEntity.TileEntityDeepOneEggRenderer;
-import com.NovaCraft.TileEntity.TileEntityUnbreakbleAncientChest;
-import com.NovaCraft.TileEntity.UnbreakableAncientChestRenderer;
+import com.NovaCraft.TileEntity.*;
 import com.NovaCraft.entity.renderer.DeepOneEggActivatedRenderer;
 import com.NovaCraft.entity.renderer.DeepOneEggRenderer;
 import com.NovaCraft.entity.renderer.RendersNovaCraft;
@@ -51,7 +43,9 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new BlockEndiumPlantRenderer());
 		
 		RenderingRegistry.registerBlockHandler(new BlockNullcubeSlimeRenderer());
-		
+
+		RenderingRegistry.registerBlockHandler(new BlockPotionVaniteCauldronRenderer());
+		RenderingRegistry.registerBlockHandler(new BlockLavaVaniteCauldronRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockVaniteCauldronRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockMoltenVaniteCauldronRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockMoltenCrystalCauldronRenderer());

@@ -1391,7 +1391,7 @@ public class NCStructureStrongholdPieces
                 //this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 8, 3, 8, p_74875_3_); //
                 //this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 8, 3, 9, p_74875_3_);
 
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_furnace, 2, 6, 2, 5, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_furnace, 2, 6, 2, 5, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 6, 1, 5, p_74875_3_);
 
                 this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 5, 1, 5, p_74875_3_);
@@ -1970,6 +1970,7 @@ public class NCStructureStrongholdPieces
     public static class NCPortalRoom extends NCStructureStrongholdPieces.Stronghold
     {
         private boolean hasSpawner;
+        private boolean hasSpawner2;
 
         public NCPortalRoom() {}
 
@@ -1984,12 +1985,14 @@ public class NCStructureStrongholdPieces
         {
             super.func_143012_a(p_143012_1_);
             p_143012_1_.setBoolean("Mob", this.hasSpawner);
+            p_143012_1_.setBoolean("Mob", this.hasSpawner2);
         }
 
         protected void func_143011_b(NBTTagCompound p_143011_1_)
         {
             super.func_143011_b(p_143011_1_);
             this.hasSpawner = p_143011_1_.getBoolean("Mob");
+            this.hasSpawner2 = p_143011_1_.getBoolean("Mob2");
         }
 
 
@@ -2131,21 +2134,34 @@ public class NCStructureStrongholdPieces
                 this.placeBlockAtCurrentPosition(p_74875_1_, Blocks.end_portal_frame, b3 + (p_74875_2_.nextFloat() > 0.9F ? 4 : 0), 7, 3, 11, p_74875_3_);
             }
 
-            if (!this.hasSpawner)
-            {
+            if (!this.hasSpawner) {
                 int i1 = this.getYWithOffset(3);
                 int k = this.getXWithOffset(5, 6);
                 int l = this.getZWithOffset(5, 6);
 
-                if (p_74875_3_.isVecInside(k, i1, l))
-                {
+                if (p_74875_3_.isVecInside(k, i1, l)) {
                     this.hasSpawner = true;
                     p_74875_1_.setBlock(k, i1, l, Blocks.mob_spawner, 0, 2);
-                    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)p_74875_1_.getTileEntity(k, i1, l);
+                    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner) p_74875_1_.getTileEntity(k, i1, l);
 
-                    if (tileentitymobspawner != null)
-                    {
+                    if (tileentitymobspawner != null) {
                         tileentitymobspawner.func_145881_a().setEntityName("Silverfish");
+                    }
+                }
+            }
+
+            if (!this.hasSpawner2) {
+                int i12 = this.getYWithOffset(1);
+                int k2 = this.getXWithOffset(5, 14);
+                int l2 = this.getZWithOffset(5, 14);
+
+                if (p_74875_3_.isVecInside(k2, i12, l2)) {
+                    this.hasSpawner2 = true;
+                    p_74875_1_.setBlock(k2, i12, l2, Blocks.mob_spawner, 0, 2);
+                    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner) p_74875_1_.getTileEntity(k2, i12, l2);
+
+                    if (tileentitymobspawner != null) {
+                        tileentitymobspawner.func_145881_a().setEntityName("nova_craft.relik");
                     }
                 }
             }

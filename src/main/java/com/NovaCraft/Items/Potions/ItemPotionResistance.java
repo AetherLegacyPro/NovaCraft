@@ -59,6 +59,7 @@ public class ItemPotionResistance extends ItemNovaCraftFood {
     }
 	
 	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+		tooltip.add(EnumChatFormatting.GRAY + "" + StatCollector.translateToLocal("tooltip.potion.resistI.recipe.desc"));
         tooltip.add(EnumChatFormatting.GRAY + "" + StatCollector.translateToLocal("tooltip.potion.resistance.desc"));
     }
 

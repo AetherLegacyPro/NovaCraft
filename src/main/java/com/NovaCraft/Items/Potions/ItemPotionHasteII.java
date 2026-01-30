@@ -59,6 +59,7 @@ public class ItemPotionHasteII extends ItemNovaCraftFood {
     }
 	
 	public void addInformation(final ItemStack stack, final EntityPlayer player, final List tooltip, final boolean who) {
+		tooltip.add(EnumChatFormatting.GRAY + "" + StatCollector.translateToLocal("tooltip.potion.hasteII.recipe.desc"));
         tooltip.add(EnumChatFormatting.GRAY + "" + StatCollector.translateToLocal("tooltip.potion.hasteII.desc"));
     }
 

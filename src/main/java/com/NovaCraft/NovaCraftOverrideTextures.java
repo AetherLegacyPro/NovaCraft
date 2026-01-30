@@ -28,7 +28,7 @@ public class NovaCraftOverrideTextures {
                     OtherModBlocks.deepslate_lapis_ore.setBlockTextureName("deepslate_lapis_ore");
                     OtherModBlocks.deepslate_redstone_ore.setBlockTextureName("deepslate_redstone_ore");
                     OtherModBlocks.deepslate_gold_ore.setBlockTextureName("deepslate_gold_ore");
-                    OtherModBlocks.deepslate_emerald_ore.setBlockTextureName("deepslate_coal_ore");
+                    OtherModBlocks.deepslate_emerald_ore.setBlockTextureName("deepslate_emerald_ore");
                     OtherModBlocks.deepslate_diamond_ore.setBlockTextureName("deepslate_diamond_ore");
                     OtherModBlocks.copper_ore.setBlockTextureName("copper_ore");
                 } catch (Exception ex) {

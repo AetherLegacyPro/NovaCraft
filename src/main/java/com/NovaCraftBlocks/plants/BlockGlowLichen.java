@@ -26,7 +26,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockGlowLichen extends BlockBush implements IEmissiveLayerBlock
+public class BlockGlowLichen extends BlockBush implements IEmissiveLayerBlock, IShearable
 {
 	public static final int[] colors = new int[]{0xfbff71, 0xfbff77, 0xcfff77, 0xcfff77, 0xcfff77, 0xcfff77, 0xcfff77, 0xcfff77};
 	private IIcon infusedOverlay;
@@ -440,6 +440,13 @@ public class BlockGlowLichen extends BlockBush implements IEmissiveLayerBlock
 	public boolean doesEmissiveLayerHaveDirShading(int meta) {
 		return false;
 	}
+
+    @Override
+    public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1, 0));
+        return ret;
+    }
 		
 }
 

@@ -32,7 +32,7 @@ public class MansionGen implements IWorldGenerator {
     }
     public void generateOverworld(World world, Random rand, int x, int z) {
 
-        if (Math.abs(x) >= 12000 || Math.abs(z) >= 12000) {
+        if (Math.abs(x) >= 12000 && Math.abs(z) >= 12000) {
 
             BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
             BiomeDictionary.Type[] biomeList = BiomeDictionary.getTypesForBiome(biome);

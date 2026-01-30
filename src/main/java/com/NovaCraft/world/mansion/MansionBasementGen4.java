@@ -2632,7 +2632,7 @@ public class MansionBasementGen4 extends WorldGenerator {
     }
 
     private ItemStack getShrineLoot(Random random) {
-        int item = random.nextInt(8);
+        int item = random.nextInt(9);
         switch (item) {
             case 0:
                 return new ItemStack(Blocks.pumpkin, random.nextInt(3) + 1);
@@ -2648,6 +2648,8 @@ public class MansionBasementGen4 extends WorldGenerator {
                 return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(16) + 3, 1);
             case 4:
                 return new ItemStack(NovaCraftItems.iridium_nugget, random.nextInt(8) + 3, 0);
+            case 5:
+                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 3, 2);
             default: {
                 return new ItemStack(NovaCraftItems.iridium_nugget, random.nextInt(16) + 3, 1);
             }

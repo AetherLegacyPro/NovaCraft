@@ -56,6 +56,7 @@ public class Configs {
     public static boolean enableStrongholdAlterations;
     public static boolean enableMaxStrongholdSpawners;
     public static boolean enableCrackedEndPortalFrame;
+    public static boolean enableAlternateEndPortalSealentRecipe;
 
     public static final String catVanillaChanges = "Important Options";
     public static final String catGeneration = "New generation";
@@ -141,6 +142,8 @@ public class Configs {
         enableStrongholdAlterations = conf.getBoolean("enableStrongholdAlterations", "Important Options", true, "Enables Stronghold Alterations.");
         enableMaxStrongholdSpawners = conf.getBoolean("enableMaxStrongholdSpawners", "Misc", false, "Enables that most rooms in the stronghold have a spawner in them.");
         enableCrackedEndPortalFrame = conf.getBoolean("enableCrackedEndPortalFrame", "Misc", true, "Enables that several end portal frames are cracked and must be repaired in the Stronghold.");
+        enableAlternateEndPortalSealentRecipe = conf.getBoolean("enableAlternateEndPortalSealentRecipe", "Misc", false, "Enables a standard crafting recipe for the End Portal Sealent instead of using the vanite cauldron.");
+
 
         if (conf.hasChanged()) {
             conf.save();

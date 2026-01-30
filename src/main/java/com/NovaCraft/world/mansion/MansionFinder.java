@@ -17,7 +17,7 @@ public class MansionFinder {
 
     public static ChunkCoordinates getNearestMansion(World world, int playerX, int playerZ) {
 
-        final int spacing = 500; // same as generator
+        final int spacing = 500;
         int playerRegionX = floorDiv(playerX, spacing);
         int playerRegionZ = floorDiv(playerZ, spacing);
 
@@ -32,7 +32,7 @@ public class MansionFinder {
                     int regionZ = playerRegionZ + rz;
 
                     Random regionRand = new Random(world.getSeed() + (long) regionX * 341873128712L + (long) regionZ * 132897987541L);
-                    if (regionRand.nextInt(2) != 1) continue; // same 50% chance as generator
+                    if (regionRand.nextInt(2) != 1) continue;
 
                     int baseX = regionX * spacing + regionRand.nextInt(spacing);
                     int baseZ = regionZ * spacing + regionRand.nextInt(spacing);
@@ -59,7 +59,6 @@ public class MansionFinder {
                         continue;
                     }
 
-                    // Exact offsets used in MansionGen
                     int x1 = baseX + regionRand.nextInt(8) + 8;
                     int z1 = baseZ + regionRand.nextInt(8) + 8;
                     int x2 = x1 + 36;
@@ -71,7 +70,7 @@ public class MansionFinder {
 
                     if (dist < bestDist) {
                         bestDist = dist;
-                        closest = new ChunkCoordinates(x2, 90, z2); // y is arbitrary for the Eye
+                        closest = new ChunkCoordinates(x2, 90, z2);
                     }
                 }
             }

@@ -52,7 +52,7 @@ item.raw_blazing_charger.name=Raw Blazing Charger
 item.cooked_blazing_charger.name=Cooked Blazing Charger
 item.null_cube_slime.name=Null Cube Slimeball
 item.enflamed_null_cube_slimeball.name=Nullified Slimeball
-item.enhanced_enflamed_null_cube_slimeball.name=Superheated Nullified Slimeball
+item.enhanced_enflamed_null_cube_slimeball.name=Crystallized Slimeball
 item.warden_shard.name=Warden Shard
 item.flaming_pitcher_petal.name=Flaming Pitcher Petal
 item.blazing_coal.name=Blazing Coal
@@ -126,6 +126,7 @@ item.raw_iridium.name=Raw Iridium
 item.iridium_ingot.name=Iridium Ingot
 item.reinforced_iridium_ingot.name=Reinforced Iridium Ingot
 item.iridium_nugget.iridium_nugget.name=Iridium Nugget
+item.iridium_nugget.impure_klangite_nugget.name=Impure Klangite Nugget
 item.iridium_nugget.vanite_nugget.name=Vanite Nugget
 item.diamond_nugget.diamond_nugget.name=Diamond Shard
 item.diamond_nugget.emerald_nugget.name=Emerald Shard
@@ -138,6 +139,8 @@ item.cooked_octoqus.name=Cooked Octoqus
 item.beastly_leather.name=Beastly Leather
 item.end_portal_sealent.name=End Portal Sealent
 item.relik_dust.name=Relik Dust
+item.hunger_staff.name=Staff of Sustenance
+item.deepoid_brewing_stand_item.name=Deepoid Brewing Stand
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -152,18 +155,74 @@ item.vanite_bucket_lava.name=Lava Bucket
 item.vanite_bucket_blazlinite.name=Blazlinite Bucket
 item.vanite_bucket_molten_vanite.name=Molten Vanite Bucket
 
-item.potion_regen_extended.name=Extended Potion Of Regeneration
-item.potion_regen_III.name=Potion of Regeneration III
-item.potion_speed_extended.name=Extended Potion Of Speed
-item.potion_speed_III.name=Potion of Speed III
-item.potion_strength_extended.name=Extended Potion Of Strength
-item.potion_strength_III.name=Potion of Strength III
-item.potion_jump_extended.name=Extended Potion Of Leaping
-item.potion_jump_III.name=Potion of Leaping III
-item.potion_water_breathing_extended.name=Extended Potion Of Water Breathing
-item.potion_night_vision_extended.name=Extended Potion Of Night Vision
-item.potion_invisibility_extended.name=Extended Potion Of Invisibility
-item.potion_fire_resistance_extended.name=Extended Potion Of Fire Resistance
+item.potion_speed_extended.potion_speed.name=Extended Potion Of Swiftness
+item.potion_speed_extended.potion_speed_regular.name=Potion Of Swiftness
+item.potion_speed_III.potion_speed.name=Potion Of Swiftness III
+item.potion_speed_III.potion_speed_regular.name=Potion Of Swiftness II
+tooltip.potion.speedII.regular.desc=Speed II (1:30)
+
+item.potion_regen_extended.potion_regen.name=Extended Potion Of Regeneration
+item.potion_regen_extended.potion_regen_regular.name=Potion Of Regeneration
+item.potion_regen_III.potion_regen.name=Potion Of Regeneration III
+item.potion_regen_III.potion_regen_regular.name=Potion Of Regeneration II
+tooltip.potion.regen.regular.desc=Regeneration I (2:00)
+tooltip.potion.regenII.regular.desc=Regeneration II (0:22)
+
+item.potion_strength_extended.potion_strength.name=Extended Potion Of Strength
+item.potion_strength_extended.potion_strength_regular.name=Potion Of Strength
+item.potion_strength_III.potion_strength.name=Potion Of Strength III
+item.potion_strength_III.potion_strength_regular.name=Potion Of Strength II
+tooltip.potion.strength_regular.desc=Strength I (8:00)
+tooltip.potion.strengthII.regular.desc=Strength II (1:30)
+
+item.potion_jump_extended.potion_jump.name=Extended Potion Of Leaping
+item.potion_jump_extended.potion_jump_regular.name=Potion Of Leaping
+item.potion_jump_III.potion_jump.name=Potion of Leaping III
+item.potion_jump_III.potion_jump_regular.name=Potion of Leaping II
+tooltip.potion.jump.regular.desc=Jump Boost I (3:00)
+tooltip.potion.jumpII.regular.desc=Jump Boost II (1:30)
+
+item.awkward_potion.awkward_potion.name=Awkward Potion
+item.awkward_potion.mundane_haste_potion.name=Mundane Potion Of Haste
+item.awkward_potion.thick_haste_potion.name=Thick Potion Of Haste
+item.awkward_potion.mundane_resistance_potion.name=Mundane Potion Of Resistance
+tooltip.no_effect.desc=No Effect
+
+item.awkward_potion.thick_speed_potion.name=Thick Potion Of Swiftness
+item.awkward_potion.thick_regen_potion.name=Thick Potion Of Regeneration
+item.awkward_potion.thick_strength_potion.name=Thick Potion Of Strength 
+item.awkward_potion.thick_jump_potion.name=Thick Potion Of Leaping
+item.awkward_potion.mundane_strength_potion.name=Mundane Potion Of Strength
+item.awkward_potion.mundane_speed_potion.name=Mundane Potion Of Speed
+item.awkward_potion.mundane_water_breathing_potion.name=Mundane Potion Of Water Breathing
+item.awkward_potion.mundane_fire_resistance_potion.name=Mundane Potion Of Fire Resistance
+item.awkward_potion.mundane_night_vision_potion.name=Mundane Potion Of Night Vision
+item.awkward_potion.mundane_regen_potion.name=Mundane Potion Of Regeneration
+item.awkward_potion.mundane_invisibility_potion.name=Mundane Potion Of Invisibility
+item.awkward_potion.mundane_jump_potion.name=Mundane Potion Of Leaping
+
+item.awkward_potion.mundane_blindness_potion.name=Mundane Potion Of Blindness
+item.awkward_potion.blindness_potion.name=Potion Of Blindness
+tooltip.potion.blindness.desc=Blindness (3:00)
+tooltip.potion.warden.desc=Required To Damage The Warden
+item.awkward_potion.relik_potion.name=Potion of Darkness
+
+item.potion_water_breathing_extended.potion_water_breathing.name=Extended Potion Of Water Breathing
+item.potion_water_breathing_extended.potion_water_breathing_regular.name=Potion Of Water Breathing
+tooltip.potion.water.regular.desc=Water Breathing (8:00)
+
+item.potion_night_vision_extended.potion_night_vision.name=Extended Potion Of Night Vision
+item.potion_night_vision_extended.potion_night_vision_regular.name=Potion Of Night Vision
+tooltip.potion.night.regular.desc=Night Vision (8:00)
+
+item.potion_invisibility_extended.potion_invisibility.name=Extended Potion Of Invisibility
+item.potion_invisibility_extended.potion_invisibility_regular.name=Potion Of Invisibility
+tooltip.potion.invisibility.regular.desc=Invisibility (8:00)
+
+item.potion_fire_resistance_extended.potion_fire_resistance.name=Extended Potion Of Fire Resistance
+item.potion_fire_resistance_extended.potion_fire_resistance_regular.name=Potion Of Fire Resistance
+tooltip.potion.fire.regular.desc=Fire Reistance (8:00)
+
 item.potion_resistance.name=Potion Of Resistance
 item.potion_haste.name=Potion Of Haste
 item.potion_haste_II.name=Potion of Haste II
@@ -369,6 +428,7 @@ tile.deepoid_bricks.name=Deepoid Bricks
 tile.deepoid_power_core.name=Deepoid Power Core
 tile.deepoid_furnace.name=Deepoid Furnace
 tile.lit_deepoid_furnace.name=Deepoid Furnace
+tile.deepoid_brewing_stand.name=Deepoid Brewing Stand
 
 tile.sculk_sensor.name=Sculk Grass
 tile.grimstone_shrieker.name=Warden Altar
@@ -474,6 +534,8 @@ tile.crystal_pile.name=Crystal Pile
 tile.iridium_pile.name=Iridium Pile
 tile.vanite_pile.name=Vanite Pile
 
+tile.potion_vanite_cauldron.name=Vanite Cauldron
+tile.lava_vanite_cauldron.name=Vanite Cauldron
 tile.vanite_cauldron.name=Vanite Cauldron
 tile.molten_vanite_cauldron.name=Molten Vanite Cauldron
 tile.molten_vanite_crystal_cauldron.name=Molten Vanite Crystal Cauldron
@@ -664,6 +726,7 @@ tile.meteorite_block.name=Block of Meteorite
 tile.iridium_ore.name=Iridium Ore
 tile.block_of_iridium.name=Block of Iridium
 tile.vanite_pumpkin.name=Vanite Pumpkin
+tile.cracked_iridium_furnace.name=Cracked Iridium Furnace
 
 #Stairs Names
 tile.grimstone_stairs.name=Grimstone Stairs
@@ -876,6 +939,8 @@ tooltip.serpent_crown2.desc=Puts Out Fire
 tooltip.explosive_ingot.desc=Throw this into the void!
 tooltip.anicent_city_totem.desc=Use Half HP to banish all lesser sculk mobs nearby!
 
+tooltip.hunger_staff.desc=Restores most Hunger Bars
+
 tooltip.diamond_bow.desc=+2 damage
 tooltip.netherite_bow.desc=+4 damage
 tooltip.tophinite_bow.desc=+7 damage
@@ -893,6 +958,7 @@ tooltip.bed_destroyed.desc=Respawn Point Set to SpawnPoint!
 
 tooltip.deepoid_furnace.desc=Deepoid Furnace
 tooltip.iridium_furnace.desc=Iridium Furnace
+tooltip.deepoid_brewing_stand.desc=Deepoid Brewing Stand
 
 tooltip.dimensional_sealent.desc=Use on Cracked Nullstone Deactivators while holding shift
 tooltip.dimensional_sealent2.desc=and the Unknown Portal Activator last
@@ -900,9 +966,7 @@ tooltip.sealed_unknown_portal.desc=The portal is sealed but the evil that was br
 tooltip.activated_unknown_portal_activator.desc=The rift between the two realms is breaking, perhaps the Ancient Builders behind somekind of failsafe to seal the portal once again?
 
 tooltip.nullstone_deactivators_cracked.desc=The rift between the two realms is breaking, activating it now will do nothing. I first need to stabilize the portal using the dimensional sealant on the cracked nullstone deactivators left behind by the Ancient Builders.
-
 tooltip.nullstone_deactivator.desc=The device has engravings on it as if perfectly cut all along it. Perhaps using somekind of sealant on it will fix it?
-
 tooltip.impure_ousider_ingot.desc=Shift Right Click on the Sealed Portal to the Unknown!
 
 tooltip.vindicator_insignia.desc=Used to locate Mansions
@@ -911,6 +975,7 @@ tooltip.echo_eye.desc=Used to locate Ancient Cities
 #Potion Tool Tips
 tooltip.potion.resistance.desc=Resistance I (32:00)
 tooltip.potion.speed.desc=Speed I (24:00)
+tooltip.potion.speed_regular.desc=Speed I (8:00)
 tooltip.potion.speedIII.desc=Speed III (6:00)
 tooltip.potion.strength.desc=Strength I (24:00)
 tooltip.potion.strengthIII.desc=Strength III (4:00)
@@ -924,6 +989,51 @@ tooltip.potion.invisibility.desc=Invisibility (24:00)
 tooltip.potion.fire.resistance.desc=Fire Resistance (24:00)
 tooltip.potion.haste.desc=Haste I (32:00)
 tooltip.potion.hasteII.desc=Haste II (8:00)
+
+tooltip.potion.mundane_strength.recipe.desc=Recipe: Strength I + Anomalous Essence
+tooltip.potion.mundane_speed.recipe.desc=Recipe: Speed I + Brimstone Dust
+tooltip.potion.mundane_water.recipe.desc=Recipe: Water Breathing + Sea Serpent Scales
+tooltip.potion.mundane_fire.recipe.desc=Recipe: Fire Resistance + Blazing Serpent Fang
+tooltip.potion.mundane_night.recipe.desc=Recipe: Night Vision + Sculked Monitor Eye
+tooltip.potion.mundane_regen.recipe.desc=Recipe: Regeneration + Wyrmling Scales
+tooltip.potion.mundane_jump.recipe.desc=Recipe: Leaping I + Glow Ink Sac
+tooltip.potion.mundane_blindness.recipe.desc=Recipe: Awkward + Static Essence
+tooltip.potion.mundane_blindness_other.recipe.desc=Recipe: Awkward + Relik Dust
+tooltip.potion.mundane_haste.recipe.desc=Recipe: Awkward + Pherithium Carrot
+tooltip.potion.thick_haste.recipe.desc=Recipe: Awkward + Cave Monitor Scales
+tooltip.potion.mundane_resist.recipe.desc=Recipe: Awkward + Nullifed Slimeball
+tooltip.potion.mundane_invis.recipe.desc=Recipe: Invisibility + Wardling Dust
+tooltip.potion.thick_speed.recipe.desc=Recipe: Speed II + Ender Avis Feather 
+tooltip.potion.thick_regen.recipe.desc=Recipe: Regeneration II + Sculk Dweller Heart
+tooltip.potion.thick_strength.recipe.desc=Recipe: Strength II + Deepoid Horn
+tooltip.potion.thick_jump.recipe.desc=Recipe: Leaping II + Phoenix Feather
+tooltip.potion.haste.recipe.desc=Recipe: Mundane Haste + Nullwart Blend
+tooltip.potion.hasteII.recipe.desc=Recipe: Thick Haste + Nullwart Blend
+tooltip.potion.resistI.recipe.desc=Recipe: Mundane Resistance + Nullwart Blend
+
+tooltip.potion.jump_extend.recipe.desc=Recipe: Mundane Leaping I + Nullwart Blend
+tooltip.potion.jumpIII.recipe.desc=Recipe: Thick Leaping II + Nullwart Blend
+tooltip.potion.invis_extend.recipe.desc=Recipe: Mundane Invisibility + Nullwart Blend
+tooltip.potion.strength_extend.recipe.desc=Recipe: Mundane Strength + Nullwart Blend
+tooltip.potion.speed_extend.recipe.desc=Recipe: Mundane Speed + Nullwart Blend
+tooltip.potion.water_extend.recipe.desc=Recipe: Mundane Water Breathing + Nullwart Blend
+tooltip.potion.fire_extend.recipe.desc=Recipe: Mundane Fire Resistance + Nullwart Blend
+tooltip.potion.night_extend.recipe.desc=Recipe: Mundane Night Vision + Nullwart Blend
+tooltip.potion.regen_extend.recipe.desc=Recipe: Mundane Regeneration + Nullwart Blend
+tooltip.potion.strengthIII.recipe.desc=Recipe: Thick Strength + Nullwart Blend
+tooltip.potion.speedIII.recipe.desc=Recipe: Thick Speed + Nullwart Blend
+tooltip.potion.regenIII.recipe.desc=Recipe: Thick Regeneration + Nullwart Blend
+tooltip.potion.blindness.recipe.desc=Recipe: Mundane Blindness + Nullwart Blend
+
+tooltip.potion.deepfire_blend.desc=Vanite Cauldron Recipe: Healing II +
+tooltip.potion.deepfire_blend2.desc=Yttrlinisite Shard + Deepoid Horn
+
+tooltip.potion.end_portal_sealent.desc=Vanite Cauldron Recipe: Healing II +
+tooltip.potion.end_portal_sealent2.desc=Relik Dust + Ender Pearl + Farlander Shard
+
+tooltip.potion.static_blend.desc=Vanite Cauldron Recipe: Deepfire Blend +
+tooltip.potion.static_blend2.desc=Crystallized End + Wardling Dust +
+tooltip.potion.static_blend3.desc=Warden Dust + Static Essence
 
 tooltip.cave_stew2.desc=Night Vision (4:00)
 tooltip.cave_stew.desc=Haste I (4:00)

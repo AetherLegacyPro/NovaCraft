@@ -5,6 +5,7 @@ import com.NovaCraft.registry.NovaCraftCreativeTabs;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -29,6 +30,16 @@ public class ItemVaniteBottle extends Item {
             meta = 1;
         }
         return this.icon[meta];
+    }
+
+    @Override
+    public boolean hasContainerItem() {
+        return true;
+    }
+
+    @Override
+    public ItemStack getContainerItem(ItemStack itemStack) {
+        return new ItemStack(Items.glass_bottle);
     }
 	
 }

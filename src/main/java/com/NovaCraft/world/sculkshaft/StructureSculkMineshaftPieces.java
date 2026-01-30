@@ -27,10 +27,10 @@ import static net.minecraftforge.common.ChestGenHooks.*;
 public class StructureSculkMineshaftPieces {
     public static void registerStructurePieces()
     {
-        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Corridor.class, "SculkMineshaftCorridor");
-        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Cross.class, "SculkMineshaftCorridorCrossing");
-        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Room.class, "SculkMineshaftCorridorRoom");
-        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Stairs.class, "SculkMineshaftCorridorStairs");
+        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Corridor.class, "MineshaftCorridor");
+        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Cross.class, "MineshaftCorridorCrossing");
+        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Room.class, "MineshaftCorridorRoom");
+        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Stairs.class, "MineshaftCorridorStairs");
         MapGenStructureIO.registerStructure(StructureSculkMineshaftStart.class, "Mineshaft");
     }
 

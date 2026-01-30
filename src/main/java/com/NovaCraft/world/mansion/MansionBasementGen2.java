@@ -2947,9 +2947,11 @@ public class MansionBasementGen2 extends WorldGenerator {
                     return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 3, 1);
                 }
             case 16:
-                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 3, 1);
-            default: {
+                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 7, 1);
+            case 17:
                 return new ItemStack(NovaCraftItems.iridium_nugget, random.nextInt(8) + 3, 1);
+            default: {
+                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(8) + 3, 2);
             }
         }
     }

@@ -24,7 +24,8 @@ public class OtherModBlocks
     public static Block red_netherbrick_slab;
     public static Block end_bricks;    
     public static Block end_brick_slab;
-    public static Block end_brick_stairs;    
+    public static Block end_brick_stairs;
+    public static Block end_brick_wall;
     public static Block purpur_block;
     public static Block purpur_slab;
     public static Block purpur_stairs;
@@ -130,7 +131,8 @@ public class OtherModBlocks
     	OtherModBlocks.purpur_stairs = GameRegistry.findBlock("etfuturum", "purpur_stairs");
     	OtherModBlocks.end_rod = GameRegistry.findBlock("etfuturum", "end_rod");   	
     	OtherModBlocks.end_brick_slab = GameRegistry.findBlock("etfuturum", "end_brick_slab");
-    	OtherModBlocks.end_brick_stairs = GameRegistry.findBlock("etfuturum", "end_brick_stairs");  	
+    	OtherModBlocks.end_brick_stairs = GameRegistry.findBlock("etfuturum", "end_brick_stairs");
+        OtherModBlocks.end_brick_wall = GameRegistry.findBlock("etfuturum", "end_brick_wall");
     	OtherModBlocks.chorus_flower = GameRegistry.findBlock("etfuturum", "chorus_flower");  	
     	OtherModBlocks.deepslate_bricks = GameRegistry.findBlock("etfuturum", "deepslate_bricks");
     	OtherModBlocks.polished_deepslate = GameRegistry.findBlock("etfuturum", "polished_deepslate");

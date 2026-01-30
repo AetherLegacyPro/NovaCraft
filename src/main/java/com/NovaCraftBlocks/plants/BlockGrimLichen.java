@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.texture.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.*;
 import net.minecraft.block.*;
+import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.*;
 import java.util.*;
 
@@ -14,7 +15,7 @@ import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
 
-public class BlockGrimLichen extends BlockBush implements IEmissiveLayerBlock
+public class BlockGrimLichen extends BlockBush implements IEmissiveLayerBlock, IShearable
 {
 	public static final int[] colors = new int[]{0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28, 0x2b1f28};
 	private IIcon infusedOverlay;
@@ -411,6 +412,13 @@ public class BlockGrimLichen extends BlockBush implements IEmissiveLayerBlock
                 }
             }
         }
+    }
+
+    @Override
+    public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1, 0));
+        return ret;
     }
 }
 

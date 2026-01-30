@@ -146,16 +146,6 @@ public class BlockVaniteCauldron extends Block {
 	}
 	
 	@Override
-	public int getRenderType()
-	{
-		return RenderIDs.VANITE_CAULDRON;
-	}
-	
-	@SideOnly(Side.CLIENT)
-    public static float getRenderLiquidLevel(int p_150025_0_)
-    {
-        int j = MathHelper.clamp_int(p_150025_0_, 0, 3);
-        return (float)(6 + 3 * j) / 16.0F;
-    }
+	public int getRenderType() { return RenderIDs.VANITE_CAULDRON; } //24
 
 }

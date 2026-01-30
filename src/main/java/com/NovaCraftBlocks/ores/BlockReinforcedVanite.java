@@ -385,8 +385,9 @@ public class BlockReinforcedVanite extends Block {
 				           }
 						}
 						if (random.nextInt(15) == 0 && world.provider.dimensionId == 1) {
-				          if (world.getBlock(i, j + 1, k) == NovaCraftBlocks.grimstone_lapis);
-				          	world.setBlock(i, j + 1, k, NovaCraftBlocks.nullstone_lapis, 0, 2);
+				          if (world.getBlock(i, j + 1, k) == NovaCraftBlocks.grimstone_lapis) {
+							  world.setBlock(i, j + 1, k, NovaCraftBlocks.nullstone_lapis, 0, 2);
+						  }
 						}
 						if (random.nextInt(3) == 0) {
 				          if (world.getBlock(i, j - 1, k) == Blocks.lapis_ore) {
@@ -488,76 +489,63 @@ public class BlockReinforcedVanite extends Block {
                 && world.getBlock(i + 3, j - 1, k - 2) == NovaCraftBlocks.null_wart
                 && world.getBlock(i + 3, j - 1, k + 2) == NovaCraftBlocks.null_wart                
                 && world.getBlock(i + 3, j - 1, k - 3) == NovaCraftBlocks.null_wart
-                && world.getBlock(i + 3, j - 1, k + 3) == NovaCraftBlocks.null_wart
-                                                
-                )
-                {
+                && world.getBlock(i + 3, j - 1, k + 3) == NovaCraftBlocks.null_wart) {
 
                      if (true) {
-                     world.spawnEntityInWorld(new EntityLightningBolt(world, i, j + 1, k));
-                     
-                     world.setBlock(i, j, k, NovaCraftBlocks.infused_vanite_block); //dark essence here
-                     
-                     world.setBlock(i, j - 1, k + 2, Blocks.stonebrick);
-                     world.setBlock(i, j - 1, k - 2, Blocks.stonebrick);
-                     world.setBlock(i + 2, j - 1, k, Blocks.stonebrick);
-                     world.setBlock(i - 2, j - 1, k, Blocks.stonebrick);
-                             
-                      world.setBlock(i, j, k + 2, Blocks.fire);
-                      world.setBlock(i, j, k - 2, Blocks.fire);
-                      world.setBlock(i + 2, j, k, Blocks.fire);
-                      world.setBlock(i - 2, j, k, Blocks.fire);
-                             
-                      world.setBlock(i - 2, j - 1, k - 2, NovaCraftBlocks.cracked_grimstone_bricks);
-                      world.setBlock(i - 2, j - 1, k + 2, NovaCraftBlocks.cracked_grimstone_bricks);
-                      world.setBlock(i + 2, j - 1, k - 2, NovaCraftBlocks.cracked_grimstone_bricks);
-                      world.setBlock(i + 2, j - 1, k + 2, NovaCraftBlocks.cracked_grimstone_bricks);              
-                      world.setBlock(i - 2, j, k - 2, NovaCraftBlocks.grimstone_bricks);
-                      world.setBlock(i - 2, j, k + 2, NovaCraftBlocks.grimstone_bricks);
-                      world.setBlock(i + 2, j, k - 2, NovaCraftBlocks.grimstone_bricks);
-                      world.setBlock(i + 2, j, k + 2, NovaCraftBlocks.grimstone_bricks);
-                             
-                      world.setBlock(i - 2, j + 1, k - 2, Blocks.fire);
-                      world.setBlock(i - 2, j + 1, k + 2, Blocks.fire);
-                      world.setBlock(i + 2, j + 1, k - 2, Blocks.fire);
-                      world.setBlock(i + 2, j + 1, k + 2, Blocks.fire);                
-                      world.setBlock(i - 2, j + 2, k - 2, Blocks.air);
-                      world.setBlock(i - 2, j + 2, k + 2, Blocks.air);
-                      world.setBlock(i + 2, j + 2, k - 2, Blocks.air);
-                      world.setBlock(i + 2, j + 2, k + 2, Blocks.air);
-                      
-                      
-                      world.setBlock(i, j - 1, k + 3, Blocks.air);
-                      world.setBlock(i + 1, j - 1, k + 3, Blocks.air);
-                      world.setBlock(i - 1, j - 1, k + 3, Blocks.air);
-                      world.setBlock(i + 2, j - 1, k + 3, Blocks.air);
-                      world.setBlock(i - 2, j - 1, k + 3, Blocks.air);               
-                      world.setBlock(i + 3, j - 1, k + 3, Blocks.air);
-                      world.setBlock(i - 3, j - 1, k + 3, Blocks.air);
-                              		                 		 
-                      world.setBlock(i - 3, j - 1, k, Blocks.air);
-                      world.setBlock(i - 3, j - 1, k + 1, Blocks.air);
-                      world.setBlock(i - 3, j - 1, k - 1, Blocks.air);
-                      world.setBlock(i - 3, j - 1, k + 2, Blocks.air);
-                      world.setBlock(i - 3, j - 1, k - 2, Blocks.air);               
-                      world.setBlock(i - 3, j - 1, k + 3, Blocks.air);
-                      world.setBlock(i - 3, j - 1, k - 3, Blocks.air);
-                                                            
-                      world.setBlock(i, j - 1, k - 3, Blocks.air);
-                      world.setBlock(i - 1, j - 1, k - 3, Blocks.air);
-                      world.setBlock(i + 1, j - 1, k - 3, Blocks.air);
-                      world.setBlock(i - 2, j - 1, k - 3, Blocks.air);
-                      world.setBlock(i + 2, j - 1, k - 3, Blocks.air);               
-                      world.setBlock(i - 3, j - 1, k - 3, Blocks.air);
-                      world.setBlock(i + 3, j - 1, k - 3, Blocks.air);
-                                                             
-                      world.setBlock(i + 3, j - 1, k, Blocks.air);
-                      world.setBlock(i + 3, j - 1, k - 1, Blocks.air);
-                      world.setBlock(i + 3, j - 1, k + 1, Blocks.air);
-                      world.setBlock(i + 3, j - 1, k - 2, Blocks.air);
-                      world.setBlock(i + 3, j - 1, k + 2, Blocks.air);             
-                      world.setBlock(i + 3, j - 1, k - 3, Blocks.air);
-                      world.setBlock(i + 3, j - 1, k + 3, Blocks.air);
+                     	 world.spawnEntityInWorld(new EntityLightningBolt(world, i, j + 1, k));
+                     	 world.setBlock(i, j, k, NovaCraftBlocks.infused_vanite_block); //dark essence here
+                     	 world.setBlock(i, j - 1, k + 2, Blocks.stonebrick);
+                     	 world.setBlock(i, j - 1, k - 2, Blocks.stonebrick);
+                     	 world.setBlock(i + 2, j - 1, k, Blocks.stonebrick);
+                     	 world.setBlock(i - 2, j - 1, k, Blocks.stonebrick);
+                      	 world.setBlock(i, j, k + 2, Blocks.fire);
+                     	 world.setBlock(i, j, k - 2, Blocks.fire);
+                         world.setBlock(i + 2, j, k, Blocks.fire);
+                         world.setBlock(i - 2, j, k, Blocks.fire);
+                         world.setBlock(i - 2, j - 1, k - 2, NovaCraftBlocks.cracked_grimstone_bricks);
+                         world.setBlock(i - 2, j - 1, k + 2, NovaCraftBlocks.cracked_grimstone_bricks);
+                         world.setBlock(i + 2, j - 1, k - 2, NovaCraftBlocks.cracked_grimstone_bricks);
+                         world.setBlock(i + 2, j - 1, k + 2, NovaCraftBlocks.cracked_grimstone_bricks);
+                         world.setBlock(i - 2, j, k - 2, NovaCraftBlocks.grimstone_bricks);
+                         world.setBlock(i - 2, j, k + 2, NovaCraftBlocks.grimstone_bricks);
+                         world.setBlock(i + 2, j, k - 2, NovaCraftBlocks.grimstone_bricks);
+                         world.setBlock(i + 2, j, k + 2, NovaCraftBlocks.grimstone_bricks);
+                     	 world.setBlock(i - 2, j + 1, k - 2, Blocks.fire);
+                     	 world.setBlock(i - 2, j + 1, k + 2, Blocks.fire);
+                     	 world.setBlock(i + 2, j + 1, k - 2, Blocks.fire);
+                     	 world.setBlock(i + 2, j + 1, k + 2, Blocks.fire);
+						 world.setBlock(i - 2, j + 2, k - 2, Blocks.air);
+                     	 world.setBlock(i - 2, j + 2, k + 2, Blocks.air);
+                     	 world.setBlock(i + 2, j + 2, k - 2, Blocks.air);
+                      	 world.setBlock(i + 2, j + 2, k + 2, Blocks.air);
+                     	 world.setBlock(i, j - 1, k + 3, Blocks.air);
+                     	 world.setBlock(i + 1, j - 1, k + 3, Blocks.air);
+                     	 world.setBlock(i - 1, j - 1, k + 3, Blocks.air);
+                     	 world.setBlock(i + 2, j - 1, k + 3, Blocks.air);
+					     world.setBlock(i - 2, j - 1, k + 3, Blocks.air);
+						 world.setBlock(i + 3, j - 1, k + 3, Blocks.air);
+                     	 world.setBlock(i - 3, j - 1, k + 3, Blocks.air);
+                     	 world.setBlock(i - 3, j - 1, k, Blocks.air);
+                     	 world.setBlock(i - 3, j - 1, k + 1, Blocks.air);
+                     	 world.setBlock(i - 3, j - 1, k - 1, Blocks.air);
+                     	 world.setBlock(i - 3, j - 1, k + 2, Blocks.air);
+                     	 world.setBlock(i - 3, j - 1, k - 2, Blocks.air);
+                     	 world.setBlock(i - 3, j - 1, k + 3, Blocks.air);
+                     	 world.setBlock(i - 3, j - 1, k - 3, Blocks.air);
+                     	 world.setBlock(i, j - 1, k - 3, Blocks.air);
+                     	 world.setBlock(i - 1, j - 1, k - 3, Blocks.air);
+                     	 world.setBlock(i + 1, j - 1, k - 3, Blocks.air);
+                     	 world.setBlock(i - 2, j - 1, k - 3, Blocks.air);
+                     	 world.setBlock(i + 2, j - 1, k - 3, Blocks.air);
+                     	 world.setBlock(i - 3, j - 1, k - 3, Blocks.air);
+                     	 world.setBlock(i + 3, j - 1, k - 3, Blocks.air);
+                      	 world.setBlock(i + 3, j - 1, k, Blocks.air);
+                      	 world.setBlock(i + 3, j - 1, k - 1, Blocks.air);
+                     	 world.setBlock(i + 3, j - 1, k + 1, Blocks.air);
+                      	 world.setBlock(i + 3, j - 1, k - 2, Blocks.air);
+					  	 world.setBlock(i + 3, j - 1, k + 2, Blocks.air);
+                     	 world.setBlock(i + 3, j - 1, k - 3, Blocks.air);
+                     	 world.setBlock(i + 3, j - 1, k + 3, Blocks.air);
 
 
                      	}

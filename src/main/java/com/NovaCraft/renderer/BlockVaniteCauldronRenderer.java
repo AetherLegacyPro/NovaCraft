@@ -1,14 +1,13 @@
 package com.NovaCraft.renderer;
 
 import com.NovaCraftBlocks.ores.BlockReinforcedVanite;
-import com.NovaCraftBlocks.potion.BlockMoltenVanite;
 import com.NovaCraftBlocks.potion.BlockVaniteCauldron;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-import org.lwjgl.opengl.GL11;
 
 public class BlockVaniteCauldronRenderer implements ISimpleBlockRenderingHandler {
 
@@ -19,65 +18,39 @@ public class BlockVaniteCauldronRenderer implements ISimpleBlockRenderingHandler
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
         BlockVaniteCauldron cauldron = (BlockVaniteCauldron) block;
+        Tessellator tessellator = Tessellator.instance;
+
+        renderer.renderStandardBlock(block, x, y, z);
+
+        tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
+
+        int color = block.colorMultiplier(world, x, y, z);
+        float r = (color >> 16 & 255) / 255.0F;
+        float g = (color >> 8 & 255) / 255.0F;
+        float b = (color & 255) / 255.0F;
+
+        tessellator.setColorOpaque_F(r, g, b);
 
         IIcon side = cauldron.side;
-        IIcon bottom = cauldron.bottom;
+        float f4 = 0.125F;
+
+        renderer.renderFaceXPos(block, x - 1 + f4, y, z, side);
+        renderer.renderFaceXNeg(block, x + 1 - f4, y, z, side);
+        renderer.renderFaceZPos(block, x, y, z - 1 + f4, side);
+        renderer.renderFaceZNeg(block, x, y, z + 1 - f4, side);
+
         IIcon inner = cauldron.inner;
+        renderer.renderFaceYPos(block, x, y - 1 + 0.25F, z, inner);
+        renderer.renderFaceYNeg(block, x, y + 1 - 0.75F, z, inner);
 
-        double wallHeight = 1.0D;
-        double wallThickness = 0.125D;
+        // liquid level
+        IIcon liquid = BlockReinforcedVanite.InfusedVanite;
+        float level = 0.99F;
+        renderer.renderFaceYPos(block, x, y - 1 + level, z, liquid);
 
-        double innerMin = wallThickness;
-        double innerMax = 1.0D - wallThickness;
-        double innerBottomY = wallThickness;
-
-        final double epsilon = 0.002D;
-
-        //Outer bottom
-        renderer.setRenderBounds(0.0D, 0.0D, 0.0D, 1.0D, wallThickness, 1.0D);
-        //renderer.renderFaceYNeg(block, x, y, z, bottom); //bottom
-        renderer.renderFaceYPos(block, x, y, z, side);
-        renderer.renderFaceXNeg(block, x, y, z, side);
-        renderer.renderFaceXPos(block, x, y, z, side);
-        renderer.renderFaceZNeg(block, x, y, z, side);
-        renderer.renderFaceZPos(block, x, y, z, side);
-
-        //Outer walls
-        renderer.setRenderBounds(0.0D, 0.0D, 0.0D, wallThickness, wallHeight, 1.0D); //west
-        renderer.renderStandardBlock(block, x, y, z);
-        renderer.setRenderBounds(1.0D - wallThickness, 0.0D, 0.0D, 1.0D, wallHeight, 1.0D); //east
-        renderer.renderStandardBlock(block, x, y, z);
-        renderer.setRenderBounds(wallThickness, 0.0D, 0.0D, 1.0D - wallThickness, wallHeight, wallThickness); //north
-        renderer.renderStandardBlock(block, x, y, z);
-        renderer.setRenderBounds(wallThickness, 0.0D, 1.0D - wallThickness, 1.0D - wallThickness, wallHeight, 1.0D); //south
-        renderer.renderStandardBlock(block, x, y, z);
-
-        //Inner bottom
-        renderer.setRenderBounds(innerMin, innerBottomY, innerMin, innerMax, innerBottomY + 0.001D, innerMax);
-        renderer.renderFaceYPos(block, x, y + innerBottomY, z, inner);
-
-        //Inner vertical walls
-        renderer.setRenderBounds(innerMin + epsilon, innerBottomY, innerMin, innerMin + epsilon * 2, 1.0D, innerMax);
-        renderer.renderFaceXPos(block, x, y, z, inner);
-
-        renderer.setRenderBounds(innerMax - epsilon * 2, innerBottomY, innerMin, innerMax - epsilon, 1.0D, innerMax);
-        renderer.renderFaceXNeg(block, x, y, z, inner);
-
-        renderer.setRenderBounds(innerMin, innerBottomY, innerMin + epsilon, innerMax, 1.0D, innerMin + epsilon * 2);
-        renderer.renderFaceZPos(block, x, y, z, inner);
-
-        renderer.setRenderBounds(innerMin, innerBottomY, innerMax - epsilon * 2, innerMax, 1.0D, innerMax - epsilon);
-        renderer.renderFaceZNeg(block, x, y, z, inner);
-        
-        //Liquid in Cauldron
-        IIcon vanite = BlockReinforcedVanite.InfusedVanite;
-        double level = 0.9999D;
-
-        renderer.setRenderBounds(innerMin, level, innerMin, innerMax, level + 0.001D, innerMax);
-        renderer.renderFaceYPos(block, x, y, z, vanite);
-		
         return true;
     }
+
 
     @Override
     public boolean shouldRender3DInInventory(int modelId) {

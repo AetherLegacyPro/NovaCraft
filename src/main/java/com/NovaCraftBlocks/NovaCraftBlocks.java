@@ -96,18 +96,7 @@ import com.NovaCraftBlocks.plants.nether.BlockFlamingPitcherBottom;
 import com.NovaCraftBlocks.plants.nether.BlockFlamingPitcherTop;
 import com.NovaCraftBlocks.plants.nether.BlockHellPiliz;
 import com.NovaCraftBlocks.plants.nether.BlockIonMushroom;
-import com.NovaCraftBlocks.potion.BlockBlazlinite;
-import com.NovaCraftBlocks.potion.BlockBlazliniteBlend;
-import com.NovaCraftBlocks.potion.BlockCrackedVaniteCauldron;
-import com.NovaCraftBlocks.potion.BlockCrystallizedVanite;
-import com.NovaCraftBlocks.potion.BlockDeepFire;
-import com.NovaCraftBlocks.potion.BlockDeepOneEgg;
-import com.NovaCraftBlocks.potion.BlockDeepOneEggActivated;
-import com.NovaCraftBlocks.potion.BlockMoltenVanite;
-import com.NovaCraftBlocks.potion.BlockMoltenVaniteCauldron;
-import com.NovaCraftBlocks.potion.BlockMoltenVaniteCrystalCauldron;
-import com.NovaCraftBlocks.potion.BlockVaniteCauldron;
-import com.NovaCraftBlocks.potion.BlockVaniteCluster;
+import com.NovaCraftBlocks.potion.*;
 import com.NovaCraftBlocks.sculk.BlockActivatedGrimstoneShrieker;
 import com.NovaCraftBlocks.sculk.BlockActivatedReinforcedNullstone;
 import com.NovaCraftBlocks.sculk.BlockActivatedUnknownPortalActivator;
@@ -292,11 +281,11 @@ public class NovaCraftBlocks {
 	public static Block trap_tophinite;
 	
 	//Special
-	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table;
+	public static Block advanced_enchantment_table, legendary_beacon, legendary_enchantment_table, deepoid_brewing_stand;
 	public static Block unbreakable_ancient_chest, ancient_chest, ancient_warper;
 	public static Block nullwart_brick_bookshelf, sculk_brick_bookshelf;
 	public static Block deepoid_bricks, deepoid_power_core, deepoid_furnace, lit_deepoid_furnace;
-	public static Block iridium_bricks, infused_iridium_bricks, iridium_power_core, iridium_trapdoor, iridium_furnace, lit_iridium_furnace;
+	public static Block iridium_bricks, infused_iridium_bricks, iridium_power_core, iridium_trapdoor, iridium_furnace, lit_iridium_furnace, cracked_iridium_furnace;
 	public static Block vanite_anvil, cracked_end_portal_frame;
 	
 	//9x Duplication Structure
@@ -304,7 +293,7 @@ public class NovaCraftBlocks {
 	
 	//Amplified Potions
 	public static Block deepfire, blazlinite_blend, blazlinite, molten_vanite;	
-	public static Block vanite_cauldron, molten_vanite_cauldron, molten_vanite_crystal_cauldron, cracked_vanite_crystal_cauldron;
+	public static Block vanite_cauldron, lava_vanite_cauldron, potion_vanite_cauldron, molten_vanite_cauldron, molten_vanite_crystal_cauldron, cracked_vanite_crystal_cauldron;
 	
 	//Tile Entity Renders
 	public static int UnbreakableAncientChestRenderId;
@@ -345,7 +334,7 @@ public class NovaCraftBlocks {
 		unknown_portal_activator = register("unknown_portal_activator", new BlockUnknownPortalActivator());
 		activated_unknown_portal_activator = registerHidden("activated_unknown_portal_activator", new BlockActivatedUnknownPortalActivator()).setCreativeTab(null);
 		cracked_nullstone_deactivator = register("cracked_nullstone_deactivator", new BlockCrackedNullstoneDeactivator());
-		nullstone_deactivator = register("nullstone_deactivator", new BlockNullstoneDeactivator());
+		nullstone_deactivator = registerHidden("nullstone_deactivator", new BlockNullstoneDeactivator());
 		chiseled_nullstone = register("chiseled_nullstone", new BlockChiseledNullstone());
 		vanite_pumpkin = register("vanite_pumpkin", new BlockVanitePumpkin(false));
 		
@@ -420,8 +409,8 @@ public class NovaCraftBlocks {
 		
 		vacuum_sand = register("vacuum_sand", new BlockVacuumSand().setBlockTextureName(NovaCraft.find("vacuum_sand")));
 		vacuum_glass = register("vacuum_glass", new BlockVacuumGlass(Material.glass, false).setBlockTextureName(NovaCraft.find("vacuum_glass")));
-		inked_vacuum_sand = register("inked_vacuum_sand", new BlockInkedVacuumSand().setBlockTextureName(NovaCraft.find("vacuum_sand")));
-		inked_vacuum_glass = register("inked_vacuum_glass", new BlockInkedVacuumGlass(Material.glass, false).setBlockTextureName(NovaCraft.find("vacuum_glass")));
+		inked_vacuum_sand = registerHidden("inked_vacuum_sand", new BlockInkedVacuumSand().setBlockTextureName(NovaCraft.find("vacuum_sand")));
+		inked_vacuum_glass = registerHidden("inked_vacuum_glass", new BlockInkedVacuumGlass(Material.glass, false).setBlockTextureName(NovaCraft.find("vacuum_glass")));
 		
 		brimstone_ore = register("brimstone_ore", new BlockBrimstoneOre().setBlockTextureName(NovaCraft.find("brimstone_ore")));
 		block_of_brimstone = register("block_of_brimstone", new BlockBrimstone().setBlockTextureName(NovaCraft.find("brimstone_block")));
@@ -448,6 +437,7 @@ public class NovaCraftBlocks {
 		carved_vanite_bricks = registerItemBlock("carved_vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("carved_vanite_bricks"));		
 		glowing_carved_vanite_bricks = registerItemBlock("glowing_carved_vanite_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setLightLevel(1.0F).setBlockTextureName(NovaCraft.find("glowing_carved_vanite_bricks"));
 		vanite_anvil = registerMeta("vanite_anvil", new BlockVaniteAnvil());
+		deepoid_brewing_stand = registerHidden("deepoid_brewing_stand", new BlockDeepoidBrewingStand());
 
 		glow_torch = register("glow_torch", new BlockGlowTorch().setBlockTextureName(NovaCraft.find("glow_torch")));
 		vanite_torch = register("vanite_torch", new BlockVaniteTorch().setBlockTextureName(NovaCraft.find("vanite_torch")));
@@ -471,6 +461,8 @@ public class NovaCraftBlocks {
 		deepfire = registerHidden("deepfire", new BlockDeepFire().setCreativeTab(null));
 		blazlinite_blend = register("blazlinite_blend", new BlockBlazliniteBlend().setBlockTextureName(NovaCraft.find("blazlinite_blend")));
 		blazlinite = registerHidden("blazlinite", new BlockBlazlinite().setCreativeTab(null));
+		potion_vanite_cauldron = registerHidden("potion_vanite_cauldron", new BlockPotionVaniteCauldron().setCreativeTab(null));
+		lava_vanite_cauldron = registerHidden("lava_vanite_cauldron", new BlockLavaVaniteCauldron().setCreativeTab(null));
 		vanite_cauldron = registerHidden("vanite_cauldron", new BlockVaniteCauldron().setCreativeTab(null));
 		molten_vanite_cauldron = registerHidden("molten_vanite_cauldron", new BlockMoltenVaniteCauldron().setCreativeTab(null));
 		molten_vanite_crystal_cauldron = registerHidden("molten_vanite_crystal_cauldron", new BlockMoltenVaniteCrystalCauldron().setCreativeTab(null));
@@ -487,10 +479,11 @@ public class NovaCraftBlocks {
 		iridium_power_core = register("iridium_power_core", new BlockIridiumPowerCore().setLightLevel(0.9775F).setBlockTextureName(NovaCraft.find("iridium_power_core")));
 		infused_iridium_bricks = registerItemBlock("infused_iridium_bricks", new BlockInfusedIridiumBricks().setLightLevel(0.5275F), ItemBlockInfusedIridiumBricks.class);
 		iridium_trapdoor = registerItemBlock("iridium_trapdoor", new BlockIridiumTrapdoor(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("iridium_trapdoor"));
-		iridium_furnace = register("iridium_furnace", new BlockIridiumFurnace(false).setBlockTextureName(NovaCraft.find("deepoid_furnace")));
+		cracked_iridium_furnace = register("cracked_iridium_furnace", new BlockCrackedIridiumFurnace());
+		iridium_furnace = register("iridium_furnace", new BlockIridiumFurnace(false));
 		lit_iridium_furnace = registerHidden("lit_iridium_furnace", new BlockIridiumFurnace(true).setLightLevel(0.9775F).setCreativeTab(null));
 
-		cracked_end_portal_frame = registerHidden("cracked_end_portal_frame", new BlockCrackedEndPortalFrame());
+		cracked_end_portal_frame = register("cracked_end_portal_frame", new BlockCrackedEndPortalFrame());
 
 		iron_pile = registerMeta("iron_pile", new BlockIronPile());
 		gold_pile = registerMeta("gold_pile", new BlockGoldPile());
@@ -559,7 +552,7 @@ public class NovaCraftBlocks {
 		
 		//Sculk
 		sculk_block = register("sculk_block", new BlockSculk());
-		inked_sculk_block = register("inked_sculk_block", new BlockInkedSculk());	
+		inked_sculk_block = registerHidden("inked_sculk_block", new BlockInkedSculk());
 		sculk_bricks = register("sculk_bricks", new BlockSculkBuildingBlocks().setBlockTextureName(NovaCraft.find("sculk_bricks")));
 		cracked_sculk_bricks = register("cracked_sculk_bricks", new BlockSculkBuildingBlocks().setBlockTextureName(NovaCraft.find("cracked_sculk_bricks")));
 		sculk_tiles = register("sculk_tiles", new BlockSculkBuildingBlocks().setBlockTextureName(NovaCraft.find("sculk_tiles")));

@@ -1,6 +1,7 @@
 package com.NovaCraft.entity;
 
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import net.minecraft.entity.Entity;
@@ -270,9 +271,8 @@ public class EntityVoidCube extends EntityLiving implements IMob
     
     @Override
     protected void dropFewItems(boolean wasRecentlyHit, int lootingModifier) {
-    	int rand2 = (int)(1 + Math.random() * 2);
-		switch (rand2)
-        {
+    	int drop = (int)(1 + Math.random() * 2);
+		switch (drop) {
         case 1: this.dropItem(NovaCraftItems.null_cube_slime, 1 + rand.nextInt(1));
         	break;
         case 2: 
@@ -285,8 +285,7 @@ public class EntityVoidCube extends EntityLiving implements IMob
         final int j = MathHelper.floor_double(this.boundingBox.minY);
         final int k = MathHelper.floor_double(this.posZ);
         final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);          
-        return (this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.frontierslate || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.destitude_block || this.worldObj.getBlock(i, j - 1, k) == NovaCraftBlocks.destitude_growth) && this.worldObj.getBlockLightValue(i, j, k) < 11 && canSpawn;
-                      
+        return (this.worldObj.getBlock(i, j - 1, k) != Blocks.end_stone && this.worldObj.getBlockLightValue(i, j, k) < 11 && canSpawn);
     }
 
     /**

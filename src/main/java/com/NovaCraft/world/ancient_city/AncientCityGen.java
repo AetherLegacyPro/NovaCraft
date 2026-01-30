@@ -38,7 +38,7 @@ public class AncientCityGen implements IWorldGenerator {
 	}
 	public void generateOverworld(World world, Random rand, int x, int z) {
 		//If x and z coords are less than 5k fail to generate
-		if (Math.abs(x) >= 5000 || Math.abs(z) >= 5000) {
+		if (Math.abs(x) >= 5000 && Math.abs(z) >= 5000) {
 
 			int chunkX = x + rand.nextInt(8) + 8;
 			int chunkZ = z + rand.nextInt(8) + 8;

@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.NovaCraft.config.ConfigsStructures;
 import com.NovaCraft.config.ConfigsWorld;
+import com.NovaCraft.world.structure.YttrlinsiteGeoGen;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.plants.end.BlockLacunaFruit;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -62,19 +63,26 @@ public class NCWorldGeneratorEnd implements IWorldGenerator {
 				}
 			}
 			if (ConfigsStructures.enableLacunaTreeGeneration) {
-			if (!(world.provider instanceof EndWorldProviderNovaCraft) && rand.nextInt(5) == 1) {
-				int x = chunkX * 16 + rand.nextInt(8) + 8;
-				int y = 256;
-				int z = chunkZ * 16 + rand.nextInt(8) + 8;
-				for (; y > 0; y--) {
-					if (!world.getBlock(x, y, z).isAir(world, x, y, z)) {
-						if (y > 0 && BlockLacunaFruit.canPlantStay(world, x, y + 1, z)) {
-							BlockLacunaFruit.generatePlant(world, x, y + 1, z, rand, 6);
-							break;
+				if (!(world.provider instanceof EndWorldProviderNovaCraft) && rand.nextInt(5) == 1) {
+					int x = chunkX * 16 + rand.nextInt(8) + 8;
+					int y = 256;
+					int z = chunkZ * 16 + rand.nextInt(8) + 8;
+					for (; y > 0; y--) {
+						if (!world.getBlock(x, y, z).isAir(world, x, y, z)) {
+							if (y > 0 && BlockLacunaFruit.canPlantStay(world, x, y + 1, z)) {
+								BlockLacunaFruit.generatePlant(world, x, y + 1, z, rand, 6);
+								break;
+							}
 						}
 					}
 				}
-			  }
+			}
+			int x;
+			int z;
+			x = chunkX * 16 + rand.nextInt(8) + 8;
+			z = chunkZ * 16 + rand.nextInt(8) + 8;
+			if(rand.nextInt(250) == 0 && ConfigsStructures.enableEndDungeon && (Math.abs(x) >= 500 || Math.abs(z) >= 500)) {
+				new EndDungeonGen().generate(world, rand, x, rand.nextInt(40) + 20, z);
 			}
 						
 		}			

@@ -74,7 +74,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		}
 
 		if (ConfigsWorld.enableCrystallizedEnd) {
-			this.addOreSpawnEnd(NovaCraftBlocks.crystallized_end, world, random, chunkX, chunkZ, 2, 4, 4, 1, 12);
+			this.addOreSpawnFrontierslate(NovaCraftBlocks.crystallized_end, world, random, chunkX, chunkZ, 2, 4, 12, 1, 24);
 		}
 
 		if (ConfigsWorld.enableKlangiteOre) {
@@ -144,7 +144,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 			this.addVanillaOres(Blocks.gold_ore, world, random, chunkX, chunkZ, 2, 8, 4, 0, 32);
 			this.addVanillaOres(Blocks.redstone_ore, world, random, chunkX, chunkZ, 4, 8, 8, 0, 24);
 			this.addVanillaOres(Blocks.lapis_ore, world, random, chunkX, chunkZ, 1, 8, 6, 0, 32);
-			this.addVanillaOres(Blocks.diamond_ore, world, random, chunkX, chunkZ, 1, 4, 6, 0, 16);
+			this.addVanillaOres(Blocks.diamond_ore, world, random, chunkX, chunkZ, ConfigsWorld.diamondOreRarity, 4, 8, 0, 16);
 			
 			if (ConfigsWorld.enableExtraEmeraldOreGeneration) {
 			this.addVanillaOres(Blocks.emerald_ore, world, random, chunkX, chunkZ, 1, 2, 7, 20, 90);
@@ -240,7 +240,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		}
 		
 		if (ConfigsWorld.enableGrimstoneDiamond && ConfigsWorld.enableGrimstone) {
-		this.addGrimstoneOres(NovaCraftBlocks.grimstone_diamond, world, random, chunkX, chunkZ, 1, 4, 7, 10, 16);
+		this.addGrimstoneOres(NovaCraftBlocks.grimstone_diamond, world, random, chunkX, chunkZ, 2, 4, 12, 10, 16);
 		}
 		
 		if (ConfigsWorld.enableGrimstoneEmerald && ConfigsWorld.enableGrimstone) {
@@ -264,7 +264,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		}
 		
 		if (ConfigsWorld.enableNullstoneDiamond && ConfigsWorld.enableNullstone) {
-		this.addNullstoneOres(NovaCraftBlocks.nullstone_diamond, world, random, chunkX, chunkZ, 2, 4, 6, 0, 16);
+		this.addNullstoneOres(NovaCraftBlocks.nullstone_diamond, world, random, chunkX, chunkZ, 2, 4, 12, 0, 16);
 		}
 		
 		if (ConfigsWorld.enableNullstoneEmerald && ConfigsWorld.enableNullstone) {

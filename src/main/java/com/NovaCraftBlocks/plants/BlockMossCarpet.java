@@ -1,5 +1,6 @@
 package com.NovaCraftBlocks.plants;
 
+import com.NovaCraftBlocks.NovaCraftBlocks;
 import net.minecraft.util.*;
 import net.minecraft.block.material.*;
 import net.minecraft.client.renderer.texture.*;
@@ -7,13 +8,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.*;
 import net.minecraft.block.*;
+import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.*;
 import java.util.*;
 
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.sounds.ModSounds;
 
-public class BlockMossCarpet extends BlockBush
+public class BlockMossCarpet extends BlockBush implements IShearable
 {
     private IIcon[] icon;
     
@@ -381,19 +383,27 @@ public class BlockMossCarpet extends BlockBush
             }
         }
     }
-    
-    protected boolean canSilkHarvest() {
-	    return true;
-	 }
 		
  	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
 	  {
 	    return null;
 	  }
+
+    public int quantityDropped(Random p_149745_1_)
+    {
+        return 0;
+    }
  	
  	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
     {
         return true;
+    }
+
+    @Override
+    public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1, 0));
+        return ret;
     }
 }
 
