@@ -141,6 +141,9 @@ item.end_portal_sealent.name=End Portal Sealent
 item.relik_dust.name=Relik Dust
 item.hunger_staff.name=Staff of Sustenance
 item.deepoid_brewing_stand_item.name=Deepoid Brewing Stand
+item.welkin_stick.name=Welkin Stick
+item.iridium_handle.name=Iridium Handle
+item.crimson_star.name=Crimson Star
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -475,7 +478,7 @@ tile.cracked_vanite_crystal_cauldron.name=Cracked Vanite Cauldron
 tile.deepfire.name=Deepfire
 tile.blazlinite_blend.name=Block Of Blazlinite
 tile.deep_one_egg.name=Deep One Dragon Egg
-tile.deep_one_egg_activated.name=Activated Deep One Egg
+tile.deep_one_egg_activated.name=Crimson Dragon Egg
 tile.vanite_bricks.name=Vanite Bricks
 tile.carved_vanite_bricks.name=Carved Vanite Bricks
 tile.glowing_carved_vanite_bricks.name=Vanite Lamp
@@ -524,6 +527,8 @@ tile.luminant_fence.name=Luminant Fence
 tile.vanite_anvil.name=Vanite Anvil
 tile.iridium_bricks.name=Iridium Bricks
 tile.cracked_end_portal_frame.name=Cracked End Portal Frame
+tile.welkin_log.name=Welkin Log
+tile.welkin_planks.name=Welkin Planks
 
 tile.iron_pile.name=Iron Pile
 tile.gold_pile.name=Gold Pile
@@ -571,6 +576,7 @@ tile.infused_iridium_bricks_yttrlinsite_infused_iridium_bricks.name=Yttrlinsite 
 tile.infused_iridium_bricks_aether_infused_iridium_bricks.name=Aether Infused Iridium Bricks
 tile.infused_iridium_bricks_null_infused_iridium_bricks.name=Null Infused Iridium Bricks
 tile.infused_iridium_bricks_echo_infused_iridium_bricks.name=Echo Infused Iridium Bricks
+tile.cracked_iridium_bricks.name=Cracked Iridium Bricks
 
 tile.grimstone_diamond.name=Grimstone Diamond Ore
 tile.grimstone_emerald.name=Grimstone Emerald Ore
@@ -1284,6 +1290,7 @@ entity.nova_craft.nova_ravager.name=Ravager
 entity.nova_craft.corruptist.name=Cryologer
 entity.nova_craft.octoqus.name=Octoqus
 entity.nova_craft.relik.name=Relik
+entity.nova_craft.crimson_dragon.name=Crimson Dragon
 
 #Spawn Eggs
 entity.XTNT.name=Xancium TNT
@@ -1355,3 +1362,4 @@ entity.nova_ravager.name=Ravager
 entity.corruptist.name=Cryologer
 entity.octoqus.name=Octoqus
 entity.relik.name=Relik
+entity.crimson_dragon.name=Crimson Dragon

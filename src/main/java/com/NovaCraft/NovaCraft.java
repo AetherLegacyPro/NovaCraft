@@ -28,6 +28,7 @@ import com.NovaCraft.world.bastion.treasure.BastionGen;
 import com.NovaCraft.world.end.DestitudeIslandWorldGen;
 import com.NovaCraft.world.end.EndIslandWorldGen;
 import com.NovaCraft.world.end.NCWorldGeneratorEnd;
+import com.NovaCraft.world.floating_island.FloatingIslandGen;
 import com.NovaCraft.world.mansion.MansionGen;
 import com.NovaCraft.world.meteor.MeteorCraterGen;
 import com.NovaCraft.world.nether.NCWorldGeneratorNether;
@@ -113,7 +114,7 @@ public class NovaCraft {
         }
 
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorPre(), Integer.MAX_VALUE);
-        //GameRegistry.registerWorldGenerator((IWorldGenerator)new FloatingIslandGen(), Integer.MAX_VALUE);
+        GameRegistry.registerWorldGenerator((IWorldGenerator)new FloatingIslandGen(), Integer.MAX_VALUE);
 
         if (ConfigsStructures.enableDeepoidFortress) {
             GameRegistry.registerWorldGenerator(new NovaNetherBridgeGenerator(), 0);

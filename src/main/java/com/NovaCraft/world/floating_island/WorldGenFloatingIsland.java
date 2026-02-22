@@ -344,23 +344,40 @@ public class WorldGenFloatingIsland extends WorldGenerator {
    private static FloatingIslandWyrmlingSpawner wyrmling = new FloatingIslandWyrmlingSpawner(Blocks.air, 1, true);
    private static FloatingIslandTreasure treasure = new FloatingIslandTreasure(Blocks.air, 1, true);
    private static FloatingIslandSmallSpawner spawner = new FloatingIslandSmallSpawner(Blocks.air, 1, true);
+   private static FloatingIslandWatchTower watch_tower = new FloatingIslandWatchTower(Blocks.air, 1, true);
+   private static FloatingIslandBunker bunker = new FloatingIslandBunker(Blocks.air, 1, true);
+   private static FloatingIslandRuins ruins = new FloatingIslandRuins(Blocks.air, 1, true);
+   private static FloatingIslandIridiumFurnace furnace = new FloatingIslandIridiumFurnace(Blocks.air, 1, true);
    private static FloatingIslandBuriedTreasure buried_treasure = new FloatingIslandBuriedTreasure(Blocks.air, 1, true);
    
    private void generateDecor(World world, Random rand, int x, int y, int z) {
-	      int radius = Math.max(bumpsLong1, bumpsWide1);
+         int radius = Math.max(bumpsLong1, bumpsWide1);
 
-	      for (int i = 0; i < 12 + rand.nextInt(radius); ++i) {
-	         int j = x + centerX + rand.nextInt(width) - centerX;
-	         int k = z + centerZ + rand.nextInt(length) - centerZ;
-	         int l = world.getHeightValue(j, k);
-	         if (l > 100) {
-	        	cobbled_etherstone.generate(world, rand, j, l, k);
+         int i6;
+         int j6;
+         int k6;
+         int l6;
+         for(i6 = 0; i6 < 1 + rand.nextInt(5); ++i6) {
+            j6 = x + this.centerX + rand.nextInt(this.width) - this.centerX;
+            k6 = z + this.centerZ + rand.nextInt(this.length) - this.centerZ;
+            l6 = world.getHeightValue(j6, k6);
+            if (l6 > 100) {
+               watch_tower.generate(world, rand, j6, l6, k6);
+            }
+         }
 
-	            if (rand.nextBoolean()) {
-	               gem.generate(world, rand, j + 1, l, k);
-	            }
-	         }
-	      }
+         int i55;
+         int j55;
+         int k55;
+         int l55;
+         for(i55 = 0; i55 < 2 + rand.nextInt(6); ++i55) {
+            j55 = x + this.centerX + rand.nextInt(this.width) - this.centerX;
+            k55 = z + this.centerZ + rand.nextInt(this.length) - this.centerZ;
+            l55 = world.getHeightValue(j55, k55);
+            if (l55 > 100) {
+               bunker.generate(world, rand, j55, l55 - 6, k55);
+            }
+         }
 	      
 	      int i7;
 	      int j2;
@@ -374,6 +391,19 @@ public class WorldGenFloatingIsland extends WorldGenerator {
 	        	 wyrmling.generate(world, rand, j2, l2, k2);
 	          }
 	       }
+
+         int i81;
+         int j31;
+         int k31;
+         int l31;
+         for(i81 = 0; i81 < 1 + rand.nextInt(2); ++i81) {
+            j31 = x + this.centerX + rand.nextInt(this.width) - this.centerX;
+            k31 = z + this.centerZ + rand.nextInt(this.length) - this.centerZ;
+            l31 = world.getHeightValue(j31, k31);
+            if (l31 > 100) {
+               furnace.generate(world, rand, j31, l31, k31);
+            }
+         }
 
          int i8;
          int j3;
@@ -414,14 +444,31 @@ public class WorldGenFloatingIsland extends WorldGenerator {
             }
          }
 
-	      for (int i = 0; i < 120 + rand.nextInt(60); ++i) {
-	         int j = x + centerX + rand.nextInt(width) - centerX;
-	         int k = z + centerZ + rand.nextInt(length) - centerZ;
-	         int l = world.getHeightValue(j, k);
-	         if (l > 100) {
-	            gem.generate(world, rand, j, l, k);
-	         }
-	      }
+         int i61;
+         int j61;
+         int k61;
+         int l61;
+         for(i61 = 0; i61 < 2 + rand.nextInt(3); ++i61) {
+            j61 = x + this.centerX + rand.nextInt(this.width) - this.centerX;
+            k61 = z + this.centerZ + rand.nextInt(this.length) - this.centerZ;
+            l61 = world.getHeightValue(j61, k61);
+            if (l61 > 100) {
+               ruins.generate(world, rand, j61, l61 - 2, k61);
+            }
+         }
+
+         for (int i = 0; i < 24 + rand.nextInt(radius); ++i) {
+            int j = x + centerX + rand.nextInt(width) - centerX;
+            int k = z + centerZ + rand.nextInt(length) - centerZ;
+            int l = world.getHeightValue(j, k);
+            if (l > 100) {
+               cobbled_etherstone.generate(world, rand, j, l, k);
+
+               if (rand.nextBoolean()) {
+                  gem.generate(world, rand, j + 1, l, k);
+               }
+            }
+         }
 
 	      for (int i = 0; i < 120 + rand.nextInt(60); ++i) {
 	         int j = x + centerX + rand.nextInt(width) - centerX;
@@ -441,10 +488,19 @@ public class WorldGenFloatingIsland extends WorldGenerator {
 	         }
 	      }
 
-	      this.generateTallGrass(world, rand, x, y, z);
+	      for (int i = 0; i < 120 + rand.nextInt(60); ++i) {
+	         int j = x + centerX + rand.nextInt(width) - centerX;
+	         int k = z + centerZ + rand.nextInt(length) - centerZ;
+	         int l = world.getHeightValue(j, k);
+	         if (l > 100) {
+	            gem.generate(world, rand, j, l, k);
+	         }
+	      }
+
+	      this.generateSpikes(world, rand, x, y, z);
 	  }
 
-   private void generateTallGrass(World world, Random rand, int x, int y, int z) {
+   private void generateSpikes(World world, Random rand, int x, int y, int z) {
       for(int i1 = 0; i1 < 16; ++i1) {
          int j1 = x + this.centerX + rand.nextInt(this.width) - this.centerX;
          int k1 = z + this.centerZ + rand.nextInt(this.length) - this.centerZ;

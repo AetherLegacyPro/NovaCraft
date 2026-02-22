@@ -117,7 +117,7 @@ public class NovaCraftItems {
 	//Resources
 	public static Item brimstone_dust, petn_powder;
 	public static Item diamond_nugget;
-	public static Item luminant_tree_sap, luminant_gel, luminant_ingot;
+	public static Item luminant_tree_sap, luminant_gel, luminant_ingot, welkin_stick, iridium_handle;
 	public static Item pherithium_scraps, pherithium_lump, pherithium_ingot;
 	public static Item vanite_chunk, vanite_ingot, reinforced_vanite_ingot;
 	public static Item raw_iridium, iridium_nugget, iridium_ingot, reinforced_iridium_ingot;
@@ -127,7 +127,7 @@ public class NovaCraftItems {
 	public static Item raw_klangite, klangite_blend, impure_klangite_ingot, explosive_klangite_ingot, klangite_ingot;
 	public static Item tophinite_gemstone, flaming_pitcher_petal, blazing_coal, ophidian_scales;
 	public static Item superheated_magma_cream, enflamed_null_cube_slimeball, enhanced_enflamed_null_cube_slimeball;
-	public static Item deepoid_star, eternal_caller, warden_core, echo_eye, vindicator_insignia, beastly_leather;
+	public static Item crimson_star, deepoid_star, eternal_caller, warden_core, echo_eye, vindicator_insignia, beastly_leather;
 	public static Item warden_dust, ancient_city_artifact, powered_ancient_city_artifact, dimensional_sealent;
 	public static Item prisoner_eye, unknown_star, impure_outsider_ingot, outsider_ingot;
 	
@@ -247,9 +247,9 @@ public class NovaCraftItems {
 		pherithium_lump = register("pherithium_lump", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("pherithium_lump")));
 		pherithium_ingot = register("pherithium_ingot", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("pherithium_ingot")));
 		vanite_chunk = register("vanite_chunk", new ItemFireproof().setTextureName(NovaCraft.find("vanite_chunk")));
-		vanite_ingot = register("vanite_ingot", new ItemFireproof().setTextureName(NovaCraft.find("vanite_ingot")));		
-		tophinite_gemstone = register("tophinite_gemstone", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("tophinite_gemstone")));		
+		vanite_ingot = register("vanite_ingot", new ItemFireproof().setTextureName(NovaCraft.find("vanite_ingot")));
 		reinforced_vanite_ingot = register("reinforced_vanite_ingot", new ItemFireproof().setTextureName(NovaCraft.find("reinforced_vanite_ingot")));
+		tophinite_gemstone = register("tophinite_gemstone", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("tophinite_gemstone")));
 		small_xancium_dust = register("small_xancium_dust", new ItemVoidExplosive().setTextureName(NovaCraft.find("small_xancium_dust")));
 		xancium_dust = register("xancium_dust", new ItemXanciumDust().setTextureName(NovaCraft.find("xancium_dust_item")));
 		xancium_ingot = register("xancium_ingot", new ItemVoidExplosive().setTextureName(NovaCraft.find("xancium_ingot")));
@@ -266,6 +266,8 @@ public class NovaCraftItems {
 		reinforced_iridium_ingot = register("reinforced_iridium_ingot", new ItemFireproof().setTextureName(NovaCraft.find("reinforced_iridium_ingot")));
 		iridium_nugget = register("iridium_nugget", new ItemsFireProofNugget());
 		diamond_nugget = register("diamond_nugget", new ItemNugget());
+		welkin_stick = register("welkin_stick", new ItemFireproof().setTextureName(NovaCraft.find("welkin_stick")));
+		iridium_handle = register("iridium_handle", new ItemFireproof().setTextureName(NovaCraft.find("iridium_handle")));
 		vindicator_insignia = register("vindicator_insignia", new ItemVindicatorInsignia().setTextureName(NovaCraft.find("vindicator_insignia")));
 		beastly_leather = register("beastly_leather", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("beastly_leather")));
 		wyrmling_scales = register("wyrmling_scales", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("wyrmling_scales")));
@@ -353,6 +355,7 @@ public class NovaCraftItems {
 		
 		dark_essence = register("dark_essence", new ItemDarkEssence().setTextureName(NovaCraft.find("dark_essence")));
 		eternal_caller = register("eternal_caller", new ItemEternalCaller().setTextureName(NovaCraft.find("eternal_caller")));
+		crimson_star = register("crimson_star", new ItemCrimsonStar().setTextureName(NovaCraft.find("crimson_star")));
 		deepoid_star = register("deepoid_star", new ItemDeepoidStar().setTextureName(NovaCraft.find("deepoid_star")));
 		sculk_star = register("sculk_star", new ItemSculkStar().setTextureName(NovaCraft.find("NewSculkStar")));
 		warden_core = register("warden_core", new ItemWardenCore().setTextureName(NovaCraft.find("warden_core")));

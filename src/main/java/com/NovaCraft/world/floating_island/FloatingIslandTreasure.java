@@ -21,17 +21,17 @@ public class FloatingIslandTreasure extends WorldGenAbstractTree
 
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
 
-        world.setBlock(i + 1, j + 0, k + 0, NovaCraftBlocks.etherstone_brick_slab, 5, 2);
-        world.setBlock(i + 2, j + 0, k + 0, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
-        world.setBlock(i + 3, j + 0, k + 0, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
-        world.setBlock(i + 0, j + 0, k + 1, NovaCraftBlocks.etherstone_brick_slab, 5, 2);
-        world.setBlock(i + 1, j + 0, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
-        world.setBlock(i + 2, j + 0, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
-        world.setBlock(i + 3, j + 0, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
-        world.setBlock(i + 1, j + 0, k + 2, NovaCraftBlocks.etherstone_brick_slab, 5, 2);
-        world.setBlock(i + 2, j + 0, k + 2, NovaCraftBlocks.etherstone_bricks, 0, 2);
-        world.setBlock(i + 3, j + 0, k + 2, NovaCraftBlocks.etherstone_bricks, 0, 2);
-        world.setBlock(i + 2, j + 1, k + 0, NovaCraftBlocks.etherstone_bricks, 0, 2);
+        world.setBlock(i + 1, j, k, NovaCraftBlocks.etherstone_brick_slab, 5, 2);
+        world.setBlock(i + 2, j, k, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
+        world.setBlock(i + 3, j, k, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
+        world.setBlock(i, j, k + 1, NovaCraftBlocks.etherstone_brick_slab, 5, 2);
+        world.setBlock(i + 1, j, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
+        world.setBlock(i + 2, j, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
+        world.setBlock(i + 3, j, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
+        world.setBlock(i + 1, j, k + 2, NovaCraftBlocks.etherstone_brick_slab, 5, 2);
+        world.setBlock(i + 2, j, k + 2, NovaCraftBlocks.etherstone_bricks, 0, 2);
+        world.setBlock(i + 3, j, k + 2, NovaCraftBlocks.etherstone_bricks, 0, 2);
+        world.setBlock(i + 2, j + 1, k, NovaCraftBlocks.etherstone_bricks, 0, 2);
         world.setBlock(i + 3, j + 1, k + 1, NovaCraftBlocks.etherstone_bricks, 0, 2);
         world.setBlock(i + 2, j + 1, k + 2, NovaCraftBlocks.cracked_etherstone_bricks, 0, 2);
         world.setBlock(i + 3, j + 2, k + 1, NovaCraftBlocks.etherstone_brick_slab, 5, 2);
@@ -65,8 +65,10 @@ public class FloatingIslandTreasure extends WorldGenAbstractTree
                 return new ItemStack(NovaCraftItems.tsavorokite_shard, random.nextInt(2) + 1);
             case 7:
                 return new ItemStack(NovaCraftItems.larimar_shard, random.nextInt(2) + 1);
-            default: {
+            case 8:
                 return new ItemStack(Items.gold_ingot, random.nextInt(9) + 3);
+            default: {
+                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(7) + 5, 2);
             }
         }
     }

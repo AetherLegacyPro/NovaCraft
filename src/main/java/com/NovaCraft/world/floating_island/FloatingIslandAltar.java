@@ -705,7 +705,7 @@ public class FloatingIslandAltar extends WorldGenerator
         world.setBlock(i + 14, j + 12, k + 12, NovaCraftBlocks.carved_vanite_brick_stairs, 1, 2);
         world.setBlock(i + 13, j + 12, k + 13, NovaCraftBlocks.carved_vanite_brick_stairs, 3, 2);
 
-        world.setBlock(i + 13, j + 8, k + 12, Blocks.diamond_block, 0, 2);
+        world.setBlock(i + 13, j + 8, k + 12, NovaCraftBlocks.deep_one_egg_activated, 0, 2);
 
         world.setBlock(i + 15, j + 7, k + 16, Blocks.chest, 2, 2);
         TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 15, j + 7, k + 16);
@@ -723,7 +723,7 @@ public class FloatingIslandAltar extends WorldGenerator
     }
 
     private ItemStack getChestLoot(Random random) {
-        int item = random.nextInt(15);
+        int item = random.nextInt(13);
         switch (item) {
             case 0:
                 return new ItemStack(Items.iron_ingot, random.nextInt(4) + 3);
@@ -742,7 +742,7 @@ public class FloatingIslandAltar extends WorldGenerator
             case 7:
                 return new ItemStack(NovaCraftItems.larimar_shard, random.nextInt(2) + 1);
             default: {
-                return new ItemStack(Items.gold_ingot, random.nextInt(9) + 3);
+                return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(7) + 5, 2);
             }
         }
     }

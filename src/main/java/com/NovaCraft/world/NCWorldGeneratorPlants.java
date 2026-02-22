@@ -481,11 +481,11 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 					}
 				}
 
-
-				if (ConfigsWorld.enableIcicleGeneration) {
+				if (ConfigsWorld.enableIcicleGeneration && BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.COLD)) {
 					icicle.get(0).generate(world, rand, x, rand.nextInt(10) + 75, z);
 					icicle.get(0).generate(world, rand, x, rand.nextInt(5) + 60, z);
 					icicle.get(0).generate(world, rand, x, rand.nextInt(15) + 40, z);
+
 				}
 
 				

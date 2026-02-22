@@ -1,157 +1,155 @@
 package com.NovaCraft.entity.misc;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
-import net.minecraft.world.World;
-import cpw.mods.fml.common.registry.IThrowableEntity;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import java.util.List;
 
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.EntityPrisoner;
+import com.NovaCraft.entity.EntityWarden;
+import com.NovaCraft.entity.EntityWardenVessel;
 import com.NovaCraft.particles.ParticleHandler;
 
-public class EntityWardenProjectile extends EntityArrow implements IThrowableEntity {
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 
-	private int timeInGround;
+public class EntityWardenProjectile extends Entity {
 
-	private boolean hitGround;
-	
-	public int ticksInAir;
+	private EntityLivingBase shooter;
+	private int life;
+	private int particleCooldown = 0;
 
-	public EntityWardenProjectile(World worldIn) {
-		super(worldIn);
-		setSize(4F, 4F);
+	public EntityWardenProjectile(World world) {
+		super(world);
 		this.noClip = true;
+		this.setSize(3.0F, 3.0F);
 	}
 
-	public EntityWardenProjectile(World worldIn, EntityLivingBase shooter, float distance) {
-		super(worldIn, shooter, distance);
+	public EntityWardenProjectile(World world, EntityLivingBase shooter) {
+		this(world);
+		this.shooter = shooter;
+		this.setLocationAndAngles(shooter.posX, shooter.posY + shooter.getEyeHeight(), shooter.posZ, shooter.rotationYaw, shooter.rotationPitch);
+
+		this.motionX = -Math.sin(Math.toRadians(shooter.rotationYaw)) * Math.cos(Math.toRadians(shooter.rotationPitch));
+		this.motionZ =  Math.cos(Math.toRadians(shooter.rotationYaw)) * Math.cos(Math.toRadians(shooter.rotationPitch));
+		this.motionY = -Math.sin(Math.toRadians(shooter.rotationPitch));
+
+		double speed = 1.6D;
+		this.motionX *= speed;
+		this.motionY *= speed;
+		this.motionZ *= speed;
 	}
 
 	@Override
+	protected void entityInit() {}
+
+	@Override
 	public void onUpdate() {
+		super.onUpdate();
 
-		if (this.arrowShake == 7) {
-			this.hitGround = false;
-		}
-
-		if (this.hitGround) {
-			++this.timeInGround;
-			
-		} 
-		
-		if (this.ticksInAir > 200) {
+		if (++life > 120) {
 			this.setDead();
-		} else {
-			this.ticksInAir++;
+			return;
 		}
 
-		Vec3 vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-		Vec3 vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-		MovingObjectPosition movingobjectposition = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
-		vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-		vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
-
-		if (movingobjectposition != null)
-		{
-			vec3 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
+		if (worldObj.isRemote && Configs.enableWardenParticles) {
+			spawnTrailParticles();
 		}
 
-		Entity entity = null;
-		List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
-		double d0 = 0.0D;
-		int i;
-		float f1;
+		Vec3 start = Vec3.createVectorHelper(posX, posY, posZ);
+		Vec3 end = Vec3.createVectorHelper(posX + motionX, posY + motionY, posZ + motionZ);
 
-		for (i = 0; i < list.size(); ++i)
-		{
-			Entity entity1 = (Entity)list.get(i);
+		Entity hit = null;
+		double closest = Double.MAX_VALUE;
 
-			if (entity1.canBeCollidedWith() && (entity1 != this.shootingEntity))
-			{
-				f1 = 0.3F;
-				AxisAlignedBB axisalignedbb1 = entity1.boundingBox.expand((double)f1, (double)f1, (double)f1);
-				MovingObjectPosition movingobjectposition1 = axisalignedbb1.calculateIntercept(vec31, vec3);
+		List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.addCoord(motionX, motionY, motionZ).expand(3.0D, 3.0D, 3.0D));
 
-				if (movingobjectposition1 != null)
-				{
-					double d1 = vec31.distanceTo(movingobjectposition1.hitVec);
+		for (int i = 0; i < list.size(); i++) {
+			Entity e = (Entity) list.get(i);
 
-					if (d1 < d0 || d0 == 0.0D)
-					{
-						entity = entity1;
-						d0 = d1;
-					}
+			if (!e.canBeCollidedWith() || e == shooter) continue;
+
+			AxisAlignedBB bb = e.boundingBox.expand(3.0D, 3.0D, 3.0D);
+			MovingObjectPosition mop = bb.calculateIntercept(start, end);
+
+			if (mop != null) {
+				double d = start.distanceTo(mop.hitVec);
+				if (d < closest) {
+					closest = d;
+					hit = e;
 				}
 			}
 		}
 
-		if (entity != null)
-		{
-			movingobjectposition = new MovingObjectPosition(entity);
+		if (hit != null) {
+			dealDamage(hit);
+			setDead();
+			return;
 		}
 
-		if (movingobjectposition != null && movingobjectposition.entityHit != null && movingobjectposition.entityHit instanceof EntityPlayer)
-		{
-			EntityPlayer entityplayer = (EntityPlayer)movingobjectposition.entityHit;
+		posX += motionX;
+		posY += motionY;
+		posZ += motionZ;
+		setPosition(posX, posY, posZ);
+	}
 
-			if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer && !((EntityPlayer)this.shootingEntity).canAttackPlayer(entityplayer))
-			{
-				movingobjectposition = null;
+	private void dealDamage(Entity target) {
+
+		float damage = 0.0F;
+
+		if (this.shooter instanceof EntityWarden) {
+			damage = 14.0F;
+		}
+		else if (this.shooter instanceof EntityWardenVessel) {
+			damage = 8.0F;
+		}
+		else if (this.shooter instanceof EntityPrisoner) {
+			damage = 24.0F;
+		}
+
+		if (damage <= 0.0F) return;
+
+		if (target instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) target;
+			if (!player.capabilities.disableDamage) {
+				player.attackEntityFrom(DamageSource.magic, damage);
 			}
 		}
-
-		super.onUpdate();
+		else if (target instanceof EntityLivingBase) {
+			target.attackEntityFrom(DamageSource.magic, damage);
+		}
 	}
-	
+
+
+	// === PARTICLES (LOW DENSITY) ===
 	@SideOnly(Side.CLIENT)
-    public void onEntityUpdate() {
-    	super.onEntityUpdate();
-    	if (this.worldObj.isRemote) {
-    	int k;
-    	final float f = MathHelper.cos((48 + this.ticksExisted) * 0.13f + 3.1415927f);
-        final float f2 = MathHelper.cos((48 + this.ticksExisted + 1) * 0.13f + 3.1415927f);
-        if (f > 0.0f && f2 <= 0.0f) {
-    	this.playSound("nova_craft:warden.heartbeat", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-        }
-    	if (Configs.enableWardenParticles) {
-    	for (k = 0; k < 1; ++k)
-        {
-        	ParticleHandler.VIBRATION.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
-        }
-        
-        for (k = 0; k < 1; ++k)
-        {
-        	ParticleHandler.VIBRATION.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height + 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
-        	}
-    	  }
-    	}
-    }
+	private void spawnTrailParticles() {
+		// spawn a short trail along motion vector
+		for (int i = 0; i < 2; i++) {
+			double t = i / 2.0D;
 
-	@Override
-	public void setThrower(Entity entity) {
-		this.shootingEntity = entity;
+			double px = posX - motionX * t;
+			double py = posY - motionY * t;
+			double pz = posZ - motionZ * t;
+
+			ParticleHandler.VIBRATION_WARDEN.spawn(worldObj, px, py, pz);
+		}
 	}
 
 	@Override
-	public Entity getThrower() {
-		return this.shootingEntity;
-	}
-	
-	protected float getGravityVelocity() {
-		return 0.0F;
+	protected void readEntityFromNBT(NBTTagCompound tag) {
+		life = tag.getInteger("Life");
 	}
 
+	@Override
+	protected void writeEntityToNBT(NBTTagCompound tag) {
+		tag.setInteger("Life", life);
+	}
 }

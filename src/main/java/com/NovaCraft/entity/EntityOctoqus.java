@@ -144,7 +144,7 @@ public class EntityOctoqus extends EntityMob {
         final int j = MathHelper.floor_double(this.boundingBox.minY);
         final int k = MathHelper.floor_double(this.posZ);
         final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
-        return (this.posY >= 60.0D && this.worldObj.canBlockSeeTheSky(i, j, k) && this.worldObj.getBlockLightValue(i, j, k) <= 7 && canSpawn);
+        return (this.posY >= 60.0D && this.posY <= 85.0D && this.worldObj.canBlockSeeTheSky(i, j, k) && this.worldObj.getBlockLightValue(i, j, k) <= 7 && canSpawn);
     }
 
     protected void fall(float p_70069_1_) {}

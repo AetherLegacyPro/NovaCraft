@@ -46,7 +46,7 @@ public class FloatingIslandCobbledEtherstoneDecor extends WorldGenAbstractTree
         }
         world.setBlock(x, y - 1, z, NovaCraftBlocks.rich_etherstone);
         for (int y4 = y; y4 <= y + height; ++y4) {
-            world.setBlock(x, y4, z, NovaCraftBlocks.cobbled_etherstone);
+            world.setBlock(x, y4, z, placeLog(random));
         }
         this.setBlockAirCheck(world, x, y + (height + 1), z, this.air, (random.nextInt(this.airChance) == 0) ? this.air : Blocks.air);
         this.setBlockAirCheck(world, x, y + (height + 2), z, this.air, (random.nextInt(this.airChance) == 0) ? this.air : Blocks.air);
@@ -74,15 +74,15 @@ public class FloatingIslandCobbledEtherstoneDecor extends WorldGenAbstractTree
                 switch (side) {
                     case 0: {
                         for (int x3 = x; x3 <= x + branchLength; ++x3) {
-                            world.setBlock(x3, y5, z, NovaCraftBlocks.cobbled_etherstone);
+                            world.setBlock(x3, y5, z, placeLog(random));
                             this.setBlockAirCheck(world, x3, y5 + 1, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x3, y5 - 1, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x3 + 1, y5, z + 1, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x3 - 1, y5, z - 1, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         }
-                        world.setBlock(x + (branchLength + 1), y5 + 1, z, NovaCraftBlocks.cobbled_etherstone);
-                        world.setBlock(x + (branchLength + 2), y5 + 2, z, NovaCraftBlocks.cobbled_etherstone);
-                        world.setBlock(x + (branchLength + 2), y5 + 3, z, NovaCraftBlocks.cobbled_etherstone);
+                        world.setBlock(x + (branchLength + 1), y5 + 1, z, placeLog(random));
+                        world.setBlock(x + (branchLength + 2), y5 + 2, z, placeLog(random));
+                        world.setBlock(x + (branchLength + 2), y5 + 3, z, placeLog(random));
                         this.setBlockAirCheck(world, x + (branchLength + 1), y5 + 2, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         this.setBlockAirCheck(world, x + (branchLength + 1), y5 + 3, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         this.setBlockAirCheck(world, x + (branchLength + 2), y5 + 4, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
@@ -111,15 +111,15 @@ public class FloatingIslandCobbledEtherstoneDecor extends WorldGenAbstractTree
                     }
                     case 1: {
                         for (int x4 = x; x4 >= x - branchLength; --x4) {
-                            world.setBlock(x4, y5, z, NovaCraftBlocks.cobbled_etherstone);
+                            world.setBlock(x4, y5, z, placeLog(random));
                             this.setBlockAirCheck(world, x4, y5 + 1, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x4, y5 - 1, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x4 + 1, y5, z + 1, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x4 - 1, y5, z - 1, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         }
-                        world.setBlock(x - (branchLength + 1), y5 + 1, z, NovaCraftBlocks.cobbled_etherstone);
-                        world.setBlock(x - (branchLength + 2), y5 + 2, z, NovaCraftBlocks.cobbled_etherstone);
-                        world.setBlock(x - (branchLength + 2), y5 + 3, z, NovaCraftBlocks.cobbled_etherstone);
+                        world.setBlock(x - (branchLength + 1), y5 + 1, z, placeLog(random));
+                        world.setBlock(x - (branchLength + 2), y5 + 2, z, placeLog(random));
+                        world.setBlock(x - (branchLength + 2), y5 + 3, z, placeLog(random));
                         this.setBlockAirCheck(world, x - (branchLength + 1), y5 + 2, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         this.setBlockAirCheck(world, x - (branchLength + 1), y5 + 3, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         this.setBlockAirCheck(world, x - (branchLength + 2), y5 + 4, z, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
@@ -148,15 +148,15 @@ public class FloatingIslandCobbledEtherstoneDecor extends WorldGenAbstractTree
                     }
                     case 2: {
                         for (int z3 = z; z3 <= z + branchLength; ++z3) {
-                            world.setBlock(x, y5, z3, NovaCraftBlocks.cobbled_etherstone);
+                            world.setBlock(x, y5, z3, placeLog(random));
                             this.setBlockAirCheck(world, x, y5 + 1, z3, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x, y5 - 1, z3, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x + 1, y5, z3, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x - 1, y5, z3, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         }
-                        world.setBlock(x, y5 + 1, z + (branchLength + 1), NovaCraftBlocks.cobbled_etherstone);
-                        world.setBlock(x, y5 + 2, z + (branchLength + 2), NovaCraftBlocks.cobbled_etherstone);
-                        world.setBlock(x, y5 + 3, z + (branchLength + 2), NovaCraftBlocks.cobbled_etherstone);
+                        world.setBlock(x, y5 + 1, z + (branchLength + 1), placeLog(random));
+                        world.setBlock(x, y5 + 2, z + (branchLength + 2), placeLog(random));
+                        world.setBlock(x, y5 + 3, z + (branchLength + 2), placeLog(random));
                         this.setBlockAirCheck(world, x, y5 + 2, z + (branchLength + 1), this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         this.setBlockAirCheck(world, x, y5 + 3, z + (branchLength + 1), this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         this.setBlockAirCheck(world, x, y5 + 4, z + (branchLength + 2), this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
@@ -185,15 +185,15 @@ public class FloatingIslandCobbledEtherstoneDecor extends WorldGenAbstractTree
                     }
                     case 3: {
                         for (int z4 = z; z4 >= z - branchLength; --z4) {
-                            world.setBlock(x, y5, z4, NovaCraftBlocks.cobbled_etherstone);
+                            world.setBlock(x, y5, z4, placeLog(random));
                             this.setBlockAirCheck(world, x, y5 + 1, z4, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x, y5 - 1, z4, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x + 1, y5, z4, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                             this.setBlockAirCheck(world, x - 1, y5, z4, this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         }
-                        world.setBlock(x, y5 + 1, z - (branchLength + 1), NovaCraftBlocks.cobbled_etherstone);
-                        world.setBlock(x, y5 + 2, z - (branchLength + 2), NovaCraftBlocks.cobbled_etherstone);
-                        world.setBlock(x, y5 + 3, z - (branchLength + 2), NovaCraftBlocks.cobbled_etherstone);
+                        world.setBlock(x, y5 + 1, z - (branchLength + 1), placeLog(random));
+                        world.setBlock(x, y5 + 2, z - (branchLength + 2), placeLog(random));
+                        world.setBlock(x, y5 + 3, z - (branchLength + 2), placeLog(random));
                         this.setBlockAirCheck(world, x, y5 + 2, z - (branchLength + 1), this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         this.setBlockAirCheck(world, x, y5 + 3, z - (branchLength + 1), this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
                         this.setBlockAirCheck(world, x, y5 + 4, z - (branchLength + 2), this.air, (random.nextInt(chance) == 0) ? this.air : Blocks.air);
@@ -243,6 +243,14 @@ public class FloatingIslandCobbledEtherstoneDecor extends WorldGenAbstractTree
             else {
                 world.setBlock(x, y, z, leaveID);
             }
+        }
+    }
+
+    private Block placeLog(Random random) {
+        if (random.nextDouble() < 0.45) {
+            return NovaCraftBlocks.welkin_log;
+        } else {
+            return NovaCraftBlocks.cobbled_etherstone;
         }
     }
 }

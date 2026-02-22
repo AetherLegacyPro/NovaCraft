@@ -8,6 +8,8 @@ import com.NovaCraft.TileEntity.TileEntityLegendaryBeacon;
 import com.NovaCraft.TileEntity.TileEntityLegendaryEnchantmentTable;
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.entity.*;
+import com.NovaCraft.entity.CrimsonDragon.CrimsonDragonRenderer;
+import com.NovaCraft.entity.CrimsonDragon.EntityCrimsonDragon;
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
 import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
 import com.NovaCraft.entity.hardmode.EntityHardmodeGhast;
@@ -60,6 +62,7 @@ public class RendersNovaCraft {
 	register(EntityPrimedPETN.class, new PrimedPETNRenderer());
 	register(EntityRayfireball.class, new RayfireballRenderer());
 	register(EntityBloviatorProjectile.class, new BloviatorProjectileRenderer());
+	register(EntityCrimsonDragonProjectile.class, new CrimsonDragonProjectileRenderer());
 	register(EntityEnderLordStaffProjectile.class, new EnderLordStaffProjectileRenderer());
 	register(EntitySculkHornProjectile.class, new SculkHornProjectileRenderer());
 	register(EntityIceSceptorProjectile.class, new IceSceptorProjectileRenderer());
@@ -135,6 +138,7 @@ public class RendersNovaCraft {
 	register(EntityRavager.class, new RavagerRenderer(new RavagerModel(), 0.6f));
 	register(EntityOctoqus.class, new OctoqusRenderer());
 	register(EntityRelik.class, new RelikRenderer());
+	register(EntityCrimsonDragon.class, new CrimsonDragonRenderer());
 	
 	register(EntityHardmodeCreeper.class, new HardmodeCreeperRenderer());
 	register(EntityHardmodeSpider.class, new HardmodeSpiderRenderer());

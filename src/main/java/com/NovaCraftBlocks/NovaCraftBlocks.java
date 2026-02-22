@@ -53,27 +53,7 @@ import com.NovaCraftBlocks.ores.vanilla.BlockGrimstoneOre;
 import com.NovaCraftBlocks.ores.vanilla.BlockGrimstoneRedstone;
 import com.NovaCraftBlocks.ores.vanilla.BlockNullstoneOre;
 import com.NovaCraftBlocks.ores.vanilla.BlockNullstoneRedstone;
-import com.NovaCraftBlocks.plants.BlockArcticMoss;
-import com.NovaCraftBlocks.plants.BlockArcticMossCarpet;
-import com.NovaCraftBlocks.plants.BlockBloomingBarb;
-import com.NovaCraftBlocks.plants.BlockBrightLichen;
-import com.NovaCraftBlocks.plants.BlockDarkLichen;
-import com.NovaCraftBlocks.plants.BlockDeepRoot;
-import com.NovaCraftBlocks.plants.BlockGlowLichen;
-import com.NovaCraftBlocks.plants.BlockGrimLichen;
-import com.NovaCraftBlocks.plants.BlockLuminantLeaves;
-import com.NovaCraftBlocks.plants.BlockLuminantLog;
-import com.NovaCraftBlocks.plants.BlockLuminantPlanks;
-import com.NovaCraftBlocks.plants.BlockLuminantSapling;
-import com.NovaCraftBlocks.plants.BlockMoss;
-import com.NovaCraftBlocks.plants.BlockMossCarpet;
-import com.NovaCraftBlocks.plants.BlockNovaCraftMushroom;
-import com.NovaCraftBlocks.plants.BlockNullWart;
-import com.NovaCraftBlocks.plants.BlockOverworldFlower;
-import com.NovaCraftBlocks.plants.BlockRichEtherstone;
-import com.NovaCraftBlocks.plants.BlockRichEtherstoneSpike;
-import com.NovaCraftBlocks.plants.BlockTorchFlower;
-import com.NovaCraftBlocks.plants.LuminantTreeGen;
+import com.NovaCraftBlocks.plants.*;
 import com.NovaCraftBlocks.plants.end.BlockChorusGrass;
 import com.NovaCraftBlocks.plants.end.BlockDarkLotus;
 import com.NovaCraftBlocks.plants.end.BlockDestitude;
@@ -158,6 +138,7 @@ public class NovaCraftBlocks {
 	public static Block nullwart_bricks, flaming_nullwart_bricks;
 	public static Block luminant_log, luminant_sapling, luminant_leaves, luminant_planks;
 	public static Block luminant_slab, luminant_double_slab, luminant_stairs, luminant_fence, luminant_fence_gate;
+	public static Block welkin_log, welkin_planks;
 	public static Block glow_torch, vanite_torch, dim_vanite_torch;
 	public static Block blazing_coal_block, glowing_obsidian;
 	
@@ -285,7 +266,7 @@ public class NovaCraftBlocks {
 	public static Block unbreakable_ancient_chest, ancient_chest, ancient_warper;
 	public static Block nullwart_brick_bookshelf, sculk_brick_bookshelf;
 	public static Block deepoid_bricks, deepoid_power_core, deepoid_furnace, lit_deepoid_furnace;
-	public static Block iridium_bricks, infused_iridium_bricks, iridium_power_core, iridium_trapdoor, iridium_furnace, lit_iridium_furnace, cracked_iridium_furnace;
+	public static Block iridium_bricks, cracked_iridium_bricks, infused_iridium_bricks, iridium_power_core, iridium_trapdoor, iridium_furnace, lit_iridium_furnace, cracked_iridium_furnace;
 	public static Block vanite_anvil, cracked_end_portal_frame;
 	
 	//9x Duplication Structure
@@ -475,7 +456,8 @@ public class NovaCraftBlocks {
 		meteorite_block = registerItemBlock("meteorite_block", new BlockMeteorite(), ItemBlockFireProof.class);
 		iridium_ore = registerItemBlock("iridium_ore", new BlockIridiumOre(), ItemBlockFireProof.class);	
 		block_of_iridium = registerItemBlock("block_of_iridium", new BlockIridium(), ItemBlockFireProof.class);
-		iridium_bricks = registerItemBlock("iridium_bricks", new BlockIridiumBricks(), ItemBlockFireProof.class);
+		iridium_bricks = registerItemBlock("iridium_bricks", new BlockIridiumBricks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("iridium_bricks"));
+		cracked_iridium_bricks = registerItemBlock("cracked_iridium_bricks", new BlockIridiumBricks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("cracked_iridium_bricks"));
 		iridium_power_core = register("iridium_power_core", new BlockIridiumPowerCore().setLightLevel(0.9775F).setBlockTextureName(NovaCraft.find("iridium_power_core")));
 		infused_iridium_bricks = registerItemBlock("infused_iridium_bricks", new BlockInfusedIridiumBricks().setLightLevel(0.5275F), ItemBlockInfusedIridiumBricks.class);
 		iridium_trapdoor = registerItemBlock("iridium_trapdoor", new BlockIridiumTrapdoor(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("iridium_trapdoor"));
@@ -500,7 +482,7 @@ public class NovaCraftBlocks {
 		lit_deepoid_furnace = registerHidden("lit_deepoid_furnace", new BlockDeepoidFurnace(true).setLightLevel(0.9775F).setCreativeTab(null));
 		
 		deep_one_egg = register("deep_one_egg", new BlockDeepOneEgg().setBlockTextureName(NovaCraft.find("deep_one_egg")));
-		deep_one_egg_activated = registerHidden("deep_one_egg_activated", new BlockDeepOneEggActivated().setBlockTextureName(NovaCraft.find("deep_one_egg_activated")));
+		deep_one_egg_activated = register("deep_one_egg_activated", new BlockDeepOneEggActivated().setBlockTextureName(NovaCraft.find("deep_one_egg_activated")));
 		
 		PETN = register("PETN", new BlockPETN());
 		PETN_wire = registerHidden("PETN_wire", new BlockPETNWire().setBlockTextureName(NovaCraft.find("PETN_dust_block")));
@@ -631,6 +613,9 @@ public class NovaCraftBlocks {
 		luminant_log = registerMeta("luminant_log", new BlockLuminantLog().setBlockTextureName(NovaCraft.find("luminant_log")));
 		luminant_planks = registerMeta("luminant_planks", new BlockLuminantPlanks().setBlockTextureName(NovaCraft.find("luminant_planks")));
 		luminant_fence = registerMeta("luminant_fence", new BlockLuminantFence());
+
+		welkin_log = registerMeta("welkin_log", new BlockWelkinLog().setBlockTextureName(NovaCraft.find("welkin_log")));
+		welkin_planks = registerMeta("welkin_planks", new BlockWelkinPlanks().setBlockTextureName(NovaCraft.find("welkin_planks")));
 		
 		if (Configs.enableLuminantLeavesGlow) {
 			luminant_leaves = registerMeta("luminant_leaves", new BlockLuminantLeaves().setLightLevel(0.2775F).setBlockTextureName(NovaCraft.find("luminant_leaves")));

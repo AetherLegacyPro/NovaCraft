@@ -90,9 +90,12 @@ public class NovaCraftRegistries {
 		OreDictionary.registerOre("ingotXancium", NovaCraftItems.xancium_ingot);
 
 		OreDictionary.registerOre("logWood", NovaCraftBlocks.lacuna_log);
+		OreDictionary.registerOre("logWood", NovaCraftBlocks.welkin_log);
 		OreDictionary.registerOre("logWood", NovaCraftBlocks.luminant_log);
 		OreDictionary.registerOre("plankWood", NovaCraftBlocks.lacuna_planks);
+		OreDictionary.registerOre("plankWood", NovaCraftBlocks.welkin_planks);
 		OreDictionary.registerOre("plankWood", NovaCraftBlocks.luminant_planks);
+		OreDictionary.registerOre("stickWood", NovaCraftItems.welkin_stick);
 
 		OreDictionary.registerOre("record", NovaCraftItems.disc_5);
 
@@ -193,6 +196,7 @@ public class NovaCraftRegistries {
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.inked_vacuum_sand), new ItemStack(NovaCraftBlocks.vacuum_glass), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.luminant_tree_sap), new ItemStack(NovaCraftItems.luminant_gel), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.luminant_log), new ItemStack(Items.coal, 1, 1), .01F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.welkin_log), new ItemStack(Items.coal, 1, 1), .05F);
 
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.cobbled_grimstone), new ItemStack(NovaCraftBlocks.grimstone), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.cobbled_nullstone), new ItemStack(NovaCraftBlocks.nullstone), .01F);
@@ -241,6 +245,10 @@ public class NovaCraftRegistries {
 		register("nullstone_tiles", new ItemStack(NovaCraftBlocks.nullstone_tiles, 4), "XX", "XX", 'X', NovaCraftBlocks.nullstone_bricks);
 
 		register("basal_bricks", new ItemStack(NovaCraftBlocks.basal_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.basal);
+
+		register("welkin_stick", new ItemStack(NovaCraftItems.welkin_stick, 4), "X", "X", 'X', NovaCraftBlocks.welkin_planks);
+
+		register("iridium_handle", new ItemStack(NovaCraftItems.iridium_handle, 2), "ZXW", "XYX", "XXZ", 'Y', NovaCraftItems.welkin_stick, 'X', new ItemStack(NovaCraftItems.iridium_nugget, 0, 0), 'Z', NovaCraftItems.superheated_magma_cream, 'W', NovaCraftItems.reinforced_iridium_ingot);
 
 		if (Loader.isModLoaded("etfuturum") && ConfigsCompact.enableTuffBrickRecipe) {
 			try {
@@ -374,6 +382,52 @@ public class NovaCraftRegistries {
 			register("ancient_city_totem", new ItemStack(NovaCraftItems.ancient_city_totem), "VYV", "XXX", "XZX", 'X', NovaCraftItems.reinforced_vanite_ingot, 'Y', NovaCraftItems.sculked_monitor_eye, 'Z', NovaCraftItems.copartz_shard, 'V', NovaCraftItems.anomalous_essence);
 		}
 
+		try {
+			Block ancient_debris = GameRegistry.findBlock("etfuturum", "ancient_debris");
+			if (ancient_debris != null && ConfigsCompact.enableBlockOfRawNetheriteRecipe) {
+				register("iridium_sword", new ItemStack(NovaCraftItems.iridium_sword), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', OtherModItems.netherite_sword, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("iridium_pickaxe", new ItemStack(NovaCraftItems.iridium_pickaxe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', OtherModItems.netherite_pickaxe, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("iridium_axe", new ItemStack(NovaCraftItems.iridium_axe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', OtherModItems.netherite_axe, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("iridium_shovel", new ItemStack(NovaCraftItems.iridium_shovel), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', OtherModItems.netherite_spade, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("iridium_hoe", new ItemStack(NovaCraftItems.iridium_hoe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', OtherModItems.netherite_hoe, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+
+				register("tophinite_sword", new ItemStack(NovaCraftItems.tophinite_sword), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', OtherModItems.netherite_sword, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("tophinite_pickaxe", new ItemStack(NovaCraftItems.tophinite_pickaxe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', OtherModItems.netherite_pickaxe, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("tophinite_axe", new ItemStack(NovaCraftItems.tophinite_axe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', OtherModItems.netherite_axe, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("tophinite_shovel", new ItemStack(NovaCraftItems.tophinite_shovel), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', OtherModItems.netherite_spade, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("tophinite_hoe", new ItemStack(NovaCraftItems.tophinite_hoe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', OtherModItems.netherite_hoe, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+
+				register("klangite_sword", new ItemStack(NovaCraftItems.klangite_sword), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', OtherModItems.netherite_sword, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+				register("klangite_pickaxe", new ItemStack(NovaCraftItems.klangite_pickaxe), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', OtherModItems.netherite_pickaxe, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+				register("klangite_axe", new ItemStack(NovaCraftItems.klangite_axe), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', OtherModItems.netherite_axe, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+				register("klangite_shovel", new ItemStack(NovaCraftItems.klangite_shovel), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', OtherModItems.netherite_spade, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+				register("klangite_hoe", new ItemStack(NovaCraftItems.klangite_hoe), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', OtherModItems.netherite_hoe, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+			}
+			else {
+				register("iridium_sword", new ItemStack(NovaCraftItems.iridium_sword), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', Items.diamond_sword, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("iridium_pickaxe", new ItemStack(NovaCraftItems.iridium_pickaxe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', Items.diamond_pickaxe, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("iridium_axe", new ItemStack(NovaCraftItems.iridium_axe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', Items.diamond_axe, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("iridium_shovel", new ItemStack(NovaCraftItems.iridium_shovel), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', Items.diamond_shovel, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("iridium_hoe", new ItemStack(NovaCraftItems.iridium_hoe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.larimar_shard), 'Y', Items.diamond_hoe, 'Z', NovaCraftItems.reinforced_iridium_ingot, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+
+				register("tophinite_sword", new ItemStack(NovaCraftItems.tophinite_sword), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', Items.diamond_sword, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("tophinite_pickaxe", new ItemStack(NovaCraftItems.tophinite_pickaxe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', Items.diamond_pickaxe, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("tophinite_axe", new ItemStack(NovaCraftItems.tophinite_axe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', Items.diamond_axe, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("tophinite_shovel", new ItemStack(NovaCraftItems.tophinite_shovel), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', Items.diamond_shovel, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+				register("tophinite_hoe", new ItemStack(NovaCraftItems.tophinite_hoe), " XZ", " YW", "V  ", 'X', new ItemStack(NovaCraftItems.yttrlinsite_shard), 'Y', Items.diamond_hoe, 'Z', NovaCraftItems.tophinite_gemstone, 'W', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.iridium_handle);
+
+				register("klangite_sword", new ItemStack(NovaCraftItems.klangite_sword), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', Items.diamond_sword, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+				register("klangite_pickaxe", new ItemStack(NovaCraftItems.klangite_pickaxe), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', Items.diamond_pickaxe, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+				register("klangite_axe", new ItemStack(NovaCraftItems.klangite_axe), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', Items.diamond_axe, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+				register("klangite_shovel", new ItemStack(NovaCraftItems.klangite_shovel), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', Items.diamond_shovel, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+				register("klangite_hoe", new ItemStack(NovaCraftItems.klangite_hoe), " XZ", " YX", "V  ", 'X', new ItemStack(NovaCraftItems.superheated_magma_cream), 'Y', Items.diamond_hoe, 'Z', NovaCraftItems.klangite_ingot, 'V', NovaCraftItems.iridium_handle);
+			}
+		} catch (Exception ex) {
+			if (Configs.enableDebugMode) {
+				System.out.println("Crash Avoided when attempting to add recipes with netherite tools...");
+			}
+		}
+
 		register("deepoid_brewing_stand_item", new ItemStack(NovaCraftItems.deepoid_brewing_stand_item), " W ", "WXW", "ZYZ", 'X', new ItemStack(NovaCraftItems.ionizatior_rod), 'Y', NovaCraftItems.tophinite_gemstone, 'Z', new ItemStack(NovaCraftBlocks.block_of_vanite), 'W', new ItemStack(NovaCraftItems.deepoid_scales));
 
 		register("sculked_shard", new ItemStack(NovaCraftItems.sculked_shard, 9), "X", 'X', NovaCraftBlocks.crystallized_sculk);
@@ -382,12 +436,12 @@ public class NovaCraftRegistries {
 		register("nullified_vanite", new ItemStack(NovaCraftBlocks.nullified_vanite), "XXX", "XXX", "XXX", 'X', NovaCraftItems.nullified_vanite_alloy);
 		register("nullified_vanite_alloy", new ItemStack(NovaCraftItems.nullified_vanite_alloy, 3), "XYX", "YXY", "XYX", 'X', NovaCraftItems.crystallized_vanite_alloy, 'Y', NovaCraftItems.null_shard);
 
-		register("ophidian_scales", new ItemStack(NovaCraftItems.ophidian_scales, 3), "AZB", "XYX", "CZD", 'X', new ItemStack(NovaCraftItems.deep_one_scales), 'Y', NovaCraftItems.corrupted_essence, 'Z', NovaCraftItems.deepoid_scales, 'A', NovaCraftItems.sea_serpent_scales, 'B', NovaCraftItems.sculked_monitor_scales, 'C', NovaCraftItems.cave_monitor_scales, 'D', NovaCraftItems.blazing_serpent_scales);
+		register("ophidian_scales", new ItemStack(NovaCraftItems.ophidian_scales, 3), "AZB", "XYX", "CED", 'X', new ItemStack(NovaCraftItems.deep_one_scales), 'Y', NovaCraftItems.corrupted_essence, 'Z', NovaCraftItems.deepoid_scales, 'A', NovaCraftItems.sea_serpent_scales, 'B', NovaCraftItems.sculked_monitor_scales, 'C', NovaCraftItems.cave_monitor_scales, 'D', NovaCraftItems.blazing_serpent_scales, 'E', NovaCraftItems.wyrmling_scales);
 
-		register("ophidian_helmet", new ItemStack(NovaCraftItems.ophidian_helmet), "ZXZ", "XYX", "ZXZ", 'X', NovaCraftItems.ophidian_scales, 'Y', NovaCraftItems.crystallized_vanite_helmet, 'Z', NovaCraftItems.anomalous_essence);
-		register("ophidian_chestplate", new ItemStack(NovaCraftItems.ophidian_chestplate), "ZXZ", "XYX", "ZXZ", 'X', NovaCraftItems.ophidian_scales, 'Y', NovaCraftItems.crystallized_vanite_chestplate, 'Z', NovaCraftItems.anomalous_essence);
-		register("ophidian_leggings", new ItemStack(NovaCraftItems.ophidian_leggings), "ZXZ", "XYX", "ZXZ", 'X', NovaCraftItems.ophidian_scales, 'Y', NovaCraftItems.crystallized_vanite_leggings, 'Z', NovaCraftItems.anomalous_essence);
-		register("ophidian_boots", new ItemStack(NovaCraftItems.ophidian_boots), "ZXZ", "XYX", "ZXZ", 'X', NovaCraftItems.ophidian_scales, 'Y', NovaCraftItems.crystallized_vanite_boots, 'Z', NovaCraftItems.anomalous_essence);
+		register("ophidian_helmet", new ItemStack(NovaCraftItems.ophidian_helmet), "ZXZ", "XYX", "VXV", 'X', NovaCraftItems.ophidian_scales, 'Y', NovaCraftItems.crystallized_vanite_helmet, 'Z', NovaCraftItems.beastly_leather, 'V', NovaCraftItems.anomalous_essence);
+		register("ophidian_chestplate", new ItemStack(NovaCraftItems.ophidian_chestplate), "ZXZ", "XYX", "VXV", 'X', NovaCraftItems.ophidian_scales, 'Y', NovaCraftItems.crystallized_vanite_chestplate, 'Z', NovaCraftItems.beastly_leather, 'V', NovaCraftItems.anomalous_essence);
+		register("ophidian_leggings", new ItemStack(NovaCraftItems.ophidian_leggings), "ZXZ", "XYX", "VXV", 'X', NovaCraftItems.ophidian_scales, 'Y', NovaCraftItems.crystallized_vanite_leggings, 'Z', NovaCraftItems.beastly_leather, 'V', NovaCraftItems.anomalous_essence);
+		register("ophidian_boots", new ItemStack(NovaCraftItems.ophidian_boots), "ZXZ", "XYX", "VXV", 'X', NovaCraftItems.ophidian_scales, 'Y', NovaCraftItems.crystallized_vanite_boots, 'Z', NovaCraftItems.beastly_leather, 'V', NovaCraftItems.anomalous_essence);
 
 		register("ophidian_sword", new ItemStack(NovaCraftItems.ophidian_sword), "  W", "XY ", "ZX ", 'X', NovaCraftItems.enflamed_null_cube_slimeball, 'Y', NovaCraftItems.crystallized_vanite_sword, 'Z', NovaCraftItems.deep_one_bone, 'W', NovaCraftItems.corrupted_essence);
 		register("ophidian_pickaxe", new ItemStack(NovaCraftItems.ophidian_pickaxe), "  W", "XY ", "ZX ", 'X', NovaCraftItems.enflamed_null_cube_slimeball, 'Y', NovaCraftItems.crystallized_vanite_pickaxe, 'Z', NovaCraftItems.deep_one_bone, 'W', NovaCraftItems.corrupted_essence);
@@ -397,6 +451,7 @@ public class NovaCraftRegistries {
 		register("ophidian_bow", new ItemStack(NovaCraftItems.ophidian_bow), " XW", "ZYX", " XW", 'X', NovaCraftItems.ophidian_scales , 'Y', NovaCraftItems.crystallized_vanite_bow, 'Z', NovaCraftItems.deep_one_bone, 'W', NovaCraftItems.enflamed_null_cube_slimeball);
 
 		register("deepoid_star", new ItemStack(NovaCraftItems.deepoid_star), "ZWZ", "XYX", "ZWZ", 'X', NovaCraftItems.deepoid_scales, 'Y', Items.nether_star, 'Z', NovaCraftItems.anomalous_essence, 'W', NovaCraftItems.vanite_crystal);
+		register("crimson_star", new ItemStack(NovaCraftItems.crimson_star), "ZWZ", "XYX", "ZWZ", 'X', NovaCraftItems.wyrmling_scales, 'Y', NovaCraftItems.serpent_crown, 'Z', NovaCraftItems.anomalous_essence, 'W', NovaCraftItems.reinforced_iridium_ingot);
 
 		register("phoenix_razor", new ItemStack(NovaCraftItems.phoenix_razor), " X ", "WYX", "ZW ", 'X', NovaCraftItems.yttrlinsite_shard, 'Y', NovaCraftItems.tophinite_gemstone, 'Z', NovaCraftItems.ionizatior_rod, 'W', NovaCraftItems.phoenix_feather);
 
@@ -414,13 +469,14 @@ public class NovaCraftRegistries {
 		register("kylazite_hoe", new ItemStack(NovaCraftItems.kylazite_hoe), "XWV", "ZYW", "XZX", 'X', NovaCraftItems.crystallized_end_shard , 'Y', NovaCraftItems.klangite_hoe, 'Z', NovaCraftItems.enflamed_null_cube_slimeball, 'W', NovaCraftItems.nullified_dust, 'V', NovaCraftItems.corrupted_essence);
 		register("kylazite_bow", new ItemStack(NovaCraftItems.kylazite_bow), "XZW", "VYZ", "XZW", 'X', NovaCraftItems.nullified_dust , 'Y', NovaCraftItems.klangite_bow, 'Z', NovaCraftItems.crystallized_end_shard, 'W', NovaCraftItems.enflamed_null_cube_slimeball, 'V', NovaCraftItems.corrupted_essence);
 
-		register("kylazite_helmet", new ItemStack(NovaCraftItems.kylazite_helmet), "XWV", "ZYW", "XZX", 'X', NovaCraftItems.crystallized_end_shard , 'Y', NovaCraftItems.klangite_helmet, 'Z', NovaCraftItems.enflamed_null_cube_slimeball, 'W', NovaCraftItems.nullified_dust, 'V', NovaCraftItems.corrupted_essence);
-		register("kylazite_chestplate", new ItemStack(NovaCraftItems.kylazite_chestplate), "XWV", "ZYW", "XZX", 'X', NovaCraftItems.crystallized_end_shard , 'Y', NovaCraftItems.klangite_chestplate, 'Z', NovaCraftItems.enflamed_null_cube_slimeball, 'W', NovaCraftItems.nullified_dust, 'V', NovaCraftItems.corrupted_essence);
-		register("kylazite_leggings", new ItemStack(NovaCraftItems.kylazite_leggings), "XWV", "ZYW", "XZX", 'X', NovaCraftItems.crystallized_end_shard , 'Y', NovaCraftItems.klangite_leggings, 'Z', NovaCraftItems.enflamed_null_cube_slimeball, 'W', NovaCraftItems.nullified_dust, 'V', NovaCraftItems.corrupted_essence);
-		register("kylazite_boots", new ItemStack(NovaCraftItems.kylazite_boots), "XWV", "ZYW", "XZX", 'X', NovaCraftItems.crystallized_end_shard , 'Y', NovaCraftItems.klangite_boots, 'Z', NovaCraftItems.enflamed_null_cube_slimeball, 'W', NovaCraftItems.nullified_dust, 'V', NovaCraftItems.corrupted_essence);
+		register("kylazite_helmet", new ItemStack(NovaCraftItems.kylazite_helmet), "XWX", "ZYZ", "VAV", 'X', NovaCraftItems.beastly_leather , 'Y', NovaCraftItems.klangite_helmet, 'Z', NovaCraftItems.nullified_dust, 'W', NovaCraftItems.enflamed_null_cube_slimeball, 'A', NovaCraftItems.corrupted_essence, 'V', NovaCraftItems.crystallized_end_shard);
+		register("kylazite_chestplate", new ItemStack(NovaCraftItems.kylazite_chestplate), "XWX", "ZYZ", "VAV", 'X', NovaCraftItems.beastly_leather , 'Y', NovaCraftItems.klangite_chestplate, 'Z', NovaCraftItems.nullified_dust, 'W', NovaCraftItems.enflamed_null_cube_slimeball, 'A', NovaCraftItems.corrupted_essence, 'V', NovaCraftItems.crystallized_end_shard);
+		register("kylazite_leggings", new ItemStack(NovaCraftItems.kylazite_leggings), "XWX", "ZYZ", "VAV", 'X', NovaCraftItems.beastly_leather , 'Y', NovaCraftItems.klangite_leggings, 'Z', NovaCraftItems.nullified_dust, 'W', NovaCraftItems.enflamed_null_cube_slimeball, 'A', NovaCraftItems.corrupted_essence, 'V', NovaCraftItems.crystallized_end_shard);
+		register("kylazite_boots", new ItemStack(NovaCraftItems.kylazite_boots), "XWX", "ZYZ", "VAV", 'X', NovaCraftItems.beastly_leather , 'Y', NovaCraftItems.klangite_boots, 'Z', NovaCraftItems.nullified_dust, 'W', NovaCraftItems.enflamed_null_cube_slimeball, 'A', NovaCraftItems.corrupted_essence, 'V', NovaCraftItems.crystallized_end_shard);
 
 		register("powered_ancient_city_artifact", new ItemStack(NovaCraftItems.powered_ancient_city_artifact), "XVX", "VYV", "XZX", 'X', NovaCraftItems.static_essence, 'Y', NovaCraftItems.sculked_monitor_eye, 'Z', NovaCraftItems.ancient_city_artifact, 'V', NovaCraftItems.wardling_dust);
 
+		register("iridium_bricks", new ItemStack(NovaCraftBlocks.iridium_bricks, 5), "XYX", "WZW", "XWX", 'X', new ItemStack(NovaCraftBlocks.cracked_iridium_bricks), 'Y', new ItemStack(NovaCraftItems.iridium_ingot), 'Z', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'W', new ItemStack(NovaCraftItems.iridium_nugget, 1, 0));
 		register("iridium_bricks", new ItemStack(NovaCraftBlocks.iridium_bricks, 5), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftBlocks.deepoid_bricks), 'Y', new ItemStack(NovaCraftItems.iridium_ingot), 'Z', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2));
 		register("iridium_power_core", new ItemStack(NovaCraftBlocks.iridium_power_core, 1), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.reinforced_iridium_ingot), 'Z', new ItemStack(NovaCraftBlocks.deepoid_power_core));
 		register("iridium_trapdoor", new ItemStack(NovaCraftBlocks.iridium_trapdoor, 1), "XXX", "YYY", "XXX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.reinforced_iridium_ingot));
@@ -749,6 +805,7 @@ public class NovaCraftRegistries {
 
 		registerShapeless("lacuna_planks", new ItemStack(NovaCraftBlocks.lacuna_planks, 2), new ItemStack(NovaCraftBlocks.lacuna_log));
 		registerShapeless("luminant_planks", new ItemStack(NovaCraftBlocks.luminant_planks, 4), new ItemStack(NovaCraftBlocks.luminant_log));
+		registerShapeless("welkin_planks", new ItemStack(NovaCraftBlocks.welkin_planks, 4), new ItemStack(NovaCraftBlocks.welkin_log));
 
 		registerShapeless("dye", new ItemStack(Items.dye, 2, 8), new ItemStack(NovaCraftBlocks.shadow_bloom));
 		registerShapeless("dye", new ItemStack(Items.dye, 1, 6), new ItemStack(NovaCraftBlocks.cyan_rose));
@@ -831,12 +888,6 @@ public class NovaCraftRegistries {
 			try {
 				Block ancient_debris = GameRegistry.findBlock("etfuturum", "ancient_debris");
 				if (ancient_debris != null && ConfigsCompact.enableNetheriteInRecipes) {
-					registerShapeless("iridium_sword", new ItemStack(NovaCraftItems.iridium_sword), new ItemStack(OtherModItems.netherite_sword), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-					registerShapeless("iridium_pickaxe", new ItemStack(NovaCraftItems.iridium_pickaxe), new ItemStack(OtherModItems.netherite_pickaxe), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-					registerShapeless("iridium_shovel", new ItemStack(NovaCraftItems.iridium_shovel), new ItemStack(OtherModItems.netherite_spade), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-					registerShapeless("iridium_axe", new ItemStack(NovaCraftItems.iridium_axe), new ItemStack(OtherModItems.netherite_axe), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-					registerShapeless("iridium_hoe", new ItemStack(NovaCraftItems.iridium_hoe), new ItemStack(OtherModItems.netherite_hoe), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-
 					registerShapeless("iridium_helmet", new ItemStack(NovaCraftItems.iridium_helmet), new ItemStack(OtherModItems.netherite_helmet), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
 					registerShapeless("iridium_chestplate", new ItemStack(NovaCraftItems.iridium_chestplate), new ItemStack(OtherModItems.netherite_chestplate), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
 					registerShapeless("iridium_leggings", new ItemStack(NovaCraftItems.iridium_leggings), new ItemStack(OtherModItems.netherite_leggings), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
@@ -846,18 +897,6 @@ public class NovaCraftRegistries {
 					registerShapeless("klangite_chestplate", new ItemStack(NovaCraftItems.klangite_chestplate), new ItemStack(OtherModItems.netherite_chestplate), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 					registerShapeless("klangite_leggings", new ItemStack(NovaCraftItems.klangite_leggings), new ItemStack(OtherModItems.netherite_leggings), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 					registerShapeless("klangite_boots", new ItemStack(NovaCraftItems.klangite_boots), new ItemStack(OtherModItems.netherite_boots), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-
-					registerShapeless("klangite_sword", new ItemStack(NovaCraftItems.klangite_sword), new ItemStack(OtherModItems.netherite_sword), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("klangite_pickaxe", new ItemStack(NovaCraftItems.klangite_pickaxe), new ItemStack(OtherModItems.netherite_pickaxe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("klangite_shovel", new ItemStack(NovaCraftItems.klangite_shovel), new ItemStack(OtherModItems.netherite_spade), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("klangite_axe", new ItemStack(NovaCraftItems.klangite_axe), new ItemStack(OtherModItems.netherite_axe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("klangite_hoe", new ItemStack(NovaCraftItems.klangite_hoe), new ItemStack(OtherModItems.netherite_hoe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-
-					registerShapeless("tophinite_sword", new ItemStack(NovaCraftItems.tophinite_sword), new ItemStack(OtherModItems.netherite_sword), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("tophinite_pickaxe", new ItemStack(NovaCraftItems.tophinite_pickaxe), new ItemStack(OtherModItems.netherite_pickaxe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("tophinite_shovel", new ItemStack(NovaCraftItems.tophinite_shovel), new ItemStack(OtherModItems.netherite_spade), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("tophinite_axe", new ItemStack(NovaCraftItems.tophinite_axe), new ItemStack(OtherModItems.netherite_axe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("tophinite_hoe", new ItemStack(NovaCraftItems.tophinite_hoe), new ItemStack(OtherModItems.netherite_hoe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 
 					registerShapeless("tophinite_helmet", new ItemStack(NovaCraftItems.tophinite_helmet), new ItemStack(OtherModItems.netherite_helmet), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 					registerShapeless("tophinite_chestplate", new ItemStack(NovaCraftItems.tophinite_chestplate), new ItemStack(OtherModItems.netherite_chestplate), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
@@ -875,12 +914,6 @@ public class NovaCraftRegistries {
 					registerShapeless("crystallized_vanite_leggings", new ItemStack(NovaCraftItems.crystallized_vanite_leggings), new ItemStack(OtherModItems.netherite_leggings), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(Items.diamond));
 					registerShapeless("crystallized_vanite_boots", new ItemStack(NovaCraftItems.crystallized_vanite_boots), new ItemStack(OtherModItems.netherite_boots), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(NovaCraftItems.crystallized_vanite_alloy), new ItemStack(Items.diamond));
 				} else {
-					registerShapeless("iridium_sword", new ItemStack(NovaCraftItems.iridium_sword), new ItemStack(Items.diamond_sword), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-					registerShapeless("iridium_pickaxe", new ItemStack(NovaCraftItems.iridium_pickaxe), new ItemStack(Items.diamond_pickaxe), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-					registerShapeless("iridium_shovel", new ItemStack(NovaCraftItems.iridium_shovel), new ItemStack(Items.diamond_shovel), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-					registerShapeless("iridium_axe", new ItemStack(NovaCraftItems.iridium_axe), new ItemStack(Items.diamond_axe), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-					registerShapeless("iridium_hoe", new ItemStack(NovaCraftItems.iridium_hoe), new ItemStack(Items.diamond_hoe), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
-
 					registerShapeless("iridium_helmet", new ItemStack(NovaCraftItems.iridium_helmet), new ItemStack(Items.diamond_helmet), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
 					registerShapeless("iridium_chestplate", new ItemStack(NovaCraftItems.iridium_chestplate), new ItemStack(Items.diamond_chestplate), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
 					registerShapeless("iridium_leggings", new ItemStack(NovaCraftItems.iridium_leggings), new ItemStack(Items.diamond_leggings), new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.larimar_shard));
@@ -890,18 +923,6 @@ public class NovaCraftRegistries {
 					registerShapeless("klangite_chestplate", new ItemStack(NovaCraftItems.klangite_chestplate), new ItemStack(Items.diamond_chestplate), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 					registerShapeless("klangite_leggings", new ItemStack(NovaCraftItems.klangite_leggings), new ItemStack(Items.diamond_leggings), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 					registerShapeless("klangite_boots", new ItemStack(NovaCraftItems.klangite_boots), new ItemStack(Items.diamond_boots), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-
-					registerShapeless("klangite_sword", new ItemStack(NovaCraftItems.klangite_sword), new ItemStack(Items.diamond_sword), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("klangite_pickaxe", new ItemStack(NovaCraftItems.klangite_pickaxe), new ItemStack(Items.diamond_pickaxe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("klangite_shovel", new ItemStack(NovaCraftItems.klangite_shovel), new ItemStack(Items.diamond_shovel), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("klangite_axe", new ItemStack(NovaCraftItems.klangite_axe), new ItemStack(Items.diamond_axe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("klangite_hoe", new ItemStack(NovaCraftItems.klangite_hoe), new ItemStack(Items.diamond_hoe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-
-					registerShapeless("tophinite_sword", new ItemStack(NovaCraftItems.tophinite_sword), new ItemStack(Items.diamond_sword), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("tophinite_pickaxe", new ItemStack(NovaCraftItems.tophinite_pickaxe), new ItemStack(Items.diamond_pickaxe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("tophinite_shovel", new ItemStack(NovaCraftItems.tophinite_shovel), new ItemStack(Items.diamond_shovel), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("tophinite_axe", new ItemStack(NovaCraftItems.tophinite_axe), new ItemStack(Items.diamond_axe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-					registerShapeless("tophinite_hoe", new ItemStack(NovaCraftItems.tophinite_hoe), new ItemStack(Items.diamond_hoe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 
 					registerShapeless("tophinite_helmet", new ItemStack(NovaCraftItems.tophinite_helmet), new ItemStack(Items.diamond_helmet), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 					registerShapeless("tophinite_chestplate", new ItemStack(NovaCraftItems.tophinite_chestplate), new ItemStack(Items.diamond_chestplate), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
@@ -945,12 +966,6 @@ public class NovaCraftRegistries {
 				registerShapeless("klangite_axe", new ItemStack(NovaCraftItems.klangite_axe), new ItemStack(Items.diamond_axe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 				registerShapeless("klangite_hoe", new ItemStack(NovaCraftItems.klangite_hoe), new ItemStack(Items.diamond_hoe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 
-				registerShapeless("tophinite_sword", new ItemStack(NovaCraftItems.tophinite_sword), new ItemStack(Items.diamond_sword), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-				registerShapeless("tophinite_pickaxe", new ItemStack(NovaCraftItems.tophinite_pickaxe), new ItemStack(Items.diamond_pickaxe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-				registerShapeless("tophinite_shovel", new ItemStack(NovaCraftItems.tophinite_shovel), new ItemStack(Items.diamond_shovel), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-				registerShapeless("tophinite_axe", new ItemStack(NovaCraftItems.tophinite_axe), new ItemStack(Items.diamond_axe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-				registerShapeless("tophinite_hoe", new ItemStack(NovaCraftItems.tophinite_hoe), new ItemStack(Items.diamond_hoe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-
 				registerShapeless("tophinite_helmet", new ItemStack(NovaCraftItems.tophinite_helmet), new ItemStack(Items.diamond_helmet), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 				registerShapeless("tophinite_chestplate", new ItemStack(NovaCraftItems.tophinite_chestplate), new ItemStack(Items.diamond_chestplate), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 				registerShapeless("tophinite_leggings", new ItemStack(NovaCraftItems.tophinite_leggings), new ItemStack(Items.diamond_leggings), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
@@ -989,12 +1004,6 @@ public class NovaCraftRegistries {
 			registerShapeless("klangite_shovel", new ItemStack(NovaCraftItems.klangite_shovel), new ItemStack(Items.diamond_shovel), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 			registerShapeless("klangite_axe", new ItemStack(NovaCraftItems.klangite_axe), new ItemStack(Items.diamond_axe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 			registerShapeless("klangite_hoe", new ItemStack(NovaCraftItems.klangite_hoe), new ItemStack(Items.diamond_hoe), new ItemStack(NovaCraftItems.klangite_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-
-			registerShapeless("tophinite_sword", new ItemStack(NovaCraftItems.tophinite_sword), new ItemStack(Items.diamond_sword), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-			registerShapeless("tophinite_pickaxe", new ItemStack(NovaCraftItems.tophinite_pickaxe), new ItemStack(Items.diamond_pickaxe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-			registerShapeless("tophinite_shovel", new ItemStack(NovaCraftItems.tophinite_shovel), new ItemStack(Items.diamond_shovel), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-			registerShapeless("tophinite_axe", new ItemStack(NovaCraftItems.tophinite_axe), new ItemStack(Items.diamond_axe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
-			registerShapeless("tophinite_hoe", new ItemStack(NovaCraftItems.tophinite_hoe), new ItemStack(Items.diamond_hoe), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 
 			registerShapeless("tophinite_helmet", new ItemStack(NovaCraftItems.tophinite_helmet), new ItemStack(Items.diamond_helmet), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 			registerShapeless("tophinite_chestplate", new ItemStack(NovaCraftItems.tophinite_chestplate), new ItemStack(Items.diamond_chestplate), new ItemStack(NovaCraftItems.tophinite_gemstone), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));

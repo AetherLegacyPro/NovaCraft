@@ -1,23 +1,16 @@
 package com.NovaCraft.entity;
 
-import java.util.Iterator;
 import java.util.List;
-
-import com.NovaCraft.Hardmode;
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
-import com.NovaCraft.entity.misc.EntityRayfireball;
-import com.NovaCraft.entity.misc.EntitySculkHornProjectile;
 import com.NovaCraft.entity.misc.EntityWardenProjectile;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -25,7 +18,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMoveThroughVillage;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -35,36 +27,26 @@ import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.entity.projectile.EntityWitherSkull;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityWarden extends EntityMob implements IBossDisplayData
-{		
-	
-	EntityPlayer player;
+public class EntityWarden extends EntityMob implements IBossDisplayData {
+
 	public EntityWarden warden;
 	public int shootTime;
-	private boolean projectile;
-	private int field_82222_j;
-	private int[] field_82224_i = new int[2];
 	public int deathTicks;
+	public int attackAnimationTicks;
+	private static final int SONIC_ANIMATION = 20;
 	
 	public EntityWarden(final World p_i1745_1_) {
 		super(p_i1745_1_);
@@ -78,33 +60,32 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 		this.tasks.addTask(8, new EntityAILookIdle(this));
 		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-		setSize(1F, 3F);
 		this.experienceValue = 500;
 	}
 	
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-
-		//World world = MinecraftServer.getServer().worldServers[0];
-        //Hardmode data = Hardmode.get(world);
-        //if (data.getHardmode() == true) {
-        //	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(14D);
-        //	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1200.0D);
-        	//this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
-			//this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(30D);
-			//this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50D);
-			//this.setHealth(1200);
-        //}
-        //else {
         	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(11D);
         	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(600.0D);
         	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
 			this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(20D);
-			this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(50D);
+			this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(60D);
 			this.setHealth(600);
-        //}
-		
+	}
+
+	@Override
+	protected void entityInit() {
+		super.entityInit();
+		this.dataWatcher.addObject(SONIC_ANIMATION, 0);
+	}
+
+	public void startSonicBoomAnimation(int ticks) {
+		this.dataWatcher.updateObject(SONIC_ANIMATION, ticks);
+	}
+
+	public int getSonicBoomTicks() {
+		return this.dataWatcher.getWatchableObjectInt(SONIC_ANIMATION);
 	}
 	
 	public boolean canBreatheUnderwater()
@@ -117,30 +98,13 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	        return 17;
 	    }
 	
-	public void onLivingUpdate()
-	{
-		
-		int i = MathHelper.floor_double(this.posX);
-        int j = MathHelper.floor_double(this.posY);
-        int k = MathHelper.floor_double(this.posZ);
-		
-		for (int l = 0; l < 4; ++l)
-        {
-            i = MathHelper.floor_double(this.posX + (double)((float)(l % 2 * 2 - 1) * 0.25F));
-            j = MathHelper.floor_double(this.posY);
-            k = MathHelper.floor_double(this.posZ + (double)((float)(l / 2 % 2 * 2 - 1) * 0.25F));
-            
-            if (this.worldObj.getBlock(i, j, k).getMaterial() == Material.air && this.worldObj.getBiomeGenForCoords(i, k).getFloatTemperature(i, j, k) < 0.8F && NovaCraftBlocks.sculk_growth.canPlaceBlockAt(this.worldObj, i, j, k))
-            {
-                this.worldObj.setBlock(i, j, k, NovaCraftBlocks.sculk_growth, 1, 0);
-            }
-        }
-
-		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(5, 5, 5));
+	public void onLivingUpdate() {
+		int chance = (int)(1 + Math.random() * 30000);
+		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(3, 3, 3));
 		{
-		if(Configs.enableWardenBlindness) {
+		/*if(Configs.enableWardenBlindness && chance > 29800) {
         for(Entity entity : volume) {
-        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 0, true));
+        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.blindness.id, 60, 0, true));
         	}
 		}
 		else {
@@ -149,100 +113,153 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	         }
 
 			}
+		}*/
+
+			if (Configs.enableWardenSlowness && chance < 15000) {
+				for (Entity entity : volume) {
+					if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity))
+						((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
+				}
+			}
+
+			if (Configs.enableWardenWeakness && chance > 22500) {
+				for (Entity entity : volume) {
+					if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity))
+						((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
+				}
+			}
 		}
         
-		if(Configs.enableWardenSlowness) {
-        for(Entity entity : volume) {
-        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
-        	}
-		}
-        
-		if(Configs.enableWardenWeakness) {
-        for(Entity entity : volume) {
-        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
-        	}
-		}
-        
-        if (isWet()){
-            this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 300, 4));
+        if (isWet()) {
+            this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 140, 3));
             this.heal(10.0F);	
-            }
+		}
 		
 		super.onLivingUpdate();
-	}	
-	 
-	 @SideOnly(Side.CLIENT)
-	    public void onEntityUpdate() {
-	    	super.onEntityUpdate();
-	    	if (this.worldObj.isRemote) {
-	    		
-	    		if (net.minecraft.client.Minecraft.getMinecraft().gameSettings.particleSetting == 2) {
-	    			return;
-	    		}
-	    		
-	    	int k;
-	    	final float f = MathHelper.cos((48 + this.ticksExisted) * 0.13f + 3.1415927f);
-            final float f2 = MathHelper.cos((48 + this.ticksExisted + 1) * 0.13f + 3.1415927f);
-            if (f > 0.0f && f2 <= 0.0f) {
-	    	this.playSound("nova_craft:warden.heartbeat", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-            }
-	    	if (Configs.enableWardenParticles) {
-	    	for (k = 0; k < 1; ++k)
-	        {
-	        	ParticleHandler.WARDEN.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
-	        }
-	        
-	        for (k = 0; k < 1; ++k)
-	        {
-	        	ParticleHandler.WARDEN.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height + 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
-	        	}
-	    	  }
-	    	}
-	    }
-	
+	}
+
+	@SideOnly(Side.CLIENT)
 	@Override
-    public boolean attackEntityFrom(DamageSource source, float amount)
-    {
-		if (source == DamageSource.drown || source == DamageSource.wither || source == DamageSource.inWall  || source.isProjectile() || source.isExplosion())
-        {
-            return false;
-        }
-		Entity entity;
-		entity = source.getSourceOfDamage();
+	public void onEntityUpdate() {
+		super.onEntityUpdate();
 
-		if (entity instanceof EntityArrow)
-        {
-            return false;
-        }
-		
-		else
-        {
-            if (this.field_82222_j <= 0)
-            {
-                this.field_82222_j = 20;
-            }
+		if (!this.worldObj.isRemote) return;
 
-            for (int i = 0; i < this.field_82224_i.length; ++i)
-            {
-                this.field_82224_i[i] += 3;
-            }
+		Minecraft mc = Minecraft.getMinecraft();
+		EntityPlayer player = mc.thePlayer;
 
-            return super.attackEntityFrom(source, amount);
-        }
-		
-    }
-	
-	
-	public boolean attackEntityAsMob(final Entity target) {
-		
-		boolean flag = super.attackEntityAsMob(target);
-        		      	
-		this.heal(10.0F);
-		this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 150, 4));
-		this.addPotionEffect(new PotionEffect(Potion.jump.id, 100, 2));
-        this.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 100, 1));               
+		if (player == null) return;
 
-        if (target instanceof EntityPlayer) {
+		if (player.isPotionActive(Potion.blindness)) {
+			double dx = this.posX - player.posX;
+			double dy = (this.posY + this.height / 2.0D) - (player.posY + player.getEyeHeight());
+			double dz = this.posZ - player.posZ;
+
+			double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+			if (distance < 50.0D) {
+				int chance = (int)(1 + Math.random() * 100);
+				if (chance > 75) {
+					int steps = (int) (distance);
+					for (int i = 0; i <= steps; i++) {
+						double t = (double) i / (double) steps;
+						double px = player.posX + dx * t + (rand.nextDouble() - 0.5D) * 0.2D;
+						double py = player.posY + player.getEyeHeight() + dy * t + (rand.nextDouble() - 2.5D) * 0.2D;
+						double pz = player.posZ + dz * t + (rand.nextDouble() - 0.5D) * 0.2D;
+
+						ParticleHandler.VIBRATION.spawn(worldObj, px, py, pz);
+					}
+				}
+			}
+		}
+	}
+
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float amount) {
+		if (this.isEntityInvulnerable()) {
+			return false;
+		}
+
+		if (source == DamageSource.outOfWorld) {
+			return super.attackEntityFrom(source, amount);
+		}
+
+		if (source.getEntity() instanceof EntityPlayer) {
+
+			EntityPlayer player = (EntityPlayer) source.getEntity();
+
+			if (!player.isPotionActive(Potion.blindness)) {
+				amount *= 0.25F;
+			}
+		}
+
+		double hitY = -1.0D;
+
+		if (source.getSourceOfDamage() != null) {
+
+			Entity src = source.getSourceOfDamage();
+
+			if (src instanceof EntityArrow) {
+				hitY = src.posY;
+			}
+		}
+
+		if (hitY < 0.0D && source.getEntity() != null) {
+
+			Entity attacker = source.getEntity();
+
+			hitY = attacker.posY + attacker.getEyeHeight() - 0.3D;
+		}
+
+		if (hitY < 0.0D) {
+			return false;
+		}
+
+		if (!(isHeartHit(hitY))) {
+			return false;
+		}
+
+		return super.attackEntityFrom(source, amount);
+	}
+
+	private boolean isHeartHit(double hitY) {
+		double heartMin = this.posY + 1.3D;
+		double heartMax = this.posY + 1.9D;
+
+		return hitY >= heartMin && hitY <= heartMax;
+	}
+
+	private boolean canHitTarget(Entity target) {
+		double reach = 4.5D;
+		return this.getDistanceSqToEntity(target) <= reach * reach;
+	}
+
+
+	@Override
+	public boolean attackEntityAsMob(Entity target) {
+		if (!canHitTarget(target)) {
+			return false;
+		}
+
+		this.swingItem();
+
+		float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue();
+
+		// Special player handling
+		if (target instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) target;
+			if (!player.isPotionActive(Potion.blindness)) {
+				this.heal(10.0F);
+				this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 240, 3));
+				this.addPotionEffect(new PotionEffect(Potion.jump.id, 120, 2));
+				this.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 120, 1));
+			}
+			if (player.isPotionActive(Potion.blindness)) {
+				this.heal(3.0F);
+				this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 80, 3));
+				this.addPotionEffect(new PotionEffect(Potion.jump.id, 100, 2));
+				this.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 100, 1));
+			}
 
             ItemStack helmet = ((EntityPlayer) target).getCurrentArmor(3);
             ItemStack chest = ((EntityPlayer) target).getCurrentArmor(2);
@@ -267,21 +284,35 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
                 hasWardenBoots = boots.getItem() == NovaCraftItems.warden_boots || boots.getItem() == NovaCraftItems.crystalite_boots;
 
             if (hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) {
-
-            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 22.0F);
-            	target.attackEntityFrom(DamageSource.magic, 12.0F);
+            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 32.0F);
+            	target.attackEntityFrom(DamageSource.magic, 14.0F);
             }
-            
+			else if ((!hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && hasWardenChest && hasWardenLegs && !hasWardenBoots)) {
+				target.attackEntityFrom(DamageSource.causeMobDamage(this), 40.0F);
+				target.attackEntityFrom(DamageSource.magic, 14.0F);
+			}
+			else if ((!hasWardenHelmet && !hasWardenChest && hasWardenLegs && hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && !hasWardenLegs && hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && hasWardenLegs && !hasWardenBoots)
+					|| (hasWardenHelmet && !hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && hasWardenLegs && !hasWardenBoots) || (hasWardenHelmet && hasWardenChest && !hasWardenLegs && !hasWardenBoots)) {
+				target.attackEntityFrom(DamageSource.causeMobDamage(this), 48.0F);
+				target.attackEntityFrom(DamageSource.magic, 16.0F);
+			}
+			else if ((!hasWardenHelmet && !hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && !hasWardenLegs && !hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && !hasWardenLegs && !hasWardenBoots) || (!hasWardenHelmet && !hasWardenChest && hasWardenLegs && !hasWardenBoots)) {
+				target.attackEntityFrom(DamageSource.causeMobDamage(this), 56.0F);
+				target.attackEntityFrom(DamageSource.magic, 18.0F);
+				target.attackEntityFrom(DamageSource.wither, 1.0F);
+			}
             else {
             	target.attackEntityFrom(DamageSource.causeMobDamage(this), 64.0F);
-            	target.attackEntityFrom(DamageSource.magic, 12.0F);
+            	target.attackEntityFrom(DamageSource.magic, 20.0F);
             	target.attackEntityFrom(DamageSource.wither, 2.0F);
             	target.attackEntityFrom(DamageSource.outOfWorld, 1.0F);
             	
-            	 ((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.harm.id, 20, 1));
+				((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.harm.id, 20, 1));
             }
              
-        }
+        } else if (target instanceof EntityLivingBase) {
+			((EntityLivingBase)target).attackEntityFrom(DamageSource.causeMobDamage(this), damage);
+		}
         
         return true;
     }
@@ -290,9 +321,16 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	public void onUpdate() {
 		super.onUpdate();
 
-		if (this.entityToAttack instanceof EntityPlayer && this.shouldAttackPlayer((EntityPlayer)this.entityToAttack))
-        {
-			
+		if (this.attackAnimationTicks > 0) {
+			this.attackAnimationTicks--;
+		}
+
+		int sonic = this.getSonicBoomTicks();
+		if (sonic > 0) {
+			this.dataWatcher.updateObject(SONIC_ANIMATION, sonic - 1);
+		}
+
+		if (this.entityToAttack instanceof EntityPlayer && this.shouldAttackPlayer((EntityPlayer)this.entityToAttack)) {
 		if (this.getEntityToAttack() != null) {
 			if (this.getAttackTarget() instanceof EntityPlayer && ((EntityPlayer) this.getAttackTarget()).capabilities.isCreativeMode) {
 				this.setAttackTarget(null);
@@ -301,10 +339,11 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 				double d = this.getEntityToAttack().posX - this.posX;
 				double d1 = this.getEntityToAttack().posZ - this.posZ;
 
-				this.getLookHelper().setLookPositionWithEntity(this.getEntityToAttack(), 30.0F, 30.0F);
+				this.getLookHelper().setLookPositionWithEntity(this.getEntityToAttack(), 60.0F, 60.0F);
 
 				if (this.shootTime >= 20 && this.canEntityBeSeen(this.getEntityToAttack())) {
 					this.shootTarget();
+					this.startSonicBoomAnimation(25);
 					this.shootTime = -60;
 				}
 
@@ -314,9 +353,7 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 
 				this.rotationYaw = (float) ((Math.atan2(d1, d) * 180D) / 3.1415927410125732D) - 90F;
 				}
-			
 			}
-				
 		}
 				
 		if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
@@ -324,8 +361,7 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 		}
 	}
 	
-	protected void onDeathUpdate()
-    {
+	protected void onDeathUpdate() {
 		 ++this.deathTicks;
 	        if (this.deathTicks >= 180 && this.deathTicks <= 200)
 	        {
@@ -377,12 +413,8 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	            this.setDead();
 	        }
     }
-	
-	/**
-     * Called when the mob's health reaches 0.
-     */
-    public void onDeath(DamageSource p_70645_1_)
-    {
+
+    public void onDeath(DamageSource p_70645_1_) {
         super.onDeath(p_70645_1_);
 
         if (p_70645_1_.getEntity() instanceof EntityPlayer)
@@ -416,52 +448,30 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 		return hardness >= 0.0F;
 	}
 	
-	private boolean shouldAttackPlayer(EntityPlayer p_70821_1_)
-    {
-        
-            Vec3 vec3 = p_70821_1_.getLook(1.0F).normalize();
-            Vec3 vec31 = Vec3.createVectorHelper(this.posX - p_70821_1_.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - (p_70821_1_.posY + (double)p_70821_1_.getEyeHeight()), this.posZ - p_70821_1_.posZ);
-            double d0 = vec31.lengthVector();
-            vec31 = vec31.normalize();
-            double d1 = vec3.dotProduct(vec31);
-            return d1 > 1.0D - 0.025D / d0 && p_70821_1_.canEntityBeSeen(this);
-        
+	private boolean shouldAttackPlayer(EntityPlayer p_70821_1_) {
+		Vec3 vec3 = p_70821_1_.getLook(1.0F).normalize();
+		Vec3 vec31 = Vec3.createVectorHelper(this.posX - p_70821_1_.posX, this.boundingBox.minY + (double)(this.height / 2.0F) - (p_70821_1_.posY + (double)p_70821_1_.getEyeHeight()), this.posZ - p_70821_1_.posZ);
+		double d0 = vec31.lengthVector();
+		vec31 = vec31.normalize();
+		double d1 = vec3.dotProduct(vec31);
+		return d1 > 1.0D - 0.025D / d0 && p_70821_1_.canEntityBeSeen(this);
     }
 
 	public void shootTarget() {
-		if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
-			return;
-		}		
-		
-		if (isWet()) {
-		EntityWardenProjectile entityarrow2 = new EntityWardenProjectile(this.worldObj, this, 20.0F);
+		if (this.worldObj.isRemote) return;
+		if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) return;
+
+		EntityWardenProjectile projectile = new EntityWardenProjectile(this.worldObj, this);
+		projectile.posX += projectile.motionX * 1.5D;
+		projectile.posY += projectile.motionY * 1.5D;
+		projectile.posZ += projectile.motionZ * 1.5D;
+
+		this.worldObj.spawnEntityInWorld(projectile);
+
 		this.playSound("nova_craft:sculk_horn.vibration", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-		this.worldObj.spawnEntityInWorld(entityarrow2);	
-			
-		}
-		
-		else {
-			
-			EntityWardenProjectile entityarrow = new EntityWardenProjectile(this.worldObj, this, 10.0F);
-			this.playSound("nova_craft:sculk_horn.vibration", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-			this.worldObj.spawnEntityInWorld(entityarrow);
-			
-		}
 	}
 	
-	protected Entity findEnemyToAttack() {
-        final List list = this.worldObj.getEntitiesWithinAABBExcludingEntity((Entity)this, this.boundingBox.expand(8.0, 4.0, 8.0));
-        for (int i = 0; i < list.size(); ++i) {
-            final Entity entity = (Entity) list.get(i);
-            if (entity != null && (entity instanceof EntitySlime || entity instanceof EntityMob || entity instanceof EntityAnimal)) {
-                this.entityToAttack = entity;
-            }
-        }
-        return null;
-    }
-	
-	 protected void dropFewItems(boolean p_70628_1_, int p_70628_2_)
-	    {
+	 protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
 	        int j;
 	        int k;
 	        {
@@ -501,15 +511,13 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	        {
 	        	this.dropItem(NovaCraftItems.anomalous_essence, 6 + p_70628_2_);
 	        }
-	    }
+	}
 	
-	public EnumCreatureAttribute getCreatureAttribute()
-    {
+	public EnumCreatureAttribute getCreatureAttribute() {
         return EnumCreatureAttribute.UNDEFINED;
     }
 	
-	protected void dropRareDrop(int p_70600_1_)
-    {    
+	protected void dropRareDrop(int p_70600_1_) {
        this.dropItem(NovaCraftItems.warden_tentacle, 2);
        this.dropItem(NovaCraftItems.warden_heart, 1);
     }
@@ -523,25 +531,21 @@ public class EntityWarden extends EntityMob implements IBossDisplayData
 	 }
 
 	@Override
-    protected String getLivingSound()
-    {
+    protected String getLivingSound() {
         return "nova_craft:sculk_dweller.living";
     }
 
 	@Override
-    protected String getHurtSound()
-    {
+    protected String getHurtSound() {
         return "nova_craft:sculk_dweller.hurt";
     }
 
 	@Override
-    protected String getDeathSound()
-    {
+    protected String getDeathSound() {
         return "nova_craft:sculk_dweller.death";
     }
 	
-	public World func_82194_d()
-    {
+	public World func_82194_d() {
         return this.worldObj;
     }
 	

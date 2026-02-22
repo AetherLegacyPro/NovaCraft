@@ -260,22 +260,20 @@ public class EntityWardenVessel extends EntityMob
         
     }
 
-	public void shootTarget() { //shootTarget		
-		
-		if (isWet()) {
-		EntityWardenProjectile entityarrow2 = new EntityWardenProjectile(this.worldObj, this, 20.0F);
+	public void shootTarget() {
+		if (this.worldObj.isRemote) return;
+		if (this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) return;
+
+		EntityWardenProjectile projectile = new EntityWardenProjectile(this.worldObj, this);
+
+		// Spawn slightly in front of the Warden so it doesn’t hit itself
+		projectile.posX += projectile.motionX * 1.5D;
+		projectile.posY += projectile.motionY * 1.5D;
+		projectile.posZ += projectile.motionZ * 1.5D;
+
+		this.worldObj.spawnEntityInWorld(projectile);
+
 		this.playSound("nova_craft:sculk_horn.vibration", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-		this.worldObj.spawnEntityInWorld(entityarrow2);	
-			
-		}
-		
-		else {
-			
-			EntityWardenProjectile entityarrow = new EntityWardenProjectile(this.worldObj, this, 6.0F);
-			this.playSound("nova_craft:sculk_horn.vibration", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-			this.worldObj.spawnEntityInWorld(entityarrow);
-			
-		}
 	}
 	
 	protected Entity findEnemyToAttack() {

@@ -33,7 +33,6 @@ public class BlockDeepOneEggActivated extends BlockContainer
         this.setStepSound(soundTypePiston);
         this.setLightLevel(0.825F);
         this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 1.0F, 0.9375F);
-        this.setTickRandomly(true);
     }
     
     protected boolean canSilkHarvest() {
@@ -78,26 +77,6 @@ public class BlockDeepOneEggActivated extends BlockContainer
     {
         return Item.getItemById(0);
     }
-    
-    public void updateTick(World world, int i, int j, int k, Random random) {
-		
-		if (true) {
-		
-		world.playSoundEffect(i, j, k, "nova_craft:boss.DOsummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
-		world.setBlock(i, j, k, NovaCraftBlocks.deepfire);
-		world.playSoundEffect(i, j, k, "nova_craft:boss.DOsummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
-		
-			if (!world.isRemote)
-        	{
-				EntityDeepoidDragon dragon = new EntityDeepoidDragon(world);
-				dragon.setLocationAndAngles((double)i + 0.5D, (double)j + 15D, (double)k + 0.5D, 0.0F, 0.0F);
-				world.spawnEntityInWorld(dragon);
-				dragon.spawnExplosionParticle();
-        	}
-		}
-		
-		world.scheduleBlockUpdate(i, j, k, this, this.tickRate(world));
-	}
     
     @Override
 	public int tickRate(World world) {

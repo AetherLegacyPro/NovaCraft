@@ -93,7 +93,7 @@ public class EntityWyrmling extends EntityFlying implements IMob
 
         if (target instanceof EntityPlayer) {
 
-            target.attackEntityFrom(DamageSource.magic, 5.0F);
+            target.attackEntityFrom(DamageSource.magic, 2.0F);
         }
 
         return true;

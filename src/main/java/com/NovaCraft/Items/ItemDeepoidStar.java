@@ -1,6 +1,7 @@
 package com.NovaCraft.Items;
 
 import com.NovaCraft.achievements.AchievementsNovaCraft;
+import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -47,26 +48,27 @@ public class ItemDeepoidStar extends Item {
 	
 	@Override
 	public boolean onItemUse(ItemStack heldItem, EntityPlayer player, World world, int x, int y, int z, int facing, float hitX, float hitY, float hitZ) {
-		Block block = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
 		
 	   if (world.provider.dimensionId == -1) {	
 		if (world.getBlock(x, y, z) == NovaCraftBlocks.deep_one_egg) {
-			
-			world.setBlock(x, y, z, NovaCraftBlocks.deep_one_egg_activated);
+
 			player.triggerAchievement(AchievementsNovaCraft.the_nether_dragon);
-				
-				world.playSoundEffect(x, y, z, "nova_craft:boss.DOsummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
-				--heldItem.stackSize;		
+			world.playSoundEffect(x, y, z, "nova_craft:boss.DOsummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
+			--heldItem.stackSize;
+
+			if (!world.isRemote)
+			{
+				EntityDeepoidDragon dragon = new EntityDeepoidDragon(world);
+				dragon.setLocationAndAngles((double)x + 0.5D, (double)y + 15D, (double)z + 0.5D, 0.0F, 0.0F);
+				world.spawnEntityInWorld(dragon);
+				dragon.spawnExplosionParticle();
+			}
+
+			world.setBlock(x, y, z, Blocks.air, 0, 2);
 		 }
 	   }
 		return true;
 	}
-	
-	protected String getSummoningSound()
-    {
-        return "nova_craft:boss.DOsummoning";
-    }
 	
 }
 

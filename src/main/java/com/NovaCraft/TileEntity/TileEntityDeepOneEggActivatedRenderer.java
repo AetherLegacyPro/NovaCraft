@@ -29,6 +29,6 @@ public class TileEntityDeepOneEggActivatedRenderer extends TileEntitySpecialRend
     }
     
     static {
-    	Textures = new ResourceLocation("nova_craft", "textures/entity/deepoid_dragon/deepoid_dragon_egg_activated.png");
+    	Textures = new ResourceLocation("nova_craft", "textures/entity/crimson_dragon/crimson_dragon_egg.png");
     }
 }

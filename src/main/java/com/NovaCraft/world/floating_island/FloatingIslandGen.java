@@ -21,7 +21,7 @@ public class FloatingIslandGen implements IWorldGenerator {
         if ((biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean) && rand.nextInt(2400) == 0) {
 
             // Slightly wider island
-            int minBumps = 55, maxBumps = 75;
+            int minBumps = 55, maxBumps = 95;
             int blocksPerBumpMin = 2, blocksPerBumpMax = 4;
 
             int minHeight = 120, heightVariation = 16;

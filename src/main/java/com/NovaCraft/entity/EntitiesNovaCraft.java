@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.NovaCraft.config.ConfigsEntities;
+import com.NovaCraft.entity.CrimsonDragon.EntityCrimsonDragon;
 import com.NovaCraft.entity.misc.*;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.item.EntityEnderEye;
@@ -89,6 +90,7 @@ public class EntitiesNovaCraft {
 		register(EntityEchoEye.class, "echo_eye", 81, 150, 2, true);
 		register(EntityOctoqusProjectile.class, "octoqus_projectile", 87, 64, 20, true);
 		register(EntityVindicatorEye.class, "vindicator_eye", 88, 150, 2, true);
+		register(EntityCrimsonDragonProjectile.class, "crimson_dragon_projectile", 91, 64, 20, true);
 		
 		//Mobs
 		register(EntityPrimedXanciumTNT.class, "XTNT", 0, 64, 20, false);
@@ -162,6 +164,7 @@ public class EntitiesNovaCraft {
 		register(EntityBloviator.class, "bloviator", 47, 0x28395f, 0x12323a);
 		register(EntityPrisoner.class, "prisoner", 57, 64, 20, true);
 		register(EntityBlazingSerpentQueen.class, "serpent_queen", 75, 0x2d0000, 0xff0033);
+		register(EntityCrimsonDragon.class, "crimson_dragon", 90, 0xe4001e, 0x60000c);
 		
 		if (ConfigsEntities.enableSpawnGlowSquid) {
 		EntityRegistry.addSpawn(EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] {BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});

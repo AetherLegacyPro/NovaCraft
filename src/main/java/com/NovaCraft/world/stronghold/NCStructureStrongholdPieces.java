@@ -1392,49 +1392,49 @@ public class NCStructureStrongholdPieces
                 //this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 8, 3, 9, p_74875_3_);
 
                 this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_furnace, 2, 6, 2, 5, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 6, 1, 5, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 6, 1, 5, p_74875_3_);
 
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 5, 1, 5, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 5, 1, 5, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 7, 1, 5, p_74875_3_);
 
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 6, 1, 6, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 6, 1, 7, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 6, 1, 8, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 6, 1, 7, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 6, 1, 8, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 6, 1, 9, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 6, 1, 10, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 6, 1, 11, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 6, 1, 10, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 6, 1, 11, p_74875_3_);
 
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 7, 1, 6, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 7, 1, 6, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 7, 1, 7, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 7, 1, 8, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 7, 1, 9, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 7, 1, 10, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 7, 1, 11, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 7, 1, 8, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 7, 1, 9, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 7, 1, 10, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 7, 1, 11, p_74875_3_);
 
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 5, 1, 6, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 5, 1, 7, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 5, 1, 8, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 5, 1, 7, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 5, 1, 8, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 5, 1, 9, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 5, 1, 10, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 5, 1, 11, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 5, 1, 10, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 5, 1, 11, p_74875_3_);
 
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 4, 1, 6, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 4, 1, 6, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 4, 1, 7, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 4, 1, 8, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 4, 1, 9, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 4, 1, 10, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 4, 1, 8, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 4, 1, 9, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 4, 1, 10, p_74875_3_);
 
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 8, 1, 6, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 8, 1, 7, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 8, 1, 6, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 8, 1, 7, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 8, 1, 8, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 8, 1, 9, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 8, 1, 10, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 8, 1, 10, p_74875_3_);
 
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 3, 1, 7, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 3, 1, 8, p_74875_3_);
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 3, 1, 9, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 3, 1, 8, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 3, 1, 9, p_74875_3_);
 
-                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.iridium_bricks, 0, 9, 1, 7, p_74875_3_);
+                this.placeBlockAtCurrentPosition(p_74875_1_, NovaCraftBlocks.cracked_iridium_bricks, 0, 9, 1, 7, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 9, 1, 8, p_74875_3_);
                 this.placeBlockAtCurrentPosition(p_74875_1_, placeIridiumBricks(p_74875_2_), 0, 9, 1, 9, p_74875_3_);
 
@@ -1914,6 +1914,8 @@ public class NCStructureStrongholdPieces
 
     private static Block placeIridiumBricks(Random random) {
         if (random.nextDouble() < 0.15) {
+            return NovaCraftBlocks.cracked_iridium_bricks;
+        } else if (random.nextDouble() > 0.15 && random.nextDouble() <= 0.16) {
             return NovaCraftBlocks.iridium_bricks;
         } else {
             return Blocks.air;
