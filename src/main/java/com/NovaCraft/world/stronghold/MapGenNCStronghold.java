@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import com.NovaCraft.config.Configs;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.ChunkPosition;
@@ -32,7 +33,7 @@ public class MapGenNCStronghold extends MapGenStronghold
     public MapGenNCStronghold()
     {
         allowedBiomeGenBases = allowedBiomes.toArray(new BiomeGenBase[0]);
-        structureCoords = new ChunkCoordIntPair[3];
+        structureCoords = new ChunkCoordIntPair[6]; //Six Strongholds per world
         field_82671_h = 128.0D;
         field_82672_i = 6;
     }
@@ -78,7 +79,10 @@ public class MapGenNCStronghold extends MapGenStronghold
 
             for (int var7 = 0; var7 < structureCoords.length; ++var7)
             {
-                double var8 = (1.25D * var6 + var3.nextDouble()) * field_82671_h * var6;
+                //These two lines make it so the strongholds can only generate beyond 2k from 0,0
+                double minDistance = 125.0D;
+                double var8 = minDistance + (var3.nextDouble() * field_82671_h);
+
                 int var10 = (int)Math.round(Math.cos(var4) * var8);
                 int var11 = (int)Math.round(Math.sin(var4) * var8);
                 ArrayList var12 = new ArrayList();
@@ -99,7 +103,9 @@ public class MapGenNCStronghold extends MapGenStronghold
                     var6 += 2 + var3.nextInt(5);
                     field_82672_i += 1 + var3.nextInt(2);
                 }
-                System.out.println("Stronghold generating...");
+                if (Configs.enableDebugMode) {
+                    System.out.println("Stronghold generating...");
+                }
             }
 
             ranBiomeCheck = true;
@@ -108,12 +114,17 @@ public class MapGenNCStronghold extends MapGenStronghold
         ChunkCoordIntPair[] var14 = structureCoords;
         int var15 = var14.length;
 
-        for (int var5 = 0; var5 < var15; ++var5)
-        {
+        int minDistanceChunks = 125;
+
+        for (int var5 = 0; var5 < var15; ++var5) {
             ChunkCoordIntPair var16 = var14[var5];
 
-            if (par1 == var16.chunkXPos && par2 == var16.chunkZPos)
-                return true;
+            if (par1 == var16.chunkXPos && par2 == var16.chunkZPos) {
+                double distance = Math.sqrt(var16.chunkXPos * var16.chunkXPos + var16.chunkZPos * var16.chunkZPos);
+
+                if (distance >= minDistanceChunks)
+                    return true;
+            }
         }
 
         return false;
@@ -140,8 +151,7 @@ public class MapGenNCStronghold extends MapGenStronghold
     }
 
     @Override
-    protected StructureStart getStructureStart(int par1, int par2)
-    {
+    protected StructureStart getStructureStart(int par1, int par2) {
         MapGenNCStronghold.Start start;
 
         for (start = new MapGenNCStronghold.Start(worldObj, rand, par1, par2); start.getComponents().isEmpty() || ((NCStructureStrongholdPieces.NCStairs2)start.getComponents().get(0)).strongholdNCPortalRoom == null; start = new MapGenNCStronghold.Start(worldObj, rand, par1, par2)) ;
@@ -149,8 +159,7 @@ public class MapGenNCStronghold extends MapGenStronghold
         return start;
     }
 
-    public static class Start extends StructureStart
-    {
+    public static class Start extends StructureStart {
 
         public Start() {}
 
@@ -172,7 +181,6 @@ public class MapGenNCStronghold extends MapGenStronghold
             }
 
             updateBoundingBox();
-            //markAvailableHeight(par1World, par2Random, 10);
         }
     }
 }

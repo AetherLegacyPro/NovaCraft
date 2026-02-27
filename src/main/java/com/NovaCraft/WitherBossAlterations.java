@@ -1,5 +1,6 @@
 package com.NovaCraft;
 
+import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySkeleton;
@@ -156,8 +157,7 @@ public class WitherBossAlterations {
                     Block block = world.getBlock(baseX + x, baseY + y, baseZ + z);
                     if (block == Blocks.air) continue;
 
-                    if (block == Blocks.bedrock || block == Blocks.command_block ||
-                            block == Blocks.end_portal || block == Blocks.end_portal_frame) continue;
+                    if (block == Blocks.bedrock || block == Blocks.command_block || block == Blocks.end_portal || block == NovaCraftBlocks.cracked_end_portal_frame || block == Blocks.end_portal_frame) continue;
 
                     float hardness = block.getBlockHardness(world, baseX + x, baseY + y, baseZ + z);
                     if (hardness >= 0.0F && hardness <= 50.0F) {

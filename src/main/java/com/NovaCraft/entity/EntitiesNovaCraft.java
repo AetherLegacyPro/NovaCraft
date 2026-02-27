@@ -91,6 +91,7 @@ public class EntitiesNovaCraft {
 		register(EntityOctoqusProjectile.class, "octoqus_projectile", 87, 64, 20, true);
 		register(EntityVindicatorEye.class, "vindicator_eye", 88, 150, 2, true);
 		register(EntityCrimsonDragonProjectile.class, "crimson_dragon_projectile", 91, 64, 20, true);
+		register(EntityCrimsonEye.class, "crimson_eye", 92, 150, 2, true);
 		
 		//Mobs
 		register(EntityPrimedXanciumTNT.class, "XTNT", 0, 64, 20, false);
@@ -147,7 +148,7 @@ public class EntitiesNovaCraft {
 		register(EntityRavager.class, "nova_ravager", 84, 0x605f5a, 0x5b5049);
 		register(EntityCorruptist.class, "corruptist", 85, 0x96b2b2, 0x424c4e);
 		register(EntityOctoqus.class, "octoqus", 86, 0xbf8ca5, 0x633956);
-		register(EntityRelik.class, "relik", 89, 0xbf8ca5, 0x633956);
+		register(EntityRelik.class, "relik", 89, 0x000100, 0x120e16);
 		
 		//Hardmode
 		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);

@@ -428,7 +428,7 @@ public class TileEntityIridiumFurnace extends TileEntity implements ISidedInvent
             case 3:
                 return new ItemStack(Items.iron_ingot);
             case 4:
-                return new ItemStack(Items.diamond);
+                return new ItemStack(NovaCraftItems.diamond_nugget, 1, 0);
             case 5:
                 return new ItemStack(NovaCraftItems.iridium_nugget, 1, 0);
             case 6:

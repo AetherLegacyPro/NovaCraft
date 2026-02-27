@@ -158,17 +158,9 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 
 		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(8, 8, 8));
 		{
-		if(Configs.enableWardenBlindness == true) {
         for(Entity entity : volume) {
         	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 0, true));
         	}
-		}
-		else {
-		for(Entity entity : volume) {
-	        if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
-	         }
-
-			}
 		}
         
 		if(Configs.enableWardenSlowness) {

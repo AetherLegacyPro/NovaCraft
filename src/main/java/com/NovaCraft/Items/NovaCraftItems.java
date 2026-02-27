@@ -127,7 +127,7 @@ public class NovaCraftItems {
 	public static Item raw_klangite, klangite_blend, impure_klangite_ingot, explosive_klangite_ingot, klangite_ingot;
 	public static Item tophinite_gemstone, flaming_pitcher_petal, blazing_coal, ophidian_scales;
 	public static Item superheated_magma_cream, enflamed_null_cube_slimeball, enhanced_enflamed_null_cube_slimeball;
-	public static Item crimson_star, deepoid_star, eternal_caller, warden_core, echo_eye, vindicator_insignia, beastly_leather;
+	public static Item crimson_star, deepoid_star, eternal_caller, warden_core, echo_eye, vindicator_insignia, crimson_eye, beastly_leather;
 	public static Item warden_dust, ancient_city_artifact, powered_ancient_city_artifact, dimensional_sealent;
 	public static Item prisoner_eye, unknown_star, impure_outsider_ingot, outsider_ingot;
 	
@@ -140,9 +140,9 @@ public class NovaCraftItems {
 	public static Item nulk_dust, outsider_essence;
 	
 	//Mob Drops Nether
-	public static Item deepoid_scales, blazing_serpent_scales, deep_one_scales;
+	public static Item deepoid_scales, blazing_serpent_scales, crimson_scales, deep_one_scales;
 	public static Item anomalous_essence, blazing_serpent_tooth, phoenix_feather, ionizatior_rod, ionizatior_powder;
-	public static Item deepoid_horn, deep_one_bone;
+	public static Item deepoid_horn, deep_one_bone, crimson_dragon_bone;
 	
 	//Mob Drops End
 	public static Item fractured_heart_of_the_end, heart_of_the_end, nullified_dust;
@@ -233,13 +233,13 @@ public class NovaCraftItems {
 		null_shard = register("null_shard", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("null_shard")));
 		echo_shard = register("echo_shard", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("echo_shard")));
 		sculked_shard = register("sculked_shard", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("sculked_shard")));
-		crystallized_end_shard = register("crystallized_end_shard", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("crystallized_end_shard")));
 		
 		infused_copartz_shard = register("infused_copartz_shard", new ItemInfusedCopartzShard().setTextureName(NovaCraft.find("darkcopartz")));		
 		infused_larimar_shard = register("infused_larimar_shard", new ItemInfusedLarimarShard().setTextureName(NovaCraft.find("darklarimar")));
 		infused_tsavorokite_shard = register("infused_tsavorokite_shard", new ItemInfusedTsavorokiteShard().setTextureName(NovaCraft.find("darktsavorokite")));
 		infused_yttrlinsite_shard = register("infused_yttrlinsite_shard", new ItemInfusedYttrlinsiteShard().setTextureName(NovaCraft.find("darkyttrillnite")));
 		infused_aether_shard = register("infused_aether_shard", new ItemInfusedAetherShard().setTextureName(NovaCraft.find("darkaether")));
+		crystallized_end_shard = register("crystallized_end_shard", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("crystallized_end_shard")));
 				
 		brimstone_dust = register("brimstone_dust", new ItemBrimstonePowder().setTextureName(NovaCraft.find("brimstone_dust")));
 		petn_powder = register("petn_powder", new ItemPETNPowder().setTextureName(NovaCraft.find("petn_powder")));
@@ -290,7 +290,10 @@ public class NovaCraftItems {
 		cave_monitor_scales = register("cave_monitor_scales", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("cave_monitor_scales")));
 		cave_monitor_tongue = register("cave_monitor_tongue", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("cave_monitor_tongue")));		
 		sculked_monitor_scales = register("sculked_monitor_scales", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("sculked_monitor_scales")));
-		sculked_monitor_eye = register("sculked_monitor_eye", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("sculked_monitor_eye")));	
+		sculked_monitor_eye = register("sculked_monitor_eye", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("sculked_monitor_eye")));
+		crimson_eye = register("crimson_eye", new ItemCrimsonEye().setTextureName(NovaCraft.find("crimson_eye")));
+		crimson_scales = register("crimson_scales", new ItemFireproof().setTextureName(NovaCraft.find("crimson_scales")));
+		crimson_dragon_bone = register("crimson_dragon_bone", new ItemFireproof().setTextureName(NovaCraft.find("crimson_dragon_bone")));
 		flaming_pitcher_petal = register("flaming_pitcher_petal", new ItemFireproof().setTextureName(NovaCraft.find("flaming_pitcher_petal")));
 		blazing_coal = register("blazing_coal", new ItemFireproof().setTextureName(NovaCraft.find("blazing_coal")));
 		blazing_serpent_scales = register("blazing_serpent_scales", new ItemFireproof().setTextureName(NovaCraft.find("blazing_serpent_scales")));

@@ -26,8 +26,6 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
@@ -101,34 +99,21 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	public void onLivingUpdate() {
 		int chance = (int)(1 + Math.random() * 30000);
 		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(3, 3, 3));
-		{
-		/*if(Configs.enableWardenBlindness && chance > 29800) {
-        for(Entity entity : volume) {
-        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.blindness.id, 60, 0, true));
-        	}
-		}
-		else {
-		for(Entity entity : volume) {
-	        if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
-	         }
 
-			}
-		}*/
-
-			if (Configs.enableWardenSlowness && chance < 15000) {
-				for (Entity entity : volume) {
-					if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity))
-						((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
-				}
-			}
-
-			if (Configs.enableWardenWeakness && chance > 22500) {
-				for (Entity entity : volume) {
-					if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity))
-						((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
-				}
+		if (Configs.enableWardenSlowness && chance < 15000) {
+			for (Entity entity : volume) {
+				if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity))
+					((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
 			}
 		}
+
+		if (Configs.enableWardenWeakness && chance > 22500) {
+			for (Entity entity : volume) {
+				if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity))
+					((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
+			}
+		}
+
         
         if (isWet()) {
             this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 140, 3));
@@ -245,7 +230,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 
 		float damage = (float)this.getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue();
 
-		// Special player handling
 		if (target instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) target;
 			if (!player.isPotionActive(Potion.blindness)) {

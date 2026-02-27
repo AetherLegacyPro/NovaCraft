@@ -720,7 +720,7 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
 
     private void createloot(int p_70975_1_, int p_70975_2_, int p_70975_3_) {
         this.worldObj.setBlock(p_70975_1_, p_70975_2_, p_70975_3_, NovaCraftBlocks.glowing_obsidian);
-        this.worldObj.setBlock(p_70975_1_, p_70975_2_ + 1, p_70975_3_, NovaCraftBlocks.deep_one_egg);
+        this.worldObj.setBlock(p_70975_1_, p_70975_2_ + 1, p_70975_3_, NovaCraftBlocks.deep_one_egg_activated);
         this.worldObj.setBlock(p_70975_1_, p_70975_2_, p_70975_3_ + 1, NovaCraftBlocks.treasure_chest);
         this.worldObj.setBlock(p_70975_1_, p_70975_2_, p_70975_3_ - 1, NovaCraftBlocks.treasure_chest);
         this.worldObj.setBlock(p_70975_1_ + 1, p_70975_2_, p_70975_3_, NovaCraftBlocks.treasure_chest);
@@ -744,10 +744,9 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
     }
 
     protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {
-        this.entityDropItem(new ItemStack(NovaCraftItems.deep_one_scales, 7 + p_70628_2_), 0.5F);
-        this.entityDropItem(new ItemStack(NovaCraftItems.deep_one_bone, 2 + p_70628_2_), 0.5F);
+        this.entityDropItem(new ItemStack(NovaCraftItems.crimson_scales, 7 + p_70628_2_), 0.5F);
+        this.entityDropItem(new ItemStack(NovaCraftItems.crimson_dragon_bone, 2 + p_70628_2_), 0.5F);
         this.entityDropItem(new ItemStack(NovaCraftItems.anomalous_essence, 12 + p_70628_2_), 0.5F);
-
     }
 
     public Entity[] getParts()

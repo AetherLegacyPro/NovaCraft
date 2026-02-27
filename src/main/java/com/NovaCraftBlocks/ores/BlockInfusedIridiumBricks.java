@@ -16,13 +16,11 @@ import java.util.List;
 
 public class BlockInfusedIridiumBricks extends Block {
 
-    @SideOnly(Side.CLIENT)
-    private IIcon[] icon;
+    private IIcon[] icons = new IIcon[7];
     private static final String[] types;
 
     public BlockInfusedIridiumBricks() {
         super(Material.iron);
-        this.icon = new IIcon[7];
         this.setHardness(60);
         this.setResistance(60000000);
         this.setStepSound(ModSounds.soundNullstone);
@@ -31,21 +29,22 @@ public class BlockInfusedIridiumBricks extends Block {
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     public void registerBlockIcons(final IIconRegister iconRegister) {
-        this.icon[0] = iconRegister.registerIcon("nova_craft:copartz_infused_iridium_bricks");
-        this.icon[1] = iconRegister.registerIcon("nova_craft:larimar_infused_iridium_bricks");
-        this.icon[2] = iconRegister.registerIcon("nova_craft:tsavorokite_infused_iridium_bricks");
-        this.icon[3] = iconRegister.registerIcon("nova_craft:yttrlinsite_infused_iridium_bricks");
-        this.icon[4] = iconRegister.registerIcon("nova_craft:aether_infused_iridium_bricks");
-        this.icon[5] = iconRegister.registerIcon("nova_craft:null_infused_iridium_bricks");
-        this.icon[6] = iconRegister.registerIcon("nova_craft:echo_infused_iridium_bricks");
+        this.icons[0] = iconRegister.registerIcon("nova_craft:copartz_infused_iridium_bricks");
+        this.icons[1] = iconRegister.registerIcon("nova_craft:larimar_infused_iridium_bricks");
+        this.icons[2] = iconRegister.registerIcon("nova_craft:tsavorokite_infused_iridium_bricks");
+        this.icons[3] = iconRegister.registerIcon("nova_craft:yttrlinsite_infused_iridium_bricks");
+        this.icons[4] = iconRegister.registerIcon("nova_craft:aether_infused_iridium_bricks");
+        this.icons[5] = iconRegister.registerIcon("nova_craft:null_infused_iridium_bricks");
+        this.icons[6] = iconRegister.registerIcon("nova_craft:echo_infused_iridium_bricks");
     }
-
+    @Override
     public IIcon getIcon(final int side, int meta) {
-        if (meta < 0 || meta >= this.icon.length) {
+        if (meta < 0 || meta >= this.icons.length) {
             meta = 1;
         }
-        return this.icon[meta];
+        return this.icons[meta];
     }
 
     public void getSubBlocks(final Item block, final CreativeTabs creativeTabs, final List list) {

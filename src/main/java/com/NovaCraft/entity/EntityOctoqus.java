@@ -34,17 +34,17 @@ public class EntityOctoqus extends EntityMob {
 
     protected String getLivingSound()
     {
-        return null;
+        return "nova_craft:glow_squid.living";
     }
 
     protected String getHurtSound()
     {
-        return "mob.blaze.hit";
+        return "nova_craft:glow_squid.hurt";
     }
 
     protected String getDeathSound()
     {
-        return "mob.blaze.death";
+        return "nova_craft:glow_squid.death";
     }
 
     public void onLivingUpdate() {

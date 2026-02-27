@@ -3,16 +3,21 @@ package com.NovaCraft;
 
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.world.caves.MapGenCavesOverride;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayer.EnumStatus;
 import net.minecraft.init.Blocks;
@@ -21,11 +26,25 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.FOVUpdateEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
+import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.event.world.BlockEvent;
 
+import java.lang.reflect.Field;
+
 public class NovaCraftClientEvents {
+
+	@SubscribeEvent
+	public void onInitMapGen(InitMapGenEvent event) {
+		if ((event.type == InitMapGenEvent.EventType.CAVE) && Configs.enableOldCaveGeneration) {
+			event.newGen = new MapGenCavesOverride();
+		}
+	}
 
 	@SubscribeEvent
 	   public void sleepInBed(PlayerSleepInBedEvent event) {
@@ -42,7 +61,78 @@ public class NovaCraftClientEvents {
 		    
 		    event.result = EnumStatus.OTHER_PROBLEM;
 		}
-	   }
+	}
+
+	@SubscribeEvent
+	public void onCreeperUpdate(LivingEvent.LivingUpdateEvent event) {
+		if (!Configs.enableCreeperAlterations) return;
+		if (!(event.entityLiving instanceof EntityCreeper)) return;
+
+		EntityCreeper creeper = (EntityCreeper) event.entityLiving;
+		World world = creeper.worldObj;
+		if (world.isRemote) return;
+
+		try {
+			int fuseTime = ReflectionHelper.getPrivateValue(EntityCreeper.class, creeper, "fuseTime", "field_82225_f");
+			int timeSinceIgnited = ReflectionHelper.getPrivateValue(EntityCreeper.class, creeper, "timeSinceIgnited", "field_70833_d");
+
+			if (timeSinceIgnited >= fuseTime) {
+				float healthPercent = creeper.getHealth() / creeper.getMaxHealth();
+				float radius = 3.0F + (1.0F - healthPercent);
+
+				if (creeper.getPowered()) {
+					radius *= 2.0F;
+				}
+
+				boolean mobGriefing = world.getGameRules().getGameRuleBooleanValue("mobGriefing");
+				world.createExplosion(creeper, creeper.posX, creeper.posY, creeper.posZ, radius, mobGriefing);
+
+				creeper.setDead();
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@SubscribeEvent
+	public void onJoin(EntityJoinWorldEvent event) {
+		if (!Configs.enableEndermanAlterations) return;
+
+		if (event.entity instanceof EntityEnderman) {
+
+			EntityEnderman enderman = (EntityEnderman) event.entity;
+			enderman.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(14.0D);
+		}
+	}
+
+	@SubscribeEvent
+	public void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
+		if (!Configs.enableEndermanAlterations) return;
+
+		if (!(event.entityLiving instanceof EntityEnderman))
+			return;
+
+		EntityEnderman enderman = (EntityEnderman) event.entityLiving;
+
+		if (enderman.worldObj.isRemote)
+			return;
+
+		if (enderman.getAttackTarget() != null) {
+			if (enderman.getRNG().nextInt(10) == 0) {
+
+				double x = enderman.posX + (enderman.getRNG().nextDouble() - 0.5D) * 32D;
+				double y = enderman.posY + (enderman.getRNG().nextInt(16) - 8);
+				double z = enderman.posZ + (enderman.getRNG().nextDouble() - 0.5D) * 32D;
+				EnderTeleportEvent teleport = new EnderTeleportEvent(enderman, x, y, z, 0);
+
+				if (!MinecraftForge.EVENT_BUS.post(teleport)) {
+					enderman.setPositionAndUpdate(teleport.targetX, teleport.targetY, teleport.targetZ);
+				}
+			}
+		}
+	}
 	
 	@SubscribeEvent
 	public void onBedBreak(BlockEvent.BreakEvent event) {
@@ -161,28 +251,34 @@ public class NovaCraftClientEvents {
 	        }
 	    }
 	  }
+	}
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public void onClientWorldTick(TickEvent.WorldTickEvent event) {
 
-		//New Cave Noises
+		if (!Configs.enableNewCaveSounds) return;
+		if (event.phase != TickEvent.Phase.END) return;
+		if (!event.world.isRemote) return;
+
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityPlayer player = mc.thePlayer;
 		if (player == null) return;
 
-		if (player.worldObj.provider.dimensionId == -1) return;
-		if (player.worldObj.provider.dimensionId == 1) return;
+		if (player.dimension == -1 || player.dimension == 1) return;
 
-		World world = event.world;
 		int x = MathHelper.floor_double(player.posX);
 		int y = MathHelper.floor_double(player.posY);
 		int z = MathHelper.floor_double(player.posZ);
 
-		if (world.isRemote && world.rand.nextInt(22000) == 0 && Configs.enableNewCaveSounds) {
-			if (world.getBlockLightValue(x, y, z) <= 0 && y < 32) {
-				System.out.println("Playing Cave Sound");
-				String[] extraCaveSounds = {"nova_craft:ambient.cave_new1", "nova_craft:ambient.cave_new2", "nova_craft:ambient.cave_new3",
+		if (event.world.rand.nextInt(22000) == 0) {
+			if (event.world.getBlockLightValue(x, y, z) <= 0 && y < 32) {
+
+				String[] NewCaveSounds = {"nova_craft:ambient.cave_new1", "nova_craft:ambient.cave_new2", "nova_craft:ambient.cave_new3",
 						"nova_craft:ambient.cave_new4", "nova_craft:ambient.cave_new5", "nova_craft:ambient.cave_new6", "nova_craft:ambient.cave_new7",
 						"nova_craft:ambient.cave_new8", "nova_craft:ambient.cave_new9", "nova_craft:ambient.cave_new10", "nova_craft:ambient.cave_new11",
 						"nova_craft:ambient.cave_new12", "nova_craft:ambient.cave_new13"};
-				String chosen = extraCaveSounds[world.rand.nextInt(extraCaveSounds.length)];
+
+				String chosen = NewCaveSounds[event.world.rand.nextInt(NewCaveSounds.length)];
 				player.playSound(chosen, 1.0F, 1.0F);
 			}
 		}

@@ -80,6 +80,7 @@ public class RendersNovaCraft {
 	register(KlangiteSwordProjectile.class, new KlangiteSwordProjectileRenderer());
 	register(EntityEchoEye.class, new RenderSnowball(NovaCraftItems.echo_eye));
 	register(EntityVindicatorEye.class, new RenderSnowball(NovaCraftItems.vindicator_insignia));
+	register(EntityCrimsonEye.class, new RenderSnowball(NovaCraftItems.crimson_eye));
 	register(EntityOctoqusProjectile.class, new OctoqusProjectileRenderer());
 	
 	//Passive

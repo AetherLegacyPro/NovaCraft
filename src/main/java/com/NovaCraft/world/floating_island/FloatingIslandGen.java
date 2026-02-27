@@ -1,6 +1,5 @@
 package com.NovaCraft.world.floating_island;
 
-import com.NovaCraft.config.Configs;
 import cpw.mods.fml.common.IWorldGenerator;
 import java.util.Random;
 import net.minecraft.block.Block;
@@ -8,62 +7,98 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
+import org.apache.commons.lang3.ArrayUtils;
 
 public class FloatingIslandGen implements IWorldGenerator {
 
     @Override
     public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-        this.generateSurface(world, rand, chunkX * 16, chunkZ * 16);
+
+        if (world.provider.dimensionId == 0) {
+            generateSurface(world, rand, chunkX * 16, chunkZ * 16);
+        }
+    }
+
+    private static int floorDiv(int a, int b) {
+        if (a >= 0) return a / b;
+        return -((-a + b - 1) / b);
     }
 
     private void generateSurface(World world, Random rand, int x, int z) {
-        BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x + 16, z + 16);
-        if ((biome == BiomeGenBase.ocean || biome == BiomeGenBase.deepOcean) && rand.nextInt(2400) == 0) {
+        if (Math.abs(x) >= 12000 && Math.abs(z) >= 12000) {
+            final int spacing = 1000;
 
-            // Slightly wider island
-            int minBumps = 55, maxBumps = 95;
-            int blocksPerBumpMin = 2, blocksPerBumpMax = 4;
+            int regionX = floorDiv(x, spacing);
+            int regionZ = floorDiv(z, spacing);
 
-            int minHeight = 120, heightVariation = 16;
+            Random regionRand = new Random(world.getSeed() + (long) (regionX * 341873128712L) + (long) (regionZ * 132897987541L));
 
-            int islandX = x + rand.nextInt(16) + 8;
-            int islandY = rand.nextInt(heightVariation) + minHeight;
-            int islandZ = z + rand.nextInt(16) + 8;
+            if (regionRand.nextInt(2) != 0) return;
 
-            int bumpsWide = randInRange(rand, minBumps, maxBumps);
-            int bumpsLong = randInRange(rand, minBumps, maxBumps);
+            int baseX = regionX * spacing + regionRand.nextInt(spacing);
+            int baseZ = regionZ * spacing + regionRand.nextInt(spacing);
 
-            // Slightly taller top and bottom for bump realism
-            int bumpHeightVarTop = randInRange(rand, 4, 6);
-            int bumpHeightVarBottom = randInRange(rand, 3, 6);
-            int bumpHeightMinTop = 3;
-            int bumpHeightMinBottom = 3;
+            if ((x >> 4) != (baseX >> 4) || (z >> 4) != (baseZ >> 4)) return;
 
-            int blocksPerBumpX = randInRange(rand, blocksPerBumpMin, blocksPerBumpMax);
-            int blocksPerBumpZ = randInRange(rand, blocksPerBumpMin, blocksPerBumpMax);
-            int blocksPerBumpTopY = 1;
-            int blocksPerBumpBottomY = 1;
+            BiomeGenBase biome = world.getBiomeGenForCoords(baseX, baseZ);
+            Type[] biomeTypes = BiomeDictionary.getTypesForBiome(biome);
 
-            int blurPassesTop = 5;
-            int blurPassesBottom = 4;
+            BiomeGenBase biomePosX = world.getBiomeGenForCoords(baseX + 150, baseZ);
+            Type[] biomeTypesPosX = BiomeDictionary.getTypesForBiome(biomePosX);
 
-            int spikeHeightVarTop = 1;
-            int spikeHeightVarBottom = 3;
+            BiomeGenBase biomeNegX = world.getBiomeGenForCoords(baseX - 150, baseZ);
+            Type[] biomeTypesNegX = BiomeDictionary.getTypesForBiome(biomeNegX);
 
-            int radialSamples = 20;
-            double radialMin = 0.0;
-            double radialVar = 1.0;
-            int radialScaling = 5;
-            int radialBlur = 4;
+            BiomeGenBase biomePosZ = world.getBiomeGenForCoords(baseX, baseZ + 150);
+            Type[] biomeTypesPosZ = BiomeDictionary.getTypesForBiome(biomePosZ);
 
-            Block genOre = Blocks.gold_block;
+            BiomeGenBase biomeNegZ = world.getBiomeGenForCoords(baseX, baseZ - 150);
+            Type[] biomeTypesNegZ = BiomeDictionary.getTypesForBiome(biomeNegZ);
 
-            //if (Configs.enableDebugMode) {
-                System.out.println("Island generated at (X:" + islandX + ", Z:" + islandZ + ")");
-            //}
+            if (ArrayUtils.contains(biomeTypes, Type.OCEAN) && ArrayUtils.contains(biomeTypesPosX, Type.OCEAN) && ArrayUtils.contains(biomeTypesNegX, Type.OCEAN)
+                    && ArrayUtils.contains(biomeTypesPosZ, Type.OCEAN) && ArrayUtils.contains(biomeTypesNegZ, Type.OCEAN)) {
 
-            new WorldGenFloatingIsland(bumpsWide, bumpsLong, bumpHeightVarTop, bumpHeightVarBottom, bumpHeightMinTop, bumpHeightMinBottom, blocksPerBumpX, blocksPerBumpZ, blocksPerBumpTopY, blocksPerBumpBottomY, blurPassesTop, blurPassesBottom, spikeHeightVarTop, spikeHeightVarBottom, radialSamples, radialMin, radialVar, radialScaling, radialBlur, genOre).generate(world, rand, islandX, islandY, islandZ);
-            new FloatingIslandAltar().generate(world, rand, islandX + 40, islandY + 2, islandZ + 70);
+                int minBumps = 75, maxBumps = 95;
+                int blocksPerBumpMin = 2, blocksPerBumpMax = 4;
+                int minHeight = 120, heightVariation = 16;
+
+                int islandX = baseX;
+                int islandY = regionRand.nextInt(heightVariation) + minHeight;
+                int islandZ = baseZ;
+
+                int bumpsWide = randInRange(regionRand, minBumps, maxBumps);
+                int bumpsLong = randInRange(regionRand, minBumps, maxBumps);
+
+                int bumpHeightVarTop = randInRange(regionRand, 4, 6);
+                int bumpHeightVarBottom = randInRange(regionRand, 3, 6);
+                int bumpHeightMinTop = 3;
+                int bumpHeightMinBottom = 3;
+
+                int blocksPerBumpX = randInRange(regionRand, blocksPerBumpMin, blocksPerBumpMax);
+                int blocksPerBumpZ = randInRange(regionRand, blocksPerBumpMin, blocksPerBumpMax);
+
+                int blurPassesTop = 5;
+                int blurPassesBottom = 4;
+
+                int spikeHeightVarTop = 1;
+                int spikeHeightVarBottom = 3;
+
+                int radialSamples = 20;
+                double radialMin = 0.0;
+                double radialVar = 1.0;
+                int radialScaling = 5;
+                int radialBlur = 4;
+
+                Block genOre = Blocks.gold_block;
+
+                System.out.println("Floating Island generating at (X:" + islandX + ", Z:" + islandZ + ")");
+
+                new WorldGenFloatingIsland(bumpsWide, bumpsLong, bumpHeightVarTop, bumpHeightVarBottom, bumpHeightMinTop, bumpHeightMinBottom, blocksPerBumpX, blocksPerBumpZ, 1, 1, blurPassesTop, blurPassesBottom, spikeHeightVarTop, spikeHeightVarBottom, radialSamples, radialMin, radialVar, radialScaling, radialBlur, genOre).generate(world, regionRand, islandX, islandY, islandZ);
+
+                new FloatingIslandAltar().generate(world, regionRand, islandX + 40, islandY + 2, islandZ + 70);
+            }
         }
     }
 

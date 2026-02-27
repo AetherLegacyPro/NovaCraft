@@ -1,6 +1,5 @@
 package com.NovaCraft.Items;
 
-
 import com.NovaCraft.entity.misc.EntityEchoEye;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.world.ancient_city.AncientCityFinder;

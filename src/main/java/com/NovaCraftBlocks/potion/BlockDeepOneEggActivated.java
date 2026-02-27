@@ -28,19 +28,14 @@ public class BlockDeepOneEggActivated extends BlockContainer
     public BlockDeepOneEggActivated()
     {
         super(Material.dragonEgg);
-        this.setBlockUnbreakable();
-		this.setResistance(600000000);
+        this.setHardness(2.0F);
+        this.setResistance(15.0F);
         this.setStepSound(soundTypePiston);
         this.setLightLevel(0.825F);
         this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 1.0F, 0.9375F);
     }
-    
-    protected boolean canSilkHarvest() {
-	    return false;
-	 }
-
     public int quantityDropped(final Random par1Random) {
-        return 0;
+        return 1;
     }
     
     @SideOnly(Side.CLIENT)

@@ -144,6 +144,9 @@ item.deepoid_brewing_stand_item.name=Deepoid Brewing Stand
 item.welkin_stick.name=Welkin Stick
 item.iridium_handle.name=Iridium Handle
 item.crimson_star.name=Crimson Star
+item.crimson_dragon_bone.name=Crimson Dragon Bone
+item.crimson_scales.name=Crimson Scales
+item.crimson_eye.name=Crimson Eye
 
 item.cave_stew.end_stew.name=End Stew
 item.cave_stew.cave_stew.name=Cave Stew
@@ -977,6 +980,7 @@ tooltip.impure_ousider_ingot.desc=Shift Right Click on the Sealed Portal to the 
 
 tooltip.vindicator_insignia.desc=Used to locate Mansions
 tooltip.echo_eye.desc=Used to locate Ancient Cities
+tooltip.crimson_eye.desc=Used to locate Floating Islands
 
 #Potion Tool Tips
 tooltip.potion.resistance.desc=Resistance I (32:00)
