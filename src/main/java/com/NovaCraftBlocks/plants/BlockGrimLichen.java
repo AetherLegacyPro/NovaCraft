@@ -1,5 +1,6 @@
 package com.NovaCraftBlocks.plants;
 
+import net.minecraft.item.Item;
 import net.minecraft.util.*;
 import net.minecraft.block.material.*;
 import net.minecraft.client.renderer.texture.*;
@@ -37,6 +38,10 @@ public class BlockGrimLichen extends BlockBush implements IEmissiveLayerBlock, I
         this.icon[0] = iconRegister.registerIcon("nova_craft:grim_lichen");
         this.icon[1] = iconRegister.registerIcon("nova_craft:grim_lichen");
         infusedOverlay = iconRegister.registerIcon("nova_craft:grim_lichen_overlay");
+    }
+
+    public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
+        return null;
     }
     
     public IIcon getIcon(final int side, final int meta) {

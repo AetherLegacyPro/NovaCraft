@@ -183,7 +183,7 @@ public class NovaCraftRegistries {
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.null_cube_slime), new ItemStack(Items.slime_ball), .1F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.klangite_blend), new ItemStack(NovaCraftItems.impure_klangite_ingot), 1F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.iridium_ore), new ItemStack(NovaCraftItems.raw_iridium), .1F);
-		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_iridium), new ItemStack(NovaCraftItems.iridium_nugget, 0, 0), .2F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_iridium), new ItemStack(NovaCraftItems.iridium_nugget, 1, 0), .2F);
 
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_frog_leg), new ItemStack(NovaCraftItems.cooked_frog_leg), .01F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.raw_glow_squid), new ItemStack(NovaCraftItems.cooked_glow_squid), .01F);
@@ -214,7 +214,7 @@ public class NovaCraftRegistries {
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.vanite_bricks), new ItemStack(NovaCraftBlocks.polished_vanite_bricks), .01F);
 
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.pherithium_lump), new ItemStack(NovaCraftItems.pherithium_ingot), .1F);
-		register("pherithium_lump", new ItemStack(NovaCraftItems.pherithium_lump, 1), "ZZZ", "ZZZ", 'Z', new ItemStack(NovaCraftItems.pherithium_scraps));
+		register("pherithium_lump", new ItemStack(NovaCraftItems.pherithium_lump, 1), "ZZZ", "ZXZ", "ZZZ", 'Z', new ItemStack(NovaCraftItems.pherithium_scraps), 'X', new ItemStack(Items.gold_ingot));
 		register("sculked_leather", new ItemStack(NovaCraftItems.sculked_leather), "XXX", "XXX", "XXX", 'X', NovaCraftItems.sculk_flesh);
 
 		register("pherithium_helmet", new ItemStack(NovaCraftItems.pherithium_helmet, 1), "XXX", "X X", 'X', NovaCraftItems.pherithium_ingot);

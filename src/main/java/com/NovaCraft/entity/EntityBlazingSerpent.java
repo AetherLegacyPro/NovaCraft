@@ -74,11 +74,11 @@ public class EntityBlazingSerpent extends EntityMob
     		//this.setHealth(220);
         //} else {
         	this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(6.55D);
-    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0D);
+    		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);
     		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
     		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(10D);
     		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(30D);
-    		this.setHealth(80);
+    		this.setHealth(50);
         //}
 	}
 	
@@ -96,7 +96,7 @@ public class EntityBlazingSerpent extends EntityMob
 			}
 		}
 		
-		if (this.handleLavaMovement() == true) {
+		if (this.handleLavaMovement()) {
 		this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 30, 0));  
 		}
 		

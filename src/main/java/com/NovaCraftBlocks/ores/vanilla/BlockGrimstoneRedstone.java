@@ -20,7 +20,6 @@ import net.minecraft.world.World;
 public class BlockGrimstoneRedstone extends Block
 {
     private boolean field_150187_a;
-    private static final String __OBFID = "CL_00000294";
 
     public BlockGrimstoneRedstone(boolean p_i45420_1_)
     {
@@ -111,7 +110,7 @@ public class BlockGrimstoneRedstone extends Block
      */
     public int quantityDropped(Random p_149745_1_)
     {
-        return 4 + p_149745_1_.nextInt(2);
+        return 1 + p_149745_1_.nextInt(3);
     }
 
     /**

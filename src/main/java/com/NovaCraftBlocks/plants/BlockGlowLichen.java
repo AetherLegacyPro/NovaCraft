@@ -48,6 +48,10 @@ public class BlockGlowLichen extends BlockBush implements IEmissiveLayerBlock, I
         this.icon[1] = iconRegister.registerIcon("nova_craft:glow_lichen");
         infusedOverlay = iconRegister.registerIcon("nova_craft:glow_lichen_overlay");
     }
+
+    public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
+        return null;
+    }
     
     public IIcon getIcon(final int side, final int meta) {
     	return this.icon[0];

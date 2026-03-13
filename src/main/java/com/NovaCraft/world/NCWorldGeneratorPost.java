@@ -142,8 +142,8 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 			this.addVanillaOres(Blocks.coal_ore, world, random, chunkX, chunkZ, 6, 14, 18, 24, 128);
 			this.addVanillaOres(Blocks.iron_ore, world, random, chunkX, chunkZ, 4, 8, 10, 0, 64);
 			this.addVanillaOres(Blocks.gold_ore, world, random, chunkX, chunkZ, 2, 8, 4, 0, 32);
-			this.addVanillaOres(Blocks.redstone_ore, world, random, chunkX, chunkZ, 4, 8, 8, 0, 24);
-			this.addVanillaOres(Blocks.lapis_ore, world, random, chunkX, chunkZ, 1, 8, 6, 0, 32);
+			this.addVanillaOres(Blocks.redstone_ore, world, random, chunkX, chunkZ, 3, 5, 8, 0, 24);
+			this.addVanillaOres(Blocks.lapis_ore, world, random, chunkX, chunkZ, 1, 4, 6, 0, 32);
 			this.addVanillaOres(Blocks.diamond_ore, world, random, chunkX, chunkZ, ConfigsWorld.diamondOreRarity, 4, 8, 0, 16);
 			
 			if (ConfigsWorld.enableExtraEmeraldOreGeneration) {
@@ -224,7 +224,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		
 		if (!(ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
 		if (ConfigsWorld.enableGrimstoneIron && ConfigsWorld.enableGrimstone) {
-		this.addGrimstoneOres(NovaCraftBlocks.grimstone_iron, world, random, chunkX, chunkZ, 9, 12, 14, 10, 24);
+		this.addGrimstoneOres(NovaCraftBlocks.grimstone_iron, world, random, chunkX, chunkZ, 4, 8, 14, 10, 24);
 		}
 		
 		if (ConfigsWorld.enableGrimstoneGold && ConfigsWorld.enableGrimstone) {
@@ -232,11 +232,11 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		}
 		
 		if (ConfigsWorld.enableGrimstoneRedstone && ConfigsWorld.enableGrimstone) {
-		this.addGrimstoneOres(NovaCraftBlocks.grimstone_redstone, world, random, chunkX, chunkZ, 5, 9, 8, 10, 18);
+		this.addGrimstoneOres(NovaCraftBlocks.grimstone_redstone, world, random, chunkX, chunkZ, 3, 5, 6, 10, 18);
 		}
 		
 		if (ConfigsWorld.enableGrimstoneLapis && ConfigsWorld.enableGrimstone) {
-		this.addGrimstoneOres(NovaCraftBlocks.grimstone_lapis, world, random, chunkX, chunkZ, 2, 5, 8, 18, 24);
+		this.addGrimstoneOres(NovaCraftBlocks.grimstone_lapis, world, random, chunkX, chunkZ, 1, 3, 4, 18, 24);
 		}
 		
 		if (ConfigsWorld.enableGrimstoneDiamond && ConfigsWorld.enableGrimstone) {
@@ -248,7 +248,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		}
 		
 		if (ConfigsWorld.enableNullstoneIron && ConfigsWorld.enableNullstone) {
-		this.addNullstoneOres(NovaCraftBlocks.nullstone_iron, world, random, chunkX, chunkZ, 9, 12, 14, 0, 18);
+		this.addNullstoneOres(NovaCraftBlocks.nullstone_iron, world, random, chunkX, chunkZ, 4, 8, 14, 0, 18);
 		}
 		
 		if (ConfigsWorld.enableNullstoneGold && ConfigsWorld.enableNullstone) {
@@ -256,11 +256,11 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		}
 		
 		if (ConfigsWorld.enableNullstoneRedstone && ConfigsWorld.enableNullstone) {
-		this.addNullstoneOres(NovaCraftBlocks.nullstone_redstone, world, random, chunkX, chunkZ, 2, 8, 8, 0, 18);
+		this.addNullstoneOres(NovaCraftBlocks.nullstone_redstone, world, random, chunkX, chunkZ, 3, 5, 6, 0, 18);
 		}
 		
 		if (ConfigsWorld.enableNullstoneLapis && ConfigsWorld.enableNullstone) {
-		this.addNullstoneOres(NovaCraftBlocks.nullstone_lapis, world, random, chunkX, chunkZ, 2, 5, 8, 14, 18);
+		this.addNullstoneOres(NovaCraftBlocks.nullstone_lapis, world, random, chunkX, chunkZ, 1, 3, 4, 14, 18);
 		}
 		
 		if (ConfigsWorld.enableNullstoneDiamond && ConfigsWorld.enableNullstone) {
@@ -276,7 +276,7 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 		
 		if ((ArrayUtils.contains(ConfigsCompact.DeeperCavesBlacklist, world.provider.dimensionId) == ConfigsCompact.DeeperCavesBlacklistAsWhitelist)) {
 			if (ConfigsWorld.enableGrimstoneIron && ConfigsWorld.enableGrimstone) {
-			this.addGrimstoneOres(NovaCraftBlocks.grimstone_iron, world, random, chunkX, chunkZ, 9, 12, 14, 0, 256);
+			this.addGrimstoneOres(NovaCraftBlocks.grimstone_iron, world, random, chunkX, chunkZ, 4, 8, 14, 0, 256);
 			}
 			
 			if (ConfigsWorld.enableGrimstoneGold && ConfigsWorld.enableGrimstone) {
@@ -284,11 +284,11 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 			}
 			
 			if (ConfigsWorld.enableGrimstoneRedstone && ConfigsWorld.enableGrimstone) {
-			this.addGrimstoneOres(NovaCraftBlocks.grimstone_redstone, world, random, chunkX, chunkZ, 5, 9, 12, 0, 256);
+			this.addGrimstoneOres(NovaCraftBlocks.grimstone_redstone, world, random, chunkX, chunkZ, 3, 5, 6, 0, 256);
 			}
 			
 			if (ConfigsWorld.enableGrimstoneLapis && ConfigsWorld.enableGrimstone) {
-			this.addGrimstoneOres(NovaCraftBlocks.grimstone_lapis, world, random, chunkX, chunkZ, 2, 5, 8, 18, 256);
+			this.addGrimstoneOres(NovaCraftBlocks.grimstone_lapis, world, random, chunkX, chunkZ, 1, 3, 4, 18, 256);
 			}
 			
 			if (ConfigsWorld.enableGrimstoneDiamond && ConfigsWorld.enableGrimstone) {
@@ -300,19 +300,19 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 			}
 			
 			if (ConfigsWorld.enableNullstoneIron && ConfigsWorld.enableNullstone) {
-			this.addNullstoneOres(NovaCraftBlocks.nullstone_iron, world, random, chunkX, chunkZ, 9, 12, 14, 0, 256);
+			this.addNullstoneOres(NovaCraftBlocks.nullstone_iron, world, random, chunkX, chunkZ, 4, 8, 14, 0, 256);
 			}
 			
 			if (ConfigsWorld.enableNullstoneGold && ConfigsWorld.enableNullstone) {
-			this.addNullstoneOres(NovaCraftBlocks.nullstone_gold, world, random, chunkX, chunkZ, 5, 7, 9, 0, 256);
+			this.addNullstoneOres(NovaCraftBlocks.nullstone_gold, world, random, chunkX, chunkZ, 5, 7, 6, 0, 256);
 			}
 			
 			if (ConfigsWorld.enableNullstoneRedstone && ConfigsWorld.enableNullstone) {
-			this.addNullstoneOres(NovaCraftBlocks.nullstone_redstone, world, random, chunkX, chunkZ, 7, 10, 12, 0, 256);
+			this.addNullstoneOres(NovaCraftBlocks.nullstone_redstone, world, random, chunkX, chunkZ, 3, 5, 6, 0, 256);
 			}
 			
 			if (ConfigsWorld.enableNullstoneLapis && ConfigsWorld.enableNullstone) {
-			this.addNullstoneOres(NovaCraftBlocks.nullstone_lapis, world, random, chunkX, chunkZ, 2, 5, 8, 14, 256);
+			this.addNullstoneOres(NovaCraftBlocks.nullstone_lapis, world, random, chunkX, chunkZ, 1, 3, 4, 14, 256);
 			}
 			
 			if (ConfigsWorld.enableNullstoneDiamond && ConfigsWorld.enableNullstone) {

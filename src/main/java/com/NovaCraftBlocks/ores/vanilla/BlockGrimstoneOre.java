@@ -82,15 +82,15 @@ public class BlockGrimstoneOre extends Block
             
              if (this == NovaCraftBlocks.grimstone_diamond)
             {
-                j1 = MathHelper.getRandomIntegerInRange(rand, 4, 8);
+                j1 = MathHelper.getRandomIntegerInRange(rand, 1, 3);
             }
             else if (this == NovaCraftBlocks.grimstone_emerald)
             {
-                j1 = MathHelper.getRandomIntegerInRange(rand, 4, 8);
+                j1 = MathHelper.getRandomIntegerInRange(rand, 1, 3);
             }
             else if (this == NovaCraftBlocks.grimstone_lapis)
             {
-                j1 = MathHelper.getRandomIntegerInRange(rand, 3, 7);
+                j1 = MathHelper.getRandomIntegerInRange(rand, 1, 2);
             }
 
             return j1;

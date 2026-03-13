@@ -77,7 +77,7 @@ public class BlockSmallPherithiumStalagmite extends Block {
     }
 	
 	public int quantityDropped(final Random random) {
-        return 2 + random.nextInt(6);
+        return 2 + random.nextInt(1);
     }
 	
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {

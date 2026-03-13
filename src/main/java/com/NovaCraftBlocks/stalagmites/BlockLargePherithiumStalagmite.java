@@ -68,7 +68,7 @@ public class BlockLargePherithiumStalagmite extends Block {
 	  }
 	
 	public int quantityDropped(final Random random) {
-        return 2 + random.nextInt(6);
+        return 2 + random.nextInt(3);
     }
 	
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
@@ -78,7 +78,7 @@ public class BlockLargePherithiumStalagmite extends Block {
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random random) {
 		if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, random, fortune)) {
-			int j = random.nextInt(fortune + 3) - 1;
+			int j = random.nextInt(fortune + 2) - 1;
 
 			if (j < 0) {
 				j = 0;

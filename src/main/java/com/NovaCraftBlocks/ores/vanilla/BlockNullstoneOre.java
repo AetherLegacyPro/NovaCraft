@@ -82,15 +82,15 @@ public class BlockNullstoneOre extends Block
             
              if (this == NovaCraftBlocks.nullstone_diamond)
             {
-                j1 = MathHelper.getRandomIntegerInRange(rand, 6, 9);
+                j1 = MathHelper.getRandomIntegerInRange(rand, 1, 4);
             }
             else if (this == NovaCraftBlocks.nullstone_emerald)
             {
-                j1 = MathHelper.getRandomIntegerInRange(rand, 5, 9);
+                j1 = MathHelper.getRandomIntegerInRange(rand, 1, 4);
             }
             else if (this == NovaCraftBlocks.nullstone_lapis)
             {
-                j1 = MathHelper.getRandomIntegerInRange(rand, 4, 10);
+                j1 = MathHelper.getRandomIntegerInRange(rand, 1, 3);
             }
 
             return j1;
