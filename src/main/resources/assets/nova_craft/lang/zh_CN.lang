@@ -1,4 +1,4 @@
-#Translated by dfdvdsf, ceroler
+#Translated by dfdvdsf, ceroler, leavesthblank
 
 # Item Names
 item.copartz_shard.name=科帕茨水晶碎片
@@ -7,9 +7,8 @@ item.tsavorokite_shard.name=沙沃罗基特水晶碎片
 item.yttrlinsite_shard.name=钇石碎片
 item.aether_shard.name=以太水晶碎片
 item.null_shard.name=虚无水晶碎片
-item.brimstone_dust.name=布里姆粉
+item.brimstone_dust.name=硫磺粉
 item.petn_powder.name=PETN粉
-item.petn_powder.name=离虚粉
 item.pherithium_scraps.name=富勒席斯碎片
 item.pherithium_lump.name=富勒席斯碎块
 item.pherithium_ingot.name=富勒席斯锭
@@ -20,7 +19,7 @@ item.xancium_ingot.name=簪西姆锭
 item.raw_klangite.name=克兰特碎片
 item.klangite_ingot.name=克兰特锭
 item.heart_of_the_end.name=末地之心
-item.sculk_dweller_heart.name=幽匿居民之心
+item.sculk_dweller_heart.name=幽匿栖息者之心
 item.nullwart.name=虚无疣
 item.echo_shard.name=回响碎片
 item.disc_fragment_5.name=唱片残片
@@ -37,7 +36,7 @@ item.warden_tentacle.name=监守者触须
 item.sculk_horn.name=幽匿号角
 item.sculked_leather.name=幽匿皮革
 item.crystal_growth_staff.name=水晶生长调节器
-item.fractured_heart_of_the_end.name=破裂末地之心
+item.fractured_heart_of_the_end.name=末地之心碎片
 item.sculk_star.name=幽匿之星
 item.dark_essence.name=暗黑源质
 item.ice_sceptor.name=冰权杖
@@ -48,44 +47,28 @@ item.infused_yttrlinsite_shard.name=灌注钇石碎片
 item.infused_aether_shard.name=灌注以太水晶碎片
 item.anomalous_essence.name=混乱源质
 item.corrupted_essence.name=腐化源质
-item.reinforced_vanite_ingot.name=增强瓦内特锭
 item.reinforced_vanite_ingot.name=强化瓦内特锭
 item.raw_glow_squid.name=生荧光鱿鱼肉
 item.cooked_glow_squid.name=熟荧光鱿鱼肉
 item.raw_blazing_charger.name=生烈焰战牛肉
 item.cooked_blazing_charger.name=熟烈焰战牛肉
-item.null_cube_slime.name=虚无史莱姆球
+item.null_cube_slime.name=虚无粘液球
 item.luminant_apple.name=光露普苹果
 item.luminant_tree_sap.name=光露普树提取物
 item.luminant_gel.name=光露普胶团
 item.luminant_ingot.name=光露普锭
-item.null_cube_slime.name=虚无粘液球
-item.enflamed_null_cube_slimeball.name=消否粘液球
-item.enhanced_enflamed_null_cube_slimeball.name=离火粘液球
 item.warden_shard.name=监守者碎片
 item.flaming_pitcher_petal.name=火焰瓶子草花瓣
 item.blazing_coal.name=炽热煤炭
 item.xancium_firecharge.name=簪西姆火焰弹
 item.small_xancium_dust.name=小撮簪西姆粉
-#item.nullifier_core.name=末影骷力怕核
 item.nullifier_core.name=否决者之核
-item.enflamed_null_cube_slimeball.name=燧火史莱姆球
-item.enhanced_enflamed_null_cube_slimeball.name=充能燧火史莱姆球
-item.warden_shard.name=监守者碎片
-item.luminant_apple.name=光露普苹果
-item.luminant_tree_sap.name=光露普树提取物
-item.luminant_gel.name=光露普胶团
-item.luminant_ingot.name=光露普锭
+item.enflamed_null_cube_slimeball.name=燧火粘液球
+item.enhanced_enflamed_null_cube_slimeball.name=晶化粘液球
 item.tophinite_gemstone.name=松石
-#item.flaming_pitcher_petal.name=火焰猪笼草花瓣
-item.flaming_pitcher_petal.name=火焰瓶子草花瓣
-item.raw_chevon.name=生山羊肉
-item.cooked_chevon.name=熟山羊肉
 item.blazing_serpent_scales.name=流火巨蟒鳞片
 item.phoenix_feather.name=凤凰之羽
-item.blazing_serpent_tooth=流火巨蟒獠牙
 item.blazing_serpent_tooth.name=流火巨蟒獠牙
-item.phoenix_razor.name=凤凰
 item.phoenix_razor.name=凤羽剃刀
 item.ionizatior_rod.name=幽影棒
 item.deepoid_horn.name=深犀龙角
@@ -96,11 +79,9 @@ item.vanite_cauldron_item.name=瓦内特炼药锅
 item.anomalous_shard.name=混乱水晶
 item.deepfire_blend.name=深火混合物
 item.ionizatior_powder.name=幽影粉
-item.superheated_magma_cream.name=过热岩浆膏
 item.superheated_magma_cream.name=炽焱膏
 item.nullwart_blend.name=虚无疣混合物
 item.crystallized_vanite_alloy.name=晶化瓦内特
-item.crystallized_vanite_alloy.name=钢化瓦内特水晶
 item.pherithium_carrot.name=富勒席斯萝卜
 item.cave_monitor_scales.name=矿洞监视蜥鳞片
 item.cave_monitor_tongue.name=矿洞监视蜥之舌
@@ -108,9 +89,6 @@ item.sculked_monitor_scales.name=幽匿监视蜥鳞片
 item.sculked_monitor_eye.name=幽匿监视蜥之眼
 item.sea_serpent_scales.name=深海巨蟒鳞片
 item.sea_serpent_venom_sac.name=深海巨蟒毒刺
-item.deep_one_bone.name=堕欲魔龙之骨
-item.deep_one_scales.name=堕欲魔龙之鳞
-item.ophidian_scales.name=蛇鳞
 item.deep_one_bone.name=欲堕魔龙之骨
 item.deep_one_scales.name=欲堕魔龙之鳞
 item.ophidian_scales.name=蝰鳞
@@ -126,7 +104,7 @@ item.warden_core.name=监守之星
 item.destitute_tentacle.name=瘠错触手
 item.static_essence.name=扰动源质
 item.sculked_blade.name=幽匿剑
-item.primeval_mace.name=始源权杖
+item.primeval_mace.name=始源重锤
 item.klangite_blend.name=克兰特混合物
 item.impure_klangite_ingot.name=粗克兰特锭
 item.explosive_klangite_ingot.name=高爆克兰特锭
@@ -152,24 +130,6 @@ item.cave_stew.sculk_stew.name=幽匿炖菜
 item.cave_stew.nether_stew.name=下界炖菜
 item.cave_stew.miners_stew.name=矿工炖菜
 
-item.vanite_bucket.name=瓦内特桶
-item.vanite_bucket_water.name=水桶
-item.vanite_bucket_lava.name=岩浆桶
-item.vanite_bucket_blazlinite.name=熔融幽焰钇阙桶
-item.vanite_bucket_molten_vanite.name=熔融瓦内特桶
-
-item.potion_regen_extended.name=II阶生命恢复药水
-item.potion_regen_III.name=III阶生命恢复药水
-item.potion_speed_extended.name=II阶速度药水
-item.potion_speed_III.name=III阶速度药水
-item.potion_strength_extended.name=II阶力量药水
-item.potion_strength_III.name=III阶力量药水
-item.potion_jump_extended.name=II阶水下呼吸药水
-item.potion_jump_III.name=III阶跳跃提升药水
-item.potion_water_breathing_extended.name=强化水下呼吸药水
-item.potion_night_vision_extended.name=强化夜视药水
-item.potion_invisibility_extended.name=强化隐身药水
-item.potion_fire_resistance_extended.name=强化抗性提升药水
 item.potion_resistance.name=抗性提升药水
 item.potion_haste.name=急迫药水
 item.potion_haste_II.name=II阶急迫药水
@@ -177,9 +137,6 @@ item.ancient_city_artifact.name=古迹遗物
 item.primeval_horn.name=始源号角
 
 item.novacraft_spawn_egg.name=生成
-
-item.disc_5.name=§b音乐唱片
-item.record.5.desc=Samuel Åberg - 5
 
 item.goat_horn_ponder.name=山羊角
 item.goat_horn_sing.name=山羊角
@@ -214,17 +171,6 @@ item.vanite_mysterious_crown.name=秘幽瓦内特皇冠
 item.disc_5.name=§b音乐唱片
 item.record.5.desc=Samuel Åberg - 5
 
-#Legacy Disc Translate
-#item.disc_negative1.name=§b音乐唱片
-#item.record.-1.desc=音乐唱片--1
-#item.disc_negative2.name=§b音乐唱片
-#item.record.-2.desc=音乐唱片--2
-
-#Modern Disc Translate
-item.disc_negative1.name=§b音乐唱片
-item.record.-1.desc=佚名 - 1
-item.disc_negative2.name=§b音乐唱片
-item.record.-2.desc=佚名 - 2
 
 #Tools and Armors
 #Warden
@@ -240,7 +186,6 @@ item.warden_chestplate.name=监守者胸甲
 item.warden_leggings.name=监守者护腿
 item.warden_boots.name=监守者靴子
 item.warden_helmet.name=监守者头盔
- 
 
 item.vanite_trident.name=瓦内特三叉戟
 
@@ -251,7 +196,7 @@ item.phantom_helmet.name=幻翼头盔
 
 item.diablo.name=死神镰刀
 
-item.tophinite_sword.name=松石箭
+item.tophinite_sword.name=松石剑
 item.tophinite_pickaxe.name=松石镐
 item.tophinite_bow.name=松石弓
 item.tophinite_shovel.name=松石铲
@@ -264,28 +209,10 @@ item.tophinite_helmet.name=松石头盔
 
 item.tophinite_hammer.name=松石巨锤
 
-item.crystallized_vanite_sword.name=瓦内特水晶剑
-item.crystallized_vanite_pickaxe.name=瓦内特水晶镐
-item.crystallized_vanite_axe.name=瓦内特水晶斧
-item.crystallized_vanite_shovel.name=瓦内特水晶铲
-item.crystallized_vanite_hoe.name=瓦内特水晶锄
-item.crystallized_vanite_chestplate.name=瓦内特水晶胸甲
-item.crystallized_vanite_bow.name=瓦内特水晶弓
-item.crystallized_vanite_leggings.name=瓦内特水晶护腿
-item.crystallized_vanite_boots.name=瓦内特水晶靴子
-item.crystallized_vanite_helmet.name=瓦内特水晶头盔
-
-
-item.phantom_chestplate.name=幻翼胸甲
-item.phantom_leggings.name=幻翼护腿
-item.phantom_boots.name=幻翼靴子
-item.phantom_helmet.name=幻翼头盔
-
 item.guardian_chestplate.name=守卫者胸甲
 item.guardian_leggings.name=守卫者护腿
 item.guardian_boots.name=守卫者靴子
 item.guardian_helmet.name=守卫者头盔
- 
 
 item.pherithium_sword.name=富勒席斯剑
 item.pherithium_pickaxe.name=富勒席斯镐
@@ -297,26 +224,19 @@ item.pherithium_chestplate.name=富勒席斯胸甲
 item.pherithium_leggings.name=富勒席斯护腿
 item.pherithium_boots.name=富勒席斯靴子
 
-item.pherithium_shickaxe.name=富勒席斯多态工具
-item.reinforced_pherithium_shickaxe.name=强化富勒席斯多态工具
+item.pherithium_shickaxe.name=富勒席斯锹镐斧
+item.reinforced_pherithium_shickaxe.name=强化富勒席斯锹镐斧
 
 item.ancient_leggings.name=古代护腿
 
 item.diamond_bow.name=钻石弓
-item.diamond_firecharge_launcher.name=钻石火焰弹发射器
-item.vanite_firecharge_launcher.name=瓦内特火焰弹发射器
 item.diamond_firecharge_launcher.name=钻石火箭筒
 item.vanite_firecharge_launcher.name=瓦内特火箭筒
 item.netherite_bow.name=下界合金弓
- 
 
 item.klangite_sword.name=克兰特剑
 item.klangite_pickaxe.name=克兰特镐
-item.klangite_shovel.name=克兰特铲
 item.klangite_bow.name=克兰特弓
-item.klangite_firecharge_launcher.name=克兰特火焰弹发射器
-item.klangite_hoe.name=克兰特锄头
-item.klangite_axe.name=克兰特斧头
 item.klangite_firecharge_launcher.name=克兰特火箭筒
 item.klangite_shovel.name=克兰特铲
 item.klangite_hoe.name=克兰特锄
@@ -345,26 +265,14 @@ item.crystalite_helmet.name=晶华头盔
 item.crystalite_chestplate.name=晶华胸甲
 item.crystalite_leggings.name=晶华护腿
 item.crystalite_boots.name=晶华靴子
- 
 
 item.scythe.name=死神之镰
 item.eerie_sword.name=怪异长剑
- 
 
 item.sculk_helmet.name=幽匿头盔
 item.sculk_chestplate.name=幽匿胸甲
 item.sculk_leggings.name=幽匿护腿
 item.sculk_boots.name=幽匿靴子
-
-item.ophidian_helmet.name=蛇鳞合金头盔
-item.ophidian_chestplate.name=蛇鳞合金胸甲
-item.ophidian_leggings.name=蛇鳞合金护腿
-item.ophidian_boots.name=蛇鳞合金靴子
-item.ophidian_sword.name=蛇鳞合金剑
-item.ophidian_pickaxe.name=蛇鳞合金镐
-item.ophidian_shovel.name=蛇鳞合金铲
-item.ophidian_hoe.name=蛇鳞合金锄
-item.ophidian_axe.name=蛇鳞合金斧
 
 item.crystallized_vanite_sword.name=晶化瓦内特剑
 item.crystallized_vanite_pickaxe.name=晶化瓦内特镐
@@ -385,24 +293,6 @@ item.ophidian_shovel.name=蝰鳞合金铲
 item.ophidian_hoe.name=蝰鳞合金锄
 item.ophidian_axe.name=蝰鳞合金斧
 item.ophidian_bow.name=蝰鳞合金弓
-
-
-
-item.potion_regen_extended.name=II阶生命恢复药水
-item.potion_regen_III.name=III阶生命恢复药水
-item.potion_speed_extended.name=II阶速度药水
-item.potion_speed_III.name=III阶速度药水
-item.potion_strength_extended.name=II阶力量药水
-item.potion_strength_III.name=III阶力量药水
-item.potion_jump_extended.name=II阶水下呼吸药水
-item.potion_jump_III.name=III阶跳跃提升药水
-item.potion_water_breathing_extended.name=强化水下呼吸药水
-item.potion_night_vision_extended.name=强化夜视药水
-item.potion_invisibility_extended.name=强化隐身药水
-item.potion_fire_resistance_extended.name=强化抗性提升药水
-item.potion_resistance.name=抗性提升药水
-item.potion_haste.name=急迫药水
-item.potion_haste_II.name=II阶急迫药水
 
 # Block Names
 # Normal Block Names
@@ -445,21 +335,18 @@ tile.null_wart.name=虚无疣蒂
 tile.nullwart_bricks.name=紫色下界砖块
 tile.treasure_chest.name=宝藏板条箱
 tile.infused_vanite_block.name=灌注瓦内特块
-tile.infused_vanite_block.name=墨裂瓦内特块
 tile.infused_vanite_block_natural.name=暗沌瓦内特块
 
 tile.sculk_sensor.name=幽匿草
 tile.grimstone_shrieker.name=监守者召唤祭坛
 tile.activated_grimstone_shrieker.name=激活的监守者召唤祭坛
 tile.sculk_chest.name=幽匿板条箱
-tile.chorus_grass.name=和草
+tile.chorus_grass.name=紫颂草
 tile.void_sprout.name=虚无苗
 tile.lacuna_log.name=月幽影植株
 tile.lacuna_fruit.name=月幽影花
 tile.shadow_bloom.name=光影蓓蕾
-tile.shadow_bloom.name=光影玫瑰
 tile.lacuna_planks.name=月幽影木板
-tile.nullcube_slime_block.name=神秘史莱姆快
 tile.nullcube_slime_block.name=虚无粘液快
 tile.vacuum_sand.name=末影幽沙
 tile.vacuum_glass.name=幽沙玻璃
@@ -467,8 +354,6 @@ tile.inked_vacuum_sand.name=荧光末影幽沙
 tile.inked_vacuum_glass.name=荧光幽沙玻璃
 tile.flaming_pitcher_bottom.name=火焰瓶子草
 tile.flaming_pitcher_top.name=火焰瓶子草
-#tile.flaming_pitcher_bottom.name=火焰猪笼草
-#tile.flaming_pitcher_top.name=火焰猪笼草
 tile.cyan_rose.name=靛色玫瑰
 tile.torchflower.name=火把花
 tile.frontierslate_klangite_ore.name=边际克兰特矿
@@ -485,23 +370,18 @@ tile.block_of_tophinite.name=松石块
 tile.deepslate_klangite_ore.name=深层克兰特矿
 tile.deepslate_tophinite_ore.name=深层松石矿
 tile.deepslate_vanite_ore.name=深层瓦内特矿
-tile.crystallized_end.name=晶化末地天空
 tile.crystallized_end.name=末影晶块
 tile.block_of_reinforced_vanite.name=强化瓦内特块
-tile.cinder_log.name=黑硫木
 tile.nether_chest.name=下界板条箱
 tile.flaming_nullwart_bricks.name=璃紫下界砖块
 tile.blazlinite.name=熔融幽焰钇阙
 tile.molten_vanite.name=熔融瓦内特
 tile.crystallized_vanite.name=晶化瓦内特块
-tile.crystallized_vanite.name=钢化瓦内特水晶块
 tile.cracked_vanite_crystal_cauldron.name=碎裂瓦内特坩埚
 tile.deepfire.name=深火
 tile.blazlinite_blend.name=幽焰钇阙混合物
 tile.deep_one_egg.name=堕欲魔龙蛋
-tile.deep_one_egg_activated.name=激活的堕欲魔龙蛋
-tile.deep_one_egg.name=欲堕魔龙蛋
-tile.deep_one_egg_activated.name=激活的欲堕魔龙蛋
+tile.deep_one_egg_activated.name=猩红魔龙蛋
 tile.vanite_bricks.name=瓦内特砖
 tile.carved_vanite_bricks.name=切制瓦内特砖
 tile.glowing_carved_vanite_bricks.name=瓦内特灯
@@ -549,7 +429,6 @@ tile.vanite_cauldron.name=瓦内特炼药锅
 tile.molten_vanite_cauldron.name=熔融瓦内特炼药锅
 tile.molten_vanite_crystal_cauldron.name=熔融晶化瓦内特炼药锅
 
-tile.molten_vanite_crystal_cauldron.name=熔融钢化瓦内特水晶炼药锅
 
 tile.raw_divineral.name=神圣碎矿块
 tile.raw_netherite.name=下界合金碎片块
@@ -559,7 +438,6 @@ tile.large_pherithium_stalagmite.name=大型富勒席斯芽
 tile.small_pherithium_stalagmite.name=小型富勒席斯芽
 tile.block_of_pherithium.name=富勒席斯块
 tile.pherithium_glass.name=富勒席斯玻璃
- 
 
 tile.stone_stalagmite.name=石笋
 tile.stone_stalactite.name=钟乳石
@@ -582,7 +460,6 @@ tile.grimstone_iron.name=阴沉铁矿
 tile.grimstone_lapis.name=阴沉青金石矿
 tile.grimstone_redstone.name=阴沉红石矿
 tile.lit_grimstone_redstone.name=激活的虚无红石矿
- 
 
 tile.nullstone_diamond.name=虚无钻石矿
 tile.nullstone_emerald.name=虚无绿宝石矿
@@ -591,32 +468,26 @@ tile.nullstone_iron.name=虚无铁矿
 tile.nullstone_lapis.name=虚无青金石矿
 tile.nullstone_redstone.name=虚无红石矿
 tile.lit_nullstone_redstone.name=激活的虚无红石矿
- 
 
 tile.etherstone_coal.name=拟太煤矿
 tile.etherstone_emerald.name=拟太绿宝石矿
 tile.etherstone_iron.name=拟太铁矿
 tile.etherstone_gold.name=拟太金矿
-tile.etherstone_brimstone.name=拟太布里姆矿
- 
+tile.etherstone_brimstone.name=拟太硫磺矿
 
 tile.tuff_bricks.name=凝灰岩石砖
 tile.cracked_tuff_bricks.name=裂纹凝灰岩石砖
 tile.tuff_tiles.name=凝灰岩石瓦
 tile.cracked_tuff_tiles.name=裂纹凝灰岩石瓦
- 
 
 tile.calcite_bricks.name=方解石砖
 tile.cracked_calcite_bricks.name=裂纹方解石砖
 tile.calcite_tiles.name=方解石瓦
 tile.cracked_calcite_tiles.name=裂纹方解石瓦
 
-tile.raw_divineral.name=神圣碎矿块
-tile.raw_netherite.name=下界合金碎片块
 
 
 tile.moss_block.name=苔藓块
-#tile.moss_carpet.name=苔藓地毯
 tile.moss_carpet.name=覆地苔藓
 tile.arctic_moss_block.name=极地苔藓块
 tile.arctic_moss_carpet.name=覆地极地苔藓
@@ -624,7 +495,6 @@ tile.glow_lichen.name=发光地衣
 tile.grim_lichen.name=阴沉地衣
 tile.dark_lichen.name=深暗地衣
 tile.bright_lichen.name=亮地衣
- 
 
 tile.sculk_block.name=幽匿块
 tile.inked_sculk_block.name=荧光幽匿块
@@ -643,23 +513,18 @@ tile.hydnum_mushroom.name=齿菇
 tile.lentius_mushroom.name=香菇
 tile.rozite_mushroom.name=毒蕈
 tile.pleurotus_mushroom.name=侧耳
- 
-
-tile.brimstone_ore.name=布里姆矿
-tile.block_of_brimstone.name=布里姆块
-tile.brimstone_wire.name=布里姆粉
- 
+tile.brimstone_ore.name=硫磺矿
+tile.block_of_brimstone.name=硫磺块
+tile.brimstone_wire.name=硫磺粉
 
 tile.grimstone_vanite_ore.name=阴沉瓦内特矿
 tile.nullstone_vanite_ore.name=虚无瓦内特矿
 tile.block_of_vanite.name=瓦内特块
- 
 
 tile.klangite_ore.name=克兰特矿
 tile.end_klangite_ore.name=末地克兰特矿
 tile.block_of_raw_klangite.name=克兰特粗矿块
 tile.block_of_klangite.name=克兰特块
- 
 
 tile.xancium_ore.name=簪西姆矿
 tile.xancium_TNT.name=簪西姆TNT
@@ -669,22 +534,13 @@ tile.xancium_wire.name=簪西姆粉
 tile.PETN.name=PETN
 tile.PETN_wire.name=PETN粉
 
-tile.PETN.name=离虚雷
-tile.PETN_wire.name=离虚粉
 
 tile.advanced_smithing_table.name=进阶锻造台
- 
-tile.cracked_larimar_block.name=裂纹拉里玛块
-tile.larimar_block.name=拉里玛块
 
 tile.cracked_larimar_block.name=裂纹拉里玛晶块
 tile.larimar_block.name=拉里玛晶块
 tile.budding_larimar_block.name=拉里玛母岩
-tile.larimar_cluster_1.name=小型拉里玛芽
-tile.larimar_cluster_2.name=拉里玛簇
 
-tile.cracked_copartz_block.name=裂纹科帕茨块
-tile.copartz_block.name=科帕茨块
 tile.nova_craft.larimar_bud.name=拉里玛晶簇
 tile.nova_craft.larimar_medium_bud.name=拉里玛晶簇
 tile.nova_craft.larimar_large_bud.name=拉里玛晶簇
@@ -693,23 +549,16 @@ tile.nova_craft.larimar_cluster.name=拉里玛晶簇
 tile.cracked_copartz_block.name=裂纹科帕茨晶块
 tile.copartz_block.name=科帕茨晶块
 tile.budding_copartz_block.name=科帕茨母岩
-tile.copartz_cluster_1.name=小型科帕茨芽
-tile.copartz_cluster_2.name=科帕茨簇
 
 tile.cracked_tsavorokite_block.name=裂纹沙沃罗基特块
 tile.tsavorokite_block.name=沙沃罗基特块
 tile.budding_tsavorokite_block.name=沙沃罗基特母岩
-tile.tsavorokite_cluster_1.name=小型沙沃罗基特芽
-tile.tsavorokite_cluster_2.name=沙沃罗基特簇
 
 tile.nova_craft.copartz_bud.name=科帕茨晶簇
 tile.nova_craft.copartz_medium_bud.name=科帕茨晶簇
 tile.nova_craft.copartz_large_bud.name=科帕茨晶簇
 tile.nova_craft.copartz_cluster.name=科帕茨晶簇
 
-tile.cracked_tsavorokite_block.name=裂纹沙弗莱晶块
-tile.tsavorokite_block.name=沙弗莱晶块
-tile.budding_tsavorokite_block.name=沙弗莱母岩
 tile.nova_craft.tsavorokite_bud.name=沙弗莱晶簇
 tile.nova_craft.tsavorokite_medium_bud.name=沙弗莱晶簇
 tile.nova_craft.tsavorokite_large_bud.name=沙弗莱晶簇
@@ -718,8 +567,6 @@ tile.nova_craft.tsavorokite_cluster.name=沙弗莱晶簇
 tile.cracked_yttrlinsite_block.name=裂纹钇石块
 tile.yttrlinsite_block.name=钇石块
 tile.budding_yttrlinsite_block.name=钇石母岩
-tile.yttrlinsite_cluster_1.name=小型钇石芽
-tile.yttrlinsite_cluster_2.name=钇石簇
 
 tile.nova_craft.yttrlinsite_bud.name=钇石晶簇
 tile.nova_craft.yttrlinsite_medium_bud.name=钇石晶簇
@@ -729,8 +576,6 @@ tile.nova_craft.yttrlinsite_cluster.name=钇石晶簇
 tile.cracked_aether_block.name=裂纹以太
 tile.aether_block.name=以太块
 tile.budding_aether_block.name=以太母岩
-tile.aether_cluster_1.name=小型以太芽
-tile.aether_cluster_2.name=以太簇
 
 tile.nova_craft.aether_bud.name=以太晶簇
 tile.nova_craft.aether_medium_bud.name=以太晶簇
@@ -739,8 +584,6 @@ tile.nova_craft.aether_cluster.name=以太晶簇
 
 tile.echo_block.name=回响块
 tile.budding_echo_block.name=回响母岩
-tile.echo_cluster_1.name=小型回响芽
-tile.echo_cluster_2.name=回响簇
 
 tile.nova_craft.echo_bud.name=回响晶簇
 tile.nova_craft.small_echo_bud.name=回响晶簇
@@ -749,8 +592,6 @@ tile.nova_craft.echo_cluster.name=回响晶簇
 
 tile.null_block.name=虚无块
 tile.budding_null_block.name=虚无母岩
-tile.null_cluster_1.name=小型虚无芽
-tile.null_cluster_2.name=虚无簇
 
 tile.nova_craft.null_bud.name=虚无晶簇
 tile.nova_craft.null_medium_bud.name=虚无晶簇
@@ -929,7 +770,7 @@ tooltip.pherithium_shickaxe.desc=这才是矿工该用的工具!
 tooltip.pherithium_armor.desc=全套穿戴时给予急迫IV
 
 tooltip.sculk_armor.desc=全套穿戴时大幅提升移动速度
-tooltip.phantom_armor.desc=一定程度上否定来自幻翼的伤害
+tooltip.phantom_armor.desc=一定程度上减少来自幻翼的伤害
 
 tooltip.tophinite_tools.desc=在下界使用时掉落物会有额外加成
 tooltip.tophinite_armor.desc=全套穿戴时能免受火焰伤害
@@ -1014,8 +855,8 @@ tooltip.impure_ousider_ingot.desc=潜行右击被封印的未知传送门
 
 #Potion Tool Tips
 tooltip.potion.resistance.desc=抗性提升 I (32:00)
-tooltip.potion.speed.desc=迅捷 I (24:00)
-tooltip.potion.speedIII.desc=迅捷 III (6:00)
+tooltip.potion.speed.desc=速度 I (24:00)
+tooltip.potion.speedIII.desc=速度 III (6:00)
 tooltip.potion.strength.desc=力量 I (24:00)
 tooltip.potion.strengthIII.desc=力量 III (4:00)
 tooltip.potion.regen.desc=生命恢复 I (16:00)
@@ -1031,7 +872,7 @@ tooltip.potion.hasteII.desc=急迫 II (8:00)
 
 tooltip.cave_stew2.desc=夜视 (4:00)
 tooltip.cave_stew.desc=急迫 I (4:00)
-tooltip.deep_stew2.desc=迅捷 I (4:00)
+tooltip.deep_stew2.desc=速度 I (4:00)
 tooltip.deep_stew.desc=急迫 I (4:00)
 tooltip.sculk_stew2.desc=夜视 (4:00)
 tooltip.sculk_stew.desc=抗性提升 I (4:00)
@@ -1053,13 +894,11 @@ achievement.the_red_geo=红晶簇
 achievement.the_blue_geo=蓝晶簇
 achievement.the_orange_geo=燃烧的晶簇
 achievement.the_green_geo=绿晶簇
-achievement.the_heavenly_geo=从天堂来的晶簇
 achievement.the_heavenly_geo=来自天堂的晶簇
 achievement.efficiency_VI=效率IV
 achievement.hardcore_miner=硬核矿工
 achievement.budding_block=培育水晶
 achievement.the_deep_dark=深暗之域
-achievement.kill_sculk_abomination=一次值得永远铭记的进度。
 achievement.kill_sculk_abomination=一次值得永远铭记的冒险
 achievement.kill_sculk_dweller=生存并生长
 achievement.fancy_particles=优雅的微粒
@@ -1073,11 +912,9 @@ achievement.not_your_ordinary_geo=又不是你那平凡的晶簇
 achievement.the_nonburning_plant=永不燃烧的植株
 achievement.the_strange_plant=可疑的植株
 achievement.tnt_overhaul=TNT的革新
-achievement.time_to_excavate=挖矿时间到！嘿，没让你合成木镐。
 achievement.time_to_excavate=挖矿时间到！嘿，没让你合成木镐
 achievement.the_lava_plant=生于极热之地的植物
 achievement.echo=回响!
-achievement.end_remnants=末地残余的琐碎的记忆
 achievement.end_remnants=末地残余的琐碎记忆
 achievement.warped=虚无弹跳!
 achievement.netherite_upgrade=下界合金的时代!
@@ -1088,12 +925,9 @@ achievement.true_netherite_upgrade=真正的下界合金时代!
 achievement.cover_me_with_klangite=用克兰特包裹我!
 achievement.all_geos_discovered=百晶全书!
 achievement.explosion=清醒点!
-achievement.hello_darkness_my_old_friend=嗨，深暗，我的老朋友。
 achievement.hello_darkness_my_old_friend=嗨，深暗，我的老朋友
 achievement.advanced_alloying=进阶合金
 achievement.speeding_the_rates=呐，水晶的生长要加速了哦!
-achievement.growing_cursed_crystals=培育被诅咒的水晶。
-achievement.well_this_complicates_things=害，这些驳杂的事务。
 achievement.growing_cursed_crystals=培育被诅咒的水晶
 achievement.well_this_complicates_things=害，这些驳杂的事务
 achievement.end_transportation=魔影交通！
@@ -1133,12 +967,6 @@ achievement.mach_2=超音速!
 achievement.miners_meal=矿工的一餐!
 
 #Achievement Descriptions
-achievement.welcome_to_novacraft.desc=采集一个来自于NovaCraft中的方块/物品。
-achievement.the_strange_ore.desc=采集富勒席斯碎片。
-achievement.even_better_than_iron.desc=采集粗瓦内特。
-achievement.even_better_than_netherite.desc=采集松石。
-achievement.the_pink_ore.desc=采集簪西姆矿。
-achievement.legendary_ore.desc=发现NovaCraft中最稀有的矿石。
 achievement.welcome_to_novacraft.desc=采集一个来自于NovaCraft中的方块/物品
 achievement.the_strange_ore.desc=采集富勒席斯碎片
 achievement.even_better_than_iron.desc=采集粗瓦内特
@@ -1151,28 +979,14 @@ achievement.the_blue_geo.desc=采集拉里玛水晶碎片
 achievement.the_orange_geo.desc=采集钇石水晶碎片
 achievement.the_green_geo.desc=采集沙沃罗基特水晶碎片
 achievement.the_heavenly_geo.desc=采集以太水晶碎片
-achievement.efficiency_VI.desc=合成一个富勒席斯斧头/镐子/铲子。
-achievement.hardcore_miner.desc=装备全套富勒席斯护甲。
-achievement.budding_block.desc=合成科帕茨/拉里玛/钇石/沙沃罗基特/以太母岩。
-achievement.the_deep_dark.desc=发现幽匿块。
-achievement.kill_sculk_abomination.desc=打败幽匿恶眼。
-achievement.kill_sculk_dweller.desc=在于幽匿居民的战斗中胜利并得到与其战斗的经验。
-achievement.fancy_particles.desc=合成一个瓦内特块。
 achievement.efficiency_VI.desc=合成一个富勒席斯斧头/镐子/铲子
 achievement.hardcore_miner.desc=装备全套富勒席斯护甲
 achievement.budding_block.desc=合成科帕茨/拉里玛/钇石/沙沃罗基特/以太母岩
 achievement.the_deep_dark.desc=发现幽匿块
 achievement.kill_sculk_abomination.desc=打败幽匿恶眼
-achievement.kill_sculk_dweller.desc=在于幽匿居民的战斗中胜利并得到与其战斗的经验
+achievement.kill_sculk_dweller.desc=在与幽匿栖息者的战斗中胜利并得到与其战斗的经验
 achievement.fancy_particles.desc=合成一个瓦内特块
 achievement.showing_off.desc=装备一个瓦内特皇冠
-achievement.the_glowing_tree.desc=发现光露普树。
-achievement.getting_reinforced.desc=合成强化瓦内特锭。
-achievement.what_are_ya_buyin.desc=购买卫道士定居者的一个东西。
-achievement.sneak_100.desc=在幽匿块上潜行。
-achievement.end_traveller.desc=采集一个来自于NovaCraft中的末地植物。
-achievement.not_your_ordinary_geo.desc=打破一个幽匿板条箱。
-achievement.the_nonburning_plant.desc=发现NovaCraft中最稀有的植物。
 achievement.the_glowing_tree.desc=发现光露普树
 achievement.getting_reinforced.desc=合成强化瓦内特锭
 achievement.what_are_ya_buyin.desc=购买卫道士定居者的一个东西
@@ -1181,25 +995,8 @@ achievement.end_traveller.desc=采集一个来自于NovaCraft中的末地植物
 achievement.not_your_ordinary_geo.desc=打破一个幽匿板条箱
 achievement.the_nonburning_plant.desc=发现NovaCraft中最稀有的植物
 achievement.the_strange_plant.desc=采集虚无疣
-achievement.tnt_overhaul.desc=合成一个PETN块。
-achievement.time_to_excavate.desc=采集布里姆粉。
-achievement.the_lava_plant.desc=收获一个火焰瓶子草。
-achievement.echo.desc=获得回响碎片。
-achievement.end_remnants.desc=发现晶化末地天空。
-achievement.warped.desc=合成虚无史莱姆快。
-achievement.netherite_upgrade.desc=合成一个松石工具/盔甲。
-achievement.cover_me_with_tophinite.desc=装备全套松石护甲。
-achievement.cursed_crystal.desc=这个水晶被诅咒了，无法更新模组。发现虚无水晶碎片。
-achievement.warden_preparation.desc=获得灌注瓦内特块。
-achievement.true_netherite_upgrade.desc=合成克兰特块。
-achievement.cover_me_with_klangite.desc=装备全套克兰特护甲。
-achievement.all_geos_discovered.desc=合成多色碎片块。
-achievement.explosion.desc=合成一个簪西姆TNT。
-achievement.hello_darkness_my_old_friend.desc=获得暗黑源质。
-achievement.advanced_alloying.desc=合成克兰特锭。
-achievement.speeding_the_rates.desc=使用水晶生长调节器。
-achievement.tnt_overhaul.desc=合成一个离虚雷
-achievement.time_to_excavate.desc=采集布里姆粉
+achievement.tnt_overhaul.desc=合成一个PETN
+achievement.time_to_excavate.desc=采集硫磺粉
 achievement.the_lava_plant.desc=收获一个火焰瓶子草
 achievement.echo.desc=获得回响碎片
 achievement.end_remnants.desc=发现末影晶块
@@ -1207,7 +1004,7 @@ achievement.warped.desc=合成虚无粘液快
 achievement.netherite_upgrade.desc=合成一个松石工具/盔甲
 achievement.cover_me_with_tophinite.desc=装备全套松石护甲
 achievement.cursed_crystal.desc=发现虚无水晶碎片
-achievement.warden_preparation.desc=获得墨裂瓦内特块
+achievement.warden_preparation.desc=获得灌注瓦内特块
 achievement.true_netherite_upgrade.desc=合成克兰特块
 achievement.cover_me_with_klangite.desc=装备全套克兰特护甲
 achievement.all_geos_discovered.desc=合成多色碎片块
@@ -1216,17 +1013,6 @@ achievement.hello_darkness_my_old_friend.desc=获得暗黑源质
 achievement.advanced_alloying.desc=合成克兰特锭
 achievement.speeding_the_rates.desc=使用水晶生长调节器
 achievement.growing_cursed_crystals.desc=合成虚无水晶母岩
-achievement.well_this_complicates_things.desc=打败虚无实体。
-achievement.end_transportation.desc=驯服一只末影鸵鸟。
-achievement.advanced_ritual_preparation.desc=用精准采集获得虚无水晶簇。
-achievement.electro_nullified.desc=打败一个否决者。
-achievement.summoning_an_ancient_evil.desc=生成监守者。
-achievement.reached_for_things_I_didnt_need.desc=打败监守者。
-achievement.end_catalyst.desc=获得末影之心。
-achievement.true_teleportation.desc=使用末影领主权杖。
-achievement.the_next_upgrade.desc=合成一个监守者工具/盔甲。
-achievement.warden_insurance.desc=装备全套监守者护甲。
-achievement.ascension.desc=装备全套晶华护甲。
 
 achievement.well_this_complicates_things.desc=打败虚无实体
 achievement.end_transportation.desc=驯服一只末影鸵鸟
@@ -1251,7 +1037,7 @@ achievement.crystallized.desc=合成任意瓦内特水晶系列工具或盔甲
 achievement.the_nether_dragon.desc=右击欲堕魔龙蛋来召唤欲堕魔龙
 achievement.shearing_the_phoenix.desc=使用凤羽剃刀右击凤凰
 achievement.flying_mobs_beware.desc=合成一把蝰鳞合金弓
-achievement.fancy_efficiency_VI.desc=合成一柄强化富勒席斯多态工具
+achievement.fancy_efficiency_VI.desc=合成一柄强化富勒席斯锹镐斧
 achievement.summoning_the_bloat.desc=在末地中使用终末召唤召唤诳语者
 achievement.a_new_method_of_mining.desc=合成克兰特火箭筒
 achievement.hardcore_enchanter.desc=使用传说附魔台
@@ -1269,8 +1055,7 @@ entity.nova_craft.XTNT.name=簪西姆TNT
 entity.nova_craft.glow_squid.name=荧光鱿鱼
 entity.nova_craft.phantom.name=幻翼
 entity.nova_craft.slaughter.name=屠宰者
-entity.nova_craft.sculk_dweller.name=幽匿居民
-entity.nova_craft.drifter.name=烈焰下界人
+entity.nova_craft.sculk_dweller.name=幽匿栖息者
 entity.nova_craft.drifter.name=漂泊者
 entity.nova_craft.blazing_charger.name=烈焰战牛
 entity.nova_craft.ender_lord.name=末影领主
@@ -1281,10 +1066,8 @@ entity.nova_craft.iceologer.name=冰术师
 entity.nova_craft.verglas.name=韦尔格拉斯
 entity.nova_craft.warden.name=监守者
 entity.nova_craft.sculk_symbiote.name=幽匿共生体
-entity.nova_craft.sculk_symbiote.name=幽匿螨
 entity.nova_craft.void_entity.name=虚无实体
 entity.nova_craft.void_cube.name=虚无史莱姆
-#entity.nova_craft.nullifier.name=末影骷力怕
 entity.nova_craft.nullifier.name=否决者
 entity.nova_craft.nova_goat.name=山羊
 entity.nova_craft.vindicator_trader.name=卫道士定居者
@@ -1300,12 +1083,10 @@ entity.nova_craft.deepoid.name=深犀龙
 entity.nova_craft.cave_monitor.name=矿洞监视蜥
 entity.nova_craft.sculked_monitor.name=幽匿监视蜥
 entity.nova_craft.sea_serpent.name=深海巨蟒
-entity.nova_craft.deepoid_dragon.name=堕欲魔龙
+entity.nova_craft.deepoid_dragon.name=欲堕魔龙
 
 #Spawn Eggs Name Override
-item.novacraft_spawn_egg.name=生成
 
-entity.nova_craft.deepoid_dragon.name=欲堕魔龙
 entity.nova_craft.crystal_golem.name=水晶魔像
 entity.nova_craft.bloviator.name=诳语者
 entity.nova_craft.death_stalker.name=杀戮魔蝎
@@ -1338,22 +1119,18 @@ entity.glow_squid.name=荧光鱿鱼
 entity.phantom.name=幻翼
 entity.slaughter.name=屠宰者
 entity.sculk_dweller.name=幽匿居民
-#entity.drifter.name=流浪者
-entity.drifter.name=烈焰下界人
 entity.drifter.name=漂泊者
 entity.blazing_charger.name=烈焰战牛
 entity.ender_lord.name=末影领主
 entity.ender_avis.name=末影鸵鸟
 entity.ender_ray.name=末影鲼
 entity.vindicator.name=卫道士
-entity.iceologer.name=冰术士
 entity.iceologer.name=冰术师
 entity.verglas.name=韦尔格拉斯
 entity.warden.name=监守者
 entity.sculk_symbiote.name=幽匿螨
 entity.void_entity.name=虚无实体
 entity.void_cube.name=虚无史莱姆
-#entity.nullifier.name=末影骷力怕
 entity.nullifier.name=否决者
 entity.nova_goat.name=山羊
 entity.vindicator_trader.name=卫道士定居者
@@ -1369,7 +1146,6 @@ entity.deepoid.name=深犀龙
 entity.cave_monitor.name=矿洞监视蜥
 entity.sculked_monitor.name=幽匿监视蜥
 entity.sea_serpent.name=深海巨蟒
-entity.deepoid_dragon.name=堕欲魔龙
 entity.deepoid_dragon.name=欲堕魔龙
 entity.crystal_golem.name=水晶魔像
 entity.bloviator.name=诳语者
@@ -1395,4 +1171,221 @@ entity.hardmode_magmacube.name=强化岩浆怪
 entity.hardmode_ghast.name=强化恶魂
 entity.outsider.name=域外之人
 entity.savage_serpent.name=嗜血火蟒
+
+item.raw_frog_leg.name=生青蛙腿
+item.cooked_frog_leg.name=熟青蛙腿
+item.raw_iridium.name=粗铱
+item.iridium_ingot.name=铱锭
+item.reinforced_iridium_ingot.name=强化铱锭
+item.iridium_nugget.iridium_nugget.name=铱粒
+item.iridium_nugget.impure_klangite_nugget.name=粗克兰特粒
+item.iridium_nugget.vanite_nugget.name=瓦内特粒
+item.diamond_nugget.diamond_nugget.name=钻石碎片
+item.diamond_nugget.emerald_nugget.name=绿宝石碎片
+item.diamond_nugget.farlander_nugget.name=边境碎片
+item.echo_eye.name=回响之眼
+item.wyrmling_scales.name=雏龙鳞片
+item.vanite_scythe.name=瓦内特之镰
+item.raw_octoqus.name=生章鱼肉
+item.cooked_octoqus.name=熟章鱼肉
+item.beastly_leather.name=野兽皮革
+item.end_portal_sealent.name=末地传送门密封剂
+item.relik_dust.name=遗灵尘
+item.hunger_staff.name=生命维持法杖
+item.deepoid_brewing_stand_item.name=深犀酿造台
+item.welkin_stick.name=天穹木棍
+item.iridium_handle.name=铱手柄
+item.crimson_star.name=猩红之星
+item.potion_speed_extended.potion_speed.name=强化迅捷药水
+item.potion_speed_extended.potion_speed_regular.name=迅捷药水
+item.potion_speed_III.potion_speed.name=迅捷药水 III
+item.potion_speed_III.potion_speed_regular.name=迅捷药水 II
+tooltip.potion.speedII.regular.desc=速度 II (1:30)
+item.potion_regen_extended.potion_regen.name=强化再生药水
+item.potion_regen_extended.potion_regen_regular.name=再生药水
+item.potion_regen_III.potion_regen.name=再生药水 III
+item.potion_regen_III.potion_regen_regular.name=再生药水 II
+tooltip.potion.regen.regular.desc=生命恢复 I (2:00)
+tooltip.potion.regenII.regular.desc=生命恢复 II (0:22)
+item.potion_strength_extended.potion_strength.name=强化力量药水
+item.potion_strength_extended.potion_strength_regular.name=力量药水
+item.potion_strength_III.potion_strength.name=力量药水 III
+item.potion_strength_III.potion_strength_regular.name=力量药水 II
+tooltip.potion.strength_regular.desc=力量 I (8:00)
+tooltip.potion.strengthII.regular.desc=力量 II (1:30)
+item.potion_jump_extended.potion_jump.name=强化跳跃药水
+item.potion_jump_extended.potion_jump_regular.name=跳跃药水
+item.potion_jump_III.potion_jump.name=跳跃药水 III
+item.potion_jump_III.potion_jump_regular.name=跳跃药水 II
+tooltip.potion.jump.regular.desc=跳跃提升 I (3:00)
+tooltip.potion.jumpII.regular.desc=跳跃提升 II (1:30)
+item.awkward_potion.awkward_potion.name=粗制的药水
+item.awkward_potion.mundane_haste_potion.name=平凡的急迫药水
+item.awkward_potion.thick_haste_potion.name=浓稠的急迫药水
+item.awkward_potion.mundane_resistance_potion.name=平凡的抗性提升药水
+tooltip.no_effect.desc=无效果
+item.awkward_potion.thick_speed_potion.name=浓稠的迅捷药水
+item.awkward_potion.thick_regen_potion.name=浓稠的再生药水
+item.awkward_potion.thick_strength_potion.name=浓稠的力量药水
+item.awkward_potion.thick_jump_potion.name=浓稠的跳跃药水
+item.awkward_potion.mundane_strength_potion.name=平凡的力量药水
+item.awkward_potion.mundane_speed_potion.name=平凡的迅捷药水
+item.awkward_potion.mundane_water_breathing_potion.name=平凡的水肺药水
+item.awkward_potion.mundane_fire_resistance_potion.name=平凡的抗火药水
+item.awkward_potion.mundane_night_vision_potion.name=平凡的夜视药水
+item.awkward_potion.mundane_regen_potion.name=平凡的再生药水
+item.awkward_potion.mundane_invisibility_potion.name=平凡的隐身药水
+item.awkward_potion.mundane_jump_potion.name=平凡的跳跃药水
+item.awkward_potion.mundane_blindness_potion.name=平凡的失明药水
+item.awkward_potion.blindness_potion.name=失明药水
+tooltip.potion.blindness.desc=失明 (3:00)
+tooltip.potion.warden.desc=对监守者造成伤害所需
+item.awkward_potion.relik_potion.name=黑暗药水
+item.potion_water_breathing_extended.potion_water_breathing.name=强化水肺药水
+item.potion_water_breathing_extended.potion_water_breathing_regular.name=水肺药水
+tooltip.potion.water.regular.desc=水下呼吸 (8:00)
+item.potion_night_vision_extended.potion_night_vision.name=强化夜视药水
+item.potion_night_vision_extended.potion_night_vision_regular.name=夜视药水
+tooltip.potion.night.regular.desc=夜视 (8:00)
+item.potion_invisibility_extended.potion_invisibility.name=强化隐身药水
+item.potion_invisibility_extended.potion_invisibility_regular.name=隐身药水
+tooltip.potion.invisibility.regular.desc=隐身 (8:00)
+item.potion_fire_resistance_extended.potion_fire_resistance.name=强化抗火药水
+item.potion_fire_resistance_extended.potion_fire_resistance_regular.name=抗火药水
+tooltip.potion.fire.regular.desc=抗火 (8:00)
+item.vindicator_insignia.name=卫道士徽章
+item.iridium_sword.name=铱剑
+item.iridium_pickaxe.name=铱镐
+item.iridium_axe.name=铱斧
+item.iridium_shovel.name=铱锹
+item.iridium_hoe.name=铱锄
+item.iridium_chestplate.name=铱胸甲
+item.iridium_leggings.name=铱护腿
+item.iridium_boots.name=铱靴子
+item.iridium_helmet.name=铱头盔
+tile.deepoid_bricks.name=深犀砖块
+tile.deepoid_power_core.name=深犀能量核心
+tile.deepoid_furnace.name=深犀熔炉
+tile.lit_deepoid_furnace.name=深犀熔炉
+tile.deepoid_brewing_stand.name=深犀酿造台
+tile.rich_etherstone.name=富集拟太石
+tile.rich_etherstone_spike.name=拟太石尖刺
+tile.ancient_warper.name=古迹传送器
+tile.luminant_fence.name=光露普栅栏
+tile.vanite_anvil.name=瓦内特砧
+tile.iridium_bricks.name=铱砖块
+tile.cracked_end_portal_frame.name=破损末地传送门框架
+tile.welkin_log.name=天穹木
+tile.welkin_planks.name=天穹木板
+tile.iron_pile.name=铁堆
+tile.gold_pile.name=金堆
+tile.lapis_pile.name=青金石堆
+tile.emerald_pile.name=绿宝石堆
+tile.diamond_pile.name=钻石堆
+tile.crystal_pile.name=水晶堆
+tile.iridium_pile.name=铱堆
+tile.vanite_pile.name=瓦内特堆
+tile.potion_vanite_cauldron.name=瓦内特炼药锅
+tile.lava_vanite_cauldron.name=瓦内特炼药锅
+tile.iridium_furnace.name=铱熔炉
+tile.iridium_power_core.name=铱能量核心
+tile.iridium_trapdoor.name=铱活板门
+tile.infused_iridium_bricks_copartz_infused_iridium_bricks.name=科帕茨灌注铱砖块
+tile.infused_iridium_bricks_larimar_infused_iridium_bricks.name=拉里玛灌注铱砖块
+tile.infused_iridium_bricks_tsavorokite_infused_iridium_bricks.name=沙沃罗基特灌注铱砖块
+tile.infused_iridium_bricks_yttrlinsite_infused_iridium_bricks.name=钇石灌注铱砖块
+tile.infused_iridium_bricks_aether_infused_iridium_bricks.name=以太水晶灌注铱砖块
+tile.infused_iridium_bricks_null_infused_iridium_bricks.name=虚无水晶灌注铱砖块
+tile.infused_iridium_bricks_echo_infused_iridium_bricks.name=回响灌注铱砖块
+tile.cracked_iridium_bricks.name=裂纹铱砖块
+tile.glowing_obsidian.name=发光的黑曜石
+tile.meteorite_block.name=陨铁块
+tile.iridium_ore.name=铱矿石
+tile.block_of_iridium.name=铱块
+tile.vanite_pumpkin.name=瓦内特南瓜
+tile.cracked_iridium_furnace.name=裂纹铱熔炉
+gui.deepoid_furnace.invalid_structure=深犀砖块必须在铱熔炉周围且深犀能量核心应置于熔炉后方。
+gui.container.repair=物品修复与超越附魔最大等级
+gui.iridium_furnace.invalid_structure=铱砖块必须在铱熔炉周围且铱能量核心应置于熔炉后方。
+tooltip.iridium_armor.desc=每多穿戴一件，总生命值就能增加少许
+tooltip.vanite_scythe.desc=缓慢和凋零实体
+tooltip.hunger_staff.desc=恢复大部分饥饿条
+tooltip.deepoid_furnace.desc=深犀熔炉
+tooltip.iridium_furnace.desc=铱熔炉
+tooltip.deepoid_brewing_stand.desc=深犀酿造台
+tooltip.vindicator_insignia.desc=用于定位府邸
+tooltip.echo_eye.desc=用于定位古城
+tooltip.potion.speed_regular.desc=速度 I (8:00)
+tooltip.potion.mundane_strength.recipe.desc=配方： 力量 I + 混乱源质
+tooltip.potion.mundane_speed.recipe.desc=配方： 速度 I + 硫磺粉
+tooltip.potion.mundane_water.recipe.desc=配方： 水下呼吸 + 深海巨蟒鳞片
+tooltip.potion.mundane_fire.recipe.desc=配方： 抗火 + 流火巨蟒獠牙
+tooltip.potion.mundane_night.recipe.desc=配方： 夜视 + 幽匿监视蜥之眼
+tooltip.potion.mundane_regen.recipe.desc=配方： 生命恢复 + 雏龙鳞片
+tooltip.potion.mundane_jump.recipe.desc=配方： 跳跃提升 I + 荧光墨囊
+tooltip.potion.mundane_blindness.recipe.desc=配方： 粗制 + 扰动源质
+tooltip.potion.mundane_blindness_other.recipe.desc=配方： 粗制 + 遗灵尘
+tooltip.potion.mundane_haste.recipe.desc=配方： 粗制 + 富勒席斯萝卜
+tooltip.potion.thick_haste.recipe.desc=配方： 粗制 + 矿洞监视蜥鳞片
+tooltip.potion.mundane_resist.recipe.desc=配方： 粗制 + 燧火粘液球
+tooltip.potion.mundane_invis.recipe.desc=配方： 隐身 + 监侍之尘
+tooltip.potion.thick_speed.recipe.desc=配方： 速度 II + 末影鸵鸟羽毛
+tooltip.potion.thick_regen.recipe.desc=配方： 生命恢复 II + 幽匿栖息者之心
+tooltip.potion.thick_strength.recipe.desc=配方： 力量 II + 深犀龙角
+tooltip.potion.thick_jump.recipe.desc=配方： 跳跃提升 II + 凤凰之羽
+tooltip.potion.haste.recipe.desc=配方： 平凡的急迫 + 虚无疣混合物
+tooltip.potion.hasteII.recipe.desc=配方： 浓稠的急迫 + 虚无疣混合物
+tooltip.potion.resistI.recipe.desc=配方： 平凡的抗性提升 + 虚无疣混合物
+tooltip.potion.jump_extend.recipe.desc=配方： 平凡的跳跃提升 I + 虚无疣混合物
+tooltip.potion.jumpIII.recipe.desc=配方： 浓稠的跳跃提升 II + 虚无疣混合物
+tooltip.potion.invis_extend.recipe.desc=配方： 平凡的隐身 + 虚无疣混合物
+tooltip.potion.strength_extend.recipe.desc=配方： 平凡的力量 + 虚无疣混合物
+tooltip.potion.speed_extend.recipe.desc=配方： 平凡的速度 + 虚无疣混合物
+tooltip.potion.water_extend.recipe.desc=配方： 平凡的水下呼吸 + 虚无疣混合物
+tooltip.potion.fire_extend.recipe.desc=配方： 平凡的抗火 + 虚无疣混合物
+tooltip.potion.night_extend.recipe.desc=配方： 平凡的夜视 + 虚无疣混合物
+tooltip.potion.regen_extend.recipe.desc=配方： 平凡的生命恢复 + 虚无疣混合物
+tooltip.potion.strengthIII.recipe.desc=配方： 浓稠的力量 + 虚无疣混合物
+tooltip.potion.speedIII.recipe.desc=配方： 浓稠的速度 + 虚无疣混合物
+tooltip.potion.regenIII.recipe.desc=配方： 浓稠的生命恢复 + 虚无疣混合物
+tooltip.potion.blindness.recipe.desc=配方： 平凡的失明 + 虚无疣混合物
+tooltip.potion.deepfire_blend.desc=瓦内特炼药锅配方： 瞬间治疗 II +
+tooltip.potion.deepfire_blend2.desc=钇石碎片 + 深犀龙角
+tooltip.potion.end_portal_sealent.desc=瓦内特炼药锅配方： 瞬间治疗 II +
+tooltip.potion.end_portal_sealent2.desc=遗灵尘 + 末影珍珠 + 边境碎片
+tooltip.potion.static_blend.desc=瓦内特炼药锅配方： 深火混合物 +
+tooltip.potion.static_blend2.desc=晶化末影碎片 + 监侍之尘 +
+tooltip.potion.static_blend3.desc=监守之尘 + 扰动源质
+entity.nova_craft.creepy_cube.name=弹跳怪
+entity.nova_craft.creaking.name=嘎枝
+entity.nova_craft.nova_frog.name=青蛙
+entity.nova_craft.crystal_slime.name=富集史莱姆
+entity.nova_craft.soloid.name=阳蜥
+entity.nova_craft.echo_eye.name=回响之眼
+entity.nova_craft.giant_frog.name=巨型青蛙
+entity.nova_craft.wyrmling.name=雏龙
+entity.nova_craft.nova_ravager.name=劫掠兽
+entity.nova_craft.corruptist.name=泣术士
+entity.nova_craft.octoqus.name=章鱼
+entity.nova_craft.relik.name=遗灵
+entity.nova_craft.crimson_dragon.name=猩红魔龙
+entity.creepy_cube.name=弹跳怪
+entity.creaking.name=嘎枝
+entity.nova_frog.name=青蛙
+entity.crystal_slime.name=富集史莱姆
+entity.soloid.name=阳蜥
+entity.giant_frog.name=巨型青蛙
+entity.wyrmling.name=雏龙
+entity.nova_ravager.name=劫掠兽
+entity.corruptist.name=泣术士
+entity.octoqus.name=章鱼
+entity.relik.name=遗灵
+
+item.crystallized_vanite_bow.name=晶化瓦内特弓
+
+item.crimson_dragon_bone.name=猩红魔龙之骨
+item.crimson_scales.name=猩红魔龙之鳞
+item.crimson_eye.name=猩红之眼
+tooltip.crimson_eye.desc=用于定位拟太浮岛
+entity.crimson_dragon.name=猩红魔龙
 entity.serpent_queen.name=赤焰王蛟

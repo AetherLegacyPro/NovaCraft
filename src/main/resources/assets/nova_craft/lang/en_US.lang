@@ -458,7 +458,6 @@ tile.torchflower.name=Torchflower
 tile.frontierslate_klangite_ore.name=Klangite Ore
 tile.luminant_log.name=Luminant Log
 tile.luminant_planks.name=Luminant Planks
-tile.luminant_sapling.name=Luminant Sapling
 tile.luminant_leaves.name=Luminant Leaves
 tile.luminant_sapling.name=Luminant Sapling
 tile.stone_vanite_ore.name=Vanite Ore
@@ -1042,7 +1041,7 @@ tooltip.potion.end_portal_sealent.desc=Vanite Cauldron Recipe: Healing II +
 tooltip.potion.end_portal_sealent2.desc=Relik Dust + Ender Pearl + Farlander Shard
 
 tooltip.potion.static_blend.desc=Vanite Cauldron Recipe: Deepfire Blend +
-tooltip.potion.static_blend2.desc=Crystallized End + Wardling Dust +
+tooltip.potion.static_blend2.desc=Crystallized End Shard + Wardling Dust +
 tooltip.potion.static_blend3.desc=Warden Dust + Static Essence
 
 tooltip.cave_stew2.desc=Night Vision (4:00)
