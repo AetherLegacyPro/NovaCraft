@@ -15,6 +15,10 @@ public class Configs {
     public static boolean disableEnchantedGoldenAppleRecipe;
     public static boolean enableWeaponsToAllignWithVanilla;
     public static boolean enableHalfNaturalRegenInEnd;
+    public static boolean enableBookshelfPowerTransformer;
+    public static int bookshelfPowerDivisor;
+    public static boolean enableSpiderSpeedTransformer;
+    public static double spiderMovementSpeedMultiplier;
 
     //Vanilla Ore Generation Alterations
     public static boolean disableRegularVanillaGen;
@@ -142,6 +146,20 @@ public class Configs {
         enableDebugMode = conf.getBoolean("enableDebugMode", "Important Options", false, "Enables log messages for location of structures generating or if a crash was prevented.");
         enableNewCaveSounds = conf.getBoolean("enableNewCaveSounds", "Important Options", true, "Enables New Cave Sounds.");
         enableHalfNaturalRegenInEnd = conf.getBoolean("enableHalfNaturalRegenInEnd", "Important Options", true, "Enables Half Natural Regeneration speed for the player while in the End.");
+
+        //Important Options
+        enableBookshelfPowerTransformer = conf.getBoolean("enableBookshelfPowerTransformer", "Important Options", true, "Enables the startup ASM patch that changes enchantment table bookshelf power.");
+        prop = conf.get("Important Options", "bookshelfPowerDivisor", 2);
+        prop.comment = "Startup ASM option. Divides the bookshelf count before enchantability is calculated. 1 = vanilla, 2 = half power.";
+        bookshelfPowerDivisor = Math.max(1, prop.getInt(2));
+        enableSpiderSpeedTransformer = conf.getBoolean("enableSpiderSpeedTransformer", "Important Options", true, "Enables the startup ASM patch that changes spider and cave spider movement speed.");
+        prop = conf.get("Important Options", "spiderMovementSpeedMultiplier", 2.0D);
+        prop.comment = "Startup ASM option. Multiplies vanilla spider movement speed. 1.0 = vanilla, 2.0 = double speed, 0.5 = half speed.";
+        spiderMovementSpeedMultiplier = prop.getDouble(2.0D);
+        if (spiderMovementSpeedMultiplier <= 0.0D || Double.isNaN(spiderMovementSpeedMultiplier) || Double.isInfinite(spiderMovementSpeedMultiplier)) {
+            spiderMovementSpeedMultiplier = 2.0D;
+        }
+
         enableStrongholdAlterations = conf.getBoolean("enableStrongholdAlterations", "Important Options", true, "Enables Stronghold Alterations.");
         enableMaxStrongholdSpawners = conf.getBoolean("enableMaxStrongholdSpawners", "Misc", false, "Enables that most rooms in the stronghold have a spawner in them.");
         enableCrackedEndPortalFrame = conf.getBoolean("enableCrackedEndPortalFrame", "Misc", true, "Enables that several end portal frames are cracked and must be repaired in the Stronghold.");

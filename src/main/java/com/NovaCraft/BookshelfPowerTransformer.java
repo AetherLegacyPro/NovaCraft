@@ -26,6 +26,11 @@ public class BookshelfPowerTransformer implements IClassTransformer {
             return originalClassBytes;
         }
 
+        CoremodConfig.ensureLoaded();
+        if (!CoremodConfig.enableBookshelfPowerTransformer) {
+            return originalClassBytes;
+        }
+
         System.out.println("[NovaCraft] Patching ContainerEnchantment: " + transformedClassName);
 
         //No idea what this is doing beyond this point other than finding the correct strings in the classes above and altering them
@@ -49,7 +54,7 @@ public class BookshelfPowerTransformer implements IClassTransformer {
                         //Target only the call to EnchantmentHelper.calcItemStackEnchantability
                         if (calledClassOwner.equals("net/minecraft/enchantment/EnchantmentHelper") && calledMethodName.equals("calcItemStackEnchantability")) {
                             super.visitInsn(Opcodes.SWAP);
-                            super.visitInsn(Opcodes.ICONST_2);
+                            super.visitLdcInsn(Integer.valueOf(CoremodConfig.bookshelfPowerDivisor));
                             super.visitInsn(Opcodes.IDIV);
                             super.visitInsn(Opcodes.SWAP);
                         }
