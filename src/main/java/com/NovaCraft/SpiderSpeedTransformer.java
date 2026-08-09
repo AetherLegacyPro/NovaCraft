@@ -13,11 +13,6 @@ public class SpiderSpeedTransformer implements IClassTransformer {
         if (!transformedName.equals("net.minecraft.entity.monster.EntitySpider") && !transformedName.equals("net.minecraft.entity.monster.EntityCaveSpider"))
             return basicClass;
 
-        CoremodConfig.ensureLoaded();
-        if (!CoremodConfig.enableSpiderSpeedTransformer) {
-            return basicClass;
-        }
-
         System.out.println("[SpiderTransformer] Patching EntitySpider...");
 
         ClassNode classNode = new ClassNode();
@@ -41,7 +36,7 @@ public class SpiderSpeedTransformer implements IClassTransformer {
 
                             if (value == 0.800000011920929D) {
 
-                                ldc.cst = value * CoremodConfig.spiderMovementSpeedMultiplier;
+                                ldc.cst = 1.600000023841858D;
                             }
                         }
                     }
