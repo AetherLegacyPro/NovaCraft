@@ -1,7 +1,7 @@
 package com.NovaCraft.world.sculkshaft;
 
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import com.NovaCraft.config.Configs;
@@ -27,11 +27,11 @@ import static net.minecraftforge.common.ChestGenHooks.*;
 public class StructureSculkMineshaftPieces {
     public static void registerStructurePieces()
     {
-        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Corridor.class, "MineshaftCorridor");
-        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Cross.class, "MineshaftCorridorCrossing");
-        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Room.class, "MineshaftCorridorRoom");
-        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Stairs.class, "MineshaftCorridorStairs");
-        MapGenStructureIO.registerStructure(StructureSculkMineshaftStart.class, "Mineshaft");
+        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Corridor.class, "NCSMC");
+        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Cross.class, "NCSMX");
+        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Room.class, "NCSMR");
+        MapGenStructureIO.func_143031_a(StructureSculkMineshaftPieces.Stairs.class, "NCSMS");
+        MapGenStructureIO.registerStructure(StructureSculkMineshaftStart.class, "NCSM");
     }
 
     private static StructureComponent getRandomComponent(List list, Random random, int p_78815_2_, int p_78815_3_, int p_78815_4_, int p_78815_5_, int p_78815_6_)
@@ -774,7 +774,7 @@ public class StructureSculkMineshaftPieces {
 
     public static class Room extends StructureComponent
         {
-            private List roomsLinkedToTheRoom = new LinkedList();
+            private List roomsLinkedToTheRoom = new ArrayList();
 
             public Room() {}
 
