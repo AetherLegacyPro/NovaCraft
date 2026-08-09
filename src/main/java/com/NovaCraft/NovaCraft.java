@@ -39,6 +39,7 @@ import com.NovaCraft.world.nether.structure.NovaNetherBridgeGenerator;
 import com.NovaCraft.world.nether.structure.StructureNovaCraftNetherBridgePieces;
 import com.NovaCraft.world.nether.structure.MapGenNetherBridgeNovaCraft.Start;
 import com.NovaCraft.world.sculkshaft.WorldGenSculkedMineshaftInjector;
+import com.NovaCraft.world.sculkshaft.StructureSculkMineshaftPieces;
 import com.NovaCraft.world.stronghold.*;
 import com.NovaCraft.world.structure.WorldGenRavineInjector;
 import com.NovaCraftBlocks.NovaCraftBlocks;
@@ -159,7 +160,8 @@ public class NovaCraft {
         }
 
         if (ConfigsStructures.enableSculkInfestedMineshaft) {
-            MinecraftForge.EVENT_BUS.register(new WorldGenSculkedMineshaftInjector());
+            StructureSculkMineshaftPieces.registerStructurePieces();
+            MinecraftForge.TERRAIN_GEN_BUS.register(new WorldGenSculkedMineshaftInjector());
         }
         MinecraftForge.EVENT_BUS.register(new WorldGenRavineInjector());
         GameRegistry.registerWorldGenerator(new MeteorCraterGen(), 0);
