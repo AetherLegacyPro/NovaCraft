@@ -18,8 +18,6 @@ import net.minecraft.world.World;
 
 public class BlockGrimstoneOre extends Block
 {
-    private static final String __OBFID = "CL_00000282";
-
     public BlockGrimstoneOre()
     {
         super(Material.rock);
