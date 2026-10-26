@@ -315,6 +315,10 @@ public class EntityEnderLord extends EntityMob
         int j = MathHelper.floor_double(this.posY);
         int k = MathHelper.floor_double(this.posZ);
 
+        if (!this.worldObj.blockExists(i, j, k)) {
+            this.worldObj.getChunkProvider().loadChunk(i >> 4, k >> 4);
+        }
+
         if (this.worldObj.blockExists(i, j, k))
         {
             boolean flag1 = false;
