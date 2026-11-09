@@ -1,5 +1,6 @@
 package com.NovaCraft.world.caves;
 
+import com.NovaCraft.config.ConfigsWorld;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -14,8 +15,8 @@ public class CaveWorldGeneratorDeepDark implements IWorldGenerator {
 
     public CaveWorldGeneratorDeepDark() {
         generator_DEEPDARK_MOUNTAIN = new CaveBiomeGenerator(new DeepDarkBiome(),
-                180,        //lower rarity = more common (optional)
-                294, 20, 294,   //min sizes (was like 10–20 before)
+                180,        //lower rarity = more common
+                294, 20, 294,   //min sizes
                 40, 20, 40,   //variation
                 12, 30,   //Y range
                 Arrays.asList(BiomeDictionary.Type.MOUNTAIN)
@@ -38,15 +39,17 @@ public class CaveWorldGeneratorDeepDark implements IWorldGenerator {
         BlockPos[] sources_sculk = generator_DEEPDARK_MOUNTAIN.getSourcesInChunk(random, chunkX, chunkZ);
         BlockPos[] sources_sculk_nonmountain = generator_DEEPDARK_NON_MOUNTAIN.getSourcesInChunk(random, chunkX, chunkZ);
 
-        for (BlockPos pos : sources_sculk) {
-            if (generator_DEEPDARK_MOUNTAIN.isSourceValid(world, pos)) {
-                generator_DEEPDARK_MOUNTAIN.generateChunkPart(pos, random, chunkX, chunkZ, world);
+        if (ConfigsWorld.enableDeepDark) {
+            for (BlockPos pos : sources_sculk) {
+                if (generator_DEEPDARK_MOUNTAIN.isSourceValid(world, pos)) {
+                    generator_DEEPDARK_MOUNTAIN.generateChunkPart(pos, random, chunkX, chunkZ, world);
+                }
             }
-        }
 
-        for (BlockPos pos : sources_sculk_nonmountain) {
-           if (generator_DEEPDARK_NON_MOUNTAIN.isSourceValid(world, pos)) {
-                generator_DEEPDARK_NON_MOUNTAIN.generateChunkPart(pos, random, chunkX, chunkZ, world);
+            for (BlockPos pos : sources_sculk_nonmountain) {
+                if (generator_DEEPDARK_NON_MOUNTAIN.isSourceValid(world, pos)) {
+                    generator_DEEPDARK_NON_MOUNTAIN.generateChunkPart(pos, random, chunkX, chunkZ, world);
+                }
             }
         }
 

@@ -1,24 +1,18 @@
 package com.NovaCraftBlocks.sculk;
 
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
+import com.NovaCraft.Items.ItemWardenCore;
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.TileEntity.TileEntityAncientChest;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
@@ -67,8 +61,8 @@ public class BlockUnknownPortalActivator extends Block {
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
-        final int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
+    public void randomDisplayTick(final World world, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random random) {
+        final int l = world.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
         final double d0 = p_149734_2_ + 0.51f;
         final double d2 = p_149734_3_ + 1.07f;
         final double d3 = p_149734_4_ + 0.55f;
@@ -96,64 +90,68 @@ public class BlockUnknownPortalActivator extends Block {
         final double d20z = p_149734_4_ + 1.03f;
         
         if (l == 1) {
-        	ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d0 - d5, d2 + d4, d3, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-        	ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d6x - d5, d7y - d4, d8z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+        	ParticleHandler.IONFLAMELARGE.spawn(world, d0 - d5, d2 + d4, d3, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+        	ParticleHandler.IONFLAMELARGE.spawn(world, d6x - d5, d7y - d4, d8z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         	
-        	ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d9x - d5, d10y + d4, d11z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-        	ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d12x + d5, d13y + d4, d14z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+        	ParticleHandler.IONFLAMELARGE.spawn(world, d9x - d5, d10y + d4, d11z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+        	ParticleHandler.IONFLAMELARGE.spawn(world, d12x + d5, d13y + d4, d14z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         	
-        	ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d15x - d5, d16y + d4, d17z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-        	ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d18x - d5, d19y + d4, d20z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+        	ParticleHandler.IONFLAMELARGE.spawn(world, d15x - d5, d16y + d4, d17z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+        	ParticleHandler.IONFLAMELARGE.spawn(world, d18x - d5, d19y + d4, d20z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         }
         else if (l == 2) {
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d0 + d5, d2 + d4, d3, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d6x + d5, d7y - d4, d8z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d0 + d5, d2 + d4, d3, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d6x + d5, d7y - d4, d8z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d9x + d5, d10y + d4, d11z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d12x - d5, d13y + d4, d14z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d9x + d5, d10y + d4, d11z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d12x - d5, d13y + d4, d14z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d15x + d5, d16y + d4, d17z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d18x + d5, d19y + d4, d20z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d15x + d5, d16y + d4, d17z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d18x + d5, d19y + d4, d20z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         }
         else if (l == 3) {
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d0, d2 + d4, d3 - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d6x, d7y - d4, d8z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d0, d2 + d4, d3 - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d6x, d7y - d4, d8z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d9x, d10y + d4, d11z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d12x, d13y + d4, d14z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d9x, d10y + d4, d11z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d12x, d13y + d4, d14z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d15x, d16y + d4, d17z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d18x, d19y + d4, d20z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d15x, d16y + d4, d17z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d18x, d19y + d4, d20z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         }
         else if (l == 4) {
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d0, d2 + d4, d3 + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d6x, d7y - d4, d8z + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d0, d2 + d4, d3 + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d6x, d7y - d4, d8z + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d9x, d10y + d4, d11z + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d12x, d13y + d4, d14z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d9x, d10y + d4, d11z + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d12x, d13y + d4, d14z - d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
             
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d15x, d16y + d4, d17z + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d18x, d19y + d4, d20z + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d15x, d16y + d4, d17z + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d18x, d19y + d4, d20z + d5, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         }
         else {
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d0, d2, d3, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d6x, d7y, d8z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d9x, d10y, d11z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d12x, d13y, d14z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d15x, d16y, d17z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.IONFLAMELARGE.spawn(p_149734_1_, d18x, d19y, d20z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d0, d2, d3, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d6x, d7y, d8z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d9x, d10y, d11z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d12x, d13y, d14z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d15x, d16y, d17z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.IONFLAMELARGE.spawn(world, d18x, d19y, d20z, 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         }
     }
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
+        ItemStack heldItem = player.getCurrentEquippedItem();
+        if (heldItem != null && heldItem.getItem() instanceof ItemWardenCore) {
+            return false;
+        }
+
 		ItemStack stack = player.inventory.getCurrentItem();
         if (stack != null && stack.getItem() != null && stack.getItem() != NovaCraftItems.warden_core
 				&& !(world.getBlock(x - 3, y - 2, z + 11) == NovaCraftBlocks.activated_reinforced_nullstone)
 				&& !(world.getBlock(x - 3, y - 2, z - 10) == NovaCraftBlocks.activated_reinforced_nullstone)
 				&& !(world.getBlock(x - 2, y - 2, z) == NovaCraftBlocks.activated_reinforced_nullstone)) {
         	if (world.isRemote) {
-        	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.unknown_portal_activator")));
+        	    player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.unknown_portal_activator")));
         	}
         }
         else if (stack != null && stack.getItem() != null && stack.getItem() != NovaCraftItems.warden_core
@@ -161,7 +159,7 @@ public class BlockUnknownPortalActivator extends Block {
 				&& (world.getBlock(x - 3, y - 2, z - 10) == NovaCraftBlocks.activated_reinforced_nullstone)
 				&& (world.getBlock(x - 2, y - 2, z) == NovaCraftBlocks.activated_reinforced_nullstone)) {
         	if (world.isRemote) {
-        	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.unknown_portal_activator_ignited")));
+        	    player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.unknown_portal_activator_ignited")));
         	}
         }
         

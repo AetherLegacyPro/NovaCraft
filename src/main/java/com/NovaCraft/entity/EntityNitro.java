@@ -30,7 +30,7 @@ public class EntityNitro extends EntityMob
 {
     private int lastActiveTime;
     private int timeSinceIgnited;
-    private int fuseTime = 25;
+    private int fuseTime = 20;
     private int explosionRadius = 3;
 
     public EntityNitro(World world)
@@ -51,8 +51,8 @@ public class EntityNitro extends EntityMob
     {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.55D);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.20D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(4.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.70D);
     }
     
     @SideOnly(Side.CLIENT)
@@ -224,7 +224,7 @@ public class EntityNitro extends EntityMob
 
             for (k = 0; k < j; ++k)
             {
-                this.dropItem(Items.gunpowder, 1 + j);
+                this.dropItem(NovaCraftItems.brimstone_dust, 1 + j);
             }
         }
         

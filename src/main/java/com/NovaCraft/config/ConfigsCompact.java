@@ -31,6 +31,10 @@ public class ConfigsCompact {
     public static boolean enableDarkOakFence;
     public static boolean enableDeepslate;
     public static boolean enableDeepslateBricks;
+    public static boolean enableEndstoneBricks;
+    public static boolean enablePurpur;
+    public static boolean enableChorusFlower;
+    public static boolean enableEndRod;
     public static boolean disableMagmaBlock;
     public static boolean disableChain;
     public static boolean enableSoulFire;
@@ -83,6 +87,10 @@ public class ConfigsCompact {
         enableDeepslateBricks = conf.getBoolean("enableDeepslateBricks", "Et Futurum Requiem Compact", true, "Enables the use of Deepslate Bricks from Et Futurum Requiem otherwise use Grimstone Bricks.");
         enableCobbledDeepslate = conf.getBoolean("enableCobbledDeepslate", "Et Futurum Requiem Compact", true, "Enables the use of Cobbled Deepslate from Et Futurum Requiem otherwise use Cobbled Grimstone.");
         enableSoulLantern = conf.getBoolean("enableSoulLantern", "Et Futurum Requiem Compact", true, "Do not use Et Futurum Requiem soul lanterns and instead use the ones from Netherlicious, if those do not exist then there will be nothing.");
+        enableEndstoneBricks = conf.getBoolean("enableEndstoneBricks", "Et Futurum Requiem Compact", true, "Enables the use of Endstone Bricks from Et Futurum Requiem otherwise use Frontierslate Bricks.");
+        enablePurpur = conf.getBoolean("enablePurpur", "Et Futurum Requiem Compact", true, "Enables the use of Purpur from Et Futurum Requiem otherwise use Polished Vanite Bricks.");
+        enableChorusFlower = conf.getBoolean("enableChorusFlower", "Et Futurum Requiem Compact", true, "Enables the use of Chorus Flower from Et Futurum Requiem otherwise use Shadow Bloom.");
+        enableEndRod = conf.getBoolean("enableEndRod", "Et Futurum Requiem Compact", true, "Enables the use of End Rod from Et Futurum Requiem otherwise use Dim Vanite Torches/nothing.");
         disableMagmaBlock = conf.getBoolean("disableMagmaBlock", "Et Futurum Requiem Compact", false, "Disables the use of Magma from Et Futurum Requiem in structures.");
         disableChain = conf.getBoolean("disableChain", "Et Futurum Requiem Compact", false, "Disables the use of Chains from Et Futurum Requiem in structures.");
 

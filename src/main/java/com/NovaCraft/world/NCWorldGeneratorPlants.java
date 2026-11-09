@@ -258,6 +258,18 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			if(BiomeDictionary.isBiomeOfType(biome15, BiomeDictionary.Type.OCEAN) && rand.nextInt(85) == 0 && ConfigsStructures.enableOceanDungeonsGeneration) {
 				new SeaSerpentSpawner().generate(world, rand, x15, rand.nextInt(2) + 30, z15);
 			}
+
+			//Octarian Ruins
+			int x26;
+			int z26;
+			x26 = chunkX * 16 + rand.nextInt(8) + 8;
+			z26 = chunkZ * 16 + rand.nextInt(8) + 8;
+			BiomeGenBase biome26;
+			biome26 = world.getBiomeGenForCoords(x26, z26);
+			if(BiomeDictionary.isBiomeOfType(biome26, BiomeDictionary.Type.OCEAN) && rand.nextInt(237) == 0 && ConfigsStructures.enableOctarianDungeonGeneration) {
+				new OctoqusWaterStructure().generate(world, rand, x26 + 1, 31, z26);
+				new OctoqusSmallStructure().generate(world, rand, x26, 31, z26);
+			}
 			
 			//Vindicator House
 			int x17;
@@ -279,8 +291,8 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 			z16 = chunkZ * 16 + rand.nextInt(8) + 8;	
 			BiomeGenBase biome9;
 			biome9 = world.getBiomeGenForCoords(x16, z16);
-			if (rand.nextInt(20) == 2) {
-			if(BiomeDictionary.isBiomeOfType(biome9, BiomeDictionary.Type.FOREST) && rand.nextInt(8) == 1) {
+			if (rand.nextInt(3) == 2) {
+			if(BiomeDictionary.isBiomeOfType(biome9, BiomeDictionary.Type.FOREST) && rand.nextInt(2) == 1) {
 				int posX = x16 + rand.nextInt(8) + 8;
 				int posZ = z16 + rand.nextInt(8) + 8;
 				int posY = world.getHeightValue(posX, posZ);

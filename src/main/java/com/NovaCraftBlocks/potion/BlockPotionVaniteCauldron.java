@@ -131,6 +131,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         if (held == null) return false;
 
         if ((held.getItem() == NovaCraftItems.deepoid_horn) && meta == 0) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -151,6 +152,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if ((held.getItem() == NovaCraftItems.deepoid_horn) && meta == 1) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -171,6 +173,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         if ((held.getItem() == NovaCraftItems.deepoid_horn) && meta == 2) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -191,6 +194,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.vanite_bottle) && meta == 3) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -217,6 +221,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.vanite_bottle) && meta == 4) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -244,6 +249,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.vanite_bottle) && meta == 5) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -270,6 +276,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.crystallized_end_shard) && meta == 3) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -290,6 +297,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.crystallized_end_shard) && meta == 4) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -310,6 +318,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.crystallized_end_shard) && meta == 5) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -330,6 +339,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.wardling_dust) && meta == 6) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -350,6 +360,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.wardling_dust) && meta == 7) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -370,6 +381,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.wardling_dust) && meta == 8) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -390,6 +402,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.warden_dust) && meta == 9) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -410,6 +423,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.warden_dust) && meta == 10) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -430,6 +444,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.warden_dust) && meta == 11) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -450,6 +465,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.static_essence) && meta == 12) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -470,6 +486,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.static_essence) && meta == 13) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -490,6 +507,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if ((held.getItem() == NovaCraftItems.static_essence) && meta == 14) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 
@@ -510,6 +528,7 @@ public class BlockPotionVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (NovaCraftItems.vanite_bottle) && meta == 15) {
+            world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.lava", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
             if (!world.isRemote) {
 

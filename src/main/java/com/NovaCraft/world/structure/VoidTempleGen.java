@@ -1760,10 +1760,11 @@ public class VoidTempleGen extends WorldGenerator
                     return new ItemStack(Blocks.cobblestone, random.nextInt(24) + 18);
                 }
             case 14:
-                return new ItemStack(Items.iron_ingot, random.nextInt(4) + 4);
+                return new ItemStack(NovaCraftItems.prospector_pickaxe, 1);
             default: {
                 return new ItemStack(Items.iron_ingot, random.nextInt(4) + 4);
             }
         }
     }
+
 }

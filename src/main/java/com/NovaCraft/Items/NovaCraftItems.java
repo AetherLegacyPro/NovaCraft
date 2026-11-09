@@ -109,10 +109,10 @@ public class NovaCraftItems {
 	public static Item infused_copartz_shard, infused_larimar_shard, infused_tsavorokite_shard, infused_yttrlinsite_shard, infused_aether_shard;
 	
 	//Resources
-	public static Item brimstone_dust, petn_powder;
+	public static Item brimstone_dust, petn_powder, cinnabar_powder;
 	public static Item diamond_nugget;
 	public static Item luminant_tree_sap, luminant_gel, luminant_ingot, welkin_stick, iridium_handle;
-	public static Item pherithium_scraps, pherithium_lump, pherithium_ingot;
+	public static Item pherithium_scraps, pherithium_lump, pherithium_ingot, mercuridium_ingot;
 	public static Item vanite_chunk, vanite_ingot, reinforced_vanite_ingot;
 	public static Item raw_iridium, iridium_nugget, iridium_ingot, reinforced_iridium_ingot;
 	public static Item xancium_dust, xancium_ingot, xancium_pellet;
@@ -124,6 +124,7 @@ public class NovaCraftItems {
 	public static Item crimson_star, deepoid_star, eternal_caller, warden_core, echo_eye, vindicator_insignia, crimson_eye, beastly_leather;
 	public static Item warden_dust, ancient_city_artifact, powered_ancient_city_artifact, dimensional_sealent;
 	public static Item prisoner_eye, unknown_star, impure_outsider_ingot, outsider_ingot;
+	public static Item legendary_resource;
 	
 	//Mob Drops Overworld
 	public static Item glow_ink_sac, cave_monitor_tongue, sea_serpent_venom_sac, sculked_monitor_eye;
@@ -139,14 +140,14 @@ public class NovaCraftItems {
 	public static Item deepoid_horn, deep_one_bone, crimson_dragon_bone;
 	
 	//Mob Drops End
-	public static Item fractured_heart_of_the_end, heart_of_the_end, nullified_dust;
+	public static Item fractured_heart_of_the_end, heart_of_the_end, unpowered_heart_of_the_end, nullified_dust;
 	public static Item enderavis_feather, phantom_membrane, null_cube_slime, small_xancium_dust, nullifier_core;
 	public static Item static_essence, destitute_tentacle;
 	
 	//Potions
 	public static Item nullwart, nullwart_blend;
 	public static Item vanite_bucket, vanite_bucket_lava, vanite_bucket_water, vanite_bucket_blazlinite, vanite_bucket_molten_vanite;
-	public static Item vanite_bucket_mercury, bucket_mercury;
+	public static Item vanite_bucket_mercury, bucket_mercury, glass_bottle_of_mercury, bottle_of_mercury, bottle_of_cinnabar_powder, near_empty_bottle_of_mercury;
 	public static Item vanite_bottle, vanite_crystal, vanite_cauldron_item, crystallized_vanite_alloy, nullified_vanite_alloy;
 	public static Item blazinite_powder, deepfire_blend, static_blend, end_portal_sealent;
 
@@ -188,7 +189,8 @@ public class NovaCraftItems {
 	public static Item ophidian_sword, ophidian_pickaxe, ophidian_bow, ophidian_shovel, ophidian_axe, ophidian_hoe;
 	
 	//Weapons and Tools End
-	public static Item ender_lord_staff, vanite_scythe;
+	public static Item ender_lord_staff, vanite_scythe, geode_staff, unpowered_bedrock_cleave, bedrock_cleave;
+	public static Item prospector_pickaxe, ancient_prospector_pickaxe, degraded_prospector_pickaxe, poor_prospector_pickaxe;
 	public static Item klangite_sword, klangite_pickaxe, klangite_bow, klangite_shovel, klangite_axe, klangite_hoe;
 	public static Item kylazite_sword, kylazite_pickaxe, kylazite_bow, kylazite_shovel, kylazite_axe, kylazite_hoe;
 	//-------------------------------------------------------------------------------------------------------------------------------
@@ -271,12 +273,14 @@ public class NovaCraftItems {
 		reinforced_iridium_ingot = register("reinforced_iridium_ingot", new ItemFireproof().setTextureName(NovaCraft.find("reinforced_iridium_ingot")));
 		iridium_nugget = register("iridium_nugget", new ItemsFireProofNugget());
 		diamond_nugget = register("diamond_nugget", new ItemNugget());
+		mercuridium_ingot = register("mercuridium_ingot", new ItemMercuridiumIngot().setTextureName(NovaCraft.find("mercuridium_ingot")));
 		welkin_stick = register("welkin_stick", new ItemFireproof().setTextureName(NovaCraft.find("welkin_stick")));
 		iridium_handle = register("iridium_handle", new ItemFireproof().setTextureName(NovaCraft.find("iridium_handle")));
 		vindicator_insignia = register("vindicator_insignia", new ItemVindicatorInsignia().setTextureName(NovaCraft.find("vindicator_insignia")));
 		beastly_leather = register("beastly_leather", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("beastly_leather")));
 		wyrmling_scales = register("wyrmling_scales", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("wyrmling_scales")));
 		relik_dust = register("relik_dust", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("relik_dust")));
+		unpowered_heart_of_the_end = register("unpowered_heart_of_the_end", new ItemHeartOfTheEnd(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("unpowered_heart_of_the_end")));
 		heart_of_the_end = register("heart_of_the_end", new ItemHeartOfTheEnd(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("heart_of_the_end")));
 		nullified_dust = register("nullified_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("nullified_dust")));
 		fractured_heart_of_the_end = register("fractured_heart_of_the_end", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("fractured_heart_of_the_end")));
@@ -327,6 +331,7 @@ public class NovaCraftItems {
 		unknown_star = register("unknown_star", new ItemNullifiedDust().setTextureName(NovaCraft.find("unknown_star")));
 		impure_outsider_ingot = register("impure_outsider_ingot", new ItemImpureOutsiderIngot().setTextureName(NovaCraft.find("impure_outsider_ingot")));
 		outsider_ingot = register("outsider_ingot", new ItemOutsiderIngot().setTextureName(NovaCraft.find("outsider_ingot")));
+		legendary_resource = register("legendary_resource", new ItemLegendaryResource());
 
 		vanite_bucket = register("vanite_bucket", new ItemVaniteBucket(Blocks.air).setMaxStackSize(16).setTextureName(NovaCraft.find("vanite_bucket")));
 		vanite_bucket_water = register("vanite_bucket_water", new ItemVaniteBucket(Blocks.flowing_water).setTextureName(NovaCraft.find("vanite_bucket_water")));
@@ -343,6 +348,11 @@ public class NovaCraftItems {
 		nullwart_blend = register("nullwart_blend", new ItemNovaCraft(NovaCraftCreativeTabs.potions).setTextureName(NovaCraft.find("nullwart_blend")));
 		vanite_bottle = register("vanite_bottle", new ItemVaniteBottle().setTextureName(NovaCraft.find("vanite_bottle")));
 		deepfire_blend = register("deepfire_blend", new ItemDeepfireBlend().setTextureName(NovaCraft.find("deepfire_blend")));
+		cinnabar_powder = register("cinnabar_powder", new ItemNovaCraft(NovaCraftCreativeTabs.potions).setTextureName(NovaCraft.find("cinnabar_powder")));
+		bottle_of_cinnabar_powder = register("bottle_of_cinnabar_powder", new ItemNovaCraft(NovaCraftCreativeTabs.potions).setTextureName(NovaCraft.find("bottle_of_cinnabar_powder")));
+		near_empty_bottle_of_mercury = register("near_empty_bottle_of_mercury", new ItemGlassBottleOfMercury().setTextureName(NovaCraft.find("near_empty_bottle_of_mercury")));
+		glass_bottle_of_mercury = register("glass_bottle_of_mercury", new ItemNovaCraft(NovaCraftCreativeTabs.potions).setTextureName(NovaCraft.find("glass_bottle_of_mercury")));
+		bottle_of_mercury = register("bottle_of_mercury", new ItemNovaCraft(NovaCraftCreativeTabs.potions).setTextureName(NovaCraft.find("bottle_of_mercury")));
 		end_portal_sealent = register("end_portal_sealent", new ItemEndPortalSealent().setTextureName(NovaCraft.find("end_portal_sealent")));
 
 		awkward_potion = register("awkward_potion", new ItemAwkwardPotion());
@@ -362,7 +372,7 @@ public class NovaCraftItems {
 		potion_haste_II = register("potion_haste_II", new ItemPotionHasteII().setTextureName(NovaCraft.find("potion_haste")));
 		potion_resistance = register("potion_resistance", new ItemPotionResistance().setTextureName(NovaCraft.find("potion_resistance")));
 		static_blend = register("static_blend", new ItemStaticBlend().setTextureName(NovaCraft.find("static_blend")));
-		
+
 		dark_essence = register("dark_essence", new ItemDarkEssence().setTextureName(NovaCraft.find("dark_essence")));
 		eternal_caller = register("eternal_caller", new ItemEternalCaller().setTextureName(NovaCraft.find("eternal_caller")));
 		crimson_star = register("crimson_star", new ItemCrimsonStar().setTextureName(NovaCraft.find("crimson_star")));
@@ -536,6 +546,15 @@ public class NovaCraftItems {
 		primeval_mace = register("primeval_mace", new ItemPrimevalMace().setTextureName(NovaCraft.find("primeval_mace")));		
 		scythe = register("scythe", new ItemScythe().setTextureName(NovaCraft.find("scythe")));
 		diablo = register("diablo", new ItemDiablo().setTextureName(NovaCraft.find("diablo")));
+
+		poor_prospector_pickaxe = register("poor_prospector_pickaxe", new ItemPoorProspectorPickaxe().setTextureName(NovaCraft.find("poor_prospector_pickaxe")));
+		degraded_prospector_pickaxe = register("degraded_prospector_pickaxe", new ItemDegradedProspectorPickaxe().setTextureName(NovaCraft.find("degraded_prospector_pickaxe")));
+		prospector_pickaxe = register("prospector_pickaxe", new ItemProspectorPickaxe().setTextureName(NovaCraft.find("prospector_pickaxe")));
+		ancient_prospector_pickaxe = register("ancient_prospector_pickaxe", new ItemAncientProspectorPickaxe().setTextureName(NovaCraft.find("ancient_prospector_pickaxe")));
+
+		unpowered_bedrock_cleave = register("unpowered_bedrock_cleave", new ItemUnpoweredBedrockCleave().setTextureName(NovaCraft.find("unpowered_bedrock_cleave")));
+		bedrock_cleave = register("bedrock_cleave", new ItemBedrockCleave().setTextureName(NovaCraft.find("bedrock_cleave")));
+
 		phoenix_razor = register("phoenix_razor", new ItemPhoenixRazor().setTextureName(NovaCraft.find("phoenix_razor")));
 		primeval_horn = register("primeval_horn", new ItemPrimevalHorn().setTextureName(NovaCraft.find("primeval_horn")));
 		sculk_horn = register("sculk_horn", new ItemSculkHorn().setTextureName(NovaCraft.find("sculk_horn")));
@@ -550,6 +569,7 @@ public class NovaCraftItems {
 		goat_horn_dream = register("goat_horn_dream", new ItemGoatHornDream());
 		
 		ice_sceptor = register("ice_sceptor", new ItemIceSceptor().setTextureName(NovaCraft.find("ice_sceptor")));
+		geode_staff = register("geode_staff", new ItemGeodeStaff().setTextureName(NovaCraft.find("geode_staff")));
 		ender_lord_staff = register("ender_lord_staff", new ItemEnderLordStaff().setTextureName(NovaCraft.find("ender_lord_staff")));
 		crystal_growth_staff = register("crystal_growth_staff", new ItemCrystalGrowthStaff().setTextureName(NovaCraft.find("crystal_growth_staff")));
 		hunger_staff = register("hunger_staff", new ItemHungerStaff().setTextureName(NovaCraft.find("hunger_staff")));

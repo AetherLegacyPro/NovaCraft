@@ -3,6 +3,7 @@ package com.NovaCraft.world.floating_island;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -36,7 +37,15 @@ public class FloatingIslandSmallSpawner extends WorldGenAbstractTree
             if (choice <= 15) {
                 tileentitymobspawner.func_145881_a().setEntityName("nova_craft.crystal_slime");
             } else {
-                tileentitymobspawner.func_145881_a().setEntityName("nova_craft.wyrmling");
+                NBTTagCompound spawnerData = new NBTTagCompound();
+                tileentitymobspawner.writeToNBT(spawnerData);
+                spawnerData.setString("EntityId", "nova_craft.wyrmling");
+                NBTTagCompound spawnData = new NBTTagCompound();
+                spawnData.setBoolean("AlwaysHostile", true);
+                spawnerData.setTag("SpawnData", spawnData);
+                tileentitymobspawner.readFromNBT(spawnerData);
+                tileentitymobspawner.markDirty();
+                world.markBlockForUpdate(i + 1, j + 1, k + 2);
             }
         }
 

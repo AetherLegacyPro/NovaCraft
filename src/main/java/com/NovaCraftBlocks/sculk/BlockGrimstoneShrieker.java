@@ -1,29 +1,21 @@
 package com.NovaCraftBlocks.sculk;
 
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.Items.ItemSculkStar;
 import com.NovaCraft.sounds.ModSounds;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockGrimstoneShrieker extends Block {
-
 	@SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
 	
@@ -65,16 +57,16 @@ public class BlockGrimstoneShrieker extends Block {
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		
-    	Block block = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
-		
-		ItemStack stack = player.inventory.getCurrentItem();
-        if (stack != null && stack.getItem() != null && stack.getItem() != NovaCraftItems.sculk_star) {
-        	 if (world.isRemote) {	
-        	player.addChatComponentMessage(new ChatComponentText(I18n.format("gui.warden_altar")));
-        	 }
-        }
+		ItemStack heldItem = player.getCurrentEquippedItem();
+		if (heldItem != null && heldItem.getItem() instanceof ItemSculkStar) {
+			return false;
+		}
+
+		String chatMessage;
+		chatMessage = "gui.warden_altar";
+		if (world.isRemote) {
+			player.addChatComponentMessage(new ChatComponentText(I18n.format(chatMessage)));
+		}
         
         return true;
 	}

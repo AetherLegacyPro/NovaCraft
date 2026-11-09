@@ -4,17 +4,15 @@ public enum EnumCrystalSlimeType {
 
     IRON(), GOLD(), LAPIS(), EMERALD(), DIAMOND(), VANITE(), IRIDIUM(), CRYSTAL();
 
-    EnumCrystalSlimeType() {
-
-    }
+    EnumCrystalSlimeType() {}
 
     public int getId() {
-
         return this.ordinal();
     }
 
-    public static EnumCrystalSlimeType get(int id) {
+    private static final EnumCrystalSlimeType[] VALUES = values();
 
-        return values()[id];
+    public static EnumCrystalSlimeType get(int id) {
+        return VALUES[id];
     }
 }

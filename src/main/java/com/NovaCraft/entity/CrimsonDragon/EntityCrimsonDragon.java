@@ -2,6 +2,8 @@ package com.NovaCraft.entity.CrimsonDragon;
 
 import java.util.Iterator;
 import java.util.List;
+
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragonPart;
 import com.NovaCraft.entity.DeepoidDragon.GIEntityMultiPart;
@@ -54,6 +56,7 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
     private boolean lockingYawForAttack = false;
     public boolean rotateForBurst = false;
     private final float base = (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F;
+    private boolean hardmodeStatsApplied = false;
 
     public EntityCrimsonDragon(final World world)
     {
@@ -413,12 +416,11 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
 
         }
 
-        List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(8, 8, 8));
+        if (this.worldObj.isRemote) {
+            List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(8, 8, 8));
 
-        for(Entity entity : volume) {
-            if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) {
-                if (worldObj.isRemote)
-                    this.FireBreath();
+            for (EntityPlayer player : players) {
+                if (this.canEntityBeSeen(player)) this.FireBreath();
             }
         }
 
@@ -737,6 +739,17 @@ public class EntityCrimsonDragon extends EntityFlying implements IBossDisplayDat
         this.worldObj.setBlock(p_70975_1_, p_70975_2_ - 1, p_70975_3_ - 2, NovaCraftBlocks.glowing_obsidian);
         this.worldObj.setBlock(p_70975_1_, p_70975_2_ - 1, p_70975_3_ + 2, NovaCraftBlocks.glowing_obsidian);
 
+    }
+
+    @Override
+    public void onUpdate() {
+        if (!this.worldObj.isRemote && !this.hardmodeStatsApplied && Hardmode.get(this.worldObj).getHardmode()) {
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
+            this.setHealth(this.getHealth() * 2.0F);
+            this.hardmodeStatsApplied = true;
+        }
+
+        super.onUpdate();
     }
 
     protected void dropFewItems(boolean p_70628_1_, int p_70628_2_) {

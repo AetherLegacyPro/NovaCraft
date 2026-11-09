@@ -6,21 +6,14 @@ import net.minecraft.client.particle.*;
 import net.minecraft.init.*;
 import net.minecraftforge.common.util.*;
 import java.util.*;
-
-import com.NovaCraft.entity.EntityDeepoid;
 import com.NovaCraft.entity.EntityIonizatior;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.item.*;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.entity.*;
-import net.minecraft.entity.boss.EntityWither;
-import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.world.*;
 
 public class BlockDeepFire extends BlockFire
@@ -32,7 +25,7 @@ public class BlockDeepFire extends BlockFire
         this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.015625f, 1.0f);
     }
     
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(final World p_149668_1_, final int p_149668_2_, final int p_149668_3_, final int p_149668_4_) {
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(final World world, final int p_149668_2_, final int p_149668_3_, final int p_149668_4_) {
         return null;
     }
     
@@ -41,8 +34,8 @@ public class BlockDeepFire extends BlockFire
     }
     
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(final IIconRegister p_149651_1_) {
-    	this.field_149850_M = new IIcon[] { p_149651_1_.registerIcon("nova_craft:deepfire_0"), p_149651_1_.registerIcon("nova_craft:deepfire_1") };
+    public void registerBlockIcons(final IIconRegister iconRegister) {
+    	this.field_149850_M = new IIcon[] { iconRegister.registerIcon("nova_craft:deepfire_0"), iconRegister.registerIcon("nova_craft:deepfire_1") };
     }
     
     @SideOnly(Side.CLIENT)
@@ -120,30 +113,30 @@ public class BlockDeepFire extends BlockFire
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
-        super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
-        if (p_149734_5_.nextInt(15) == 0) {
-        	p_149734_1_.playSound((double)((float)p_149734_2_ + 0.5F), (double)((float)p_149734_3_ + 0.5F), (double)((float)p_149734_4_ + 0.5F), "nova_craft:deepfire", 1.0F + p_149734_5_.nextFloat(), p_149734_5_.nextFloat() * 0.7F + 0.3F, false);
+    public void randomDisplayTick(final World world, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random random) {
+        super.randomDisplayTick(world, p_149734_2_, p_149734_3_, p_149734_4_, random);
+        if (random.nextInt(15) == 0) {
+        	world.playSound((double)((float)p_149734_2_ + 0.5F), (double)((float)p_149734_3_ + 0.5F), (double)((float)p_149734_4_ + 0.5F), "nova_craft:deepfire", 1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
         	float f;
             float f1;
             float f2;
             
         	 for (int i = 0; i < 2; ++i)
         	    {       		 
-        		 f = (float)p_149734_2_ + p_149734_5_.nextFloat() * 0.1F;
-                 f1 = (float)p_149734_3_ + p_149734_5_.nextFloat();
-                 f2 = (float)p_149734_4_ + p_149734_5_.nextFloat();
-                 p_149734_1_.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
-                 p_149734_1_.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
-                 p_149734_1_.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
+        		 f = (float)p_149734_2_ + random.nextFloat() * 0.1F;
+                 f1 = (float)p_149734_3_ + random.nextFloat();
+                 f2 = (float)p_149734_4_ + random.nextFloat();
+                 world.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
+                 world.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
+                 world.spawnParticle("smoke", (double)f, (double)f1, (double)f2, 0.0D, 0.0D, 0.0D);
              }        	    
         }
         
-        World par1World = p_149734_1_;
+        World par1World = world;
 		int par2 = p_149734_2_;
 		int par3 = p_149734_3_;
 		int par4 = p_149734_4_;
-		Random par5Random = p_149734_5_;
+		Random par5Random = random;
 		if (true)
 			for (int l = 0; l < 8; ++l) {
 				double d0 = (double) ((float) par2 + par5Random.nextFloat());

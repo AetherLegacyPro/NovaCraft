@@ -1,26 +1,19 @@
 package com.NovaCraftBlocks.sculk;
 
 import java.util.Random;
-
 import com.NovaCraft.config.Configs;
 import com.NovaCraft.registry.OtherModBlocks;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -119,17 +112,17 @@ public class BlockSculkStone extends Block implements IGrowable {
 
 
 	@Override
-	public boolean func_149851_a(World p_149851_1_, int p_149851_2_, int p_149851_3_, int p_149851_4_, boolean p_149851_5_) {
+	public boolean func_149851_a(World world, int p_149851_2_, int p_149851_3_, int p_149851_4_, boolean p_149851_5_) {
 		return true;
 	}
 
 	@Override
-	public boolean func_149852_a(World p_149852_1_, Random p_149852_2_, int p_149852_3_, int p_149852_4_, int p_149852_5_) {
+	public boolean func_149852_a(World world, Random random, int p_149852_3_, int p_149852_4_, int p_149852_5_) {
 		return true;
 	}
 
 	@Override
-	public void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
+	public void func_149853_b(World world, Random random, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
 		int l = 0;
 
 		while (l < 128) {
@@ -140,41 +133,41 @@ public class BlockSculkStone extends Block implements IGrowable {
 
 			while (true) {
 				if (l1 < l / 16) {
-					i1 += p_149853_2_.nextInt(3) - 1;
-					j1 += (p_149853_2_.nextInt(3) - 1) * p_149853_2_.nextInt(3) / 2;
-					k1 += p_149853_2_.nextInt(3) - 1;
+					i1 += random.nextInt(3) - 1;
+					j1 += (random.nextInt(3) - 1) * random.nextInt(3) / 2;
+					k1 += random.nextInt(3) - 1;
 
-					if ((p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_stone || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_grimstone
-					   || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_nullstone || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_deepslate 
-					   || p_149853_1_.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_endstone) && !p_149853_1_.getBlock(i1, j1, k1).isNormalCube()) {
+					if ((world.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_stone || world.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_grimstone
+					   || world.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_nullstone || world.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_deepslate 
+					   || world.getBlock(i1, j1 - 1, k1) == NovaCraftBlocks.sculk_endstone) && !world.getBlock(i1, j1, k1).isNormalCube()) {
 						++l1;
 						continue;
 					}
-				} else if (p_149853_1_.isAirBlock(i1, j1, k1)) {
-					if (p_149853_2_.nextInt(5) != 0) {
-						if (NovaCraftBlocks.sculk_growth.canBlockStay(p_149853_1_, i1, j1, k1)) {
-							p_149853_1_.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_growth, 1, 3);
+				} else if (world.isAirBlock(i1, j1, k1)) {
+					if (random.nextInt(5) != 0) {
+						if (NovaCraftBlocks.sculk_growth.canBlockStay(world, i1, j1, k1)) {
+							world.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_growth, 1, 3);
 						}
-					} else if (p_149853_2_.nextInt(5) != 1) {
-						if (NovaCraftBlocks.sculk_vein.canBlockStay(p_149853_1_, i1, j1, k1)) {
-							p_149853_1_.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_vein, 1, 3);
+					} else if (random.nextInt(5) != 1) {
+						if (NovaCraftBlocks.sculk_vein.canBlockStay(world, i1, j1, k1)) {
+							world.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_vein, 1, 3);
 						}
-					} else if (p_149853_2_.nextInt(5) != 2) {
-						if (NovaCraftBlocks.sculk_tentacle_1.canBlockStay(p_149853_1_, i1, j1, k1)) {
-							p_149853_1_.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_tentacle_1, 1, 0);
+					} else if (random.nextInt(5) != 2) {
+						if (NovaCraftBlocks.sculk_tentacle_1.canBlockStay(world, i1, j1, k1)) {
+							world.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_tentacle_1, 1, 0);
 						}
-					} else if (p_149853_2_.nextInt(5) != 3) {
-						if (NovaCraftBlocks.sculk_sensor.canBlockStay(p_149853_1_, i1, j1, k1)) {
-							p_149853_1_.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_sensor, 0, 2);
+					} else if (random.nextInt(5) != 3) {
+						if (NovaCraftBlocks.sculk_sensor.canBlockStay(world, i1, j1, k1)) {
+							world.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_sensor, 0, 2);
 						}
-					} else if (p_149853_2_.nextInt(5) != 4) {
-						if (NovaCraftBlocks.sculk_tulip.canBlockStay(p_149853_1_, i1, j1, k1)) {
-							p_149853_1_.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_tulip, 0, 2);
+					} else if (random.nextInt(5) != 4) {
+						if (NovaCraftBlocks.sculk_tulip.canBlockStay(world, i1, j1, k1)) {
+							world.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_tulip, 0, 2);
 						}
 					}
 					else {
-						if (NovaCraftBlocks.sculk_bush.canBlockStay(p_149853_1_, i1, j1, k1)) {
-							p_149853_1_.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_bush, 1, 3);
+						if (NovaCraftBlocks.sculk_bush.canBlockStay(world, i1, j1, k1)) {
+							world.setBlock(i1, j1, k1, NovaCraftBlocks.sculk_bush, 1, 3);
 						}
 					}
 				}

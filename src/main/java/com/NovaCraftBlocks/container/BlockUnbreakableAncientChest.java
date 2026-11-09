@@ -291,11 +291,11 @@ public class BlockUnbreakableAncientChest extends BlockContainer
 			case 2:
 				return new ItemStack(NovaCraftItems.larimar_shard, random.nextInt(15) + 3);
 			case 3:
-				return new ItemStack(NovaCraftItems.copartz_shard, random.nextInt(15) + 3);
+				return new ItemStack(NovaCraftItems.prospector_pickaxe, 1);
 			case 4:
 				return new ItemStack(NovaCraftItems.tsavorokite_shard, random.nextInt(15) + 5);
 			case 5:
-				return new ItemStack(NovaCraftItems.yttrlinsite_shard,  random.nextInt(15) + 5);
+				return new ItemStack(NovaCraftItems.degraded_prospector_pickaxe, 1);
 			case 6: 
 				return new ItemStack(Items.skull, 1, 1);
 			case 7: 

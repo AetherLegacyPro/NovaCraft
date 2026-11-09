@@ -39,10 +39,10 @@ public class BlockIridiumOre extends Block {
 		iconFace = iconRegister.registerIcon("nova_craft:iridium_ore");
 		iconTop = iconRegister.registerIcon("nova_craft:iridium_ore");
 	}
-	
+
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {
-        return NovaCraftItems.raw_iridium;
-    }
+		return NovaCraftItems.raw_iridium;
+	}
 	
 	@Override
 	public int quantityDroppedWithBonus(int fortune, Random random) {

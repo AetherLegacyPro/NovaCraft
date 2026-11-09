@@ -2,14 +2,9 @@ package com.NovaCraftBlocks.potion;
 
 import net.minecraft.block.*;
 import net.minecraft.util.*;
-
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import cpw.mods.fml.relauncher.*;
 import net.minecraft.block.material.*;
 import net.minecraft.creativetab.*;
@@ -19,9 +14,7 @@ import net.minecraft.world.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.client.renderer.texture.*;
 
-public class BlockCrackedVaniteCauldron extends Block
-{
-    
+public class BlockCrackedVaniteCauldron extends Block {
     @SideOnly(Side.CLIENT)
 	private IIcon iconFace, iconTop;
     

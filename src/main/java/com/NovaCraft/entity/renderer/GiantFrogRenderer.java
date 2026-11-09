@@ -1,6 +1,7 @@
 package com.NovaCraft.entity.renderer;
 
 import com.NovaCraft.entity.EntityGiantFrog;
+import com.NovaCraft.entity.misc.EnumGiantFrogType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.client.model.ModelBase;
@@ -11,8 +12,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.entity.RenderLiving;
 
 @SideOnly(Side.CLIENT)
-public class GiantFrogRenderer extends RenderLiving
-{
+public class GiantFrogRenderer extends RenderLiving {
+    private static final ResourceLocation[] TEXTURES = new ResourceLocation[EnumGiantFrogType.values().length];
+
+    static {
+        for (EnumGiantFrogType type : EnumGiantFrogType.values()) {
+            TEXTURES[type.ordinal()] = new ResourceLocation("nova_craft","textures/entity/giant_frog/" + type + ".png");
+        }
+    }
+
     public GiantFrogRenderer(final ModelBase par1ModelBase, final float par2) {
         super(par1ModelBase, par2);
     }
@@ -24,7 +32,7 @@ public class GiantFrogRenderer extends RenderLiving
 
     @Override
     protected ResourceLocation getEntityTexture(final Entity entity) {
-        return new ResourceLocation("nova_craft","textures/entity/giant_frog/" + ((EntityGiantFrog)entity).getType() + ".png");
+        return TEXTURES[((EntityGiantFrog)entity).getType().ordinal()];
     }
 
     public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)

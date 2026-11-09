@@ -18,8 +18,7 @@ import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
 
-public class MapGenNCStronghold extends MapGenStronghold
-{
+public class MapGenNCStronghold extends MapGenStronghold {
     public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(BiomeGenBase.desert, BiomeGenBase.forest,BiomeGenBase.extremeHills));
     private BiomeGenBase[] allowedBiomeGenBases;
 
@@ -28,8 +27,7 @@ public class MapGenNCStronghold extends MapGenStronghold
     private double field_82671_h;
     private int field_82672_i;
 
-    public MapGenNCStronghold()
-    {
+    public MapGenNCStronghold() {
         allowedBiomeGenBases = allowedBiomes.toArray(new BiomeGenBase[0]);
         structureCoords = new ChunkCoordIntPair[3]; //Three Strongholds per world
         field_82671_h = 128.0D;
@@ -37,13 +35,11 @@ public class MapGenNCStronghold extends MapGenStronghold
     }
 
     @SuppressWarnings("rawtypes")
-    public MapGenNCStronghold(Map par1Map)
-    {
+    public MapGenNCStronghold(Map par1Map) {
         this();
         Iterator var2 = par1Map.entrySet().iterator();
 
-        while (var2.hasNext())
-        {
+        while (var2.hasNext()) {
             Entry var3 = (Entry)var2.next();
 
             if (((String)var3.getKey()).equals("distance"))
@@ -58,94 +54,43 @@ public class MapGenNCStronghold extends MapGenStronghold
 
     @Override
     public String func_143025_a() {
-
-        return "NCStronghold";
+        return "Stronghold";
     }
 
     @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    protected boolean canSpawnStructureAtCoords(int par1, int par2)
-    {
-        if (worldObj.provider.dimensionId != 0) return false;
-
-        if (!ranBiomeCheck)
-        {
-            Random var3 = new Random();
-            var3.setSeed(worldObj.getSeed());
-            double var4 = var3.nextDouble() * Math.PI * 2.0D;
-            int var6 = 1;
-
-            for (int var7 = 0; var7 < structureCoords.length; ++var7)
-            {
-                //These two lines make it so the strongholds can only generate beyond 2k from 0,0
-                double minDistance = 125.0D;
-                double var8 = minDistance + (var3.nextDouble() * field_82671_h);
-
-                int var10 = (int)Math.round(Math.cos(var4) * var8);
-                int var11 = (int)Math.round(Math.sin(var4) * var8);
-                ArrayList var12 = new ArrayList();
-                Collections.addAll(var12, allowedBiomeGenBases);
-                ChunkPosition var13 = worldObj.getWorldChunkManager().findBiomePosition((var10 << 4) + 8, (var11 << 4) + 8, 112, var12, var3);
-
-                if (var13 != null)
-                {
-                    var10 = var13.chunkPosX >> 4;
-                    var11 = var13.chunkPosY >> 4;
-                }
-
-                structureCoords[var7] = new ChunkCoordIntPair(var10, var11);
-                var4 += Math.PI * 2D * var6 / field_82672_i;
-
-                if (var7 == field_82672_i)
-                {
-                    var6 += 2 + var3.nextInt(5);
-                    field_82672_i += 1 + var3.nextInt(2);
-                }
-                if (Configs.enableDebugMode) {
-                    System.out.println("Stronghold generating...");
-                }
-            }
-
-            ranBiomeCheck = true;
+    protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+        if (worldObj == null || worldObj.provider.dimensionId != 0) {
+            return false;
         }
 
-        ChunkCoordIntPair[] var14 = structureCoords;
-        int var15 = var14.length;
+        initializeStructureCoords();
 
-        int minDistanceChunks = 125;
-
-        for (int var5 = 0; var5 < var15; ++var5) {
-            ChunkCoordIntPair var16 = var14[var5];
-
-            if (par1 == var16.chunkXPos && par2 == var16.chunkZPos) {
-                double distance = Math.sqrt(var16.chunkXPos * var16.chunkXPos + var16.chunkZPos * var16.chunkZPos);
-
-                if (distance >= minDistanceChunks)
-                    return true;
+        for (ChunkCoordIntPair coord : structureCoords) {
+            if (coord != null && chunkX == coord.chunkXPos && chunkZ == coord.chunkZPos) {
+                return true;
             }
         }
 
         return false;
-
     }
 
     @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
     protected List getCoordList()
     {
-        ArrayList var1 = new ArrayList();
-        ChunkCoordIntPair[] var2 = structureCoords;
-        int var3 = var2.length;
+        initializeStructureCoords();
 
-        for (int var4 = 0; var4 < var3; ++var4)
+        List coordinates = new ArrayList();
+
+        for (ChunkCoordIntPair coord : structureCoords)
         {
-            ChunkCoordIntPair var5 = var2[var4];
-
-            if (var5 != null)
-                var1.add(var5.func_151349_a(64));
+            if (coord != null)
+            {
+                coordinates.add(coord.func_151349_a(64));
+            }
         }
 
-        return var1;
+        return coordinates;
     }
 
     @Override
@@ -162,8 +107,7 @@ public class MapGenNCStronghold extends MapGenStronghold
         public Start() {}
 
         @SuppressWarnings({ "unchecked", "rawtypes" })
-        public Start(World par1World, Random par2Random, int par3, int par4)
-        {
+        public Start(World par1World, Random par2Random, int par3, int par4) {
             super(par3, par4);
             NCStructureStrongholdPieces.prepareStructurePieces();
             NCStructureStrongholdPieces.NCStairs2 stairs2 = new NCStructureStrongholdPieces.NCStairs2(0, par2Random, (par3 << 4) + 2, (par4 << 4) + 2);
@@ -171,8 +115,7 @@ public class MapGenNCStronghold extends MapGenStronghold
             stairs2.buildComponent(stairs2, components, par2Random);
             List list = stairs2.field_75026_c;
 
-            while (!list.isEmpty())
-            {
+            while (!list.isEmpty()) {
                 int k = par2Random.nextInt(list.size());
                 StructureComponent structurecomponent = (StructureComponent)list.remove(k);
                 structurecomponent.buildComponent(stairs2, components, par2Random);
@@ -180,5 +123,52 @@ public class MapGenNCStronghold extends MapGenStronghold
 
             updateBoundingBox();
         }
+    }
+
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    private void initializeStructureCoords() {
+        if (ranBiomeCheck || worldObj == null) {
+            return;
+        }
+
+        Random random = new Random(worldObj.getSeed());
+        double angle = random.nextDouble() * Math.PI * 2.0D;
+        int ring = 1;
+        int spread = field_82672_i;
+
+        ArrayList biomeList = new ArrayList();
+        biomeList.addAll(Arrays.asList(allowedBiomeGenBases));
+
+        for (int index = 0; index < structureCoords.length; ++index) {
+
+            //Make it so the strongholds can only generate beyond 2k from 0,0
+            double distanceChunks = 125.0D + random.nextDouble() * field_82671_h;
+
+            int chunkX = (int)Math.round(Math.cos(angle) * distanceChunks);
+
+            int chunkZ = (int)Math.round(Math.sin(angle) * distanceChunks);
+
+            ChunkPosition biomePosition = worldObj.getWorldChunkManager().findBiomePosition((chunkX << 4) + 8, (chunkZ << 4) + 8, 112, biomeList, random);
+
+            if (biomePosition != null) {
+                chunkX = biomePosition.chunkPosX >> 4;
+                chunkZ = biomePosition.chunkPosY >> 4;
+            }
+
+            structureCoords[index] = new ChunkCoordIntPair(chunkX, chunkZ);
+
+            if (Configs.enableDebugMode) {
+                System.out.println("NC stronghold position: chunk " + chunkX + ", " + chunkZ + "; block " + ((chunkX << 4) + 8) + ", " + ((chunkZ << 4) + 8));
+            }
+
+            angle += Math.PI * 2.0D * ring / spread;
+
+            if (index == spread) {
+                ring += 2 + random.nextInt(5);
+                spread += 1 + random.nextInt(2);
+            }
+        }
+
+        ranBiomeCheck = true;
     }
 }

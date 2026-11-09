@@ -1,30 +1,17 @@
 package com.NovaCraftBlocks.sculk;
 
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntityPrisoner;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockUnknownPortalSealed extends Block {
@@ -102,11 +89,12 @@ public class BlockUnknownPortalSealed extends Block {
         return false;
     }
     
-    public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer par5EntityPlayer, final int par6, final float par7, final float par8, final float par9) {
-	      if (world.isRemote) {
-	      par5EntityPlayer.addChatComponentMessage(new ChatComponentText(I18n.format("tooltip.sealed_unknown_portal.desc")));
-	      }
-	      return true;
-	  }
+    public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer player, final int par6, final float par7, final float par8, final float par9) {
+		if (world.isRemote) {
+			player.addChatComponentMessage(new ChatComponentText(I18n.format("tooltip.sealed_unknown_portal.desc")));
+		}
+
+		return true;
+	}
 
 }

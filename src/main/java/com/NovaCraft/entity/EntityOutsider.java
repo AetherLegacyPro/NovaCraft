@@ -50,7 +50,7 @@ public class EntityOutsider extends EntityMob
 	
 	public int getTotalArmorValue()
     {
-        return 15;
+        return 19;
     }
 	
 	

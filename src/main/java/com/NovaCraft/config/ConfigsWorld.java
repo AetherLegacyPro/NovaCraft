@@ -17,6 +17,17 @@ public class ConfigsWorld {
     public static boolean enableWaterBiomeAlterations;
     public static boolean enableMiscBiomeAlterations;
 
+    public static boolean enableRedstoneOreDeposit;
+    public static boolean enableIronOreDeposit;
+    public static boolean enableCoalOreDeposit;
+    public static boolean enableGoldOreDeposit;
+    public static boolean enableStagStacCavern;
+    public static boolean enableMercuryCavern;
+    public static boolean enableDeepDark;
+    public static boolean enableColdFloraCavern;
+    public static boolean enableTemperateFloraCavern;
+    public static boolean enableTropicalFloraCavern;
+
     //Grimstone Generation
     public static boolean enableGrimstone;
     public static boolean enableGrimstoneDiamond;
@@ -78,6 +89,19 @@ public class ConfigsWorld {
 
     //New Ore Generation and Decoration
     public static boolean enableBrimstoneOre;
+    public static int ravineChance;
+    public static int tallRavineChance;
+    public static float ravineHeightScale;
+    public static float tallRavineHeightScale;
+    public static boolean ravinesCarveSand;
+    public static boolean ravinesCarveRedSand;
+    public static boolean ravinesCarveSandstone;
+    public static boolean ravinesCarveHardenedClay;
+    public static int ravineMaxStartY;
+    public static String[] ravineBiomeWhitelist;
+    public static String[] ravineBiomeBlacklist;
+    public static int tallBiomeRavineMaxStartY;
+    public static float tallBiomeRavineMinBaseHeight;
     public static boolean enableVaniteOre;
     public static boolean enablePherithiumGeneration;
     public static boolean enablePherithiumOreGeneration;
@@ -161,15 +185,38 @@ public class ConfigsWorld {
         enableDeeprootGeneration = conf.getBoolean("enableDeeprootGeneration", "Overworld Decoration", true, "Enables Deep Roots to generate.");
         enableAdditionalSculkGeneration = conf.getBoolean("enableAdditionalSculkGeneration", "Overworld Decoration", false, "Enables Sculk to generate outside the deep dark randomly.");
 
-
         enableExtraEmeraldOreGeneration = conf.getBoolean("enableExtraEmeraldOreGeneration", "Overworld Decoration", true, "Enables Emerald Ore to rarely generate in all biomes from y = 0 to y = 90");
         enableBrimstoneOre = conf.getBoolean("enableBrimstoneOre", "Overworld Decoration", true, "Enables Brimstone Ore generation");
+        ravineChance = conf.getInt("ravineChance", "Overworld Decoration", 50, 1, 10000, "1 in X chunks start a ravine. Vanilla is 50.");
+        tallRavineChance = conf.getInt("tallRavineChance", "Overworld Decoration", 22, 1, 10000, "1 in X ravines are tall NovaCraft ravines; the rest are regular ravines.");
+        ravineHeightScale = conf.getFloat("ravineHeightScale", "Overworld Decoration", 1.5F, 0.1F, 10.0F, "Height scale of regular ravines. Vanilla is 3.0.");
+        tallRavineHeightScale = conf.getFloat("tallRavineHeightScale", "Overworld Decoration", 4.0F, 0.1F, 10.0F, "Height scale of tall NovaCraft ravines.");
+        ravinesCarveSand = conf.getBoolean("ravinesCarveSand", "Overworld Decoration", false, "Lets ravines carve sand. Off by default so desert sand hangs over ravines and falls in when a block update reaches it to make deserts more dangerous.");
+        ravinesCarveRedSand = conf.getBoolean("ravinesCarveRedSand", "Overworld Decoration", true, "Lets ravines carve red sand. Detected by biome.");
+        ravinesCarveSandstone = conf.getBoolean("ravinesCarveSandstone", "Overworld Decoration", true, "Lets ravines carve sandstone (so the sand above is left hanging).");
+        ravinesCarveHardenedClay = conf.getBoolean("ravinesCarveHardenedClay", "Overworld Decoration", true, "Lets ravines carve hardened and stained hardened clay, such as the clay bands in Mesa.");
+        ravineBiomeWhitelist = conf.getStringList("ravineBiomeWhitelist", "Overworld Decoration", new String[0], "Biome names or IDs ravines may start in. Leave empty to allow every biome.");
+        ravineBiomeBlacklist = conf.getStringList("ravineBiomeBlacklist", "Overworld Decoration", new String[0], "Biome names or IDs ravines may not start in. Applied after the whitelist.");
+        ravineMaxStartY = conf.getInt("ravineMaxStartY", "Overworld Decoration", 70, 27, 250, "Highest Y a ravine can start at in normal biomes. Vanilla is about 66.");
+        tallBiomeRavineMaxStartY = conf.getInt("tallBiomeRavineMaxStartY", "Overworld Decoration", 146, 27, 250, "Highest Y a ravine can start at in tall-terrain biomes such as Extreme Hills.");
+        tallBiomeRavineMinBaseHeight = conf.getFloat("tallBiomeRavineMinBaseHeight", "Overworld Decoration", 0.8F, -2.0F, 5.0F, "Biomes with a base height at or above this count as tall-terrain. Extreme Hills is 1.0, Plains 0.125, Ocean -1.0.");
         enableVaniteOre = conf.getBoolean("enableVaniteOre", "Overworld Decoration", true, "Enables Vanite Ore generation");
         enablePherithiumGeneration = conf.getBoolean("enablePherithiumGeneration", "Overworld Decoration", true, "Enables pherithium stalagmites and stalagtites generation.");
         enablePherithiumOreGeneration = conf.getBoolean("enablePherithiumOreGeneration", "Overworld Decoration", false, "Enables pherithium ore to generate, by default it is set to false.");
         enableRareCrystalGeneration = conf.getBoolean("enableRareCrystalGeneration", "Overworld Decoration", false, "Enables the various crystals to very rarely generate in caves outside their geos -> for modpacks with insane cave generation due to lack of spawning spaces.");
         enableRareOverworldKlangiteOre = conf.getBoolean("enableRareOverworldKlangiteOre", "Overworld Decoration", false, "Enables Klangite Ore to also generate in the Overworld.");
         enableRareOverworldTophiniteOre = conf.getBoolean("enableRareOverworldTophiniteOre", "Overworld Decoration", false, "Enables Tophinite Ore to also generate in the Overworld.");
+
+        enableRedstoneOreDeposit = conf.getBoolean("enableRedstoneOreDeposit", "Overworld Decoration", true, "Enables Rare Redstone Ore Deposits.");
+        enableIronOreDeposit = conf.getBoolean("enableIronOreDeposit", "Overworld Decoration", true, "Enables Rare Iron Ore Deposits.");
+        enableCoalOreDeposit = conf.getBoolean("enableCoalOreDeposit", "Overworld Decoration", true, "Enables Rare Coal Ore Deposits.");
+        enableGoldOreDeposit = conf.getBoolean("enableGoldOreDeposit", "Overworld Decoration", true, "Enables Rare Gold Ore Deposits.");
+        enableStagStacCavern = conf.getBoolean("enableStagStacCavern", "Overworld Decoration", true, "Enables Stone/Grim/Null Stalactite and Stalagmite Caverns.");
+        enableMercuryCavern = conf.getBoolean("enableMercuryCavern", "Overworld Decoration", true, "Enables Mercury Caverns.");
+        enableDeepDark = conf.getBoolean("enableDeepDark", "Overworld Decoration", true, "Enables Deep Dark Caverns.");
+        enableColdFloraCavern = conf.getBoolean("enableColdFloraCavern", "Overworld Decoration", true, "Enables Cold Lush Flora Caverns.");
+        enableTemperateFloraCavern = conf.getBoolean("enableTemperateFloraCavern", "Overworld Decoration", true, "Enables Temperate Lush Flora Caverns.");
+        enableTropicalFloraCavern = conf.getBoolean("enableTropicalFloraCavern", "Overworld Decoration", true, "Enables Tropical Lush Flora Caverns.");
 
         enableFlamingPitcherGeneration = conf.getBoolean("enableFlamingPitcherGeneration", "Nether Decoration", true, "Enables flaming pitcher plants to generate on lava lakes in the Nether.");
         enableNetherFlora = conf.getBoolean("enableNetherFlora", "Nether Decoration", true, "Enables all the new types of nether mushrooms to generate.");
@@ -183,7 +230,6 @@ public class ConfigsWorld {
         enableFrontierslate = conf.getBoolean("enableFrontierslate", "End Decoration", true, "Enables Frontierslate to generate throughout the End.");
         enableVacuumSand = conf.getBoolean("enableVacuumSand", "End Decoration", true, "Enables Vacuum Sand to generate throughout the End.");
         enableEndFlora = conf.getBoolean("enableEndFlora", "End Decoration", true, "Enables End Flora to generate throughout the End.");
-
 
         if (conf.hasChanged()) {
             conf.save();

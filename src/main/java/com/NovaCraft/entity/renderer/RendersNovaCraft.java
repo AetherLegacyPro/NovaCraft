@@ -74,6 +74,7 @@ public class RendersNovaCraft {
 	register(EntityVindicatorEye.class, new RenderSnowball(NovaCraftItems.vindicator_insignia));
 	register(EntityCrimsonEye.class, new RenderSnowball(NovaCraftItems.crimson_eye));
 	register(EntityOctoqusProjectile.class, new OctoqusProjectileRenderer());
+	register(EntityPhantomizedLaser.class, new PhantomizedLaserRenderer());
 	
 	//Passive
 	register(EntityGlowSquid.class, new GlowSquidRenderer(new GlowSquidModel(), 0.7F));
@@ -132,7 +133,10 @@ public class RendersNovaCraft {
 	register(EntityOctoqus.class, new OctoqusRenderer());
 	register(EntityRelik.class, new RelikRenderer());
 	register(EntityCrimsonDragon.class, new CrimsonDragonRenderer());
-	
+	register(EntityFrontierGolem.class, new FrontierGolemRenderer(new FrontierGolemModel(), 0.7f));
+	register(EntityPhantomized.class, new PhantomizedRenderer(new PhantomizedModel(), 0.7f));
+	register(EntityDistortion.class, new DistortionRenderer(new DistortionModel(), new DistortionModel(), 0.7F));
+
 	register(EntityHardmodeCreeper.class, new HardmodeCreeperRenderer());
 	register(EntityHardmodeSpider.class, new HardmodeSpiderRenderer());
 	register(EntityHardmodeZombie.class, new HardmodeZombieRenderer());

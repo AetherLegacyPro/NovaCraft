@@ -83,10 +83,13 @@ public class EntityBlazingSerpent extends EntityMob
 		}
 		
 		if (this.handleLavaMovement()) {
-		this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 30, 0));  
+			this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 30, 0));
 		}
-		
-		((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.poison.id, 200, 0));
+
+		if (rand.nextInt(4) == 0) {
+			((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.poison.id, 200, 0));
+		}
+
 		entity.setFire(7);
         
                 

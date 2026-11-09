@@ -18,7 +18,7 @@ public class IronDeposit extends BasicUndergroundBiomeIronOreDeposit {
         String name = block.getUnlocalizedName();
         return name != null && (name.toLowerCase(Locale.ROOT).contains("stone") || name.toLowerCase(Locale.ROOT).contains("calcite") || name.toLowerCase(Locale.ROOT).contains("tuff") || name.toLowerCase(Locale.ROOT).contains("brick") || name.toLowerCase(Locale.ROOT).contains("tile")
                 || name.toLowerCase(Locale.ROOT).contains("andesite") || name.toLowerCase(Locale.ROOT).contains("granite") || name.toLowerCase(Locale.ROOT).contains("diorite")) && !(name.toLowerCase(Locale.ROOT).contains("ore")) && !(name.toLowerCase(Locale.ROOT).contains("dirt"))
-                && !(name.toLowerCase(Locale.ROOT).contains("grass")) && !(name.toLowerCase(Locale.ROOT).contains("sand"));
+                && !(name.toLowerCase(Locale.ROOT).contains("grass")) && !(name.toLowerCase(Locale.ROOT).contains("sand"))&& !(name.toLowerCase(Locale.ROOT).contains("sand") && !(name.toLowerCase(Locale.ROOT).contains("log")) && !(name.toLowerCase(Locale.ROOT).contains("leaves")));
     }
 
     @Override

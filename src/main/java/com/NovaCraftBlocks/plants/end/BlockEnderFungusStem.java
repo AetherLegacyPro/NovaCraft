@@ -3,18 +3,14 @@ package com.NovaCraftBlocks.plants.end;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
 import java.util.Random;
-
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -90,9 +86,9 @@ public class BlockEnderFungusStem extends Block implements IEmissiveLayerBlock {
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
+    public void randomDisplayTick(World world, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random random)
     {		
-		if (!p_149734_1_.isRemote) {
+		if (!world.isRemote) {
 			return;
 		}
 
@@ -100,32 +96,32 @@ public class BlockEnderFungusStem extends Block implements IEmissiveLayerBlock {
 			return;
 		}
 		
-        int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
-        double d0 = (double)((float)p_149734_2_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
+        int l = world.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
+        double d0 = (double)((float)p_149734_2_ + 0.5F + (random.nextFloat()) - (random.nextFloat()));
         double d1 = (double)((float)p_149734_3_ - 1.0F);
-        double d2 = (double)((float)p_149734_4_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
+        double d2 = (double)((float)p_149734_4_ + 0.5F + (random.nextFloat()) - (random.nextFloat()));
         double d3 = 0.2199999988079071D;
         double d4 = 0.27000001072883606D;
 
         if (l == 1)
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 2)
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 3)
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 4)
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else
         {
-        	ParticleHandler.ENDER.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.ENDER.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
     }
 

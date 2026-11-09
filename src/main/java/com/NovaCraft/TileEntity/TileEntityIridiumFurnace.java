@@ -38,6 +38,12 @@ public class TileEntityIridiumFurnace extends TileEntity implements ISidedInvent
     //Added this, so it would check the metadata in the custom recipes
     private static final Map<ItemMetaKey, ItemStack> CUSTOM_FURNACE_RECIPES = new HashMap<>();
 
+    private static void addCustomRecipe(Item input, int inputMeta, Item output, int outputCount, int outputMeta) {
+        if (input != null && output != null) {
+            CUSTOM_FURNACE_RECIPES.put(new ItemMetaKey(input, inputMeta), new ItemStack(output, outputCount, outputMeta));
+        }
+    }
+
     private static class ItemMetaKey {
         private final Item item;
         private final int meta;
@@ -64,14 +70,16 @@ public class TileEntityIridiumFurnace extends TileEntity implements ISidedInvent
     static {
         //Custom recipes that override the ones from the main smelting list.
         //No Idea why it would not work with items if I did not do this but this was the only workaround I found.
-        CUSTOM_FURNACE_RECIPES.put(new ItemMetaKey(NovaCraftItems.raw_iridium, 0), new ItemStack(NovaCraftItems.iridium_nugget, 1, 0));
-        CUSTOM_FURNACE_RECIPES.put(new ItemMetaKey(NovaCraftItems.vanite_chunk, 0), new ItemStack(NovaCraftItems.vanite_ingot, 1, 0));
-        CUSTOM_FURNACE_RECIPES.put(new ItemMetaKey(NovaCraftItems.klangite_blend, 0), new ItemStack(NovaCraftItems.impure_klangite_ingot, 1, 0));
-        CUSTOM_FURNACE_RECIPES.put(new ItemMetaKey(NovaCraftItems.pherithium_lump, 0), new ItemStack(NovaCraftItems.pherithium_ingot, 1, 0));
+        addCustomRecipe(NovaCraftItems.raw_iridium, 0, NovaCraftItems.iridium_nugget, 1, 0);
+        addCustomRecipe(NovaCraftItems.legendary_resource, 3, NovaCraftItems.legendary_resource, 1, 1);
+        addCustomRecipe(NovaCraftItems.vanite_chunk, 0, NovaCraftItems.vanite_ingot, 1, 0);
+        addCustomRecipe(NovaCraftItems.klangite_blend, 0, NovaCraftItems.impure_klangite_ingot, 1, 0);
+        addCustomRecipe(NovaCraftItems.pherithium_lump, 0, NovaCraftItems.pherithium_ingot, 1, 0);
 
-        CUSTOM_FURNACE_RECIPES.put(new ItemMetaKey(OtherModItems.raw_ore, 0), new ItemStack(OtherModItems.copper_ingot, 1, 0));
-        CUSTOM_FURNACE_RECIPES.put(new ItemMetaKey(OtherModItems.raw_ore, 1), new ItemStack(Items.iron_ingot, 1, 0));
-        CUSTOM_FURNACE_RECIPES.put(new ItemMetaKey(OtherModItems.raw_ore, 2), new ItemStack(Items.gold_ingot, 1, 0));
+        //Items from other mods
+        addCustomRecipe(OtherModItems.raw_ore, 0, OtherModItems.copper_ingot, 1, 0);
+        addCustomRecipe(OtherModItems.raw_ore, 1, Items.iron_ingot, 1, 0);
+        addCustomRecipe(OtherModItems.raw_ore, 2, Items.gold_ingot, 1, 0);
     }
 
     //Positions of the 9 blazlinite blocks in the furnace based on the metadata of the furnace.

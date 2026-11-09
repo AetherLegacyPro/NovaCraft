@@ -49,7 +49,7 @@ public class EntityCaveMonitor extends EntityMob
             ///this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(100.0D);
             //this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.100000011920929D);
         //} else {
-        	this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
+        	this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(3.0D);
             this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);
             this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(1.000000011920929D);
          //}
@@ -202,7 +202,7 @@ public class EntityCaveMonitor extends EntityMob
         final int j = MathHelper.floor_double(this.boundingBox.minY);
         final int k = MathHelper.floor_double(this.posZ);
         final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes((Entity)this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);          
-        return (this.posY <= 40.0D && this.worldObj.getBlockLightValue(i, j, k) < 7 && canSpawn);
+        return (this.posY <= 40.0D && this.worldObj.getBlockLightValue(i, j, k) < 7 && canSpawn && this.worldObj.provider.dimensionId == 0);
                        
     }
 }

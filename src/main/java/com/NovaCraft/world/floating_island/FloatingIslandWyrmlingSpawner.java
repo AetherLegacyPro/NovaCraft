@@ -4,6 +4,7 @@ import java.util.Random;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -80,9 +81,16 @@ public class FloatingIslandWyrmlingSpawner extends WorldGenAbstractTree
 		world.setBlock(i + 3, j + 2, k + 3, Blocks.mob_spawner, 0, 2);
 		TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 3, j + 2, k + 3);
 
-		if (tileentitymobspawner != null)
-		{
-			tileentitymobspawner.func_145881_a().setEntityName("nova_craft.soloid");
+		if (tileentitymobspawner != null) {
+			NBTTagCompound spawnerData = new NBTTagCompound();
+			tileentitymobspawner.writeToNBT(spawnerData);
+			spawnerData.setString("EntityId", "nova_craft.wyrmling");
+			NBTTagCompound spawnData = new NBTTagCompound();
+			spawnData.setBoolean("AlwaysHostile", true);
+			spawnerData.setTag("SpawnData", spawnData);
+			tileentitymobspawner.readFromNBT(spawnerData);
+			tileentitymobspawner.markDirty();
+			world.markBlockForUpdate(i + 3, j + 2, k + 3);
 		}
 
 		return true;

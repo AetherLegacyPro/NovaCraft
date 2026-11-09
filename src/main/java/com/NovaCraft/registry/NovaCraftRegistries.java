@@ -156,6 +156,7 @@ public class NovaCraftRegistries {
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.etherstone_brimstone), new ItemStack(NovaCraftItems.brimstone_dust), .05F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.etherstone_gold), new ItemStack(Items.gold_ingot), .1F);
 		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.disc_fragment_5), new ItemStack(NovaCraftItems.vanite_ingot), .1F);
+		GameRegistry.addSmelting(new ItemStack(NovaCraftItems.bottle_of_cinnabar_powder), new ItemStack(NovaCraftItems.near_empty_bottle_of_mercury), .05F);
 
 		GameRegistry.addSmelting(new ItemStack(NovaCraftBlocks.meteorite_block), new ItemStack(Items.iron_ingot), .05F);
 
@@ -242,6 +243,8 @@ public class NovaCraftRegistries {
 		register("basal_bricks", new ItemStack(NovaCraftBlocks.basal_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.basal);
 		register("cinnabar_bricks", new ItemStack(NovaCraftBlocks.cinnabar_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.cinnabar);
 		register("stibnite_bricks", new ItemStack(NovaCraftBlocks.stibnite_bricks, 4), "XX", "XX", 'X', NovaCraftBlocks.stibnite);
+
+		register("cinnabar", new ItemStack(NovaCraftBlocks.cinnabar, 1), "XX", "XX", 'X', NovaCraftItems.cinnabar_powder);
 
 		register("welkin_stick", new ItemStack(NovaCraftItems.welkin_stick, 4), "X", "X", 'X', NovaCraftBlocks.welkin_planks);
 
@@ -360,15 +363,26 @@ public class NovaCraftRegistries {
 		register("blazing_coal_block", new ItemStack(NovaCraftBlocks.blazing_coal_block), "XXX", "XXX", "XXX", 'X', NovaCraftItems.blazing_coal);
 		register("iridium_ingot", new ItemStack(NovaCraftItems.iridium_ingot, 9), "X", 'X', NovaCraftBlocks.block_of_iridium);
 		register("block_of_iridium", new ItemStack(NovaCraftBlocks.block_of_iridium), "XXX", "XXX", "XXX", 'X', NovaCraftItems.iridium_ingot);
+		register("mercuridium_ingot", new ItemStack(NovaCraftItems.mercuridium_ingot, 9), "X", 'X', NovaCraftBlocks.block_of_mercuridium);
+		register("block_of_mercuridium", new ItemStack(NovaCraftBlocks.block_of_mercuridium), "XXX", "XXX", "XXX", 'X', NovaCraftItems.mercuridium_ingot);
 
+		register("bottle_of_mercury", new ItemStack(NovaCraftItems.glass_bottle_of_mercury), "XXX", "XYX", "XXX", 'X', NovaCraftItems.near_empty_bottle_of_mercury, 'Y', Items.glass_bottle);
+
+		register("legendary_resource", new ItemStack(NovaCraftItems.legendary_resource, 2, 5), " X ", "ZYZ", " X ", 'X', NovaCraftItems.anomalous_shard, 'Y', new ItemStack(NovaCraftItems.legendary_resource, 1, 4), 'Z', NovaCraftItems.xancium_ingot);
+		register("legendary_resource", new ItemStack(NovaCraftItems.legendary_resource, 9, 0), "X", 'X', new ItemStack(NovaCraftBlocks.legendary_ore_block, 0, 0));
+		register("legendary_resource", new ItemStack(NovaCraftItems.legendary_resource, 9, 1), "X", 'X', new ItemStack(NovaCraftBlocks.legendary_ore_block, 0, 1));
+		register("legendary_resource", new ItemStack(NovaCraftItems.legendary_resource, 9, 2), "X", 'X', new ItemStack(NovaCraftBlocks.legendary_ore_block, 0, 2));
+		register("legendary_ore_block", new ItemStack(NovaCraftBlocks.legendary_ore_block, 1, 0), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.legendary_resource, 1, 0));
+		register("legendary_ore_block", new ItemStack(NovaCraftBlocks.legendary_ore_block, 1, 1), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.legendary_resource, 1, 1));
+		register("legendary_ore_block", new ItemStack(NovaCraftBlocks.legendary_ore_block, 1, 2), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.legendary_resource, 1, 2));
 		register("iridium_nugget", new ItemStack(NovaCraftItems.iridium_nugget, 9, 0), "X", 'X', NovaCraftItems.iridium_ingot);
-		register("iridium_ingot", new ItemStack(NovaCraftItems.iridium_ingot), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.iridium_nugget, 0, 0));
+		register("iridium_ingot", new ItemStack(NovaCraftItems.iridium_ingot), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.iridium_nugget, 1, 0));
 		register("vanite_nugget", new ItemStack(NovaCraftItems.iridium_nugget, 9, 1), "X", 'X', NovaCraftItems.vanite_ingot);
-		register("vanite_ingot", new ItemStack(NovaCraftItems.vanite_ingot), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.iridium_nugget, 0, 1));
+		register("vanite_ingot", new ItemStack(NovaCraftItems.vanite_ingot), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.iridium_nugget, 1, 1));
 		register("diamond_nugget", new ItemStack(NovaCraftItems.diamond_nugget, 9, 0), "X", 'X', Items.diamond);
-		register("diamond", new ItemStack(Items.diamond), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 0, 0));
+		register("diamond", new ItemStack(Items.diamond), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 0));
 		register("emerald_nugget", new ItemStack(NovaCraftItems.diamond_nugget, 9, 1), "X", 'X', Items.emerald);
-		register("emerald", new ItemStack(Items.emerald), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 0, 1));
+		register("emerald", new ItemStack(Items.emerald), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 1));
 		register("klangite_nugget", new ItemStack(NovaCraftItems.iridium_nugget, 9, 2), "X", 'X', NovaCraftItems.impure_klangite_ingot);
 		register("impure_klangite_ingot", new ItemStack(NovaCraftItems.impure_klangite_ingot), "XXX", "XXX", "XXX", 'X', new ItemStack(NovaCraftItems.iridium_nugget, 0, 2));
 
@@ -467,6 +481,17 @@ public class NovaCraftRegistries {
 		register("sculked_shard", new ItemStack(NovaCraftItems.sculked_shard, 9), "X", 'X', NovaCraftBlocks.crystallized_sculk);
 		register("crystallized_sculk", new ItemStack(NovaCraftBlocks.crystallized_sculk), "XXX", "XXX", "XXX", 'X', NovaCraftItems.sculked_shard);
 
+		register("unpowered_bedrock_cleave", new ItemStack(NovaCraftItems.unpowered_bedrock_cleave), "XYX", "WZV", " T ", 'X', NovaCraftItems.enhanced_enflamed_null_cube_slimeball, 'Y', NovaCraftItems.outsider_ingot, 'Z', NovaCraftItems.dimensional_sealent, 'W', NovaCraftItems.geode_staff, 'V', NovaCraftItems.prospector_pickaxe, 'T', NovaCraftItems.iridium_handle);
+
+		register("geode_staff", new ItemStack(NovaCraftItems.geode_staff), "XYX", "WZW", " Z ", 'X', NovaCraftItems.anomalous_essence, 'Y', NovaCraftItems.copartz_shard, 'Z', NovaCraftItems.welkin_stick, 'W', new ItemStack(NovaCraftItems.iridium_nugget, 1, 1));
+		register("geode_staff", new ItemStack(NovaCraftItems.geode_staff), "XYX", "WZW", " Z ", 'X', NovaCraftItems.anomalous_essence, 'Y', NovaCraftItems.larimar_shard, 'Z', NovaCraftItems.welkin_stick, 'W', new ItemStack(NovaCraftItems.iridium_nugget, 1, 1));
+		register("geode_staff", new ItemStack(NovaCraftItems.geode_staff), "XYX", "WZW", " Z ", 'X', NovaCraftItems.anomalous_essence, 'Y', NovaCraftItems.tsavorokite_shard, 'Z', NovaCraftItems.welkin_stick, 'W', new ItemStack(NovaCraftItems.iridium_nugget, 1, 1));
+		register("geode_staff", new ItemStack(NovaCraftItems.geode_staff), "XYX", "WZW", " Z ", 'X', NovaCraftItems.anomalous_essence, 'Y', NovaCraftItems.aether_shard, 'Z', NovaCraftItems.welkin_stick, 'W', new ItemStack(NovaCraftItems.iridium_nugget, 1, 1));
+		register("geode_staff", new ItemStack(NovaCraftItems.geode_staff), "XYX", "WZW", " Z ", 'X', NovaCraftItems.anomalous_essence, 'Y', NovaCraftItems.yttrlinsite_shard, 'Z', NovaCraftItems.welkin_stick, 'W', new ItemStack(NovaCraftItems.iridium_nugget, 1, 1));
+
+		register("poor_prospector_pickaxe", new ItemStack(NovaCraftItems.poor_prospector_pickaxe), "XXY", "WZY", " Z ", 'X', NovaCraftItems.pherithium_ingot, 'Y', new ItemStack(NovaCraftItems.iridium_nugget, 1, 1), 'Z', Items.stick, 'W', NovaCraftItems.cave_monitor_scales);
+		register("degraded_prospector_pickaxe", new ItemStack(NovaCraftItems.degraded_prospector_pickaxe), "XXY", "WZY", " Z ", 'X', NovaCraftItems.pherithium_ingot, 'Y', new ItemStack(NovaCraftItems.iridium_nugget, 1, 1), 'Z', NovaCraftItems.welkin_stick, 'W', NovaCraftItems.cave_monitor_scales);
+
 		register("nullified_vanite", new ItemStack(NovaCraftBlocks.nullified_vanite), "XXX", "XXX", "XXX", 'X', NovaCraftItems.nullified_vanite_alloy);
 		register("nullified_vanite_alloy", new ItemStack(NovaCraftItems.nullified_vanite_alloy, 3), "XYX", "YXY", "XYX", 'X', NovaCraftItems.crystallized_vanite_alloy, 'Y', NovaCraftItems.null_shard);
 
@@ -492,7 +517,7 @@ public class NovaCraftRegistries {
 		register("tophinite_hammer", new ItemStack(NovaCraftItems.tophinite_hammer), " WV", "XYW", "ZX ", 'X', NovaCraftItems.superheated_magma_cream, 'Y', NovaCraftItems.iridium_handle, 'Z', NovaCraftItems.deep_one_bone, 'W', NovaCraftItems.deepoid_horn, 'V', new ItemStack(NovaCraftBlocks.block_of_tophinite));
 
 		register("pherithium_shickaxe", new ItemStack(NovaCraftItems.pherithium_shickaxe), "UXU", "YZW", "UVU", 'X', NovaCraftItems.pherithium_pickaxe, 'Y', NovaCraftItems.pherithium_axe, 'Z', NovaCraftItems.reinforced_vanite_ingot, 'W', NovaCraftItems.pherithium_shovel, 'V', NovaCraftItems.pherithium_hoe, 'U', Items.magma_cream);
-		register("reinforced_pherithium_shickaxe", new ItemStack(NovaCraftItems.reinforced_pherithium_shickaxe), " XY", "ZWX", "UZ ", 'X', NovaCraftItems.deepoid_horn, 'Y', NovaCraftItems.superheated_magma_cream, 'Z', NovaCraftItems.sculked_shard, 'W', NovaCraftItems.pherithium_shickaxe, 'U', NovaCraftItems.deep_one_bone);
+		register("reinforced_pherithium_shickaxe", new ItemStack(NovaCraftItems.reinforced_pherithium_shickaxe), " XY", "ZWX", "UZ ", 'X', NovaCraftItems.deepoid_horn, 'Y', NovaCraftItems.superheated_magma_cream, 'Z', NovaCraftItems.mercuridium_ingot, 'W', NovaCraftItems.pherithium_shickaxe, 'U', NovaCraftItems.deep_one_bone);
 
 		register("diablo", new ItemStack(NovaCraftItems.diablo), "WVW", "ZYU", "XZW", 'X', NovaCraftItems.deep_one_bone, 'Y', NovaCraftItems.scythe, 'Z', NovaCraftItems.ophidian_scales, 'W', NovaCraftItems.ionizatior_powder, 'U', NovaCraftItems.superheated_magma_cream, 'V', NovaCraftItems.blazing_serpent_tooth);
 
@@ -510,8 +535,8 @@ public class NovaCraftRegistries {
 
 		register("powered_ancient_city_artifact", new ItemStack(NovaCraftItems.powered_ancient_city_artifact), "XVX", "VYV", "XZX", 'X', NovaCraftItems.static_essence, 'Y', NovaCraftItems.sculked_monitor_eye, 'Z', NovaCraftItems.ancient_city_artifact, 'V', NovaCraftItems.wardling_dust);
 
-		register("iridium_bricks", new ItemStack(NovaCraftBlocks.iridium_bricks, 5), "XYX", "WZW", "XWX", 'X', new ItemStack(NovaCraftBlocks.cracked_iridium_bricks), 'Y', new ItemStack(NovaCraftItems.iridium_ingot), 'Z', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'W', new ItemStack(NovaCraftItems.iridium_nugget, 1, 0));
-		register("iridium_bricks", new ItemStack(NovaCraftBlocks.iridium_bricks, 5), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftBlocks.deepoid_bricks), 'Y', new ItemStack(NovaCraftItems.iridium_ingot), 'Z', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2));
+		register("iridium_bricks", new ItemStack(NovaCraftBlocks.iridium_bricks, 5), "XYX", "WZW", "XWX", 'X', new ItemStack(NovaCraftBlocks.cracked_iridium_bricks), 'Y', new ItemStack(NovaCraftItems.mercuridium_ingot), 'Z', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'W', new ItemStack(NovaCraftItems.iridium_nugget, 1, 0));
+		register("iridium_bricks", new ItemStack(NovaCraftBlocks.iridium_bricks, 5), "XWX", "YZY", "XYX", 'X', new ItemStack(NovaCraftBlocks.deepoid_bricks), 'Y', new ItemStack(NovaCraftItems.iridium_ingot), 'Z', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'W', new ItemStack(NovaCraftItems.mercuridium_ingot));
 		register("iridium_power_core", new ItemStack(NovaCraftBlocks.iridium_power_core, 1), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.reinforced_iridium_ingot), 'Z', new ItemStack(NovaCraftBlocks.deepoid_power_core));
 		register("iridium_trapdoor", new ItemStack(NovaCraftBlocks.iridium_trapdoor, 1), "XXX", "YYY", "XXX", 'X', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Y', new ItemStack(NovaCraftItems.reinforced_iridium_ingot));
 
@@ -566,7 +591,7 @@ public class NovaCraftRegistries {
 			}
 		}
 
-		register("fractured_heart_of_the_end", new ItemStack(NovaCraftItems.fractured_heart_of_the_end, 4), "X", 'X', NovaCraftItems.heart_of_the_end);
+		register("fractured_heart_of_the_end", new ItemStack(NovaCraftItems.fractured_heart_of_the_end, 4), "X", 'X', NovaCraftItems.unpowered_heart_of_the_end);
 		register("disk_5", new ItemStack(NovaCraftItems.disc_5), "XXX", "XXX", "XXX", 'X', NovaCraftItems.disc_fragment_5);
 
 		register("vanite_bottle", new ItemStack(NovaCraftItems.vanite_bottle, 16), "X X", "XYX", " X ", 'X', NovaCraftBlocks.vanite_glass, 'Y', NovaCraftItems.reinforced_vanite_ingot);
@@ -729,9 +754,9 @@ public class NovaCraftRegistries {
 		register("moss_carpet", new ItemStack(NovaCraftBlocks.moss_carpet, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.moss_block));
 		register("arctic_moss_carpet", new ItemStack(NovaCraftBlocks.arctic_moss_carpet, 6), "ZZZ", 'Z', new ItemStack(NovaCraftBlocks.arctic_moss_block));
 
-		register("diamond_firecharge_launcher", new ItemStack(NovaCraftItems.diamond_firecharge_launcher), " Z ", "ZYZ", " ZX", 'Z', new ItemStack(NovaCraftItems.reinforced_vanite_ingot), 'Y', new ItemStack(Blocks.diamond_block), 'X', new ItemStack(Items.quartz));
-		register("vanite_firecharge_launcher", new ItemStack(NovaCraftItems.vanite_firecharge_launcher), " ZY", "ZXW", "YWU", 'Z', new ItemStack(NovaCraftItems.reinforced_vanite_ingot), 'Y', new ItemStack(Items.blaze_powder), 'X', new ItemStack(NovaCraftBlocks.block_of_reinforced_vanite), 'W', new ItemStack(NovaCraftItems.enflamed_null_cube_slimeball), 'U', new ItemStack(NovaCraftItems.variegated_shard));
-		register("klangite_firecharge_launcher", new ItemStack(NovaCraftItems.klangite_firecharge_launcher), " ZY", "ZXW", "YWV", 'Z', new ItemStack(NovaCraftItems.reinforced_vanite_ingot), 'Y', new ItemStack(NovaCraftItems.corrupted_essence), 'X', new ItemStack(NovaCraftItems.klangite_ingot), 'W', new ItemStack(NovaCraftItems.enhanced_enflamed_null_cube_slimeball), 'V', new ItemStack(NovaCraftItems.nullified_dust));
+		register("diamond_firecharge_launcher", new ItemStack(NovaCraftItems.diamond_firecharge_launcher), " Z ", "ZYZ", " ZX", 'Z', new ItemStack(NovaCraftItems.reinforced_vanite_ingot), 'Y', new ItemStack(Blocks.diamond_block), 'X', new ItemStack(NovaCraftItems.mercuridium_ingot));
+		register("vanite_firecharge_launcher", new ItemStack(NovaCraftItems.vanite_firecharge_launcher), " ZY", "ZXW", "YWU", 'Z', new ItemStack(NovaCraftItems.reinforced_vanite_ingot), 'Y', new ItemStack(Items.blaze_powder), 'X', new ItemStack(NovaCraftItems.mercuridium_ingot), 'W', new ItemStack(NovaCraftItems.enflamed_null_cube_slimeball), 'U', new ItemStack(NovaCraftItems.variegated_shard));
+		register("klangite_firecharge_launcher", new ItemStack(NovaCraftItems.klangite_firecharge_launcher), " EY", "ZXW", "YWV", 'E', new ItemStack(NovaCraftItems.mercuridium_ingot), 'Z', new ItemStack(NovaCraftItems.reinforced_vanite_ingot), 'Y', new ItemStack(NovaCraftItems.corrupted_essence), 'X', new ItemStack(NovaCraftItems.klangite_ingot), 'W', new ItemStack(NovaCraftItems.enhanced_enflamed_null_cube_slimeball), 'V', new ItemStack(NovaCraftItems.nullified_dust));
 
 		register("advanced_enchantment_table", new ItemStack(NovaCraftBlocks.advanced_enchantment_table), "VUV", "WZW", "XYX", 'Z', new ItemStack(NovaCraftItems.copartz_shard), 'Y', new ItemStack(NovaCraftItems.sculk_dweller_heart), 'X', new ItemStack(Blocks.obsidian), 'W', new ItemStack(NovaCraftItems.tophinite_gemstone), 'V', new ItemStack(NovaCraftItems.ionizatior_powder), 'U', new ItemStack(Items.book));
 		register("advanced_enchantment_table", new ItemStack(NovaCraftBlocks.advanced_enchantment_table), "VUV", "WZW", "XYX", 'Z', new ItemStack(NovaCraftItems.larimar_shard), 'Y', new ItemStack(NovaCraftItems.sculk_dweller_heart), 'X', new ItemStack(Blocks.obsidian), 'W', new ItemStack(NovaCraftItems.tophinite_gemstone), 'V', new ItemStack(NovaCraftItems.ionizatior_powder), 'U', new ItemStack(Items.book));
@@ -770,6 +795,7 @@ public class NovaCraftRegistries {
 		register("vanite_exotic_crown", new ItemStack(NovaCraftItems.vanite_exotic_crown), "XZX", "ZYZ", "Z Z", 'Z', new ItemStack(NovaCraftItems.vanite_ingot), 'Y', new ItemStack(NovaCraftItems.null_shard), 'X', new ItemStack(NovaCraftItems.tophinite_gemstone));
 		register("vanite_mysterious_crown", new ItemStack(NovaCraftItems.vanite_mysterious_crown), "XZX", "ZYZ", "Z Z", 'Z', new ItemStack(NovaCraftItems.vanite_ingot), 'Y', new ItemStack(NovaCraftItems.warden_shard), 'X', new ItemStack(NovaCraftItems.tophinite_gemstone));
 
+		register("unpowered_heart_of_the_end", new ItemStack(NovaCraftItems.unpowered_heart_of_the_end), "XYX", "YZY", "XYX", 'X', new ItemStack(NovaCraftItems.phantom_membrane), 'Y', new ItemStack(NovaCraftItems.fractured_heart_of_the_end), 'Z', new ItemStack(NovaCraftItems.crystallized_end_shard));
 
 		register("vanite_cauldron_item", new ItemStack(NovaCraftItems.vanite_cauldron_item), "X X", "X X", "XXX", 'X', new ItemStack(NovaCraftItems.vanite_ingot));
 
@@ -843,6 +869,9 @@ public class NovaCraftRegistries {
 			registerShapeless("end_portal_sealent", new ItemStack(NovaCraftItems.end_portal_sealent, 2), new ItemStack(NovaCraftItems.vanite_bottle), new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), new ItemStack(Items.ender_pearl), new ItemStack(Items.potionitem, 1, 8229), new ItemStack(NovaCraftItems.relik_dust), new ItemStack(NovaCraftItems.vanite_bottle));
 		}
 
+		registerShapeless("cinnabar_powder", new ItemStack(NovaCraftItems.cinnabar_powder), new ItemStack(NovaCraftBlocks.cinnabar));
+		registerShapeless("bottle_of_cinnabar_powder", new ItemStack(NovaCraftItems.bottle_of_cinnabar_powder), new ItemStack(NovaCraftItems.cinnabar_powder), new ItemStack(Items.glass_bottle));
+
 		registerShapeless("inked_sculk_block", new ItemStack(NovaCraftBlocks.inked_sculk_block), new ItemStack(NovaCraftBlocks.sculk_block), new ItemStack(NovaCraftItems.glow_ink_sac));
 		registerShapeless("sculk_bricks", new ItemStack(NovaCraftBlocks.sculk_bricks, 2), new ItemStack(NovaCraftBlocks.grimstone_bricks), new ItemStack(NovaCraftBlocks.sculk_block));
 		registerShapeless("inked_vacuum_sand", new ItemStack(NovaCraftBlocks.inked_vacuum_sand), new ItemStack(NovaCraftBlocks.vacuum_sand), new ItemStack(NovaCraftItems.glow_ink_sac));
@@ -881,8 +910,6 @@ public class NovaCraftRegistries {
 		registerShapeless("variegated_shard", new ItemStack(NovaCraftItems.variegated_shard, 2), new ItemStack(NovaCraftItems.aether_shard), new ItemStack(NovaCraftItems.copartz_shard), new ItemStack(NovaCraftItems.larimar_shard), new ItemStack(NovaCraftItems.tsavorokite_shard), new ItemStack(NovaCraftItems.yttrlinsite_shard), new ItemStack(NovaCraftItems.copartz_shard), new ItemStack(NovaCraftItems.larimar_shard), new ItemStack(NovaCraftItems.tsavorokite_shard), new ItemStack(NovaCraftItems.yttrlinsite_shard));
 		registerShapeless("xancium_firecharge", new ItemStack(NovaCraftItems.xancium_firecharge, 3), new ItemStack(NovaCraftItems.xancium_dust), new ItemStack(Items.fire_charge), new ItemStack(NovaCraftItems.echo_shard), new ItemStack(NovaCraftItems.flaming_pitcher_petal));
 
-		registerShapeless("heart_of_the_end", new ItemStack(NovaCraftItems.heart_of_the_end, 1), new ItemStack(NovaCraftItems.fractured_heart_of_the_end), new ItemStack(NovaCraftItems.fractured_heart_of_the_end), new ItemStack(NovaCraftItems.fractured_heart_of_the_end), new ItemStack(NovaCraftItems.fractured_heart_of_the_end));
-
 		registerShapeless("infused_copartz_shard", new ItemStack(NovaCraftItems.infused_copartz_shard), new ItemStack(NovaCraftItems.copartz_shard), new ItemStack(NovaCraftItems.dark_essence), new ItemStack(NovaCraftItems.anomalous_essence));
 		registerShapeless("infused_larimar_shard", new ItemStack(NovaCraftItems.infused_larimar_shard), new ItemStack(NovaCraftItems.larimar_shard), new ItemStack(NovaCraftItems.dark_essence), new ItemStack(NovaCraftItems.anomalous_essence));
 		registerShapeless("infused_tsavorokite_shard", new ItemStack(NovaCraftItems.infused_tsavorokite_shard), new ItemStack(NovaCraftItems.tsavorokite_shard), new ItemStack(NovaCraftItems.dark_essence), new ItemStack(NovaCraftItems.anomalous_essence));
@@ -901,7 +928,7 @@ public class NovaCraftRegistries {
 
 		registerShapeless("glowing_basal", new ItemStack(NovaCraftBlocks.glowing_basal), new ItemStack(NovaCraftBlocks.basal), new ItemStack(NovaCraftItems.yttrlinsite_shard), new ItemStack(Items.blaze_powder));
 
-		registerShapeless("reinforced_iridium_ingot", new ItemStack(NovaCraftItems.reinforced_iridium_ingot), new ItemStack(NovaCraftItems.iridium_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot), new ItemStack(NovaCraftItems.sculked_shard));
+		registerShapeless("reinforced_iridium_ingot", new ItemStack(NovaCraftItems.reinforced_iridium_ingot, 2), new ItemStack(NovaCraftItems.iridium_ingot), new ItemStack(NovaCraftItems.mercuridium_ingot), new ItemStack(NovaCraftItems.reinforced_vanite_ingot));
 
 		registerShapeless("blazing_coal", new ItemStack(NovaCraftItems.blazing_coal), new ItemStack(NovaCraftItems.flaming_pitcher_petal), new ItemStack(Items.coal), new ItemStack(Items.blaze_powder));
 		registerShapeless("nullwart_blend", new ItemStack(NovaCraftItems.nullwart_blend, 3), new ItemStack(NovaCraftItems.vanite_crystal), new ItemStack(NovaCraftItems.ionizatior_powder), new ItemStack(NovaCraftItems.nullwart));

@@ -3,20 +3,11 @@ package com.NovaCraftBlocks.potion;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
-
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.TileEntity.TileEntityDeepOneEggActivated;
-import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
-import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.item.EntityFallingBlock;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
@@ -68,7 +59,7 @@ public class BlockDeepOneEggActivated extends BlockContainer
     }
     
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
+    public Item getItem(World world, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
         return Item.getItemById(0);
     }
@@ -79,20 +70,15 @@ public class BlockDeepOneEggActivated extends BlockContainer
 	}
     
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
+    public void randomDisplayTick(World world, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random random)
     {
-        super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
+        super.randomDisplayTick(world, p_149734_2_, p_149734_3_, p_149734_4_, random);
 
-        if (p_149734_5_.nextInt(2) == 0)
+        if (random.nextInt(2) == 0)
         {
-            p_149734_1_.spawnParticle("smoke", (double)((float)p_149734_2_ + p_149734_5_.nextFloat()), (double)((float)p_149734_3_ + 1.1F), (double)((float)p_149734_4_ + p_149734_5_.nextFloat()), 0.0D, 0.0D, 0.0D);
-            p_149734_1_.spawnParticle("flame", (double)((float)p_149734_2_ + p_149734_5_.nextFloat()), (double)((float)p_149734_3_ + 1.1F), (double)((float)p_149734_4_ + p_149734_5_.nextFloat()), 0.0D, 0.0D, 0.0D);
+            world.spawnParticle("smoke", (double)((float)p_149734_2_ + random.nextFloat()), (double)((float)p_149734_3_ + 1.1F), (double)((float)p_149734_4_ + random.nextFloat()), 0.0D, 0.0D, 0.0D);
+            world.spawnParticle("flame", (double)((float)p_149734_2_ + random.nextFloat()), (double)((float)p_149734_3_ + 1.1F), (double)((float)p_149734_4_ + random.nextFloat()), 0.0D, 0.0D, 0.0D);
 
         }
-    }
-    
-    protected String getSummoningSound()
-    {
-        return "nova_craft:boss.DOsummoning";
     }
 }

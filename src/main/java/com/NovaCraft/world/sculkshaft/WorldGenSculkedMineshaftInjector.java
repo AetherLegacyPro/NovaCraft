@@ -1,38 +1,16 @@
 package com.NovaCraft.world.sculkshaft;
 
-import java.lang.reflect.Field;
-import net.minecraft.world.WorldServer;
-import net.minecraft.world.gen.ChunkProviderGenerate;
-import net.minecraft.world.gen.ChunkProviderServer;
-import net.minecraft.world.gen.structure.MapGenMineshaft;
-import net.minecraftforge.event.world.WorldEvent;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.event.terraingen.InitMapGenEvent;
 
 public class WorldGenSculkedMineshaftInjector {
 
-    @SubscribeEvent
-    public void onWorldLoad(WorldEvent.Load event) {
-        if (!(event.world instanceof WorldServer)) return;
-
-        WorldServer world = (WorldServer) event.world;
-        ChunkProviderServer cps = world.theChunkProviderServer;
-
-        if (!(cps.currentChunkProvider instanceof ChunkProviderGenerate)) return;
-
-        ChunkProviderGenerate gen = (ChunkProviderGenerate) cps.currentChunkProvider;
-
-        try {
-            for (Field field : ChunkProviderGenerate.class.getDeclaredFields()) {
-                field.setAccessible(true);
-                Object value = field.get(gen);
-
-                if (value instanceof MapGenMineshaft) {
-                    field.set(gen, new MapGenSculkMineshaft());
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public void onInitMapGen(InitMapGenEvent event) {
+        if (event.type == InitMapGenEvent.EventType.MINESHAFT) {
+            boolean efrMesa = event.newGen != null && event.newGen.getClass().getName().equals(MapGenSculkMineshaft.EFR_MESA_GENERATOR);
+            event.newGen = new MapGenSculkMineshaft(efrMesa);
         }
     }
 }

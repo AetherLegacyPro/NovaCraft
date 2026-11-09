@@ -183,7 +183,7 @@ public class EntitySculkAbomination extends EntityMob
 	
 	@Override
     public boolean getCanSpawnHere() {
-        return this.posY <= 44.0D && super.getCanSpawnHere();
+        return this.posY <= 44.0D && this.worldObj.provider.dimensionId == 0 && super.getCanSpawnHere();
     }
 
 }

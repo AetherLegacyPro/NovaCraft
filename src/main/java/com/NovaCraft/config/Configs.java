@@ -15,6 +15,7 @@ public class Configs {
     public static boolean disableEnchantedGoldenAppleRecipe;
     public static boolean enableWeaponsToAllignWithVanilla;
     public static boolean enableHalfNaturalRegenInEnd;
+    public static int[] hardmodeExcludedDimensions = new int[0];
 
     //Vanilla Ore Generation Alterations
     public static boolean disableRegularVanillaGen;
@@ -64,9 +65,10 @@ public class Configs {
     public static final String catGeneration = "New generation";
     public static final String catParticles = "New particles";
 
+    private static Configuration conf;
     public static void loadConfigs(File configFile) {
         NovaCraft.logger.info("Loading configuration...");
-        Configuration conf = new Configuration(configFile);
+        conf = new Configuration(configFile);
         conf.load();
         String category = "vanilla";
         Property prop = conf.get(category, "disableRegularVanillaGen", true);
@@ -147,11 +149,17 @@ public class Configs {
         enableCrackedEndPortalFrame = conf.getBoolean("enableCrackedEndPortalFrame", "Misc", true, "Enables that several end portal frames are cracked and must be repaired in the Stronghold.");
         enableAlternateEndPortalSealentRecipe = conf.getBoolean("enableAlternateEndPortalSealentRecipe", "Misc", false, "Enables a standard crafting recipe for the End Portal Sealent instead of using the vanite cauldron.");
         enableOldCaveGeneration = conf.getBoolean("enableOldCaveGeneration", "Important Options", true, "Enables 1.6.4 Cave Generation; Caves are more common.");
+        hardmodeExcludedDimensions = conf.get("hardmode", "excludedDimensions", new int[0], "Dimension IDs where hostile mobs should not get a hardmode buff.").getIntList();
 
         if (conf.hasChanged()) {
             conf.save();
         }
+    }
 
+    public static void enableHardmodeAndSave() {
+        enableHardmode = true;
+        conf.get("Misc", "enableHardmode", false).set(true);
+        conf.save();
     }
 }
 

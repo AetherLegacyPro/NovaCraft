@@ -146,12 +146,15 @@ public class EntityFrog extends EntityAnimal {
             this.isSwimming = false;
             this.swimTimer = 0;
         }
-        
-        if (this.getType() == EnumFrogType.POSION_1 || this.getType() == EnumFrogType.POSION_2 || this.getType() == EnumFrogType.POSION_3 || this.getType() == EnumFrogType.POSION_4) {
-        List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(1, 1, 1));
-    	for(Entity entity : volume) {
-    		if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.poison.id, 80, 2, true));
-    		}
+
+        if (!this.worldObj.isRemote) {
+            EnumFrogType type = this.getType();
+            if (type == EnumFrogType.POSION_1 || type == EnumFrogType.POSION_2 || type == EnumFrogType.POSION_3 || type == EnumFrogType.POSION_4) {
+                List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(1, 1, 1));
+                for (EntityPlayer player : players) {
+                    if (this.canEntityBeSeen(player)) player.addPotionEffect(new PotionEffect(Potion.poison.id, 80, 2, true));
+                }
+            }
         }
     }
     

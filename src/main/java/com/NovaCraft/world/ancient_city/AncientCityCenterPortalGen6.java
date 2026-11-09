@@ -2944,7 +2944,7 @@ public class AncientCityCenterPortalGen6 extends WorldGenerator
 			case 4:
 				return new ItemStack(NovaCraftItems.tsavorokite_shard, random.nextInt(1) + 1);
 			case 5:
-				return new ItemStack(NovaCraftItems.yttrlinsite_shard, 1);
+				return new ItemStack(NovaCraftItems.degraded_prospector_pickaxe, 1);
 			case 6:
 				return new ItemStack(NovaCraftBlocks.dim_vanite_torch, random.nextInt(14) + 1);
 			case 7: 

@@ -1,5 +1,6 @@
 package com.NovaCraft.world.ancient_city.prisoner;
 
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.block.*;
 import net.minecraft.enchantment.Enchantment;
@@ -356,15 +357,18 @@ public class AncientCityLargeHangingStructureGen extends WorldGenerator
 	        }			 
 			
 			world.setBlock(i + 5, j + 6, k + 4, NovaCraftBlocks.cracked_nullstone_deactivator, 0, 2);
-			
-			world.setBlock(i + 8, j + 6, k + 4, Blocks.chest, 4, 2);
-			TileEntityChest chest = (TileEntityChest) world.getTileEntity(i + 8, j + 6, k + 4);
 
-			for (int slot = 0; slot < 3 + random.nextInt(25); slot++) {
-				chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
-			}
+		 	this.setBlockAndNotifyAdequately(world, i + 8, j + 6, k + 4, Blocks.chest, 4);
+		 	TileEntity tile = world.getTileEntity(i + 8, j + 6, k + 4);
+		 	if (tile instanceof TileEntityChest) {
+				 TileEntityChest chest = (TileEntityChest) tile;
+
+				 for (int slot = 0; slot < 3 + random.nextInt(20); slot++) {
+					 chest.setInventorySlotContents(random.nextInt(chest.getSizeInventory()), this.getBasicLoot(random));
+				 }
+			 }
 			
-			world.setBlock(i + 5, j + 0, k + 4, Blocks.mob_spawner, 0, 2);
+			world.setBlock(i + 5, j, k + 4, Blocks.mob_spawner, 0, 2);
 			TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 5, j + 0, k + 4);
 			
 			    if (tileentitymobspawner != null) {

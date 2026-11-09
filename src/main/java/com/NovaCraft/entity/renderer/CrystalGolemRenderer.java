@@ -1,5 +1,6 @@
 package com.NovaCraft.entity.renderer;
 
+import com.NovaCraft.entity.misc.EnumGolemType;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,8 +13,17 @@ import com.NovaCraft.entity.EntityCrystalGolem;
 import com.NovaCraft.entity.models.CrystalGolemModel;
 
 @SideOnly(Side.CLIENT)
-public class CrystalGolemRenderer extends RenderLiving
-{
+public class CrystalGolemRenderer extends RenderLiving {
+    private static final ResourceLocation[] TEXTURES = new ResourceLocation[EnumGolemType.values().length];
+
+    static
+    {
+        for (EnumGolemType type : EnumGolemType.values())
+        {
+            TEXTURES[type.ordinal()] = new ResourceLocation("nova_craft", "textures/entity/crystal_golem/" + type + ".png");
+        }
+    }
+
     private final CrystalGolemModel crystalGolemModel;
 
     public CrystalGolemRenderer()
@@ -62,7 +72,7 @@ public class CrystalGolemRenderer extends RenderLiving
 
 	@Override
 	protected ResourceLocation getEntityTexture(final Entity entity) {
-        return new ResourceLocation("nova_craft", "textures/entity/crystal_golem/" + ((EntityCrystalGolem)entity).getType() + ".png");
+        return TEXTURES[((EntityCrystalGolem)entity).getType().ordinal()];
     }
 	
     public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)

@@ -1,27 +1,15 @@
 package com.NovaCraftBlocks.sculk;
 
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.entity.EntityWarden;
-import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockActivatedGrimstoneShrieker extends Block {
@@ -72,22 +60,18 @@ public class BlockActivatedGrimstoneShrieker extends Block {
 	}
 	
 	public void updateTick(World world, int i, int j, int k, Random random) {
-		
-		if (true) {
-		world.playSoundEffect(i, j, k, "nova_craft:boss.Wardensummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
-		world.setBlock(i, j, k, NovaCraftBlocks.grimstone_shrieker);
-		world.playSoundEffect(i, j, k, "nova_craft:boss.Wardensummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
-		
-			if (!world.isRemote)
-        	{
-				EntityWarden warden = new EntityWarden(world);
-				warden.setLocationAndAngles((double)i + 0.5D, (double)j, (double)k + 0.5D, 0.0F, 0.0F);
-				world.spawnEntityInWorld(warden);
-				warden.spawnExplosionParticle();
-        	}
+        world.playSoundEffect(i, j, k, "nova_craft:boss.Wardensummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
+        world.setBlock(i, j, k, NovaCraftBlocks.grimstone_shrieker);
+        world.playSoundEffect(i, j, k, "nova_craft:boss.Wardensummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
+
+        if (!world.isRemote) {
+            EntityWarden warden = new EntityWarden(world);
+            warden.setLocationAndAngles((double)i + 0.5D, (double)j, (double)k + 0.5D, 0.0F, 0.0F);
+            world.spawnEntityInWorld(warden);
+            warden.spawnExplosionParticle();
 		}
-		
-		world.scheduleBlockUpdate(i, j, k, this, this.tickRate(world));
+
+        world.scheduleBlockUpdate(i, j, k, this, this.tickRate(world));
 	}
 	
 	@Override

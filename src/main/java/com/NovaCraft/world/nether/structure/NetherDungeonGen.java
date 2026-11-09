@@ -485,7 +485,7 @@ public class NetherDungeonGen extends WorldGenerator
 				case 8: 
 					return new ItemStack(NovaCraftItems.flaming_pitcher_petal, 1);
 				case 9: 
-					return new ItemStack(NovaCraftItems.blazing_coal, random.nextInt(4) + 7);
+					return new ItemStack(NovaCraftItems.degraded_prospector_pickaxe, 1);
 				case 10: 
 					return new ItemStack(Items.glowstone_dust, random.nextInt(4) + 8);
 				case 11: 

@@ -7,7 +7,7 @@ import net.minecraft.world.gen.structure.StructureStart;
 //Trying to remove it caused worlds to crash on startup so this is a workaround
 public class EmptyStrongholdGenerator extends MapGenStronghold {
 
-    //Wanilla constructor
+    //Vanilla constructor
     public EmptyStrongholdGenerator() {
         super();
     }

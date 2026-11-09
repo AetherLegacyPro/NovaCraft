@@ -10,7 +10,6 @@ import net.minecraft.block.*;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.*;
 import java.util.*;
-
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;

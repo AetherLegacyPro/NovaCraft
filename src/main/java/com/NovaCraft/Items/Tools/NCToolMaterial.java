@@ -16,6 +16,9 @@ public class NCToolMaterial
 	public static Item.ToolMaterial WARDEN_SWORD;
 	public static Item.ToolMaterial CRYSTALITE;
 	public static Item.ToolMaterial CRYSTALITE_SWORD;
+	public static Item.ToolMaterial POOR_PROSPECTOR_PICK;
+	public static Item.ToolMaterial PROSPECTOR_PICK;
+	public static Item.ToolMaterial ANCIENT_PROSPECTOR_PICK;
 	
 	
 	public static Item.ToolMaterial KLANGITE;
@@ -43,12 +46,18 @@ public class NCToolMaterial
 	
 	public static Item.ToolMaterial PRIMEVAL_HORN;
 	public static Item.ToolMaterial SCULK_HORN;
+
+	public static Item.ToolMaterial BEDROCK_CLEAVE;
 	
 	 static {		 
-		   if (Configs.enableWeaponsToAllignWithVanilla == true) {
+		   if (Configs.enableWeaponsToAllignWithVanilla) {
 			   														//name, harvestLevel, maxUses, efficiency, damage, enchantability
 			NCToolMaterial.PHERITHIUM = EnumHelper.addToolMaterial("PHERITHIUM", 2, 1040, 32.0f, 2.0f, 15);
 			NCToolMaterial.PHERITHIUM_SWORD = EnumHelper.addToolMaterial("PHERITHIUM_SWORD", 0, 1040, 0.0f, 2.0f, 15);
+
+			NCToolMaterial.POOR_PROSPECTOR_PICK = EnumHelper.addToolMaterial("POOR_PROSPECTOR_PICK", 2, 685, 4.0f, 2.0f, 20);
+			NCToolMaterial.PROSPECTOR_PICK = EnumHelper.addToolMaterial("PROSPECTOR_PICK", 2, 1561, 4.0f, 2.0f, 20);
+			NCToolMaterial.ANCIENT_PROSPECTOR_PICK = EnumHelper.addToolMaterial("ANCIENT_PROSPECTOR_PICK", 3, 3861, 4.0f, 2.0f, 20);
 			
 			NCToolMaterial.TOPHINITE = EnumHelper.addToolMaterial("TOPHINITE", 15, 4222, 16.0f, 3.0f, 18);
 			NCToolMaterial.TOPHINITE_SWORD = EnumHelper.addToolMaterial("TOPHINITE_SWORD", 0, 4222, 0.0f, 5.0f, 18);
@@ -88,12 +97,17 @@ public class NCToolMaterial
 		 	
 		 	NCToolMaterial.PRIMEVAL_HORN = EnumHelper.addToolMaterial("PRIMEVAL_HORN", 0, 952, 0.0f, 0.0f, 15);
 		 	NCToolMaterial.SCULK_HORN = EnumHelper.addToolMaterial("SCULK_HORN", 0, 1966, 0.0f, 0.0f, 25);
+
+ 			NCToolMaterial.BEDROCK_CLEAVE = EnumHelper.addToolMaterial("BEDROCK_CLEAVE", 3, 780, 16.0f, 2.0f, 15);
 		   	}
 		   
 		   else { 
 			     NCToolMaterial.PHERITHIUM = EnumHelper.addToolMaterial("PHERITHIUM", 2, 1040, 32.0f, 2.0f, 15);
 				 NCToolMaterial.PHERITHIUM_SHICKAXE = EnumHelper.addToolMaterial("PHERITHIUM_SHICKAXE", 2, 4540, 33.0f, 2.5f, 15);
-				 NCToolMaterial.PHERITHIUM_SWORD = EnumHelper.addToolMaterial("PHERITHIUM_SWORD", 0, 1040, 0.0f, 2.0f, 15);			 
+				 NCToolMaterial.PHERITHIUM_SWORD = EnumHelper.addToolMaterial("PHERITHIUM_SWORD", 0, 1040, 0.0f, 2.0f, 15);
+			     NCToolMaterial.POOR_PROSPECTOR_PICK = EnumHelper.addToolMaterial("POOR_PROSPECTOR_PICK", 2, 951, 4.0f, 2.0f, 20);
+			     NCToolMaterial.PROSPECTOR_PICK = EnumHelper.addToolMaterial("PROSPECTOR_PICK", 2, 3561, 4.0f, 2.0f, 20);
+			     NCToolMaterial.ANCIENT_PROSPECTOR_PICK = EnumHelper.addToolMaterial("ANCIENT_PROSPECTOR_PICK", 3, 5861, 4.0f, 2.0f, 20);
 				 NCToolMaterial.TOPHINITE = EnumHelper.addToolMaterial("TOPHINITE", 15, 5822, 16.0f, 4.0f, 22);
 				 NCToolMaterial.TOPHINITE_SWORD = EnumHelper.addToolMaterial("TOPHINITE_SWORD", 0, 5822, 0.0f, 8.0f, 22);
 				 NCToolMaterial.TOPHINITE_HAMMER = EnumHelper.addToolMaterial("TOPHINITE_HAMMER", 0, 3522, 0.0f, 9.0f, 22);
@@ -123,6 +137,8 @@ public class NCToolMaterial
 				 
 				 NCToolMaterial.PRIMEVAL_HORN = EnumHelper.addToolMaterial("PRIMEVAL_HORN", 0, 3952, 0.0f, 0.0f, 15);
 				 NCToolMaterial.SCULK_HORN = EnumHelper.addToolMaterial("SCULK_HORN", 0, 8966, 0.0f, 0.0f, 25);
+
+			     NCToolMaterial.BEDROCK_CLEAVE = EnumHelper.addToolMaterial("BEDROCK_CLEAVE", 3, 1160, 16.0f, 2.0f, 15);
 		  }
 	 }
 }

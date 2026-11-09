@@ -4,22 +4,18 @@ import net.minecraft.util.*;
 import net.minecraft.block.material.*;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.*;
 import net.minecraft.block.*;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.*;
 import java.util.*;
-
 import com.NovaCraft.particles.ParticleGlowLichen;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.NovaCraftBlocks.ISubBlocksBlock;
 import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -445,7 +441,7 @@ public class BlockBrightLichen extends BlockBush implements IEmissiveLayerBlock,
 		}
     }
 
- 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+ 	public Item getItemDropped(int p_149650_1_, Random random, int p_149650_3_)
 	  {
 	    return null;
 	  }

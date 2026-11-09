@@ -4,15 +4,15 @@ public enum EnumRavagerType {
 
     BASE(), BOSS();
 
-    EnumRavagerType() {
-
-    }
+    EnumRavagerType() {}
 
     public int getId() {
         return this.ordinal();
     }
 
+    private static final EnumRavagerType[] VALUES = values();
+
     public static EnumRavagerType get(int id) {
-        return values()[id];
+        return VALUES[id];
     }
 }

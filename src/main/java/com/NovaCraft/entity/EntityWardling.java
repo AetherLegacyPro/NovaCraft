@@ -74,29 +74,28 @@ public class EntityWardling extends EntityMob {
 	    {
 	        return 14;
 	    }
-	
-	public void onLivingUpdate()
-	{
 
-		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(5, 5, 5));
-		{
-        for(Entity entity : volume) {
-        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60, 1, true));
-        	}
+	public void onLivingUpdate() {
+		if (!this.worldObj.isRemote) {
+			List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(5, 5, 5));
+
+			for (EntityPlayer player : players) {
+				if (this.canEntityBeSeen(player)) player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 60, 1, true));
+			}
+
+			if (isWet()) {
+				this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 300, 4));
+				this.heal(10.0F);
+			}
+
+			if (this.rand.nextInt(500) == 0) {
+				this.heal(2.0F);
+			}
 		}
-        
-        if (isWet()){
-            this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 300, 4));
-            this.heal(10.0F);	
-            }
-        
-        int rand = (int)(1 + Math.random() * 500);
-        if (rand == 20) {
-        	this.heal(2.0F);
-        }
+
 		super.onLivingUpdate();
-	}	
-	
+	}
+
 	@Override
     public boolean attackEntityFrom(DamageSource source, float amount)
     {

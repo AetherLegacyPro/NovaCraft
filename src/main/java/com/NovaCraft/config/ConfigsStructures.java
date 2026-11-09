@@ -25,6 +25,7 @@ public class ConfigsStructures {
     public static boolean enableLacunaTreeGeneration;
     public static boolean enableVindicatorForestHouseGeneration;
     public static boolean enableOceanDungeonsGeneration;
+    public static boolean enableOctarianDungeonGeneration;
     public static boolean enableDesertCreeperStatueGeneration;
     public static boolean enableSlimeStatueGeneration;
     public static int endIslandSpawnRate;
@@ -41,6 +42,7 @@ public class ConfigsStructures {
     public static boolean enableAdvancedTraditionalOverworldDungeons;
     public static boolean enableVoidTemples;
     public static boolean enableEndDungeon;
+    public static int sculkMineshaftChance;
 
     public static final String catStructureOverworld = "Overworld Structures";
     public static final String catStructureNether = "Nether Structures";
@@ -58,6 +60,7 @@ public class ConfigsStructures {
         MansionValidDimension = conf.get("Overworld Structures", "Mansion Valid Dimension", new int[]{0}, "List Of Valid Dimensions Mansion can Generate in.").getIntList();
         enableMansion = conf.getBoolean("enableMansion", "Overworld Structures", true, "Enables Mansions to start generating 12k from spawn.(Default is 12k blocks)");
         enableSculkInfestedMineshaft = conf.getBoolean("enableSculkInfestedMineshaft", "Overworld Structures", true, "Enables Sculk Infested Mineshafts generation.");
+        sculkMineshaftChance = conf.getInt("sculkMineshaftChance", "Overworld Structures", 4, 1, 1000, "1 in X mineshafts become Sculk Infested Mineshafts. 1 makes every mineshaft sculk infested.");
         enableCraters = conf.getBoolean("enableCraters", "Overworld Structures", true, "Enables small craters in world generation.");
         enableMassiveCraters = conf.getBoolean("enableMassiveCraters", "Overworld Structures", true, "Enables massive craters in world generation.");
         vindicatorVillageSpawnRate = conf.get("Spawn Rate - Vindicator Villages", "Overworld Structures", 25).getInt();
@@ -67,6 +70,7 @@ public class ConfigsStructures {
         enableSlimeStatueGeneration = conf.getBoolean("enableSlimeStatueGeneration", "Overworld Structures", true, "Enables Stone Slime Statue generation.");
         enableVindicatorForestHouseGeneration = conf.getBoolean("enableVindicatorForestHouseGeneration", "Overworld Structures", true, "Enables random small Vindicator houses in Forests.");
         enableOceanDungeonsGeneration = conf.getBoolean("enableOceanDungeonsGeneration", "Overworld Structures", true, "Enables small dungeons with sea serpent spawners to generate at the bottom of oceans.");
+        enableOctarianDungeonGeneration = conf.getBoolean("enableOctarianDungeonGeneration", "Overworld Structures", true, "Enables small dungeons with octarians to generate at the bottom of oceans.");
         enableYttrlinisteGeodes = conf.getBoolean("enableYttrlinisteGeodes", "Overworld Structures", false, "Enables Yttrlinsite Geodes to generate in the Overworld.");
         enableCopartzGeodes = conf.getBoolean("enableCopartzGeodes", "Overworld Structures", true, "Enables Copartz Geodes to generate in the Overworld.");
         enableLarimarGeodes = conf.getBoolean("enableLarimarGeodes", "Overworld Structures", true, "Enables Larimar Geodes to generate in the Overworld.");

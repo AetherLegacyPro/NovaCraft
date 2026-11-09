@@ -1,27 +1,16 @@
 package com.NovaCraftBlocks.sculk;
 
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockMushroom;
-import net.minecraft.block.BlockRotatedPillar;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -52,15 +41,15 @@ public class BlockSculkTulip extends BlockMushroom {
 		iconTop = iconRegister.registerIcon("nova_craft:sculk_tulip");
 	}
 
-    protected boolean canPlaceBlockOn(Block p_149854_1_)
+    protected boolean canPlaceBlockOn(Block block)
     {
-        return (p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == NovaCraftBlocks.nullstone || p_149854_1_ == NovaCraftBlocks.sculk_block || 
-        		p_149854_1_ == NovaCraftBlocks.sculk_deepslate || p_149854_1_ == NovaCraftBlocks.sculk_grimstone || p_149854_1_ == NovaCraftBlocks.sculk_stone);
+        return (block == NovaCraftBlocks.grimstone || block == NovaCraftBlocks.nullstone || block == NovaCraftBlocks.sculk_block || 
+        		block == NovaCraftBlocks.sculk_deepslate || block == NovaCraftBlocks.sculk_grimstone || block == NovaCraftBlocks.sculk_stone);
     }
 
-    public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_)
+    public boolean canBlockStay(World world, int p_149718_2_, int p_149718_3_, int p_149718_4_)
     {
-        return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
+        return super.canBlockStay(world, p_149718_2_, p_149718_3_, p_149718_4_);
     }
 	
 	@Override
@@ -87,7 +76,7 @@ public class BlockSculkTulip extends BlockMushroom {
     }
 	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {
         return null;
     }

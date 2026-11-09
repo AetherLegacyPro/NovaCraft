@@ -32,22 +32,19 @@ public class EntityAINulliferSwell extends EntityAIBase
         this.creeperAttackTarget = null;
     }
 
-    public void updateTask()
-    {
-        if (this.creeperAttackTarget == null)
-        {
+    @Override
+    public void updateTask() {
+        EntityLivingBase target = this.swellingCreeper.getAttackTarget();
+        if (target == null) {
             this.swellingCreeper.setCreeperState(-1);
         }
-        else if (this.swellingCreeper.getDistanceSqToEntity(this.creeperAttackTarget) > 49.0D)
-        {
+        else if (this.swellingCreeper.getDistanceSqToEntity(target) > 49.0D) {
             this.swellingCreeper.setCreeperState(-1);
         }
-        else if (!this.swellingCreeper.getEntitySenses().canSee(this.creeperAttackTarget))
-        {
+        else if (!this.swellingCreeper.getEntitySenses().canSee(target)) {
             this.swellingCreeper.setCreeperState(-1);
         }
-        else
-        {
+        else {
             this.swellingCreeper.setCreeperState(1);
         }
     }

@@ -2,6 +2,8 @@ package com.NovaCraft.entity.DeepoidDragon;
 
 import java.util.Iterator;
 import java.util.List;
+
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.EntityIonizatior;
 import com.NovaCraft.entity.EntityVargouzite;
@@ -18,6 +20,7 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
@@ -46,6 +49,7 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     private Entity target;
     public int deathTicks;
     public EntityLivingBase shootingEntity;
+    private boolean hardmodeStatsApplied = false;
 
     public EntityDeepoidDragon(final World world)
     {
@@ -404,15 +408,25 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
 
             
         }
-        
-        List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(8, 8, 8));
-        
-        for(Entity entity : volume) {
-        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) {
-        		if (worldObj.isRemote) 
-        	    this.FireBreath();
-        		}
-        	}
+
+        if (this.worldObj.isRemote) {
+            List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(8, 8, 8));
+
+            for (EntityPlayer player : players) {
+                if (this.canEntityBeSeen(player)) this.FireBreath();
+            }
+        }
+    }
+
+    @Override
+    public void onUpdate() {
+        if (!this.worldObj.isRemote && !this.hardmodeStatsApplied && Hardmode.get(this.worldObj).getHardmode()) {
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
+            this.setHealth(this.getHealth() * 2.0F);
+            this.hardmodeStatsApplied = true;
+        }
+
+        super.onUpdate();
     }
 
     private void collideWithEntities(List entities)
@@ -708,6 +722,16 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
     
     public boolean canDespawn() {
         return false;
+    }
+
+    public void writeEntityToNBT(NBTTagCompound compound) {
+        super.writeEntityToNBT(compound);
+        compound.setBoolean("HardmodeStatsApplied", this.hardmodeStatsApplied);
+    }
+
+    public void readEntityFromNBT(NBTTagCompound compound) {
+        super.readEntityFromNBT(compound);
+        this.hardmodeStatsApplied = compound.getBoolean("HardmodeStatsApplied");
     }
 
 }

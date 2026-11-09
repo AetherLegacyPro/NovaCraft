@@ -2,27 +2,17 @@ package com.NovaCraftBlocks.sculk;
 
 import java.util.List;
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.entity.EntitySculkAbomination;
-import com.NovaCraft.entity.EntitySculkSymbiote;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockMushroom;
-import net.minecraft.block.BlockRotatedPillar;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -64,29 +54,29 @@ public class BlockSculkBloom extends BlockMushroom {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister p_149651_1_)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		icons = new IIcon[1];
 		if(type == 0) {
-			icons[0] = p_149651_1_.registerIcon("nova_craft:sculk_bloom");
+			icons[0] = iconRegister.registerIcon("nova_craft:sculk_bloom");
 		}
-		super.registerBlockIcons(p_149651_1_);
+		super.registerBlockIcons(iconRegister);
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
+	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
+		list.add(new ItemStack(item, 1, 0));
 	}
 
-    protected boolean canPlaceBlockOn(Block p_149854_1_)
+    protected boolean canPlaceBlockOn(Block block)
     {
-        return p_149854_1_ == NovaCraftBlocks.sculk_block;
+        return block == NovaCraftBlocks.sculk_block;
     }
 
-    public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_)
+    public boolean canBlockStay(World world, int p_149718_2_, int p_149718_3_, int p_149718_4_)
     {
-        return super.canBlockStay(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
+        return super.canBlockStay(world, p_149718_2_, p_149718_3_, p_149718_4_);
     }
 	
 	@Override
@@ -123,7 +113,7 @@ public class BlockSculkBloom extends BlockMushroom {
 	}
 	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int p_149668_2_, int p_149668_3_, int p_149668_4_)
     {
         return null;
     }

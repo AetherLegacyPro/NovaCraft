@@ -1322,7 +1322,7 @@ public class BlazingSerpentDungeonGen extends WorldGenerator
 				case 9: 
 					return new ItemStack(NovaCraftItems.blazing_coal, random.nextInt(4) + 7);
 				case 10: 
-					return new ItemStack(Items.glowstone_dust, random.nextInt(4) + 8);
+					return new ItemStack(NovaCraftItems.degraded_prospector_pickaxe, 1);
 				case 11: 
 					return new ItemStack(Items.golden_apple, 1);
 				case 12: 

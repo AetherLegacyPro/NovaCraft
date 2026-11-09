@@ -2,6 +2,8 @@ package com.NovaCraftBlocks.ores;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.registry.OtherModItems;
 import com.NovaCraft.sounds.ModSounds;
@@ -65,7 +67,12 @@ public class BlockMeteorite extends Block {
             int meta = chance < 70 ? 1 : 2;
             drops.add(new ItemStack(OtherModItems.raw_ore, 1, meta));
         } else {
-            drops.add(new ItemStack(this, 1, 1));
+            int special = rand.nextInt(100);
+            if (special < 95) {
+                drops.add(new ItemStack(this, 1, 1));
+            } else {
+                drops.add(new ItemStack(NovaCraftItems.raw_iridium));
+            }
         }
 
         return drops;

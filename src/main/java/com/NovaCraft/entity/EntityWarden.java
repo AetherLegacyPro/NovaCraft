@@ -1,6 +1,8 @@
 package com.NovaCraft.entity;
 
 import java.util.List;
+
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.config.Configs;
@@ -30,8 +32,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
@@ -45,6 +49,7 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	public int deathTicks;
 	public int attackAnimationTicks;
 	private static final int SONIC_ANIMATION = 20;
+	private boolean hardmodeStatsApplied = false;
 	
 	public EntityWarden(final World p_i1745_1_) {
 		super(p_i1745_1_);
@@ -95,31 +100,30 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	    {
 	        return 17;
 	    }
-	
+
 	public void onLivingUpdate() {
-		int chance = (int)(1 + Math.random() * 30000);
-		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(3, 3, 3));
+		if (!this.worldObj.isRemote) {
+			int chance = (int)(1 + Math.random() * 30000);
+			boolean slow = Configs.enableWardenSlowness && chance < 15000;
+			boolean weak = Configs.enableWardenWeakness && chance > 22500;
 
-		if (Configs.enableWardenSlowness && chance < 15000) {
-			for (Entity entity : volume) {
-				if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity))
-					((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
+			if (slow || weak) {
+				List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(3, 3, 3));
+
+				for (EntityPlayer player : players) {
+					if (!this.canEntityBeSeen(player)) continue;
+
+					if (slow) player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
+					if (weak) player.addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
+				}
+			}
+
+			if (isWet()) {
+				this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 140, 3));
+				this.heal(10.0F);
 			}
 		}
 
-		if (Configs.enableWardenWeakness && chance > 22500) {
-			for (Entity entity : volume) {
-				if (entity instanceof EntityPlayer && this.canEntityBeSeen(entity))
-					((EntityPlayer) entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
-			}
-		}
-
-        
-        if (isWet()) {
-            this.addPotionEffect(new PotionEffect(Potion.regeneration.id, 140, 3));
-            this.heal(10.0F);	
-		}
-		
 		super.onLivingUpdate();
 	}
 
@@ -267,32 +271,55 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
             if(boots != null)
                 hasWardenBoots = boots.getItem() == NovaCraftItems.warden_boots || boots.getItem() == NovaCraftItems.crystalite_boots;
 
-            if (hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) {
-            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 32.0F);
-            	target.attackEntityFrom(DamageSource.magic, 14.0F);
-            }
-			else if ((!hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && hasWardenChest && hasWardenLegs && !hasWardenBoots)) {
-				target.attackEntityFrom(DamageSource.causeMobDamage(this), 40.0F);
-				target.attackEntityFrom(DamageSource.magic, 14.0F);
+			World world = MinecraftServer.getServer().worldServers[0];
+			Hardmode data = Hardmode.get(world);
+			if (data.getHardmode()) {
+				if (hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 64.0F);
+					target.attackEntityFrom(DamageSource.magic, 16.0F);
+				} else if ((!hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && hasWardenChest && hasWardenLegs && !hasWardenBoots)) {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 80.0F);
+					target.attackEntityFrom(DamageSource.magic, 16.0F);
+				} else if ((!hasWardenHelmet && !hasWardenChest && hasWardenLegs && hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && !hasWardenLegs && hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && hasWardenLegs && !hasWardenBoots)
+						|| (hasWardenHelmet && !hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && hasWardenLegs && !hasWardenBoots) || (hasWardenHelmet && hasWardenChest && !hasWardenLegs && !hasWardenBoots)) {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 96.0F);
+					target.attackEntityFrom(DamageSource.magic, 20.0F);
+				} else if ((!hasWardenHelmet && !hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && !hasWardenLegs && !hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && !hasWardenLegs && !hasWardenBoots) || (!hasWardenHelmet && !hasWardenChest && hasWardenLegs && !hasWardenBoots)) {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 112.0F);
+					target.attackEntityFrom(DamageSource.magic, 22.0F);
+					target.attackEntityFrom(DamageSource.wither, 1.0F);
+				} else {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 128.0F);
+					target.attackEntityFrom(DamageSource.magic, 30.0F);
+					target.attackEntityFrom(DamageSource.wither, 2.0F);
+					target.attackEntityFrom(DamageSource.outOfWorld, 1.0F);
+
+					((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.harm.id, 20, 1));
+				}
+			} else {
+				if (hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 32.0F);
+					target.attackEntityFrom(DamageSource.magic, 14.0F);
+				} else if ((!hasWardenHelmet && hasWardenChest && hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && hasWardenChest && hasWardenLegs && !hasWardenBoots)) {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 40.0F);
+					target.attackEntityFrom(DamageSource.magic, 14.0F);
+				} else if ((!hasWardenHelmet && !hasWardenChest && hasWardenLegs && hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && !hasWardenLegs && hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && hasWardenLegs && !hasWardenBoots)
+						|| (hasWardenHelmet && !hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && hasWardenLegs && !hasWardenBoots) || (hasWardenHelmet && hasWardenChest && !hasWardenLegs && !hasWardenBoots)) {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 48.0F);
+					target.attackEntityFrom(DamageSource.magic, 16.0F);
+				} else if ((!hasWardenHelmet && !hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && !hasWardenLegs && !hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && !hasWardenLegs && !hasWardenBoots) || (!hasWardenHelmet && !hasWardenChest && hasWardenLegs && !hasWardenBoots)) {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 56.0F);
+					target.attackEntityFrom(DamageSource.magic, 18.0F);
+					target.attackEntityFrom(DamageSource.wither, 1.0F);
+				} else {
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), 64.0F);
+					target.attackEntityFrom(DamageSource.magic, 20.0F);
+					target.attackEntityFrom(DamageSource.wither, 2.0F);
+					target.attackEntityFrom(DamageSource.outOfWorld, 1.0F);
+
+					((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.harm.id, 20, 1));
+				}
 			}
-			else if ((!hasWardenHelmet && !hasWardenChest && hasWardenLegs && hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && !hasWardenLegs && hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && hasWardenLegs && !hasWardenBoots)
-					|| (hasWardenHelmet && !hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && hasWardenLegs && !hasWardenBoots) || (hasWardenHelmet && hasWardenChest && !hasWardenLegs && !hasWardenBoots)) {
-				target.attackEntityFrom(DamageSource.causeMobDamage(this), 48.0F);
-				target.attackEntityFrom(DamageSource.magic, 16.0F);
-			}
-			else if ((!hasWardenHelmet && !hasWardenChest && !hasWardenLegs && hasWardenBoots) || (hasWardenHelmet && !hasWardenChest && !hasWardenLegs && !hasWardenBoots) || (!hasWardenHelmet && hasWardenChest && !hasWardenLegs && !hasWardenBoots) || (!hasWardenHelmet && !hasWardenChest && hasWardenLegs && !hasWardenBoots)) {
-				target.attackEntityFrom(DamageSource.causeMobDamage(this), 56.0F);
-				target.attackEntityFrom(DamageSource.magic, 18.0F);
-				target.attackEntityFrom(DamageSource.wither, 1.0F);
-			}
-            else {
-            	target.attackEntityFrom(DamageSource.causeMobDamage(this), 64.0F);
-            	target.attackEntityFrom(DamageSource.magic, 20.0F);
-            	target.attackEntityFrom(DamageSource.wither, 2.0F);
-            	target.attackEntityFrom(DamageSource.outOfWorld, 1.0F);
-            	
-				((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.harm.id, 20, 1));
-            }
              
         } else if (target instanceof EntityLivingBase) {
 			((EntityLivingBase)target).attackEntityFrom(DamageSource.causeMobDamage(this), damage);
@@ -303,6 +330,13 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	
 	@Override
 	public void onUpdate() {
+		if (!this.worldObj.isRemote && !this.hardmodeStatsApplied && Hardmode.get(this.worldObj).getHardmode()) {
+			this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1200.0D);
+			this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(12.0D);
+			this.setHealth(this.getHealth() * 2.0F);
+			this.hardmodeStatsApplied = true;
+		}
+
 		super.onUpdate();
 
 		if (this.attackAnimationTicks > 0) {
@@ -318,8 +352,7 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 		if (this.getEntityToAttack() != null) {
 			if (this.getAttackTarget() instanceof EntityPlayer && ((EntityPlayer) this.getAttackTarget()).capabilities.isCreativeMode) {
 				this.setAttackTarget(null);
-			}
-			else {
+			} else {
 				double d = this.getEntityToAttack().posX - this.posX;
 				double d1 = this.getEntityToAttack().posZ - this.posZ;
 
@@ -347,34 +380,29 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	
 	protected void onDeathUpdate() {
 		 ++this.deathTicks;
-	        if (this.deathTicks >= 180 && this.deathTicks <= 200)
-	        {
+	        if (this.deathTicks >= 180 && this.deathTicks <= 200) {
 	            float f = (this.rand.nextFloat() - 0.5F) * 8.0F;
 	            float f1 = (this.rand.nextFloat() - 0.5F) * 4.0F;
 	            float f2 = (this.rand.nextFloat() - 0.5F) * 8.0F;
 	            this.worldObj.spawnParticle("hugeexplosion", this.posX + (double)f, this.posY + 2.0D + (double)f1, this.posZ + (double)f2, 0.0D, 0.0D, 0.0D);
 	           
-	         }
+			}
 
 	        int i;
 	        int j;
 
-	        if (!this.worldObj.isRemote)
-	        {
-	            if (this.deathTicks > 150 && this.deathTicks % 5 == 0)
-	            {
+	        if (!this.worldObj.isRemote) {
+	            if (this.deathTicks > 150 && this.deathTicks % 5 == 0) {
 	                i = 1000;
 
-	                while (i > 0)
-	                {
+	                while (i > 0) {
 	                    j = EntityXPOrb.getXPSplit(i);
 	                    i -= j;
 	                    this.worldObj.spawnEntityInWorld(new EntityXPOrb(this.worldObj, this.posX, this.posY, this.posZ, j));
 	                }
 	            }
 
-	            if (this.deathTicks == 1)
-	            {
+	            if (this.deathTicks == 1) {
 	                this.worldObj.playBroadcastSound(1018, (int)this.posX, (int)this.posY, (int)this.posZ, 0);
 	            }
 	        }
@@ -382,12 +410,10 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	        this.moveEntity(0.0D, 0.10000000149011612D, 0.0D);
 	        this.renderYawOffset = this.rotationYaw += 20.0F;
 
-	        if (this.deathTicks == 200 && !this.worldObj.isRemote)
-	        {
+	        if (this.deathTicks == 200 && !this.worldObj.isRemote) {
 	            i = 500;
 
-	            while (i > 0)
-	            {
+	            while (i > 0) {
 	                j = EntityXPOrb.getXPSplit(i);
 	                i -= j;
 	                this.worldObj.spawnEntityInWorld(new EntityXPOrb(this.worldObj, this.posX, this.posY, this.posZ, j));
@@ -400,15 +426,10 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 
     public void onDeath(DamageSource p_70645_1_) {
         super.onDeath(p_70645_1_);
-
-        if (p_70645_1_.getEntity() instanceof EntityPlayer)
-        {
+        if (p_70645_1_.getEntity() instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
-            
             entityplayer.triggerAchievement(AchievementsNovaCraft.reached_for_things_I_didnt_need);
-            
         }
-            
     }
 
 	private void createloot(int x, int y, int z) {
@@ -423,7 +444,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 
 	private boolean shouldReplaceBlock(int x, int y, int z) {
 		Block block = this.worldObj.getBlock(x, y, z);
-
 		if (block.isAir(this.worldObj, x, y, z)) {
 			return true;
 		}
@@ -451,7 +471,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 		projectile.posZ += projectile.motionZ * 1.5D;
 
 		this.worldObj.spawnEntityInWorld(projectile);
-
 		this.playSound("nova_craft:sculk_horn.vibration", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
 	}
 	
@@ -461,8 +480,7 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	        {
 	            j = this.rand.nextInt(3 + p_70628_2_);
 
-	            for (k = 0; k < j; ++k)
-	            {
+	            for (k = 0; k < j; ++k) {
 	                this.dropItem(NovaCraftItems.sculk_flesh, 7);
 	            }
 	        }
@@ -470,29 +488,25 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	        this.entityDropItem(new ItemStack(NovaCraftItems.warden_heart), 0.5F);
 	        j = this.rand.nextInt(1 + p_70628_2_);
 	        
-	        for (k = 0; k < j; ++k)
-	        {
+	        for (k = 0; k < j; ++k) {
 	        	this.dropItem(NovaCraftItems.warden_tentacle, p_70628_2_);
 	        }	
 	        
 	        j = this.rand.nextInt(3 + p_70628_2_);
 	        
-	        for (k = 0; k < j; ++k)
-	        {
+	        for (k = 0; k < j; ++k) {
 	        	this.dropItem(NovaCraftItems.warden_shard, 4 + p_70628_2_);
 	        }	       
 
 	        j = this.rand.nextInt(3 + p_70628_2_);
 
-	        for (k = 0; k < j; ++k)
-	        {
+	        for (k = 0; k < j; ++k) {
 	        	this.dropItem(Item.getItemFromBlock(NovaCraftBlocks.sculk_block), 12);
 	        }
 	        
 	        j = this.rand.nextInt(3 + p_70628_2_);
 
-	        for (k = 0; k < j; ++k)
-	        {
+	        for (k = 0; k < j; ++k) {
 	        	this.dropItem(NovaCraftItems.anomalous_essence, 6 + p_70628_2_);
 	        }
 	}
@@ -541,5 +555,15 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	public boolean canDespawn() {
         return false;
     }
+
+	public void writeEntityToNBT(NBTTagCompound compound) {
+		super.writeEntityToNBT(compound);
+		compound.setBoolean("HardmodeStatsApplied", this.hardmodeStatsApplied);
+	}
+
+	public void readEntityFromNBT(NBTTagCompound compound) {
+		super.readEntityFromNBT(compound);
+		this.hardmodeStatsApplied = compound.getBoolean("HardmodeStatsApplied");
+	}
 
 }

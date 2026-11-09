@@ -105,17 +105,14 @@ import com.NovaCraftBlocks.sculk.BlockUnknownPortalActivator;
 import com.NovaCraftBlocks.sculk.BlockUnknownPortalSealed;
 import com.NovaCraftBlocks.stalactites.*;
 import com.NovaCraftBlocks.stalagmites.*;
-
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.*;
-import net.minecraft.world.IBlockAccess;
 
 public class NovaCraftBlocks {
-	
+
 	//Overworld Building/World Gen Blocks
 	public static Block grimstone, cobbled_grimstone, grimstone_bricks, cracked_grimstone_bricks, grimstone_tiles, cracked_grimstone_tiles, chiseled_grimstone, polished_grimstone;
 	public static Block nullstone, cobbled_nullstone, nullstone_bricks, cracked_nullstone_bricks, nullstone_tiles, cracked_nullstone_tiles, chiseled_nullstone, polished_nullstone;
@@ -126,7 +123,6 @@ public class NovaCraftBlocks {
 	public static Block sculk_bricks, cracked_sculk_bricks, sculk_tiles, cracked_sculk_tiles, chiseled_sculk;
 	public static Block tuff_bricks, cracked_tuff_bricks, tuff_tiles, cracked_tuff_tiles, chiseled_tuff;
 	public static Block calcite_bricks, cracked_calcite_bricks, calcite_tiles, cracked_calcite_tiles, chiseled_calcite;
-	public static Block dripstone_bricks, cracked_dripstone_bricks, dripstone_tiles, cracked_dripstone_tiles, chiseled_dripstone;
 	public static Block nullwart_bricks, flaming_nullwart_bricks;
 	public static Block luminant_log, luminant_sapling, luminant_leaves, luminant_planks;
 	public static Block luminant_slab, luminant_double_slab, luminant_stairs, luminant_fence, luminant_fence_gate;
@@ -163,9 +159,7 @@ public class NovaCraftBlocks {
 	public static Block tuff_brick_slab, tuff_brick_double_slab, tuff_brick_stairs, tuff_brick_wall;
 	public static Block tuff_tiled_slab, tuff_tiled_double_slab, tuff_tiled_stairs, tuff_tiled_wall;	
 	public static Block calcite_brick_slab, calcite_brick_double_slab, calcite_brick_stairs, calcite_brick_wall;
-	public static Block calcite_tiled_slab, calcite_tiled_double_slab, calcite_tiled_stairs, calcite_tiled_wall;	
-	public static Block dripstone_brick_slab, dripstone_brick_double_slab, dripstone_brick_stairs, dripstone_brick_wall;
-	public static Block dripstone_tiled_slab, dripstone_tiled_double_slab, dripstone_tiled_stairs, dripstone_tiled_wall;
+	public static Block calcite_tiled_slab, calcite_tiled_double_slab, calcite_tiled_stairs, calcite_tiled_wall;
 		
 	//Crystals
 	public static Block cracked_copartz_block, copartz_block, budding_copartz_block, copartz_cluster_1, copartz_cluster_2;
@@ -187,6 +181,7 @@ public class NovaCraftBlocks {
 	
 	//Iridium
 	public static Block meteorite_block, iridium_ore, block_of_iridium;
+	public static Block block_of_mercuridium, cracked_mercuridium_cauldron;
 	
 	//Explosives
 	public static Block brimstone_ore, cinnabar_brimstone, block_of_brimstone, brimstone_wire, PETN, PETN_wire;
@@ -204,9 +199,12 @@ public class NovaCraftBlocks {
 	public static Block etherstone_coal, etherstone_emerald, etherstone_gold, etherstone_iron, etherstone_brimstone;
 	
 	public static Block iron_pile, gold_pile, diamond_pile, lapis_pile, emerald_pile, vanite_pile, iridium_pile, crystal_pile;
-	
+
+	//Legendary Ores
+	public static Block unbreakable_legendary_ore, legendary_ore, legendary_ore_block;
+
 	//End Building/World Gen Blocks
-	public static Block frontierslate, frontierslate_bricks, carved_frontierslate_bricks;	
+	public static Block frontierslate, frontierslate_bricks, carved_frontierslate_bricks, frontierslate_pillar;
 	public static Block frontierslate_slab, frontierslate_double_slab, frontierslate_stairs, frontierslate_wall;
 	public static Block frontierslate_brick_slab, frontierslate_brick_double_slab, frontierslate_brick_stairs, frontierslate_brick_wall;
 	public static Block lacuna_log, lacuna_fruit, lacuna_planks;
@@ -398,6 +396,7 @@ public class NovaCraftBlocks {
 		frontierslate = register("frontierslate", new BlockFrontierslate().setBlockTextureName(NovaCraft.find("frontierslate")));
 		frontierslate_bricks = register("frontierslate_bricks", new BlockFrontierslateBricks().setBlockTextureName(NovaCraft.find("frontierslate_bricks")));
 		carved_frontierslate_bricks = register("carved_frontierslate_bricks", new BlockCarvedFrontierslateBricks());
+		frontierslate_pillar = registerMeta("frontierslate_pillar", new BlockFrontierslatePillar().setBlockTextureName(NovaCraft.find("frontierslate_pillar")));
 		
 		crystallized_end = register("crystallized_end", new BlockCrystallizedEnd());
 		
@@ -480,6 +479,9 @@ public class NovaCraftBlocks {
 		iridium_furnace = register("iridium_furnace", new BlockIridiumFurnace(false));
 		lit_iridium_furnace = registerHidden("lit_iridium_furnace", new BlockIridiumFurnace(true).setLightLevel(0.9775F).setCreativeTab(null));
 
+		block_of_mercuridium = registerItemBlock("block_of_mercuridium", new BlockMercuridium(), ItemBlockFireProof.class);
+		cracked_mercuridium_cauldron = registerHidden("cracked_mercuridium_cauldron", new BlockCrackedMercuridiumCauldron().setCreativeTab(null));
+
 		cracked_end_portal_frame = register("cracked_end_portal_frame", new BlockCrackedEndPortalFrame());
 
 		iron_pile = registerMeta("iron_pile", new BlockIronPile());
@@ -490,7 +492,11 @@ public class NovaCraftBlocks {
 		vanite_pile = registerMeta("vanite_pile", new BlockVanitePile());
 		iridium_pile = registerMeta("iridium_pile", new BlockIridiumPile());
 		crystal_pile = registerMeta("crystal_pile", new BlockCrystalPile());
-		
+
+		unbreakable_legendary_ore = registerItemBlockHidden("unbreakable_legendary_ore", new BlockUnbreakableLegendaryOre(), ItemBlockLegendaryOre.class);
+		legendary_ore = registerItemBlock("legendary_ore", new BlockLegendaryOre(), ItemBlockLegendaryOre.class);
+		legendary_ore_block = registerItemBlock("legendary_ore_block", new BlockLegendaryOreBlock(), ItemBlockLegendaryOreBlock.class);
+
 		deepoid_bricks = registerItemBlock("deepoid_bricks", new BlockVaniteBuildingBlocks(), ItemBlockFireProof.class).setBlockTextureName(NovaCraft.find("deepoid_bricks"));
 		deepoid_power_core = register("deepoid_power_core", new BlockDeepoidPowerCore().setLightLevel(0.9775F).setBlockTextureName(NovaCraft.find("deepoid_power_core")));		
 		deepoid_furnace = register("deepoid_furnace", new BlockDeepoidFurnace(false).setBlockTextureName(NovaCraft.find("deepoid_furnace")));

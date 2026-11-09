@@ -363,7 +363,7 @@ public class FloatingIslandWatchTower extends WorldGenAbstractTree
             case 4:
                 return new ItemStack(NovaCraftItems.iridium_nugget, random.nextInt(4) + 3, 0);
             case 5:
-                return new ItemStack(NovaCraftItems.copartz_shard, random.nextInt(3) + 1);
+                return new ItemStack(NovaCraftItems.degraded_prospector_pickaxe, 1);
             case 6:
                 return new ItemStack(NovaCraftItems.tsavorokite_shard, random.nextInt(2) + 1);
             case 7:

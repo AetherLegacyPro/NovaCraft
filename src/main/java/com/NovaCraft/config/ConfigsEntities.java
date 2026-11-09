@@ -8,7 +8,6 @@ import java.io.File;
 public class ConfigsEntities {
 
     public static boolean enableSpawnGlowSquid;
-    public static boolean enableSpawnPhantom;
     public static boolean enableSpawnOverworldPhantom;
     public static boolean enableSpawnSlaughter;
     public static boolean enableSpawnDrifter;
@@ -62,7 +61,6 @@ public class ConfigsEntities {
 
         //Mob Spawning
         enableSpawnGlowSquid = conf.getBoolean("enableSpawnGlowSquid", "Mobs", true, "Enables the Spawning of Glow Squids");
-        enableSpawnPhantom = conf.getBoolean("enableSpawnPhantom", "Mobs", true, "Enables the Spawning of Phantoms");
         enableSpawnOverworldPhantom = conf.getBoolean("enableSpawnOverworldPhantom", "Mobs", false, "Enables the Spawning of Phantoms in the Mountain Biomes");
         enableSpawnSlaughter = conf.getBoolean("enableSpawnSlaughter", "Mobs", true, "Enables the Spawning of Slaughters");
         enableSpawnSculkDweller = conf.getBoolean("enableSpawnSculkDweller", "Mobs", true, "Enables the Spawning of Sculk Dweller");

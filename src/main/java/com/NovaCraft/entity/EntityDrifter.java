@@ -62,7 +62,7 @@ public class EntityDrifter extends EntityMob {
 
     public float getBrightness(float p_70013_1_)
     {
-        return 1.0F;
+        return 0.1F;
     }
 
     public void onLivingUpdate()

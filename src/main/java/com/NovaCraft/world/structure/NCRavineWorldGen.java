@@ -1,35 +1,83 @@
 package com.NovaCraft.world.structure;
 
+import java.util.Arrays;
 import java.util.Random;
+import com.NovaCraft.config.ConfigsWorld;
+import cpw.mods.fml.common.FMLLog;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.MapGenRavine;
 
 public class NCRavineWorldGen extends MapGenRavine {
 
-	@Override
-	protected void func_151538_a(World world, int chunkX, int chunkZ, int x, int z, Block[] blocks) {
-	    if (this.rand.nextInt(50) == 0) {
+    private static boolean[] blockedBiomes;
 
-	        boolean useCustom = this.rand.nextInt(22) == 0;
+    private final float[] widthScale = new float[256];
 
-	        double d0 = chunkX * 16 + this.rand.nextInt(16);
-	        double d1 = this.rand.nextInt(this.rand.nextInt(120) + 8) + 20;
-	        double d2 = chunkZ * 16 + this.rand.nextInt(16);
+    public static void resolveBiomeFilter() {
+        String[] whitelist = ConfigsWorld.ravineBiomeWhitelist;
+        String[] blacklist = ConfigsWorld.ravineBiomeBlacklist;
+        if (whitelist.length == 0 && blacklist.length == 0) {
+            blockedBiomes = null;
+            return;
+        }
 
-	        float f = this.rand.nextFloat() * (float)Math.PI * 2.0F;
-	        float f1 = (this.rand.nextFloat() - 0.5F) * 2.0F / 8.0F;
-	        float f2 = (this.rand.nextFloat() * 2.0F + this.rand.nextFloat()) * 2.0F;
+        BiomeGenBase[] biomes = BiomeGenBase.getBiomeGenArray();
+        boolean[] blocked = new boolean[biomes.length];
+        if (whitelist.length > 0) {
+            Arrays.fill(blocked, true);
+            for (String entry : whitelist) {
+                int id = findBiome(biomes, entry);
+                if (id >= 0) blocked[id] = false;
+            }
+        }
+        for (String entry : blacklist) {
+            int id = findBiome(biomes, entry);
+            if (id >= 0) blocked[id] = true;
+        }
+        blockedBiomes = blocked;
+    }
 
-	        if (useCustom) {
-	            this.func_151540_a(this.rand.nextLong(), x, z, blocks, d0, d1, d2, f2, f, f1, 0, 0, 4.0D);
-	        } else {
-	            super.func_151540_a(this.rand.nextLong(), x, z, blocks, d0, d1, d2, f2, f, f1, 0, 0, 1.5D);
-	        }
-	    }
-	}
+    private static int findBiome(BiomeGenBase[] biomes, String entry) {
+        String name = entry.trim();
+        try {
+            int id = Integer.parseInt(name);
+            if (id >= 0 && id < biomes.length && biomes[id] != null) return id;
+        } catch (NumberFormatException ignored) {
+            for (BiomeGenBase biome : biomes) {
+                if (biome != null && biome.biomeName.equalsIgnoreCase(name)) return biome.biomeID;
+            }
+        }
+        FMLLog.warning("[NovaCraft] Unknown biome in ravine biome list: %s", entry);
+        return -1;
+    }
+
+    @Override
+    protected void func_151538_a(World world, int chunkX, int chunkZ, int x, int z, Block[] blocks) {
+        if (this.rand.nextInt(ConfigsWorld.ravineChance) == 0) {
+
+            boolean useCustom = this.rand.nextInt(ConfigsWorld.tallRavineChance) == 0;
+
+            double d0 = chunkX * 16 + this.rand.nextInt(16);
+            BiomeGenBase startBiome = world.getBiomeGenForCoords(chunkX * 16 + 8, chunkZ * 16 + 8);
+            if (blockedBiomes != null && blockedBiomes[startBiome.biomeID]) return;
+
+            boolean tallBiome = startBiome.rootHeight >= ConfigsWorld.tallBiomeRavineMinBaseHeight;
+            int maxStartY = tallBiome ? ConfigsWorld.tallBiomeRavineMaxStartY : ConfigsWorld.ravineMaxStartY;
+            double d1 = this.rand.nextInt(this.rand.nextInt(maxStartY - 26) + 8) + 20;
+            double d2 = chunkZ * 16 + this.rand.nextInt(16);
+
+            float f = this.rand.nextFloat() * (float)Math.PI * 2.0F;
+            float f1 = (this.rand.nextFloat() - 0.5F) * 2.0F / 8.0F;
+            float f2 = (this.rand.nextFloat() * 2.0F + this.rand.nextFloat()) * 2.0F;
+
+            double heightScale = useCustom ? ConfigsWorld.tallRavineHeightScale : ConfigsWorld.ravineHeightScale;
+            this.func_151540_a(this.rand.nextLong(), x, z, blocks, d0, d1, d2, f2, f, f1, 0, 0, heightScale);
+        }
+    }
 
     @Override
     protected void func_151540_a(long seed, int chunkX, int chunkZ, Block[] blocks, double x, double y, double z, float width, float yaw, float pitch, int start, int end, double verticalScale) {
@@ -46,13 +94,21 @@ public class NCRavineWorldGen extends MapGenRavine {
         }
 
         boolean firstLoop = false;
+        BiomeGenBase biome = this.worldObj.getBiomeGenForCoords(MathHelper.floor_double(x), MathHelper.floor_double(z));
+        Block top = biome.topBlock;
+        Block filler = biome.fillerBlock;
+        boolean redSandBiome = top == Blocks.sand && biome.field_150604_aj == 1;
+        boolean carveSand = redSandBiome ? ConfigsWorld.ravinesCarveRedSand : ConfigsWorld.ravinesCarveSand;
+        boolean carveSandstone = ConfigsWorld.ravinesCarveSandstone;
+        boolean carveClay = ConfigsWorld.ravinesCarveHardenedClay;
+        boolean resurfaceFloor = top != Blocks.sand;
 
         if (start == -1) {
             start = end / 2;
             firstLoop = true;
         }
 
-        float[] field_75046_d = new float[1024];
+        float[] field_75046_d = this.widthScale;
         float f5 = 1.0F;
 
         for (int i = 0; i < 256; ++i) {
@@ -148,16 +204,22 @@ public class NCRavineWorldGen extends MapGenRavine {
                                 if ((xDist * xDist + zDist * zDist) * field_75046_d[y1] + yDist * yDist / 6.0D < 1.0D) {
                                     Block block = blocks[index];
 
-                                    if (block == Blocks.grass || block == Blocks.dirt) surfaceTouched = true;
+                                    if (block == top || block == Blocks.grass) surfaceTouched = true;
 
-                                    if (block == Blocks.stone || block == Blocks.dirt || block == Blocks.grass) {
+                                    boolean carvable;
+                                    if (block == Blocks.sand) carvable = carveSand;
+                                    else if (block == Blocks.sandstone) carvable = carveSandstone;
+                                    else if (block == Blocks.hardened_clay || block == Blocks.stained_hardened_clay) carvable = carveClay;
+                                    else carvable = block == Blocks.stone || block == Blocks.dirt || block == Blocks.grass || block == top || block == filler;
+
+                                    if (carvable) {
                                         if (y1 < 10) {
                                             blocks[index] = Blocks.flowing_lava;
                                         } else {
                                             blocks[index] = null;
 
-                                            if (surfaceTouched && blocks[index - 1] == Blocks.dirt) {
-                                                blocks[index - 1] = Blocks.grass;
+                                            if (resurfaceFloor && surfaceTouched && blocks[index - 1] == filler) {
+                                                blocks[index - 1] = top;
                                             }
                                         }
                                     }
@@ -173,13 +235,3 @@ public class NCRavineWorldGen extends MapGenRavine {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-

@@ -1,38 +1,23 @@
 package com.NovaCraftBlocks.sculk;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntitySculkAbomination;
 import com.NovaCraft.entity.EntitySculkSymbiote;
 import com.NovaCraft.entity.EntityWardling;
-import com.NovaCraft.particles.ParticleDarkLichenThree;
-import com.NovaCraft.particles.ParticleGlowLichen;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.NovaCraftBlocks.crystals.BlockLarimarCluster;
-import com.ibm.icu.impl.duration.impl.Utils;
-
-import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.AchievementList;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
@@ -83,7 +68,7 @@ public class BlockSculk extends Block {
 	    return true;
 	 }
 		
- 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+ 	public Item getItemDropped(int p_149650_1_, Random random, int p_149650_3_)
 	  {
 	    return null;
 	  }
@@ -164,18 +149,18 @@ public class BlockSculk extends Block {
  		}
  	}
  	
- 	public void onBlockDestroyedByPlayer(World p_149664_1_, int p_149664_2_, int p_149664_3_, int p_149664_4_, int p_149664_5_)
+ 	public void onBlockDestroyedByPlayer(World world, int p_149664_2_, int p_149664_3_, int p_149664_4_, int p_149664_5_)
     { 
  		
-        if (!p_149664_1_.isRemote)
+        if (!world.isRemote)
         {       	
         	int rand = (int)(1 + Math.random() * 8);
     		switch (rand)
           {
           	case 1:
-          	EntitySculkSymbiote entitysilverfish = new EntitySculkSymbiote(p_149664_1_);
+          	EntitySculkSymbiote entitysilverfish = new EntitySculkSymbiote(world);
             entitysilverfish.setLocationAndAngles((double)p_149664_2_ + 0.5D, (double)p_149664_3_, (double)p_149664_4_ + 0.5D, 0.0F, 0.0F);
-            p_149664_1_.spawnEntityInWorld(entitysilverfish);
+				world.spawnEntityInWorld(entitysilverfish);
             entitysilverfish.spawnExplosionParticle();
             	break;
           	case 2:
@@ -189,7 +174,7 @@ public class BlockSculk extends Block {
           }
         }
 
-        super.onBlockDestroyedByPlayer(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, p_149664_5_);
+        super.onBlockDestroyedByPlayer(world, p_149664_2_, p_149664_3_, p_149664_4_, p_149664_5_);
     }
  	
  	@Override
@@ -243,14 +228,14 @@ public class BlockSculk extends Block {
  	
  	@Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
-        super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
-        if (p_149734_5_.nextInt(15) == 0) {
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.4f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+    public void randomDisplayTick(final World world, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random random) {
+        super.randomDisplayTick(world, p_149734_2_, p_149734_3_, p_149734_4_, random);
+        if (random.nextInt(15) == 0) {
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 0.1f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 0.4f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         }	
         
     }

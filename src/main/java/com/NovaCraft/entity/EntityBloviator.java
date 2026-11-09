@@ -32,6 +32,7 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
     public int attackCounter;
     private int explosionStrength = 3;
     private final float base;
+    private boolean hardmodeStatsApplied = false;
     
     public EntityBloviator(final World world) {
         super(world);
@@ -69,7 +70,14 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
         this.dataWatcher.addObject(17, Byte.valueOf((byte)0));
     }
     
-    public void onUpdate() {
+    public void onUpdate() { //For bosses, their changes are a bit different compared to regular hostile mobs
+        if (!this.worldObj.isRemote && !this.hardmodeStatsApplied && Hardmode.get(this.worldObj).getHardmode()) {
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(700.0D);
+            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(18.0D);
+            this.setHealth(this.getHealth() * 2.0F);
+            this.hardmodeStatsApplied = true;
+        }
+
         super.onUpdate();
         if (!this.worldObj.isRemote) {
             if (this.motionY < 0.0 && this.posX != this.waypointX && this.posZ != this.waypointZ && this.targetedEntity == null) {
@@ -184,26 +192,28 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
             boolean hasphantomLegs = false;
             boolean hasphantomBoots = false;
 
+            if(helmet != null) hasphantomHelmet = helmet.getItem() == NovaCraftItems.phantom_helmet;
 
-            if(helmet != null)
-                hasphantomHelmet = helmet.getItem() == NovaCraftItems.phantom_helmet;
+            if(chest != null) hasphantomChest = chest.getItem() == NovaCraftItems.phantom_chestplate;
 
-            if(chest != null)
-                hasphantomChest = chest.getItem() == NovaCraftItems.phantom_chestplate;
+            if(legs != null) hasphantomLegs = legs.getItem() == NovaCraftItems.phantom_leggings;
 
-            if(legs != null)
-                hasphantomLegs = legs.getItem() == NovaCraftItems.phantom_leggings;
+            if(boots != null) hasphantomBoots = boots.getItem() == NovaCraftItems.phantom_boots;
 
-            if(boots != null)
-                hasphantomBoots = boots.getItem() == NovaCraftItems.phantom_boots;
+            boolean hardmode = Hardmode.get(this.worldObj).getHardmode();
 
             if (hasphantomHelmet || hasphantomChest || hasphantomLegs || hasphantomBoots) {
-
-            	target.attackEntityFrom(DamageSource.magic, 2.0F);
-            }
-            
-            else {
-            	target.attackEntityFrom(DamageSource.magic, 6.0F);
+                if (hardmode) {
+                    target.attackEntityFrom(DamageSource.magic, 6.0F);
+                } else {
+                    target.attackEntityFrom(DamageSource.magic, 2.0F);
+                }
+            } else {
+                if (hardmode) {
+                    target.attackEntityFrom(DamageSource.magic, 12.0F);
+                } else {
+                    target.attackEntityFrom(DamageSource.magic, 6.0F);
+                }
             }
              
         }
@@ -410,18 +420,9 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
     
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        
-        //World world = MinecraftServer.getServer().worldServers[0];
-        //Hardmode data = Hardmode.get(world);
-        //if (data.getHardmode() == true) {
-        	//this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(700.0);
-            //this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(18D);
-            //this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.60D);
-        //} else {
-        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(350.0);
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(16D);
-            this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.60D);
-        //}
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(350.0);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(16D);
+        this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(0.60D);
     }
     
     protected void fall(final float p_70069_1_) {
@@ -481,20 +482,20 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
         }
     }
 
-    public void writeEntityToNBT(NBTTagCompound compound)
-    {
+    public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
         compound.setInteger("ExplosionPower", this.explosionStrength);
+        compound.setBoolean("HardmodeStatsApplied", this.hardmodeStatsApplied);
     }
 
-    public void readEntityFromNBT(NBTTagCompound compound)
-    {
+    public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
 
-        if (compound.hasKey("ExplosionPower", 99))
-        {
+        if (compound.hasKey("ExplosionPower", 99)) {
             this.explosionStrength = compound.getInteger("ExplosionPower");
         }
+
+        this.hardmodeStatsApplied = compound.getBoolean("HardmodeStatsApplied");
     }
     
     public boolean canDespawn() {

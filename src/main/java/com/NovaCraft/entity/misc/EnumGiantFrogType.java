@@ -4,15 +4,15 @@ public enum EnumGiantFrogType {
 
     GREEN(), BROWN(), YELLOW(), LIGHT_BLUE();
 
-    EnumGiantFrogType() {
-
-    }
+    EnumGiantFrogType() {}
 
     public int getId() {
         return this.ordinal();
     }
 
+    private static final EnumGiantFrogType[] VALUES = values();
+
     public static EnumGiantFrogType get(int id) {
-        return values()[id];
+        return VALUES[id];
     }
 }

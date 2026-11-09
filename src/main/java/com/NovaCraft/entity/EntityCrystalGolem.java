@@ -146,51 +146,45 @@ public class EntityCrystalGolem extends EntityGolem
                 this.worldObj.spawnParticle("blockcrack_" + Block.getIdFromBlock(block) + "_" + this.worldObj.getBlockMetadata(i, j, k), this.posX + ((double)this.rand.nextFloat() - 0.5D) * (double)this.width, this.boundingBox.minY + 0.1D, this.posZ + ((double)this.rand.nextFloat() - 0.5D) * (double)this.width, 4.0D * ((double)this.rand.nextFloat() - 0.5D), 0.5D, ((double)this.rand.nextFloat() - 0.5D) * 4.0D);
             }
         }
-        
-        if(Configs.enableCrystalGolemAura) {
-            if (this.getType() == EnumGolemType.COPARTZ) {
-            	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
-            	for(Entity entity : volume) {
-            		if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 250, 0, true));
-            		if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 250, 0, true));	
-            		}
-            	}
-            else if (this.getType() == EnumGolemType.LARIMAR) {
-            	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
-                for(Entity entity : volume) {
-                	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 250, 1, true));
-                	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 250, 0, true));
-                	}
+
+        if (Configs.enableCrystalGolemAura && !this.worldObj.isRemote) {
+            EnumGolemType type = this.getType();
+
+            if (type != EnumGolemType.NULLSTONE) {
+                List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(2, 3, 2));
+
+                for (EntityPlayer player : players) {
+                    if (!this.canEntityBeSeen(player)) continue;
+
+                    switch (type) {
+                        case COPARTZ:
+                            player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 250, 0, true));
+                            player.addPotionEffect(new PotionEffect(Potion.weakness.id, 250, 0, true));
+                            break;
+                        case LARIMAR:
+                            player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 250, 1, true));
+                            player.addPotionEffect(new PotionEffect(Potion.weakness.id, 250, 0, true));
+                            break;
+                        case TSAVOROKITE:
+                            player.addPotionEffect(new PotionEffect(Potion.weakness.id, 250, 1, true));
+                            break;
+                        case YTTRLINISTE:
+                            player.addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
+                            player.setFire(8);
+                            break;
+                        case AMETHYST:
+                            player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 250, 0, true));
+                            break;
+                        case AETHER:
+                            player.addPotionEffect(new PotionEffect(Potion.poison.id, 250, 0, true));
+                            player.addPotionEffect(new PotionEffect(Potion.weakness.id, 250, 2, true));
+                            break;
+                        default:
+                             break;
+                    }
                 }
-            else if (this.getType() == EnumGolemType.TSAVOROKITE) {
-            	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
-                for(Entity entity : volume) {
-                	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 250, 1, true));
-                	}
-                }
-            else if (this.getType() == EnumGolemType.YTTRLINISTE) {
-            	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
-                for(Entity entity : volume) {
-                	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
-                	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).setFire(8);
-                	}
-                }
-            else if (this.getType() == EnumGolemType.AMETHYST) {
-            	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
-                for(Entity entity : volume) {
-                	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 250, 0, true));
-                	}
-                }
-            else if (this.getType() == EnumGolemType.AETHER) {
-            	List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(2, 3, 2));
-                for(Entity entity : volume) {
-                	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.poison.id, 250, 0, true));
-                	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 250, 2, true));
-                	}
-                }
-        	 }
-            
-            super.onLivingUpdate();
+            }
+        }
     }
     
     public EnumGolemType getType()

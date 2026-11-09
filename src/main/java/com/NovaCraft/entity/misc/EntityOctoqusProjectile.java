@@ -15,7 +15,6 @@ import java.util.List;
 public class EntityOctoqusProjectile extends EntityArrow implements IThrowableEntity {
 
     private int timeInGround;
-
     private boolean hitGround;
 
     public EntityOctoqusProjectile(World worldIn) {
@@ -24,6 +23,7 @@ public class EntityOctoqusProjectile extends EntityArrow implements IThrowableEn
 
     public EntityOctoqusProjectile(World worldIn, EntityLivingBase shooter, float distance) {
         super(worldIn, shooter, distance);
+        this.canBePickedUp = 0;
     }
 
     @Override

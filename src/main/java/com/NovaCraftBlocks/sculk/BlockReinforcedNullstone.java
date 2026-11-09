@@ -1,23 +1,15 @@
 package com.NovaCraftBlocks.sculk;
 
-import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.TileEntity.TileEntityAncientChest;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.ibm.icu.impl.duration.impl.Utils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
@@ -27,7 +19,6 @@ import net.minecraft.world.World;
 public class BlockReinforcedNullstone extends Block {
 
 	@SideOnly(Side.CLIENT)
-	private IIcon iconTop;
 	private IIcon blockIconBottom;
 	private IIcon blockIconTop;
 	

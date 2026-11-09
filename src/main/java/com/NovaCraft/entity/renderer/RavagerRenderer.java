@@ -15,6 +15,13 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class RavagerRenderer extends RenderLiving {
+    private static final ResourceLocation[] TEXTURES = new ResourceLocation[EnumRavagerType.values().length];
+
+    static {
+        for (EnumRavagerType type : EnumRavagerType.values()) {
+            TEXTURES[type.ordinal()] = new ResourceLocation("textures/entity/ravager/" + type + ".png");
+        }
+    }
 
     public RavagerRenderer(final ModelBase par1ModelBase, final float par2) {
         super(par1ModelBase, par2);
@@ -38,7 +45,7 @@ public class RavagerRenderer extends RenderLiving {
 
     @Override
     protected ResourceLocation getEntityTexture(final Entity entity) {
-        return new ResourceLocation("textures/entity/ravager/" + ((EntityRavager)entity).getType() + ".png");
+        return TEXTURES[((EntityRavager)entity).getType().ordinal()];
     }
 }
 

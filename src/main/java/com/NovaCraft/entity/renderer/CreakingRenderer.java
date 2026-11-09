@@ -15,6 +15,13 @@ import com.NovaCraft.entity.models.CreakingModel;
 
 @SideOnly(Side.CLIENT)
 public class CreakingRenderer extends RenderLiving {
+    private static final ResourceLocation[] TEXTURES = new ResourceLocation[EnumCreakingType.values().length];
+
+    static {
+        for (EnumCreakingType type : EnumCreakingType.values()) {
+            TEXTURES[type.ordinal()] = new ResourceLocation("textures/entity/creaking/" + type + ".png");
+        }
+    }
 	private static final ResourceLocation OAK_eyes = new ResourceLocation("textures/entity/creaking/OAK_eyes.png");
 	private static final ResourceLocation BIRCH_eyes = new ResourceLocation("textures/entity/creaking/BIRCH_eyes.png");
 	private static final ResourceLocation SPRUCE_eyes = new ResourceLocation("textures/entity/creaking/SPRUCE_eyes.png");
@@ -127,7 +134,7 @@ public class CreakingRenderer extends RenderLiving {
 
 	@Override
 	protected ResourceLocation getEntityTexture(final Entity entity) {
-        return new ResourceLocation("textures/entity/creaking/" + ((EntityCreaking)entity).getType() + ".png");
+        return TEXTURES[((EntityCreaking)entity).getType().ordinal()];
     }
 	
     public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)

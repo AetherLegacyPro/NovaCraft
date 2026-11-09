@@ -21,6 +21,7 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
@@ -37,6 +38,7 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	public int shootTime;
 	private int field_82222_j;
 	private int[] field_82224_i = new int[2];
+	private boolean hardmodeStatsApplied = false;
 	
 	public EntityPrisoner(final World world) {
 		super(world);
@@ -48,20 +50,9 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-
-		//World world = MinecraftServer.getServer().worldServers[0];
-        //Hardmode data = Hardmode.get(world);
-        //if (data.getHardmode() == true) {
-        //	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(2000.0D);
-        //	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
-        //	this.setHealth(2000);
-        //} 
-        //else {
-        	this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
-        	this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
-        	this.setHealth(1000);
-        //}
-		
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(1000.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.knockbackResistance).setBaseValue(1.0D);
+		this.setHealth(1000);
 	}
 	
 
@@ -122,23 +113,18 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
             this.summonMinions();
         }
 
-		List<Entity> volume = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.expand(8, 8, 8));
-		{
-        for(Entity entity : volume) {
-        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 0, true));
-        	}
-		}
-        
-		if(Configs.enableWardenSlowness) {
-        for(Entity entity : volume) {
-        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
-        	}
-		}
-        
-		if(Configs.enableWardenWeakness) {
-        for(Entity entity : volume) {
-        	if(entity instanceof EntityPlayer && this.canEntityBeSeen(entity)) ((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
-        	}
+		if (!this.worldObj.isRemote) {
+			List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, this.boundingBox.expand(8, 8, 8));
+
+			for (EntityPlayer player : players) {
+				if (!this.canEntityBeSeen(player)) continue;
+
+				player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 0, true));
+				if (Configs.enableWardenSlowness)
+					player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 1, true));
+				if (Configs.enableWardenWeakness)
+					player.addPotionEffect(new PotionEffect(Potion.weakness.id, 100, 0, true));
+			}
 		}
 		
 		super.onLivingUpdate();
@@ -375,6 +361,12 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 	
 	@Override
 	public void onUpdate() {
+		if (!this.worldObj.isRemote && !this.hardmodeStatsApplied && Hardmode.get(this.worldObj).getHardmode()) {
+			this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(200.0D);
+			this.setHealth(this.getHealth() * 2.0F);
+			this.hardmodeStatsApplied = true;
+		}
+
 		super.onUpdate();
 
 		if (this.entityToAttack instanceof EntityPlayer && this.shouldAttackPlayer((EntityPlayer)this.entityToAttack))
@@ -410,23 +402,28 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 			this.setDead();
 		}
 	}
-	
+
 	@Override
 	public void onDeath(DamageSource source) {
-	    super.onDeath(source);
+		super.onDeath(source);
 
-	    if (!this.worldObj.isRemote && source.getEntity() instanceof EntityPlayer) {
-	        World world = this.worldObj;
-	        Hardmode data = Hardmode.get(world);
+		if (this.worldObj.isRemote) {
+			return;
+		}
 
-	        if (!data.getHardmode()) {
-	            data.triggerEvent(world);
-	            MinecraftServer.getServer().worldServers[0].mapStorage.saveAllData();
-	            ServerMessage.broadcastMessage("Hardmode Enabled");
-	        }
+		Configs.enableHardmodeAndSave();
 
-	        ((EntityPlayer) source.getEntity()).triggerAchievement(AchievementsNovaCraft.unforeseen_consequences);
-	    }
+		Hardmode data = Hardmode.get(this.worldObj);
+		if (!data.areHardmodeMobsUnlocked()) {
+			boolean hardmodeWasAlreadyEnabled = data.getHardmode();
+			data.triggerEvent(this.worldObj);
+			MinecraftServer.getServer().worldServerForDimension(0).mapStorage.saveAllData();
+			ServerMessage.broadcastMessage(hardmodeWasAlreadyEnabled ? "True Hardmode Enabled" : "Hardmode Enabled");
+		}
+
+		if (source.getEntity() instanceof EntityPlayer) {
+			((EntityPlayer)source.getEntity()).triggerAchievement(AchievementsNovaCraft.unforeseen_consequences);
+		}
 	}
 	
 	private boolean shouldAttackPlayer(EntityPlayer entityPlayer)
@@ -520,4 +517,13 @@ public class EntityPrisoner extends EntityAnimal implements IBossDisplayData
 		return null;
 	}
 
+	public void writeEntityToNBT(NBTTagCompound compound) {
+		super.writeEntityToNBT(compound);
+		compound.setBoolean("HardmodeStatsApplied", this.hardmodeStatsApplied);
+	}
+
+	public void readEntityFromNBT(NBTTagCompound compound) {
+		super.readEntityFromNBT(compound);
+		this.hardmodeStatsApplied = compound.getBoolean("HardmodeStatsApplied");
+	}
 }

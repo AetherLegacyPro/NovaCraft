@@ -10,7 +10,6 @@ import net.minecraft.block.*;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.*;
 import java.util.*;
-
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.sounds.ModSounds;
 
@@ -383,7 +382,7 @@ public class BlockArcticMossCarpet extends BlockBush implements IShearable
         }
     }
 		
- 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+ 	public Item getItemDropped(int p_149650_1_, Random random, int p_149650_3_)
 	  {
 	    return null;
 	  }

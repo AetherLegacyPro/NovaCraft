@@ -29,11 +29,10 @@ import net.minecraft.world.World;
 public class EntityNullifier extends EntityMob {
     private int lastActiveTime;
     private int timeSinceIgnited;
-    private int fuseTime = 30;
+    private int fuseTime = 35;
     private int explosionRadius = 4;
 
-    public EntityNullifier(World world)
-    {
+    public EntityNullifier(World world) {
         super(world);
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAINulliferSwell(this));
@@ -46,8 +45,7 @@ public class EntityNullifier extends EntityMob {
         this.targetTasks.addTask(2, new EntityAIHurtByTarget(this, false));
     }
 
-    protected void applyEntityAttributes()
-    {
+    protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.35D);
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0D);
@@ -59,36 +57,32 @@ public class EntityNullifier extends EntityMob {
         return true;
     }
 
-    public int getMaxSafePointTries()
-    {
+    public int getMaxSafePointTries() {
         return this.getAttackTarget() == null ? 3 : 3 + (int)(this.getHealth() - 1.0F);
     }
 
-    protected void fall(float p_70069_1_)
-    {
+    protected void fall(float p_70069_1_) {
         super.fall(p_70069_1_);
         this.timeSinceIgnited = (int)((float)this.timeSinceIgnited + p_70069_1_ * 1.5F);
 
-        if (this.timeSinceIgnited > this.fuseTime - 5)
-        {
+        if (this.timeSinceIgnited > this.fuseTime - 5) {
             this.timeSinceIgnited = this.fuseTime - 5;
         }
     }
 
-    protected void entityInit()
-    {
+    @Override
+    protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(16, Byte.valueOf((byte) - 1));
+        this.dataWatcher.addObject(16, Byte.valueOf((byte)-1));
         this.dataWatcher.addObject(17, Byte.valueOf((byte)0));
         this.dataWatcher.addObject(18, Byte.valueOf((byte)0));
+        this.dataWatcher.addObject(19, Byte.valueOf((byte)0));
     }
 
-    public void writeEntityToNBT(NBTTagCompound compound)
-    {
+    public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
 
-        if (this.dataWatcher.getWatchableObjectByte(17) == 1)
-        {
+        if (this.dataWatcher.getWatchableObjectByte(17) == 1) {
             compound.setBoolean("powered", true);
         }
 
@@ -97,60 +91,81 @@ public class EntityNullifier extends EntityMob {
         compound.setBoolean("ignited", this.func_146078_ca());
     }
 
-    public void readEntityFromNBT(NBTTagCompound compound)
-    {
+    public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
         this.dataWatcher.updateObject(17, Byte.valueOf((byte)(compound.getBoolean("powered") ? 1 : 0)));
 
-        if (compound.hasKey("Fuse", 99))
-        {
+        if (compound.hasKey("Fuse", 99)) {
             this.fuseTime = compound.getShort("Fuse");
         }
 
-        if (compound.hasKey("ExplosionRadius", 99))
-        {
+        if (compound.hasKey("ExplosionRadius", 99)) {
             this.explosionRadius = compound.getByte("ExplosionRadius");
         }
 
-        if (compound.getBoolean("ignited"))
-        {
+        if (compound.getBoolean("ignited")) {
             this.func_146079_cb();
         }
     }
 
-    public void onUpdate()
-    {
-        if (this.isEntityAlive())
-        {
+    @Override
+    public void onUpdate() {
+        if (this.isEntityAlive()) {
             this.lastActiveTime = this.timeSinceIgnited;
 
-            if (this.func_146078_ca())
-            {
+            if (this.func_146078_ca()) {
                 this.setCreeperState(1);
             }
 
-            int i = this.getCreeperState();
-
-            if (i > 0 && this.timeSinceIgnited == 0)
-            {
+            int state = this.getCreeperState();
+            if (state > 0 && this.timeSinceIgnited == 0) {
                 this.playSound("creeper.primed", 2.0F, 0.25F);
             }
 
-            this.timeSinceIgnited += i;
-
-            if (this.timeSinceIgnited < 0)
-            {
+            this.timeSinceIgnited += state;
+            if (this.timeSinceIgnited < 0) {
                 this.timeSinceIgnited = 0;
             }
 
-            if (this.timeSinceIgnited >= this.fuseTime)
-            {
+            if (this.timeSinceIgnited >= this.fuseTime) {
                 this.timeSinceIgnited = this.fuseTime;
                 this.func_146077_cc();
             }
         }
 
         super.onUpdate();
+
+        if (!this.worldObj.isRemote) {
+            this.setSpazAttacking(this.isEntityAlive() && this.getCreeperState() > 0 && this.getAttackTarget() != null && this.getAttackTarget().isEntityAlive());
+        }
+
+        if (this.worldObj.isRemote && this.isSpazAttacking()) {
+            this.spawnAttackSpazParticles();
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void spawnAttackSpazParticles() {
+        if (this.ticksExisted % 3 != 0) {
+            return;
+        }
+
+        for (int i = 0; i < 4; ++i) {
+            double x = this.posX + (this.rand.nextDouble() - 0.5D) * ((double)this.width + 0.4D);
+            double y = this.posY + this.rand.nextDouble() * (double)this.height;
+            double z = this.posZ + (this.rand.nextDouble() - 0.5D) * ((double)this.width + 0.4D);
+            this.worldObj.spawnParticle("portal", x, y, z, (this.rand.nextDouble() - 0.5D) * 0.15D, (this.rand.nextDouble() - 0.5D) * 0.15D, (this.rand.nextDouble() - 0.5D) * 0.15D);
+        }
+    }
+
+    public void setSpazAttacking(boolean attacking) {
+        if (!this.worldObj.isRemote) {
+            this.dataWatcher.updateObject(19, Byte.valueOf((byte)(attacking ? 1 : 0)));
+        }
+    }
+
+    public boolean isSpazAttacking() {
+        return this.dataWatcher.getWatchableObjectByte(19) == 1;
     }
 
     protected String getHurtSound()
@@ -163,38 +178,22 @@ public class EntityNullifier extends EntityMob {
         return "mob.creeper.death";
     }
 
-    public void onDeath(DamageSource source)
-    {
+    public void onDeath(DamageSource source) {
         super.onDeath(source);
 
-        if (source.getEntity() instanceof EntityRayfireball)
-        {
+        if (source.getEntity() instanceof EntityRayfireball) {
             int i = Item.getIdFromItem(Items.record_13);
             int j = Item.getIdFromItem(Items.record_11);
             int k = i + this.rand.nextInt(j - i + 1);
             this.dropItem(Item.getItemById(k), 1);
         }
+
        if(this.getPowered()) { 
-        if (source.getEntity() instanceof EntityPlayer)
-        {
+        if (source.getEntity() instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
-            
             entityplayer.triggerAchievement(AchievementsNovaCraft.electro_nullified);
-            
         }
        }
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public void onEntityUpdate() {
-    	super.onEntityUpdate();
-    	if (this.worldObj.isRemote) {
-    	int k;            	
-        	for (k = 0; k < 3; ++k)
-        	{
-        		this.worldObj.spawnParticle("portal", this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, (this.rand.nextDouble() - 0.5D) * 2.0D, -this.rand.nextDouble(), (this.rand.nextDouble() - 0.5D) * 2.0D);
-        	} 
-    	}
     }
 
     public boolean attackEntityAsMob(Entity p_70652_1_)
@@ -208,20 +207,16 @@ public class EntityNullifier extends EntityMob {
     }
 
     @SideOnly(Side.CLIENT)
-    public float getCreeperFlashIntensity(float p_70831_1_)
-    {
+    public float getCreeperFlashIntensity(float p_70831_1_) {
         return ((float)this.lastActiveTime + (float)(this.timeSinceIgnited - this.lastActiveTime) * p_70831_1_) / (float)(this.fuseTime - 2);
     }
 
-    protected void dropFewItems(boolean p_70628_1_, int chance)
-    {
+    protected void dropFewItems(boolean p_70628_1_, int chance) {
         int j;
         int k;
         {
             j = this.rand.nextInt(3 + chance);
-
-            for (k = 0; k < j; ++k)
-            {
+            for (k = 0; k < j; ++k) {
                 this.dropItem(NovaCraftItems.small_xancium_dust, 1);
             }
         }
@@ -246,18 +241,14 @@ public class EntityNullifier extends EntityMob {
         this.dataWatcher.updateObject(16, Byte.valueOf((byte)p_70829_1_));
     }
 
-    public void onStruckByLightning(EntityLightningBolt p_70077_1_)
-    {
+    public void onStruckByLightning(EntityLightningBolt p_70077_1_) {
         super.onStruckByLightning(p_70077_1_);
         this.dataWatcher.updateObject(17, Byte.valueOf((byte)1));
     }
 
-    protected boolean interact(EntityPlayer entityPlayer)
-    {
+    protected boolean interact(EntityPlayer entityPlayer) {
         ItemStack itemstack = entityPlayer.inventory.getCurrentItem();
-
-        if (itemstack != null && itemstack.getItem() == Items.flint_and_steel)
-        {
+        if (itemstack != null && itemstack.getItem() == Items.flint_and_steel) {
             this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, "fire.ignite", 1.0F, this.rand.nextFloat() * 0.8F + 0.4F);
             entityPlayer.swingItem();
 
@@ -272,18 +263,14 @@ public class EntityNullifier extends EntityMob {
         return super.interact(entityPlayer);
     }  
 
-    private void func_146077_cc()
-    {
-        if (!this.worldObj.isRemote)
-        {
+    private void func_146077_cc() {
+        if (!this.worldObj.isRemote) {
             boolean flag = this.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing");
 
-            if (this.getPowered())
-            {
+            if (this.getPowered()) {
                 this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, (float)(this.explosionRadius * 4), flag);
             }
-            else
-            {
+            else {
                 this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, (float)this.explosionRadius * 2, flag);
             }
 

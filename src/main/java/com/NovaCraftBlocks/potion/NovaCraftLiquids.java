@@ -1,7 +1,6 @@
 package com.NovaCraftBlocks.potion;
 
 import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraftforge.fluids.*;
 
 public class NovaCraftLiquids

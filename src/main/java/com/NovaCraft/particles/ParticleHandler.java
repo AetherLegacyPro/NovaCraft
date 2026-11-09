@@ -67,6 +67,19 @@ public enum ParticleHandler
             return new Object[] { 0, 0.18f * world.rand.nextFloat(), -1, this.texture, 16 };
         }
 	},
+
+    DISTORTION((Class)EntityRandomShapedParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/distortion_particles.png");
+        }
+
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.18f * world.rand.nextFloat(), -1, this.texture, 16 };
+        }
+    },
 	
 	ENDER((Class)EntityRandomShapedParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
         private final ResourceLocation texture;
@@ -390,6 +403,71 @@ public enum ParticleHandler
         @Override
         protected Object[] getAdditionalArgs(final World world, final Object... data) {
             return new Object[] { 0, 0.12f * world.rand.nextFloat(), -1, this.texture, 1 };
+        }
+    },
+
+    TOPHINITEFLAME((Class)EntityBlazliniteParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/tophinite_flame.png");
+        }
+
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.12f * world.rand.nextFloat(), -1, this.texture, 1 };
+        }
+    },
+
+    KLANGITEFLAME((Class)EntityBlazliniteParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/klangite_flame.png");
+        }
+
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.12f * world.rand.nextFloat(), -1, this.texture, 1 };
+        }
+    },
+
+    CRYSTALENDFLAME((Class)EntityBlazliniteParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/crystal_end_flame.png");
+        }
+
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.12f * world.rand.nextFloat(), -1, this.texture, 1 };
+        }
+    },
+
+    IRIDIUMFLAME((Class)EntityBlazliniteParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/iridium_flame.png");
+        }
+
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.12f * world.rand.nextFloat(), -1, this.texture, 1 };
+        }
+    },
+
+    LEGENDARYFLAME((Class)EntityBlazliniteParticle.class, ParticleData.VX_VY_VZ, new Class[] { Integer.TYPE, Float.TYPE, Integer.TYPE, ResourceLocation.class, Integer.TYPE }) {
+        private final ResourceLocation texture;
+
+        {
+            this.texture = new ResourceLocation("nova_craft:textures/particles/legendary_flame.png");
+        }
+
+        @Override
+        protected Object[] getAdditionalArgs(final World world, final Object... data) {
+            return new Object[] { 0, 0.24f * world.rand.nextFloat(), -1, this.texture, 1 };
         }
     },
 	

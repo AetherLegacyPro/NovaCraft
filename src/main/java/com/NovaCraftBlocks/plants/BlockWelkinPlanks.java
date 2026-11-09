@@ -1,7 +1,6 @@
 package com.NovaCraftBlocks.plants;
 
 import java.util.Random;
-
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import cpw.mods.fml.relauncher.Side;
@@ -45,9 +44,9 @@ public class BlockWelkinPlanks extends Block {
     }
 
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
+    public void randomDisplayTick(World world, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random random)
     {
-        if (!p_149734_1_.isRemote) {
+        if (!world.isRemote) {
             return;
         }
 
@@ -55,33 +54,33 @@ public class BlockWelkinPlanks extends Block {
             return;
         }
 
-        if (p_149734_5_.nextInt(100) == 0) {
-            int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
-            double d0 = (double)((float)p_149734_2_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
+        if (random.nextInt(100) == 0) {
+            int l = world.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
+            double d0 = (double)((float)p_149734_2_ + 0.5F + (random.nextFloat()) - (random.nextFloat()));
             double d1 = (double)((float)p_149734_3_ + 1.01F);
-            double d2 = (double)((float)p_149734_4_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
+            double d2 = (double)((float)p_149734_4_ + 0.5F + (random.nextFloat()) - (random.nextFloat()));
             double d3 = 0.2199999988079071D;
             double d4 = 0.27000001072883606D;
 
             if (l == 1)
             {
-                ParticleHandler.TREASURE_SMALL.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
+                ParticleHandler.TREASURE_SMALL.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
             }
             else if (l == 2)
             {
-                ParticleHandler.TREASURE_SMALL.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
+                ParticleHandler.TREASURE_SMALL.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
             }
             else if (l == 3)
             {
-                ParticleHandler.TREASURE_SMALL.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
+                ParticleHandler.TREASURE_SMALL.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
             }
             else if (l == 4)
             {
-                ParticleHandler.TREASURE_SMALL.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
+                ParticleHandler.TREASURE_SMALL.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
             }
             else
             {
-                ParticleHandler.TREASURE_SMALL.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
+                ParticleHandler.TREASURE_SMALL.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.0D, 0.0D, 0.0f, new Object[0]);
             }
         }
     }

@@ -35,11 +35,11 @@ public class BlockBloomingBarb extends BlockBush {
 		return 1;
 	  }
 	
-	public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity p_149670_5_)
+	public void onEntityCollidedWithBlock(World world, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity entity)
     {
 		int rand = (int)(1 + Math.random() * 40);		
 		if (rand == 1) {
-        p_149670_5_.attackEntityFrom(DamageSource.cactus, 1.0F);
+			entity.attackEntityFrom(DamageSource.cactus, 1.0F);
 		}
     }
 	

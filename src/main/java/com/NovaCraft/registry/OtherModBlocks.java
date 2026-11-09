@@ -64,6 +64,7 @@ public class OtherModBlocks
     public static Block chain;
     public static Block lantern;
     public static Block coarse_dirt;
+    public static Block budding_amethyst;
     
     //Netherlicious
     public static Block Nether_Gravel;
@@ -167,6 +168,7 @@ public class OtherModBlocks
         OtherModBlocks.banner = GameRegistry.findBlock("etfuturum", "banner");
         OtherModBlocks.fence_birch = GameRegistry.findBlock("etfuturum", "fence_birch");
         OtherModBlocks.coarse_dirt = GameRegistry.findBlock("etfuturum", "coarse_dirt");
+        OtherModBlocks.budding_amethyst = GameRegistry.findBlock("etfuturum", "budding_amethyst");
     	
     	OtherModBlocks.Nether_Gravel = GameRegistry.findBlock("netherlicious", "Nether_Gravel");
     	OtherModBlocks.Blackstone = GameRegistry.findBlock("netherlicious", "Blackstone");    	

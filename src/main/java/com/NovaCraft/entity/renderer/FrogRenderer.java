@@ -12,8 +12,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.entity.RenderLiving;
 
 @SideOnly(Side.CLIENT)
-public class FrogRenderer extends RenderLiving
-{
+public class FrogRenderer extends RenderLiving {
+    private static final ResourceLocation[] TEXTURES = new ResourceLocation[EnumFrogType.values().length];
+
+    static {
+        for (EnumFrogType type : EnumFrogType.values()) {
+            TEXTURES[type.ordinal()] = new ResourceLocation("textures/entity/frog/" + type + ".png");
+        }
+    }
     
     public FrogRenderer(final ModelBase par1ModelBase, final float par2) {
         super(par1ModelBase, par2);
@@ -33,7 +39,7 @@ public class FrogRenderer extends RenderLiving
 
 	@Override
 	protected ResourceLocation getEntityTexture(final Entity entity) {
-        return new ResourceLocation("textures/entity/frog/" + ((EntityFrog)entity).getType() + ".png");
+        return TEXTURES[((EntityFrog)entity).getType().ordinal()];
     }
 	
     public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)

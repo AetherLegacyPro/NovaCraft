@@ -10,19 +10,13 @@ import net.minecraft.block.*;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.*;
 import java.util.*;
-
-import com.NovaCraft.particles.ParticleDarkLichen;
 import com.NovaCraft.particles.ParticleDarkLichenThree;
-import com.NovaCraft.particles.ParticleDarkLichenTwo;
-import com.NovaCraft.particles.ParticleGlowLichen;
 import com.NovaCraft.particles.ParticleHandler;
-import com.NovaCraft.particles.entity.EntityRandomShapedParticle;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.special.IEmissiveLayerBlock;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

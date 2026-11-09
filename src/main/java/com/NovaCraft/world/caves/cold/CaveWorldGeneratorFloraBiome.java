@@ -1,10 +1,8 @@
 package com.NovaCraft.world.caves.cold;
 
+import com.NovaCraft.config.ConfigsWorld;
 import com.NovaCraft.world.caves.BlockPos;
-import com.NovaCraft.world.caves.hot.DesertFloraBiome;
-import com.NovaCraft.world.caves.hot.MercuryCaveBiome;
 import com.NovaCraft.world.caves.jungle.JungleFloraBiome;
-import com.NovaCraft.world.caves.snowy.SnowyBiome;
 import com.NovaCraft.world.caves.temperate.TemperateFloraBiome;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.world.World;
@@ -16,10 +14,6 @@ import java.util.Random;
 public class CaveWorldGeneratorFloraBiome implements IWorldGenerator {
 
     private final CaveBiomeGeneratorNearSurface generator_COLD_FLORA;
-    private final CaveBiomeGeneratorNearSurface generator_SNOW;
-
-    private final CaveBiomeGeneratorNearSurface generator_DESERT_FLORA;
-
     private final CaveBiomeGeneratorNearSurface generator_TEMP_FLORA;
     private final CaveBiomeGeneratorNearSurface generator_JUNGLE_FLORA;
 
@@ -30,14 +24,6 @@ public class CaveWorldGeneratorFloraBiome implements IWorldGenerator {
                 10, 5, 10,
                 36, 62,
                 Arrays.asList(BiomeDictionary.Type.COLD)
-        );
-
-        generator_SNOW = new CaveBiomeGeneratorNearSurface(new SnowyBiome(),
-                360,
-                248, 20, 248,
-                10, 5, 10,
-                36, 62,
-                Arrays.asList(BiomeDictionary.Type.SNOWY)
         );
 
         generator_TEMP_FLORA = new CaveBiomeGeneratorNearSurface(new TemperateFloraBiome(),
@@ -55,14 +41,6 @@ public class CaveWorldGeneratorFloraBiome implements IWorldGenerator {
                 36, 62,
                 Arrays.asList(BiomeDictionary.Type.JUNGLE)
         );
-
-        generator_DESERT_FLORA = new CaveBiomeGeneratorNearSurface(new DesertFloraBiome(),
-                360,
-                248, 20, 248,
-                10, 5, 10,
-                36, 62,
-                Arrays.asList(BiomeDictionary.Type.SANDY)
-        );
     }
 
     @Override
@@ -71,41 +49,31 @@ public class CaveWorldGeneratorFloraBiome implements IWorldGenerator {
         if (world.provider.dimensionId != 0) return;
 
         BlockPos[] sources_cold_flora = generator_COLD_FLORA.getSourcesInChunk(random, chunkX, chunkZ);
-        BlockPos[] sources_snow = generator_SNOW.getSourcesInChunk(random, chunkX, chunkZ);
         BlockPos[] sources_temp_flora = generator_TEMP_FLORA.getSourcesInChunk(random, chunkX, chunkZ);
         BlockPos[] sources_jungle_flora = generator_JUNGLE_FLORA.getSourcesInChunk(random, chunkX, chunkZ);
-        BlockPos[] sources_desert = generator_DESERT_FLORA.getSourcesInChunk(random, chunkX, chunkZ);
 
-
-        for (BlockPos pos : sources_cold_flora) {
-            if (generator_COLD_FLORA.isSourceValid(world, pos)) {
-                generator_COLD_FLORA.generateChunkPart(pos, random, chunkX, chunkZ, world);
+        if (ConfigsWorld.enableColdFloraCavern) {
+            for (BlockPos pos : sources_cold_flora) {
+                if (generator_COLD_FLORA.isSourceValid(world, pos)) {
+                    generator_COLD_FLORA.generateChunkPart(pos, random, chunkX, chunkZ, world);
+                }
             }
         }
 
-        for (BlockPos pos : sources_snow) {
-            if (generator_SNOW.isSourceValid(world, pos)) {
-                generator_SNOW.generateChunkPart(pos, random, chunkX, chunkZ, world);
+        if (ConfigsWorld.enableTemperateFloraCavern) {
+            for (BlockPos pos : sources_temp_flora) {
+                if (generator_TEMP_FLORA.isSourceValid(world, pos)) {
+                    generator_TEMP_FLORA.generateChunkPart(pos, random, chunkX, chunkZ, world);
+                }
             }
         }
 
-        for (BlockPos pos : sources_temp_flora) {
-            if (generator_TEMP_FLORA.isSourceValid(world, pos)) {
-                generator_TEMP_FLORA.generateChunkPart(pos, random, chunkX, chunkZ, world);
+        if (ConfigsWorld.enableTropicalFloraCavern) {
+            for (BlockPos pos : sources_jungle_flora) {
+                if (generator_JUNGLE_FLORA.isSourceValid(world, pos)) {
+                    generator_JUNGLE_FLORA.generateChunkPart(pos, random, chunkX, chunkZ, world);
+                }
             }
         }
-
-        for (BlockPos pos : sources_jungle_flora) {
-            if (generator_JUNGLE_FLORA.isSourceValid(world, pos)) {
-                generator_JUNGLE_FLORA.generateChunkPart(pos, random, chunkX, chunkZ, world);
-            }
-        }
-
-        for (BlockPos pos : sources_desert) {
-            if (generator_DESERT_FLORA.isSourceValid(world, pos)) {
-                generator_DESERT_FLORA.generateChunkPart(pos, random, chunkX, chunkZ, world);
-            }
-        }
-
     }
 }

@@ -65,6 +65,30 @@ public class BlockMercuryVaniteCauldronRenderer implements ISimpleBlockRendering
             renderer.renderFaceYPos(block, x, y - 1 + level, z, liquid);
         }
 
+        if (meta == 4) {
+            IIcon liquid = BlockMercuryVaniteCauldron.Strength;
+            float level = 0.99F;
+            renderer.renderFaceYPos(block, x, y - 1 + level, z, liquid);
+        }
+
+        if (meta == 5) {
+            IIcon liquid = BlockMercuryVaniteCauldron.Essence;
+            float level = 0.99F;
+            renderer.renderFaceYPos(block, x, y - 1 + level, z, liquid);
+        }
+
+        if (meta == 6) {
+            IIcon liquid = BlockMercuryVaniteCauldron.Pherithium;
+            float level = 0.99F;
+            renderer.renderFaceYPos(block, x, y - 1 + level, z, liquid);
+        }
+
+        if (meta == 7) {
+            IIcon liquid = BlockMercuryVaniteCauldron.Iridium;
+            float level = 0.99F;
+            renderer.renderFaceYPos(block, x, y - 1 + level, z, liquid);
+        }
+
         return true;
     }
 

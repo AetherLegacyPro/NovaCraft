@@ -4,15 +4,15 @@ public enum EnumCreakingType {
 
     OAK(), BIRCH(), SPRUCE(), JUNGLE(), DARK_OAK(), LUMINANT();
 
-	EnumCreakingType() {
-
-    }
+    EnumCreakingType() {}
 
     public int getId() {
         return this.ordinal();
     }
 
+    private static final EnumCreakingType[] VALUES = values();
+
     public static EnumCreakingType get(int id) {
-        return values()[id];
+        return VALUES[id];
     }
 }

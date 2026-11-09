@@ -1,5 +1,6 @@
 package com.NovaCraft.entity.renderer;
 
+import com.NovaCraft.entity.misc.EnumCrystalSlimeType;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
@@ -12,6 +13,14 @@ import com.NovaCraft.entity.EntityCrystalSlime;
 
 @SideOnly(Side.CLIENT)
 public class CrystalSlimeRenderer extends RenderLiving {
+    private static final ResourceLocation[] TEXTURES = new ResourceLocation[EnumCrystalSlimeType.values().length];
+
+    static {
+        for (EnumCrystalSlimeType type : EnumCrystalSlimeType.values()) {
+            TEXTURES[type.ordinal()] = new ResourceLocation("nova_craft", "textures/entity/crystal_slime/" + type + ".png");
+        }
+    }
+
     private ModelBase scaleAmount;
 
     public CrystalSlimeRenderer(ModelBase p_i1267_1_, ModelBase p_i1267_2_, float p_i1267_3_)
@@ -66,7 +75,7 @@ public class CrystalSlimeRenderer extends RenderLiving {
 
     @Override
     protected ResourceLocation getEntityTexture(final Entity entity) {
-        return new ResourceLocation("nova_craft", "textures/entity/crystal_slime/" + ((EntityCrystalSlime)entity).getType() + ".png");
+        return TEXTURES[((EntityCrystalSlime)entity).getType().ordinal()];
     }
 
     public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)

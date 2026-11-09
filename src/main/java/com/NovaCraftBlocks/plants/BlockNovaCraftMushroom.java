@@ -1,34 +1,14 @@
 package com.NovaCraftBlocks.plants;
 
-import java.util.Random;
-
-import com.NovaCraft.NovaCraft;
-import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.registry.OtherModBlocks;
-import com.NovaCraft.sounds.ModSounds;
 import com.NovaCraftBlocks.NovaCraftBlocks;
-import com.ibm.icu.impl.duration.impl.Utils;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockMushroom;
-import net.minecraft.block.BlockRotatedPillar;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockNovaCraftMushroom extends BlockMushroom {
-
-	@SideOnly(Side.CLIENT)
-	private IIcon iconFace, iconTop;
 	
 	public BlockNovaCraftMushroom() {
 		super();
@@ -39,9 +19,9 @@ public class BlockNovaCraftMushroom extends BlockMushroom {
 		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.3F, 0.7F);
 	}
 	
-	protected boolean canPlaceBlockOn(Block p_149854_1_)
+	protected boolean canPlaceBlockOn(Block block)
 	  {
-	       return (p_149854_1_ == Blocks.stone || p_149854_1_ == OtherModBlocks.deepslate || p_149854_1_ == NovaCraftBlocks.grimstone || p_149854_1_ == NovaCraftBlocks.nullstone);
+	       return (block == Blocks.stone || block == OtherModBlocks.deepslate || block == NovaCraftBlocks.grimstone || block == NovaCraftBlocks.nullstone);
 	  }
 	
 	@Override

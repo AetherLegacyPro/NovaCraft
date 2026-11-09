@@ -28,6 +28,7 @@ public class ItemImpureOutsiderIngot extends Item {
 		int meta = world.getBlockMetadata(x, y, z);
 		
 		if (world.getBlock(x, y, z) == NovaCraftBlocks.unknown_portal_sealed) {
+			world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "fire.ignite", 2.0F, itemRand.nextFloat() * 0.4F + 0.8F);
 			--heldItem.stackSize;
 			player.inventory.addItemStackToInventory(new ItemStack(NovaCraftItems.outsider_ingot));
 		}

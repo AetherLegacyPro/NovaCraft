@@ -24,6 +24,10 @@ public class BlockMercuryVaniteCauldron extends BlockCauldron {
     public IIcon inner, top, bottom, side;
 
     public static IIcon Mercury;
+    public static IIcon Strength;
+    public static IIcon Essence;
+    public static IIcon Pherithium;
+    public static IIcon Iridium;
 
     public BlockMercuryVaniteCauldron() {
         super();
@@ -42,7 +46,7 @@ public class BlockMercuryVaniteCauldron extends BlockCauldron {
     }
 
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
+    public Item getItem(World world, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
         return NovaCraftItems.vanite_cauldron_item;
     }
@@ -83,6 +87,10 @@ public class BlockMercuryVaniteCauldron extends BlockCauldron {
         this.blockIcon = this.side;
 
         BlockMercuryVaniteCauldron.Mercury = register.registerIcon("nova_craft:mercury_still");
+        BlockMercuryVaniteCauldron.Strength = register.registerIcon("nova_craft:hg_strength");
+        BlockMercuryVaniteCauldron.Essence = register.registerIcon("nova_craft:hg_essence");
+        BlockMercuryVaniteCauldron.Pherithium = register.registerIcon("nova_craft:hg_pherithium");
+        BlockMercuryVaniteCauldron.Iridium = register.registerIcon("nova_craft:hg_iridium");
     }
 
     @SideOnly(Side.CLIENT)
@@ -108,10 +116,9 @@ public class BlockMercuryVaniteCauldron extends BlockCauldron {
         if (held == null) return false;
 
         if (held.getItem() == (NovaCraftItems.vanite_bucket) && meta == 1) {
-
             if (!world.isRemote) {
-
                 world.setBlock(x, y, z, NovaCraftBlocks.lava_vanite_cauldron, 0, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
                 ItemStack potion = new ItemStack(NovaCraftItems.vanite_bucket_mercury, 1, 0);
 
@@ -134,10 +141,9 @@ public class BlockMercuryVaniteCauldron extends BlockCauldron {
         }
 
         else if (held.getItem() == (Items.bucket) && meta == 1) {
-
             if (!world.isRemote) {
-
                 world.setBlock(x, y, z, NovaCraftBlocks.lava_vanite_cauldron, 0, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
 
                 ItemStack potion = new ItemStack(NovaCraftItems.bucket_mercury, 1, 0);
 
@@ -159,8 +165,385 @@ public class BlockMercuryVaniteCauldron extends BlockCauldron {
             return true;
         }
 
+        if (held.getItem() == (NovaCraftItems.vanite_bottle) && meta == 1) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 2, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(NovaCraftItems.bottle_of_mercury, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (NovaCraftItems.vanite_bottle) && meta == 2) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 3, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(NovaCraftItems.bottle_of_mercury, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (NovaCraftItems.vanite_bottle) && meta == 3) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.lava_vanite_cauldron, 0, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(NovaCraftItems.bottle_of_mercury, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (NovaCraftItems.bottle_of_mercury) && meta == 2) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 1, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(NovaCraftItems.vanite_bottle, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (NovaCraftItems.bottle_of_mercury) && meta == 3) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 2, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(NovaCraftItems.vanite_bottle, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (Items.glass_bottle) && meta == 1) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 2, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(NovaCraftItems.glass_bottle_of_mercury, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (Items.glass_bottle) && meta == 2) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 3, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(NovaCraftItems.glass_bottle_of_mercury, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (Items.glass_bottle) && meta == 3) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.lava_vanite_cauldron, 0, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(NovaCraftItems.glass_bottle_of_mercury, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (NovaCraftItems.glass_bottle_of_mercury) && meta == 2) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 1, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(Items.glass_bottle, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (NovaCraftItems.glass_bottle_of_mercury) && meta == 3) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 2, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(Items.glass_bottle, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (NovaCraftItems.potion_strength_extended) && meta == 1) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 4, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(NovaCraftItems.vanite_bottle, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if (held.getItem() == (Items.potionitem) && held.getItemDamage() == 8265 && meta == 1) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 4, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                ItemStack potion = new ItemStack(Items.glass_bottle, 1, 0);
+
+                if (!player.inventory.addItemStackToInventory(potion)) {
+                    player.dropPlayerItemWithRandomChoice(potion, false);
+                }
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if ((held.getItem() == NovaCraftItems.anomalous_essence) && meta == 4) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 5, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if ((held.getItem() == NovaCraftItems.pherithium_ingot) && meta == 5) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 6, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if ((held.getItem() == NovaCraftItems.iridium_nugget) && held.getItemDamage() == 0 && meta == 6) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.mercury_vanite_cauldron, 7, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "liquid.water", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
+        if ((held.getItem() == NovaCraftItems.wyrmling_scales) && meta == 7) {
+            if (!world.isRemote) {
+                world.setBlock(x, y, z, NovaCraftBlocks.cracked_mercuridium_cauldron, 0, 3);
+                world.playSoundEffect((double)(x + 0.5f), (double)(y + 0.5f), (double)(z + 0.5f), "random.fizz", 0.5f, 2.6f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8f);
+                if (!player.capabilities.isCreativeMode) {
+                    held.stackSize--;
+                    if (held.stackSize <= 0) {
+                        player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                    }
+                }
+
+                player.inventory.markDirty();
+                player.inventoryContainer.detectAndSendChanges();
+            }
+
+            return true;
+        }
+
         return false;
     }
+
+
 
 
     @Override

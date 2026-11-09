@@ -2,30 +2,22 @@ package com.NovaCraftBlocks.sculk;
 
 import java.util.List;
 import java.util.Random;
-
-import com.NovaCraft.Item.Block.ItemAetherCluster;
 import com.NovaCraft.Item.Block.ItemSculkSpike;
-import com.NovaCraft.Items.NovaCraftItems;
-import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.core.Utils;
 import com.NovaCraft.entity.EntitySculkAbomination;
 import com.NovaCraft.entity.EntitySculkSymbiote;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.renderer.RenderIDs;
 import com.NovaCraft.sounds.ModSounds;
-import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.NovaCraftBlocks.ISubBlocksBlock;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockMobSpawner;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -37,8 +29,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-
 
 public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 	
@@ -57,7 +47,7 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 		setTickRandomly(true);
 	}
 
-   public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+   public Item getItemDropped(int p_149650_1_, Random random, int p_149650_3_)
    {
         return null;
     }
@@ -109,18 +99,18 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
  		}
  	}
     
-    public void onBlockDestroyedByPlayer(World p_149664_1_, int p_149664_2_, int p_149664_3_, int p_149664_4_, int p_149664_5_)
+    public void onBlockDestroyedByPlayer(World world, int p_149664_2_, int p_149664_3_, int p_149664_4_, int p_149664_5_)
     { 
  		
-        if (!p_149664_1_.isRemote)
+        if (!world.isRemote)
         {       	
         	int rand = (int)(1 + Math.random() * 4);
     		switch (rand)
           {
           	case 1:
-          	EntitySculkSymbiote entitysilverfish = new EntitySculkSymbiote(p_149664_1_);
+          	EntitySculkSymbiote entitysilverfish = new EntitySculkSymbiote(world);
             entitysilverfish.setLocationAndAngles((double)p_149664_2_ + 0.5D, (double)p_149664_3_, (double)p_149664_4_ + 0.5D, 0.0F, 0.0F);
-            p_149664_1_.spawnEntityInWorld(entitysilverfish);
+            world.spawnEntityInWorld(entitysilverfish);
             entitysilverfish.spawnExplosionParticle();
             	break;
           	case 2:
@@ -133,12 +123,12 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
           }
         }
 
-        super.onBlockDestroyedByPlayer(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, p_149664_5_);
+        super.onBlockDestroyedByPlayer(world, p_149664_2_, p_149664_3_, p_149664_4_, p_149664_5_);
     }
 
-    public int getDamageValue(World p_149643_1_, int p_149643_2_, int p_149643_3_, int p_149643_4_)
+    public int getDamageValue(World world, int p_149643_2_, int p_149643_3_, int p_149643_4_)
     {
-        return p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_) < 6 ? 0 : 6;
+        return world.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_) < 6 ? 0 : 6;
     }
    
     private boolean harvestingWithPickaxe() {
@@ -210,20 +200,20 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 		}
     }
 
-    protected void checkAndDropBlock(World p_149855_1_, int p_149855_2_, int p_149855_3_, int p_149855_4_)
+    protected void checkAndDropBlock(World world, int p_149855_2_, int p_149855_3_, int p_149855_4_)
     {
-        if (!this.canBlockStay(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_))
+        if (!this.canBlockStay(world, p_149855_2_, p_149855_3_, p_149855_4_))
         {
-            this.dropBlockAsItem(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_, p_149855_1_.getBlockMetadata(p_149855_2_, p_149855_3_, p_149855_4_), 0);
-            p_149855_1_.setBlockToAir(p_149855_2_, p_149855_3_, p_149855_4_);
+            this.dropBlockAsItem(world, p_149855_2_, p_149855_3_, p_149855_4_, world.getBlockMetadata(p_149855_2_, p_149855_3_, p_149855_4_), 0);
+			world.setBlockToAir(p_149855_2_, p_149855_3_, p_149855_4_);
         }
     }
 
 	@Override
-    public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_)
+    public void onNeighborBlockChange(World world, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block block)
     {
-        super.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
-        this.checkAndDropBlock(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
+        super.onNeighborBlockChange(world, p_149695_2_, p_149695_3_, p_149695_4_, block);
+        this.checkAndDropBlock(world, p_149695_2_, p_149695_3_, p_149695_4_);
     }
     
 	@Override
@@ -261,9 +251,9 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
+	public void getSubBlocks(Item item, CreativeTabs tabs, List list)
 	{
-		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
+		list.add(new ItemStack(item, 1, 0));
 	}
 
 	@Override
@@ -299,14 +289,14 @@ public class BlockSculkSpike extends Block implements ISubBlocksBlock {
 	
 	@Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(final World p_149734_1_, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random p_149734_5_) {
-        super.randomDisplayTick(p_149734_1_, p_149734_2_, p_149734_3_, p_149734_4_, p_149734_5_);
-        if (p_149734_5_.nextInt(15) == 0) {
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.4f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
-            ParticleHandler.SCULK.spawn(p_149734_1_, p_149734_2_ + p_149734_5_.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + p_149734_5_.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+    public void randomDisplayTick(final World world, final int p_149734_2_, final int p_149734_3_, final int p_149734_4_, final Random random) {
+        super.randomDisplayTick(world, p_149734_2_, p_149734_3_, p_149734_4_, random);
+        if (random.nextInt(15) == 0) {
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 0.1f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 0.4f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 0.6f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 0.9f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
+            ParticleHandler.SCULK.spawn(world, p_149734_2_ + random.nextFloat(), p_149734_3_ + 1.1f, p_149734_4_ + random.nextFloat(), 0.0, 0.0, 0.0, 0.0f, new Object[0]);
         }	
         
     }

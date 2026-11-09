@@ -3031,7 +3031,7 @@ public class MansionBasementGen3 extends WorldGenerator {
     }
 
     private ItemStack getChestLoot(Random random) {
-        int item = random.nextInt(11);
+        int item = random.nextInt(12);
         switch (item) {
             case 0:
                 return new ItemStack(Items.iron_ingot, random.nextInt(8) + 3);
@@ -3065,6 +3065,8 @@ public class MansionBasementGen3 extends WorldGenerator {
                 }
             case 8:
                 return new ItemStack(NovaCraftItems.hunger_staff, 1);
+            case 9:
+                return new ItemStack(NovaCraftItems.degraded_prospector_pickaxe, 1);
             default: {
                 return new ItemStack(NovaCraftItems.diamond_nugget, random.nextInt(16) + 2, 1);
             }

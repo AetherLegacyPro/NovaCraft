@@ -5,23 +5,14 @@ import net.minecraftforge.fluids.*;
 import net.minecraft.block.material.*;
 import net.minecraft.creativetab.*;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.client.renderer.texture.*;
 import net.minecraft.world.*;
 import java.util.*;
-
 import com.NovaCraft.entity.EntityBlazingSerpent;
 import com.NovaCraft.entity.EntityBlazingSerpentQueen;
-import com.NovaCraft.entity.EntityIonizatior;
 import com.NovaCraft.entity.EntitySavageSerpent;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
-import com.NovaCraftBlocks.NovaCraftBlocks;
-
 import net.minecraft.block.*;
 import cpw.mods.fml.relauncher.*;
 
@@ -107,10 +98,10 @@ public class BlockBlazlinite extends BlockFluidClassic
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
+    public void randomDisplayTick(World world, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random random)
     {
     	
-		if (!p_149734_1_.isRemote) {
+		if (!world.isRemote) {
 			return;
 		}
 
@@ -118,32 +109,32 @@ public class BlockBlazlinite extends BlockFluidClassic
 			return;
 		}
 		
-        int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
-        double d0 = (double)((float)p_149734_2_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
+        int l = world.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
+        double d0 = (double)((float)p_149734_2_ + 0.5F + (random.nextFloat()) - (random.nextFloat()));
         double d1 = (double)((float)p_149734_3_ - 1.0F);
-        double d2 = (double)((float)p_149734_4_ + 0.5F + (p_149734_5_.nextFloat()) - (p_149734_5_.nextFloat()));
+        double d2 = (double)((float)p_149734_4_ + 0.5F + (random.nextFloat()) - (random.nextFloat()));
         double d3 = 0.2199999988079071D;
         double d4 = 0.27000001072883606D;    
 
         if (l == 1)
         {
-        	ParticleHandler.BLAZFLAME.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);        	
+        	ParticleHandler.BLAZFLAME.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);        	
         }
         else if (l == 2)
         {
-        	ParticleHandler.BLAZFLAME.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.BLAZFLAME.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 3)
         {
-        	ParticleHandler.BLAZFLAME.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.BLAZFLAME.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else if (l == 4)
         {
-        	ParticleHandler.BLAZFLAME.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.BLAZFLAME.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
         else
         {
-        	ParticleHandler.BLAZFLAME.spawn(p_149734_1_, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
+        	ParticleHandler.BLAZFLAME.spawn(world, d0 - d4, d1 + d3, d2, 0.0D, 0.12D, 0.0D, 0.0f, new Object[0]);
         }
     }
     

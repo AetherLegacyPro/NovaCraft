@@ -1,5 +1,6 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.entity.AI.EntityAIDeepoidBreathAttack;
 import com.NovaCraft.entity.AI.EntityAILavaSwimming;
@@ -20,6 +21,7 @@ import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -33,10 +35,10 @@ public class EntityBlazingSerpentQueen extends EntityMob implements IDeepoidBrea
 	public static final int BREATH_DURATION = 16;
     public static final int BREATH_DAMAGE = 3;
     public static final int BREATH_DAMAGE_NOTFIRE = 3;
+	private boolean hardmodeStatsApplied = false;
 	
 	public EntityBlazingSerpentQueen(final World world) {
 		super(world);
-		
 		this.tasks.addTask(0, new EntityAILavaSwimming(this));
 		this.tasks.addTask(2, new EntityAIDeepoidBreathAttack(this, 1.0F, 5F, 30, 0.1F));
         this.tasks.addTask(3, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0F, false));
@@ -136,6 +138,16 @@ public class EntityBlazingSerpentQueen extends EntityMob implements IDeepoidBrea
     {
         return this.worldObj.isMaterialInBB(this.boundingBox.expand(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.lava);
     }
+
+	public void onUpdate() { //For bosses, their changes are a bit different compared to regular hostile mobs
+		if (!this.worldObj.isRemote && !this.hardmodeStatsApplied && Hardmode.get(this.worldObj).getHardmode()) {
+			this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(360.0D);
+			this.setHealth(this.getHealth() * 2.0F);
+			this.hardmodeStatsApplied = true;
+		}
+
+		super.onUpdate();
+	}
 	
 	@Override
 	public void onLivingUpdate()
@@ -274,32 +286,49 @@ public class EntityBlazingSerpentQueen extends EntityMob implements IDeepoidBrea
     }
     
     @Override
-	public void doBreathAttack(Entity target) 
-	{
-		if (!target.isImmuneToFire() && target.attackEntityFrom(DamageSource.inFire, BREATH_DAMAGE))
-    	{
-			target.setFire(BREATH_DURATION);
-	        target.attackEntityFrom(DamageSource.generic, 4.0F);
-	        ((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
-    	}
-		else
-		{
-			target.setFire(BREATH_DURATION);
-			target.attackEntityFrom(DamageSource.inFire, 3.0F);
-	        target.attackEntityFrom(DamageSource.generic, 2.0F);
-	        ((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
-
+	public void doBreathAttack(Entity target) {
+		boolean hardmode = Hardmode.get(this.worldObj).getHardmode();
+		if (hardmode) {
+			if (!target.isImmuneToFire() && target.attackEntityFrom(DamageSource.inFire, BREATH_DAMAGE)) {
+				target.setFire(BREATH_DURATION);
+				target.attackEntityFrom(DamageSource.generic, 8.0F);
+				((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
+			} else {
+				target.setFire(BREATH_DURATION);
+				target.attackEntityFrom(DamageSource.inFire, 6.0F);
+				target.attackEntityFrom(DamageSource.generic, 4.0F);
+				((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
+			}
+		} else {
+			if (!target.isImmuneToFire() && target.attackEntityFrom(DamageSource.inFire, BREATH_DAMAGE)) {
+				target.setFire(BREATH_DURATION);
+				target.attackEntityFrom(DamageSource.generic, 4.0F);
+				((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
+			} else {
+				target.setFire(BREATH_DURATION);
+				target.attackEntityFrom(DamageSource.inFire, 3.0F);
+				target.attackEntityFrom(DamageSource.generic, 2.0F);
+				((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
+			}
 		}
-			
 	}
     
     public boolean canDespawn() {
         return false;
     }
     
-    public World func_82194_d()
-    {
+    public World func_82194_d() {
         return this.worldObj;
     }
+
+	public void writeEntityToNBT(NBTTagCompound compound) {
+		super.writeEntityToNBT(compound);
+		compound.setBoolean("HardmodeStatsApplied", this.hardmodeStatsApplied);
+	}
+
+	public void readEntityFromNBT(NBTTagCompound compound) {
+		super.readEntityFromNBT(compound);
+		this.hardmodeStatsApplied = compound.getBoolean("HardmodeStatsApplied");
+	}
 
 }

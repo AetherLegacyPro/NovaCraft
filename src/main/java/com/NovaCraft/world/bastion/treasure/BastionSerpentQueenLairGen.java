@@ -1450,7 +1450,7 @@ public class BastionSerpentQueenLairGen extends WorldGenerator
 			case 17:
 				return new ItemStack(Items.iron_ingot, random.nextInt(19) + 7);
 			case 18:
-				return new ItemStack(Items.glowstone_dust, random.nextInt(7) + 3);
+				return new ItemStack(NovaCraftItems.degraded_prospector_pickaxe, 1);
 			case 19:
 				int rand3 = 1 + random.nextInt(100);
 				if (Configs.enableTreasureCratesDropDiamonds && rand3 > 70) {

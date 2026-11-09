@@ -84,6 +84,7 @@ public class EntitiesNovaCraft {
 		register(EntityVindicatorEye.class, "vindicator_eye", 88, 150, 2, true);
 		register(EntityCrimsonDragonProjectile.class, "crimson_dragon_projectile", 91, 64, 20, true);
 		register(EntityCrimsonEye.class, "crimson_eye", 92, 150, 2, true);
+		register(EntityPhantomizedLaser.class, "phantomized_laser", 95, 64, 10, true);
 		
 		//Mobs
 		register(EntityPrimedXanciumTNT.class, "XTNT", 0, 64, 20, false);
@@ -102,7 +103,7 @@ public class EntitiesNovaCraft {
 		register(EntitySculkSymbiote.class, "sculk_symbiote", 19, 0x3ea19f, 0x1a4f59);
 		register(EntityVoidEntity.class, "void_entity", 23, 0x040404, 0x420b6f);
 		register(EntityVoidCube.class, "void_cube", 24, 0x2f2f2f, 0x7600ad);
-		register(EntityNullifier.class, "nullifier", 28, 0xcc00fa, 0x090909);
+		register(EntityNullifier.class, "nullifier", 28, 0x090909, 0xffe2ff);
 		register(EntityGoat.class, "nova_goat", 29, 0xfafafa, 0xc0ac90);		
 		register(EntityIllagerTrader.class, "vindicator_trader", 30, 0x85a1a1, 0x424c4e);
 		register(EntityIllagerChief.class, "vindicator_chief", 31, 0x95a1a1, 0x324c4e);
@@ -141,6 +142,7 @@ public class EntitiesNovaCraft {
 		register(EntityCorruptist.class, "corruptist", 85, 0x96b2b2, 0x424c4e);
 		register(EntityOctoqus.class, "octoqus", 86, 0xbf8ca5, 0x633956);
 		register(EntityRelik.class, "relik", 89, 0x000100, 0x120e16);
+		register(EntityFrontierGolem.class, "frontier_golem", 93, 0x0a070f, 0x986cd4);
 		
 		//Hardmode
 		register(EntityHardmodeCreeper.class, "hardmode_creeper", 65, 0x3b313a, 0xd2b5d2);
@@ -158,7 +160,10 @@ public class EntitiesNovaCraft {
 		register(EntityPrisoner.class, "prisoner", 57, 64, 20, true);
 		register(EntityBlazingSerpentQueen.class, "serpent_queen", 75, 0x2d0000, 0xff0033);
 		register(EntityCrimsonDragon.class, "crimson_dragon", 90, 0xe4001e, 0x60000c);
-		
+		register(EntityPhantomized.class, "the_phantomized", 94, 0x2d3056, 0xdcc0ff);
+		register(EntityDistortion.class, "distortion", 96, 0x0b070f, 0x986dd4);
+
+
 		if (ConfigsEntities.enableSpawnGlowSquid) {
 		EntityRegistry.addSpawn(EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] {BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});
 		}
@@ -354,9 +359,8 @@ public class EntitiesNovaCraft {
 	}
 	
 	public static boolean overworldBiome(BiomeGenBase biome) {
-	    List<SpawnListEntry> monsterList = ObfuscationReflectionHelper.getPrivateValue(BiomeGenBase.class, biome, "as", "field_76761_J", "spawnableMonsterList");
-	    for(SpawnListEntry entity : monsterList) {
-	        if(entity.entityClass == EntityZombie.class) return true;
+		for (Object entry : biome.getSpawnableList(EnumCreatureType.monster)) {
+			if (((SpawnListEntry) entry).entityClass == EntityZombie.class) return true;
 	    }
 	    return false;
 	}
@@ -366,9 +370,6 @@ public class EntitiesNovaCraft {
 			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
 			if (biome != null){
 				if (BiomeDictionary.isBiomeOfType(biome, Type.END)) {
-					if (ConfigsEntities.enableSpawnPhantom) {
-						EntityRegistry.addSpawn(EntityPhantom.class, 3, 2, 3, EnumCreatureType.monster, biome);
-					}
 					if (ConfigsEntities.enableSpawnEnderLord) {
 						EntityRegistry.addSpawn(EntityEnderLord.class, 2, 1, 4, EnumCreatureType.monster, biome);
 					}					
