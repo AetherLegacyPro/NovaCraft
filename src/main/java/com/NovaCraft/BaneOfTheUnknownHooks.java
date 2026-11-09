@@ -6,7 +6,7 @@ public final class BaneOfTheUnknownHooks {
     private BaneOfTheUnknownHooks() {
     }
 
-    public static boolean isValidTarget(EnumCreatureAttribute attribute) {
+    public static boolean isValidTarget(Object attribute) {
         return attribute == EnumCreatureAttribute.ARTHROPOD || attribute == EnumCreatureAttribute.UNDEFINED || attribute == null;
     }
 }

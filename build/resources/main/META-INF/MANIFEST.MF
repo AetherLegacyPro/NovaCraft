@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+FMLCorePluginContainsFMLMod: true
+Implementation-Title: NovaCraft
+Implementation-Version: 1.0
+Created-By: Forge 1.7.10

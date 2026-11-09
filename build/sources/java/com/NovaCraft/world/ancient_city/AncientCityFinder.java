@@ -1,0 +1,118 @@
+package com.NovaCraft.world.ancient_city;
+
+import com.NovaCraft.config.Configs;
+import com.NovaCraft.config.ConfigsStructures;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
+import org.apache.commons.lang3.ArrayUtils;
+import java.util.Arrays;
+import java.util.Random;
+
+public class AncientCityFinder {
+    private static final boolean DEBUG = false;
+
+    private static int floorDiv(int a, int b) {
+        if (b <= 0) {
+            throw new IllegalArgumentException("b must be > 0");
+        } else {
+            return a >= 0 ? a / b : -((-a + b - 1) / b);
+        }
+    }
+
+    private static boolean isValidDimension(int dim) {
+        if (ConfigsStructures.AncientCityValidDimension == null) {
+            return false;
+        }
+
+        for (int id : ConfigsStructures.AncientCityValidDimension) {
+            if (id == dim) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static ChunkCoordinates getNearestAncientCity(World world, int playerX, int playerZ) {
+        if (Configs.enableDebugMode) {
+            System.out.println("[AncientCityFinder] isRemote=" + world.isRemote + ", dim=" + world.provider.dimensionId +
+                    ", name=" + world.provider.getDimensionName() + ", validDims=" + Arrays.toString(ConfigsStructures.AncientCityValidDimension));
+
+        System.out.println("[AncientCityFinder] Dimension passed config whitelist.");
+        }
+
+        if (!isValidDimension(world.provider.dimensionId)) {
+            if (Configs.enableDebugMode) System.out.println("[AncientCityFinder] Dimension failed config whitelist.");
+
+            return null;
+        }
+
+        int spacing = 750;
+        int searchRadius = 20;
+        int playerRegionX = floorDiv(playerX, 750);
+        int playerRegionZ = floorDiv(playerZ, 750);
+
+        for(int radius = 0; radius <= 20; ++radius) {
+            for(int rx = -radius; rx <= radius; ++rx) {
+                for(int rz = -radius; rz <= radius; ++rz) {
+                    int regionX = playerRegionX + rx;
+                    int regionZ = playerRegionZ + rz;
+                    Random regionRand = new Random(world.getSeed() + (long)regionX * 341873128712L + (long)regionZ * 132897987541L);
+                    if (regionRand.nextInt(3) == 1) {
+                        int baseX = regionX * 750 + regionRand.nextInt(750);
+                        int baseZ = regionZ * 750 + regionRand.nextInt(750);
+                        if (Math.abs(baseX) >= ConfigsStructures.AncientCityGenerationDistance && Math.abs(baseZ) >= ConfigsStructures.AncientCityGenerationDistance) {
+                            int chunkCornerX = baseX >> 4 << 4;
+                            int chunkCornerZ = baseZ >> 4 << 4;
+                            BiomeGenBase biome = world.getBiomeGenForCoords(chunkCornerX, chunkCornerZ);
+                            BiomeGenBase biomePosX = world.getBiomeGenForCoords(chunkCornerX + 160, chunkCornerZ);
+                            BiomeGenBase biomeNegX = world.getBiomeGenForCoords(chunkCornerX - 160, chunkCornerZ);
+                            BiomeGenBase biomePosZ = world.getBiomeGenForCoords(chunkCornerX, chunkCornerZ + 150);
+                            BiomeGenBase biomeNegZ = world.getBiomeGenForCoords(chunkCornerX, chunkCornerZ - 150);
+                            BiomeGenBase biomePosXPosZ = world.getBiomeGenForCoords(chunkCornerX + 160, chunkCornerZ + 150);
+                            BiomeGenBase biomeNegXNegZ = world.getBiomeGenForCoords(chunkCornerX - 160, chunkCornerZ - 150);
+                            BiomeGenBase biomePosXNegZ = world.getBiomeGenForCoords(chunkCornerX + 160, chunkCornerZ - 150);
+                            BiomeGenBase biomeNegXPosZ = world.getBiomeGenForCoords(chunkCornerX - 160, chunkCornerZ + 150);
+                            Type[] biomeList = BiomeDictionary.getTypesForBiome(biome);
+                            Type[] biomeListPosX = BiomeDictionary.getTypesForBiome(biomePosX);
+                            Type[] biomeListNegX = BiomeDictionary.getTypesForBiome(biomeNegX);
+                            Type[] biomeListPosZ = BiomeDictionary.getTypesForBiome(biomePosZ);
+                            Type[] biomeListNegZ = BiomeDictionary.getTypesForBiome(biomeNegZ);
+                            Type[] biomeListPosXPosZ = BiomeDictionary.getTypesForBiome(biomePosXPosZ);
+                            Type[] biomeListNegXNegZ = BiomeDictionary.getTypesForBiome(biomeNegXNegZ);
+                            Type[] biomeListPosXNegZ = BiomeDictionary.getTypesForBiome(biomePosXNegZ);
+                            Type[] biomeListNegXPosZ = BiomeDictionary.getTypesForBiome(biomeNegXPosZ);
+                            boolean bad = ArrayUtils.contains(biomeList, Type.OCEAN) || ArrayUtils.contains(biomeList, Type.BEACH)
+                                    || ArrayUtils.contains(biomeList, Type.SWAMP) || ArrayUtils.contains(biomeListPosX, Type.OCEAN)
+                                    || ArrayUtils.contains(biomeListPosX, Type.BEACH) || ArrayUtils.contains(biomeListPosX, Type.SWAMP)
+                                    || ArrayUtils.contains(biomeListNegX, Type.OCEAN) || ArrayUtils.contains(biomeListNegX, Type.BEACH)
+                                    || ArrayUtils.contains(biomeListNegX, Type.SWAMP) || ArrayUtils.contains(biomeListPosZ, Type.OCEAN)
+                                    || ArrayUtils.contains(biomeListPosZ, Type.BEACH) || ArrayUtils.contains(biomeListPosZ, Type.SWAMP)
+                                    || ArrayUtils.contains(biomeListNegZ, Type.OCEAN) || ArrayUtils.contains(biomeListNegZ, Type.BEACH)
+                                    || ArrayUtils.contains(biomeListNegZ, Type.SWAMP) || ArrayUtils.contains(biomeListPosXPosZ, Type.OCEAN)
+                                    || ArrayUtils.contains(biomeListPosXPosZ, Type.BEACH) || ArrayUtils.contains(biomeListPosXPosZ, Type.SWAMP)
+                                    || ArrayUtils.contains(biomeListNegXNegZ, Type.OCEAN) || ArrayUtils.contains(biomeListNegXNegZ, Type.BEACH)
+                                    || ArrayUtils.contains(biomeListNegXNegZ, Type.SWAMP) || ArrayUtils.contains(biomeListPosXNegZ, Type.OCEAN)
+                                    || ArrayUtils.contains(biomeListPosXNegZ, Type.BEACH) || ArrayUtils.contains(biomeListPosXNegZ, Type.SWAMP)
+                                    || ArrayUtils.contains(biomeListNegXPosZ, Type.OCEAN) || ArrayUtils.contains(biomeListNegXPosZ, Type.BEACH)
+                                    || ArrayUtils.contains(biomeListNegXPosZ, Type.SWAMP);
+                            if (!bad) {
+                                int x1 = baseX + regionRand.nextInt(8) + 8;
+                                int z1 = baseZ + regionRand.nextInt(8) + 8;
+                                int x2 = x1 + 36;
+                                int y2 = 18;
+                                int z2 = z1 + 36;
+                                return new ChunkCoordinates(x2, y2, z2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+}

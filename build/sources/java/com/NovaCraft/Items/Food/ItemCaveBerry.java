@@ -1,0 +1,46 @@
+package com.NovaCraft.Items.Food;
+
+import java.util.List;
+import com.NovaCraft.NovaCraft;
+import com.NovaCraft.Items.ItemNovaCraftFood;
+import com.NovaCraft.registry.NovaCraftCreativeTabs;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+public class ItemCaveBerry extends ItemNovaCraftFood {
+
+    @SideOnly(Side.CLIENT)
+    private IIcon alternativeIcon;
+
+    public ItemCaveBerry() {
+        super(1);
+
+        this.setHasSubtypes(false);
+        this.setCreativeTab(NovaCraftCreativeTabs.items);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister registry) {
+        super.registerIcons(registry);
+
+        this.alternativeIcon = registry.registerIcon(NovaCraft.find("cave_berry"));
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int meta) {
+        return meta == 1 ? this.itemIcon : this.alternativeIcon;
+    }
+
+    @Override
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public void getSubItems(Item item, CreativeTabs tab, List subItems) {
+        subItems.add(new ItemStack(this, 1, 0));
+    }
+}

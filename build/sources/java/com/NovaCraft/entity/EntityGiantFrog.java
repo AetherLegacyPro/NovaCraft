@@ -1,0 +1,287 @@
+package com.NovaCraft.entity;
+
+import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.entity.misc.EnumGiantFrogType;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.Blocks;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+
+public class EntityGiantFrog extends EntityMob {
+
+    private boolean isJumping;
+    private boolean isCroaking;
+    private boolean isSwimming;
+
+    private float jumpTimer;
+    private float croakTimer;
+    private float swimTimer;
+
+    public boolean isJumpingAnim() { return isJumping; }
+    public boolean isCroakingAnim() { return isCroaking; }
+    public boolean isSwimmingAnim() { return isSwimming; }
+
+    public float getJumpTimer() { return jumpTimer; }
+    public float getCroakTimer() { return croakTimer; }
+    public float getSwimTimer() { return swimTimer; }
+
+    private int frogJumpDelay;
+
+    public EntityGiantFrog(final World world) {
+        super(world);
+        this.frogJumpDelay = this.rand.nextInt(10) + 10;
+        this.experienceValue = 3;
+        this.setSize(2.0f, 2.0f);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(2.30);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(26.0);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0);
+        this.setHealth(26.0f);
+
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 10.0F));
+        this.tasks.addTask(5, new EntityAILookIdle(this));
+        this.tasks.addTask(7, new EntityAIWander(this, 0.8D));
+
+    }
+
+    @Override
+    public boolean isInWater() {
+        return this.worldObj.getBlock((int)this.posX, (int)this.boundingBox.minY, (int)this.posZ).getMaterial().isLiquid();
+    }
+
+    @Override
+    public boolean canBreatheUnderwater() {
+        return true;
+    }
+
+    protected void entityInit()
+    {
+        super.entityInit();
+        this.dataWatcher.addObject(21, (byte) this.rand.nextInt(EnumGiantFrogType.values().length));
+    }
+
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+
+        this.fallDistance = 0.0f;
+
+        if (!onGround && motionY > 0.15 && !isJumping) {
+            isJumping = true;
+            jumpTimer = 0f;
+        }
+        if (isJumping) {
+            jumpTimer += 1.0f / 20.0f;
+            if (jumpTimer > 0.5f) isJumping = false;
+        }
+
+        isSwimming = this.isInWater();
+
+        if (isSwimming) {
+            swimTimer += 1.0f / 20.0f;
+        } else {
+            swimTimer = 0f;
+        }
+
+        if (!isCroaking && rand.nextInt(100) == 0) {
+            isCroaking = true;
+            croakTimer = 0f;
+        }
+        if (isCroaking) {
+            croakTimer += 1.0f / 20.0f;
+            if (croakTimer > 0.7f) isCroaking = false;
+        }
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        if (this.worldObj.isDaytime() && !this.worldObj.isRemote && this.worldObj.provider.dimensionId != 1 && this.worldObj.canBlockSeeTheSky(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ))) {
+            this.setFire(4);
+        }
+
+        if (this.isCroaking) {
+            this.croakTimer += 1.0F / 20.0F;
+            if (this.croakTimer >= 0.7F) {
+                this.isCroaking = false;
+                this.croakTimer = 0;
+            }
+        } else if (this.rand.nextInt(200) == 0 && !this.isInWater()) {
+            this.isCroaking = true;
+            this.croakTimer = 0;
+        }
+
+        if (this.isJumping && (this.onGround || this.isInWater())) {
+            this.jumpTimer += 1.0F / 20.0F;
+            if (this.jumpTimer >= 0.25F) {
+                this.motionY += 1.0;
+                this.isJumping = false;
+                this.jumpTimer = 0;
+            }
+        }
+
+        if (this.isInWater()) {
+            this.isSwimming = true;
+            this.swimTimer += 1.0F / 20.0F;
+        } else {
+            this.isSwimming = false;
+            this.swimTimer = 0;
+        }
+
+        super.onLivingUpdate();
+    }
+
+    protected int getJumpDelay()
+    {
+        return this.rand.nextInt(10) + 10;
+    }
+
+    protected void updateEntityActionState() {
+        EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
+        if (entityplayer != null) {
+            this.faceEntity(entityplayer, 10.0F, 20.0F);
+            if (this.onGround && this.frogJumpDelay-- <= 0) {
+                this.frogJumpDelay = this.getJumpDelay();
+                this.isJumping = true;
+                this.playSound(this.getLivingSound(), this.getSoundVolume(), ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) * 0.8F);
+                double dx = entityplayer.posX - this.posX;
+                double dz = entityplayer.posZ - this.posZ;
+                double dist = (double)MathHelper.sqrt_double(dx * dx + dz * dz);
+                if (dist > 1.0E-4D) {
+                    this.motionX = dx / dist * 0.8D;
+                    this.motionZ = dz / dist * 0.8D;
+                    this.motionY = 1.0D;
+                }
+            }
+        } else {
+            this.frogJumpDelay = this.rand.nextInt(40);
+            if (this.onGround && this.frogJumpDelay-- <= 0) {
+                this.frogJumpDelay = this.rand.nextInt(40);
+                float angle = this.rand.nextFloat() * 3.1415927F * 2.0F;
+                double speed = 0.2D;
+                this.motionX = -Math.sin((double)angle) * speed;
+                this.motionZ = Math.cos((double)angle) * speed;
+                this.motionY = 0.15D;
+                this.rotationYaw = (float)(Math.atan2(this.motionZ, this.motionX) * 180.0D / 3.141592653589793D) - 90.0F;
+                this.renderYawOffset = this.rotationYaw;
+            }
+        }
+
+    }
+
+    public void onCollideWithPlayer(EntityPlayer entityPlayer) {
+        if (this.canEntityBeSeen(entityPlayer) && this.getDistanceSqToEntity(entityPlayer) < 16D && entityPlayer.attackEntityFrom(DamageSource.causeMobDamage(this), 2))
+        {
+            this.playSound("minecraft:mob.attack", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+        }
+    }
+
+    @Override
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        if (source.getSourceOfDamage() instanceof EntityArrow) {
+            EntityArrow arrow = (EntityArrow)source.getSourceOfDamage();
+
+            if (arrow.shootingEntity != null && arrow.shootingEntity == this.riddenByEntity) {
+                return false;
+            }
+        }
+
+        return super.attackEntityFrom(source, amount);
+    }
+
+    protected String getLivingSound() {
+        return "nova_craft:frog.living";
+    }
+
+    protected String getHurtSound() {
+        return "nova_craft:frog.hurt";
+    }
+
+    protected String getDeathSound() {
+        return "nova_craft:frog.death";
+    }
+
+    protected void func_70036_a(final int par1, final int par2, final int par3, final int par4) {
+        this.playSound("nova_craft:frog.step", 0.25f, 1.0f);
+    }
+
+    public boolean isPotionApplicable(PotionEffect effect)
+    {
+        return effect.getPotionID() != Potion.poison.id && super.isPotionApplicable(effect);
+    }
+
+    public EnumGiantFrogType getType()
+    {
+        int id = this.dataWatcher.getWatchableObjectByte(21);
+
+        return EnumGiantFrogType.get(id);
+    }
+
+    public void setType(int id)
+    {
+        this.dataWatcher.updateObject(21, (byte) id);
+    }
+
+    public void writeEntityToNBT(NBTTagCompound compound)
+    {
+        super.writeEntityToNBT(compound);
+        compound.setInteger("GiantFrogType", this.getType().getId());
+    }
+
+    public void readEntityFromNBT(NBTTagCompound compound)
+    {
+        super.readEntityFromNBT(compound);
+        this.setType(compound.getInteger("GiantFrogType"));
+    }
+
+    protected void dropFewItems(boolean p_70628_1_, int chance)
+    {
+            if (this.isBurning())
+            {
+                this.dropItem(NovaCraftItems.cooked_frog_leg, 1);
+            }
+            else
+            {
+                this.dropItem(NovaCraftItems.raw_frog_leg, 1);
+            }
+    }
+
+    @Override
+    public double getMountedYOffset() {
+        return this.height - 0.3D;
+    }
+
+    public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_) {
+        Object p_110161_1_1 = super.onSpawnWithEgg(p_110161_1_);
+
+        if (this.worldObj.rand.nextInt(12) == 0) {
+            EntitySkeleton entity = new EntitySkeleton(this.worldObj);
+            entity.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+            entity.onSpawnWithEgg(null);
+            this.worldObj.spawnEntityInWorld(entity);
+            entity.mountEntity(this);
+        }
+
+        return (IEntityLivingData)p_110161_1_1;
+    }
+
+    public boolean getCanSpawnHere() {
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+        boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+        return this.posY >= 60.0D && this.worldObj.getBlockLightValue(i, j, k) <= 7 && canSpawn && (this.worldObj.getBlock(i, j - 1, k) == Blocks.grass || this.worldObj.getBlock(i, j - 1, k) == Blocks.dirt);
+    }
+}

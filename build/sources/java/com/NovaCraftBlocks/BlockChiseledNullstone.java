@@ -1,0 +1,38 @@
+package com.NovaCraftBlocks;
+
+import com.NovaCraft.sounds.ModSounds;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.util.IIcon;
+
+public class BlockChiseledNullstone extends Block {
+
+	@SideOnly(Side.CLIENT)
+	private IIcon iconFace, iconTop;
+	
+	public BlockChiseledNullstone() {
+		super(Material.rock);
+		this.setHardness(5);
+		this.setResistance(12);
+		this.setStepSound(ModSounds.soundNullstoneBricks);
+		this.setHarvestLevel("pickaxe", 3);
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int meta){
+		return side == 0 || side == 1 ? iconTop : meta >= 1 && side-1 == meta ? iconFace : blockIcon;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconRegister){
+		blockIcon = iconRegister.registerIcon("nova_craft:chiseled_nullstone");
+		iconFace = iconRegister.registerIcon("nova_craft:chiseled_nullstone");
+		iconTop = iconRegister.registerIcon("nova_craft:chiseled_nullstone");
+	}
+
+}

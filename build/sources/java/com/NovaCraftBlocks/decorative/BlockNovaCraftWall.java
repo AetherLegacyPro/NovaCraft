@@ -1,0 +1,42 @@
+package com.NovaCraftBlocks.decorative;
+
+import java.util.List;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockWall;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+public class BlockNovaCraftWall extends BlockWall {
+
+	private Block block;
+
+	public BlockNovaCraftWall(Block block) {
+		super(block);
+
+		this.block = block;
+	}
+
+	@Override
+	public boolean canPlaceTorchOnTop(World world, int x, int y, int z) {
+		return true;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	public void getSubBlocks(Item item, CreativeTabs tabs, List list) {
+		list.add(new ItemStack(item, 1, 0));
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
+		return this.block.getBlockTextureFromSide(p_149691_1_);
+	}
+
+}
