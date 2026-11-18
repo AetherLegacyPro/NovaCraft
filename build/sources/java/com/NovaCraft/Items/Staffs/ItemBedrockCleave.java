@@ -2,6 +2,7 @@ package com.NovaCraft.Items.Staffs;
 
 import com.NovaCraft.Items.Tools.NCToolMaterial;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
+import com.NovaCraft.entity.misc.EntityVoidLightningBolt;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import net.minecraft.block.Block;
@@ -44,8 +45,8 @@ public class ItemBedrockCleave extends ItemPickaxe {
             world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "nova_craft:unknown.activated", 2.0F, itemRand.nextFloat() * 0.4F + 0.8F);
             heldItem.damageItem(1, player);
             world.setBlock(x, y, z, NovaCraftBlocks.legendary_ore, 0, 2);
-            world.addWeatherEffect(new EntityLightningBolt(world, x, y + 1.0D, z));
-            if (world.isRemote) {
+            if (!world.isRemote) {
+                world.spawnEntityInWorld(new EntityVoidLightningBolt(world, x + 0.5D, y + 1.0D, z + 0.5D));
                 for (int i = 0; i < 20; ++i) {
                     double particleX = x + 0.5D + (world.rand.nextDouble() - 0.5D) * 1.5D;
                     double particleY = y + 0.5D + (world.rand.nextDouble() - 0.5D) * 1.5D;
@@ -60,8 +61,8 @@ public class ItemBedrockCleave extends ItemPickaxe {
             world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "nova_craft:unknown.activated", 2.0F, itemRand.nextFloat() * 0.4F + 0.8F);
             heldItem.damageItem(1, player);
             world.setBlock(x, y, z, NovaCraftBlocks.legendary_ore, 1, 2);
-            world.addWeatherEffect(new EntityLightningBolt(world, x, y + 1.0D, z));
-            if (world.isRemote) {
+            if (!world.isRemote) {
+                world.spawnEntityInWorld(new EntityVoidLightningBolt(world, x + 0.5D, y + 1.0D, z + 0.5D));
                 for (int i = 0; i < 20; ++i) {
                     double particleX = x + 0.5D + (world.rand.nextDouble() - 0.5D) * 1.5D;
                     double particleY = y + 0.5D + (world.rand.nextDouble() - 0.5D) * 1.5D;
@@ -76,8 +77,8 @@ public class ItemBedrockCleave extends ItemPickaxe {
             world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "nova_craft:unknown.activated", 2.0F, itemRand.nextFloat() * 0.4F + 0.8F);
             heldItem.damageItem(1, player);
             world.setBlock(x, y, z, NovaCraftBlocks.legendary_ore, 2, 2);
-            world.addWeatherEffect(new EntityLightningBolt(world, x, y + 1.0D, z));
-            if (world.isRemote) {
+            if (!world.isRemote) {
+                world.spawnEntityInWorld(new EntityVoidLightningBolt(world, x + 0.5D, y + 1.0D, z + 0.5D));
                 for (int i = 0; i < 20; ++i) {
                     double particleX = x + 0.5D + (world.rand.nextDouble() - 0.5D) * 1.5D;
                     double particleY = y + 0.5D + (world.rand.nextDouble() - 0.5D) * 1.5D;

@@ -85,7 +85,7 @@ public class EntityNulk extends EntityFlying implements IMob {
 
         if (target instanceof EntityPlayer) {
 
-            target.attackEntityFrom(DamageSource.generic, 25.0F);            
+            target.attackEntityFrom(DamageSource.generic, 18.0F);
         }
         
         return true;

@@ -192,9 +192,8 @@ public class EntityGlowSquid extends EntityWaterMob
     			return;
     		}
         	
-        	for (k = 0; k < 1; ++k)
-        	{
-        		ParticleHandler.GLOWSQUID.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
+        	for (k = 0; k < 1; ++k) {
+        		    ParticleHandler.GLOWSQUID.spawn(worldObj, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width);
         		}
         	}
     	}

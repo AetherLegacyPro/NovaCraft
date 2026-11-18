@@ -21,6 +21,6 @@ public class GoatRenderer extends RenderLiving
     }
     
     static {
-        texture = new ResourceLocation("textures/entity/goat/goat.png");
+        texture = new ResourceLocation("nova_craft", "textures/entity/mountain_goat/mountain_goat.png");
     }
 }

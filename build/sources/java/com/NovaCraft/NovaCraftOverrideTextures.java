@@ -31,6 +31,8 @@ public class NovaCraftOverrideTextures {
                     OtherModBlocks.deepslate_emerald_ore.setBlockTextureName("deepslate_emerald_ore");
                     OtherModBlocks.deepslate_diamond_ore.setBlockTextureName("deepslate_diamond_ore");
                     OtherModBlocks.copper_ore.setBlockTextureName("copper_ore");
+                    OtherModBlocks.deepslate.setBlockTextureName("deepslate");
+                    OtherModBlocks.cobbled_deepslate.setBlockTextureName("cobbled_deepslate");
                 } catch (Exception ex) {
                     if (Configs.enableDebugMode) {
                         System.out.println("Missing Deepslate Ores, skipping...");

@@ -86,6 +86,7 @@ public class ConfigsWorld {
     public static boolean enableFlamingPitcherGeneration;
     public static boolean enableNetherFlora;
     public static boolean enableEndFlora;
+    public static boolean enableNullifiedFrontierslate;
 
     //New Ore Generation and Decoration
     public static boolean enableBrimstoneOre;
@@ -230,6 +231,7 @@ public class ConfigsWorld {
         enableFrontierslate = conf.getBoolean("enableFrontierslate", "End Decoration", true, "Enables Frontierslate to generate throughout the End.");
         enableVacuumSand = conf.getBoolean("enableVacuumSand", "End Decoration", true, "Enables Vacuum Sand to generate throughout the End.");
         enableEndFlora = conf.getBoolean("enableEndFlora", "End Decoration", true, "Enables End Flora to generate throughout the End.");
+        enableNullifiedFrontierslate = conf.getBoolean("enableNullifiedFrontierslate", "End Decoration", true, "Enables Nullified Frontierslate to generate throughout the End.");
 
         if (conf.hasChanged()) {
             conf.save();

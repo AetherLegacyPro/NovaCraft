@@ -228,26 +228,6 @@ public class NCWorldGeneratorPlants implements IWorldGenerator {
 				new AetherGeoGen().generate(world, rand, x12, rand.nextInt(5) + 30, z12);
 			}
 			
-			//NovaCraft Traditional Dungeon
-			int x20;
-			int z20;
-			x20 = chunkX * 16 + rand.nextInt(8) + 8;
-			z20 = chunkZ * 16 + rand.nextInt(8) + 8;
-			BiomeGenBase biome20;
-			biome20 = world.getBiomeGenForCoords(x20, z20);
-			if(!(BiomeDictionary.isBiomeOfType(biome20, BiomeDictionary.Type.OCEAN)) && rand.nextInt(210) == 0 && ConfigsStructures.enableTraditionalOverworldDungeons) {
-				new NovaCraftTraditionalDungeonGen().generate(world, rand, x20, rand.nextInt(20) + 25, z20);
-			}
-			
-			//NovaCraft Traditional Dungeon
-			int x21;
-			int z21;
-			x21 = chunkX * 16 + rand.nextInt(8) + 8;
-			z21 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(330) == 1 && ConfigsStructures.enableAdvancedTraditionalOverworldDungeons) {
-				new NovaCraftAdvancedTraditionalDungeonGen().generate(world, rand, x21, rand.nextInt(10) + 10, z21);
-			}
-			
 			//Sea Serpent Spawner
 			int x15;
 			int z15;

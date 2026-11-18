@@ -202,7 +202,7 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 			Type[] biomeList20;
 			biome20 = world.getBiomeGenForCoords(x20, z20);
 			biomeList20 = BiomeDictionary.getTypesForBiome(biome20);
-			if(!(BiomeDictionary.isBiomeOfType(biome20, BiomeDictionary.Type.OCEAN)) && rand.nextInt(210) == 0 && ConfigsStructures.enableTraditionalOverworldDungeons) {
+			if(!(BiomeDictionary.isBiomeOfType(biome20, BiomeDictionary.Type.OCEAN)) && rand.nextInt(210) == 0) {
 				new NovaCraftTraditionalDungeonGen().generate(world, rand, x20, rand.nextInt(120) + 25, z20);
 			}
 				
@@ -211,7 +211,7 @@ public class NCWorldGeneratorDeeperCaves implements IWorldGenerator {
 			int z21;
 			x21 = chunkX * 16 + rand.nextInt(8) + 8;
 			z21 = chunkZ * 16 + rand.nextInt(8) + 8;
-			if(rand.nextInt(330) == 1 && ConfigsStructures.enableAdvancedTraditionalOverworldDungeons) {
+			if(rand.nextInt(330) == 1) {
 				new NovaCraftAdvancedTraditionalDungeonGen().generate(world, rand, x21, rand.nextInt(200) + 10, z21);
 			}   
 			   

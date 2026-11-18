@@ -294,59 +294,115 @@
     ]
   },
   
-  "goat.horn.0": {
+  "goat.bass.0": {
   "category": "neutral",
   "sounds": [
-      "entity/goat_horn/call0"
+      "entity/goat_horn/Bass0"
     ]
   },
   
-  "goat.horn.1": {
+  "goat.bass.1": {
   "category": "neutral",
   "sounds": [
-      "entity/goat_horn/call1"
+      "entity/goat_horn/Bass1"
     ]
   },
   
-  "goat.horn.2": {
+  "goat.bass.5": {
   "category": "neutral",
   "sounds": [
-      "entity/goat_horn/call2"
+      "entity/goat_horn/Bass5"
     ]
   },
   
-  "goat.horn.3": {
+  "goat.bass.7": {
   "category": "neutral",
   "sounds": [
-      "entity/goat_horn/call3"
+      "entity/goat_horn/Bass7"
     ]
   },
   
-  "goat.horn.4": {
+  "goat.bass.8": {
   "category": "neutral",
   "sounds": [
-      "entity/goat_horn/call4"
+      "entity/goat_horn/Bass8"
     ]
   },
   
-  "goat.horn.5": {
+  "goat.harmony.0": {
   "category": "neutral",
   "sounds": [
-      "entity/goat_horn/call5"
+      "entity/goat_horn/Harmony0"
     ]
   },
   
-  "goat.horn.6": {
+  "goat.harmony.1": {
   "category": "neutral",
   "sounds": [
-      "entity/goat_horn/call6"
+      "entity/goat_horn/Harmony1"
     ]
   },
   
-  "goat.horn.7": {
+  "goat.harmony.4": {
   "category": "neutral",
   "sounds": [
-      "entity/goat_horn/call7"
+      "entity/goat_horn/Harmony4"
+    ]
+  },
+
+  "goat.harmony.6": {
+    "category": "neutral",
+    "sounds": [
+      "entity/goat_horn/Harmony6"
+    ]
+  },
+
+  "goat.harmony.9": {
+    "category": "neutral",
+    "sounds": [
+      "entity/goat_horn/Harmony9"
+    ]
+  },
+
+  "goat.melody.0": {
+    "category": "neutral",
+    "sounds": [
+      "entity/goat_horn/Melody0"
+    ]
+  },
+
+  "goat.melody.1": {
+    "category": "neutral",
+    "sounds": [
+      "entity/goat_horn/Melody1"
+    ]
+  },
+
+  "goat.melody.5": {
+    "category": "neutral",
+    "sounds": [
+      "entity/goat_horn/Melody5"
+    ]
+  },
+
+  "goat.melody.7": {
+    "category": "neutral",
+    "sounds": [
+      "entity/goat_horn/Melody7"
+    ]
+  },
+
+  "goat.melody.8": {
+    "category": "neutral",
+    "sounds": [
+      "entity/goat_horn/Melody8"
+    ]
+  },
+
+  "goat.melody.9": {
+    "category": "neutral",
+    "sounds": [
+      "entity/goat_horn/Melody9"
     ]
   },
   

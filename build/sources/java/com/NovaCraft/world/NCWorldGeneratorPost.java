@@ -89,6 +89,10 @@ public class NCWorldGeneratorPost implements IWorldGenerator {
 			this.addOreSpawnFrontierslate(NovaCraftBlocks.frontierslate_klangite_ore, world, random, chunkX, chunkZ, 3, 5, 6, 1, 24);
 		}
 
+		if (ConfigsWorld.enableNullifiedFrontierslate) {
+			this.addOreSpawnFrontierslate(NovaCraftBlocks.nullified_frontierslate, world, random, chunkX, chunkZ, 7, 8, 12, 1, 24);
+		}
+
 		//Xifesonite Ore Generation
 		if (random.nextDouble() < 0.25) {
 			this.addXifesoniteOreEndstone(NovaCraftBlocks.unbreakable_legendary_ore, 2, world, random, chunkX, chunkZ, 1, 4, 5, 20, 64);

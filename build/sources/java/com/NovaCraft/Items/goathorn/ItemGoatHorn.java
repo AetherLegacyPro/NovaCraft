@@ -45,7 +45,7 @@ public class ItemGoatHorn extends ItemBow {
 
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
-		if (usingItem != null && stack.getItem() == NovaCraftItems.goat_horn_ponder) {
+		if (usingItem != null && stack.getItem() == NovaCraftItems.gold_goat_horn) {
 			int j = stack.getMaxItemUseDuration() - useRemaining;
 
 			if (j >= 18) {

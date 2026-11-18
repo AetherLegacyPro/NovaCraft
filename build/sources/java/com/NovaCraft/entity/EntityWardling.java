@@ -243,24 +243,17 @@ public class EntityWardling extends EntityMob {
 		this.playSound("nova_craft:sculk_horn.vibration", 2.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
 	}
 	
-	 protected void dropFewItems(boolean p_70628_1_, int chance)
-	    {
-	        int j;
-	        int k;
-	        j = this.rand.nextInt(3 + chance);
+	 protected void dropFewItems(boolean p_70628_1_, int chance) {
+		int j;
+		int k;
+		j = this.rand.nextInt(3 + chance);
 	        
-	        for (k = 0; k < j; ++k)
-	        {
-	        	this.dropItem(NovaCraftItems.static_essence, 1);
-	        }
+		for (k = 0; k < j; ++k) {
+			this.dropItem(NovaCraftItems.static_essence, 1);
+		}
 	        
-	        this.dropItem(NovaCraftItems.wardling_dust, 1 + chance);
-	    }
-	 
-	 protected void dropRareDrop(int p_70600_1_)
-	    {    
-	       this.dropItem(NovaCraftItems.warden_tentacle, 1);
-	    }
+		this.dropItem(NovaCraftItems.wardling_dust, 1 + chance);
+	}
 	
 	public EnumCreatureAttribute getCreatureAttribute()
     {

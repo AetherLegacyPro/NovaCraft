@@ -12,6 +12,8 @@ public class GoatModel extends ModelBase
     ModelRenderer headModel;
     ModelRenderer leftHorn;
     ModelRenderer rightHorn;
+    ModelRenderer leftHorn2;
+    ModelRenderer rightHorn2;
     ModelRenderer nose;
     ModelRenderer body;
     ModelRenderer legBackLeft;
@@ -33,11 +35,21 @@ public class GoatModel extends ModelBase
         this.leftHorn.setTextureOffset(12, 55).addBox(-0.01f, -16.0f, -10.0f, 2, 7, 2);
         this.leftHorn.mirror = true;
         this.headModel.addChild(this.leftHorn);
+
+        (this.leftHorn2 = new ModelRenderer((ModelBase)this)).setRotationPoint(0.0f, 0.0f, 0.0f);
+        this.leftHorn2.setTextureOffset(12, 55).addBox(2.01f, -20.0f, -10.0f, 2, 7, 2); //-0.01f, -16.0f, -10.0f
+        this.leftHorn2.mirror = true;
+        this.headModel.addChild(this.leftHorn2);
         
         (this.rightHorn = new ModelRenderer((ModelBase)this)).setRotationPoint(0.0f, 0.0f, 0.0f);
         this.rightHorn.setTextureOffset(12, 55).addBox(-2.99f, -16.0f, -10.0f, 2, 7, 2);
         this.rightHorn.mirror = true;
         this.headModel.addChild(this.rightHorn);
+
+        (this.rightHorn2 = new ModelRenderer((ModelBase)this)).setRotationPoint(0.0f, 0.0f, 0.0f);
+        this.rightHorn2.setTextureOffset(12, 55).addBox(-4.99f, -20.0f, -10.0f, 2, 7, 2); //-2.99f, -16.0f, -10.0f
+        this.rightHorn2.mirror = true;
+        this.headModel.addChild(this.rightHorn2);
         
         (this.nose = new ModelRenderer((ModelBase)this)).setRotationPoint(0.0f, -8.0f, -8.0f);
         this.setRotation(this.nose, 0.9599f, 0.0f, 0.0f);
@@ -76,7 +88,9 @@ public class GoatModel extends ModelBase
 			GL11.glTranslatef(0.0F, 24.0F * f5, 0.0F);
 			
 			this.leftHorn.showModel = false;
+            this.leftHorn2.showModel = false;
 	        this.rightHorn.showModel = false;
+            this.rightHorn2.showModel = false;
 	        this.headModel.render(f5);
         	this.body.render(f5);
         	this.legBackLeft.render(f5);
@@ -85,7 +99,9 @@ public class GoatModel extends ModelBase
         	this.legFrontRight.render(f5);
        } else {
     	    this.leftHorn.showModel = true;
+            this.leftHorn2.showModel = true;
 	        this.rightHorn.showModel = true;
+            this.rightHorn2.showModel = true;
         	this.headModel.render(f5);
         	this.body.render(f5);
         	this.legBackLeft.render(f5);

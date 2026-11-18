@@ -91,8 +91,8 @@ public class EntityRelik extends EntityMob
                 break;
 
             case 7:
-                this.setCurrentItemOrArmor(4, new ItemStack(NovaCraftItems.phantom_helmet));
-                this.setCurrentItemOrArmor(3, new ItemStack(NovaCraftItems.phantom_chestplate));
+                this.setCurrentItemOrArmor(4, new ItemStack(NovaCraftItems.pherithium_helmet));
+                this.setCurrentItemOrArmor(3, new ItemStack(NovaCraftItems.pherithium_chestplate));
                 break;
 
             default:

@@ -79,36 +79,8 @@ public class EntityGoat extends EntityAnimal
         }
     }
     
-    protected void dropRareDrop(int p_70600_1_)
-    {
-    	int horn_drop = (int)(1 + Math.random() * 8);
-		switch (horn_drop)
-        {
-        case 1:
-            this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_ponder), 0.0F);
-            break;
-        case 2:
-            this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_admire), 0.0F);
-            break;
-        case 3:
-            this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_call), 0.0F);
-            break;
-        case 4:
-            this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_dream), 0.0F);
-            break;
-        case 5:
-            this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_feel), 0.0F);
-            break;
-        case 6:
-            this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_seek), 0.0F);
-            break;
-        case 7:
-            this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_sing), 0.0F);
-            break;
-        case 8:
-            this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_yearn), 0.0F);
-            break;
-        }
+    protected void dropRareDrop(int p_70600_1_) {
+        this.entityDropItem(new ItemStack(NovaCraftItems.goat_horn_fragment, 4), 0.0F);
     }
 
     public boolean interact(EntityPlayer entityPlayer)

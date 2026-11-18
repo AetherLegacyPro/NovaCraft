@@ -91,13 +91,13 @@ public class RuinedEndCityBossGen1 extends WorldGenerator {
         PlacePurpur = determineIfPurpurExists(world, i + 15, j + 27, k + 5);
         PlacePurpurStairs = determineIfPurpurBrickStairsExists(world, i + 8, j + 28, k + 7);
 
-        world.setBlock(i + 18, j, k + 18, NovaCraftBlocks.frontierslate_bricks, 0, 2);
+        world.setBlock(i + 18, j, k + 18, NovaCraftBlocks.nullified_frontierslate, 0, 2);
         world.setBlock(i + 18, j + 1, k + 18, NovaCraftBlocks.frontierslate_bricks, 0, 2);
-        world.setBlock(i + 17, j + 2, k + 18, NovaCraftBlocks.frontierslate_bricks, 0, 2);
+        world.setBlock(i + 17, j + 2, k + 18, NovaCraftBlocks.nullified_frontierslate, 0, 2);
         world.setBlock(i + 18, j + 2, k + 18, NovaCraftBlocks.frontierslate_bricks, 0, 2);
         world.setBlock(i + 17, j + 3, k + 17, NovaCraftBlocks.frontierslate_bricks, 0, 2);
         world.setBlock(i + 18, j + 3, k + 17, NovaCraftBlocks.frontierslate_bricks, 0, 2);
-        world.setBlock(i + 17, j + 3, k + 18, NovaCraftBlocks.frontierslate_bricks, 0, 2);
+        world.setBlock(i + 17, j + 3, k + 18, NovaCraftBlocks.nullified_frontierslate, 0, 2);
         world.setBlock(i + 18, j + 3, k + 18, NovaCraftBlocks.frontierslate_bricks, 0, 2);
         world.setBlock(i + 19, j + 3, k + 18, NovaCraftBlocks.frontierslate_bricks, 0, 2);
         world.setBlock(i + 17, j + 3, k + 19, NovaCraftBlocks.frontierslate_bricks, 0, 2);

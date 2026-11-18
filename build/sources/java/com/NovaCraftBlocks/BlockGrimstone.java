@@ -32,9 +32,9 @@ public class BlockGrimstone extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister){
-		blockIcon = iconRegister.registerIcon("nova_craft:grimstonenew_side");
-		iconFace = iconRegister.registerIcon("nova_craft:grimstonenew_top");
-		iconTop = iconRegister.registerIcon("nova_craft:grimstonenew_top");
+		blockIcon = iconRegister.registerIcon("nova_craft:grimstone");
+		iconFace = iconRegister.registerIcon("nova_craft:grimstone");
+		iconTop = iconRegister.registerIcon("nova_craft:grimstone");
 	}
 	
 	public Item getItemDropped(final int metadata, final Random rand, final int fortune) {

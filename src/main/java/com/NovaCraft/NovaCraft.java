@@ -26,6 +26,7 @@ import com.NovaCraft.world.PopulateChunkEventHandler;
 import com.NovaCraft.world.ancient_city.AncientCityGen;
 import com.NovaCraft.world.bastion.treasure.BastionGen;
 import com.NovaCraft.world.caves.CaveWorldGeneratorDeepDark;
+import com.NovaCraft.world.caves.WaterPoolGenerationOverride;
 import com.NovaCraft.world.caves.cold.CaveWorldGeneratorFloraBiome;
 import com.NovaCraft.world.caves.ore_deposit.deep.CaveWorldGeneratorDeepOreDeposit;
 import com.NovaCraft.world.end.DestitudeIslandWorldGen;
@@ -42,6 +43,7 @@ import com.NovaCraft.world.nether.structure.MapGenNetherBridgeNovaCraft.Start;
 import com.NovaCraft.world.sculkshaft.StructureSculkMineshaftPieces;
 import com.NovaCraft.world.sculkshaft.WorldGenSculkedMineshaftInjector;
 import com.NovaCraft.world.stronghold.*;
+import com.NovaCraft.world.structure.NCDungeonOverrideHandler;
 import com.NovaCraft.world.structure.WorldGenRavineInjector;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.potion.NovaCraftLiquids;
@@ -168,6 +170,12 @@ public class NovaCraft {
         MinecraftForge.TERRAIN_GEN_BUS.register(new WorldGenRavineInjector());
         GameRegistry.registerWorldGenerator(new MeteorCraterGen(), 0);
         GameRegistry.registerWorldGenerator(new NCWorldGeneratorVillages(), 0);
+        MinecraftForge.TERRAIN_GEN_BUS.register(new WaterPoolGenerationOverride());
+
+        if (ConfigsStructures.enableNovaCraftDungeonOverride) {
+            MinecraftForge.TERRAIN_GEN_BUS.register(new NCDungeonOverrideHandler());
+        }
+
         EntitiesNovaCraft.initialization();
         EntitiesNovaCraft.addSpawns();
         this.registerHardmodeMobs();

@@ -14,7 +14,7 @@ import com.NovaCraft.entity.EntityGlowSquid;
 @SideOnly(Side.CLIENT)
 public class GlowSquidRenderer extends RenderLiving
 {
-	private static final ResourceLocation texture = new ResourceLocation("textures/entity/glow_squid/glow_squid.png");
+	private static final ResourceLocation texture = new ResourceLocation("nova_craft", "textures/entity/deep_squid/deep_squid.png");
 
     public GlowSquidRenderer(ModelBase p_i1268_1_, float p_i1268_2_)
     {

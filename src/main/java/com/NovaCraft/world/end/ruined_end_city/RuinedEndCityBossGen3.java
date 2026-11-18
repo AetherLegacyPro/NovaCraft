@@ -2273,14 +2273,14 @@ public class RuinedEndCityBossGen3 extends WorldGenerator {
         TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getTileEntity(i + 11, j + 41, k + 27);
 
         if (tileentitymobspawner != null) {
-            tileentitymobspawner.func_145881_a().setEntityName("nova_craft.reality_distorter");
+            tileentitymobspawner.func_145881_a().setEntityName("nova_craft.void_entity");
         }
 
         world.setBlock(i + 23, j + 42, k + 3, Blocks.mob_spawner, 0, 2);
         TileEntityMobSpawner tileentitymobspawner2 = (TileEntityMobSpawner)world.getTileEntity(i + 23, j + 42, k + 3);
 
         if (tileentitymobspawner2 != null) {
-            tileentitymobspawner2.func_145881_a().setEntityName("nova_craft.reality_distorter");
+            tileentitymobspawner2.func_145881_a().setEntityName("nova_craft.void_entity");
         }
 
         return true;

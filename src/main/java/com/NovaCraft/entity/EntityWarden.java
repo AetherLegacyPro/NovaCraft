@@ -486,11 +486,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
 	        }
 	        
 	        this.entityDropItem(new ItemStack(NovaCraftItems.warden_heart), 0.5F);
-	        j = this.rand.nextInt(1 + p_70628_2_);
-	        
-	        for (k = 0; k < j; ++k) {
-	        	this.dropItem(NovaCraftItems.warden_tentacle, p_70628_2_);
-	        }	
 	        
 	        j = this.rand.nextInt(3 + p_70628_2_);
 	        
@@ -516,7 +511,6 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
     }
 	
 	protected void dropRareDrop(int p_70600_1_) {
-       this.dropItem(NovaCraftItems.warden_tentacle, 2);
        this.dropItem(NovaCraftItems.warden_heart, 1);
     }
 	

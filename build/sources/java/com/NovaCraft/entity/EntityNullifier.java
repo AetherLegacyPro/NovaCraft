@@ -4,6 +4,7 @@ import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.misc.EntityAINulliferSwell;
 import com.NovaCraft.entity.misc.EntityRayfireball;
+import com.NovaCraft.entity.misc.EntityVoidLightningBolt;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
@@ -252,8 +253,7 @@ public class EntityNullifier extends EntityMob {
             this.worldObj.playSoundEffect(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D, "fire.ignite", 1.0F, this.rand.nextFloat() * 0.8F + 0.4F);
             entityPlayer.swingItem();
 
-            if (!this.worldObj.isRemote)
-            {
+            if (!this.worldObj.isRemote) {
                 this.func_146079_cb();
                 itemstack.damageItem(1, entityPlayer);
                 return true;
@@ -261,7 +261,13 @@ public class EntityNullifier extends EntityMob {
         }
 
         return super.interact(entityPlayer);
-    }  
+    }
+
+    public void setPowered(boolean powered) {
+        if (!this.worldObj.isRemote) {
+            this.dataWatcher.updateObject(17, Byte.valueOf((byte)(powered ? 1 : 0)));
+        }
+    }
 
     private void func_146077_cc() {
         if (!this.worldObj.isRemote) {

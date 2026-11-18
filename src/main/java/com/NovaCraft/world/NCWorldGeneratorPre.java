@@ -29,6 +29,7 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 	
 	protected final WorldGenMinable endstoneGen = new WorldGenMinable(Blocks.end_stone, 64, Blocks.air);
 	protected final WorldGenMinable frontierslateGen = new WorldGenMinable(NovaCraftBlocks.frontierslate, 64, Blocks.air);
+	protected final WorldGenMinable electrifiedfrontierslateGen = new WorldGenMinable(NovaCraftBlocks.nullified_frontierslate, 16, Blocks.air);
 	protected final WorldGenMinable vaccumSandGen = new WorldGenMinable(NovaCraftBlocks.vacuum_sand, 32, Blocks.end_stone);
 
 	public static final WorldGenMinable cinnabarGen = new WorldGenMinable(NovaCraftBlocks.cinnabar, 64, Blocks.stone);
@@ -82,6 +83,10 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 		
 		if (world.provider.dimensionId == 1 && ConfigsWorld.enableFrontierslate && rand.nextInt(4) == 0) {
 			this.generateFrontierslate(frontierslateGen, world, rand, chunkX, chunkZ, 1, 1, 24);
+		}
+
+		if (world.provider.dimensionId == 1 && ConfigsWorld.enableNullifiedFrontierslate && rand.nextInt(17) == 0) {
+			this.generateFrontierslate(electrifiedfrontierslateGen, world, rand, chunkX, chunkZ, 1, 1, 24);
 		}
 		
 		if (world.provider.dimensionId == 1 && ConfigsWorld.enableVacuumSand) {

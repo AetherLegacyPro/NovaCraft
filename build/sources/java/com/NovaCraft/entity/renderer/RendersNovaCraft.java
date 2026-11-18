@@ -75,6 +75,8 @@ public class RendersNovaCraft {
 	register(EntityCrimsonEye.class, new RenderSnowball(NovaCraftItems.crimson_eye));
 	register(EntityOctoqusProjectile.class, new OctoqusProjectileRenderer());
 	register(EntityPhantomizedLaser.class, new PhantomizedLaserRenderer());
+	register(EntityPrisonerTrackingLaser.class, new PrisonerTrackingLaserRenderer());
+	register(EntityVoidLightningBolt.class, new VoidLightningBoltRenderer());
 	
 	//Passive
 	register(EntityGlowSquid.class, new GlowSquidRenderer(new GlowSquidModel(), 0.7F));
@@ -175,14 +177,7 @@ public class RendersNovaCraft {
 	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.klangite_bow, new NovaCraftBowRenderer());
 	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.crystalite_bow, new NovaCraftBowRenderer());
 	
-	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.goat_horn_admire, new NovaCraftHornRenderer());
-	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.goat_horn_call, new NovaCraftHornRenderer());
-	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.goat_horn_dream, new NovaCraftHornRenderer());
-	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.goat_horn_feel, new NovaCraftHornRenderer());
-	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.goat_horn_ponder, new NovaCraftHornRenderer());
-	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.goat_horn_seek, new NovaCraftHornRenderer());
-	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.goat_horn_sing, new NovaCraftHornRenderer());
-	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.goat_horn_yearn, new NovaCraftHornRenderer());
+	//MinecraftForgeClient.registerItemRenderer(NovaCraftItems.gold_goat_horn, new NovaCraftHornRenderer());
 	
 	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLegendaryEnchantmentTable.class, new LegendaryEnchantmentTableRenderer());
 	ClientRegistry.bindTileEntitySpecialRenderer(TileEntityAdvancedEnchantmentTable.class, new AdvancedEnchantmentTableRenderer());	

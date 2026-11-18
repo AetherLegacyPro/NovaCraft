@@ -38,8 +38,7 @@ public class ConfigsStructures {
     public static boolean enableTsavorokiteGeodes;
     public static boolean enableAetherGeodes;
     public static boolean enableYttrlinisteGeodes;
-    public static boolean enableTraditionalOverworldDungeons;
-    public static boolean enableAdvancedTraditionalOverworldDungeons;
+    public static boolean enableNovaCraftDungeonOverride;
     public static boolean enableVoidTemples;
     public static boolean enableEndDungeon;
     public static int sculkMineshaftChance;
@@ -76,8 +75,7 @@ public class ConfigsStructures {
         enableLarimarGeodes = conf.getBoolean("enableLarimarGeodes", "Overworld Structures", true, "Enables Larimar Geodes to generate in the Overworld.");
         enableTsavorokiteGeodes = conf.getBoolean("enableTsavorokiteGeodes", "Overworld Structures", true, "Enables Tsavorokite Geodes to generate in the Overworld.");
         enableAetherGeodes = conf.getBoolean("enableAetherGeodes", "Overworld Structures", true, "Enables Aether Geodes to generate in the Overworld.");
-        enableTraditionalOverworldDungeons = conf.getBoolean("enableTraditionalOverworldDungeons", "Overworld Structures", true, "Enables new traditional dungeons to generate in the Overworld.");
-        enableAdvancedTraditionalOverworldDungeons = conf.getBoolean("enableAdvancedTraditionalOverworldDungeons", "Overworld Structures", true, "Enables advanced traditional dungeons to generate in the Overworld.");
+        enableNovaCraftDungeonOverride = conf.getBoolean("enableNovaCraftDungeonOverride", "Overworld Structures", true, "Enables new traditional dungeons to randomly override vanilla dungeons and make them more common.");
         enableVoidTemples = conf.getBoolean("enableVoidTemples", "Overworld Structures", true, "Enables Void Temple Generation.");
 
         enableDeepoidFortress = conf.getBoolean("enableDeepoidFortress", "Nether Structures", true, "Enables Deepoid Fortress Generation in the Nether.");

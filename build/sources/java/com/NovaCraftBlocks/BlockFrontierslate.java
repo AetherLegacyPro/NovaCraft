@@ -5,7 +5,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 public class BlockFrontierslate extends Block {
-	
 	public BlockFrontierslate() {
 		super(Material.rock);
 		this.setHardness(8);
@@ -13,5 +12,4 @@ public class BlockFrontierslate extends Block {
 		this.setStepSound(ModSounds.soundFrontierslate);
 		this.setHarvestLevel("pickaxe", 3);
 	}
-	
 }

@@ -15,9 +15,10 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class BlockAncientWarper extends Block {
-
     @SideOnly(Side.CLIENT)
-    private IIcon iconFace, iconTop;
+    private IIcon iconTop;
+    @SideOnly(Side.CLIENT)
+    private IIcon iconBottom;
 
     public BlockAncientWarper() {
         super(Material.portal);
@@ -30,16 +31,21 @@ public class BlockAncientWarper extends Block {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta){
-        return side == 0 || side == 1 ? iconTop : meta >= 1 && side-1 == meta ? iconFace : blockIcon;
+    public IIcon getIcon(int side, int meta) {
+        if (side == 1) {
+            return this.iconTop;
+        }
+        if (side == 0) {
+            return this.iconBottom;
+        }
+        return this.blockIcon;
     }
 
-    @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister){
-        blockIcon = iconRegister.registerIcon("nova_craft:ancient_warper_side");
-        iconFace = iconRegister.registerIcon("nova_craft:ancient_warper_top");
-        iconTop = iconRegister.registerIcon("nova_craft:ancient_warper_top");
+    public void registerBlockIcons(IIconRegister iconRegister) {
+        this.blockIcon = iconRegister.registerIcon("nova_craft:ancient_warper_side");
+        this.iconTop = iconRegister.registerIcon("nova_craft:ancient_warper_top");
+        this.iconBottom = iconRegister.registerIcon("nova_craft:ancient_warper_bottom");
     }
 
     @Override

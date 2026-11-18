@@ -19,7 +19,6 @@ public class HardmodeWorldCreationHandler {
         if (startingHardmode.booleanValue()) {
             Hardmode data = Hardmode.get(event.world);
             data.enableStartingHardmode(event.world);
-            //System.out.println("[NovaCraft] Starting Hardmode applied: " + "stats=" + data.getHardmode() + ", mobsUnlocked=" + data.areHardmodeMobsUnlocked());
         }
     }
 }

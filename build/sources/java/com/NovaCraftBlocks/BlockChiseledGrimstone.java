@@ -31,8 +31,8 @@ public class BlockChiseledGrimstone extends Block {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister){
 		blockIcon = iconRegister.registerIcon("nova_craft:chiseled_grimstone");
-		iconFace = iconRegister.registerIcon("nova_craft:grimstonenew_top");
-		iconTop = iconRegister.registerIcon("nova_craft:grimstonenew_top");
+		iconFace = iconRegister.registerIcon("nova_craft:cobbled_grimstone");
+		iconTop = iconRegister.registerIcon("nova_craft:cobbled_grimstone");
 	}
 
 }

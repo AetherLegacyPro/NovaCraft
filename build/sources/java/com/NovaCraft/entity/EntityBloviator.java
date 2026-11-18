@@ -181,28 +181,52 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
     public boolean attackEntityAsMob(final Entity target) {			
 
         if (target instanceof EntityPlayer) {
-
             ItemStack helmet = ((EntityPlayer) target).getCurrentArmor(3);
             ItemStack chest = ((EntityPlayer) target).getCurrentArmor(2);
             ItemStack legs = ((EntityPlayer) target).getCurrentArmor(1);
             ItemStack boots = ((EntityPlayer) target).getCurrentArmor(0);
 
-            boolean hasphantomHelmet = false;
-            boolean hasphantomChest = false;
-            boolean hasphantomLegs = false;
-            boolean hasphantomBoots = false;
+            ItemStack helmet2 = ((EntityPlayer) target).getCurrentArmor(3);
+            ItemStack chest2 = ((EntityPlayer) target).getCurrentArmor(2);
+            ItemStack legs2 = ((EntityPlayer) target).getCurrentArmor(1);
+            ItemStack boots2 = ((EntityPlayer) target).getCurrentArmor(0);
 
-            if(helmet != null) hasphantomHelmet = helmet.getItem() == NovaCraftItems.phantom_helmet;
+            boolean hasklangiteHelmet = false;
+            boolean hasklangiteChest = false;
+            boolean hasklangiteLegs = false;
+            boolean hasklangiteBoots = false;
 
-            if(chest != null) hasphantomChest = chest.getItem() == NovaCraftItems.phantom_chestplate;
+            boolean haskylaziteHelmet = false;
+            boolean haskylaziteChest = false;
+            boolean haskylaziteLegs = false;
+            boolean haskylaziteBoots = false;
 
-            if(legs != null) hasphantomLegs = legs.getItem() == NovaCraftItems.phantom_leggings;
+            if(helmet != null)
+                hasklangiteHelmet = helmet.getItem() == NovaCraftItems.klangite_helmet;
 
-            if(boots != null) hasphantomBoots = boots.getItem() == NovaCraftItems.phantom_boots;
+            if(chest != null)
+                hasklangiteChest = chest.getItem() == NovaCraftItems.klangite_chestplate;
+
+            if(legs != null)
+                hasklangiteLegs = legs.getItem() == NovaCraftItems.klangite_leggings;
+
+            if(boots != null)
+                hasklangiteBoots = boots.getItem() == NovaCraftItems.klangite_boots;
+
+            if(helmet2 != null)
+                haskylaziteHelmet = helmet2.getItem() == NovaCraftItems.kylazite_helmet;
+
+            if(chest2 != null)
+                haskylaziteChest = chest2.getItem() == NovaCraftItems.kylazite_chestplate;
+
+            if(legs2 != null)
+                haskylaziteLegs = legs2.getItem() == NovaCraftItems.kylazite_leggings;
+
+            if(boots2 != null)
+                haskylaziteBoots = boots2.getItem() == NovaCraftItems.kylazite_boots;
 
             boolean hardmode = Hardmode.get(this.worldObj).getHardmode();
-
-            if (hasphantomHelmet || hasphantomChest || hasphantomLegs || hasphantomBoots) {
+            if (hasklangiteHelmet || hasklangiteChest || hasklangiteLegs || hasklangiteBoots || haskylaziteHelmet || haskylaziteChest || haskylaziteLegs || haskylaziteBoots) {
                 if (hardmode) {
                     target.attackEntityFrom(DamageSource.magic, 6.0F);
                 } else {

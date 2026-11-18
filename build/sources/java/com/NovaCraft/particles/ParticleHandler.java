@@ -150,7 +150,7 @@ public enum ParticleHandler
         private final ResourceLocation texture;
         
         {
-            this.texture = new ResourceLocation("nova_craft:textures/particles/glow_squid_particle.png");
+            this.texture = new ResourceLocation("nova_craft:textures/particles/deep_squid_particle.png");
         }
         
         @Override
@@ -345,7 +345,7 @@ public enum ParticleHandler
         private final ResourceLocation texture;
         
         {
-            this.texture = new ResourceLocation("nova_craft:textures/particles/glow_flame.png");
+            this.texture = new ResourceLocation("nova_craft:textures/particles/deep_flame.png");
         }
         
         @Override

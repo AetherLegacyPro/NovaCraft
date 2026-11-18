@@ -12,6 +12,7 @@ import org.objectweb.asm.tree.JumpInsnNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 
+//Replaces Bane of Arthropods with "Bane of the Unknown"; mobs with the arthropods or undefined entityattribute will be dealt extra damage similar to smite
 public class BaneOfTheUnknownTransformer implements IClassTransformer {
     private static final String TARGET_CLASS = "net.minecraft.enchantment.EnchantmentDamage";
     private static final String ATTRIBUTE_OWNER = "net/minecraft/entity/EnumCreatureAttribute";

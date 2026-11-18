@@ -62,46 +62,62 @@ public class EntityEnderRay extends EntityFlying implements IMob
         }
         super.onUpdate();
     }
-    
+
     @Override
-    public boolean attackEntityAsMob(final Entity target) {			
-
+    public boolean attackEntityAsMob(final Entity target) {
         if (target instanceof EntityPlayer) {
-
             ItemStack helmet = ((EntityPlayer) target).getCurrentArmor(3);
             ItemStack chest = ((EntityPlayer) target).getCurrentArmor(2);
             ItemStack legs = ((EntityPlayer) target).getCurrentArmor(1);
             ItemStack boots = ((EntityPlayer) target).getCurrentArmor(0);
 
-            boolean hasphantomHelmet = false;
-            boolean hasphantomChest = false;
-            boolean hasphantomLegs = false;
-            boolean hasphantomBoots = false;
+            ItemStack helmet2 = ((EntityPlayer) target).getCurrentArmor(3);
+            ItemStack chest2 = ((EntityPlayer) target).getCurrentArmor(2);
+            ItemStack legs2 = ((EntityPlayer) target).getCurrentArmor(1);
+            ItemStack boots2 = ((EntityPlayer) target).getCurrentArmor(0);
 
+            boolean hasklangiteHelmet = false;
+            boolean hasklangiteChest = false;
+            boolean hasklangiteLegs = false;
+            boolean hasklangiteBoots = false;
+
+            boolean haskylaziteHelmet = false;
+            boolean haskylaziteChest = false;
+            boolean haskylaziteLegs = false;
+            boolean haskylaziteBoots = false;
 
             if(helmet != null)
-                hasphantomHelmet = helmet.getItem() == NovaCraftItems.phantom_helmet;
+                hasklangiteHelmet = helmet.getItem() == NovaCraftItems.klangite_helmet;
 
             if(chest != null)
-                hasphantomChest = chest.getItem() == NovaCraftItems.phantom_chestplate;
+                hasklangiteChest = chest.getItem() == NovaCraftItems.klangite_chestplate;
 
             if(legs != null)
-                hasphantomLegs = legs.getItem() == NovaCraftItems.phantom_leggings;
+                hasklangiteLegs = legs.getItem() == NovaCraftItems.klangite_leggings;
 
             if(boots != null)
-                hasphantomBoots = boots.getItem() == NovaCraftItems.phantom_boots;
+                hasklangiteBoots = boots.getItem() == NovaCraftItems.klangite_boots;
 
-            if (hasphantomHelmet || hasphantomChest || hasphantomLegs || hasphantomBoots) {
+            if(helmet2 != null)
+                haskylaziteHelmet = helmet2.getItem() == NovaCraftItems.kylazite_helmet;
 
-            	target.attackEntityFrom(DamageSource.magic, 4.0F);
+            if(chest2 != null)
+                haskylaziteChest = chest2.getItem() == NovaCraftItems.kylazite_chestplate;
+
+            if(legs2 != null)
+                haskylaziteLegs = legs2.getItem() == NovaCraftItems.kylazite_leggings;
+
+            if(boots2 != null)
+                haskylaziteBoots = boots2.getItem() == NovaCraftItems.kylazite_boots;
+
+            if (hasklangiteHelmet || hasklangiteChest || hasklangiteLegs || hasklangiteBoots || haskylaziteHelmet || haskylaziteChest || haskylaziteLegs || haskylaziteBoots) {
+                target.attackEntityFrom(DamageSource.magic, 1.0F);
+            } else {
+                target.attackEntityFrom(DamageSource.magic, 8.0F);
             }
-            
-            else {
-            	target.attackEntityFrom(DamageSource.magic, 10.0F);
-            }
-             
+
         }
-        
+
         return true;
     }
     

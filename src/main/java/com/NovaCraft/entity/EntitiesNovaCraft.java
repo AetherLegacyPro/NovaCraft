@@ -85,11 +85,13 @@ public class EntitiesNovaCraft {
 		register(EntityCrimsonDragonProjectile.class, "crimson_dragon_projectile", 91, 64, 20, true);
 		register(EntityCrimsonEye.class, "crimson_eye", 92, 150, 2, true);
 		register(EntityPhantomizedLaser.class, "phantomized_laser", 95, 64, 10, true);
+		register(EntityPrisonerTrackingLaser.class, "prisoner_laser", 97, 64, 1, true);
+		register(EntityVoidLightningBolt.class, "void_lightning_bolt", 98, 128, 1, false);
 		
 		//Mobs
 		register(EntityPrimedXanciumTNT.class, "XTNT", 0, 64, 20, false);
 		register(EntityPrimedPETN.class, "PETN", 1, 64, 20, false);
-		register(EntityGlowSquid.class, "glow_squid", 2, 0x32a1a1, 0x4fc2a9);
+		register(EntityGlowSquid.class, "glow_squid", 2, 0x262637, 0x6c6d80);
 		register(EntityPhantom.class, "phantom", 3, 0x5061a4, 0xdcd9c0);
 		register(EntitySlaughter.class, "slaughter", 5, 0x4b353b, 0x6a2531);
 		register(EntitySculkDweller.class, "sculk_dweller", 6, 0x193939, 0x04262a);
@@ -104,7 +106,7 @@ public class EntitiesNovaCraft {
 		register(EntityVoidEntity.class, "void_entity", 23, 0x040404, 0x420b6f);
 		register(EntityVoidCube.class, "void_cube", 24, 0x2f2f2f, 0x7600ad);
 		register(EntityNullifier.class, "nullifier", 28, 0x090909, 0xffe2ff);
-		register(EntityGoat.class, "nova_goat", 29, 0xfafafa, 0xc0ac90);		
+		register(EntityGoat.class, "nova_goat", 29, 0xecedf0, 0x90a4c0);
 		register(EntityIllagerTrader.class, "vindicator_trader", 30, 0x85a1a1, 0x424c4e);
 		register(EntityIllagerChief.class, "vindicator_chief", 31, 0x95a1a1, 0x324c4e);
 		register(EntitySculkAbomination.class, "sculk_abomination", 33, 0x111b21, 0x31cde8);

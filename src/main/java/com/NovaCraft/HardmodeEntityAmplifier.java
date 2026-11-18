@@ -1,9 +1,9 @@
 package com.NovaCraft;
 
 import java.util.UUID;
-
 import com.NovaCraft.config.Configs;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -42,7 +42,7 @@ public class HardmodeEntityAmplifier {
             {Items.golden_boots, Items.golden_leggings, Items.golden_chestplate, Items.golden_helmet}
     };
 
-    private static final Item[] WEAPONS = {Items.stone_sword, Items.iron_sword, Items.golden_sword};
+    private static final Item[] WEAPONS = {Items.stone_sword, Items.iron_sword, Items.golden_sword, Items.stone_shovel, Items.iron_shovel, Items.golden_shovel, Items.stone_axe, Items.iron_axe, Items.golden_axe};
 
     private static final Potion[] POTIONS = {Potion.moveSpeed, Potion.damageBoost, Potion.resistance, Potion.regeneration, Potion.fireResistance};
 
@@ -145,8 +145,10 @@ public class HardmodeEntityAmplifier {
     }
 
     private void giveRandomEquipment(EntityLiving living) {
+        boolean nether = living.worldObj.provider.dimensionId == -1;
+
         boolean fullSet = living.getRNG().nextBoolean();
-        int setMaterial = living.getRNG().nextInt(ARMOR.length);
+        int setMaterial = this.chooseArmorMaterial(living, nether);
 
         for (int slot = 1; slot <= 4; ++slot) {
             if (living.getEquipmentInSlot(slot) != null) {
@@ -157,19 +159,76 @@ public class HardmodeEntityAmplifier {
                 continue;
             }
 
-            int material = fullSet ? setMaterial : living.getRNG().nextInt(ARMOR.length);
+            int material = fullSet ? setMaterial : this.chooseArmorMaterial(living, nether);
             living.setCurrentItemOrArmor(slot, new ItemStack(ARMOR[material][slot - 1]));
         }
 
-        if (!(living instanceof EntitySkeleton) && living.getEquipmentInSlot(0) == null) {
-            Item weapon = WEAPONS[living.getRNG().nextInt(WEAPONS.length)];
-            living.setCurrentItemOrArmor(0, new ItemStack(weapon));
+        if (!(living instanceof EntitySkeleton) && living.getEquipmentInSlot(0) == null && living.getRNG().nextBoolean()) {
+            living.setCurrentItemOrArmor(0, new ItemStack(this.chooseWeapon(living, nether)));
         }
+
+        for (int slot = 0; slot <= 4; ++slot) {
+            ItemStack stack = living.getEquipmentInSlot(slot);
+
+            if (stack == null || stack.isItemEnchanted() || !stack.isItemEnchantable()) {
+                continue;
+            }
+
+            int enchantmentChance = nether ? 75 : 20;
+            if (living.getRNG().nextInt(100) >= enchantmentChance) {
+                continue;
+            }
+
+            int enchantmentLevel = nether ? 15 + living.getRNG().nextInt(16) : 5 + living.getRNG().nextInt(11);
+            ItemStack enchanted = EnchantmentHelper.addRandomEnchantment(living.getRNG(), stack, enchantmentLevel);
+            living.setCurrentItemOrArmor(slot, enchanted);
+        }
+    }
+
+    private int chooseArmorMaterial(EntityLiving living, boolean nether) {
+        if (!nether) {
+            return living.getRNG().nextInt(ARMOR.length);
+        }
+
+        int armor_type = living.getRNG().nextInt(100);
+        if (armor_type < 70) {
+            return 3; //Gold
+        }
+
+        if (armor_type < 80) {
+            return 0; //Leather
+        }
+
+        if (armor_type < 90) {
+            return 1; //Chainmail
+        }
+
+        return 2; //Iron
+    }
+
+    private Item chooseWeapon(EntityLiving living, boolean nether) {
+        if (!nether) {
+            return WEAPONS[living.getRNG().nextInt(WEAPONS.length)];
+        }
+
+        int roll = living.getRNG().nextInt(100);
+        int materialOffset;
+
+        if (roll < 70) {
+            materialOffset = 2; //Gold
+        } else if (roll < 85) {
+            materialOffset = 0; //Stone
+        } else {
+            materialOffset = 1; //Iron
+        }
+
+        int weaponType = living.getRNG().nextInt(3);
+        return WEAPONS[weaponType * 3 + materialOffset];
     }
 
     private void giveRandomPotionEffect(EntityLiving living) {
         Potion potion = POTIONS[living.getRNG().nextInt(POTIONS.length)];
-        living.addPotionEffect(new PotionEffect(potion.id, 6000, 0));
+        living.addPotionEffect(new PotionEffect(potion.id, 60000, 0));
     }
 
     private boolean isEligibleHostile(EntityLivingBase living) {

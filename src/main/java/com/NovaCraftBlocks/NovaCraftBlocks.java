@@ -204,7 +204,7 @@ public class NovaCraftBlocks {
 	public static Block unbreakable_legendary_ore, legendary_ore, legendary_ore_block;
 
 	//End Building/World Gen Blocks
-	public static Block frontierslate, frontierslate_bricks, carved_frontierslate_bricks, frontierslate_pillar;
+	public static Block frontierslate, frontierslate_bricks, carved_frontierslate_bricks, frontierslate_pillar, nullified_frontierslate;
 	public static Block frontierslate_slab, frontierslate_double_slab, frontierslate_stairs, frontierslate_wall;
 	public static Block frontierslate_brick_slab, frontierslate_brick_double_slab, frontierslate_brick_stairs, frontierslate_brick_wall;
 	public static Block lacuna_log, lacuna_fruit, lacuna_planks;
@@ -397,7 +397,8 @@ public class NovaCraftBlocks {
 		frontierslate_bricks = register("frontierslate_bricks", new BlockFrontierslateBricks().setBlockTextureName(NovaCraft.find("frontierslate_bricks")));
 		carved_frontierslate_bricks = register("carved_frontierslate_bricks", new BlockCarvedFrontierslateBricks());
 		frontierslate_pillar = registerMeta("frontierslate_pillar", new BlockFrontierslatePillar().setBlockTextureName(NovaCraft.find("frontierslate_pillar")));
-		
+		nullified_frontierslate = register("nullified_frontierslate", new BlockNullifedFrontierslate().setBlockTextureName(NovaCraft.find("nullified_frontierslate")));
+
 		crystallized_end = register("crystallized_end", new BlockCrystallizedEnd());
 		
 		vacuum_sand = register("vacuum_sand", new BlockVacuumSand().setBlockTextureName(NovaCraft.find("vacuum_sand")));
@@ -432,7 +433,7 @@ public class NovaCraftBlocks {
 		vanite_anvil = registerMeta("vanite_anvil", new BlockVaniteAnvil());
 		deepoid_brewing_stand = registerHidden("deepoid_brewing_stand", new BlockDeepoidBrewingStand());
 
-		glow_torch = register("glow_torch", new BlockGlowTorch().setBlockTextureName(NovaCraft.find("glow_torch")));
+		glow_torch = register("glow_torch", new BlockGlowTorch().setBlockTextureName(NovaCraft.find("deep_torch")));
 		vanite_torch = register("vanite_torch", new BlockVaniteTorch().setBlockTextureName(NovaCraft.find("vanite_torch")));
 		dim_vanite_torch = register("dim_vanite_torch", new BlockDimVaniteTorch().setBlockTextureName(NovaCraft.find("dim_vanite_torch")));
 		

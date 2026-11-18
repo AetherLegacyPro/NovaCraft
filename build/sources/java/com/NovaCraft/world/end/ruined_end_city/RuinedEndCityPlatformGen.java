@@ -14,11 +14,11 @@ public class RuinedEndCityPlatformGen extends WorldGenerator {
 
     public boolean generate(final World world, final Random random, final int i, final int j, final int k) {
 
-        world.setBlock(i + 4, j + 18, k + 16, placePlatformBlock(random), 0, 2);
-        world.setBlock(i + 5, j + 18, k + 16, placePlatformBlock(random), 0, 2);
-        world.setBlock(i + 6, j + 18, k + 16, placePlatformBlock(random), 0, 2);
-        world.setBlock(i + 7, j + 18, k + 16, placePlatformBlock(random), 0, 2);
-        world.setBlock(i + 8, j + 18, k + 16, placePlatformBlock(random), 0, 2);
+        world.setBlock(i + 4, j + 18, k + 16, NovaCraftBlocks.nullified_frontierslate, 0, 2);
+        world.setBlock(i + 5, j + 18, k + 16, NovaCraftBlocks.nullified_frontierslate, 0, 2);
+        world.setBlock(i + 6, j + 18, k + 16, NovaCraftBlocks.nullified_frontierslate, 0, 2);
+        world.setBlock(i + 7, j + 18, k + 16, NovaCraftBlocks.nullified_frontierslate, 0, 2);
+        world.setBlock(i + 8, j + 18, k + 16, NovaCraftBlocks.nullified_frontierslate, 0, 2);
         world.setBlock(i + 9, j + 18, k + 16, placePlatformBlock(random), 0, 2);
         world.setBlock(i + 10, j + 18, k + 16, placePlatformBlock(random), 0, 2);
         world.setBlock(i + 11, j + 18, k + 16, placePlatformBlock(random), 0, 2);
