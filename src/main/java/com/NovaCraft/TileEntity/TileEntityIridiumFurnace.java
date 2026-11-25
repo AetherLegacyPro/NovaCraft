@@ -44,6 +44,20 @@ public class TileEntityIridiumFurnace extends TileEntity implements ISidedInvent
         }
     }
 
+    public boolean isCustomRecipeOutput(ItemStack stack) {
+        if (stack == null) {
+            return false;
+        }
+
+        for (ItemStack result : CUSTOM_FURNACE_RECIPES.values()) {
+            if (result != null && result.isItemEqual(stack)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private static class ItemMetaKey {
         private final Item item;
         private final int meta;

@@ -1,5 +1,7 @@
 package com.NovaCraft.TileEntity;
 
+import com.NovaCraft.achievements.AchievementsNovaCraft;
+import com.NovaCraftBlocks.NovaCraftBlocks;
 import net.minecraft.tileentity.*;
 import cpw.mods.fml.relauncher.*;
 import net.minecraft.item.*;
@@ -31,6 +33,14 @@ public class TileEntityLegendaryBeacon extends TileEntityBeacon {
     private String field_146008_p;
     private final List segments = Lists.newArrayList();
 
+    private boolean isValidLegendaryBeaconBase(int x, int y, int z) {
+        Block block = this.worldObj.getBlock(x, y, z);
+
+        return block == Blocks.diamond_block || block == NovaCraftBlocks.block_of_klangite || block == NovaCraftBlocks.block_of_mercuridium
+                || block == NovaCraftBlocks.block_of_reinforced_vanite || block == NovaCraftBlocks.block_of_iridium || block == NovaCraftBlocks.block_of_tophinite
+                || block == NovaCraftBlocks.nullified_vanite || block == NovaCraftBlocks.crystallized_vanite || block == NovaCraftBlocks.legendary_ore_block;
+    }
+
     public void updateEntity() {
         if (this.worldObj.getTotalWorldTime() % 80L == 0L) {
             this.func_146003_y();
@@ -48,109 +58,65 @@ public class TileEntityLegendaryBeacon extends TileEntityBeacon {
     }
 
     private void func_146000_x() {
-        List list;
-        Iterator iterator;
-        EntityPlayer entityplayer;
-        if (this.field_146015_k && this.levels > 0 && !this.worldObj.isRemote && this.primaryEffect > 0) {
-            final double d0 = this.levels * 20 + 20;
-            byte b0 = 1; //0
-            if (this.levels >= 4 && this.primaryEffect == this.secondaryEffect) {
-                b0 = 2; //1
-            }
-            final AxisAlignedBB axisalignedbb = AxisAlignedBB.getBoundingBox((double) this.xCoord, (double) this.yCoord, (double) this.zCoord, (double) (this.xCoord + 1), (double) (this.yCoord + 1), (double) (this.zCoord + 1)).expand(d0, d0, d0);
-            axisalignedbb.maxY = this.worldObj.getHeight();
-            list = this.worldObj.getEntitiesWithinAABB((Class) EntityPlayer.class, axisalignedbb);
-            iterator = list.iterator();
+        if (!this.field_146015_k || this.levels <= 0 || this.worldObj.isRemote || this.primaryEffect <= 0) {
+            return;
+        }
 
-            while (iterator.hasNext()) {
-                entityplayer = (EntityPlayer) iterator.next();
-                entityplayer.addPotionEffect(new PotionEffect(this.primaryEffect, 180, b0, true));
-            }
-            /*for (final EntityPlayer entityplayer : list) {
-                entityplayer.addPotionEffect(new PotionEffect(this.primaryEffect, 180, (int)b0, true));
-            }*/
+        double range = (this.levels * 20.0D + 20.0D) * 4.0D;
+        int amplifier = 1;
+        if (this.levels >= 4 && this.primaryEffect == this.secondaryEffect) {
+            amplifier = 2;
+        }
+
+        AxisAlignedBB effectArea = AxisAlignedBB.getBoundingBox(this.xCoord, this.yCoord, this.zCoord, this.xCoord + 1, this.yCoord + 1, this.zCoord + 1).expand(range, range, range);
+        List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, effectArea);
+        for (EntityPlayer player : players) {
+            player.addPotionEffect(new PotionEffect(this.primaryEffect, 180, amplifier, true));
             if (this.levels >= 4 && this.primaryEffect != this.secondaryEffect && this.secondaryEffect > 0) {
-                /*for (final EntityPlayer entityplayer : list) {
-                    entityplayer.addPotionEffect(new PotionEffect(this.secondaryEffect, 300, 0, true));
-                }*/
-                while (iterator.hasNext()) {
-                    entityplayer = (EntityPlayer) iterator.next();
-                    entityplayer.addPotionEffect(new PotionEffect(this.secondaryEffect, 300, 0, true));
-                }
-
-            }
-        } else if (this.field_146015_k && this.levels > 0 && !this.worldObj.isRemote && this.primaryEffect > 0) {
-            final double d0 = this.levels * 10 + 10;
-            byte b0 = 1;
-            if (this.levels >= 4 && this.primaryEffect == this.secondaryEffect) {
-                b0 = 2;
-            }
-            final AxisAlignedBB axisalignedbb = AxisAlignedBB.getBoundingBox((double) this.xCoord, (double) this.yCoord, (double) this.zCoord, (double) (this.xCoord + 1), (double) (this.yCoord + 1), (double) (this.zCoord + 1)).expand(d0, d0, d0);
-            axisalignedbb.maxY = this.worldObj.getHeight();
-            list = this.worldObj.getEntitiesWithinAABB((Class) EntityPlayer.class, axisalignedbb);
-            iterator = list.iterator();
-
-            while (iterator.hasNext()) {
-                entityplayer = (EntityPlayer) iterator.next();
-                entityplayer.addPotionEffect(new PotionEffect(this.primaryEffect, 180, b0, true));
-            }
-
-           /* for (final EntityPlayer entityplayer : list) {
-                entityplayer.addPotionEffect(new PotionEffect(this.primaryEffect, 180, (int)b0, true));
-            }*/
-            if (this.levels >= 4 && this.primaryEffect != this.secondaryEffect && this.secondaryEffect > 0) {
-                iterator = list.iterator();
-
-                while (iterator.hasNext()) {
-                    entityplayer = (EntityPlayer) iterator.next();
-                    entityplayer.addPotionEffect(new PotionEffect(this.secondaryEffect, 300, 0, true));
-                }
-
-                /*for (final EntityPlayer entityplayer : list) {
-                    entityplayer.addPotionEffect(new PotionEffect(this.secondaryEffect, 300, 0, true));
-                }*/
+                player.addPotionEffect(new PotionEffect(this.secondaryEffect, 300, 0, true));
             }
         }
     }
 
     private void func_146003_y() {
-        final int i = this.levels;
+        int previousLevels = this.levels;
         this.field_146015_k = true;
-        this.levels = 1;
-        for (int j = 2; j <= 4; this.levels = j++) {
-            final int k = this.yCoord - j;
-            if (k < 0) {
+        this.levels = 0;
+
+        for (int layer = 1; layer <= 4; ++layer) {
+            int y = this.yCoord - layer;
+            if (y < 0) {
                 break;
             }
-            boolean flag = true;
-            for (int l = this.xCoord - j; l <= this.xCoord + j && flag; ++l) {
-                for (int i2 = this.zCoord - j; i2 <= this.zCoord + j; ++i2) {
-                    final Block block = this.worldObj.getBlock(l, k, i2);
-                    if (!(block).isBeaconBase((IBlockAccess) this.worldObj, l, k, i2, this.xCoord, this.yCoord, this.zCoord)) {
-                        flag = false;
+
+            boolean validLayer = true;
+            for (int x = this.xCoord - layer; x <= this.xCoord + layer && validLayer; ++x) {
+                for (int z = this.zCoord - layer; z <= this.zCoord + layer; ++z) {
+                    if (!this.isValidLegendaryBeaconBase(x, y, z)) {
+                        validLayer = false;
                         break;
                     }
                 }
             }
-            if (!flag) {
+
+            if (!validLayer) {
                 break;
             }
+
+            this.levels = layer;
         }
+
         if (this.levels == 0) {
             this.field_146015_k = false;
         }
-        //if (!this.worldObj.isRemote && this.levels == 4 && i < this.levels) {
-           // Iterator iterator = /*this.worldObj.isRemote(EntityPlayer.class, */(Iterator)AxisAlignedBB.getBoundingBox((double) this.xCoord, (double) this.yCoord, (double) this.zCoord, (double) this.xCoord, (double) (this.yCoord - 4), (double) this.zCoord).expand(10.0, 5.0, 10.0);
 
-           // while (iterator.hasNext()) {
-              //  EntityPlayer entityplayer = (EntityPlayer) iterator.next();
-              //  entityplayer.triggerAchievement(AchievementsNovaCraft.legend);
-           // }
-
-            //for (final EntityPlayer entityplayer : this.worldObj.getEntitiesWithinAABB((Class)EntityPlayer.class, AxisAlignedBB.getBoundingBox((double)this.xCoord, (double)this.yCoord, (double)this.zCoord, (double)this.xCoord, (double)(this.yCoord - 4), (double)this.zCoord).expand(10.0, 5.0, 10.0))) {
-               // entityplayer.triggerAchievement((StatBase)AchievementList.field_150965_K);
-           // }
-      //}
+        if (!this.worldObj.isRemote && this.levels == 4 && previousLevels < 4) {
+            AxisAlignedBB achievementArea = AxisAlignedBB.getBoundingBox(this.xCoord, this.yCoord - 4, this.zCoord, this.xCoord + 1, this.yCoord + 1, this.zCoord + 1).expand(10.0D, 5.0D, 10.0D);
+            List<EntityPlayer> players = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, achievementArea);
+            for (EntityPlayer player : players) {
+                player.triggerAchievement(AchievementsNovaCraft.legend);
+            }
+        }
     }
     
     @SideOnly(Side.CLIENT)

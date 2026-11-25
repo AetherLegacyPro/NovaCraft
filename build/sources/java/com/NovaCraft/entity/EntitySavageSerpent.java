@@ -1,9 +1,12 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.AI.EntityAIDeepoidBreathAttack;
 import com.NovaCraft.entity.AI.EntityAILavaSwimming;
 import com.NovaCraft.entity.AI.IDeepoidBreathAttacker;
+import com.NovaCraft.entity.misc.EnumRavagerType;
 import com.NovaCraft.particles.ParticleHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -269,6 +272,15 @@ public class EntitySavageSerpent extends EntityMob implements IDeepoidBreathAtta
     {
         return super.getSoundPitch() * 1.20F;
     }
+
+	public void onDeath(DamageSource p_70645_1_) {
+		super.onDeath(p_70645_1_);
+		if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+			entityplayer.triggerAchievement(AchievementsNovaCraft.overrun_bastion);
+			entityplayer.triggerAchievement(AchievementsNovaCraft.augmented_serpent);
+		}
+	}
     
     @Override
 	public void doBreathAttack(Entity target) 

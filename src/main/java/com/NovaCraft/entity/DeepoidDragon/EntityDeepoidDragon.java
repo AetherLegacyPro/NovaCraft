@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityIonizatior;
 import com.NovaCraft.entity.EntityVargouzite;
 import com.NovaCraft.particles.ParticleHandler;
@@ -652,6 +653,17 @@ public class EntityDeepoidDragon extends EntityFlying implements IBossDisplayDat
 
             this.createloot(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ));
             this.setDead();
+        }
+    }
+
+    public void onDeath(DamageSource p_70645_1_) {
+        super.onDeath(p_70645_1_);
+        if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            if(Hardmode.get(this.worldObj).getHardmode()) {
+                entityplayer.triggerAchievement(AchievementsNovaCraft.buffed_boss);
+            }
+
         }
     }
     

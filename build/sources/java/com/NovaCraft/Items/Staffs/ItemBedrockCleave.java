@@ -1,6 +1,7 @@
 package com.NovaCraft.Items.Staffs;
 
 import com.NovaCraft.Items.Tools.NCToolMaterial;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.entity.misc.EntityVoidLightningBolt;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
@@ -42,6 +43,7 @@ public class ItemBedrockCleave extends ItemPickaxe {
         int meta = world.getBlockMetadata(x, y, z);
 
         if (world.getBlock(x, y, z) == NovaCraftBlocks.unbreakable_legendary_ore & meta == 0) {
+            player.triggerAchievement(AchievementsNovaCraft.reality_violation);
             world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "nova_craft:unknown.activated", 2.0F, itemRand.nextFloat() * 0.4F + 0.8F);
             heldItem.damageItem(1, player);
             world.setBlock(x, y, z, NovaCraftBlocks.legendary_ore, 0, 2);
@@ -58,6 +60,7 @@ public class ItemBedrockCleave extends ItemPickaxe {
                 }
             }
         } else if (world.getBlock(x, y, z) == NovaCraftBlocks.unbreakable_legendary_ore & meta == 1) {
+            player.triggerAchievement(AchievementsNovaCraft.reality_violation);
             world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "nova_craft:unknown.activated", 2.0F, itemRand.nextFloat() * 0.4F + 0.8F);
             heldItem.damageItem(1, player);
             world.setBlock(x, y, z, NovaCraftBlocks.legendary_ore, 1, 2);
@@ -74,6 +77,7 @@ public class ItemBedrockCleave extends ItemPickaxe {
                 }
             }
         } else if (world.getBlock(x, y, z) == NovaCraftBlocks.unbreakable_legendary_ore & meta == 2) {
+            player.triggerAchievement(AchievementsNovaCraft.reality_violation);
             world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "nova_craft:unknown.activated", 2.0F, itemRand.nextFloat() * 0.4F + 0.8F);
             heldItem.damageItem(1, player);
             world.setBlock(x, y, z, NovaCraftBlocks.legendary_ore, 2, 2);

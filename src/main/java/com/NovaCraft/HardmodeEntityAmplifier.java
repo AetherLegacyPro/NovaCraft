@@ -24,16 +24,20 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class HardmodeEntityAmplifier {
     private static final String HEALTH_APPLIED = "NovaCraftHardmodeHealthApplied";
+    private static final String HEALTH_MULTIPLIER_APPLIED = "NovaCraftHardmodeHealthMultiplier";
     private static final String EXTRAS_APPLIED = "NovaCraftHardmodeExtrasApplied";
-
-    private static final double HEALTH_MULTIPLIER = 2.0D;
-    private static final float DAMAGE_MULTIPLIER = 1.5F;
-
+    private static final double STARTING_MULTIPLIER = 1.4D;
+    private static final double TRUE_HARDMODE_MULTIPLIER = 2.0D;
     private static final UUID SPEED_MODIFIER_ID = UUID.fromString("75c4a06a-cf65-42dd-a546-9779c4d24a15");
+
+    private static final String BOSS_EFFECT_FIRST = "NovaCraftHardmodeBossEffectFirst";
+    private static final String BOSS_EFFECT_SECOND = "NovaCraftHardmodeBossEffectSecond";
+    private static final Potion[] BOSS_POTIONS = {Potion.damageBoost, Potion.moveSpeed, Potion.regeneration};
 
     private static final Item[][] ARMOR = {
             {Items.leather_boots, Items.leather_leggings, Items.leather_chestplate, Items.leather_helmet},
@@ -46,22 +50,30 @@ public class HardmodeEntityAmplifier {
 
     private static final Potion[] POTIONS = {Potion.moveSpeed, Potion.damageBoost, Potion.resistance, Potion.regeneration, Potion.fireResistance};
 
+    private double getHardmodeMultiplier(World world) {
+        Hardmode data = Hardmode.get(world);
+        return data.areHardmodeMobsUnlocked() ? TRUE_HARDMODE_MULTIPLIER : STARTING_MULTIPLIER;
+    }
+
     @SubscribeEvent
     public void onEntityJoinWorld(EntityJoinWorldEvent event) {
-        if (event.world.isRemote || this.isDimensionExcluded(event.world)) {
+        if (event.world.isRemote || this.isDimensionExcluded(event.world)
+               || !(event.entity instanceof EntityLivingBase)) {
             return;
         }
 
-        if (!(event.entity instanceof EntityLivingBase)) {
+        Hardmode hardmode = Hardmode.get(event.world);
+        if (!hardmode.getHardmode()) {
             return;
         }
 
         EntityLivingBase living = (EntityLivingBase)event.entity;
-        if (!this.isEligibleHostile(living)) {
+        if (living instanceof IBossDisplayData) {
+            this.applyBossEffects(living, hardmode);
             return;
         }
 
-        if (!Hardmode.get(event.world).getHardmode()) {
+        if (!this.isEligibleHostile(living)) {
             return;
         }
 
@@ -93,12 +105,26 @@ public class HardmodeEntityAmplifier {
             return;
         }
 
-        event.ammount *= DAMAGE_MULTIPLIER;
+        event.ammount *= (float)this.getHardmodeMultiplier(world);
     }
 
     private void applyHardmodeHealth(EntityLivingBase living) {
         NBTTagCompound data = living.getEntityData();
-        if (data.getBoolean(HEALTH_APPLIED)) {
+        double desiredMultiplier = this.getHardmodeMultiplier(living.worldObj);
+        double previousMultiplier;
+
+        if (data.hasKey(HEALTH_MULTIPLIER_APPLIED, 99)) {
+            previousMultiplier = data.getDouble(HEALTH_MULTIPLIER_APPLIED);
+        } else {
+            previousMultiplier = data.getBoolean(HEALTH_APPLIED) ? STARTING_MULTIPLIER : 1.0D;
+        }
+
+        if (previousMultiplier <= 0.0D) {
+            previousMultiplier = 1.0D;
+        }
+
+        if (Math.abs(previousMultiplier - desiredMultiplier) < 0.000001D) {
+            data.setDouble(HEALTH_MULTIPLIER_APPLIED, desiredMultiplier);
             return;
         }
 
@@ -106,13 +132,86 @@ public class HardmodeEntityAmplifier {
 
         float previousMaximum = living.getMaxHealth();
         float previousHealth = living.getHealth();
-
         float healthPercentage = previousMaximum > 0.0F ? previousHealth / previousMaximum : 1.0F;
-        health.setBaseValue(health.getBaseValue() * HEALTH_MULTIPLIER);
 
+        health.setBaseValue(health.getBaseValue() * (desiredMultiplier / previousMultiplier));
         living.setHealth(living.getMaxHealth() * healthPercentage);
-
         data.setBoolean(HEALTH_APPLIED, true);
+        data.setDouble(HEALTH_MULTIPLIER_APPLIED, desiredMultiplier);
+    }
+
+    @SubscribeEvent
+    public void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
+        EntityLivingBase living = event.entityLiving;
+        World world = living.worldObj;
+        if (world.isRemote || living.ticksExisted % 20 != 0 || !living.isEntityAlive() || this.isDimensionExcluded(world)) {
+            return;
+        }
+
+        Hardmode hardmode = Hardmode.get(world);
+        if (!hardmode.getHardmode()) {
+            return;
+        }
+
+        if (living instanceof IBossDisplayData) {
+            this.applyBossEffects(living, hardmode);
+            return;
+        }
+
+        if (this.isEligibleHostile(living)) {
+            this.applyHardmodeHealth(living);
+        }
+    }
+
+    //Left Bad leaving the bosses out, should make them a bit more difficult still
+    private void applyBossEffects(EntityLivingBase boss, Hardmode hardmode) {
+        NBTTagCompound data = boss.getEntityData();
+
+        int firstIndex;
+        if (data.hasKey(BOSS_EFFECT_FIRST, 99)) {
+            firstIndex = data.getInteger(BOSS_EFFECT_FIRST);
+        } else {
+            firstIndex = -1;
+        }
+
+        if (firstIndex < 0 || firstIndex >= BOSS_POTIONS.length) {
+            firstIndex = boss.getRNG().nextInt(BOSS_POTIONS.length);
+            data.setInteger(BOSS_EFFECT_FIRST, firstIndex);
+        }
+
+        this.refreshBossEffect(boss, BOSS_POTIONS[firstIndex]);
+        if (!hardmode.areHardmodeMobsUnlocked()) {
+            return;
+        }
+
+        int secondIndex;
+        if (data.hasKey(BOSS_EFFECT_SECOND, 99)) {
+            secondIndex = data.getInteger(BOSS_EFFECT_SECOND);
+        } else {
+            secondIndex = -1;
+        }
+
+        if (secondIndex < 0 || secondIndex >= BOSS_POTIONS.length || secondIndex == firstIndex) {
+            secondIndex = (firstIndex + 1 + boss.getRNG().nextInt(BOSS_POTIONS.length - 1)) % BOSS_POTIONS.length;
+            data.setInteger(BOSS_EFFECT_SECOND, secondIndex);
+        }
+
+        this.refreshBossEffect(boss, BOSS_POTIONS[secondIndex]);
+    }
+
+    private void refreshBossEffect(EntityLivingBase boss, Potion potion) {
+        PotionEffect existing = boss.getActivePotionEffect(potion);
+        if (existing != null) {
+            if (existing.getAmplifier() > 0) {
+                return;
+            }
+
+            if (existing.getDuration() > 60) {
+                return;
+            }
+        }
+
+        boss.addPotionEffect(new PotionEffect(potion.id, 6000, 0, true));
     }
 
     private void applyHardmodeSpeed(EntityLivingBase living) {

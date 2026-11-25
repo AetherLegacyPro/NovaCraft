@@ -1,7 +1,6 @@
 package com.NovaCraft.world;
 
 import java.util.Random;
-
 import com.NovaCraft.config.ConfigsCompact;
 import com.NovaCraft.config.ConfigsWorld;
 import org.apache.commons.lang3.ArrayUtils;
@@ -86,7 +85,7 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 		}
 
 		if (world.provider.dimensionId == 1 && ConfigsWorld.enableNullifiedFrontierslate && rand.nextInt(17) == 0) {
-			this.generateFrontierslate(electrifiedfrontierslateGen, world, rand, chunkX, chunkZ, 1, 1, 24);
+			this.generateVacuumSand(electrifiedfrontierslateGen, world, rand, chunkX, chunkZ, 1, 1, 24);
 		}
 		
 		if (world.provider.dimensionId == 1 && ConfigsWorld.enableVacuumSand) {
@@ -127,16 +126,22 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 			}
 		}
 	}
-	
-	public void generateEndStone(WorldGenMinable gen, World world, Random random, int chunkX, int chunkZ, float chance, int minY, int maxY) {
-		if (minY < 0 || maxY < minY || chance <= 0)
-			return;
 
-		for (int i = 0; i < (chance < 1 ? 1 : (int) chance); i++) {
+	public void generateEndStone(WorldGenMinable gen, World world, Random random, int chunkX, int chunkZ, float chance, int minY, int maxY) {
+		if (minY < 0 || maxY < minY || chance <= 0) {
+			return;
+		}
+
+		for (int i = 0; i < (chance < 1 ? 1 : (int)chance); i++) {
 			if (chance >= 1 || random.nextFloat() < chance) {
 				int xRand = (chunkX << 4) + random.nextInt(16);
 				int yRand = MathHelper.getRandomIntegerInRange(random, minY, maxY);
 				int zRand = (chunkZ << 4) + random.nextInt(16);
+
+				long distanceSquared = (long)xRand * xRand + (long)zRand * zRand;
+				if (distanceSquared < 300L * 300L) {
+					continue;
+				}
 
 				gen.generate(world, random, xRand, yRand, zRand);
 			}
@@ -147,11 +152,16 @@ public class NCWorldGeneratorPre implements IWorldGenerator {
 		if (minY < 0 || maxY < minY || chance <= 0)
 			return;
 
-		for (int i = 0; i < (chance < 1 ? 1 : (int) chance); i++) {
+		for (int i = 0; i < (chance < 1 ? 1 : (int)chance); i++) {
 			if (chance >= 1 || random.nextFloat() < chance) {
 				int xRand = (chunkX << 4) + random.nextInt(16);
 				int yRand = MathHelper.getRandomIntegerInRange(random, minY, maxY);
 				int zRand = (chunkZ << 4) + random.nextInt(16);
+
+				long distanceSquared = (long)xRand * xRand + (long)zRand * zRand;
+				if (distanceSquared < 300L * 300L) {
+					continue;
+				}
 
 				gen.generate(world, random, xRand, yRand, zRand);
 			}

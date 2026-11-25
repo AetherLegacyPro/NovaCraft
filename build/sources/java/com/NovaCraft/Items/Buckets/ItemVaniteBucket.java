@@ -98,6 +98,7 @@ public class ItemVaniteBucket extends Item
                         else if (block == NovaCraftBlocks.mercury && l == 0)
                         {
                             world.setBlockToAir(i, j, k);
+                            entityPlayer.triggerAchievement(AchievementsNovaCraft.liquid_metal);
                             return this.fillBucket(itemStack, entityPlayer, NovaCraftItems.vanite_bucket_mercury);
                         }
                     	

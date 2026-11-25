@@ -2,6 +2,7 @@ package com.NovaCraft.entity;
 
 import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.AI.EntityAIDeepoidBreathAttack;
 import com.NovaCraft.entity.AI.EntityAILavaSwimming;
 import com.NovaCraft.entity.AI.IDeepoidBreathAttacker;
@@ -310,6 +311,19 @@ public class EntityBlazingSerpentQueen extends EntityMob implements IDeepoidBrea
 				target.attackEntityFrom(DamageSource.generic, 2.0F);
 				((EntityLivingBase) target).addPotionEffect(new PotionEffect(Potion.poison.id, 100, 1));
 			}
+		}
+	}
+
+	public void onDeath(DamageSource p_70645_1_) {
+		super.onDeath(p_70645_1_);
+		if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+			entityplayer.triggerAchievement(AchievementsNovaCraft.reached_for_things_I_didnt_need);
+
+			if(Hardmode.get(this.worldObj).getHardmode()) {
+				entityplayer.triggerAchievement(AchievementsNovaCraft.buffed_boss);
+			}
+
 		}
 	}
     

@@ -1,6 +1,8 @@
 package com.NovaCraft.Items;
 
 import java.util.List;
+
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import net.minecraft.block.Block;
@@ -24,10 +26,8 @@ public class ItemImpureOutsiderIngot extends Item {
 	
 	@Override
 	public boolean onItemUse(ItemStack heldItem, EntityPlayer player, World world, int x, int y, int z, int facing, float hitX, float hitY, float hitZ) {
-		Block block = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
-		
 		if (world.getBlock(x, y, z) == NovaCraftBlocks.unknown_portal_sealed) {
+			player.triggerAchievement(AchievementsNovaCraft.a_new_encounter);
 			world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "fire.ignite", 2.0F, itemRand.nextFloat() * 0.4F + 0.8F);
 			--heldItem.stackSize;
 			player.inventory.addItemStackToInventory(new ItemStack(NovaCraftItems.outsider_ingot));

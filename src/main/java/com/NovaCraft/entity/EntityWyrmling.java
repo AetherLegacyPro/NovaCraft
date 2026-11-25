@@ -1,7 +1,10 @@
 package com.NovaCraft.entity;
 
 import java.util.List;
+
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.EntityLiving;
@@ -418,6 +421,14 @@ public class EntityWyrmling extends EntityFlying implements IMob {
         final int z = MathHelper.floor_double(this.posZ);
         final boolean canSpawn = this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
         return this.posY >= 95.0D && this.worldObj.canBlockSeeTheSky(x, y, z) && this.worldObj.getBlockLightValue(x, y, z) >= 7 && canSpawn;
+    }
+
+    public void onDeath(DamageSource p_70645_1_) {
+        super.onDeath(p_70645_1_);
+        if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            entityplayer.triggerAchievement(AchievementsNovaCraft.mountain_guardian);
+        }
     }
 
     @Override

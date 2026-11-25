@@ -1,5 +1,6 @@
 package com.NovaCraft.entity.illager;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.entity.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.world.*;
@@ -505,6 +506,14 @@ public class EntityIllagerChief extends EntityAgeable implements IMerchant, INpc
               }
           }
       }
+
+      if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+          EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+          if(Hardmode.get(this.worldObj).getHardmode()) {
+              entityplayer.triggerAchievement(AchievementsNovaCraft.unfriendly_neighbor);
+          }
+      }
+
       super.onDeath(p_70645_1_);
   }
   

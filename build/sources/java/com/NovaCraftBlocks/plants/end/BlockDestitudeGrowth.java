@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import java.util.Random;
 import com.NovaCraft.Items.NovaCraftItems;
@@ -23,34 +24,59 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockDestitudeGrowth extends Block {
+	@SideOnly(Side.CLIENT)
+	private IIcon[] topIcons;
 
 	@SideOnly(Side.CLIENT)
-    private IIcon blockTop;
-    @SideOnly(Side.CLIENT)
-    private IIcon blockBottom;
+	private IIcon sideIcons;
+
+	@SideOnly(Side.CLIENT)
+	private IIcon blockBottom;
 	
 	public BlockDestitudeGrowth() {
 		super(Material.grass);
-
 		this.setTickRandomly(true);
 		this.setHardness(1.0F);
 		this.setResistance(0.5F);
 		this.setStepSound(ModSounds.soundSculk);
 		this.setHarvestLevel("shovel", 0);
 	}
-	
+
+	@Override
 	@SideOnly(Side.CLIENT)
-    public IIcon getIcon(int p_149691_1_, int p_149691_2_)
-    {
-        return p_149691_1_ == 1 ? this.blockTop : (p_149691_1_ == 0 ? this.blockBottom : this.blockIcon);
-    }
-	
+	public void registerBlockIcons(IIconRegister iconRegister) {
+		this.topIcons = new IIcon[3];
+
+		for (int i = 0; i < 3; ++i) {
+			this.topIcons[i] = iconRegister.registerIcon("nova_craft:destitute_growth_top_" + i);
+		}
+		this.sideIcons = iconRegister.registerIcon("nova_craft:destitute_growth_side");
+		this.blockBottom = iconRegister.registerIcon("minecraft:end_stone");
+		this.blockIcon = this.sideIcons;
+	}
+
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister p_149651_1_)
-	{
-	    this.blockIcon = p_149651_1_.registerIcon("nova_craft:destitute_growth_side");
-	    this.blockTop = p_149651_1_.registerIcon("nova_craft:destitute_growth_top");
-	    this.blockBottom = p_149651_1_.registerIcon("minecraft:end_stone");
+	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
+		if (side == 0) {
+			return this.blockBottom;
+		}
+
+		int hash = x * 3129871 ^ z * 116129781 ^ y;
+		hash = hash * hash * 42317861 + hash * 11;
+		int choice = ((hash >> 16) & 3) % 3;
+
+		return side == 1 ? this.topIcons[choice] : this.sideIcons;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int meta) {
+		if (side == 0) {
+			return this.blockBottom;
+		}
+
+		return side == 1 ? this.topIcons[0] : this.sideIcons;
 	}
 	
 	@Override
@@ -62,8 +88,7 @@ public class BlockDestitudeGrowth extends Block {
 	    return true;
 	 }
 	
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
-    {
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_) {
         float f = 0.125F;
         return AxisAlignedBB.getBoundingBox((double)p_149668_2_, (double)p_149668_3_, (double)p_149668_4_, (double)(p_149668_2_ + 1), (double)((float)(p_149668_3_ + 1) - f), (double)(p_149668_4_ + 1));
     }

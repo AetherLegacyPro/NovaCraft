@@ -2,6 +2,7 @@ package com.NovaCraft.entity;
 
 import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.misc.EntityPhantomizedLaser;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -137,14 +138,13 @@ public class EntityPhantomized extends EntityMob implements IMob, IBossDisplayDa
         if (!this.worldObj.isRemote) {
             if (!player.capabilities.isCreativeMode) {
                 --heldItem.stackSize;
-
                 if (heldItem.stackSize <= 0) {
                     player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
                 }
 
                 player.inventory.markDirty();
             }
-
+            player.triggerAchievement(AchievementsNovaCraft.phantomized_heart);
             this.setAwake(true);
             this.setAttackTarget(player);
 
@@ -738,6 +738,17 @@ public class EntityPhantomized extends EntityMob implements IMob, IBossDisplayDa
 
         WorldServer worldServer = (WorldServer) this.worldObj;
         worldServer.func_147487_a("explode", this.posX, this.posY + 0.5D, this.posZ, 40, 0.25D, 0.25D, 0.25D, 0.125D);
+    }
+
+    public void onDeath(DamageSource p_70645_1_) {
+        super.onDeath(p_70645_1_);
+        if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            if(Hardmode.get(this.worldObj).getHardmode()) {
+                entityplayer.triggerAchievement(AchievementsNovaCraft.buffed_boss);
+            }
+
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.NovaCraft.entity.illager;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.entity.*;
 import com.NovaCraft.entity.models.WardlingModel;
 import net.minecraft.entity.player.*;
@@ -519,6 +520,14 @@ public class EntityIllagerTrader extends EntityAgeable implements IMerchant, INp
               }
           }
       }
+
+      if (source.getEntity() instanceof EntityPlayer) {
+          EntityPlayer entityplayer = (EntityPlayer)source.getEntity();
+          if(Hardmode.get(this.worldObj).getHardmode()) {
+              entityplayer.triggerAchievement(AchievementsNovaCraft.unfriendly_neighbor);
+          }
+      }
+
       super.onDeath(source);
   }
   

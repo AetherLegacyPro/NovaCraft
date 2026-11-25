@@ -11,26 +11,14 @@ import com.NovaCraft.entity.*;
 import com.NovaCraft.entity.CrimsonDragon.CrimsonDragonRenderer;
 import com.NovaCraft.entity.CrimsonDragon.EntityCrimsonDragon;
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
-import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
-import com.NovaCraft.entity.hardmode.EntityHardmodeGhast;
-import com.NovaCraft.entity.hardmode.EntityHardmodeMagmaCube;
-import com.NovaCraft.entity.hardmode.EntityHardmodeSkeleton;
-import com.NovaCraft.entity.hardmode.EntityHardmodeSlime;
-import com.NovaCraft.entity.hardmode.EntityHardmodeSpider;
-import com.NovaCraft.entity.hardmode.EntityHardmodeZombie;
+import com.NovaCraft.entity.hardmode.*;
 import com.NovaCraft.entity.illager.EntityIllagerChief;
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraft.entity.misc.*;
 import com.NovaCraft.entity.models.*;
 import com.NovaCraft.entity.models.hardmode.HardmodeSlimeModel;
-import com.NovaCraft.entity.renderer.hardmode.HardmodeCreeperRenderer;
-import com.NovaCraft.entity.renderer.hardmode.HardmodeGhastRenderer;
-import com.NovaCraft.entity.renderer.hardmode.HardmodeMagmaCubeRenderer;
-import com.NovaCraft.entity.renderer.hardmode.HardmodeSkeletonRenderer;
-import com.NovaCraft.entity.renderer.hardmode.HardmodeSlimeRenderer;
-import com.NovaCraft.entity.renderer.hardmode.HardmodeSpiderRenderer;
-import com.NovaCraft.entity.renderer.hardmode.HardmodeZombieRenderer;
+import com.NovaCraft.entity.renderer.hardmode.*;
 import com.NovaCraft.entity.renderer.illager.IllagerChiefOverlayRenderer;
 import com.NovaCraft.entity.renderer.illager.IllagerChiefRenderer;
 import com.NovaCraft.entity.renderer.illager.IllagerTraderOverlayRenderer;
@@ -77,6 +65,7 @@ public class RendersNovaCraft {
 	register(EntityPhantomizedLaser.class, new PhantomizedLaserRenderer());
 	register(EntityPrisonerTrackingLaser.class, new PrisonerTrackingLaserRenderer());
 	register(EntityVoidLightningBolt.class, new VoidLightningBoltRenderer());
+	register(EntityDestituteEye.class, new RenderSnowball(NovaCraftItems.destitute_eye));
 	
 	//Passive
 	register(EntityGlowSquid.class, new GlowSquidRenderer(new GlowSquidModel(), 0.7F));
@@ -146,6 +135,8 @@ public class RendersNovaCraft {
 	register(EntityHardmodeSlime.class, new HardmodeSlimeRenderer(new HardmodeSlimeModel(16), new HardmodeSlimeModel(0), 0.25F));
 	register(EntityHardmodeMagmaCube.class, new HardmodeMagmaCubeRenderer());
 	register(EntityHardmodeGhast.class, new HardmodeGhastRenderer());
+	register(EntityHardmodeEnderman.class, new HardmodeEndermanRenderer());
+	register(EntityHardmodePigman.class, new HardmodePigmanRenderer());
 	
 	register(EntityVindicator.class, new VindicatorRenderer());
 	register(EntityVindicator.class, new VindicatorOverlayRenderer());
@@ -164,6 +155,8 @@ public class RendersNovaCraft {
 	
 	register(EntitySlaughter.class, new SlaughterRenderer());
 	register(EntitySlaughter.class, new SlaughterOverlayRenderer());
+
+	register(EntityNotImportant.class, new NotImportantRenderer(new NotImportantModel(), new NotImportantModel(), 0.7F));
 	
 	MinecraftForgeClient.registerItemRenderer(NovaCraftItems.diamond_bow, new NovaCraftBowRenderer());	
 	if (Loader.isModLoaded("etfuturum")) {

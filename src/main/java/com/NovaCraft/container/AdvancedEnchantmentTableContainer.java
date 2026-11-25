@@ -1,5 +1,6 @@
 package com.NovaCraft.container;
 
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
@@ -194,6 +195,7 @@ public class AdvancedEnchantmentTableContainer extends Container {
                             else
                             {
                                 itemstack.addEnchantment(enchantmentdata.enchantmentobj, RandomLevel());
+                                p_75140_1_.triggerAchievement(AchievementsNovaCraft.level_50_enchantment);
                             }
                        }
                     }

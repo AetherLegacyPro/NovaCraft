@@ -2,6 +2,7 @@ package com.NovaCraft.Items.Staffs;
 
 import java.util.List;
 import com.NovaCraft.Items.Tools.NCToolMaterial;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.particles.ParticleHandler;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
@@ -50,7 +51,7 @@ public class ItemGeodeStaff extends ItemPickaxe {
             world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "fire.ignite", 2.0F, itemRand.nextFloat() * 0.4F + 0.8F);
             return true;
         }
-
+        player.triggerAchievement(AchievementsNovaCraft.geode_finder);
         int[] nearestDistances = this.findNearestProspectorTargets(world, x, y, z);
 
         for (int oreType = 0; oreType < GEODE_COUNT; ++oreType) {

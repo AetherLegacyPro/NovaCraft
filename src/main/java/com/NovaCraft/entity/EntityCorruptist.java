@@ -1,6 +1,8 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.misc.EntityIceProjectile;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,6 +22,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -175,6 +178,16 @@ public class EntityCorruptist extends EntityMob {
         }
     }
 
+    public void onDeath(DamageSource p_70645_1_) {
+        super.onDeath(p_70645_1_);
+        if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            if(Hardmode.get(this.worldObj).getHardmode()) {
+                entityplayer.triggerAchievement(AchievementsNovaCraft.unfriendly_neighbor);
+            }
+
+        }
+    }
 
     public EnumCreatureAttribute getCreatureAttribute()
     {

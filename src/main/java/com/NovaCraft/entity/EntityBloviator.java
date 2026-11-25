@@ -1,5 +1,6 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.entity.ai.*;
@@ -467,6 +468,17 @@ public class EntityBloviator extends EntityFlying implements IMob, IBossDisplayD
             if (f > 0.0f && f2 <= 0.0f) {
                 this.worldObj.playSound(this.posX, this.posY, this.posZ, "nova_craft:ender_ray.charge", 0.95f + this.rand.nextFloat() * 0.05f, 0.95f + this.rand.nextFloat() * 0.05f, false);
             }
+        }
+    }
+
+    public void onDeath(DamageSource p_70645_1_) {
+        super.onDeath(p_70645_1_);
+        if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            if(Hardmode.get(this.worldObj).getHardmode()) {
+                entityplayer.triggerAchievement(AchievementsNovaCraft.buffed_boss);
+            }
+
         }
     }
     

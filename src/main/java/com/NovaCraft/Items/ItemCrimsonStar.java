@@ -1,5 +1,6 @@
 package com.NovaCraft.Items;
 
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.CrimsonDragon.EntityCrimsonDragon;
 import com.NovaCraft.entity.EntityFireProofItemNovaCraft;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
@@ -49,7 +50,7 @@ public class ItemCrimsonStar extends Item {
         if (world.provider.dimensionId == 0) {
             if (world.getBlock(x, y, z) == NovaCraftBlocks.deep_one_egg_activated) {
 
-                //player.triggerAchievement(AchievementsNovaCraft.the_nether_dragon);
+                player.triggerAchievement(AchievementsNovaCraft.the_overworld_dragon);
                 world.playSoundEffect(x, y, z, "nova_craft:boss.DOsummoning", 2.0F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1.2F);
                 --heldItem.stackSize;
 

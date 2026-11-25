@@ -47,6 +47,8 @@ public class ConfigsEntities {
     public static boolean enableSpawnHardmodeCreeper;
     public static boolean enableSpawnHardmodeMagmaCube;
     public static boolean enableSpawnHardmodeGhast;
+    public static boolean enableSpawnHardmodeEnderman;
+    public static boolean enableSpawnHardmodePigman;
     public static boolean enableSpawnFireflyOtherBiomes;
     public static boolean enableNoDespawnFirefly;
     public static boolean enableSpawnOctoqus;
@@ -98,6 +100,8 @@ public class ConfigsEntities {
         enableSpawnHardmodeMagmaCube = conf.getBoolean("enableSpawnHardmodeMagmaCube", "Mobs", true, "Enables the Spawning of Hardmode MagmaCubes once HardMode is enabled.");
         enableSpawnHardmodeGhast = conf.getBoolean("enableSpawnHardmodeGhast", "Mobs", true, "Enables the Spawning of Hardmode Ghasts once HardMode is enabled.");
         enableSpawnHardmodeSlime = conf.getBoolean("enableSpawnHardmodeSlime", "Mobs", true, "Enables the Spawning of Hardmode Slimes once HardMode is enabled.");
+        enableSpawnHardmodeEnderman = conf.getBoolean("enableSpawnHardmodeEnderman", "Mobs", true, "Enables the Spawning of Hardmode Enderman once HardMode is enabled.");
+        enableSpawnHardmodePigman = conf.getBoolean("enableSpawnHardmodePigman", "Mobs", true, "Enables the Spawning of Hardmode Zombie Pigman once HardMode is enabled.");
         enableIncreasedVanillaNetherMobSpawn = conf.getBoolean("enableIncreasedVanillaNetherMobSpawn", "Mobs", true, "Enables increased spawning of Zombie Pigmen, Magma Cubes, and Ghasts in all Nether Biomes");
         enableSpawnWyrmling = conf.getBoolean("enableSpawnWyrmling", "Mobs", true, "Enables the Spawning of Wyrmlings.");
         enableSpawnRelik = conf.getBoolean("enableSpawnRelik", "Mobs", true, "Enables the natural spawning of Reliks in Strongholds.");

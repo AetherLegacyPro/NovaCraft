@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 public class ConfigsTextureOverride {
     public static boolean override_stone_texture = false;
     public static boolean override_gravel_texture = false;
+    public static boolean override_deepslate_textures = true;
     public static boolean override_vanilla_ore_textures = true;
     public static boolean override_raw_porkchop_texture = true;
     public static boolean override_cooked_porkchop_texture = true;
@@ -20,6 +21,7 @@ public class ConfigsTextureOverride {
         try {
             conf.load();
             override_stone_texture = conf.get("Enable Stone Texture Override?", "Enables 1.14 stone texture.", override_stone_texture).getBoolean(true);
+            override_deepslate_textures = conf.get("Enable Deepslate Texture Override?", "Enables a 1.7 deepslate texture.", override_deepslate_textures).getBoolean(true);
             override_gravel_texture = conf.get("Enable Gravel Texture Override?", "Enables pre 1.3 gravel texture.", override_gravel_texture).getBoolean(true);
             override_vanilla_ore_textures = conf.get("Enable Modern Ore Textures?", "Enables Post 1.17 Ore textures.", override_vanilla_ore_textures).getBoolean(true);
             override_raw_porkchop_texture = conf.get("Enable Raw Porkchop Texture Override?", "Enables pre 1.3 raw porkchop texture.", override_raw_porkchop_texture).getBoolean(true);

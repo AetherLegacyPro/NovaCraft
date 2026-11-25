@@ -1,6 +1,8 @@
 package com.NovaCraftBlocks;
 
 import java.util.Random;
+
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityBlazingSerpentQueen;
 import com.NovaCraft.entity.EntitySavageSerpent;
 import com.NovaCraft.sounds.ModSounds;
@@ -10,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
@@ -81,8 +84,11 @@ public class BlockTrapTophinite extends Block {
 	}
 	
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int p_149664_5_) { 
-		if (!world.isRemote)
-        { 
+		if (!world.isRemote) {
+			EntityPlayer player = world.getClosestPlayer(x + 0.5D, y + 0.5D, z + 0.5D, 16.0D);
+			if (player != null) {
+				player.triggerAchievement(AchievementsNovaCraft.mistakes_where_made);
+			}
 			world.setBlock(x, y, z, Blocks.air, 0, 2);
 			EntityBlazingSerpentQueen entityserpent = new EntityBlazingSerpentQueen(world);
             entityserpent.setLocationAndAngles((double)x + 5.5D, (double)y, (double)z + 0.5D, 0.0F, 0.0F);
@@ -101,6 +107,5 @@ public class BlockTrapTophinite extends Block {
             world.spawnEntityInWorld(entityserpent3);
             entityserpent3.spawnExplosionParticle();
         }
-		
     }
 }

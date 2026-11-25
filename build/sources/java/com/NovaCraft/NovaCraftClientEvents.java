@@ -1,8 +1,11 @@
 package com.NovaCraft;
 
 import java.lang.reflect.Field;
+import java.util.List;
+
 import com.NovaCraft.Items.NovaCraftItems;
 import com.NovaCraft.config.Configs;
+import com.NovaCraft.entity.misc.EntityNotImportant;
 import com.NovaCraft.world.caves.MapGenCavesOverride;
 import com.NovaCraftBlocks.NovaCraftBlocks;
 import com.NovaCraftBlocks.potion.NovaCraftLiquids;
@@ -37,6 +40,7 @@ import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.world.ChunkEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -313,4 +317,5 @@ public class NovaCraftClientEvents {
 			event.setResult(Event.Result.ALLOW);
 		}
 	}
+
 }

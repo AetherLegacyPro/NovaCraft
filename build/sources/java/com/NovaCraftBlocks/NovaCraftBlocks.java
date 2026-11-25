@@ -121,8 +121,8 @@ public class NovaCraftBlocks {
 	public static Block stibnite, stibnite_bricks;
 	public static Block basal, basal_bricks, cracked_basal_bricks, glowing_basal, chiseled_basal, basal_scrap;
 	public static Block sculk_bricks, cracked_sculk_bricks, sculk_tiles, cracked_sculk_tiles, chiseled_sculk;
-	public static Block tuff_bricks, cracked_tuff_bricks, tuff_tiles, cracked_tuff_tiles, chiseled_tuff;
-	public static Block calcite_bricks, cracked_calcite_bricks, calcite_tiles, cracked_calcite_tiles, chiseled_calcite;
+	public static Block tuff_bricks, cracked_tuff_bricks, tuff_tiles, cracked_tuff_tiles;
+	public static Block calcite_bricks, cracked_calcite_bricks, calcite_tiles, cracked_calcite_tiles;
 	public static Block nullwart_bricks, flaming_nullwart_bricks;
 	public static Block luminant_log, luminant_sapling, luminant_leaves, luminant_planks;
 	public static Block luminant_slab, luminant_double_slab, luminant_stairs, luminant_fence, luminant_fence_gate;
@@ -911,8 +911,8 @@ public class NovaCraftBlocks {
 		carved_vanite_brick_wall = register("carved_vanite_brick_wall", new BlockNovaCraftWall(carved_vanite_bricks));
 		
 		//Slabs
-		grimstone_double_slab = register("grimstone_double_slab", new BlocksNovaCraftSlab("grimstone_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("grimstonenew_top")).setHardness(3.0F).setResistance(6.0F)).setCreativeTab(null);
-		grimstone_slab = registerSlab("grimstone_slab", new BlocksNovaCraftSlab("grimstone_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("grimstonenew_top")).setHardness(3.0F).setResistance(6.0F), grimstone_double_slab);		
+		grimstone_double_slab = register("grimstone_double_slab", new BlocksNovaCraftSlab("grimstone_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("grimstone")).setHardness(3.0F).setResistance(6.0F)).setCreativeTab(null);
+		grimstone_slab = registerSlab("grimstone_slab", new BlocksNovaCraftSlab("grimstone_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("grimstone")).setHardness(3.0F).setResistance(6.0F), grimstone_double_slab);
 		cobbled_grimstone_double_slab = register("cobbled_grimstone_double_slab", new BlocksNovaCraftSlab("cobbled_grimstone_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("cobbled_grimstone")).setHardness(3.0F).setResistance(6.0F)).setCreativeTab(null);
 		cobbled_grimstone_slab = registerSlab("cobbled_grimstone_slab", new BlocksNovaCraftSlab("cobbled_grimstone_slab", false, Material.rock).setBlockTextureName(NovaCraft.find("cobbled_grimstone")).setHardness(3.0F).setResistance(6.0F), cobbled_grimstone_double_slab);		
 		grimstone_brick_double_slab = register("grimstone_brick_double_slab", new BlocksNovaCraftSlab("grimstone_brick_double_slab", true, Material.rock).setBlockTextureName(NovaCraft.find("grimstone_bricks")).setHardness(3.0F).setResistance(6.0F)).setCreativeTab(null);

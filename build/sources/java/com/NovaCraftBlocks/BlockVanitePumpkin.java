@@ -1,5 +1,6 @@
 package com.NovaCraftBlocks;
 
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.EntityRavager;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import com.NovaCraft.sounds.ModSounds;
@@ -9,6 +10,7 @@ import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -230,11 +232,19 @@ public class BlockVanitePumpkin extends BlockDirectional
             world.setBlock(i + 1, j - 4, k + 2, Blocks.air, 0, 2);
             world.setBlock(i - 1, j - 4, k + 2, Blocks.air, 0, 2);
 
+            //HERE
             if (!world.isRemote) {
                 final EntityRavager ravager = new EntityRavager(world);
                 ravager.setLocationAndAngles(i, j + 2, k, 0.0f, 0.0f);
                 world.spawnEntityInWorld(ravager);
                 ravager.setType(1);
+
+                if (world.spawnEntityInWorld(ravager)) {
+                    EntityPlayer player = world.getClosestPlayer(i + 0.5D, j + 0.5D, k + 0.5D, 16.0D);
+                    if (player != null) {
+                        player.triggerAchievement(AchievementsNovaCraft.not_your_ordinary_golem);
+                    }
+                }
             }
 
         }

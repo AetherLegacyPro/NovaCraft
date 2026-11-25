@@ -1,6 +1,5 @@
 package com.NovaCraft.world.end;
 
-import com.NovaCraft.config.ConfigsStructures;
 import com.NovaCraft.world.end.ancient_base.AncientEndBaseGen;
 import com.NovaCraft.world.end.ruined_end_city.RuinedEndCityGen;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -25,8 +24,7 @@ public class LargeEndStructureSelecter implements IWorldGenerator {
 
         int x = chunkX * 16;
         int z = chunkZ * 16;
-
-        if (Math.abs(x) >= 500 && Math.abs(z) >= 500) {
+        if (Math.abs(x) <= 750 || Math.abs(z) <= 750) {
             return;
         }
 

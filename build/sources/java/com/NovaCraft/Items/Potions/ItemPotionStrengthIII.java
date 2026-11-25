@@ -82,7 +82,7 @@ public class ItemPotionStrengthIII extends ItemNovaCraftFood {
 	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
 		int meta = stack.getItemDamage();
 		if (meta == 0) {
-			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 4800, 2));
+			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 2400, 2));
 		} else if (meta == 1) {
 			player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 1800, 1));
 		}

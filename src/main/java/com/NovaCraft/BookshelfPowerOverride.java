@@ -9,7 +9,7 @@ public class BookshelfPowerOverride implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {
         System.out.println("[NovaCraft] getASMTransformerClass called!");
-        return new String[] { "com.NovaCraft.BookshelfPowerTransformer", "com.NovaCraft.SpiderSpeedTransformer",  "com.NovaCraft.BaneOfTheUnknownTransformer", "com.NovaCraft.LavaLakeHeightTransformer", "com.NovaCraft.ThornsDurabilityTransformer" };
+        return new String[] { "com.NovaCraft.BookshelfPowerTransformer", "com.NovaCraft.BaneOfTheUnknownTransformer", "com.NovaCraft.LavaLakeHeightTransformer", "com.NovaCraft.ThornsDurabilityTransformer" };
     }
 
     @Override

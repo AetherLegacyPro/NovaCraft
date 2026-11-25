@@ -1,5 +1,6 @@
 package com.NovaCraftBlocks.container;
 
+import com.NovaCraft.Items.ItemEndPortalSealent;
 import com.NovaCraft.registry.NovaCraftCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -7,11 +8,15 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.block.BlockEndPortalFrame;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemEnderEye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -105,5 +110,24 @@ public class BlockCrackedEndPortalFrame extends BlockEndPortalFrame {
     public int getComparatorInputOverride(World world, int p_149736_2_, int p_149736_3_, int p_149736_4_, int p_149736_5_) {
         int i1 = world.getBlockMetadata(p_149736_2_, p_149736_3_, p_149736_4_);
         return isEnderEyeInserted(i1) ? 15 : 0;
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+        ItemStack heldItem = player.getCurrentEquippedItem();
+        if (heldItem != null && (heldItem.getItem() instanceof ItemEnderEye || heldItem.getItem() instanceof ItemEndPortalSealent)) {
+            return false;
+        }
+
+        if (!world.isRemote) {
+            return false;
+        }
+
+        String chatMessage;
+        chatMessage = "gui.cracked_end_portal.desc";
+
+        player.addChatComponentMessage(new ChatComponentText(I18n.format(chatMessage)));
+
+        return true;
     }
 }

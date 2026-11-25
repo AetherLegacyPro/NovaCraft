@@ -360,6 +360,8 @@ public class NovaCraftRegistries {
 		register("mercuridium_ingot", new ItemStack(NovaCraftItems.mercuridium_ingot, 9), "X", 'X', NovaCraftBlocks.block_of_mercuridium);
 		register("block_of_mercuridium", new ItemStack(NovaCraftBlocks.block_of_mercuridium), "XXX", "XXX", "XXX", 'X', NovaCraftItems.mercuridium_ingot);
 
+		register("destitute_eye", new ItemStack(NovaCraftItems.destitute_eye, 4), "XYX", "ZWZ", "XYX", 'X', NovaCraftItems.anomalous_essence, 'Y', new ItemStack(NovaCraftItems.diamond_nugget, 1, 2), 'Z', NovaCraftItems.phantom_membrane, 'W', NovaCraftItems.heart_of_the_end);
+
 		register("bottle_of_mercury", new ItemStack(NovaCraftItems.glass_bottle_of_mercury), "XXX", "XYX", "XXX", 'X', NovaCraftItems.near_empty_bottle_of_mercury, 'Y', Items.glass_bottle);
 
 		register("legendary_resource", new ItemStack(NovaCraftItems.legendary_resource, 2, 5), " X ", "ZYZ", " X ", 'X', NovaCraftItems.anomalous_shard, 'Y', new ItemStack(NovaCraftItems.legendary_resource, 1, 4), 'Z', NovaCraftItems.xancium_ingot);

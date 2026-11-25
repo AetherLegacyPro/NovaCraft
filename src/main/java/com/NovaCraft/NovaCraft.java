@@ -8,13 +8,7 @@ import com.NovaCraft.config.*;
 import com.NovaCraft.entity.EntitiesNovaCraft;
 import com.NovaCraft.entity.EntityOutsider;
 import com.NovaCraft.entity.EntityOutsiderEye;
-import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
-import com.NovaCraft.entity.hardmode.EntityHardmodeGhast;
-import com.NovaCraft.entity.hardmode.EntityHardmodeMagmaCube;
-import com.NovaCraft.entity.hardmode.EntityHardmodeSkeleton;
-import com.NovaCraft.entity.hardmode.EntityHardmodeSlime;
-import com.NovaCraft.entity.hardmode.EntityHardmodeSpider;
-import com.NovaCraft.entity.hardmode.EntityHardmodeZombie;
+import com.NovaCraft.entity.hardmode.*;
 import com.NovaCraft.registry.*;
 import com.NovaCraft.world.NCWorldGeneratorDeeperCaves;
 import com.NovaCraft.world.NCWorldGeneratorPlants;
@@ -150,6 +144,10 @@ public class NovaCraft {
             MinecraftForge.EVENT_BUS.register(new LightningAlterations());
         }
 
+        NovaCraftSpecialClientEvents specialHandler = new NovaCraftSpecialClientEvents();
+        MinecraftForge.EVENT_BUS.register(specialHandler);
+        FMLCommonHandler.instance().bus().register(specialHandler);
+
         if (Configs.enableWitherBossAlterations) {
             MinecraftForge.EVENT_BUS.register(new WitherBossAlterations());
         }
@@ -229,6 +227,11 @@ public class NovaCraft {
                 EntityRegistry.addSpawn(EntityHardmodeSkeleton.class, 15, 5, 15, EnumCreatureType.monster, biome);
             }
 
+            if (ConfigsEntities.enableSpawnHardmodeEnderman) {
+                EntityRegistry.addSpawn(EntityHardmodeEnderman.class, 1, 1, 1, EnumCreatureType.monster, biome);
+                EntityRegistry.addSpawn(EntityHardmodeEnderman.class, 1, 1, 1, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.END));
+            }
+
             EntityRegistry.addSpawn(EntityOutsiderEye.class, 1, 1, 1, EnumCreatureType.monster, biome);
             EntityRegistry.addSpawn(EntityOutsider.class, 1, 1, 1, EnumCreatureType.monster, biome);
         }
@@ -243,6 +246,10 @@ public class NovaCraft {
 
         if (ConfigsEntities.enableSpawnHardmodeGhast) {
             EntityRegistry.addSpawn(EntityHardmodeGhast.class, 10, 1, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+        }
+
+        if (ConfigsEntities.enableSpawnHardmodePigman) {
+            EntityRegistry.addSpawn(EntityHardmodePigman.class, 15, 4, 15, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
         }
 
         EntityRegistry.addSpawn(EntityOutsiderEye.class, 1, 1, 1, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));

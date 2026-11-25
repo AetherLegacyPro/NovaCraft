@@ -84,23 +84,28 @@ public class BlockEmissiveLayerRenderer3D extends BlockModelBase3D {
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		if (((IEmissiveLayerBlock) block).isMetaNormalBlock(world.getBlockMetadata(x, y, z))) {
+		if (!(block instanceof IEmissiveLayerBlock)) {
+			throw new IllegalArgumentException("Block using emissive layer renderer must implement " + "IEmissiveLayerBlock!");
+		}
+
+		IEmissiveLayerBlock emissiveBlock = (IEmissiveLayerBlock)block;
+		int meta = world.getBlockMetadata(x, y, z);
+		if (emissiveBlock.isMetaNormalBlock(meta)) {
 			return super.renderWorldBlock(world, x, y, z, block, modelId, renderer);
 		}
 
-		boolean emissiveLayerAbove = ((IEmissiveLayerBlock) block).isSecondLayerAbove(world.getBlockMetadata(x, y, z));
-
-		return renderStandardWorldCubeWithEmissiveness(world, x, y, z, block, modelId, renderer, !emissiveLayerAbove,
-				block.getBlockBoundsMinX(), block.getBlockBoundsMinY(), block.getBlockBoundsMinZ(),
-				block.getBlockBoundsMaxX(), block.getBlockBoundsMaxY(), block.getBlockBoundsMaxZ()) &&
-
-				renderStandardWorldCubeWithEmissiveness(world, x, y, z, block, modelId, renderer, emissiveLayerAbove,
-						block.getBlockBoundsMinX(), block.getBlockBoundsMinY(), block.getBlockBoundsMinZ(),
-						block.getBlockBoundsMaxX(), block.getBlockBoundsMaxY(), block.getBlockBoundsMaxZ());
+		boolean emissiveLayerAbove = emissiveBlock.isSecondLayerAbove(meta);
+		boolean previousAO = renderer.enableAO;
+		try {
+			boolean firstRendered = this.renderStandardWorldCubeWithEmissiveness(world, x, y, z, block, modelId, renderer, !emissiveLayerAbove, block.getBlockBoundsMinX(), block.getBlockBoundsMinY(), block.getBlockBoundsMinZ(), block.getBlockBoundsMaxX(), block.getBlockBoundsMaxY(), block.getBlockBoundsMaxZ());
+			boolean secondRendered = this.renderStandardWorldCubeWithEmissiveness(world, x, y, z, block, modelId, renderer, emissiveLayerAbove, block.getBlockBoundsMinX(), block.getBlockBoundsMinY(), block.getBlockBoundsMinZ(), block.getBlockBoundsMaxX(), block.getBlockBoundsMaxY(), block.getBlockBoundsMaxZ());
+			return firstRendered || secondRendered;
+		} finally {
+			renderer.enableAO = previousAO;
+		}
 	}
 
-	protected boolean renderStandardWorldCubeWithEmissiveness(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer,
-															  boolean emissive, double minX, double minY, double minZ, double maxF, double maxY, double maxZ) {
+	protected boolean renderStandardWorldCubeWithEmissiveness(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer, boolean emissive, double minX, double minY, double minZ, double maxF, double maxY, double maxZ) {
 		if (!(block instanceof IEmissiveLayerBlock)) {
 			throw new IllegalArgumentException("Block using emissive layer renderer must implement IEmissiveLayerBlock!");
 		}

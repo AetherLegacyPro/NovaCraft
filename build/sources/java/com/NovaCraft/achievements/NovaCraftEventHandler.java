@@ -40,14 +40,8 @@ public class NovaCraftEventHandler {
 		if (event.crafting.getItem() == (NovaCraftItems.reinforced_vanite_ingot)) {
 			event.player.triggerAchievement(AchievementsNovaCraft.getting_reinforced);
 		}
-		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.block_of_vanite)) {
-			event.player.triggerAchievement(AchievementsNovaCraft.fancy_particles);
-		}
 		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.PETN)) {
 			event.player.triggerAchievement(AchievementsNovaCraft.tnt_overhaul);
-		}
-		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.nullcube_slime_block)) {
-			event.player.triggerAchievement(AchievementsNovaCraft.warped);
 		}
 		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.xancium_TNT)) {
 			event.player.triggerAchievement(AchievementsNovaCraft.explosion);
@@ -187,11 +181,83 @@ public class NovaCraftEventHandler {
 		if (event.crafting.getItem() == (NovaCraftItems.klangite_firecharge_launcher)) {
 			event.player.triggerAchievement(AchievementsNovaCraft.a_new_method_of_mining);
 		}
-		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.legendary_beacon)) {
-			event.player.triggerAchievement(AchievementsNovaCraft.legend);
-		}
 		if (event.crafting.getItem() == (NovaCraftItems.static_blend)) {
 			event.player.triggerAchievement(AchievementsNovaCraft.static_ignition);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.deepoid_brewing_stand_item)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.advanced_brewing);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.poor_prospector_pickaxe)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.mining_assistance);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.degraded_prospector_pickaxe)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.mining_assistance);
+		}
+		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.advanced_enchantment_table)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.advanced_enchanter);
+		}
+		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.iridium_bricks)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.refractory_frame);
+		}
+		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.iridium_furnace)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.tier3_blast_furnace);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.destitute_eye)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.destitute);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.explosive_klangite_ingot)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.catch_);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.vindicator_insignia)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.mansion_compass);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.warden_helmet)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.warden_chestplate)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.warden_leggings)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.warden_boots)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.ophidian_helmet)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.ophidian_chestplate)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.ophidian_leggings)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.ophidian_boots)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.kylazite_helmet)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.kylazite_chestplate)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.kylazite_leggings)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.kylazite_boots)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.beastly_upgrade);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.pherithium_shickaxe)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.OneforFour);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.crimson_eye)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.floating_island_search);
+		}
+		if (event.crafting.getItem() == (NovaCraftItems.ophidian_scales)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.all_the_scales);
+		}
+		if (event.crafting.getItem() == Item.getItemFromBlock(NovaCraftBlocks.welkin_log)) {
+			event.player.triggerAchievement(AchievementsNovaCraft.crystallized_log);
 		}
 	}
 

@@ -28,6 +28,7 @@ public class HardmodeSpawnHandler {
     private boolean isHardmodeMob(EntityLivingBase entity) {
         return entity instanceof EntityHardmodeCreeper || entity instanceof EntityHardmodeSpider || entity instanceof EntityHardmodeZombie
                 || entity instanceof EntityHardmodeSkeleton || entity instanceof EntityHardmodeSlime || entity instanceof EntityHardmodeMagmaCube
-                || entity instanceof EntityHardmodeGhast || entity instanceof EntityOutsiderEye || entity instanceof EntityOutsider;
+                || entity instanceof EntityHardmodeGhast || entity instanceof EntityHardmodeEnderman || entity instanceof EntityHardmodePigman
+                || entity instanceof EntityOutsiderEye || entity instanceof EntityOutsider;
     }
 }

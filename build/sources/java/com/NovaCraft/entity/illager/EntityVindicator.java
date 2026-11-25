@@ -1,6 +1,8 @@
 package com.NovaCraft.entity.illager;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -18,6 +20,7 @@ import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class EntityVindicator extends EntityMob
@@ -110,6 +113,17 @@ public class EntityVindicator extends EntityMob
 	
 	public boolean isAngry() {
 	    return this.angerLevel > 0;
+	}
+
+	public void onDeath(DamageSource p_70645_1_) {
+		super.onDeath(p_70645_1_);
+		if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+			if(Hardmode.get(this.worldObj).getHardmode()) {
+				entityplayer.triggerAchievement(AchievementsNovaCraft.unfriendly_neighbor);
+			}
+
+		}
 	}
 
 	protected void dropFewItems(boolean p_70628_1_, int random) {

@@ -1,6 +1,7 @@
 package com.NovaCraft.container;
 
 import com.NovaCraft.TileEntity.TileEntityIridiumFurnace;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,7 +30,15 @@ public class IridiumFurnaceContainer extends Container {
         this.addSlotToContainer(new Slot(tileEntity, 1, 56, 53));
 
         //Main Output
-        this.addSlotToContainer(new SlotFurnace(playerInventory.player, tileEntity, 2, 116, 35));
+        this.addSlotToContainer(new SlotFurnace(playerInventory.player, tileEntity, 2, 116, 35) {
+                    @Override
+                    public void onPickupFromSlot(EntityPlayer player, ItemStack stack) {
+                        if (!player.worldObj.isRemote && tileFurnace.isCustomRecipeOutput(stack)) {
+                            player.triggerAchievement(AchievementsNovaCraft.increasing_the_yield);
+                        }
+                        super.onPickupFromSlot(player, stack);
+                    }
+        });
 
         //Special Output
         this.addSlotToContainer(new SlotFurnace(playerInventory.player, tileEntity, 3, 147, 35));

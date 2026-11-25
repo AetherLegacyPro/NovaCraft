@@ -6,6 +6,7 @@ import com.NovaCraft.world.caves.CaveBiomeGenerator;
 import com.NovaCraft.world.caves.DeepDarkBiome;
 import com.NovaCraft.world.caves.cold.CaveBiomeGeneratorNearSurface;
 import com.NovaCraft.world.caves.hot.DeepMercuryCaveBiome;
+import com.NovaCraft.world.caves.hot.LavaCaveBiome;
 import com.NovaCraft.world.caves.hot.MercuryCaveBiome;
 import com.NovaCraft.world.caves.ore_deposit.dripstone_alternatives.CaveBiomeGeneratorStalgStacCave;
 import com.NovaCraft.world.caves.ore_deposit.dripstone_alternatives.GrimstoneStalgStacCaveBiome;
@@ -36,6 +37,7 @@ public class CaveWorldGeneratorDeepOreDeposit implements IWorldGenerator {
 
     private final CaveBiomeGeneratorNearSurface generator_MERCURY;
     private final CaveBiomeGenerator generator_MERCURY_DEEP;
+    private final CaveBiomeGenerator generator_MERCURY_LAVA;
 
     public CaveWorldGeneratorDeepOreDeposit() {
         generator_REDSTONE = new CaveBiomeGeneratorDeepOreDeposit(new RedstoneDeposit(),
@@ -94,6 +96,14 @@ public class CaveWorldGeneratorDeepOreDeposit implements IWorldGenerator {
                 Arrays.asList(BiomeDictionary.Type.SANDY)
         );
 
+        generator_MERCURY_LAVA = new CaveBiomeGenerator(new LavaCaveBiome(),
+                196,
+                128, 20, 128,
+                10, 5, 10,
+                32, 58,
+                Arrays.asList(BiomeDictionary.Type.MOUNTAIN)
+        );
+
         generator_STONE_STAG_STAC = new CaveBiomeGeneratorStalgStacCave(new StoneStalgStacCaveBiome(),
                 128,
                 248, 20, 248,
@@ -137,6 +147,7 @@ public class CaveWorldGeneratorDeepOreDeposit implements IWorldGenerator {
 
         BlockPos[] sources_mercury = generator_MERCURY.getSourcesInChunk(random, chunkX, chunkZ);
         BlockPos[] sources_mercury_deep = generator_MERCURY_DEEP.getSourcesInChunk(random, chunkX, chunkZ);
+        BlockPos[] sources_mercury_lava = generator_MERCURY_LAVA.getSourcesInChunk(random, chunkX, chunkZ);
 
         if (ConfigsWorld.enableRedstoneOreDeposit) {
             for (BlockPos pos : sources_redstone) {
@@ -186,6 +197,12 @@ public class CaveWorldGeneratorDeepOreDeposit implements IWorldGenerator {
             for (BlockPos pos : sources_mercury_deep) {
                 if (generator_MERCURY_DEEP.isSourceValid(world, pos)) {
                     generator_MERCURY_DEEP.generateChunkPart(pos, random, chunkX, chunkZ, world);
+                }
+            }
+
+            for (BlockPos pos : sources_mercury_lava) {
+                if (generator_MERCURY_LAVA.isSourceValid(world, pos)) {
+                    generator_MERCURY_LAVA.generateChunkPart(pos, random, chunkX, chunkZ, world);
                 }
             }
         }

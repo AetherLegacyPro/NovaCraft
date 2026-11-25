@@ -101,7 +101,7 @@ public class NovaCraftItems {
 	public static Item raw_klangite, klangite_blend, impure_klangite_ingot, explosive_klangite_ingot, klangite_ingot;
 	public static Item tophinite_gemstone, flaming_pitcher_petal, blazing_coal, ophidian_scales;
 	public static Item superheated_magma_cream, enflamed_null_cube_slimeball, enhanced_enflamed_null_cube_slimeball;
-	public static Item crimson_star, deepoid_star, eternal_caller, warden_core, echo_eye, vindicator_insignia, crimson_eye, beastly_leather;
+	public static Item crimson_star, deepoid_star, eternal_caller, warden_core, echo_eye, vindicator_insignia, crimson_eye, destitute_eye, beastly_leather;
 	public static Item warden_dust, ancient_city_artifact, powered_ancient_city_artifact, dimensional_sealent;
 	public static Item prisoner_eye, unknown_star, impure_outsider_ingot, outsider_ingot;
 	public static Item legendary_resource;
@@ -260,6 +260,7 @@ public class NovaCraftItems {
 		wyrmling_scales = register("wyrmling_scales", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("wyrmling_scales")));
 		goat_horn_fragment = register("goat_horn_fragment", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("goat_horn_fragment")));
 		relik_dust = register("relik_dust", new ItemNovaCraft(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("relik_dust")));
+		destitute_eye = register("destitute_eye", new ItemDestituteEye().setTextureName(NovaCraft.find("destitute_eye")));
 		unpowered_heart_of_the_end = register("unpowered_heart_of_the_end", new ItemHeartOfTheEnd(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("unpowered_heart_of_the_end")));
 		heart_of_the_end = register("heart_of_the_end", new ItemHeartOfTheEnd(NovaCraftCreativeTabs.items).setTextureName(NovaCraft.find("heart_of_the_end")));
 		nullified_dust = register("nullified_dust", new ItemNullifiedDust().setTextureName(NovaCraft.find("bloviator_dust")));

@@ -1,5 +1,6 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.entity.ai.*;
@@ -290,6 +291,14 @@ public class EntityPhantom extends EntityFlying implements IMob {
             for (int j = 2 + this.rand.nextInt(3) + p_70628_2_, k = 0; k < j; ++k) {
                this.entityDropItem(new ItemStack(NovaCraftItems.phantom_membrane), 1.5f);
             }
+        }
+    }
+
+    public void onDeath(DamageSource p_70645_1_) {
+        super.onDeath(p_70645_1_);
+        if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+            EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+            entityplayer.triggerAchievement(AchievementsNovaCraft.ruined_end_city);
         }
     }
     

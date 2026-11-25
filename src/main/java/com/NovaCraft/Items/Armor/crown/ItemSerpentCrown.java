@@ -61,6 +61,7 @@ public class ItemSerpentCrown extends ItemArmor {
 	        }
 	        if (hasCrown) {
 	        	player.triggerAchievement(AchievementsNovaCraft.showing_off);
+				player.triggerAchievement(AchievementsNovaCraft.serpent_attire);
 	        	if (player.isBurning()) {
 	            	player.extinguish();
 	            }

@@ -429,6 +429,11 @@ public class EntityWarden extends EntityMob implements IBossDisplayData {
         if (p_70645_1_.getEntity() instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
             entityplayer.triggerAchievement(AchievementsNovaCraft.reached_for_things_I_didnt_need);
+
+			if(Hardmode.get(this.worldObj).getHardmode()) {
+				entityplayer.triggerAchievement(AchievementsNovaCraft.buffed_boss);
+			}
+
         }
     }
 

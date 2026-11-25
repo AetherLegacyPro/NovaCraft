@@ -136,7 +136,7 @@ public class Configs {
         enableHardmode = conf.getBoolean("enableHardmode", "Misc", false, "Enables Hardmode");
         disableEnchantedGoldenAppleRecipe = conf.getBoolean("disableEnchantedGoldenAppleRecipe", "Important Options", true, "Disables recipe for Enchanted Golden Apples.");
         enableGlowingObsidian = conf.getBoolean("enableGlowingObsidian", "Important Options", true, "Obsidian Blocks that are directly above a lava source block convert to Glowing Obsidian.");
-        enableUniqueLegendaryBeaconBeam = conf.getBoolean("enableUniqueLegendaryBeaconBeam", "Misc", false, "Enables a unique beacon beam for the legendary beacon.");
+        enableUniqueLegendaryBeaconBeam = conf.getBoolean("enableUniqueLegendaryBeaconBeam", "Misc", true, "Enables a unique beacon beam for the legendary beacon.");
         enableWardenSlowness = conf.getBoolean("enableWardenSlowness", "Misc", true, "Enables the Warden Applying slowness II to the player when within 5 Blocks");
         enableWardenWeakness = conf.getBoolean("enableWardenWeakness", "Misc", false, "Enables the Warden Applying weakness I to the player when within 5 Blocks");
         gammaAlterations = (float)conf.get("Gamma Alterations | Range:-1 - 1", "Important Options", 0.20D).getDouble();

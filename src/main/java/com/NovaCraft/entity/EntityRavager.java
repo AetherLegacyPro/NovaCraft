@@ -1,15 +1,19 @@
 package com.NovaCraft.entity;
 
+import com.NovaCraft.Hardmode;
 import com.NovaCraft.Items.NovaCraftItems;
+import com.NovaCraft.achievements.AchievementsNovaCraft;
 import com.NovaCraft.entity.illager.EntityVindicator;
 import com.NovaCraft.entity.misc.EnumRavagerType;
 import net.minecraft.entity.*;
 import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -23,7 +27,7 @@ public class EntityRavager extends EntityMob implements IBossDisplayData {
             this.experienceValue = 100;
         }
 
-        this.setSize(2.8f, 1.5f);
+        this.setSize(2.0f, 1.5f);
     }
 
     @Override
@@ -137,12 +141,36 @@ public class EntityRavager extends EntityMob implements IBossDisplayData {
 
     public boolean attackEntityAsMob(final Entity par1Entity) {
         this.worldObj.setEntityState((Entity)this, (byte)4);
-        final boolean flag = par1Entity.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase)this), (float)(14 + this.rand.nextInt(3)));
-        if (flag) {
-            par1Entity.motionY += 0.5000000059604645;
+        World world = MinecraftServer.getServer().worldServers[0];
+        Hardmode data = Hardmode.get(world);
+        if (data.getHardmode()) {
+            final boolean flag = par1Entity.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase) this), (float) (22 + this.rand.nextInt(3)));
+            if (flag) {
+                par1Entity.motionY += 0.5000000059604645;
+            }
+            this.playSound("mob.irongolem.throw", 1.0f, 1.0f);
+            return flag;
+        } else {
+            final boolean flag = par1Entity.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase) this), (float) (14 + this.rand.nextInt(3)));
+            if (flag) {
+                par1Entity.motionY += 0.5000000059604645;
+            }
+            this.playSound("mob.irongolem.throw", 1.0f, 1.0f);
+            return flag;
         }
-        this.playSound("mob.irongolem.throw", 1.0f, 1.0f);
-        return flag;
+    }
+
+    public void onDeath(DamageSource p_70645_1_) {
+        super.onDeath(p_70645_1_);
+        if (p_70645_1_.getEntity() instanceof EntityPlayer) {
+                EntityPlayer entityplayer = (EntityPlayer)p_70645_1_.getEntity();
+                entityplayer.triggerAchievement(AchievementsNovaCraft.you_live_here);
+                EnumRavagerType type = this.getType();
+            if(Hardmode.get(this.worldObj).getHardmode() && type == EnumRavagerType.BOSS) {
+                entityplayer.triggerAchievement(AchievementsNovaCraft.buffed_boss);
+            }
+
+        }
     }
 
     public EnumCreatureAttribute getCreatureAttribute() {

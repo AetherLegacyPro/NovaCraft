@@ -1,27 +1,19 @@
 package com.NovaCraft.entity;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import com.NovaCraft.config.ConfigsEntities;
 import com.NovaCraft.entity.CrimsonDragon.EntityCrimsonDragon;
+import com.NovaCraft.entity.hardmode.*;
 import com.NovaCraft.entity.misc.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.NovaCraft.NovaCraft;
 import com.NovaCraft.Items.ItemNovaCraftSpawnEgg;
 import com.NovaCraft.entity.DeepoidDragon.EntityDeepoidDragon;
-import com.NovaCraft.entity.hardmode.EntityHardmodeCreeper;
-import com.NovaCraft.entity.hardmode.EntityHardmodeGhast;
-import com.NovaCraft.entity.hardmode.EntityHardmodeMagmaCube;
-import com.NovaCraft.entity.hardmode.EntityHardmodeSkeleton;
-import com.NovaCraft.entity.hardmode.EntityHardmodeSlime;
-import com.NovaCraft.entity.hardmode.EntityHardmodeSpider;
-import com.NovaCraft.entity.hardmode.EntityHardmodeZombie;
 import com.NovaCraft.entity.illager.EntityIllagerChief;
 import com.NovaCraft.entity.illager.EntityIllagerTrader;
 import com.NovaCraft.entity.illager.EntityVindicator;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.entity.Entity;
@@ -87,6 +79,8 @@ public class EntitiesNovaCraft {
 		register(EntityPhantomizedLaser.class, "phantomized_laser", 95, 64, 10, true);
 		register(EntityPrisonerTrackingLaser.class, "prisoner_laser", 97, 64, 1, true);
 		register(EntityVoidLightningBolt.class, "void_lightning_bolt", 98, 128, 1, false);
+		register(EntityNotImportant.class, "unknown", 100, 64, 20, true);
+		register(EntityDestituteEye.class, "destitute_eye", 102, 150, 2, true);
 		
 		//Mobs
 		register(EntityPrimedXanciumTNT.class, "XTNT", 0, 64, 20, false);
@@ -154,6 +148,8 @@ public class EntitiesNovaCraft {
 		register(EntityHardmodeSlime.class, "hardmode_slime", 69, 0x8ea070, 0xc8d6b4);
 		register(EntityHardmodeMagmaCube.class, "hardmode_magmacube", 70, 0x000000, 0xff3100);
 		register(EntityHardmodeGhast.class, "hardmode_ghast", 71, 0xf0c6c6, 0xf9cdcd);
+		register(EntityHardmodeEnderman.class, "hardmode_enderman", 99, 0x000000, 0x242424);
+		register(EntityHardmodePigman.class, "hardmode_pigman", 101, 0xe98589, 0x541015);
 		
 		//Bosses
 		register(EntityWarden.class, "warden", 16, 0x256166, 0x171b1e);
@@ -167,31 +163,31 @@ public class EntitiesNovaCraft {
 
 
 		if (ConfigsEntities.enableSpawnGlowSquid) {
-		EntityRegistry.addSpawn(EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] {BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});
+			EntityRegistry.addSpawn(EntityGlowSquid.class, 10, 1, 3, EnumCreatureType.waterCreature, new BiomeGenBase[] {BiomeGenBase.beach, BiomeGenBase.ocean, BiomeGenBase.deepOcean});
 		}
 		
 		if (ConfigsEntities.enableSpawnOverworldPhantom) {
-		EntityRegistry.addSpawn(EntityPhantom.class, 10, 4, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
+			EntityRegistry.addSpawn(EntityPhantom.class, 10, 4, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 		
 		if (ConfigsEntities.enableSpawnSlaughter) {
-		EntityRegistry.addSpawn(EntitySlaughter.class, 7, 4, 7, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+			EntityRegistry.addSpawn(EntitySlaughter.class, 7, 4, 7, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
 		if (ConfigsEntities.enableSpawnDrifter) {
-		EntityRegistry.addSpawn(EntityDrifter.class, 10, 4, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+			EntityRegistry.addSpawn(EntityDrifter.class, 10, 4, 10, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
 		if (ConfigsEntities.enableSpawnBlazingCharger) {
-		EntityRegistry.addSpawn(EntityBlazingCharger.class, 9, 2, 9, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
+			EntityRegistry.addSpawn(EntityBlazingCharger.class, 9, 2, 9, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.NETHER));
 		}
 		
 		if (ConfigsEntities.enableSpawnIceologer) {
-		EntityRegistry.addSpawn(EntityIceologer.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
+			EntityRegistry.addSpawn(EntityIceologer.class, 2, 2, 2, EnumCreatureType.monster, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 		
 		if (ConfigsEntities.enableSpawnGoat) {
-		EntityRegistry.addSpawn(EntityGoat.class, 4, 3, 4, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
+			EntityRegistry.addSpawn(EntityGoat.class, 4, 3, 4, EnumCreatureType.creature, BiomeDictionary.getBiomesForType(Type.MOUNTAIN));
 		}
 		
 		if (ConfigsEntities.enableSpawnBlazingSerpent) {
@@ -232,10 +228,8 @@ public class EntitiesNovaCraft {
 		}
 
 		if (ConfigsEntities.enableSpawnRelik) {
-			for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
-			{
-				if (biome != null)
-				{
+			for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
+				if (biome != null) {
 					EntityRegistry.addSpawn(EntityRelik.class, 2, 1, 3, EnumCreatureType.monster, biome);
 				}
 			}
@@ -312,14 +306,14 @@ public class EntitiesNovaCraft {
 		}				
 		
 		if (ConfigsEntities.enableSpawnSculkAbomination) {
-		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
-			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
-			if (biome != null){
-				if (overworldBiome(biome)) {
-					EntityRegistry.addSpawn(EntitySculkAbomination.class, 25, 3, 25, EnumCreatureType.monster, biome);
-						}
+			for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
+				BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
+				if (biome != null){
+					if (overworldBiome(biome)) {
+						EntityRegistry.addSpawn(EntitySculkAbomination.class, 25, 3, 25, EnumCreatureType.monster, biome);
 					}
 				}
+			}
 		}
 		if (ConfigsEntities.enableSpawnCaveMonitor) {
 			for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
@@ -327,9 +321,18 @@ public class EntitiesNovaCraft {
 				if (biome != null){
 					if (overworldBiome(biome)) {
 						EntityRegistry.addSpawn(EntityCaveMonitor.class, 10, 4, 10, EnumCreatureType.monster, biome);
-						}
 					}
 				}
+			}
+		}
+
+		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++) {
+			BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[i];
+			if (biome != null){
+				if (overworldBiome(biome)) {
+					EntityRegistry.addSpawn(EntityNotImportant.class, 1, 1, 1, EnumCreatureType.monster, biome);
+				}
+			}
 		}
 	}
 	
